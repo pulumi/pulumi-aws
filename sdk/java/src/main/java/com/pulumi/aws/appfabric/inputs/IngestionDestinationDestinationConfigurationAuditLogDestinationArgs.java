@@ -17,14 +17,14 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
     public static final IngestionDestinationDestinationConfigurationAuditLogDestinationArgs Empty = new IngestionDestinationDestinationConfigurationAuditLogDestinationArgs();
 
     /**
-     * Contains information about an Amazon Data Firehose delivery stream.
+     * Amazon Data Firehose delivery stream destination. See `destination_configuration.audit_log.destination.firehose_stream` Block below.
      * 
      */
     @Import(name="firehoseStream")
     private @Nullable Output<IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs> firehoseStream;
 
     /**
-     * @return Contains information about an Amazon Data Firehose delivery stream.
+     * @return Amazon Data Firehose delivery stream destination. See `destination_configuration.audit_log.destination.firehose_stream` Block below.
      * 
      */
     public Optional<Output<IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs>> firehoseStream() {
@@ -32,14 +32,14 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
     }
 
     /**
-     * Contains information about an Amazon S3 bucket.
+     * Amazon S3 bucket destination. See `destination_configuration.audit_log.destination.s3_bucket` Block below.
      * 
      */
     @Import(name="s3Bucket")
     private @Nullable Output<IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs> s3Bucket;
 
     /**
-     * @return Contains information about an Amazon S3 bucket.
+     * @return Amazon S3 bucket destination. See `destination_configuration.audit_log.destination.s3_bucket` Block below.
      * 
      */
     public Optional<Output<IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs>> s3Bucket() {
@@ -72,7 +72,7 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
         }
 
         /**
-         * @param firehoseStream Contains information about an Amazon Data Firehose delivery stream.
+         * @param firehoseStream Amazon Data Firehose delivery stream destination. See `destination_configuration.audit_log.destination.firehose_stream` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
         }
 
         /**
-         * @param firehoseStream Contains information about an Amazon Data Firehose delivery stream.
+         * @param firehoseStream Amazon Data Firehose delivery stream destination. See `destination_configuration.audit_log.destination.firehose_stream` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
         }
 
         /**
-         * @param s3Bucket Contains information about an Amazon S3 bucket.
+         * @param s3Bucket Amazon S3 bucket destination. See `destination_configuration.audit_log.destination.s3_bucket` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
         }
 
         /**
-         * @param s3Bucket Contains information about an Amazon S3 bucket.
+         * @param s3Bucket Amazon S3 bucket destination. See `destination_configuration.audit_log.destination.s3_bucket` Block below.
          * 
          * @return builder
          * 

@@ -30,16 +30,14 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Formatting and values recorded in the logs.
-     * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+     * Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
      * 
      */
     @Import(name="format", required=true)
     private Output<String> format;
 
     /**
-     * @return Formatting and values recorded in the logs.
-     * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+     * @return Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
      * 
      */
     public Output<String> format() {
@@ -93,8 +91,7 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param format Formatting and values recorded in the logs.
-         * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+         * @param format Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
          * 
          * @return builder
          * 
@@ -105,8 +102,7 @@ public final class StageAccessLogSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param format Formatting and values recorded in the logs.
-         * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+         * @param format Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
          * 
          * @return builder
          * 

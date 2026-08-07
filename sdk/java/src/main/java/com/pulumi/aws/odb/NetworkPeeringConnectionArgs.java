@@ -22,16 +22,12 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
     /**
      * Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
     /**
      * @return Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> displayName() {
@@ -54,14 +50,14 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+     * Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
      * 
      */
     @Import(name="odbNetworkId")
     private @Nullable Output<String> odbNetworkId;
 
     /**
-     * @return The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+     * @return Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
      * 
      */
     public Optional<Output<String>> odbNetworkId() {
@@ -84,14 +80,18 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="peerNetworkId", required=true)
     private Output<String> peerNetworkId;
 
     /**
-     * @return The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * @return Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> peerNetworkId() {
@@ -114,14 +114,14 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -169,8 +169,6 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
         /**
          * @param displayName Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -181,8 +179,6 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
 
         /**
          * @param displayName Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -213,7 +209,7 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param odbNetworkId The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+         * @param odbNetworkId Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
          * 
          * @return builder
          * 
@@ -224,7 +220,7 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param odbNetworkId The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+         * @param odbNetworkId Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
          * 
          * @return builder
          * 
@@ -265,7 +261,9 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param peerNetworkId The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+         * @param peerNetworkId Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -276,7 +274,9 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param peerNetworkId The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+         * @param peerNetworkId Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class NetworkPeeringConnectionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

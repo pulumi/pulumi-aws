@@ -15,14 +15,14 @@ public final class GatewayRouteSpecHttpRouteActionRewritePathArgs extends com.pu
     public static final GatewayRouteSpecHttpRouteActionRewritePathArgs Empty = new GatewayRouteSpecHttpRouteActionRewritePathArgs();
 
     /**
-     * The exact path to match on.
+     * Exact query parameter to match on.
      * 
      */
     @Import(name="exact", required=true)
     private Output<String> exact;
 
     /**
-     * @return The exact path to match on.
+     * @return Exact query parameter to match on.
      * 
      */
     public Output<String> exact() {
@@ -54,7 +54,7 @@ public final class GatewayRouteSpecHttpRouteActionRewritePathArgs extends com.pu
         }
 
         /**
-         * @param exact The exact path to match on.
+         * @param exact Exact query parameter to match on.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class GatewayRouteSpecHttpRouteActionRewritePathArgs extends com.pu
         }
 
         /**
-         * @param exact The exact path to match on.
+         * @param exact Exact query parameter to match on.
          * 
          * @return builder
          * 

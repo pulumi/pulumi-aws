@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class CloudVmClusterDataCollectionOptions {
+    /**
+     * @return Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
+     * 
+     */
     private Boolean isDiagnosticsEventsEnabled;
+    /**
+     * @return Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
+     * 
+     */
     private Boolean isHealthMonitoringEnabled;
+    /**
+     * @return Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
+     * 
+     */
     private Boolean isIncidentLogsEnabled;
 
     private CloudVmClusterDataCollectionOptions() {}
+    /**
+     * @return Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
+     * 
+     */
     public Boolean isDiagnosticsEventsEnabled() {
         return this.isDiagnosticsEventsEnabled;
     }
+    /**
+     * @return Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
+     * 
+     */
     public Boolean isHealthMonitoringEnabled() {
         return this.isHealthMonitoringEnabled;
     }
+    /**
+     * @return Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
+     * 
+     */
     public Boolean isIncidentLogsEnabled() {
         return this.isIncidentLogsEnabled;
     }

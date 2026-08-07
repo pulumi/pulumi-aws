@@ -25,14 +25,14 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
     public static final TaskDefinitionArgs Empty = new TaskDefinitionArgs();
 
     /**
-     * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     * List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      * 
      */
     @Import(name="containerDefinitions", required=true)
     private Output<String> containerDefinitions;
 
     /**
-     * @return A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     * @return List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      * 
      */
     public Output<String> containerDefinitions() {
@@ -70,14 +70,14 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     * Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      * 
      */
     @Import(name="ephemeralStorage")
     private @Nullable Output<TaskDefinitionEphemeralStorageArgs> ephemeralStorage;
 
     /**
-     * @return The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     * @return Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      * 
      */
     public Optional<Output<TaskDefinitionEphemeralStorageArgs>> ephemeralStorage() {
@@ -100,7 +100,7 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A unique name for your task definition.
+     * Unique name for your task definition.
      * 
      * The following arguments are optional:
      * 
@@ -109,7 +109,7 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
     private Output<String> family;
 
     /**
-     * @return A unique name for your task definition.
+     * @return Unique name for your task definition.
      * 
      * The following arguments are optional:
      * 
@@ -380,7 +380,7 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param containerDefinitions A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+         * @param containerDefinitions List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param containerDefinitions A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+         * @param containerDefinitions List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ephemeralStorage The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+         * @param ephemeralStorage Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ephemeralStorage The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+         * @param ephemeralStorage Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param family A unique name for your task definition.
+         * @param family Unique name for your task definition.
          * 
          * The following arguments are optional:
          * 
@@ -498,7 +498,7 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param family A unique name for your task definition.
+         * @param family Unique name for your task definition.
          * 
          * The following arguments are optional:
          * 

@@ -64,49 +64,51 @@ type LookupNetworkArgs struct {
 type LookupNetworkResult struct {
 	// Amazon Resource Name (ARN) of the odb network resource.
 	Arn string `pulumi:"arn"`
-	// The availability zone where the ODB network is located.
+	// Availability zone where the ODB network is located.
 	AvailabilityZone string `pulumi:"availabilityZone"`
-	// The AZ ID of the AZ where the ODB network is located.
+	// AZ ID of the AZ where the ODB network is located.
 	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
-	// The CIDR range of the backup subnet for the ODB network.
+	// CIDR range of the backup subnet for the ODB network.
 	BackupSubnetCidr string `pulumi:"backupSubnetCidr"`
-	// The CIDR notation for the network resource.
+	// CIDR notation for the network resource.
 	ClientSubnetCidr string `pulumi:"clientSubnetCidr"`
-	// The date and time when the ODB network was created.
+	// Date and time when the ODB network was created.
 	CreatedAt string `pulumi:"createdAt"`
-	// The name of the custom domain that the network is located.
+	// Name of the custom domain that the network is located.
 	CustomDomainName string `pulumi:"customDomainName"`
-	// The default DNS prefix for the network resource.
+	// Default DNS prefix for the network resource.
 	DefaultDnsPrefix string `pulumi:"defaultDnsPrefix"`
 	// Display name for the network resource.
 	DisplayName string `pulumi:"displayName"`
-	// A list of EC2 placement group IDs associated with the ODB network.
+	// List of EC2 placement group IDs associated with the ODB network.
 	Ec2PlacementGroupIds []string `pulumi:"ec2PlacementGroupIds"`
 	// Unique identifier of the odb network resource.
 	Id string `pulumi:"id"`
-	// The managed services configuration for the ODB network.
-	ManagedServices         []GetNetworkManagedService         `pulumi:"managedServices"`
+	// Managed services configuration for the ODB network.
+	ManagedServices []GetNetworkManagedService `pulumi:"managedServices"`
+	// DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
 	OciDnsForwardingConfigs []GetNetworkOciDnsForwardingConfig `pulumi:"ociDnsForwardingConfigs"`
-	// The unique identifier of the OCI network anchor for the ODB network.
+	// Unique identifier of the OCI network anchor for the ODB network.
 	OciNetworkAnchorId string `pulumi:"ociNetworkAnchorId"`
-	// The URL of the OCI network anchor for the ODB network.
+	// URL of the OCI network anchor for the ODB network.
 	OciNetworkAnchorUrl string `pulumi:"ociNetworkAnchorUrl"`
-	// The name of the OCI resource anchor for the ODB network.
+	// Name of the OCI resource anchor for the ODB network.
 	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
-	// The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+	// Unique identifier Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
 	OciVcnId string `pulumi:"ociVcnId"`
-	// The URL of the OCI VCN for the ODB network.
+	// URL of the OCI VCN for the ODB network.
 	OciVcnUrl string `pulumi:"ociVcnUrl"`
-	// The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+	// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
 	PeeredCidrs []string `pulumi:"peeredCidrs"`
-	// The amount of progress made on the current operation on the ODB network, expressed as a percentage.
+	// Amount of progress made on the current operation on the ODB network, expressed as a percentage.
 	PercentProgress float64 `pulumi:"percentProgress"`
 	Region          string  `pulumi:"region"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status string `pulumi:"status"`
 	// Additional information about the current status of the ODB network.
-	StatusReason string            `pulumi:"statusReason"`
-	Tags         map[string]string `pulumi:"tags"`
+	StatusReason string `pulumi:"statusReason"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupNetworkOutput(ctx *pulumi.Context, args LookupNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkResultOutput {
@@ -152,37 +154,37 @@ func (o LookupNetworkResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The availability zone where the ODB network is located.
+// Availability zone where the ODB network is located.
 func (o LookupNetworkResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// The AZ ID of the AZ where the ODB network is located.
+// AZ ID of the AZ where the ODB network is located.
 func (o LookupNetworkResultOutput) AvailabilityZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.AvailabilityZoneId }).(pulumi.StringOutput)
 }
 
-// The CIDR range of the backup subnet for the ODB network.
+// CIDR range of the backup subnet for the ODB network.
 func (o LookupNetworkResultOutput) BackupSubnetCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.BackupSubnetCidr }).(pulumi.StringOutput)
 }
 
-// The CIDR notation for the network resource.
+// CIDR notation for the network resource.
 func (o LookupNetworkResultOutput) ClientSubnetCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.ClientSubnetCidr }).(pulumi.StringOutput)
 }
 
-// The date and time when the ODB network was created.
+// Date and time when the ODB network was created.
 func (o LookupNetworkResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The name of the custom domain that the network is located.
+// Name of the custom domain that the network is located.
 func (o LookupNetworkResultOutput) CustomDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.CustomDomainName }).(pulumi.StringOutput)
 }
 
-// The default DNS prefix for the network resource.
+// Default DNS prefix for the network resource.
 func (o LookupNetworkResultOutput) DefaultDnsPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.DefaultDnsPrefix }).(pulumi.StringOutput)
 }
@@ -192,7 +194,7 @@ func (o LookupNetworkResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// A list of EC2 placement group IDs associated with the ODB network.
+// List of EC2 placement group IDs associated with the ODB network.
 func (o LookupNetworkResultOutput) Ec2PlacementGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNetworkResult) []string { return v.Ec2PlacementGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -202,46 +204,47 @@ func (o LookupNetworkResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The managed services configuration for the ODB network.
+// Managed services configuration for the ODB network.
 func (o LookupNetworkResultOutput) ManagedServices() GetNetworkManagedServiceArrayOutput {
 	return o.ApplyT(func(v LookupNetworkResult) []GetNetworkManagedService { return v.ManagedServices }).(GetNetworkManagedServiceArrayOutput)
 }
 
+// DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
 func (o LookupNetworkResultOutput) OciDnsForwardingConfigs() GetNetworkOciDnsForwardingConfigArrayOutput {
 	return o.ApplyT(func(v LookupNetworkResult) []GetNetworkOciDnsForwardingConfig { return v.OciDnsForwardingConfigs }).(GetNetworkOciDnsForwardingConfigArrayOutput)
 }
 
-// The unique identifier of the OCI network anchor for the ODB network.
+// Unique identifier of the OCI network anchor for the ODB network.
 func (o LookupNetworkResultOutput) OciNetworkAnchorId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.OciNetworkAnchorId }).(pulumi.StringOutput)
 }
 
-// The URL of the OCI network anchor for the ODB network.
+// URL of the OCI network anchor for the ODB network.
 func (o LookupNetworkResultOutput) OciNetworkAnchorUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.OciNetworkAnchorUrl }).(pulumi.StringOutput)
 }
 
-// The name of the OCI resource anchor for the ODB network.
+// Name of the OCI resource anchor for the ODB network.
 func (o LookupNetworkResultOutput) OciResourceAnchorName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.OciResourceAnchorName }).(pulumi.StringOutput)
 }
 
-// The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+// Unique identifier Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
 func (o LookupNetworkResultOutput) OciVcnId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.OciVcnId }).(pulumi.StringOutput)
 }
 
-// The URL of the OCI VCN for the ODB network.
+// URL of the OCI VCN for the ODB network.
 func (o LookupNetworkResultOutput) OciVcnUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.OciVcnUrl }).(pulumi.StringOutput)
 }
 
-// The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
 func (o LookupNetworkResultOutput) PeeredCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNetworkResult) []string { return v.PeeredCidrs }).(pulumi.StringArrayOutput)
 }
 
-// The amount of progress made on the current operation on the ODB network, expressed as a percentage.
+// Amount of progress made on the current operation on the ODB network, expressed as a percentage.
 func (o LookupNetworkResultOutput) PercentProgress() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupNetworkResult) float64 { return v.PercentProgress }).(pulumi.Float64Output)
 }
@@ -250,7 +253,7 @@ func (o LookupNetworkResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The status of the network resource.
+// Status of the network resource.
 func (o LookupNetworkResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -260,6 +263,7 @@ func (o LookupNetworkResultOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.StatusReason }).(pulumi.StringOutput)
 }
 
+// Map of tags assigned to the resource.
 func (o LookupNetworkResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupNetworkResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

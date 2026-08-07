@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum total local storage, in GB.
+        /// </summary>
         [Input("max")]
         public Input<double>? Max { get; set; }
 
+        /// <summary>
+        /// Minimum total local storage, in GB.
+        /// </summary>
         [Input("min")]
         public Input<double>? Min { get; set; }
 

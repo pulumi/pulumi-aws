@@ -15,16 +15,14 @@ public final class TableBucketMaintenanceConfigurationArgs extends com.pulumi.re
     public static final TableBucketMaintenanceConfigurationArgs Empty = new TableBucketMaintenanceConfigurationArgs();
 
     /**
-     * A single Iceberg unreferenced file removal settings object.
-     * See `icebergUnreferencedFileRemoval` below.
+     * Iceberg unreferenced file removal settings for the table bucket. See `icebergUnreferencedFileRemoval` below.
      * 
      */
     @Import(name="icebergUnreferencedFileRemoval", required=true)
     private Output<TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs> icebergUnreferencedFileRemoval;
 
     /**
-     * @return A single Iceberg unreferenced file removal settings object.
-     * See `icebergUnreferencedFileRemoval` below.
+     * @return Iceberg unreferenced file removal settings for the table bucket. See `icebergUnreferencedFileRemoval` below.
      * 
      */
     public Output<TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs> icebergUnreferencedFileRemoval() {
@@ -56,8 +54,7 @@ public final class TableBucketMaintenanceConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param icebergUnreferencedFileRemoval A single Iceberg unreferenced file removal settings object.
-         * See `icebergUnreferencedFileRemoval` below.
+         * @param icebergUnreferencedFileRemoval Iceberg unreferenced file removal settings for the table bucket. See `icebergUnreferencedFileRemoval` below.
          * 
          * @return builder
          * 
@@ -68,8 +65,7 @@ public final class TableBucketMaintenanceConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param icebergUnreferencedFileRemoval A single Iceberg unreferenced file removal settings object.
-         * See `icebergUnreferencedFileRemoval` below.
+         * @param icebergUnreferencedFileRemoval Iceberg unreferenced file removal settings for the table bucket. See `icebergUnreferencedFileRemoval` below.
          * 
          * @return builder
          * 

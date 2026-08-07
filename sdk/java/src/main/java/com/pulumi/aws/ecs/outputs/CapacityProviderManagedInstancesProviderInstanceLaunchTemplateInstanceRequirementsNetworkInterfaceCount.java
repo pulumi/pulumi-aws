@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount {
+    /**
+     * @return Maximum number of network interfaces.
+     * 
+     */
     private @Nullable Integer max;
+    /**
+     * @return Minimum number of network interfaces.
+     * 
+     */
     private @Nullable Integer min;
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount() {}
+    /**
+     * @return Maximum number of network interfaces.
+     * 
+     */
     public Optional<Integer> max() {
         return Optional.ofNullable(this.max);
     }
+    /**
+     * @return Minimum number of network interfaces.
+     * 
+     */
     public Optional<Integer> min() {
         return Optional.ofNullable(this.min);
     }

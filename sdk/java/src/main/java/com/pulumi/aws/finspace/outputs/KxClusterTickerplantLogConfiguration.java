@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class KxClusterTickerplantLogConfiguration {
+    /**
+     * @return Names of the volumes for tickerplant logs.
+     * 
+     */
     private List<String> tickerplantLogVolumes;
 
     private KxClusterTickerplantLogConfiguration() {}
+    /**
+     * @return Names of the volumes for tickerplant logs.
+     * 
+     */
     public List<String> tickerplantLogVolumes() {
         return this.tickerplantLogVolumes;
     }

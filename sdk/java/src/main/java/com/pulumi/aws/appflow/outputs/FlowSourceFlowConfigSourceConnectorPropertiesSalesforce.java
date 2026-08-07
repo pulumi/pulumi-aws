@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
     private @Nullable String dataTransferApi;
     /**
-     * @return Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+     * @return Whether to enable dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
      * 
      */
     private @Nullable Boolean enableDynamicFieldUpdate;
     /**
-     * @return Whether Amazon AppFlow includes deleted files in the flow run.
+     * @return Whether to include deleted files in the flow run.
      * 
      */
     private @Nullable Boolean includeDeletedRecords;
@@ -31,14 +31,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
         return Optional.ofNullable(this.dataTransferApi);
     }
     /**
-     * @return Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+     * @return Whether to enable dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
      * 
      */
     public Optional<Boolean> enableDynamicFieldUpdate() {
         return Optional.ofNullable(this.enableDynamicFieldUpdate);
     }
     /**
-     * @return Whether Amazon AppFlow includes deleted files in the flow run.
+     * @return Whether to include deleted files in the flow run.
      * 
      */
     public Optional<Boolean> includeDeletedRecords() {

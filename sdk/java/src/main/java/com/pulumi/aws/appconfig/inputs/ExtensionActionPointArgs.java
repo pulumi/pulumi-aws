@@ -17,14 +17,14 @@ public final class ExtensionActionPointArgs extends com.pulumi.resources.Resourc
     public static final ExtensionActionPointArgs Empty = new ExtensionActionPointArgs();
 
     /**
-     * An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+     * Action the extension performs during the AppConfig workflow. Detailed below.
      * 
      */
     @Import(name="actions", required=true)
     private Output<List<ExtensionActionPointActionArgs>> actions;
 
     /**
-     * @return An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+     * @return Action the extension performs during the AppConfig workflow. Detailed below.
      * 
      */
     public Output<List<ExtensionActionPointActionArgs>> actions() {
@@ -32,14 +32,14 @@ public final class ExtensionActionPointArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+     * Point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
      * 
      */
     @Import(name="point", required=true)
     private Output<String> point;
 
     /**
-     * @return The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+     * @return Point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
      * 
      */
     public Output<String> point() {
@@ -72,7 +72,7 @@ public final class ExtensionActionPointArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param actions An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+         * @param actions Action the extension performs during the AppConfig workflow. Detailed below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ExtensionActionPointArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param actions An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+         * @param actions Action the extension performs during the AppConfig workflow. Detailed below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ExtensionActionPointArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param actions An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+         * @param actions Action the extension performs during the AppConfig workflow. Detailed below.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ExtensionActionPointArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param point The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+         * @param point Point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ExtensionActionPointArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param point The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+         * @param point Point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
          * 
          * @return builder
          * 

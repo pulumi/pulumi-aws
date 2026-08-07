@@ -129,13 +129,16 @@ class GetDbNodeResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
+        """
+        ARN of the DB node.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="backupIpId")
     def backup_ip_id(self) -> _builtins.str:
         """
-        The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+        Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
         """
         return pulumi.get(self, "backup_ip_id")
 
@@ -143,7 +146,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="backupVnic2Id")
     def backup_vnic2_id(self) -> _builtins.str:
         """
-        The OCID of the second backup VNIC.
+        OCID of the second backup VNIC.
         """
         return pulumi.get(self, "backup_vnic2_id")
 
@@ -151,7 +154,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="backupVnicId")
     def backup_vnic_id(self) -> _builtins.str:
         """
-        The OCID of the backup VNIC.
+        OCID of the backup VNIC.
         """
         return pulumi.get(self, "backup_vnic_id")
 
@@ -159,7 +162,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="cloudVmClusterId")
     def cloud_vm_cluster_id(self) -> _builtins.str:
         """
-        The ID of the cloud VM cluster.
+        ID of the cloud VM cluster.
         """
         return pulumi.get(self, "cloud_vm_cluster_id")
 
@@ -167,7 +170,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="cpuCoreCount")
     def cpu_core_count(self) -> _builtins.int:
         """
-        The number of CPU cores enabled on the DB node.
+        Number of CPU cores enabled on the DB node.
         """
         return pulumi.get(self, "cpu_core_count")
 
@@ -175,7 +178,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
         """
-        The date and time when the DB node was created.
+        Date and time when the DB node was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -183,7 +186,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="dbServerId")
     def db_server_id(self) -> _builtins.str:
         """
-        The unique identifier of the DB server that is associated with the DB node.
+        Unique identifier of the DB server that is associated with the DB node.
         """
         return pulumi.get(self, "db_server_id")
 
@@ -191,7 +194,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="dbStorageSizeInGbs")
     def db_storage_size_in_gbs(self) -> _builtins.int:
         """
-        The amount of local node storage, in gigabytes (GB), allocated on the DB node.
+        Amount of local node storage, in gigabytes (GB), allocated on the DB node.
         """
         return pulumi.get(self, "db_storage_size_in_gbs")
 
@@ -199,7 +202,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="dbSystemId")
     def db_system_id(self) -> _builtins.str:
         """
-        The OCID of the DB system.
+        OCID of the DB system.
         """
         return pulumi.get(self, "db_system_id")
 
@@ -207,7 +210,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="faultDomain")
     def fault_domain(self) -> _builtins.str:
         """
-        The name of the fault domain the instance is contained in.
+        Name of the fault domain the instance is contained in.
         """
         return pulumi.get(self, "fault_domain")
 
@@ -215,7 +218,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="floatingIpAddress")
     def floating_ip_address(self) -> _builtins.str:
         """
-        The floating IP address assigned to the DB node.
+        Floating IP address assigned to the DB node.
         """
         return pulumi.get(self, "floating_ip_address")
 
@@ -223,7 +226,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="hostIpId")
     def host_ip_id(self) -> _builtins.str:
         """
-        The OCID of the host IP address that's associated with the DB node.
+        OCID of the host IP address that's associated with the DB node.
         """
         return pulumi.get(self, "host_ip_id")
 
@@ -231,7 +234,7 @@ class GetDbNodeResult:
     @pulumi.getter
     def hostname(self) -> _builtins.str:
         """
-        The host name for the DB node.
+        Host name for the DB node.
         """
         return pulumi.get(self, "hostname")
 
@@ -244,7 +247,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="maintenanceType")
     def maintenance_type(self) -> _builtins.str:
         """
-        The type of database node maintenance. Either VMDB_REBOOT_MIGRATION or EXADBXS_REBOOT_MIGRATION.
+        Type of database node maintenance. Either VMDB_REBOOT_MIGRATION or EXADBXS_REBOOT_MIGRATION.
         """
         return pulumi.get(self, "maintenance_type")
 
@@ -252,7 +255,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="memorySizeInGbs")
     def memory_size_in_gbs(self) -> _builtins.int:
         """
-        The allocated memory in GBs on the DB node.
+        Allocated memory in GBs on the DB node.
         """
         return pulumi.get(self, "memory_size_in_gbs")
 
@@ -260,7 +263,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="ociResourceAnchorName")
     def oci_resource_anchor_name(self) -> _builtins.str:
         """
-        The name of the OCI resource anchor for the DB node.
+        Name of the OCI resource anchor for the DB node.
         """
         return pulumi.get(self, "oci_resource_anchor_name")
 
@@ -268,7 +271,7 @@ class GetDbNodeResult:
     @pulumi.getter
     def ocid(self) -> _builtins.str:
         """
-        The OCID of the DB node.
+        OCID of the DB node.
         """
         return pulumi.get(self, "ocid")
 
@@ -276,7 +279,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> _builtins.str:
         """
-        The private IP address assigned to the DB node.
+        Private IP address assigned to the DB node.
         """
         return pulumi.get(self, "private_ip_address")
 
@@ -289,7 +292,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="softwareStorageSizeInGbs")
     def software_storage_size_in_gbs(self) -> _builtins.int:
         """
-        The size (in GB) of the block storage volume allocation for the DB system.
+        Size (in GB) of the block storage volume allocation for the DB system.
         """
         return pulumi.get(self, "software_storage_size_in_gbs")
 
@@ -297,7 +300,7 @@ class GetDbNodeResult:
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        The current status of the DB node.
+        Current status of the DB node.
         """
         return pulumi.get(self, "status")
 
@@ -313,7 +316,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="timeMaintenanceWindowEnd")
     def time_maintenance_window_end(self) -> _builtins.str:
         """
-        The end date and time of the maintenance window.
+        End date and time of the maintenance window.
         """
         return pulumi.get(self, "time_maintenance_window_end")
 
@@ -321,7 +324,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="timeMaintenanceWindowStart")
     def time_maintenance_window_start(self) -> _builtins.str:
         """
-        The start date and time of the maintenance window.
+        Start date and time of the maintenance window.
         """
         return pulumi.get(self, "time_maintenance_window_start")
 
@@ -329,7 +332,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="totalCpuCoreCount")
     def total_cpu_core_count(self) -> _builtins.int:
         """
-        The total number of CPU cores reserved on the DB node.
+        Total number of CPU cores reserved on the DB node.
         """
         return pulumi.get(self, "total_cpu_core_count")
 
@@ -337,7 +340,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="vnic2Id")
     def vnic2_id(self) -> _builtins.str:
         """
-        The OCID of the second VNIC.
+        OCID of the second VNIC.
         """
         return pulumi.get(self, "vnic2_id")
 
@@ -345,7 +348,7 @@ class GetDbNodeResult:
     @pulumi.getter(name="vnicId")
     def vnic_id(self) -> _builtins.str:
         """
-        The OCID of the VNIC.
+        OCID of the VNIC.
         """
         return pulumi.get(self, "vnic_id")
 
@@ -410,8 +413,8 @@ def get_db_node(cloud_vm_cluster_id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str cloud_vm_cluster_id: The unique identifier of the cloud vm cluster.
-    :param _builtins.str id: The unique identifier of db node associated with vm cluster.
+    :param _builtins.str cloud_vm_cluster_id: Unique identifier of the cloud vm cluster.
+    :param _builtins.str id: Unique identifier of db node associated with vm cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -476,8 +479,8 @@ def get_db_node_output(cloud_vm_cluster_id: pulumi.Input[Optional[_builtins.str]
     ```
 
 
-    :param _builtins.str cloud_vm_cluster_id: The unique identifier of the cloud vm cluster.
-    :param _builtins.str id: The unique identifier of db node associated with vm cluster.
+    :param _builtins.str cloud_vm_cluster_id: Unique identifier of the cloud vm cluster.
+    :param _builtins.str id: Unique identifier of db node associated with vm cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

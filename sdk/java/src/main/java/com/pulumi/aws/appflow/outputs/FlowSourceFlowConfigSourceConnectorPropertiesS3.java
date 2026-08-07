@@ -16,7 +16,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
     private String bucketName;
     private String bucketPrefix;
     /**
-     * @return When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+     * @return When you use Amazon S3 as the source, configuration format that you provide for the flow input data. See the `source_flow_config.source_connector_properties.s3.s3_input_format_config` Block for details.
      * 
      */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig s3InputFormatConfig;
@@ -29,7 +29,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
         return this.bucketPrefix;
     }
     /**
-     * @return When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+     * @return When you use Amazon S3 as the source, configuration format that you provide for the flow input data. See the `source_flow_config.source_connector_properties.s3.s3_input_format_config` Block for details.
      * 
      */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig> s3InputFormatConfig() {

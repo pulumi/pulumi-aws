@@ -136,11 +136,11 @@ class SecretReplicaArgs:
 class SecretRotationExternalSecretRotationMetadataArgsDict(TypedDict):
     key: pulumi.Input[_builtins.str]
     """
-    The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+    Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
     """
     value: pulumi.Input[_builtins.str]
     """
-    The metadata value for the specified key.
+    Metadata value for the specified key.
     """
 
 @pulumi.input_type
@@ -149,8 +149,8 @@ class SecretRotationExternalSecretRotationMetadataArgs:
                  key: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] key: The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
-        :param pulumi.Input[_builtins.str] value: The metadata value for the specified key.
+        :param pulumi.Input[_builtins.str] key: Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+        :param pulumi.Input[_builtins.str] value: Metadata value for the specified key.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -159,7 +159,7 @@ class SecretRotationExternalSecretRotationMetadataArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
         """
-        The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+        Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
         """
         return pulumi.get(self, "key")
 
@@ -171,7 +171,7 @@ class SecretRotationExternalSecretRotationMetadataArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        The metadata value for the specified key.
+        Metadata value for the specified key.
         """
         return pulumi.get(self, "value")
 
@@ -183,7 +183,7 @@ class SecretRotationExternalSecretRotationMetadataArgs:
 class SecretRotationRotationRulesArgsDict(TypedDict):
     automatically_after_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+    Number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
     """
     duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -191,7 +191,7 @@ class SecretRotationRotationRulesArgsDict(TypedDict):
     """
     schedule_expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+    `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
     """
 
 @pulumi.input_type
@@ -201,9 +201,9 @@ class SecretRotationRotationRulesArgs:
                  duration: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_expression: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.int] automatically_after_days: Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+        :param pulumi.Input[_builtins.int] automatically_after_days: Number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
         :param pulumi.Input[_builtins.str] duration: The length of the rotation window in hours. For example, `3h` for a three hour window.
-        :param pulumi.Input[_builtins.str] schedule_expression: A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+        :param pulumi.Input[_builtins.str] schedule_expression: `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
         """
         if automatically_after_days is not None:
             pulumi.set(__self__, "automatically_after_days", automatically_after_days)
@@ -216,7 +216,7 @@ class SecretRotationRotationRulesArgs:
     @pulumi.getter(name="automaticallyAfterDays")
     def automatically_after_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+        Number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
         """
         return pulumi.get(self, "automatically_after_days")
 
@@ -240,7 +240,7 @@ class SecretRotationRotationRulesArgs:
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+        `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
         """
         return pulumi.get(self, "schedule_expression")
 

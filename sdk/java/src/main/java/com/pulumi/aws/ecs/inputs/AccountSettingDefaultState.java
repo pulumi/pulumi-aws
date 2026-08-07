@@ -30,9 +30,17 @@ public final class AccountSettingDefaultState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * ARN that identifies the account setting.
+     * 
+     */
     @Import(name="principalArn")
     private @Nullable Output<String> principalArn;
 
+    /**
+     * @return ARN that identifies the account setting.
+     * 
+     */
     public Optional<Output<String>> principalArn() {
         return Optional.ofNullable(this.principalArn);
     }
@@ -115,11 +123,23 @@ public final class AccountSettingDefaultState extends com.pulumi.resources.Resou
             return name(Output.of(name));
         }
 
+        /**
+         * @param principalArn ARN that identifies the account setting.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalArn(@Nullable Output<String> principalArn) {
             $.principalArn = principalArn;
             return this;
         }
 
+        /**
+         * @param principalArn ARN that identifies the account setting.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalArn(String principalArn) {
             return principalArn(Output.of(principalArn));
         }

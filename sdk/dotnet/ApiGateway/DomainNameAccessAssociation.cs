@@ -50,13 +50,13 @@ namespace Pulumi.Aws.ApiGateway
     public partial class DomainNameAccessAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+        /// Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
         /// </summary>
         [Output("accessAssociationSource")]
         public Output<string> AccessAssociationSource { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the domain name access association source. Valid values are `VPCE`.
+        /// Type of the domain name access association source. Valid values are `VPCE`.
         /// </summary>
         [Output("accessAssociationSourceType")]
         public Output<string> AccessAssociationSourceType { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the domain name.
+        /// ARN of the domain name.
         /// </summary>
         [Output("domainNameArn")]
         public Output<string> DomainNameArn { get; private set; } = null!;
@@ -138,19 +138,19 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class DomainNameAccessAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+        /// Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
         /// </summary>
         [Input("accessAssociationSource", required: true)]
         public Input<string> AccessAssociationSource { get; set; } = null!;
 
         /// <summary>
-        /// The type of the domain name access association source. Valid values are `VPCE`.
+        /// Type of the domain name access association source. Valid values are `VPCE`.
         /// </summary>
         [Input("accessAssociationSourceType", required: true)]
         public Input<string> AccessAssociationSourceType { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the domain name.
+        /// ARN of the domain name.
         /// </summary>
         [Input("domainNameArn", required: true)]
         public Input<string> DomainNameArn { get; set; } = null!;
@@ -182,13 +182,13 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class DomainNameAccessAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+        /// Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
         /// </summary>
         [Input("accessAssociationSource")]
         public Input<string>? AccessAssociationSource { get; set; }
 
         /// <summary>
-        /// The type of the domain name access association source. Valid values are `VPCE`.
+        /// Type of the domain name access association source. Valid values are `VPCE`.
         /// </summary>
         [Input("accessAssociationSourceType")]
         public Input<string>? AccessAssociationSourceType { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ARN of the domain name.
+        /// ARN of the domain name.
         /// </summary>
         [Input("domainNameArn")]
         public Input<string>? DomainNameArn { get; set; }

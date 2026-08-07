@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecHttp2RouteMatch
     {
         /// <summary>
-        /// Client request headers to match on. See `Header` Block for details.
+        /// Client request headers to match on. See `spec.http_route.match.header` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.RouteSpecHttp2RouteMatchHeader> Headers;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly string? Method;
         /// <summary>
-        /// Client request path to match on. See `Path` Block for details.
+        /// Client request path to match on. See `spec.http_route.match.path` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteMatchPath? Path;
         /// <summary>
-        /// The port number to match from the request.
+        /// Port number to match from the request.
         /// </summary>
         public readonly int? Port;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// Client request query parameters to match on. See `QueryParameter` Block for details.
+        /// Client request query parameters to match on. See `spec.http_route.match.query_parameter` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.RouteSpecHttp2RouteMatchQueryParameter> QueryParameters;
         /// <summary>

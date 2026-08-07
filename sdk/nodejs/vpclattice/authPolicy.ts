@@ -76,7 +76,7 @@ export class AuthPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The auth policy. The policy string in JSON must not contain newlines or blank lines.
+     * Auth policy. The policy string in JSON must not contain newlines or blank lines.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
@@ -84,11 +84,11 @@ export class AuthPolicy extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      */
     declare public readonly resourceIdentifier: pulumi.Output<string>;
     /**
-     * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
+     * State of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
      */
     declare public readonly state: pulumi.Output<string | undefined>;
 
@@ -132,7 +132,7 @@ export class AuthPolicy extends pulumi.CustomResource {
  */
 export interface AuthPolicyState {
     /**
-     * The auth policy. The policy string in JSON must not contain newlines or blank lines.
+     * Auth policy. The policy string in JSON must not contain newlines or blank lines.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
@@ -140,11 +140,11 @@ export interface AuthPolicyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      */
     resourceIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
+     * State of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
      */
     state?: pulumi.Input<string | undefined>;
 }
@@ -154,7 +154,7 @@ export interface AuthPolicyState {
  */
 export interface AuthPolicyArgs {
     /**
-     * The auth policy. The policy string in JSON must not contain newlines or blank lines.
+     * Auth policy. The policy string in JSON must not contain newlines or blank lines.
      */
     policy: pulumi.Input<string>;
     /**
@@ -162,11 +162,11 @@ export interface AuthPolicyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      */
     resourceIdentifier: pulumi.Input<string>;
     /**
-     * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
+     * State of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
      */
     state?: pulumi.Input<string | undefined>;
 }

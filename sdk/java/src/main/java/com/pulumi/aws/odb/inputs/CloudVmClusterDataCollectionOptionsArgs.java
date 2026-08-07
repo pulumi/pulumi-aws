@@ -14,23 +14,47 @@ public final class CloudVmClusterDataCollectionOptionsArgs extends com.pulumi.re
 
     public static final CloudVmClusterDataCollectionOptionsArgs Empty = new CloudVmClusterDataCollectionOptionsArgs();
 
+    /**
+     * Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
+     * 
+     */
     @Import(name="isDiagnosticsEventsEnabled", required=true)
     private Output<Boolean> isDiagnosticsEventsEnabled;
 
+    /**
+     * @return Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
+     * 
+     */
     public Output<Boolean> isDiagnosticsEventsEnabled() {
         return this.isDiagnosticsEventsEnabled;
     }
 
+    /**
+     * Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
+     * 
+     */
     @Import(name="isHealthMonitoringEnabled", required=true)
     private Output<Boolean> isHealthMonitoringEnabled;
 
+    /**
+     * @return Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
+     * 
+     */
     public Output<Boolean> isHealthMonitoringEnabled() {
         return this.isHealthMonitoringEnabled;
     }
 
+    /**
+     * Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
+     * 
+     */
     @Import(name="isIncidentLogsEnabled", required=true)
     private Output<Boolean> isIncidentLogsEnabled;
 
+    /**
+     * @return Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
+     * 
+     */
     public Output<Boolean> isIncidentLogsEnabled() {
         return this.isIncidentLogsEnabled;
     }
@@ -61,29 +85,65 @@ public final class CloudVmClusterDataCollectionOptionsArgs extends com.pulumi.re
             $ = new CloudVmClusterDataCollectionOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param isDiagnosticsEventsEnabled Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isDiagnosticsEventsEnabled(Output<Boolean> isDiagnosticsEventsEnabled) {
             $.isDiagnosticsEventsEnabled = isDiagnosticsEventsEnabled;
             return this;
         }
 
+        /**
+         * @param isDiagnosticsEventsEnabled Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isDiagnosticsEventsEnabled(Boolean isDiagnosticsEventsEnabled) {
             return isDiagnosticsEventsEnabled(Output.of(isDiagnosticsEventsEnabled));
         }
 
+        /**
+         * @param isHealthMonitoringEnabled Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isHealthMonitoringEnabled(Output<Boolean> isHealthMonitoringEnabled) {
             $.isHealthMonitoringEnabled = isHealthMonitoringEnabled;
             return this;
         }
 
+        /**
+         * @param isHealthMonitoringEnabled Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isHealthMonitoringEnabled(Boolean isHealthMonitoringEnabled) {
             return isHealthMonitoringEnabled(Output.of(isHealthMonitoringEnabled));
         }
 
+        /**
+         * @param isIncidentLogsEnabled Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isIncidentLogsEnabled(Output<Boolean> isIncidentLogsEnabled) {
             $.isIncidentLogsEnabled = isIncidentLogsEnabled;
             return this;
         }
 
+        /**
+         * @param isIncidentLogsEnabled Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isIncidentLogsEnabled(Boolean isIncidentLogsEnabled) {
             return isIncidentLogsEnabled(Output.of(isIncidentLogsEnabled));
         }

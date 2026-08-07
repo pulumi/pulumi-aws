@@ -25,13 +25,13 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<Inputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// Inventory table ARN.
+        /// Journal table ARN.
         /// </summary>
         [Input("tableArn")]
         public Input<string>? TableArn { get; set; }
 
         /// <summary>
-        /// Inventory table name.
+        /// Journal table name.
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }

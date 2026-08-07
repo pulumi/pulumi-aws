@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Odb.Outputs
     {
         public readonly string Cidr;
         /// <summary>
-        /// The status of the network resource.
+        /// Status of the network resource.
         /// </summary>
         public readonly string Status;
 

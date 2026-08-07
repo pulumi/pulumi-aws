@@ -103,28 +103,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3control/directoryBucketAccessPointScope:DirectoryBucketAccessPointScope")
 public class DirectoryBucketAccessPointScope extends com.pulumi.resources.CustomResource {
     /**
-     * The AWS account ID that owns the specified access point.
+     * AWS account ID that owns the specified access point.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The AWS account ID that owns the specified access point.
+     * @return AWS account ID that owns the specified access point.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * The name of the access point that you want to apply the scope to.
+     * Name of the access point that you want to apply the scope to.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the access point that you want to apply the scope to.
+     * @return Name of the access point that you want to apply the scope to.
      * 
      */
     public Output<String> name() {

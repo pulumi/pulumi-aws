@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string? ApiVersion;
         /// <summary>
-        /// Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+        /// Name of the connector profile. Must be unique for each connector profile in the AWS account.
         /// </summary>
         public readonly string? ConnectorProfileName;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string ConnectorType;
         /// <summary>
-        /// This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
+        /// Information required to query a particular connector. See the `destination_flow_config.destination_connector_properties` Block for details.
         /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorProperties DestinationConnectorProperties;
 

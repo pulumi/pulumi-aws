@@ -80,21 +80,21 @@ export class DomainVerification extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the domain verification.
+     * Amazon Resource Name (ARN) of the domain verification.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The date and time that the domain verification was created, in ISO-8601 format.
+     * Date and time that the domain verification was created, in ISO-8601 format.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * The domain name to verify ownership for.
+     * Domain name to verify ownership for.
      *
      * The following arguments are optional:
      */
     declare public readonly domainName: pulumi.Output<string>;
     /**
-     * The date and time that the domain was last successfully verified, in ISO-8601 format.
+     * Date and time that the domain was last successfully verified, in ISO-8601 format.
      */
     declare public /*out*/ readonly lastVerifiedTime: pulumi.Output<string>;
     /**
@@ -102,7 +102,7 @@ export class DomainVerification extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
+     * Current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -114,11 +114,11 @@ export class DomainVerification extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The name of the TXT record that must be created for domain verification.
+     * Name of the TXT record that must be created for domain verification.
      */
     declare public /*out*/ readonly txtRecordName: pulumi.Output<string>;
     /**
-     * The value that must be added to the TXT record for domain verification.
+     * Value that must be added to the TXT record for domain verification.
      */
     declare public /*out*/ readonly txtRecordValue: pulumi.Output<string>;
 
@@ -171,21 +171,21 @@ export class DomainVerification extends pulumi.CustomResource {
  */
 export interface DomainVerificationState {
     /**
-     * The Amazon Resource Name (ARN) of the domain verification.
+     * Amazon Resource Name (ARN) of the domain verification.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The date and time that the domain verification was created, in ISO-8601 format.
+     * Date and time that the domain verification was created, in ISO-8601 format.
      */
     createdAt?: pulumi.Input<string | undefined>;
     /**
-     * The domain name to verify ownership for.
+     * Domain name to verify ownership for.
      *
      * The following arguments are optional:
      */
     domainName?: pulumi.Input<string | undefined>;
     /**
-     * The date and time that the domain was last successfully verified, in ISO-8601 format.
+     * Date and time that the domain was last successfully verified, in ISO-8601 format.
      */
     lastVerifiedTime?: pulumi.Input<string | undefined>;
     /**
@@ -193,7 +193,7 @@ export interface DomainVerificationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
+     * Current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -205,11 +205,11 @@ export interface DomainVerificationState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The name of the TXT record that must be created for domain verification.
+     * Name of the TXT record that must be created for domain verification.
      */
     txtRecordName?: pulumi.Input<string | undefined>;
     /**
-     * The value that must be added to the TXT record for domain verification.
+     * Value that must be added to the TXT record for domain verification.
      */
     txtRecordValue?: pulumi.Input<string | undefined>;
 }
@@ -219,7 +219,7 @@ export interface DomainVerificationState {
  */
 export interface DomainVerificationArgs {
     /**
-     * The domain name to verify ownership for.
+     * Domain name to verify ownership for.
      *
      * The following arguments are optional:
      */

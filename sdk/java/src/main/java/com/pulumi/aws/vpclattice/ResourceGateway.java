@@ -172,14 +172,14 @@ public class ResourceGateway extends com.pulumi.resources.CustomResource {
         return this.ipAddressType;
     }
     /**
-     * The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+     * Number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
      * 
      */
     @Export(name="ipv4AddressesPerEni", refs={Integer.class}, tree="[0]")
     private Output<Integer> ipv4AddressesPerEni;
 
     /**
-     * @return The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+     * @return Number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
      * 
      */
     public Output<Integer> ipv4AddressesPerEni() {
@@ -214,14 +214,14 @@ public class ResourceGateway extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+     * How DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
      * 
      */
     @Export(name="resourceConfigDnsResolution", refs={String.class}, tree="[0]")
     private Output<String> resourceConfigDnsResolution;
 
     /**
-     * @return Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+     * @return How DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
      * 
      */
     public Output<String> resourceConfigDnsResolution() {

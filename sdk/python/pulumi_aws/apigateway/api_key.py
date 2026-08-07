@@ -29,7 +29,7 @@ class ApiKeyArgs:
         """
         The set of arguments for constructing a ApiKey resource.
 
-        :param pulumi.Input[_builtins.str] customer_id: An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        :param pulumi.Input[_builtins.str] customer_id: Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
         :param pulumi.Input[_builtins.str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.bool] enabled: Whether the API key can be used by callers. Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: Name of the API key.
@@ -58,7 +58,7 @@ class ApiKeyArgs:
     @pulumi.getter(name="customerId")
     def customer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
         """
         return pulumi.get(self, "customer_id")
 
@@ -158,7 +158,7 @@ class _ApiKeyState:
 
         :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.str] created_date: Creation date of the API key
-        :param pulumi.Input[_builtins.str] customer_id: An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        :param pulumi.Input[_builtins.str] customer_id: Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
         :param pulumi.Input[_builtins.str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.bool] enabled: Whether the API key can be used by callers. Defaults to `true`.
         :param pulumi.Input[_builtins.str] last_updated_date: Last update date of the API key
@@ -221,7 +221,7 @@ class _ApiKeyState:
     @pulumi.getter(name="customerId")
     def customer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
         """
         return pulumi.get(self, "customer_id")
 
@@ -365,7 +365,7 @@ class ApiKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] customer_id: An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        :param pulumi.Input[_builtins.str] customer_id: Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
         :param pulumi.Input[_builtins.str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.bool] enabled: Whether the API key can be used by callers. Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: Name of the API key.
@@ -478,7 +478,7 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.str] created_date: Creation date of the API key
-        :param pulumi.Input[_builtins.str] customer_id: An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        :param pulumi.Input[_builtins.str] customer_id: Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
         :param pulumi.Input[_builtins.str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.bool] enabled: Whether the API key can be used by callers. Defaults to `true`.
         :param pulumi.Input[_builtins.str] last_updated_date: Last update date of the API key
@@ -525,7 +525,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter(name="customerId")
     def customer_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
         """
         return pulumi.get(self, "customer_id")
 

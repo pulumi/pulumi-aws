@@ -79,9 +79,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:apigateway/vpcLink:VpcLink")
 public class VpcLink extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the VPC link.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the VPC link.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }

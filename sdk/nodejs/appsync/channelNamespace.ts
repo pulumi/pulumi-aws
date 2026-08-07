@@ -73,7 +73,7 @@ export class ChannelNamespace extends pulumi.CustomResource {
      */
     declare public readonly codeHandlers: pulumi.Output<string | undefined>;
     /**
-     * Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
+     * Configuration for the `onPublish` and `onSubscribe` handlers. See `handlerConfigs` below.
      */
     declare public readonly handlerConfigs: pulumi.Output<outputs.appsync.ChannelNamespaceHandlerConfigs | undefined>;
     /**
@@ -83,7 +83,7 @@ export class ChannelNamespace extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+     * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See `publishAuthMode` below.
      */
     declare public readonly publishAuthModes: pulumi.Output<outputs.appsync.ChannelNamespacePublishAuthMode[] | undefined>;
     /**
@@ -91,7 +91,7 @@ export class ChannelNamespace extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+     * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See `subscribeAuthMode` below.
      */
     declare public readonly subscribeAuthModes: pulumi.Output<outputs.appsync.ChannelNamespaceSubscribeAuthMode[] | undefined>;
     /**
@@ -164,7 +164,7 @@ export interface ChannelNamespaceState {
      */
     codeHandlers?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
+     * Configuration for the `onPublish` and `onSubscribe` handlers. See `handlerConfigs` below.
      */
     handlerConfigs?: pulumi.Input<inputs.appsync.ChannelNamespaceHandlerConfigs | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface ChannelNamespaceState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+     * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See `publishAuthMode` below.
      */
     publishAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespacePublishAuthMode>[] | undefined>;
     /**
@@ -182,7 +182,7 @@ export interface ChannelNamespaceState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+     * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See `subscribeAuthMode` below.
      */
     subscribeAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespaceSubscribeAuthMode>[] | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface ChannelNamespaceArgs {
      */
     codeHandlers?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
+     * Configuration for the `onPublish` and `onSubscribe` handlers. See `handlerConfigs` below.
      */
     handlerConfigs?: pulumi.Input<inputs.appsync.ChannelNamespaceHandlerConfigs | undefined>;
     /**
@@ -218,7 +218,7 @@ export interface ChannelNamespaceArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+     * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See `publishAuthMode` below.
      */
     publishAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespacePublishAuthMode>[] | undefined>;
     /**
@@ -226,7 +226,7 @@ export interface ChannelNamespaceArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+     * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See `subscribeAuthMode` below.
      */
     subscribeAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespaceSubscribeAuthMode>[] | undefined>;
     /**

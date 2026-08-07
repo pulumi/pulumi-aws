@@ -124,11 +124,11 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     }
 
     /**
-     * The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
+     * ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
      */
     declare public readonly activeDirectoryId: pulumi.Output<string | undefined>;
     /**
-     * An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+     * Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
      */
     declare public readonly aliases: pulumi.Output<string[] | undefined>;
     /**
@@ -136,31 +136,31 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
+     * Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      */
     declare public readonly auditLogConfiguration: pulumi.Output<outputs.fsx.WindowsFileSystemAuditLogConfiguration>;
     /**
-     * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+     * Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
     declare public readonly automaticBackupRetentionDays: pulumi.Output<number | undefined>;
     /**
-     * The ID of the source backup to create the filesystem from.
+     * ID of the source backup to create the filesystem from.
      */
     declare public readonly backupId: pulumi.Output<string | undefined>;
     /**
-     * A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+     * Whether to copy tags on the file system to backups. Defaults to `false`.
      */
     declare public readonly copyTagsToBackups: pulumi.Output<boolean | undefined>;
     /**
-     * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+     * Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      */
     declare public readonly dailyAutomaticBackupStartTime: pulumi.Output<string>;
     /**
-     * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+     * File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      */
     declare public readonly deploymentType: pulumi.Output<string | undefined>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
+     * SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      */
     declare public readonly diskIopsConfiguration: pulumi.Output<outputs.fsx.WindowsFileSystemDiskIopsConfiguration>;
     /**
@@ -168,7 +168,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
-     * A map of tags to apply to the file system's final backup.
+     * Map of tags to apply to the file system's final backup.
      */
     declare public readonly finalBackupTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -184,11 +184,11 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
-     * The IP address of the primary, or preferred, file server.
+     * IP address of the primary, or preferred, file server.
      */
     declare public /*out*/ readonly preferredFileServerIp: pulumi.Output<string>;
     /**
-     * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+     * Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      */
     declare public readonly preferredSubnetId: pulumi.Output<string>;
     /**
@@ -200,7 +200,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly remoteAdministrationEndpoint: pulumi.Output<string>;
     /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
     declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
@@ -216,19 +216,19 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     declare public readonly storageCapacity: pulumi.Output<number>;
     /**
-     * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+     * Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      */
     declare public readonly storageType: pulumi.Output<string | undefined>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
+     * List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
      */
     declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -242,7 +242,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
     declare public readonly weeklyMaintenanceStartTime: pulumi.Output<string>;
 
@@ -338,11 +338,11 @@ export class WindowsFileSystem extends pulumi.CustomResource {
  */
 export interface WindowsFileSystemState {
     /**
-     * The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
+     * ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
      */
     activeDirectoryId?: pulumi.Input<string | undefined>;
     /**
-     * An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+     * Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
      */
     aliases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -350,31 +350,31 @@ export interface WindowsFileSystemState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
+     * Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      */
     auditLogConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemAuditLogConfiguration | undefined>;
     /**
-     * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+     * Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
     automaticBackupRetentionDays?: pulumi.Input<number | undefined>;
     /**
-     * The ID of the source backup to create the filesystem from.
+     * ID of the source backup to create the filesystem from.
      */
     backupId?: pulumi.Input<string | undefined>;
     /**
-     * A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+     * Whether to copy tags on the file system to backups. Defaults to `false`.
      */
     copyTagsToBackups?: pulumi.Input<boolean | undefined>;
     /**
-     * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+     * Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+     * File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      */
     deploymentType?: pulumi.Input<string | undefined>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
+     * SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      */
     diskIopsConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemDiskIopsConfiguration | undefined>;
     /**
@@ -382,7 +382,7 @@ export interface WindowsFileSystemState {
      */
     dnsName?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to apply to the file system's final backup.
+     * Map of tags to apply to the file system's final backup.
      */
     finalBackupTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -398,11 +398,11 @@ export interface WindowsFileSystemState {
      */
     ownerId?: pulumi.Input<string | undefined>;
     /**
-     * The IP address of the primary, or preferred, file server.
+     * IP address of the primary, or preferred, file server.
      */
     preferredFileServerIp?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+     * Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      */
     preferredSubnetId?: pulumi.Input<string | undefined>;
     /**
@@ -414,7 +414,7 @@ export interface WindowsFileSystemState {
      */
     remoteAdministrationEndpoint?: pulumi.Input<string | undefined>;
     /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -430,19 +430,19 @@ export interface WindowsFileSystemState {
      */
     storageCapacity?: pulumi.Input<number | undefined>;
     /**
-     * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+     * Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      */
     storageType?: pulumi.Input<string | undefined>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
+     * List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -456,7 +456,7 @@ export interface WindowsFileSystemState {
      */
     vpcId?: pulumi.Input<string | undefined>;
     /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
     weeklyMaintenanceStartTime?: pulumi.Input<string | undefined>;
 }
@@ -466,43 +466,43 @@ export interface WindowsFileSystemState {
  */
 export interface WindowsFileSystemArgs {
     /**
-     * The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
+     * ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
      */
     activeDirectoryId?: pulumi.Input<string | undefined>;
     /**
-     * An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+     * Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
      */
     aliases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
+     * Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      */
     auditLogConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemAuditLogConfiguration | undefined>;
     /**
-     * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+     * Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
     automaticBackupRetentionDays?: pulumi.Input<number | undefined>;
     /**
-     * The ID of the source backup to create the filesystem from.
+     * ID of the source backup to create the filesystem from.
      */
     backupId?: pulumi.Input<string | undefined>;
     /**
-     * A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+     * Whether to copy tags on the file system to backups. Defaults to `false`.
      */
     copyTagsToBackups?: pulumi.Input<boolean | undefined>;
     /**
-     * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+     * Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+     * File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      */
     deploymentType?: pulumi.Input<string | undefined>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
+     * SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      */
     diskIopsConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemDiskIopsConfiguration | undefined>;
     /**
-     * A map of tags to apply to the file system's final backup.
+     * Map of tags to apply to the file system's final backup.
      */
     finalBackupTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -510,7 +510,7 @@ export interface WindowsFileSystemArgs {
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+     * Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      */
     preferredSubnetId?: pulumi.Input<string | undefined>;
     /**
@@ -518,7 +518,7 @@ export interface WindowsFileSystemArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -534,15 +534,15 @@ export interface WindowsFileSystemArgs {
      */
     storageCapacity?: pulumi.Input<number | undefined>;
     /**
-     * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+     * Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      */
     storageType?: pulumi.Input<string | undefined>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
+     * List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -552,7 +552,7 @@ export interface WindowsFileSystemArgs {
      */
     throughputCapacity: pulumi.Input<number>;
     /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
     weeklyMaintenanceStartTime?: pulumi.Input<string | undefined>;
 }

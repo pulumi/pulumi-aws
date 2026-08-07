@@ -17,7 +17,7 @@ public final class ListenerRuleConditionHostHeader {
      */
     private @Nullable List<String> regexValues;
     /**
-     * @return List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+     * @return List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. To match host headers containing a non-standard port (for example, `example.com:8443`), use `regexValues`. Conflicts with `regexValues`.
      * 
      */
     private @Nullable List<String> values;
@@ -31,7 +31,7 @@ public final class ListenerRuleConditionHostHeader {
         return this.regexValues == null ? List.of() : this.regexValues;
     }
     /**
-     * @return List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+     * @return List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. To match host headers containing a non-standard port (for example, `example.com:8443`), use `regexValues`. Conflicts with `regexValues`.
      * 
      */
     public List<String> values() {

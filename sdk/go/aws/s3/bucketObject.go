@@ -243,6 +243,8 @@ import (
 //
 // ```
 //
+// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+//
 // ## Import
 //
 // ### Identity Schema
@@ -279,7 +281,7 @@ type BucketObject struct {
 	Acl pulumi.StringPtrOutput `pulumi:"acl"`
 	// ARN of the object.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` resource instead.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled pulumi.BoolOutput `pulumi:"bucketKeyEnabled"`
@@ -301,7 +303,7 @@ type BucketObject struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
-	// Name of the object once it is in the bucket.
+	// Name of the object once it is in the bucket. Use the `s3.BucketObjectv2` resource instead.
 	//
 	// The following arguments are optional:
 	Key pulumi.StringOutput `pulumi:"key"`
@@ -332,8 +334,6 @@ type BucketObject struct {
 	// Unique version ID value for the object, if bucket versioning is enabled.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-	//
-	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	//
 	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect pulumi.StringPtrOutput `pulumi:"websiteRedirect"`
@@ -376,7 +376,7 @@ type bucketObjectState struct {
 	Acl *string `pulumi:"acl"`
 	// ARN of the object.
 	Arn *string `pulumi:"arn"`
-	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` resource instead.
 	Bucket interface{} `pulumi:"bucket"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
@@ -398,7 +398,7 @@ type bucketObjectState struct {
 	Etag *string `pulumi:"etag"`
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// Name of the object once it is in the bucket.
+	// Name of the object once it is in the bucket. Use the `s3.BucketObjectv2` resource instead.
 	//
 	// The following arguments are optional:
 	Key *string `pulumi:"key"`
@@ -430,8 +430,6 @@ type bucketObjectState struct {
 	VersionId *string `pulumi:"versionId"`
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
-	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
-	//
 	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
@@ -441,7 +439,7 @@ type BucketObjectState struct {
 	Acl pulumi.StringPtrInput
 	// ARN of the object.
 	Arn pulumi.StringPtrInput
-	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` resource instead.
 	Bucket pulumi.Input
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled pulumi.BoolPtrInput
@@ -463,7 +461,7 @@ type BucketObjectState struct {
 	Etag pulumi.StringPtrInput
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
-	// Name of the object once it is in the bucket.
+	// Name of the object once it is in the bucket. Use the `s3.BucketObjectv2` resource instead.
 	//
 	// The following arguments are optional:
 	Key pulumi.StringPtrInput
@@ -495,8 +493,6 @@ type BucketObjectState struct {
 	VersionId pulumi.StringPtrInput
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
-	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
-	//
 	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect pulumi.StringPtrInput
 }
@@ -508,7 +504,7 @@ func (BucketObjectState) ElementType() reflect.Type {
 type bucketObjectArgs struct {
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
 	Acl *string `pulumi:"acl"`
-	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` resource instead.
 	Bucket interface{} `pulumi:"bucket"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
@@ -530,7 +526,7 @@ type bucketObjectArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// Name of the object once it is in the bucket.
+	// Name of the object once it is in the bucket. Use the `s3.BucketObjectv2` resource instead.
 	//
 	// The following arguments are optional:
 	Key *string `pulumi:"key"`
@@ -558,8 +554,6 @@ type bucketObjectArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
-	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
-	//
 	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
@@ -568,7 +562,7 @@ type bucketObjectArgs struct {
 type BucketObjectArgs struct {
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
 	Acl pulumi.StringPtrInput
-	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` resource instead.
 	Bucket pulumi.Input
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled pulumi.BoolPtrInput
@@ -590,7 +584,7 @@ type BucketObjectArgs struct {
 	Etag pulumi.StringPtrInput
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
-	// Name of the object once it is in the bucket.
+	// Name of the object once it is in the bucket. Use the `s3.BucketObjectv2` resource instead.
 	//
 	// The following arguments are optional:
 	Key pulumi.StringPtrInput
@@ -617,8 +611,6 @@ type BucketObjectArgs struct {
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-	//
-	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	//
 	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	WebsiteRedirect pulumi.StringPtrInput
@@ -721,7 +713,7 @@ func (o BucketObjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObject) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` resource instead.
 func (o BucketObjectOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObject) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
@@ -776,7 +768,7 @@ func (o BucketObjectOutput) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BucketObject) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the object once it is in the bucket.
+// Name of the object once it is in the bucket. Use the `s3.BucketObjectv2` resource instead.
 //
 // The following arguments are optional:
 func (o BucketObjectOutput) Key() pulumi.StringOutput {
@@ -849,8 +841,6 @@ func (o BucketObjectOutput) VersionId() pulumi.StringOutput {
 }
 
 // Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-//
-// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 //
 // > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 func (o BucketObjectOutput) WebsiteRedirect() pulumi.StringPtrOutput {

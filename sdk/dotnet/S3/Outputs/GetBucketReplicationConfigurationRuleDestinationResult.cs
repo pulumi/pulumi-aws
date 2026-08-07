@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3.Outputs
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationResult> AccessControlTranslations;
         public readonly string Account;
         /// <summary>
-        /// The name of the bucket to get the replication configuration for.
+        /// Name of the bucket to get the replication configuration for.
         /// </summary>
         public readonly string Bucket;
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationResult> EncryptionConfigurations;

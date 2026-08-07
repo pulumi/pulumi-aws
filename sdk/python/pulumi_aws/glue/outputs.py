@@ -38,6 +38,8 @@ __all__ = [
     'CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder',
     'CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField',
     'CatalogTableOptimizerConfiguration',
+    'CatalogTableOptimizerConfigurationCompactionConfiguration',
+    'CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration',
     'CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration',
     'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration',
     'CatalogTableOptimizerConfigurationRetentionConfiguration',
@@ -1374,6 +1376,8 @@ class CatalogTableOptimizerConfiguration(dict):
         suggest = None
         if key == "roleArn":
             suggest = "role_arn"
+        elif key == "compactionConfiguration":
+            suggest = "compaction_configuration"
         elif key == "orphanFileDeletionConfiguration":
             suggest = "orphan_file_deletion_configuration"
         elif key == "retentionConfiguration":
@@ -1393,16 +1397,20 @@ class CatalogTableOptimizerConfiguration(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool,
                  role_arn: _builtins.str,
+                 compaction_configuration: Optional['outputs.CatalogTableOptimizerConfigurationCompactionConfiguration'] = None,
                  orphan_file_deletion_configuration: Optional['outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration'] = None,
                  retention_configuration: Optional['outputs.CatalogTableOptimizerConfigurationRetentionConfiguration'] = None):
         """
         :param _builtins.bool enabled: Indicates whether the table optimizer is enabled.
         :param _builtins.str role_arn: The ARN of the IAM role to use for the table optimizer.
+        :param 'CatalogTableOptimizerConfigurationCompactionConfigurationArgs' compaction_configuration: The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
         :param 'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs' orphan_file_deletion_configuration: The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
         :param 'CatalogTableOptimizerConfigurationRetentionConfigurationArgs' retention_configuration: The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "role_arn", role_arn)
+        if compaction_configuration is not None:
+            pulumi.set(__self__, "compaction_configuration", compaction_configuration)
         if orphan_file_deletion_configuration is not None:
             pulumi.set(__self__, "orphan_file_deletion_configuration", orphan_file_deletion_configuration)
         if retention_configuration is not None:
@@ -1425,6 +1433,14 @@ class CatalogTableOptimizerConfiguration(dict):
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
+    @pulumi.getter(name="compactionConfiguration")
+    def compaction_configuration(self) -> Optional['outputs.CatalogTableOptimizerConfigurationCompactionConfiguration']:
+        """
+        The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+        """
+        return pulumi.get(self, "compaction_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="orphanFileDeletionConfiguration")
     def orphan_file_deletion_configuration(self) -> Optional['outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration']:
         """
@@ -1439,6 +1455,104 @@ class CatalogTableOptimizerConfiguration(dict):
         The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
         """
         return pulumi.get(self, "retention_configuration")
+
+
+@pulumi.output_type
+class CatalogTableOptimizerConfigurationCompactionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "icebergConfiguration":
+            suggest = "iceberg_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOptimizerConfigurationCompactionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOptimizerConfigurationCompactionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOptimizerConfigurationCompactionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iceberg_configuration: Optional['outputs.CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration'] = None):
+        """
+        :param 'CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs' iceberg_configuration: The configuration for an Iceberg compaction optimizer.
+        """
+        if iceberg_configuration is not None:
+            pulumi.set(__self__, "iceberg_configuration", iceberg_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="icebergConfiguration")
+    def iceberg_configuration(self) -> Optional['outputs.CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration']:
+        """
+        The configuration for an Iceberg compaction optimizer.
+        """
+        return pulumi.get(self, "iceberg_configuration")
+
+
+@pulumi.output_type
+class CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteFileThreshold":
+            suggest = "delete_file_threshold"
+        elif key == "minInputFiles":
+            suggest = "min_input_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delete_file_threshold: Optional[_builtins.int] = None,
+                 min_input_files: Optional[_builtins.int] = None,
+                 strategy: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int delete_file_threshold: The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+        :param _builtins.int min_input_files: The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+        :param _builtins.str strategy: The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+        """
+        if delete_file_threshold is not None:
+            pulumi.set(__self__, "delete_file_threshold", delete_file_threshold)
+        if min_input_files is not None:
+            pulumi.set(__self__, "min_input_files", min_input_files)
+        if strategy is not None:
+            pulumi.set(__self__, "strategy", strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="deleteFileThreshold")
+    def delete_file_threshold(self) -> Optional[_builtins.int]:
+        """
+        The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+        """
+        return pulumi.get(self, "delete_file_threshold")
+
+    @_builtins.property
+    @pulumi.getter(name="minInputFiles")
+    def min_input_files(self) -> Optional[_builtins.int]:
+        """
+        The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+        """
+        return pulumi.get(self, "min_input_files")
+
+    @_builtins.property
+    @pulumi.getter
+    def strategy(self) -> Optional[_builtins.str]:
+        """
+        The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+        """
+        return pulumi.get(self, "strategy")
 
 
 @pulumi.output_type

@@ -17,14 +17,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs();
 
     /**
-     * Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+     * Whether Amazon AppFlow aggregates the flow records into a single file, or leaves them unaggregated. Valid values are `None` and `SingleFile`.
      * 
      */
     @Import(name="aggregationType")
     private @Nullable Output<String> aggregationType;
 
     /**
-     * @return Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+     * @return Whether Amazon AppFlow aggregates the flow records into a single file, or leaves them unaggregated. Valid values are `None` and `SingleFile`.
      * 
      */
     public Optional<Output<String>> aggregationType() {
@@ -32,14 +32,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     }
 
     /**
-     * The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+     * Desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination.
      * 
      */
     @Import(name="targetFileSize")
     private @Nullable Output<Integer> targetFileSize;
 
     /**
-     * @return The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+     * @return Desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination.
      * 
      */
     public Optional<Output<Integer>> targetFileSize() {
@@ -72,7 +72,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param aggregationType Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+         * @param aggregationType Whether Amazon AppFlow aggregates the flow records into a single file, or leaves them unaggregated. Valid values are `None` and `SingleFile`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param aggregationType Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+         * @param aggregationType Whether Amazon AppFlow aggregates the flow records into a single file, or leaves them unaggregated. Valid values are `None` and `SingleFile`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param targetFileSize The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+         * @param targetFileSize Desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param targetFileSize The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+         * @param targetFileSize Desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination.
          * 
          * @return builder
          * 

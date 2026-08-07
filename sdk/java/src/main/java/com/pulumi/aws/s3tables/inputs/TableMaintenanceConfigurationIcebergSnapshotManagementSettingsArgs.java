@@ -15,16 +15,14 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
     public static final TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs Empty = new TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs();
 
     /**
-     * Snapshots older than this will be marked for deletion.
-     * Must be at least `1`.
+     * Snapshots older than this will be marked for deletion. Must be at least `1`.
      * 
      */
     @Import(name="maxSnapshotAgeHours", required=true)
     private Output<Integer> maxSnapshotAgeHours;
 
     /**
-     * @return Snapshots older than this will be marked for deletion.
-     * Must be at least `1`.
+     * @return Snapshots older than this will be marked for deletion. Must be at least `1`.
      * 
      */
     public Output<Integer> maxSnapshotAgeHours() {
@@ -32,16 +30,14 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
     }
 
     /**
-     * Minimum number of snapshots to keep.
-     * Must be at least `1`.
+     * Minimum number of snapshots to keep. Must be at least `1`.
      * 
      */
     @Import(name="minSnapshotsToKeep", required=true)
     private Output<Integer> minSnapshotsToKeep;
 
     /**
-     * @return Minimum number of snapshots to keep.
-     * Must be at least `1`.
+     * @return Minimum number of snapshots to keep. Must be at least `1`.
      * 
      */
     public Output<Integer> minSnapshotsToKeep() {
@@ -74,8 +70,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
         }
 
         /**
-         * @param maxSnapshotAgeHours Snapshots older than this will be marked for deletion.
-         * Must be at least `1`.
+         * @param maxSnapshotAgeHours Snapshots older than this will be marked for deletion. Must be at least `1`.
          * 
          * @return builder
          * 
@@ -86,8 +81,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
         }
 
         /**
-         * @param maxSnapshotAgeHours Snapshots older than this will be marked for deletion.
-         * Must be at least `1`.
+         * @param maxSnapshotAgeHours Snapshots older than this will be marked for deletion. Must be at least `1`.
          * 
          * @return builder
          * 
@@ -97,8 +91,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
         }
 
         /**
-         * @param minSnapshotsToKeep Minimum number of snapshots to keep.
-         * Must be at least `1`.
+         * @param minSnapshotsToKeep Minimum number of snapshots to keep. Must be at least `1`.
          * 
          * @return builder
          * 
@@ -109,8 +102,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
         }
 
         /**
-         * @param minSnapshotsToKeep Minimum number of snapshots to keep.
-         * Must be at least `1`.
+         * @param minSnapshotsToKeep Minimum number of snapshots to keep. Must be at least `1`.
          * 
          * @return builder
          * 

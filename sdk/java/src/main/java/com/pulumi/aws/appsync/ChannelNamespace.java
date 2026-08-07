@@ -112,14 +112,14 @@ public class ChannelNamespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.codeHandlers);
     }
     /**
-     * Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
+     * Configuration for the `onPublish` and `onSubscribe` handlers. See `handlerConfigs` below.
      * 
      */
     @Export(name="handlerConfigs", refs={ChannelNamespaceHandlerConfigs.class}, tree="[0]")
     private Output</* @Nullable */ ChannelNamespaceHandlerConfigs> handlerConfigs;
 
     /**
-     * @return Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
+     * @return Configuration for the `onPublish` and `onSubscribe` handlers. See `handlerConfigs` below.
      * 
      */
     public Output<Optional<ChannelNamespaceHandlerConfigs>> handlerConfigs() {
@@ -144,14 +144,14 @@ public class ChannelNamespace extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+     * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See `publishAuthMode` below.
      * 
      */
     @Export(name="publishAuthModes", refs={List.class,ChannelNamespacePublishAuthMode.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ChannelNamespacePublishAuthMode>> publishAuthModes;
 
     /**
-     * @return Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+     * @return Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See `publishAuthMode` below.
      * 
      */
     public Output<Optional<List<ChannelNamespacePublishAuthMode>>> publishAuthModes() {
@@ -172,14 +172,14 @@ public class ChannelNamespace extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+     * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See `subscribeAuthMode` below.
      * 
      */
     @Export(name="subscribeAuthModes", refs={List.class,ChannelNamespaceSubscribeAuthMode.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ChannelNamespaceSubscribeAuthMode>> subscribeAuthModes;
 
     /**
-     * @return Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+     * @return Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See `subscribeAuthMode` below.
      * 
      */
     public Output<Optional<List<ChannelNamespaceSubscribeAuthMode>>> subscribeAuthModes() {

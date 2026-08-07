@@ -2487,7 +2487,7 @@ func (o EventSourceMappingFilterCriteriaFilterArrayOutput) Index(i pulumi.IntInp
 }
 
 type EventSourceMappingMetricsConfig struct {
-	// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+	// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`, `ErrorCount`, `KafkaMetrics`.
 	Metrics []string `pulumi:"metrics"`
 }
 
@@ -2503,7 +2503,7 @@ type EventSourceMappingMetricsConfigInput interface {
 }
 
 type EventSourceMappingMetricsConfigArgs struct {
-	// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+	// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`, `ErrorCount`, `KafkaMetrics`.
 	Metrics pulumi.StringArrayInput `pulumi:"metrics"`
 }
 
@@ -2584,7 +2584,7 @@ func (o EventSourceMappingMetricsConfigOutput) ToEventSourceMappingMetricsConfig
 	}).(EventSourceMappingMetricsConfigPtrOutput)
 }
 
-// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`, `ErrorCount`, `KafkaMetrics`.
 func (o EventSourceMappingMetricsConfigOutput) Metrics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSourceMappingMetricsConfig) []string { return v.Metrics }).(pulumi.StringArrayOutput)
 }
@@ -2613,7 +2613,7 @@ func (o EventSourceMappingMetricsConfigPtrOutput) Elem() EventSourceMappingMetri
 	}).(EventSourceMappingMetricsConfigOutput)
 }
 
-// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`, `ErrorCount`, `KafkaMetrics`.
 func (o EventSourceMappingMetricsConfigPtrOutput) Metrics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSourceMappingMetricsConfig) []string {
 		if v == nil {

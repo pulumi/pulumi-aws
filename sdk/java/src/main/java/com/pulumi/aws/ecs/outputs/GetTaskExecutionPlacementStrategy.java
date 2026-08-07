@@ -13,30 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetTaskExecutionPlacementStrategy {
     /**
-     * @return The field to apply the placement strategy against.
+     * @return Field to apply the placement strategy against.
      * 
      */
     private @Nullable String field;
     /**
-     * @return The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-     * 
-     * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+     * @return Type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
      * 
      */
     private String type;
 
     private GetTaskExecutionPlacementStrategy() {}
     /**
-     * @return The field to apply the placement strategy against.
+     * @return Field to apply the placement strategy against.
      * 
      */
     public Optional<String> field() {
         return Optional.ofNullable(this.field);
     }
     /**
-     * @return The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-     * 
-     * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+     * @return Type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
      * 
      */
     public String type() {

@@ -15,14 +15,14 @@ public final class AppAuthorizationCredentialOauth2CredentialArgs extends com.pu
     public static final AppAuthorizationCredentialOauth2CredentialArgs Empty = new AppAuthorizationCredentialOauth2CredentialArgs();
 
     /**
-     * The client ID of the client application.
+     * Client ID of the client application.
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The client ID of the client application.
+     * @return Client ID of the client application.
      * 
      */
     public Output<String> clientId() {
@@ -30,14 +30,14 @@ public final class AppAuthorizationCredentialOauth2CredentialArgs extends com.pu
     }
 
     /**
-     * The client secret of the client application.
+     * Client secret of the client application.
      * 
      */
     @Import(name="clientSecret", required=true)
     private Output<String> clientSecret;
 
     /**
-     * @return The client secret of the client application.
+     * @return Client secret of the client application.
      * 
      */
     public Output<String> clientSecret() {
@@ -70,7 +70,7 @@ public final class AppAuthorizationCredentialOauth2CredentialArgs extends com.pu
         }
 
         /**
-         * @param clientId The client ID of the client application.
+         * @param clientId Client ID of the client application.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class AppAuthorizationCredentialOauth2CredentialArgs extends com.pu
         }
 
         /**
-         * @param clientId The client ID of the client application.
+         * @param clientId Client ID of the client application.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class AppAuthorizationCredentialOauth2CredentialArgs extends com.pu
         }
 
         /**
-         * @param clientSecret The client secret of the client application.
+         * @param clientSecret Client secret of the client application.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class AppAuthorizationCredentialOauth2CredentialArgs extends com.pu
         }
 
         /**
-         * @param clientSecret The client secret of the client application.
+         * @param clientSecret Client secret of the client application.
          * 
          * @return builder
          * 

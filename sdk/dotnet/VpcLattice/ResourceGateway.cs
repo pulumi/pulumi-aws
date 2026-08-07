@@ -120,7 +120,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> IpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+        /// Number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
         /// </summary>
         [Output("ipv4AddressesPerEni")]
         public Output<int> Ipv4AddressesPerEni { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+        /// How DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
         /// </summary>
         [Output("resourceConfigDnsResolution")]
         public Output<string> ResourceConfigDnsResolution { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+        /// Number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
         /// </summary>
         [Input("ipv4AddressesPerEni")]
         public Input<int>? Ipv4AddressesPerEni { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+        /// How DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
         /// </summary>
         [Input("resourceConfigDnsResolution")]
         public Input<string>? ResourceConfigDnsResolution { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+        /// Number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
         /// </summary>
         [Input("ipv4AddressesPerEni")]
         public Input<int>? Ipv4AddressesPerEni { get; set; }
@@ -346,7 +346,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+        /// How DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
         /// </summary>
         [Input("resourceConfigDnsResolution")]
         public Input<string>? ResourceConfigDnsResolution { get; set; }

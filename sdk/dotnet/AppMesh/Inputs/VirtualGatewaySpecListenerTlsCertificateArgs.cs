@@ -13,19 +13,16 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualGatewaySpecListenerTlsCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An AWS Certificate Manager (ACM) certificate.
+        /// AWS Certificate Manager (ACM) certificate.
         /// </summary>
         [Input("acm")]
         public Input<Inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs>? Acm { get; set; }
 
-        /// <summary>
-        /// Local file certificate.
-        /// </summary>
         [Input("file")]
         public Input<Inputs.VirtualGatewaySpecListenerTlsCertificateFileArgs>? File { get; set; }
 
         /// <summary>
-        /// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        /// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         /// </summary>
         [Input("sds")]
         public Input<Inputs.VirtualGatewaySpecListenerTlsCertificateSdsArgs>? Sds { get; set; }

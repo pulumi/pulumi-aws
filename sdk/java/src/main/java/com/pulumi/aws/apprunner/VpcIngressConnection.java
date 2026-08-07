@@ -77,56 +77,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apprunner/vpcIngressConnection:VpcIngressConnection")
 public class VpcIngressConnection extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the VPC Ingress Connection.
+     * Amazon Resource Name (ARN) of the VPC Ingress Connection.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the VPC Ingress Connection.
+     * @return Amazon Resource Name (ARN) of the VPC Ingress Connection.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The domain name associated with the VPC Ingress Connection resource.
+     * Domain name associated with the VPC Ingress Connection resource.
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
-     * @return The domain name associated with the VPC Ingress Connection resource.
+     * @return Domain name associated with the VPC Ingress Connection resource.
      * 
      */
     public Output<String> domainName() {
         return this.domainName;
     }
     /**
-     * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+     * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
      * 
      */
     @Export(name="ingressVpcConfiguration", refs={VpcIngressConnectionIngressVpcConfiguration.class}, tree="[0]")
     private Output<VpcIngressConnectionIngressVpcConfiguration> ingressVpcConfiguration;
 
     /**
-     * @return Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+     * @return Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
      * 
      */
     public Output<VpcIngressConnectionIngressVpcConfiguration> ingressVpcConfiguration() {
         return this.ingressVpcConfiguration;
     }
     /**
-     * A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+     * Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+     * @return Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      * 
      */
     public Output<String> name() {
@@ -147,28 +147,28 @@ public class VpcIngressConnection extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+     * Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      * 
      */
     @Export(name="serviceArn", refs={String.class}, tree="[0]")
     private Output<String> serviceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+     * @return Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      * 
      */
     public Output<String> serviceArn() {
         return this.serviceArn;
     }
     /**
-     * The current status of the VPC Ingress Connection.
+     * Current status of the VPC Ingress Connection.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The current status of the VPC Ingress Connection.
+     * @return Current status of the VPC Ingress Connection.
      * 
      */
     public Output<String> status() {

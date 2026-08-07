@@ -54,16 +54,14 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
     }
 
     /**
-     * Configuration block used to identify objects that a Lifecycle Rule applies to.
-     * See below.
+     * Configuration block used to identify objects that a Lifecycle Rule applies to. See below.
      * 
      */
     @Import(name="filter")
     private @Nullable Output<BucketLifecycleConfigurationV2RuleFilterArgs> filter;
 
     /**
-     * @return Configuration block used to identify objects that a Lifecycle Rule applies to.
-     * See below.
+     * @return Configuration block used to identify objects that a Lifecycle Rule applies to. See below.
      * 
      */
     public Optional<Output<BucketLifecycleConfigurationV2RuleFilterArgs>> filter() {
@@ -116,9 +114,7 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
     }
 
     /**
-     * **DEPRECATED** Use `filter` instead.
-     * This has been deprecated by Amazon S3.
-     * Prefix identifying one or more objects to which the rule applies.
+     * Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
      * 
      * @deprecated
      * Specify a prefix using &#39;filter&#39; instead
@@ -129,9 +125,7 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
     private @Nullable Output<String> prefix;
 
     /**
-     * @return **DEPRECATED** Use `filter` instead.
-     * This has been deprecated by Amazon S3.
-     * Prefix identifying one or more objects to which the rule applies.
+     * @return Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
      * 
      * @deprecated
      * Specify a prefix using &#39;filter&#39; instead
@@ -247,8 +241,7 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param filter Configuration block used to identify objects that a Lifecycle Rule applies to.
-         * See below.
+         * @param filter Configuration block used to identify objects that a Lifecycle Rule applies to. See below.
          * 
          * @return builder
          * 
@@ -259,8 +252,7 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param filter Configuration block used to identify objects that a Lifecycle Rule applies to.
-         * See below.
+         * @param filter Configuration block used to identify objects that a Lifecycle Rule applies to. See below.
          * 
          * @return builder
          * 
@@ -343,9 +335,7 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param prefix **DEPRECATED** Use `filter` instead.
-         * This has been deprecated by Amazon S3.
-         * Prefix identifying one or more objects to which the rule applies.
+         * @param prefix Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
          * 
          * @return builder
          * 
@@ -360,9 +350,7 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param prefix **DEPRECATED** Use `filter` instead.
-         * This has been deprecated by Amazon S3.
-         * Prefix identifying one or more objects to which the rule applies.
+         * @param prefix Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
          * 
          * @return builder
          * 

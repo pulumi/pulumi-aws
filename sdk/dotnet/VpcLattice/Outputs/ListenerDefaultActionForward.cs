@@ -14,7 +14,7 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     public sealed class ListenerDefaultActionForward
     {
         /// <summary>
-        /// One or more target group blocks.
+        /// One or more target group blocks. See `TargetGroups` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ListenerDefaultActionForwardTargetGroup> TargetGroups;
 

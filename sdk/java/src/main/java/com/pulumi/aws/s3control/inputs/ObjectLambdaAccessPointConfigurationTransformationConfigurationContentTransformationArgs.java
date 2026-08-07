@@ -15,14 +15,14 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
     public static final ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs Empty = new ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs();
 
     /**
-     * Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+     * Configuration for an AWS Lambda function. See `awsLambda` Block below for more details.
      * 
      */
     @Import(name="awsLambda", required=true)
     private Output<ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs> awsLambda;
 
     /**
-     * @return Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+     * @return Configuration for an AWS Lambda function. See `awsLambda` Block below for more details.
      * 
      */
     public Output<ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs> awsLambda() {
@@ -54,7 +54,7 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         }
 
         /**
-         * @param awsLambda Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+         * @param awsLambda Configuration for an AWS Lambda function. See `awsLambda` Block below for more details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         }
 
         /**
-         * @param awsLambda Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+         * @param awsLambda Configuration for an AWS Lambda function. See `awsLambda` Block below for more details.
          * 
          * @return builder
          * 

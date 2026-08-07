@@ -34,28 +34,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/usagePlan:UsagePlan")
 public class UsagePlan extends com.pulumi.resources.CustomResource {
     /**
-     * Associated API stages of the usage plan.
+     * Associated API stages of the usage plan. See `apiStages` Block below.
      * 
      */
     @Export(name="apiStages", refs={List.class,UsagePlanApiStage.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UsagePlanApiStage>> apiStages;
 
     /**
-     * @return Associated API stages of the usage plan.
+     * @return Associated API stages of the usage plan. See `apiStages` Block below.
      * 
      */
     public Output<Optional<List<UsagePlanApiStage>>> apiStages() {
         return Codegen.optional(this.apiStages);
     }
     /**
-     * ARN
+     * ARN of the usage plan.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN
+     * @return ARN of the usage plan.
      * 
      */
     public Output<String> arn() {
@@ -104,14 +104,14 @@ public class UsagePlan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.productCode);
     }
     /**
-     * The quota settings of the usage plan.
+     * Quota settings of the usage plan. See `quotaSettings` Block below.
      * 
      */
     @Export(name="quotaSettings", refs={UsagePlanQuotaSettings.class}, tree="[0]")
     private Output</* @Nullable */ UsagePlanQuotaSettings> quotaSettings;
 
     /**
-     * @return The quota settings of the usage plan.
+     * @return Quota settings of the usage plan. See `quotaSettings` Block below.
      * 
      */
     public Output<Optional<UsagePlanQuotaSettings>> quotaSettings() {
@@ -160,14 +160,14 @@ public class UsagePlan extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The throttling limits of the usage plan.
+     * Throttling limits of the usage plan. See `throttleSettings` Block below.
      * 
      */
     @Export(name="throttleSettings", refs={UsagePlanThrottleSettings.class}, tree="[0]")
     private Output</* @Nullable */ UsagePlanThrottleSettings> throttleSettings;
 
     /**
-     * @return The throttling limits of the usage plan.
+     * @return Throttling limits of the usage plan. See `throttleSettings` Block below.
      * 
      */
     public Output<Optional<UsagePlanThrottleSettings>> throttleSettings() {

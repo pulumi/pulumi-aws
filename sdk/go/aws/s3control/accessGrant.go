@@ -77,17 +77,17 @@ type AccessGrant struct {
 	AccessGrantArn pulumi.StringOutput `pulumi:"accessGrantArn"`
 	// Unique ID of the S3 Access Grant.
 	AccessGrantId pulumi.StringOutput `pulumi:"accessGrantId"`
-	// See Location Configuration below for more details.
+	// See `accessGrantsLocationConfiguration` Block below for more details.
 	AccessGrantsLocationConfiguration AccessGrantAccessGrantsLocationConfigurationPtrOutput `pulumi:"accessGrantsLocationConfiguration"`
-	// The ID of the S3 Access Grants location to with the access grant is giving access.
+	// ID of the S3 Access Grants location to with the access grant is giving access.
 	AccessGrantsLocationId pulumi.StringOutput `pulumi:"accessGrantsLocationId"`
-	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The access grant's scope.
+	// Access grant's scope.
 	GrantScope pulumi.StringOutput `pulumi:"grantScope"`
-	// See Grantee below for more details.
+	// See `grantee` Block below for more details.
 	Grantee AccessGrantGranteeOutput `pulumi:"grantee"`
-	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+	// Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission pulumi.StringOutput `pulumi:"permission"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -95,7 +95,7 @@ type AccessGrant struct {
 	S3PrefixType pulumi.StringPtrOutput `pulumi:"s3PrefixType"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -142,17 +142,17 @@ type accessGrantState struct {
 	AccessGrantArn *string `pulumi:"accessGrantArn"`
 	// Unique ID of the S3 Access Grant.
 	AccessGrantId *string `pulumi:"accessGrantId"`
-	// See Location Configuration below for more details.
+	// See `accessGrantsLocationConfiguration` Block below for more details.
 	AccessGrantsLocationConfiguration *AccessGrantAccessGrantsLocationConfiguration `pulumi:"accessGrantsLocationConfiguration"`
-	// The ID of the S3 Access Grants location to with the access grant is giving access.
+	// ID of the S3 Access Grants location to with the access grant is giving access.
 	AccessGrantsLocationId *string `pulumi:"accessGrantsLocationId"`
-	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// The access grant's scope.
+	// Access grant's scope.
 	GrantScope *string `pulumi:"grantScope"`
-	// See Grantee below for more details.
+	// See `grantee` Block below for more details.
 	Grantee *AccessGrantGrantee `pulumi:"grantee"`
-	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+	// Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission *string `pulumi:"permission"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -160,7 +160,7 @@ type accessGrantState struct {
 	S3PrefixType *string `pulumi:"s3PrefixType"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -169,17 +169,17 @@ type AccessGrantState struct {
 	AccessGrantArn pulumi.StringPtrInput
 	// Unique ID of the S3 Access Grant.
 	AccessGrantId pulumi.StringPtrInput
-	// See Location Configuration below for more details.
+	// See `accessGrantsLocationConfiguration` Block below for more details.
 	AccessGrantsLocationConfiguration AccessGrantAccessGrantsLocationConfigurationPtrInput
-	// The ID of the S3 Access Grants location to with the access grant is giving access.
+	// ID of the S3 Access Grants location to with the access grant is giving access.
 	AccessGrantsLocationId pulumi.StringPtrInput
-	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
-	// The access grant's scope.
+	// Access grant's scope.
 	GrantScope pulumi.StringPtrInput
-	// See Grantee below for more details.
+	// See `grantee` Block below for more details.
 	Grantee AccessGrantGranteePtrInput
-	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+	// Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -187,7 +187,7 @@ type AccessGrantState struct {
 	S3PrefixType pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -196,15 +196,15 @@ func (AccessGrantState) ElementType() reflect.Type {
 }
 
 type accessGrantArgs struct {
-	// See Location Configuration below for more details.
+	// See `accessGrantsLocationConfiguration` Block below for more details.
 	AccessGrantsLocationConfiguration *AccessGrantAccessGrantsLocationConfiguration `pulumi:"accessGrantsLocationConfiguration"`
-	// The ID of the S3 Access Grants location to with the access grant is giving access.
+	// ID of the S3 Access Grants location to with the access grant is giving access.
 	AccessGrantsLocationId string `pulumi:"accessGrantsLocationId"`
-	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// See Grantee below for more details.
+	// See `grantee` Block below for more details.
 	Grantee AccessGrantGrantee `pulumi:"grantee"`
-	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+	// Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission string `pulumi:"permission"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -216,15 +216,15 @@ type accessGrantArgs struct {
 
 // The set of arguments for constructing a AccessGrant resource.
 type AccessGrantArgs struct {
-	// See Location Configuration below for more details.
+	// See `accessGrantsLocationConfiguration` Block below for more details.
 	AccessGrantsLocationConfiguration AccessGrantAccessGrantsLocationConfigurationPtrInput
-	// The ID of the S3 Access Grants location to with the access grant is giving access.
+	// ID of the S3 Access Grants location to with the access grant is giving access.
 	AccessGrantsLocationId pulumi.StringInput
-	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
-	// See Grantee below for more details.
+	// See `grantee` Block below for more details.
 	Grantee AccessGrantGranteeInput
-	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+	// Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -331,34 +331,34 @@ func (o AccessGrantOutput) AccessGrantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.AccessGrantId }).(pulumi.StringOutput)
 }
 
-// See Location Configuration below for more details.
+// See `accessGrantsLocationConfiguration` Block below for more details.
 func (o AccessGrantOutput) AccessGrantsLocationConfiguration() AccessGrantAccessGrantsLocationConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccessGrant) AccessGrantAccessGrantsLocationConfigurationPtrOutput {
 		return v.AccessGrantsLocationConfiguration
 	}).(AccessGrantAccessGrantsLocationConfigurationPtrOutput)
 }
 
-// The ID of the S3 Access Grants location to with the access grant is giving access.
+// ID of the S3 Access Grants location to with the access grant is giving access.
 func (o AccessGrantOutput) AccessGrantsLocationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.AccessGrantsLocationId }).(pulumi.StringOutput)
 }
 
-// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o AccessGrantOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The access grant's scope.
+// Access grant's scope.
 func (o AccessGrantOutput) GrantScope() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.GrantScope }).(pulumi.StringOutput)
 }
 
-// See Grantee below for more details.
+// See `grantee` Block below for more details.
 func (o AccessGrantOutput) Grantee() AccessGrantGranteeOutput {
 	return o.ApplyT(func(v *AccessGrant) AccessGrantGranteeOutput { return v.Grantee }).(AccessGrantGranteeOutput)
 }
 
-// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+// Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 func (o AccessGrantOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.Permission }).(pulumi.StringOutput)
 }
@@ -378,7 +378,7 @@ func (o AccessGrantOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AccessGrantOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

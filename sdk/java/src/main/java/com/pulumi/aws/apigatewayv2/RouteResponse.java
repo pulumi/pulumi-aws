@@ -84,14 +84,14 @@ public class RouteResponse extends com.pulumi.resources.CustomResource {
         return this.apiId;
     }
     /**
-     * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+     * [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      * 
      */
     @Export(name="modelSelectionExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> modelSelectionExpression;
 
     /**
-     * @return The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+     * @return [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      * 
      */
     public Output<Optional<String>> modelSelectionExpression() {

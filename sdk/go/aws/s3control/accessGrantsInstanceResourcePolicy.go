@@ -78,9 +78,9 @@ import (
 type AccessGrantsInstanceResourcePolicy struct {
 	pulumi.CustomResourceState
 
-	// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The policy document.
+	// Policy document.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -119,18 +119,18 @@ func GetAccessGrantsInstanceResourcePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessGrantsInstanceResourcePolicy resources.
 type accessGrantsInstanceResourcePolicyState struct {
-	// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// The policy document.
+	// Policy document.
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type AccessGrantsInstanceResourcePolicyState struct {
-	// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
-	// The policy document.
+	// Policy document.
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -141,9 +141,9 @@ func (AccessGrantsInstanceResourcePolicyState) ElementType() reflect.Type {
 }
 
 type accessGrantsInstanceResourcePolicyArgs struct {
-	// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// The policy document.
+	// Policy document.
 	Policy string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -151,9 +151,9 @@ type accessGrantsInstanceResourcePolicyArgs struct {
 
 // The set of arguments for constructing a AccessGrantsInstanceResourcePolicy resource.
 type AccessGrantsInstanceResourcePolicyArgs struct {
-	// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
-	// The policy document.
+	// Policy document.
 	Policy pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -246,12 +246,12 @@ func (o AccessGrantsInstanceResourcePolicyOutput) ToAccessGrantsInstanceResource
 	return o
 }
 
-// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o AccessGrantsInstanceResourcePolicyOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsInstanceResourcePolicy) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The policy document.
+// Policy document.
 func (o AccessGrantsInstanceResourcePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsInstanceResourcePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

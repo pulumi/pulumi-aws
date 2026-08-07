@@ -93,6 +93,8 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * &gt; **Note:** If the `body` argument is provided, the OpenAPI specification will be used to configure the integrations and routes for the HTTP API, and the `aws.apigatewayv2.Integration` and `aws.apigatewayv2.Route` resources should not be managed as separate ones, as updates may cause manual resource updates to be overwritten. The `name`, `description`, `corsConfiguration`, `tags`, and `version` fields should be specified in the Terraform configuration and their values will override any values specified in the OpenAPI document.
+ * 
  * ## Import
  * 
  * ### Identity Schema
@@ -130,18 +132,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.apiEndpoint;
     }
     /**
-     * An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-     * Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
-     * Applicable for WebSocket APIs.
+     * [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`. Applicable for WebSocket APIs.
      * 
      */
     @Export(name="apiKeySelectionExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKeySelectionExpression;
 
     /**
-     * @return An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-     * Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
-     * Applicable for WebSocket APIs.
+     * @return [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`. Applicable for WebSocket APIs.
      * 
      */
     public Output<Optional<String>> apiKeySelectionExpression() {
@@ -162,28 +160,28 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+     * OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
      * 
      */
     @Export(name="body", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> body;
 
     /**
-     * @return An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+     * @return OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
      * 
      */
     public Output<Optional<String>> body() {
         return Codegen.optional(this.body);
     }
     /**
-     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs. See `corsConfiguration` Block below.
      * 
      */
     @Export(name="corsConfiguration", refs={ApiCorsConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ApiCorsConfiguration> corsConfiguration;
 
     /**
-     * @return Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+     * @return Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs. See `corsConfiguration` Block below.
      * 
      */
     public Output<Optional<ApiCorsConfiguration>> corsConfiguration() {
@@ -218,36 +216,28 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Whether clients can invoke the API by using the default `execute-api` endpoint.
-     * By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
-     * To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+     * Whether clients can invoke the API by using the default `execute-api` endpoint. By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`. To require that clients use a custom domain name to invoke the API, disable the default endpoint.
      * 
      */
     @Export(name="disableExecuteApiEndpoint", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableExecuteApiEndpoint;
 
     /**
-     * @return Whether clients can invoke the API by using the default `execute-api` endpoint.
-     * By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
-     * To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+     * @return Whether clients can invoke the API by using the default `execute-api` endpoint. By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`. To require that clients use a custom domain name to invoke the API, disable the default endpoint.
      * 
      */
     public Output<Optional<Boolean>> disableExecuteApiEndpoint() {
         return Codegen.optional(this.disableExecuteApiEndpoint);
     }
     /**
-     * ARN prefix to be used in an `aws.lambda.Permission`&#39;s `sourceArn` attribute
-     * or in an `aws.iam.Policy` to authorize access to the [`{@literal @}connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+     * ARN prefix to be used in an `aws.lambda.Permission`&#39;s `sourceArn` attribute or in an `aws.iam.Policy` to authorize access to the [`{@literal @}connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
     @Export(name="executionArn", refs={String.class}, tree="[0]")
     private Output<String> executionArn;
 
     /**
-     * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `sourceArn` attribute
-     * or in an `aws.iam.Policy` to authorize access to the [`{@literal @}connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+     * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `sourceArn` attribute or in an `aws.iam.Policy` to authorize access to the [`{@literal @}connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
     public Output<String> executionArn() {
@@ -268,14 +258,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.failOnWarnings);
     }
     /**
-     * The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+     * IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
      * 
      */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output<String> ipAddressType;
 
     /**
-     * @return The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+     * @return IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
      * 
      */
     public Output<String> ipAddressType() {
@@ -298,12 +288,16 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="protocolType", refs={String.class}, tree="[0]")
     private Output<String> protocolType;
 
     /**
      * @return API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> protocolType() {
@@ -338,16 +332,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.routeKey);
     }
     /**
-     * The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
-     * Defaults to `$request.method $request.path`.
+     * [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API. Defaults to `$request.method $request.path`.
      * 
      */
     @Export(name="routeSelectionExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> routeSelectionExpression;
 
     /**
-     * @return The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
-     * Defaults to `$request.method $request.path`.
+     * @return [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API. Defaults to `$request.method $request.path`.
      * 
      */
     public Output<Optional<String>> routeSelectionExpression() {
@@ -382,18 +374,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
-     * For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
-     * The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
+     * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
      * 
      */
     @Export(name="target", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> target;
 
     /**
-     * @return Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
-     * For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
-     * The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
+     * @return Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
      * 
      */
     public Output<Optional<String>> target() {

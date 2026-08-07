@@ -21,7 +21,7 @@ public final class EvaluationJobEvaluationConfigAutomated {
      */
     private @Nullable EvaluationJobEvaluationConfigAutomatedCustomMetricConfig customMetricConfig;
     /**
-     * @return One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block below.
+     * @return One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
      * 
      */
     private List<EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig> datasetMetricConfigs;
@@ -40,7 +40,7 @@ public final class EvaluationJobEvaluationConfigAutomated {
         return Optional.ofNullable(this.customMetricConfig);
     }
     /**
-     * @return One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block below.
+     * @return One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
      * 
      */
     public List<EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig> datasetMetricConfigs() {

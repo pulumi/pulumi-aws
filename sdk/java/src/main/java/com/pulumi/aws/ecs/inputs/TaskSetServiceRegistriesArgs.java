@@ -18,14 +18,14 @@ public final class TaskSetServiceRegistriesArgs extends com.pulumi.resources.Res
     public static final TaskSetServiceRegistriesArgs Empty = new TaskSetServiceRegistriesArgs();
 
     /**
-     * The container name value, already specified in the task definition, to be used for your service discovery service.
+     * Container name value, already specified in the task definition, to be used for your service discovery service.
      * 
      */
     @Import(name="containerName")
     private @Nullable Output<String> containerName;
 
     /**
-     * @return The container name value, already specified in the task definition, to be used for your service discovery service.
+     * @return Container name value, already specified in the task definition, to be used for your service discovery service.
      * 
      */
     public Optional<Output<String>> containerName() {
@@ -33,14 +33,14 @@ public final class TaskSetServiceRegistriesArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The port value, already specified in the task definition, to be used for your service discovery service.
+     * Port value, already specified in the task definition, to be used for your service discovery service.
      * 
      */
     @Import(name="containerPort")
     private @Nullable Output<Integer> containerPort;
 
     /**
-     * @return The port value, already specified in the task definition, to be used for your service discovery service.
+     * @return Port value, already specified in the task definition, to be used for your service discovery service.
      * 
      */
     public Optional<Output<Integer>> containerPort() {
@@ -48,14 +48,14 @@ public final class TaskSetServiceRegistriesArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The port value used if your Service Discovery service specified an SRV record.
+     * Port value used if your Service Discovery service specified an SRV record.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port value used if your Service Discovery service specified an SRV record.
+     * @return Port value used if your Service Discovery service specified an SRV record.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -63,14 +63,14 @@ public final class TaskSetServiceRegistriesArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+     * ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service (`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
      * 
      */
     @Import(name="registryArn", required=true)
     private Output<String> registryArn;
 
     /**
-     * @return The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+     * @return ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service (`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
      * 
      */
     public Output<String> registryArn() {
@@ -105,7 +105,7 @@ public final class TaskSetServiceRegistriesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param containerName The container name value, already specified in the task definition, to be used for your service discovery service.
+         * @param containerName Container name value, already specified in the task definition, to be used for your service discovery service.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class TaskSetServiceRegistriesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param containerName The container name value, already specified in the task definition, to be used for your service discovery service.
+         * @param containerName Container name value, already specified in the task definition, to be used for your service discovery service.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class TaskSetServiceRegistriesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param containerPort The port value, already specified in the task definition, to be used for your service discovery service.
+         * @param containerPort Port value, already specified in the task definition, to be used for your service discovery service.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class TaskSetServiceRegistriesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param containerPort The port value, already specified in the task definition, to be used for your service discovery service.
+         * @param containerPort Port value, already specified in the task definition, to be used for your service discovery service.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class TaskSetServiceRegistriesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param port The port value used if your Service Discovery service specified an SRV record.
+         * @param port Port value used if your Service Discovery service specified an SRV record.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class TaskSetServiceRegistriesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param port The port value used if your Service Discovery service specified an SRV record.
+         * @param port Port value used if your Service Discovery service specified an SRV record.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class TaskSetServiceRegistriesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param registryArn The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+         * @param registryArn ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service (`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class TaskSetServiceRegistriesArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param registryArn The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+         * @param registryArn ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service (`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
          * 
          * @return builder
          * 

@@ -47,7 +47,7 @@ class BucketObjectArgs:
         """
         The set of arguments for constructing a BucketObject resource.
 
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+        :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` resource instead.
         :param pulumi.Input[_builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
@@ -59,7 +59,7 @@ class BucketObjectArgs:
         :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         :param pulumi.Input[_builtins.str] etag: Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         :param pulumi.Input[_builtins.bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
-        :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket.
+        :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket. Use the `s3.BucketObjectv2` resource instead.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
@@ -74,8 +74,6 @@ class BucketObjectArgs:
         :param pulumi.Input[_builtins.str] storage_class: [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-               
-               If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
                
                > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         """
@@ -133,7 +131,7 @@ class BucketObjectArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+        Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` resource instead.
         """
         return pulumi.get(self, "bucket")
 
@@ -277,7 +275,7 @@ class BucketObjectArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the object once it is in the bucket.
+        Name of the object once it is in the bucket. Use the `s3.BucketObjectv2` resource instead.
 
         The following arguments are optional:
         """
@@ -425,8 +423,6 @@ class BucketObjectArgs:
         """
         Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 
-        If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
-
         > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         """
         return pulumi.get(self, "website_redirect")
@@ -472,7 +468,7 @@ class _BucketObjectState:
 
         :param pulumi.Input[_builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
         :param pulumi.Input[_builtins.str] arn: ARN of the object.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+        :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` resource instead.
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         :param pulumi.Input[_builtins.str] content: Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
@@ -483,7 +479,7 @@ class _BucketObjectState:
         :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         :param pulumi.Input[_builtins.str] etag: Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         :param pulumi.Input[_builtins.bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
-        :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket.
+        :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket. Use the `s3.BucketObjectv2` resource instead.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
@@ -500,8 +496,6 @@ class _BucketObjectState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] version_id: Unique version ID value for the object, if bucket versioning is enabled.
         :param pulumi.Input[_builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-               
-               If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
                
                > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         """
@@ -590,7 +584,7 @@ class _BucketObjectState:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+        Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` resource instead.
         """
         return pulumi.get(self, "bucket")
 
@@ -722,7 +716,7 @@ class _BucketObjectState:
     @pulumi.getter
     def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the object once it is in the bucket.
+        Name of the object once it is in the bucket. Use the `s3.BucketObjectv2` resource instead.
 
         The following arguments are optional:
         """
@@ -894,8 +888,6 @@ class _BucketObjectState:
         """
         Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 
-        If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
-
         > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         """
         return pulumi.get(self, "website_redirect")
@@ -1038,6 +1030,8 @@ class BucketObject(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_versioning]))
         ```
 
+        If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+
         ## Import
 
         ### Identity Schema
@@ -1072,7 +1066,7 @@ class BucketObject(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+        :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` resource instead.
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         :param pulumi.Input[_builtins.str] content: Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
@@ -1083,7 +1077,7 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         :param pulumi.Input[_builtins.str] etag: Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         :param pulumi.Input[_builtins.bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
-        :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket.
+        :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket. Use the `s3.BucketObjectv2` resource instead.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
@@ -1098,8 +1092,6 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] storage_class: [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-               
-               If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
                
                > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         """
@@ -1209,6 +1201,8 @@ class BucketObject(pulumi.CustomResource):
             force_destroy=True,
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_versioning]))
         ```
+
+        If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
 
         ## Import
 
@@ -1367,7 +1361,7 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
         :param pulumi.Input[_builtins.str] arn: ARN of the object.
-        :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+        :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` resource instead.
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         :param pulumi.Input[_builtins.str] content: Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
@@ -1378,7 +1372,7 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         :param pulumi.Input[_builtins.str] etag: Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         :param pulumi.Input[_builtins.bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
-        :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket.
+        :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket. Use the `s3.BucketObjectv2` resource instead.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
@@ -1395,8 +1389,6 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] version_id: Unique version ID value for the object, if bucket versioning is enabled.
         :param pulumi.Input[_builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-               
-               If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
                
                > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         """
@@ -1454,7 +1446,7 @@ class BucketObject(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+        Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` resource instead.
         """
         return pulumi.get(self, "bucket")
 
@@ -1542,7 +1534,7 @@ class BucketObject(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the object once it is in the bucket.
+        Name of the object once it is in the bucket. Use the `s3.BucketObjectv2` resource instead.
 
         The following arguments are optional:
         """
@@ -1657,8 +1649,6 @@ class BucketObject(pulumi.CustomResource):
     def website_redirect(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-
-        If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
 
         > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
         """

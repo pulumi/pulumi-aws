@@ -13,37 +13,37 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecListenerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Connection pool information for the listener. See `ConnectionPool` Block for details.
+        /// Connection pool information for the listener. See `spec.listener.connection_pool` Block for details.
         /// </summary>
         [Input("connectionPool")]
         public Input<Inputs.VirtualNodeSpecListenerConnectionPoolGetArgs>? ConnectionPool { get; set; }
 
         /// <summary>
-        /// Health check information for the listener. See `HealthCheck` Block for details.
+        /// Health check information for the listener. See `spec.listener.health_check` Block for details.
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.VirtualNodeSpecListenerHealthCheckGetArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// Outlier detection information for the listener. See `OutlierDetection` Block for details.
+        /// Outlier detection information for the listener. See `spec.listener.outlier_detection` Block for details.
         /// </summary>
         [Input("outlierDetection")]
         public Input<Inputs.VirtualNodeSpecListenerOutlierDetectionGetArgs>? OutlierDetection { get; set; }
 
         /// <summary>
-        /// Port mapping information for the listener. See `PortMapping` Block for details.
+        /// Port mapping information for the listener. See `spec.listener.port_mapping` Block for details.
         /// </summary>
         [Input("portMapping", required: true)]
         public Input<Inputs.VirtualNodeSpecListenerPortMappingGetArgs> PortMapping { get; set; } = null!;
 
         /// <summary>
-        /// Timeouts for different protocols. See `Timeout` Block for details.
+        /// Timeouts for different protocols. See `spec.listener.timeout` Block for details.
         /// </summary>
         [Input("timeout")]
         public Input<Inputs.VirtualNodeSpecListenerTimeoutGetArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// Transport Layer Security (TLS) properties for the listener. See `Tls` Block for details.
+        /// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.VirtualNodeSpecListenerTlsGetArgs>? Tls { get; set; }

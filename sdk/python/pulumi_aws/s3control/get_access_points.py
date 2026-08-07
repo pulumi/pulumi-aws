@@ -51,7 +51,7 @@ class GetAccessPointsResult:
     @pulumi.getter(name="accessPoints")
     def access_points(self) -> Sequence['outputs.GetAccessPointsAccessPointResult']:
         """
-        A list of access points matching the search criteria. See `access_points` below.
+        List of access points matching the search criteria. See `access_points` below.
         """
         return pulumi.get(self, "access_points")
 

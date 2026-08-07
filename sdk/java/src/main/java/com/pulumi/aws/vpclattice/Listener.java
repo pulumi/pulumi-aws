@@ -267,9 +267,17 @@ public class Listener extends com.pulumi.resources.CustomResource {
     public Output<ListenerDefaultAction> defaultAction() {
         return this.defaultAction;
     }
+    /**
+     * Date and time that the listener was last updated, specified in ISO-8601 format.
+     * 
+     */
     @Export(name="lastUpdatedAt", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedAt;
 
+    /**
+     * @return Date and time that the listener was last updated, specified in ISO-8601 format.
+     * 
+     */
     public Output<String> lastUpdatedAt() {
         return this.lastUpdatedAt;
     }
@@ -374,14 +382,14 @@ public class Listener extends com.pulumi.resources.CustomResource {
         return this.serviceIdentifier;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

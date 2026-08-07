@@ -17,14 +17,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     public static final DeploymentState Empty = new DeploymentState();
 
     /**
-     * The unique ID of the operation associated with deployment.
+     * Unique ID of the operation associated with deployment.
      * 
      */
     @Import(name="operationId")
     private @Nullable Output<String> operationId;
 
     /**
-     * @return The unique ID of the operation associated with deployment.
+     * @return Unique ID of the operation associated with deployment.
      * 
      */
     public Optional<Output<String>> operationId() {
@@ -47,14 +47,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+     * Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      * 
      */
     @Import(name="serviceArn")
     private @Nullable Output<String> serviceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+     * @return Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      * 
      */
     public Optional<Output<String>> serviceArn() {
@@ -62,14 +62,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current status of the App Runner service deployment.
+     * Current status of the App Runner service deployment.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current status of the App Runner service deployment.
+     * @return Current status of the App Runner service deployment.
      * 
      */
     public Optional<Output<String>> status() {
@@ -112,7 +112,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operationId The unique ID of the operation associated with deployment.
+         * @param operationId Unique ID of the operation associated with deployment.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param operationId The unique ID of the operation associated with deployment.
+         * @param operationId Unique ID of the operation associated with deployment.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceArn The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+         * @param serviceArn Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceArn The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+         * @param serviceArn Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current status of the App Runner service deployment.
+         * @param status Current status of the App Runner service deployment.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current status of the App Runner service deployment.
+         * @param status Current status of the App Runner service deployment.
          * 
          * @return builder
          * 

@@ -73,15 +73,15 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly accessGrantsInstanceId: pulumi.Output<string>;
     /**
-     * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
+     * ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
      */
     declare public /*out*/ readonly identityCenterApplicationArn: pulumi.Output<string>;
     /**
-     * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+     * ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
      */
     declare public readonly identityCenterArn: pulumi.Output<string | undefined>;
     /**
@@ -93,7 +93,7 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -147,15 +147,15 @@ export interface AccessGrantsInstanceState {
      */
     accessGrantsInstanceId?: pulumi.Input<string | undefined>;
     /**
-     * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
+     * ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
      */
     identityCenterApplicationArn?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+     * ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
      */
     identityCenterArn?: pulumi.Input<string | undefined>;
     /**
@@ -167,7 +167,7 @@ export interface AccessGrantsInstanceState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -177,11 +177,11 @@ export interface AccessGrantsInstanceState {
  */
 export interface AccessGrantsInstanceArgs {
     /**
-     * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+     * ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
      */
     identityCenterArn?: pulumi.Input<string | undefined>;
     /**

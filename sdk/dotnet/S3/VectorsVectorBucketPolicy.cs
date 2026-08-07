@@ -66,7 +66,7 @@ namespace Pulumi.Aws.S3
     public partial class VectorsVectorBucketPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The policy document.
+        /// Policy document.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.S3
     public sealed class VectorsVectorBucketPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The policy document.
+        /// Policy document.
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.S3
     public sealed class VectorsVectorBucketPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The policy document.
+        /// Policy document.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

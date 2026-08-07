@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppFabric.Outputs
     public sealed class AppAuthorizationConnectionAuthRequest
     {
         /// <summary>
-        /// The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+        /// Authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL).
         /// </summary>
         public readonly string Code;
         /// <summary>
-        /// The redirect URL that is specified in the AuthURL and the application client.
+        /// Redirect URL that is specified in the AuthURL and the application client.
         /// </summary>
         public readonly string RedirectUri;
 

@@ -13,13 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerRuleActionForwardTargetGroup {
+    /**
+     * @return ID or ARN of the target group.
+     * 
+     */
     private String targetGroupIdentifier;
+    /**
+     * @return Weight assigned to the target group, controlling the prioritization and selection of each target group so that requests are distributed based on their weights. Default is `100`.
+     * 
+     */
     private @Nullable Integer weight;
 
     private ListenerRuleActionForwardTargetGroup() {}
+    /**
+     * @return ID or ARN of the target group.
+     * 
+     */
     public String targetGroupIdentifier() {
         return this.targetGroupIdentifier;
     }
+    /**
+     * @return Weight assigned to the target group, controlling the prioritization and selection of each target group so that requests are distributed based on their weights. Default is `100`.
+     * 
+     */
     public Optional<Integer> weight() {
         return Optional.ofNullable(this.weight);
     }

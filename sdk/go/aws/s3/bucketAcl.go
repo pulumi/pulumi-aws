@@ -242,7 +242,7 @@ type BucketAcl struct {
 
 	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy BucketAclAccessControlPolicyOutput `pulumi:"accessControlPolicy"`
-	// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+	// Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 	Acl pulumi.StringPtrOutput `pulumi:"acl"`
 	// Bucket to which to apply the ACL.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
@@ -295,7 +295,7 @@ func GetBucketAcl(ctx *pulumi.Context,
 type bucketAclState struct {
 	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy *BucketAclAccessControlPolicy `pulumi:"accessControlPolicy"`
-	// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+	// Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 	Acl *string `pulumi:"acl"`
 	// Bucket to which to apply the ACL.
 	Bucket *string `pulumi:"bucket"`
@@ -310,7 +310,7 @@ type bucketAclState struct {
 type BucketAclState struct {
 	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy BucketAclAccessControlPolicyPtrInput
-	// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+	// Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 	Acl pulumi.StringPtrInput
 	// Bucket to which to apply the ACL.
 	Bucket pulumi.StringPtrInput
@@ -329,7 +329,7 @@ func (BucketAclState) ElementType() reflect.Type {
 type bucketAclArgs struct {
 	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy *BucketAclAccessControlPolicy `pulumi:"accessControlPolicy"`
-	// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+	// Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 	Acl *string `pulumi:"acl"`
 	// Bucket to which to apply the ACL.
 	Bucket string `pulumi:"bucket"`
@@ -345,7 +345,7 @@ type bucketAclArgs struct {
 type BucketAclArgs struct {
 	// Configuration block that sets the ACL permissions for an object per grantee. See below.
 	AccessControlPolicy BucketAclAccessControlPolicyPtrInput
-	// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+	// Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 	Acl pulumi.StringPtrInput
 	// Bucket to which to apply the ACL.
 	Bucket pulumi.StringInput
@@ -449,7 +449,7 @@ func (o BucketAclOutput) AccessControlPolicy() BucketAclAccessControlPolicyOutpu
 	return o.ApplyT(func(v *BucketAcl) BucketAclAccessControlPolicyOutput { return v.AccessControlPolicy }).(BucketAclAccessControlPolicyOutput)
 }
 
-// Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+// Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
 func (o BucketAclOutput) Acl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAcl) pulumi.StringPtrOutput { return v.Acl }).(pulumi.StringPtrOutput)
 }

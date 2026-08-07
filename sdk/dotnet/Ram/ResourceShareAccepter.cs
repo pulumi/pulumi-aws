@@ -64,13 +64,13 @@ namespace Pulumi.Aws.Ram
     public partial class ResourceShareAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the resource share invitation.
+        /// ARN of the resource share invitation.
         /// </summary>
         [Output("invitationArn")]
         public Output<string> InvitationArn { get; private set; } = null!;
 
         /// <summary>
-        /// The account ID of the receiver account which accepts the invitation.
+        /// Account ID of the receiver account which accepts the invitation.
         /// </summary>
         [Output("receiverAccountId")]
         public Output<string> ReceiverAccountId { get; private set; } = null!;
@@ -82,37 +82,37 @@ namespace Pulumi.Aws.Ram
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A list of the resource ARNs shared via the resource share.
+        /// List of the resource ARNs shared via the resource share.
         /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
 
         /// <summary>
-        /// The account ID of the sender account which submits the invitation.
+        /// Account ID of the sender account which submits the invitation.
         /// </summary>
         [Output("senderAccountId")]
         public Output<string> SenderAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the resource share.
+        /// ARN of the resource share.
         /// </summary>
         [Output("shareArn")]
         public Output<string> ShareArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the resource share as displayed in the console.
+        /// ID of the resource share as displayed in the console.
         /// </summary>
         [Output("shareId")]
         public Output<string> ShareId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource share.
+        /// Name of the resource share.
         /// </summary>
         [Output("shareName")]
         public Output<string> ShareName { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+        /// Status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Ram
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ARN of the resource share.
+        /// ARN of the resource share.
         /// </summary>
         [Input("shareArn", required: true)]
         public Input<string> ShareArn { get; set; } = null!;
@@ -184,13 +184,13 @@ namespace Pulumi.Aws.Ram
     public sealed class ResourceShareAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the resource share invitation.
+        /// ARN of the resource share invitation.
         /// </summary>
         [Input("invitationArn")]
         public Input<string>? InvitationArn { get; set; }
 
         /// <summary>
-        /// The account ID of the receiver account which accepts the invitation.
+        /// Account ID of the receiver account which accepts the invitation.
         /// </summary>
         [Input("receiverAccountId")]
         public Input<string>? ReceiverAccountId { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Ram
         private InputList<string>? _resources;
 
         /// <summary>
-        /// A list of the resource ARNs shared via the resource share.
+        /// List of the resource ARNs shared via the resource share.
         /// </summary>
         public InputList<string> Resources
         {
@@ -214,31 +214,31 @@ namespace Pulumi.Aws.Ram
         }
 
         /// <summary>
-        /// The account ID of the sender account which submits the invitation.
+        /// Account ID of the sender account which submits the invitation.
         /// </summary>
         [Input("senderAccountId")]
         public Input<string>? SenderAccountId { get; set; }
 
         /// <summary>
-        /// The ARN of the resource share.
+        /// ARN of the resource share.
         /// </summary>
         [Input("shareArn")]
         public Input<string>? ShareArn { get; set; }
 
         /// <summary>
-        /// The ID of the resource share as displayed in the console.
+        /// ID of the resource share as displayed in the console.
         /// </summary>
         [Input("shareId")]
         public Input<string>? ShareId { get; set; }
 
         /// <summary>
-        /// The name of the resource share.
+        /// Name of the resource share.
         /// </summary>
         [Input("shareName")]
         public Input<string>? ShareName { get; set; }
 
         /// <summary>
-        /// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+        /// Status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

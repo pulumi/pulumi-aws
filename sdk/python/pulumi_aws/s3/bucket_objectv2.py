@@ -55,7 +55,7 @@ class BucketObjectv2Args:
         :param pulumi.Input[_builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-        :param pulumi.Input[_builtins.str] checksum_algorithm: Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
         :param pulumi.Input[_builtins.str] content: Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
         :param pulumi.Input[_builtins.str] content_base64: Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
         :param pulumi.Input[_builtins.str] content_disposition: Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
@@ -72,7 +72,7 @@ class BucketObjectv2Args:
         :param pulumi.Input[_builtins.str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[_builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[_builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
-        :param pulumi.Input['BucketObjectv2OverrideProviderArgs'] override_provider: Override provider-level configuration options. See Override Provider below for more details.
+        :param pulumi.Input['BucketObjectv2OverrideProviderArgs'] override_provider: Override provider-level configuration options. See `override_provider` Block below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -81,7 +81,7 @@ class BucketObjectv2Args:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
                
-               If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+               > **Note:** If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
                
                > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
                
@@ -193,7 +193,7 @@ class BucketObjectv2Args:
     @pulumi.getter(name="checksumAlgorithm")
     def checksum_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+        Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
         """
         return pulumi.get(self, "checksum_algorithm")
 
@@ -375,7 +375,7 @@ class BucketObjectv2Args:
     @pulumi.getter(name="overrideProvider")
     def override_provider(self) -> pulumi.Input[Optional['BucketObjectv2OverrideProviderArgs']]:
         """
-        Override provider-level configuration options. See Override Provider below for more details.
+        Override provider-level configuration options. See `override_provider` Block below for more details.
         """
         return pulumi.get(self, "override_provider")
 
@@ -461,7 +461,7 @@ class BucketObjectv2Args:
         """
         Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 
-        If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+        > **Note:** If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
 
         > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
 
@@ -520,12 +520,12 @@ class _BucketObjectv2State:
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-        :param pulumi.Input[_builtins.str] checksum_algorithm: Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
-        :param pulumi.Input[_builtins.str] checksum_crc32: The base64-encoded, 32-bit CRC32 checksum of the object.
-        :param pulumi.Input[_builtins.str] checksum_crc32c: The base64-encoded, 32-bit CRC32C checksum of the object.
-        :param pulumi.Input[_builtins.str] checksum_crc64nvme: The base64-encoded, 64-bit CRC64NVME checksum of the object.
-        :param pulumi.Input[_builtins.str] checksum_sha1: The base64-encoded, 160-bit SHA-1 digest of the object.
-        :param pulumi.Input[_builtins.str] checksum_sha256: The base64-encoded, 256-bit SHA-256 digest of the object.
+        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+        :param pulumi.Input[_builtins.str] checksum_crc32: Base64-encoded, 32-bit CRC32 checksum of the object.
+        :param pulumi.Input[_builtins.str] checksum_crc32c: Base64-encoded, 32-bit CRC32C checksum of the object.
+        :param pulumi.Input[_builtins.str] checksum_crc64nvme: Base64-encoded, 64-bit CRC64NVME checksum of the object.
+        :param pulumi.Input[_builtins.str] checksum_sha1: Base64-encoded, 160-bit SHA-1 digest of the object.
+        :param pulumi.Input[_builtins.str] checksum_sha256: Base64-encoded, 256-bit SHA-256 digest of the object.
         :param pulumi.Input[_builtins.str] content: Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
         :param pulumi.Input[_builtins.str] content_base64: Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
         :param pulumi.Input[_builtins.str] content_disposition: Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
@@ -542,7 +542,7 @@ class _BucketObjectv2State:
         :param pulumi.Input[_builtins.str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[_builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[_builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
-        :param pulumi.Input['BucketObjectv2OverrideProviderArgs'] override_provider: Override provider-level configuration options. See Override Provider below for more details.
+        :param pulumi.Input['BucketObjectv2OverrideProviderArgs'] override_provider: Override provider-level configuration options. See `override_provider` Block below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -553,7 +553,7 @@ class _BucketObjectv2State:
         :param pulumi.Input[_builtins.str] version_id: Unique version ID value for the object, if bucket versioning is enabled.
         :param pulumi.Input[_builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
                
-               If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+               > **Note:** If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
                
                > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
                
@@ -694,7 +694,7 @@ class _BucketObjectv2State:
     @pulumi.getter(name="checksumAlgorithm")
     def checksum_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+        Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
         """
         return pulumi.get(self, "checksum_algorithm")
 
@@ -706,7 +706,7 @@ class _BucketObjectv2State:
     @pulumi.getter(name="checksumCrc32")
     def checksum_crc32(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The base64-encoded, 32-bit CRC32 checksum of the object.
+        Base64-encoded, 32-bit CRC32 checksum of the object.
         """
         return pulumi.get(self, "checksum_crc32")
 
@@ -718,7 +718,7 @@ class _BucketObjectv2State:
     @pulumi.getter(name="checksumCrc32c")
     def checksum_crc32c(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The base64-encoded, 32-bit CRC32C checksum of the object.
+        Base64-encoded, 32-bit CRC32C checksum of the object.
         """
         return pulumi.get(self, "checksum_crc32c")
 
@@ -730,7 +730,7 @@ class _BucketObjectv2State:
     @pulumi.getter(name="checksumCrc64nvme")
     def checksum_crc64nvme(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The base64-encoded, 64-bit CRC64NVME checksum of the object.
+        Base64-encoded, 64-bit CRC64NVME checksum of the object.
         """
         return pulumi.get(self, "checksum_crc64nvme")
 
@@ -742,7 +742,7 @@ class _BucketObjectv2State:
     @pulumi.getter(name="checksumSha1")
     def checksum_sha1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The base64-encoded, 160-bit SHA-1 digest of the object.
+        Base64-encoded, 160-bit SHA-1 digest of the object.
         """
         return pulumi.get(self, "checksum_sha1")
 
@@ -754,7 +754,7 @@ class _BucketObjectv2State:
     @pulumi.getter(name="checksumSha256")
     def checksum_sha256(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The base64-encoded, 256-bit SHA-256 digest of the object.
+        Base64-encoded, 256-bit SHA-256 digest of the object.
         """
         return pulumi.get(self, "checksum_sha256")
 
@@ -936,7 +936,7 @@ class _BucketObjectv2State:
     @pulumi.getter(name="overrideProvider")
     def override_provider(self) -> pulumi.Input[Optional['BucketObjectv2OverrideProviderArgs']]:
         """
-        Override provider-level configuration options. See Override Provider below for more details.
+        Override provider-level configuration options. See `override_provider` Block below for more details.
         """
         return pulumi.get(self, "override_provider")
 
@@ -1046,7 +1046,7 @@ class _BucketObjectv2State:
         """
         Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 
-        If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+        > **Note:** If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
 
         > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
 
@@ -1257,7 +1257,7 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-        :param pulumi.Input[_builtins.str] checksum_algorithm: Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
         :param pulumi.Input[_builtins.str] content: Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
         :param pulumi.Input[_builtins.str] content_base64: Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
         :param pulumi.Input[_builtins.str] content_disposition: Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
@@ -1274,7 +1274,7 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[_builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[_builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
-        :param pulumi.Input[Union['BucketObjectv2OverrideProviderArgs', 'BucketObjectv2OverrideProviderArgsDict']] override_provider: Override provider-level configuration options. See Override Provider below for more details.
+        :param pulumi.Input[Union['BucketObjectv2OverrideProviderArgs', 'BucketObjectv2OverrideProviderArgsDict']] override_provider: Override provider-level configuration options. See `override_provider` Block below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -1283,7 +1283,7 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
                
-               If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+               > **Note:** If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
                
                > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
                
@@ -1600,12 +1600,12 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-        :param pulumi.Input[_builtins.str] checksum_algorithm: Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
-        :param pulumi.Input[_builtins.str] checksum_crc32: The base64-encoded, 32-bit CRC32 checksum of the object.
-        :param pulumi.Input[_builtins.str] checksum_crc32c: The base64-encoded, 32-bit CRC32C checksum of the object.
-        :param pulumi.Input[_builtins.str] checksum_crc64nvme: The base64-encoded, 64-bit CRC64NVME checksum of the object.
-        :param pulumi.Input[_builtins.str] checksum_sha1: The base64-encoded, 160-bit SHA-1 digest of the object.
-        :param pulumi.Input[_builtins.str] checksum_sha256: The base64-encoded, 256-bit SHA-256 digest of the object.
+        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+        :param pulumi.Input[_builtins.str] checksum_crc32: Base64-encoded, 32-bit CRC32 checksum of the object.
+        :param pulumi.Input[_builtins.str] checksum_crc32c: Base64-encoded, 32-bit CRC32C checksum of the object.
+        :param pulumi.Input[_builtins.str] checksum_crc64nvme: Base64-encoded, 64-bit CRC64NVME checksum of the object.
+        :param pulumi.Input[_builtins.str] checksum_sha1: Base64-encoded, 160-bit SHA-1 digest of the object.
+        :param pulumi.Input[_builtins.str] checksum_sha256: Base64-encoded, 256-bit SHA-256 digest of the object.
         :param pulumi.Input[_builtins.str] content: Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
         :param pulumi.Input[_builtins.str] content_base64: Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
         :param pulumi.Input[_builtins.str] content_disposition: Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
@@ -1622,7 +1622,7 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[_builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[_builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
-        :param pulumi.Input[Union['BucketObjectv2OverrideProviderArgs', 'BucketObjectv2OverrideProviderArgsDict']] override_provider: Override provider-level configuration options. See Override Provider below for more details.
+        :param pulumi.Input[Union['BucketObjectv2OverrideProviderArgs', 'BucketObjectv2OverrideProviderArgsDict']] override_provider: Override provider-level configuration options. See `override_provider` Block below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are `"AES256"`, `"aws:kms"`, `"aws:kms:dsse"`, and `"aws:fsx"`.
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -1633,7 +1633,7 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] version_id: Unique version ID value for the object, if bucket versioning is enabled.
         :param pulumi.Input[_builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
                
-               If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+               > **Note:** If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
                
                > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
                
@@ -1724,7 +1724,7 @@ class BucketObjectv2(pulumi.CustomResource):
     @pulumi.getter(name="checksumAlgorithm")
     def checksum_algorithm(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+        Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
         """
         return pulumi.get(self, "checksum_algorithm")
 
@@ -1732,7 +1732,7 @@ class BucketObjectv2(pulumi.CustomResource):
     @pulumi.getter(name="checksumCrc32")
     def checksum_crc32(self) -> pulumi.Output[_builtins.str]:
         """
-        The base64-encoded, 32-bit CRC32 checksum of the object.
+        Base64-encoded, 32-bit CRC32 checksum of the object.
         """
         return pulumi.get(self, "checksum_crc32")
 
@@ -1740,7 +1740,7 @@ class BucketObjectv2(pulumi.CustomResource):
     @pulumi.getter(name="checksumCrc32c")
     def checksum_crc32c(self) -> pulumi.Output[_builtins.str]:
         """
-        The base64-encoded, 32-bit CRC32C checksum of the object.
+        Base64-encoded, 32-bit CRC32C checksum of the object.
         """
         return pulumi.get(self, "checksum_crc32c")
 
@@ -1748,7 +1748,7 @@ class BucketObjectv2(pulumi.CustomResource):
     @pulumi.getter(name="checksumCrc64nvme")
     def checksum_crc64nvme(self) -> pulumi.Output[_builtins.str]:
         """
-        The base64-encoded, 64-bit CRC64NVME checksum of the object.
+        Base64-encoded, 64-bit CRC64NVME checksum of the object.
         """
         return pulumi.get(self, "checksum_crc64nvme")
 
@@ -1756,7 +1756,7 @@ class BucketObjectv2(pulumi.CustomResource):
     @pulumi.getter(name="checksumSha1")
     def checksum_sha1(self) -> pulumi.Output[_builtins.str]:
         """
-        The base64-encoded, 160-bit SHA-1 digest of the object.
+        Base64-encoded, 160-bit SHA-1 digest of the object.
         """
         return pulumi.get(self, "checksum_sha1")
 
@@ -1764,7 +1764,7 @@ class BucketObjectv2(pulumi.CustomResource):
     @pulumi.getter(name="checksumSha256")
     def checksum_sha256(self) -> pulumi.Output[_builtins.str]:
         """
-        The base64-encoded, 256-bit SHA-256 digest of the object.
+        Base64-encoded, 256-bit SHA-256 digest of the object.
         """
         return pulumi.get(self, "checksum_sha256")
 
@@ -1886,7 +1886,7 @@ class BucketObjectv2(pulumi.CustomResource):
     @pulumi.getter(name="overrideProvider")
     def override_provider(self) -> pulumi.Output[Optional['outputs.BucketObjectv2OverrideProvider']]:
         """
-        Override provider-level configuration options. See Override Provider below for more details.
+        Override provider-level configuration options. See `override_provider` Block below for more details.
         """
         return pulumi.get(self, "override_provider")
 
@@ -1960,7 +1960,7 @@ class BucketObjectv2(pulumi.CustomResource):
         """
         Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 
-        If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+        > **Note:** If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
 
         > **Note:** If you specify `content_encoding` you are responsible for encoding the body appropriately. `source`, `content`, and `content_base64` all expect already encoded/compressed bytes.
 

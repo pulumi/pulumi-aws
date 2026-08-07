@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Location of the Zendesk resource.
+        /// </summary>
         [Input("instanceUrl", required: true)]
         public Input<string> InstanceUrl { get; set; } = null!;
 

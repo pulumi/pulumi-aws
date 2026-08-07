@@ -76,7 +76,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The configuration profile ID.
+     * Configuration profile ID.
      */
     declare public /*out*/ readonly configurationProfileId: pulumi.Output<string>;
     /**
@@ -84,7 +84,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
      */
     declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
@@ -116,7 +116,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      */
     declare public readonly type: pulumi.Output<string | undefined>;
     /**
-     * Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+     * Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
      */
     declare public readonly validators: pulumi.Output<outputs.appconfig.ConfigurationProfileValidator[] | undefined>;
 
@@ -186,7 +186,7 @@ export interface ConfigurationProfileState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The configuration profile ID.
+     * Configuration profile ID.
      */
     configurationProfileId?: pulumi.Input<string | undefined>;
     /**
@@ -194,7 +194,7 @@ export interface ConfigurationProfileState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
      */
     kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -226,7 +226,7 @@ export interface ConfigurationProfileState {
      */
     type?: pulumi.Input<string | undefined>;
     /**
-     * Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+     * Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
      */
     validators?: pulumi.Input<pulumi.Input<inputs.appconfig.ConfigurationProfileValidator>[] | undefined>;
 }
@@ -244,7 +244,7 @@ export interface ConfigurationProfileArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
      */
     kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -272,7 +272,7 @@ export interface ConfigurationProfileArgs {
      */
     type?: pulumi.Input<string | undefined>;
     /**
-     * Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+     * Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
      */
     validators?: pulumi.Input<pulumi.Input<inputs.appconfig.ConfigurationProfileValidator>[] | undefined>;
 }

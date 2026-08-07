@@ -26,8 +26,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? RedirectAllRequestsTo;
         /// <summary>
-        /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-        /// describing redirect behavior and when redirects are applied.
+        /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
         /// </summary>
         public readonly string? RoutingRules;
 

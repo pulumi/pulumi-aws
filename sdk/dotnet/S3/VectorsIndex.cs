@@ -78,7 +78,7 @@ namespace Pulumi.Aws.S3
         public Output<string> DistanceMetric { get; private set; } = null!;
 
         /// <summary>
-        /// Block for encryption configuration for the vector index. See `EncyptionConfiguration` block below.
+        /// Block for encryption configuration for the vector index. See `EncryptionConfiguration` Block below.
         /// </summary>
         [Output("encryptionConfigurations")]
         public Output<ImmutableArray<Outputs.VectorsIndexEncryptionConfiguration>> EncryptionConfigurations { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.S3
         public Output<string> IndexName { get; private set; } = null!;
 
         /// <summary>
-        /// Block for metadata configuration for the vector index. See `MetadataConfiguration` block below.
+        /// Block for metadata configuration for the vector index. See `MetadataConfiguration` Block below.
         /// </summary>
         [Output("metadataConfiguration")]
         public Output<Outputs.VectorsIndexMetadataConfiguration?> MetadataConfiguration { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.S3
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.VectorsIndexEncryptionConfigurationArgs>? _encryptionConfigurations;
 
         /// <summary>
-        /// Block for encryption configuration for the vector index. See `EncyptionConfiguration` block below.
+        /// Block for encryption configuration for the vector index. See `EncryptionConfiguration` Block below.
         /// </summary>
         public InputList<Inputs.VectorsIndexEncryptionConfigurationArgs> EncryptionConfigurations
         {
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.S3
         public Input<string> IndexName { get; set; } = null!;
 
         /// <summary>
-        /// Block for metadata configuration for the vector index. See `MetadataConfiguration` block below.
+        /// Block for metadata configuration for the vector index. See `MetadataConfiguration` Block below.
         /// </summary>
         [Input("metadataConfiguration")]
         public Input<Inputs.VectorsIndexMetadataConfigurationArgs>? MetadataConfiguration { get; set; }
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.VectorsIndexEncryptionConfigurationGetArgs>? _encryptionConfigurations;
 
         /// <summary>
-        /// Block for encryption configuration for the vector index. See `EncyptionConfiguration` block below.
+        /// Block for encryption configuration for the vector index. See `EncryptionConfiguration` Block below.
         /// </summary>
         public InputList<Inputs.VectorsIndexEncryptionConfigurationGetArgs> EncryptionConfigurations
         {
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? IndexName { get; set; }
 
         /// <summary>
-        /// Block for metadata configuration for the vector index. See `MetadataConfiguration` block below.
+        /// Block for metadata configuration for the vector index. See `MetadataConfiguration` Block below.
         /// </summary>
         [Input("metadataConfiguration")]
         public Input<Inputs.VectorsIndexMetadataConfigurationGetArgs>? MetadataConfiguration { get; set; }
@@ -325,7 +325,7 @@ namespace Pulumi.Aws.S3
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

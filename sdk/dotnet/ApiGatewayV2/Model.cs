@@ -66,7 +66,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> ApiId { get; private set; } = null!;
 
         /// <summary>
-        /// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+        /// Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
         /// </summary>
         [Output("contentType")]
         public Output<string> ContentType { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+        /// Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
         /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ApiId { get; set; }
 
         /// <summary>
-        /// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+        /// Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }

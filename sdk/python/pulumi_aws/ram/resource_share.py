@@ -30,12 +30,12 @@ class ResourceShareArgs:
         """
         The set of arguments for constructing a ResourceShare resource.
 
-        :param pulumi.Input[_builtins.bool] allow_external_principals: Indicates whether principals outside your organization can be associated with a resource share.
-        :param pulumi.Input[_builtins.str] name: The name of the resource share.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permission_arns: Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+        :param pulumi.Input[_builtins.bool] allow_external_principals: Whether principals outside your organization can be associated with a resource share.
+        :param pulumi.Input[_builtins.str] name: Name of the resource share.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permission_arns: Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ResourceShareResourceShareConfigurationArgs'] resource_share_configuration: A block that specifies the configuration of the resource share. See `resource_share_configuration` Block for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['ResourceShareResourceShareConfigurationArgs'] resource_share_configuration: Configuration block for the resource share. See `resource_share_configuration` Block for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if allow_external_principals is not None:
             pulumi.set(__self__, "allow_external_principals", allow_external_principals)
@@ -54,7 +54,7 @@ class ResourceShareArgs:
     @pulumi.getter(name="allowExternalPrincipals")
     def allow_external_principals(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether principals outside your organization can be associated with a resource share.
+        Whether principals outside your organization can be associated with a resource share.
         """
         return pulumi.get(self, "allow_external_principals")
 
@@ -66,7 +66,7 @@ class ResourceShareArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the resource share.
+        Name of the resource share.
         """
         return pulumi.get(self, "name")
 
@@ -78,7 +78,7 @@ class ResourceShareArgs:
     @pulumi.getter(name="permissionArns")
     def permission_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+        Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
         """
         return pulumi.get(self, "permission_arns")
 
@@ -102,7 +102,7 @@ class ResourceShareArgs:
     @pulumi.getter(name="resourceShareConfiguration")
     def resource_share_configuration(self) -> pulumi.Input[Optional['ResourceShareResourceShareConfigurationArgs']]:
         """
-        A block that specifies the configuration of the resource share. See `resource_share_configuration` Block for details.
+        Configuration block for the resource share. See `resource_share_configuration` Block for details.
         """
         return pulumi.get(self, "resource_share_configuration")
 
@@ -114,7 +114,7 @@ class ResourceShareArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -137,14 +137,14 @@ class _ResourceShareState:
         """
         Input properties used for looking up and filtering ResourceShare resources.
 
-        :param pulumi.Input[_builtins.bool] allow_external_principals: Indicates whether principals outside your organization can be associated with a resource share.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the resource share.
-        :param pulumi.Input[_builtins.str] name: The name of the resource share.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permission_arns: Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+        :param pulumi.Input[_builtins.bool] allow_external_principals: Whether principals outside your organization can be associated with a resource share.
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the resource share.
+        :param pulumi.Input[_builtins.str] name: Name of the resource share.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permission_arns: Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['ResourceShareResourceShareConfigurationArgs'] resource_share_configuration: A block that specifies the configuration of the resource share. See `resource_share_configuration` Block for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input['ResourceShareResourceShareConfigurationArgs'] resource_share_configuration: Configuration block for the resource share. See `resource_share_configuration` Block for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if allow_external_principals is not None:
             pulumi.set(__self__, "allow_external_principals", allow_external_principals)
@@ -167,7 +167,7 @@ class _ResourceShareState:
     @pulumi.getter(name="allowExternalPrincipals")
     def allow_external_principals(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether principals outside your organization can be associated with a resource share.
+        Whether principals outside your organization can be associated with a resource share.
         """
         return pulumi.get(self, "allow_external_principals")
 
@@ -179,7 +179,7 @@ class _ResourceShareState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the resource share.
+        Amazon Resource Name (ARN) of the resource share.
         """
         return pulumi.get(self, "arn")
 
@@ -191,7 +191,7 @@ class _ResourceShareState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the resource share.
+        Name of the resource share.
         """
         return pulumi.get(self, "name")
 
@@ -203,7 +203,7 @@ class _ResourceShareState:
     @pulumi.getter(name="permissionArns")
     def permission_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+        Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
         """
         return pulumi.get(self, "permission_arns")
 
@@ -227,7 +227,7 @@ class _ResourceShareState:
     @pulumi.getter(name="resourceShareConfiguration")
     def resource_share_configuration(self) -> pulumi.Input[Optional['ResourceShareResourceShareConfigurationArgs']]:
         """
-        A block that specifies the configuration of the resource share. See `resource_share_configuration` Block for details.
+        Configuration block for the resource share. See `resource_share_configuration` Block for details.
         """
         return pulumi.get(self, "resource_share_configuration")
 
@@ -239,7 +239,7 @@ class _ResourceShareState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -251,7 +251,7 @@ class _ResourceShareState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -301,12 +301,12 @@ class ResourceShare(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_external_principals: Indicates whether principals outside your organization can be associated with a resource share.
-        :param pulumi.Input[_builtins.str] name: The name of the resource share.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permission_arns: Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+        :param pulumi.Input[_builtins.bool] allow_external_principals: Whether principals outside your organization can be associated with a resource share.
+        :param pulumi.Input[_builtins.str] name: Name of the resource share.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permission_arns: Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict']] resource_share_configuration: A block that specifies the configuration of the resource share. See `resource_share_configuration` Block for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict']] resource_share_configuration: Configuration block for the resource share. See `resource_share_configuration` Block for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -403,14 +403,14 @@ class ResourceShare(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] allow_external_principals: Indicates whether principals outside your organization can be associated with a resource share.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the resource share.
-        :param pulumi.Input[_builtins.str] name: The name of the resource share.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permission_arns: Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+        :param pulumi.Input[_builtins.bool] allow_external_principals: Whether principals outside your organization can be associated with a resource share.
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the resource share.
+        :param pulumi.Input[_builtins.str] name: Name of the resource share.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permission_arns: Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict']] resource_share_configuration: A block that specifies the configuration of the resource share. See `resource_share_configuration` Block for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Union['ResourceShareResourceShareConfigurationArgs', 'ResourceShareResourceShareConfigurationArgsDict']] resource_share_configuration: Configuration block for the resource share. See `resource_share_configuration` Block for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -430,7 +430,7 @@ class ResourceShare(pulumi.CustomResource):
     @pulumi.getter(name="allowExternalPrincipals")
     def allow_external_principals(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Indicates whether principals outside your organization can be associated with a resource share.
+        Whether principals outside your organization can be associated with a resource share.
         """
         return pulumi.get(self, "allow_external_principals")
 
@@ -438,7 +438,7 @@ class ResourceShare(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the resource share.
+        Amazon Resource Name (ARN) of the resource share.
         """
         return pulumi.get(self, "arn")
 
@@ -446,7 +446,7 @@ class ResourceShare(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the resource share.
+        Name of the resource share.
         """
         return pulumi.get(self, "name")
 
@@ -454,7 +454,7 @@ class ResourceShare(pulumi.CustomResource):
     @pulumi.getter(name="permissionArns")
     def permission_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+        Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
         """
         return pulumi.get(self, "permission_arns")
 
@@ -470,7 +470,7 @@ class ResourceShare(pulumi.CustomResource):
     @pulumi.getter(name="resourceShareConfiguration")
     def resource_share_configuration(self) -> pulumi.Output['outputs.ResourceShareResourceShareConfiguration']:
         """
-        A block that specifies the configuration of the resource share. See `resource_share_configuration` Block for details.
+        Configuration block for the resource share. See `resource_share_configuration` Block for details.
         """
         return pulumi.get(self, "resource_share_configuration")
 
@@ -478,7 +478,7 @@ class ResourceShare(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -486,7 +486,7 @@ class ResourceShare(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

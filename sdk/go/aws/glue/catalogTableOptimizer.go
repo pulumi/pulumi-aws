@@ -37,6 +37,13 @@ import (
 //				Configuration: &glue.CatalogTableOptimizerConfigurationArgs{
 //					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/example-role"),
 //					Enabled: pulumi.Bool(true),
+//					CompactionConfiguration: &glue.CatalogTableOptimizerConfigurationCompactionConfigurationArgs{
+//						IcebergConfiguration: &glue.CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs{
+//							Strategy:            pulumi.String("binpack"),
+//							MinInputFiles:       pulumi.Int(5),
+//							DeleteFileThreshold: pulumi.Int(1),
+//						},
+//					},
 //				},
 //				Type: pulumi.String("compaction"),
 //			})

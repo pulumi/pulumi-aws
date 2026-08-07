@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig {
-    /**
-     * @return Name of the Amazon S3 bucket.
-     * 
-     */
     private @Nullable String bucketName;
-    /**
-     * @return Amazon S3 bucket prefix.
-     * 
-     */
     private @Nullable String bucketPrefix;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig() {}
-    /**
-     * @return Name of the Amazon S3 bucket.
-     * 
-     */
     public Optional<String> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
-    /**
-     * @return Amazon S3 bucket prefix.
-     * 
-     */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }

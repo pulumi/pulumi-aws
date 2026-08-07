@@ -81,14 +81,14 @@ public final class VectorsIndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     * Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
      * 
      */
     @Import(name="encryptionConfigurations")
     private @Nullable Output<List<VectorsIndexEncryptionConfigurationArgs>> encryptionConfigurations;
 
     /**
-     * @return Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     * @return Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
      * 
      */
     public Optional<Output<List<VectorsIndexEncryptionConfigurationArgs>>> encryptionConfigurations() {
@@ -126,14 +126,14 @@ public final class VectorsIndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     * Block for metadata configuration for the vector index. See `metadataConfiguration` Block below.
      * 
      */
     @Import(name="metadataConfiguration")
     private @Nullable Output<VectorsIndexMetadataConfigurationArgs> metadataConfiguration;
 
     /**
-     * @return Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     * @return Block for metadata configuration for the vector index. See `metadataConfiguration` Block below.
      * 
      */
     public Optional<Output<VectorsIndexMetadataConfigurationArgs>> metadataConfiguration() {
@@ -171,14 +171,14 @@ public final class VectorsIndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -324,7 +324,7 @@ public final class VectorsIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class VectorsIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class VectorsIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class VectorsIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metadataConfiguration Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+         * @param metadataConfiguration Block for metadata configuration for the vector index. See `metadataConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class VectorsIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metadataConfiguration Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+         * @param metadataConfiguration Block for metadata configuration for the vector index. See `metadataConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class VectorsIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -471,7 +471,7 @@ public final class VectorsIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

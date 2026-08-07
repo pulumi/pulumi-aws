@@ -425,10 +425,12 @@ import javax.annotation.Nullable;
  *                     .block(Arrays.asList(Map.ofEntries(
  *                     )))
  *                     .build())
- *                 .statement(Map.of("managedRuleGroupStatement", WebAclRuleStatementManagedRuleGroupStatementArgs.builder()
- *                     .name("AWSManagedRulesCommonRuleSet")
- *                     .vendorName("AWS")
- *                     .build()))
+ *                 .statement(WebAclRuleStatementArgs.builder()
+ *                     .managedRuleGroupStatement(WebAclRuleStatementManagedRuleGroupStatementArgs.builder()
+ *                         .name("AWSManagedRulesCommonRuleSet")
+ *                         .vendorName("AWS")
+ *                         .build())
+ *                     .build())
  *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                     .cloudwatchMetricsEnabled(false)
  *                     .metricName("friendly-rule-metric-name")
@@ -659,7 +661,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.openidConnectConfig);
     }
     /**
-     * The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there&#39;s no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+     * Maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there&#39;s no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
      * 
      * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
      * 
@@ -668,7 +670,7 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Integer> queryDepthLimit;
 
     /**
-     * @return The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there&#39;s no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+     * @return Maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there&#39;s no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
      * 
      * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
      * 
@@ -691,14 +693,14 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+     * Maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
      * 
      */
     @Export(name="resolverCountLimit", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> resolverCountLimit;
 
     /**
-     * @return The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+     * @return Maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
      * 
      */
     public Output<Optional<Integer>> resolverCountLimit() {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3Control.Inputs
     public sealed class StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// SSE-KMS encryption. See SSE KMS below for more details.
+        /// SSE-KMS encryption. See `SseKms` below for more details.
         /// </summary>
         [Input("sseKms")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseKmsArgs>? SseKms { get; set; }

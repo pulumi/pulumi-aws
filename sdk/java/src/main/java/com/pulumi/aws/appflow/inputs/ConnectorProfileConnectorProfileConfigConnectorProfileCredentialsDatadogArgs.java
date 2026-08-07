@@ -14,22 +14,30 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs();
 
+    /**
+     * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * 
+     */
     @Import(name="apiKey", required=true)
     private Output<String> apiKey;
 
+    /**
+     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * 
+     */
     public Output<String> apiKey() {
         return this.apiKey;
     }
 
     /**
-     * Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+     * Application key, used in conjunction with your API key, that gives you full access to Datadog&#39;s programmatic API. Application keys are associated with the user account that created them and are used to log all requests made to the API.
      * 
      */
     @Import(name="applicationKey", required=true)
     private Output<String> applicationKey;
 
     /**
-     * @return Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+     * @return Application key, used in conjunction with your API key, that gives you full access to Datadog&#39;s programmatic API. Application keys are associated with the user account that created them and are used to log all requests made to the API.
      * 
      */
     public Output<String> applicationKey() {
@@ -61,17 +69,29 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apiKey Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiKey(Output<String> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
 
+        /**
+         * @param apiKey Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
         }
 
         /**
-         * @param applicationKey Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+         * @param applicationKey Application key, used in conjunction with your API key, that gives you full access to Datadog&#39;s programmatic API. Application keys are associated with the user account that created them and are used to log all requests made to the API.
          * 
          * @return builder
          * 
@@ -82,7 +102,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param applicationKey Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+         * @param applicationKey Application key, used in conjunction with your API key, that gives you full access to Datadog&#39;s programmatic API. Application keys are associated with the user account that created them and are used to log all requests made to the API.
          * 
          * @return builder
          * 

@@ -18,16 +18,14 @@ public final class ListenerRuleMatchHttpMatchPathMatchArgs extends com.pulumi.re
     public static final ListenerRuleMatchHttpMatchPathMatchArgs Empty = new ListenerRuleMatchHttpMatchPathMatchArgs();
 
     /**
-     * Indicates whether the match is case sensitive.
-     * Default is `false`.
+     * Whether the match is case sensitive. Default is `false`.
      * 
      */
     @Import(name="caseSensitive")
     private @Nullable Output<Boolean> caseSensitive;
 
     /**
-     * @return Indicates whether the match is case sensitive.
-     * Default is `false`.
+     * @return Whether the match is case sensitive. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> caseSensitive() {
@@ -35,16 +33,14 @@ public final class ListenerRuleMatchHttpMatchPathMatchArgs extends com.pulumi.re
     }
 
     /**
-     * The header match type.
-     * See Path Match `match` Block for details.
+     * Path match type. See `match.http_match.path_match.match` Block for details.
      * 
      */
     @Import(name="match", required=true)
     private Output<ListenerRuleMatchHttpMatchPathMatchMatchArgs> match;
 
     /**
-     * @return The header match type.
-     * See Path Match `match` Block for details.
+     * @return Path match type. See `match.http_match.path_match.match` Block for details.
      * 
      */
     public Output<ListenerRuleMatchHttpMatchPathMatchMatchArgs> match() {
@@ -77,8 +73,7 @@ public final class ListenerRuleMatchHttpMatchPathMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param caseSensitive Indicates whether the match is case sensitive.
-         * Default is `false`.
+         * @param caseSensitive Whether the match is case sensitive. Default is `false`.
          * 
          * @return builder
          * 
@@ -89,8 +84,7 @@ public final class ListenerRuleMatchHttpMatchPathMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param caseSensitive Indicates whether the match is case sensitive.
-         * Default is `false`.
+         * @param caseSensitive Whether the match is case sensitive. Default is `false`.
          * 
          * @return builder
          * 
@@ -100,8 +94,7 @@ public final class ListenerRuleMatchHttpMatchPathMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param match The header match type.
-         * See Path Match `match` Block for details.
+         * @param match Path match type. See `match.http_match.path_match.match` Block for details.
          * 
          * @return builder
          * 
@@ -112,8 +105,7 @@ public final class ListenerRuleMatchHttpMatchPathMatchArgs extends com.pulumi.re
         }
 
         /**
-         * @param match The header match type.
-         * See Path Match `match` Block for details.
+         * @param match Path match type. See `match.http_match.path_match.match` Block for details.
          * 
          * @return builder
          * 

@@ -99,9 +99,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:fms/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the policy.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the policy.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -134,84 +142,84 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deleteUnusedFmManagedResources);
     }
     /**
-     * The description of the AWS Network Firewall firewall policy.
+     * Description of the AWS Network Firewall firewall policy.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the AWS Network Firewall firewall policy.
+     * @return Description of the AWS Network Firewall firewall policy.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * A map of lists of accounts and OU&#39;s to exclude from the policy. See the `excludeMap` block.
+     * Map of lists of accounts and OUs to exclude from the policy. See the `excludeMap` block.
      * 
      */
     @Export(name="excludeMap", refs={PolicyExcludeMap.class}, tree="[0]")
     private Output</* @Nullable */ PolicyExcludeMap> excludeMap;
 
     /**
-     * @return A map of lists of accounts and OU&#39;s to exclude from the policy. See the `excludeMap` block.
+     * @return Map of lists of accounts and OUs to exclude from the policy. See the `excludeMap` block.
      * 
      */
     public Output<Optional<PolicyExcludeMap>> excludeMap() {
         return Codegen.optional(this.excludeMap);
     }
     /**
-     * A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
+     * Whether resources with the tags specified in `resourceTags` are excluded from protection. If `true`, tagged resources are not protected by this policy. If `false` and `resourceTags` are populated, resources that contain those tags are protected by this policy.
      * 
      */
     @Export(name="excludeResourceTags", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> excludeResourceTags;
 
     /**
-     * @return A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
+     * @return Whether resources with the tags specified in `resourceTags` are excluded from protection. If `true`, tagged resources are not protected by this policy. If `false` and `resourceTags` are populated, resources that contain those tags are protected by this policy.
      * 
      */
     public Output<Boolean> excludeResourceTags() {
         return this.excludeResourceTags;
     }
     /**
-     * A map of lists of accounts and OU&#39;s to include in the policy. See the `includeMap` block.
+     * Map of lists of accounts and OUs to include in the policy. See the `includeMap` block.
      * 
      */
     @Export(name="includeMap", refs={PolicyIncludeMap.class}, tree="[0]")
     private Output</* @Nullable */ PolicyIncludeMap> includeMap;
 
     /**
-     * @return A map of lists of accounts and OU&#39;s to include in the policy. See the `includeMap` block.
+     * @return Map of lists of accounts and OUs to include in the policy. See the `includeMap` block.
      * 
      */
     public Output<Optional<PolicyIncludeMap>> includeMap() {
         return Codegen.optional(this.includeMap);
     }
     /**
-     * The friendly name of the AWS Firewall Manager Policy.
+     * Friendly name of the AWS Firewall Manager Policy.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The friendly name of the AWS Firewall Manager Policy.
+     * @return Friendly name of the AWS Firewall Manager Policy.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A unique identifier for each update to the policy.
+     * Unique identifier for each update to the policy.
      * 
      */
     @Export(name="policyUpdateToken", refs={String.class}, tree="[0]")
     private Output<String> policyUpdateToken;
 
     /**
-     * @return A unique identifier for each update to the policy.
+     * @return Unique identifier for each update to the policy.
      * 
      */
     public Output<String> policyUpdateToken() {
@@ -232,22 +240,30 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
+     * Whether the policy is automatically applied to resources that already exist in the account.
      * 
      */
     @Export(name="remediationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> remediationEnabled;
 
     /**
-     * @return A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
+     * @return Whether the policy is automatically applied to resources that already exist in the account.
      * 
      */
     public Output<Optional<Boolean>> remediationEnabled() {
         return Codegen.optional(this.remediationEnabled);
     }
+    /**
+     * Set of resource set IDs associated with the policy.
+     * 
+     */
     @Export(name="resourceSetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> resourceSetIds;
 
+    /**
+     * @return Set of resource set IDs associated with the policy.
+     * 
+     */
     public Output<List<String>> resourceSetIds() {
         return this.resourceSetIds;
     }
@@ -266,56 +282,56 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.resourceTagLogicalOperator;
     }
     /**
-     * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
+     * Map of resource tags that, if present, filter protections on resources based on `excludeResourceTags`.
      * 
      */
     @Export(name="resourceTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> resourceTags;
 
     /**
-     * @return A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
+     * @return Map of resource tags that, if present, filter protections on resources based on `excludeResourceTags`.
      * 
      */
     public Output<Optional<Map<String,String>>> resourceTags() {
         return Codegen.optional(this.resourceTags);
     }
     /**
-     * A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+     * Resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
     /**
-     * @return A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+     * @return Resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
      * 
      */
     public Output<String> resourceType() {
         return this.resourceType;
     }
     /**
-     * A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
+     * List of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
      * 
      */
     @Export(name="resourceTypeLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> resourceTypeLists;
 
     /**
-     * @return A list of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
+     * @return List of resource types to protect. Conflicts with `resourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resourceType`.
      * 
      */
     public Output<List<String>> resourceTypeLists() {
         return this.resourceTypeLists;
     }
     /**
-     * The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
+     * Objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
      * 
      */
     @Export(name="securityServicePolicyData", refs={PolicySecurityServicePolicyData.class}, tree="[0]")
     private Output<PolicySecurityServicePolicyData> securityServicePolicyData;
 
     /**
-     * @return The objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
+     * @return Objects to include in Security Service Policy Data. See the `securityServicePolicyData` block.
      * 
      */
     public Output<PolicySecurityServicePolicyData> securityServicePolicyData() {
@@ -336,14 +352,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

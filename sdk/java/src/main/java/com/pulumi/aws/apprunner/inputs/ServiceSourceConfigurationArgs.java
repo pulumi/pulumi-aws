@@ -19,14 +19,14 @@ public final class ServiceSourceConfigurationArgs extends com.pulumi.resources.R
     public static final ServiceSourceConfigurationArgs Empty = new ServiceSourceConfigurationArgs();
 
     /**
-     * Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+     * Configuration for resources needed to authenticate access to some source repositories. See `authenticationConfiguration` below.
      * 
      */
     @Import(name="authenticationConfiguration")
     private @Nullable Output<ServiceSourceConfigurationAuthenticationConfigurationArgs> authenticationConfiguration;
 
     /**
-     * @return Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+     * @return Configuration for resources needed to authenticate access to some source repositories. See `authenticationConfiguration` below.
      * 
      */
     public Optional<Output<ServiceSourceConfigurationAuthenticationConfigurationArgs>> authenticationConfiguration() {
@@ -49,14 +49,14 @@ public final class ServiceSourceConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Description of a source code repository. See Code Repository below for more details.
+     * Description of a source code repository. See `codeRepository` below.
      * 
      */
     @Import(name="codeRepository")
     private @Nullable Output<ServiceSourceConfigurationCodeRepositoryArgs> codeRepository;
 
     /**
-     * @return Description of a source code repository. See Code Repository below for more details.
+     * @return Description of a source code repository. See `codeRepository` below.
      * 
      */
     public Optional<Output<ServiceSourceConfigurationCodeRepositoryArgs>> codeRepository() {
@@ -64,14 +64,14 @@ public final class ServiceSourceConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Description of a source image repository. See Image Repository below for more details.
+     * Description of a source image repository. See `imageRepository` below.
      * 
      */
     @Import(name="imageRepository")
     private @Nullable Output<ServiceSourceConfigurationImageRepositoryArgs> imageRepository;
 
     /**
-     * @return Description of a source image repository. See Image Repository below for more details.
+     * @return Description of a source image repository. See `imageRepository` below.
      * 
      */
     public Optional<Output<ServiceSourceConfigurationImageRepositoryArgs>> imageRepository() {
@@ -106,7 +106,7 @@ public final class ServiceSourceConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param authenticationConfiguration Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+         * @param authenticationConfiguration Configuration for resources needed to authenticate access to some source repositories. See `authenticationConfiguration` below.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ServiceSourceConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param authenticationConfiguration Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+         * @param authenticationConfiguration Configuration for resources needed to authenticate access to some source repositories. See `authenticationConfiguration` below.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ServiceSourceConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param codeRepository Description of a source code repository. See Code Repository below for more details.
+         * @param codeRepository Description of a source code repository. See `codeRepository` below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class ServiceSourceConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param codeRepository Description of a source code repository. See Code Repository below for more details.
+         * @param codeRepository Description of a source code repository. See `codeRepository` below.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ServiceSourceConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param imageRepository Description of a source image repository. See Image Repository below for more details.
+         * @param imageRepository Description of a source image repository. See `imageRepository` below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ServiceSourceConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param imageRepository Description of a source image repository. See Image Repository below for more details.
+         * @param imageRepository Description of a source image repository. See `imageRepository` below.
          * 
          * @return builder
          * 

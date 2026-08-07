@@ -294,6 +294,9 @@ namespace Pulumi.Aws.S3
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
+        /// <summary>
+        /// Byte range of the object to retrieve, in the format expected by the [HTTP `Range` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-range).
+        /// </summary>
         [Input("range")]
         public string? Range { get; set; }
 
@@ -353,6 +356,9 @@ namespace Pulumi.Aws.S3
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// Byte range of the object to retrieve, in the format expected by the [HTTP `Range` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-range).
+        /// </summary>
         [Input("range")]
         public Input<string>? Range { get; set; }
 
@@ -404,7 +410,7 @@ namespace Pulumi.Aws.S3
         public readonly string BodyBase64;
         public readonly string Bucket;
         /// <summary>
-        /// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+        /// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         /// </summary>
         public readonly bool BucketKeyEnabled;
         /// <summary>
@@ -412,24 +418,24 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string CacheControl;
         /// <summary>
-        /// The base64-encoded, 32-bit CRC32 checksum of the object.
+        /// Base64-encoded, 32-bit CRC32 checksum of the object.
         /// </summary>
         public readonly string ChecksumCrc32;
         /// <summary>
-        /// The base64-encoded, 32-bit CRC32C checksum of the object.
+        /// Base64-encoded, 32-bit CRC32C checksum of the object.
         /// </summary>
         public readonly string ChecksumCrc32c;
         /// <summary>
-        /// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+        /// Base64-encoded, 64-bit CRC64NVME checksum of the object.
         /// </summary>
         public readonly string ChecksumCrc64nvme;
         public readonly string? ChecksumMode;
         /// <summary>
-        /// The base64-encoded, 160-bit SHA-1 digest of the object.
+        /// Base64-encoded, 160-bit SHA-1 digest of the object.
         /// </summary>
         public readonly string ChecksumSha1;
         /// <summary>
-        /// The base64-encoded, 256-bit SHA-256 digest of the object.
+        /// Base64-encoded, 256-bit SHA-256 digest of the object.
         /// </summary>
         public readonly string ChecksumSha256;
         /// <summary>
@@ -479,7 +485,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly ImmutableDictionary<string, string> Metadata;
         /// <summary>
-        /// Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
+        /// Whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
         /// </summary>
         public readonly string ObjectLockLegalHoldStatus;
         /// <summary>
@@ -487,7 +493,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string ObjectLockMode;
         /// <summary>
-        /// The date and time when this object's object lock will expire.
+        /// Date and time when this object's object lock will expire.
         /// </summary>
         public readonly string ObjectLockRetainUntilDate;
         public readonly string? Range;

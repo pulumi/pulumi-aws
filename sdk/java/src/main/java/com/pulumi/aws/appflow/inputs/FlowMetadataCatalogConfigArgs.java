@@ -15,9 +15,17 @@ public final class FlowMetadataCatalogConfigArgs extends com.pulumi.resources.Re
 
     public static final FlowMetadataCatalogConfigArgs Empty = new FlowMetadataCatalogConfigArgs();
 
+    /**
+     * Configuration that determines how Amazon AppFlow catalogs data with the AWS Glue Data Catalog. See the `metadata_catalog_config.glue_data_catalog` Block for details.
+     * 
+     */
     @Import(name="glueDataCatalog")
     private @Nullable Output<FlowMetadataCatalogConfigGlueDataCatalogArgs> glueDataCatalog;
 
+    /**
+     * @return Configuration that determines how Amazon AppFlow catalogs data with the AWS Glue Data Catalog. See the `metadata_catalog_config.glue_data_catalog` Block for details.
+     * 
+     */
     public Optional<Output<FlowMetadataCatalogConfigGlueDataCatalogArgs>> glueDataCatalog() {
         return Optional.ofNullable(this.glueDataCatalog);
     }
@@ -46,11 +54,23 @@ public final class FlowMetadataCatalogConfigArgs extends com.pulumi.resources.Re
             $ = new FlowMetadataCatalogConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param glueDataCatalog Configuration that determines how Amazon AppFlow catalogs data with the AWS Glue Data Catalog. See the `metadata_catalog_config.glue_data_catalog` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder glueDataCatalog(@Nullable Output<FlowMetadataCatalogConfigGlueDataCatalogArgs> glueDataCatalog) {
             $.glueDataCatalog = glueDataCatalog;
             return this;
         }
 
+        /**
+         * @param glueDataCatalog Configuration that determines how Amazon AppFlow catalogs data with the AWS Glue Data Catalog. See the `metadata_catalog_config.glue_data_catalog` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder glueDataCatalog(FlowMetadataCatalogConfigGlueDataCatalogArgs glueDataCatalog) {
             return glueDataCatalog(Output.of(glueDataCatalog));
         }

@@ -93,9 +93,17 @@ public final class SourceApiAssociationArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.sourceApiArn);
     }
 
+    /**
+     * Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
+     * 
+     */
     @Import(name="sourceApiAssociationConfigs")
     private @Nullable Output<List<SourceApiAssociationSourceApiAssociationConfigArgs>> sourceApiAssociationConfigs;
 
+    /**
+     * @return Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
+     * 
+     */
     public Optional<Output<List<SourceApiAssociationSourceApiAssociationConfigArgs>>> sourceApiAssociationConfigs() {
         return Optional.ofNullable(this.sourceApiAssociationConfigs);
     }
@@ -258,15 +266,33 @@ public final class SourceApiAssociationArgs extends com.pulumi.resources.Resourc
             return sourceApiArn(Output.of(sourceApiArn));
         }
 
+        /**
+         * @param sourceApiAssociationConfigs Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceApiAssociationConfigs(@Nullable Output<List<SourceApiAssociationSourceApiAssociationConfigArgs>> sourceApiAssociationConfigs) {
             $.sourceApiAssociationConfigs = sourceApiAssociationConfigs;
             return this;
         }
 
+        /**
+         * @param sourceApiAssociationConfigs Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceApiAssociationConfigs(List<SourceApiAssociationSourceApiAssociationConfigArgs> sourceApiAssociationConfigs) {
             return sourceApiAssociationConfigs(Output.of(sourceApiAssociationConfigs));
         }
 
+        /**
+         * @param sourceApiAssociationConfigs Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceApiAssociationConfigs(SourceApiAssociationSourceApiAssociationConfigArgs... sourceApiAssociationConfigs) {
             return sourceApiAssociationConfigs(List.of(sourceApiAssociationConfigs));
         }

@@ -19,14 +19,14 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
     public static final ServiceNetworkServiceAssociationState Empty = new ServiceNetworkServiceAssociationState();
 
     /**
-     * The ARN of the Association.
+     * ARN of the Association.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the Association.
+     * @return ARN of the Association.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -34,14 +34,14 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
     }
 
     /**
-     * The account that created the association.
+     * Account that created the association.
      * 
      */
     @Import(name="createdBy")
     private @Nullable Output<String> createdBy;
 
     /**
-     * @return The account that created the association.
+     * @return Account that created the association.
      * 
      */
     public Optional<Output<String>> createdBy() {
@@ -49,14 +49,14 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
     }
 
     /**
-     * The custom domain name of the service.
+     * Custom domain name of the service.
      * 
      */
     @Import(name="customDomainName")
     private @Nullable Output<String> customDomainName;
 
     /**
-     * @return The custom domain name of the service.
+     * @return Custom domain name of the service.
      * 
      */
     public Optional<Output<String>> customDomainName() {
@@ -64,14 +64,14 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
     }
 
     /**
-     * The DNS name of the service.
+     * DNS name of the service.
      * 
      */
     @Import(name="dnsEntries")
     private @Nullable Output<List<ServiceNetworkServiceAssociationDnsEntryArgs>> dnsEntries;
 
     /**
-     * @return The DNS name of the service.
+     * @return DNS name of the service.
      * 
      */
     public Optional<Output<List<ServiceNetworkServiceAssociationDnsEntryArgs>>> dnsEntries() {
@@ -94,14 +94,14 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
     }
 
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
+     * ID or Amazon Resource Identifier (ARN) of the service.
      * 
      */
     @Import(name="serviceIdentifier")
     private @Nullable Output<String> serviceIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service.
+     * @return ID or Amazon Resource Identifier (ARN) of the service.
      * 
      */
     public Optional<Output<String>> serviceIdentifier() {
@@ -109,14 +109,14 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
     }
 
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+     * ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      */
     @Import(name="serviceNetworkIdentifier")
     private @Nullable Output<String> serviceNetworkIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+     * @return ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      */
     public Optional<Output<String>> serviceNetworkIdentifier() {
@@ -124,14 +124,14 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
     }
 
     /**
-     * The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+     * Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+     * @return Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      * 
      */
     public Optional<Output<String>> status() {
@@ -202,7 +202,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param arn The ARN of the Association.
+         * @param arn ARN of the Association.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param arn The ARN of the Association.
+         * @param arn ARN of the Association.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param createdBy The account that created the association.
+         * @param createdBy Account that created the association.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param createdBy The account that created the association.
+         * @param createdBy Account that created the association.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param customDomainName The custom domain name of the service.
+         * @param customDomainName Custom domain name of the service.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param customDomainName The custom domain name of the service.
+         * @param customDomainName Custom domain name of the service.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param dnsEntries The DNS name of the service.
+         * @param dnsEntries DNS name of the service.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param dnsEntries The DNS name of the service.
+         * @param dnsEntries DNS name of the service.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param dnsEntries The DNS name of the service.
+         * @param dnsEntries DNS name of the service.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param serviceIdentifier The ID or Amazon Resource Identifier (ARN) of the service.
+         * @param serviceIdentifier ID or Amazon Resource Identifier (ARN) of the service.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param serviceIdentifier The ID or Amazon Resource Identifier (ARN) of the service.
+         * @param serviceIdentifier ID or Amazon Resource Identifier (ARN) of the service.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param serviceNetworkIdentifier The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+         * @param serviceNetworkIdentifier ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param serviceNetworkIdentifier The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+         * @param serviceNetworkIdentifier ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param status The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+         * @param status Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
-         * @param status The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+         * @param status Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
          * 
          * @return builder
          * 

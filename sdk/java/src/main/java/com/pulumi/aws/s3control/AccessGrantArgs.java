@@ -20,14 +20,14 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
     public static final AccessGrantArgs Empty = new AccessGrantArgs();
 
     /**
-     * See Location Configuration below for more details.
+     * See `accessGrantsLocationConfiguration` Block below for more details.
      * 
      */
     @Import(name="accessGrantsLocationConfiguration")
     private @Nullable Output<AccessGrantAccessGrantsLocationConfigurationArgs> accessGrantsLocationConfiguration;
 
     /**
-     * @return See Location Configuration below for more details.
+     * @return See `accessGrantsLocationConfiguration` Block below for more details.
      * 
      */
     public Optional<Output<AccessGrantAccessGrantsLocationConfigurationArgs>> accessGrantsLocationConfiguration() {
@@ -35,14 +35,14 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the S3 Access Grants location to with the access grant is giving access.
+     * ID of the S3 Access Grants location to with the access grant is giving access.
      * 
      */
     @Import(name="accessGrantsLocationId", required=true)
     private Output<String> accessGrantsLocationId;
 
     /**
-     * @return The ID of the S3 Access Grants location to with the access grant is giving access.
+     * @return ID of the S3 Access Grants location to with the access grant is giving access.
      * 
      */
     public Output<String> accessGrantsLocationId() {
@@ -50,14 +50,14 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * @return AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -65,14 +65,14 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * See Grantee below for more details.
+     * See `grantee` Block below for more details.
      * 
      */
     @Import(name="grantee", required=true)
     private Output<AccessGrantGranteeArgs> grantee;
 
     /**
-     * @return See Grantee below for more details.
+     * @return See `grantee` Block below for more details.
      * 
      */
     public Output<AccessGrantGranteeArgs> grantee() {
@@ -80,14 +80,14 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+     * Access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      * 
      */
     @Import(name="permission", required=true)
     private Output<String> permission;
 
     /**
-     * @return The access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+     * @return Access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      * 
      */
     public Output<String> permission() {
@@ -171,7 +171,7 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessGrantsLocationConfiguration See Location Configuration below for more details.
+         * @param accessGrantsLocationConfiguration See `accessGrantsLocationConfiguration` Block below for more details.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessGrantsLocationConfiguration See Location Configuration below for more details.
+         * @param accessGrantsLocationConfiguration See `accessGrantsLocationConfiguration` Block below for more details.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessGrantsLocationId The ID of the S3 Access Grants location to with the access grant is giving access.
+         * @param accessGrantsLocationId ID of the S3 Access Grants location to with the access grant is giving access.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessGrantsLocationId The ID of the S3 Access Grants location to with the access grant is giving access.
+         * @param accessGrantsLocationId ID of the S3 Access Grants location to with the access grant is giving access.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * @param accountId AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * @param accountId AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantee See Grantee below for more details.
+         * @param grantee See `grantee` Block below for more details.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grantee See Grantee below for more details.
+         * @param grantee See `grantee` Block below for more details.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permission The access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+         * @param permission Access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permission The access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+         * @param permission Access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
          * 
          * @return builder
          * 

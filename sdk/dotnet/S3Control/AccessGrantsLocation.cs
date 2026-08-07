@@ -66,20 +66,19 @@ namespace Pulumi.Aws.S3Control
         public Output<string> AccessGrantsLocationId { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-        /// requests to the location.
+        /// ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
         /// </summary>
         [Output("iamRoleArn")]
         public Output<string> IamRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        /// Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
         /// </summary>
         [Output("locationScope")]
         public Output<string> LocationScope { get; private set; } = null!;
@@ -97,7 +96,7 @@ namespace Pulumi.Aws.S3Control
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -149,20 +148,19 @@ namespace Pulumi.Aws.S3Control
     public sealed class AccessGrantsLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-        /// requests to the location.
+        /// ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
         /// </summary>
         [Input("iamRoleArn", required: true)]
         public Input<string> IamRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        /// Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
         /// </summary>
         [Input("locationScope", required: true)]
         public Input<string> LocationScope { get; set; } = null!;
@@ -206,20 +204,19 @@ namespace Pulumi.Aws.S3Control
         public Input<string>? AccessGrantsLocationId { get; set; }
 
         /// <summary>
-        /// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-        /// requests to the location.
+        /// ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
         /// </summary>
         [Input("iamRoleArn")]
         public Input<string>? IamRoleArn { get; set; }
 
         /// <summary>
-        /// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        /// Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
         /// </summary>
         [Input("locationScope")]
         public Input<string>? LocationScope { get; set; }
@@ -246,7 +243,7 @@ namespace Pulumi.Aws.S3Control
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

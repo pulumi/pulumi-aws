@@ -117,56 +117,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy")
 public class MultiRegionAccessPointPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+     * Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
      * 
      */
     @Export(name="details", refs={MultiRegionAccessPointPolicyDetails.class}, tree="[0]")
     private Output<MultiRegionAccessPointPolicyDetails> details;
 
     /**
-     * @return A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+     * @return Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
      * 
      */
     public Output<MultiRegionAccessPointPolicyDetails> details() {
         return this.details;
     }
     /**
-     * The last established policy for the Multi-Region Access Point.
+     * Last established policy for the Multi-Region Access Point.
      * 
      */
     @Export(name="established", refs={String.class}, tree="[0]")
     private Output<String> established;
 
     /**
-     * @return The last established policy for the Multi-Region Access Point.
+     * @return Last established policy for the Multi-Region Access Point.
      * 
      */
     public Output<String> established() {
         return this.established;
     }
     /**
-     * The proposed policy for the Multi-Region Access Point.
+     * Proposed policy for the Multi-Region Access Point.
      * 
      */
     @Export(name="proposed", refs={String.class}, tree="[0]")
     private Output<String> proposed;
 
     /**
-     * @return The proposed policy for the Multi-Region Access Point.
+     * @return Proposed policy for the Multi-Region Access Point.
      * 
      */
     public Output<String> proposed() {

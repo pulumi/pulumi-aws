@@ -18,7 +18,7 @@ public final class GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess {
      */
     private String region;
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     private String status;
@@ -35,7 +35,7 @@ public final class GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess {
         return this.region;
     }
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     public String status() {

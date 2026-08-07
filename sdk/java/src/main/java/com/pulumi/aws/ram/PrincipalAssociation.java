@@ -114,14 +114,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ram/principalAssociation:PrincipalAssociation")
 public class PrincipalAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+     * Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      * 
      */
     @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
-     * @return The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+     * @return Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      * 
      */
     public Output<String> principal() {
@@ -142,14 +142,14 @@ public class PrincipalAssociation extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the resource share.
+     * Amazon Resource Name (ARN) of the resource share.
      * 
      */
     @Export(name="resourceShareArn", refs={String.class}, tree="[0]")
     private Output<String> resourceShareArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource share.
+     * @return Amazon Resource Name (ARN) of the resource share.
      * 
      */
     public Output<String> resourceShareArn() {

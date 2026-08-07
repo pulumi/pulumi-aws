@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ListenerDefaultActionForward {
     /**
-     * @return One or more target group blocks.
+     * @return One or more target group blocks. See `targetGroups` Block below.
      * 
      */
     private @Nullable List<ListenerDefaultActionForwardTargetGroup> targetGroups;
 
     private ListenerDefaultActionForward() {}
     /**
-     * @return One or more target group blocks.
+     * @return One or more target group blocks. See `targetGroups` Block below.
      * 
      */
     public List<ListenerDefaultActionForwardTargetGroup> targetGroups() {

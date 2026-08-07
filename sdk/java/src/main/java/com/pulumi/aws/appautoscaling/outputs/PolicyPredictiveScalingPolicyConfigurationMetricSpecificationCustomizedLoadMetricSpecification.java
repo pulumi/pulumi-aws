@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification {
     /**
-     * @return One or more metric data queries to provide data points for a metric specification. See supported fields below.
+     * @return One or more metric data queries to provide data points for a metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query` Block for details.
      * 
      */
     private List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery> metricDataQueries;
 
     private PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification() {}
     /**
-     * @return One or more metric data queries to provide data points for a metric specification. See supported fields below.
+     * @return One or more metric data queries to provide data points for a metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query` Block for details.
      * 
      */
     public List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery> metricDataQueries() {

@@ -18,14 +18,14 @@ public final class OntapFileSystemEndpointArgs extends com.pulumi.resources.Reso
     public static final OntapFileSystemEndpointArgs Empty = new OntapFileSystemEndpointArgs();
 
     /**
-     * An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+     * Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
      * 
      */
     @Import(name="interclusters")
     private @Nullable Output<List<OntapFileSystemEndpointInterclusterArgs>> interclusters;
 
     /**
-     * @return An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+     * @return Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
      * 
      */
     public Optional<Output<List<OntapFileSystemEndpointInterclusterArgs>>> interclusters() {
@@ -33,14 +33,14 @@ public final class OntapFileSystemEndpointArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+     * Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
      * 
      */
     @Import(name="managements")
     private @Nullable Output<List<OntapFileSystemEndpointManagementArgs>> managements;
 
     /**
-     * @return An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+     * @return Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
      * 
      */
     public Optional<Output<List<OntapFileSystemEndpointManagementArgs>>> managements() {
@@ -73,7 +73,7 @@ public final class OntapFileSystemEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param interclusters An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+         * @param interclusters Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class OntapFileSystemEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param interclusters An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+         * @param interclusters Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class OntapFileSystemEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param interclusters An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+         * @param interclusters Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class OntapFileSystemEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param managements An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         * @param managements Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class OntapFileSystemEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param managements An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         * @param managements Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class OntapFileSystemEndpointArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param managements An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         * @param managements Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
          * 
          * @return builder
          * 

@@ -20,14 +20,14 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
     public static final KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs Empty = new KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs();
 
     /**
-     * The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+     * IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
      * 
      */
     @Import(name="cidrBlock", required=true)
     private Output<String> cidrBlock;
 
     /**
-     * @return The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+     * @return IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
      * 
      */
     public Output<String> cidrBlock() {
@@ -35,14 +35,14 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
     }
 
     /**
-     * Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+     * ICMP protocol that consists of the ICMP type and code. Defined below.
      * 
      */
     @Import(name="icmpTypeCode")
     private @Nullable Output<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs> icmpTypeCode;
 
     /**
-     * @return Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+     * @return ICMP protocol that consists of the ICMP type and code. Defined below.
      * 
      */
     public Optional<Output<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs>> icmpTypeCode() {
@@ -80,14 +80,14 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
     }
 
     /**
-     * Indicates whether to `allow` or `deny` the traffic that matches the rule.
+     * Whether to `allow` or `deny` the traffic that matches the rule.
      * 
      */
     @Import(name="ruleAction", required=true)
     private Output<String> ruleAction;
 
     /**
-     * @return Indicates whether to `allow` or `deny` the traffic that matches the rule.
+     * @return Whether to `allow` or `deny` the traffic that matches the rule.
      * 
      */
     public Output<String> ruleAction() {
@@ -139,7 +139,7 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
         }
 
         /**
-         * @param cidrBlock The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+         * @param cidrBlock IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
         }
 
         /**
-         * @param cidrBlock The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+         * @param cidrBlock IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
         }
 
         /**
-         * @param icmpTypeCode Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+         * @param icmpTypeCode ICMP protocol that consists of the ICMP type and code. Defined below.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
         }
 
         /**
-         * @param icmpTypeCode Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+         * @param icmpTypeCode ICMP protocol that consists of the ICMP type and code. Defined below.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
         }
 
         /**
-         * @param ruleAction Indicates whether to `allow` or `deny` the traffic that matches the rule.
+         * @param ruleAction Whether to `allow` or `deny` the traffic that matches the rule.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
         }
 
         /**
-         * @param ruleAction Indicates whether to `allow` or `deny` the traffic that matches the rule.
+         * @param ruleAction Whether to `allow` or `deny` the traffic that matches the rule.
          * 
          * @return builder
          * 

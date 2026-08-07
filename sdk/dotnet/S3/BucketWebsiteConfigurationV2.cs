@@ -161,8 +161,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-        /// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+        /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
         /// </summary>
         [Output("routingRuleDetails")]
         public Output<string> RoutingRuleDetails { get; private set; } = null!;
@@ -272,8 +271,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-        /// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+        /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
         /// </summary>
         [Input("routingRuleDetails")]
         public Input<string>? RoutingRuleDetails { get; set; }
@@ -335,8 +333,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-        /// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+        /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
         /// </summary>
         [Input("routingRuleDetails")]
         public Input<string>? RoutingRuleDetails { get; set; }

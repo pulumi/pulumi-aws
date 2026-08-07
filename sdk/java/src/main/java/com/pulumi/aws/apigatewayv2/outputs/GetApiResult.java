@@ -21,7 +21,7 @@ public final class GetApiResult {
     private String apiEndpoint;
     private String apiId;
     /**
-     * @return An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
+     * @return [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
      * 
      */
     private String apiKeySelectionExpression;
@@ -56,7 +56,7 @@ public final class GetApiResult {
      */
     private String id;
     /**
-     * @return The IP address types that can invoke an API.
+     * @return IP address types that can invoke an API.
      * 
      */
     private String ipAddressType;
@@ -72,7 +72,7 @@ public final class GetApiResult {
     private String protocolType;
     private String region;
     /**
-     * @return The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
+     * @return [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
      * 
      */
     private String routeSelectionExpression;
@@ -99,7 +99,7 @@ public final class GetApiResult {
         return this.apiId;
     }
     /**
-     * @return An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
+     * @return [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
      * 
      */
     public String apiKeySelectionExpression() {
@@ -148,7 +148,7 @@ public final class GetApiResult {
         return this.id;
     }
     /**
-     * @return The IP address types that can invoke an API.
+     * @return IP address types that can invoke an API.
      * 
      */
     public String ipAddressType() {
@@ -172,7 +172,7 @@ public final class GetApiResult {
         return this.region;
     }
     /**
-     * @return The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
+     * @return [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
      * 
      */
     public String routeSelectionExpression() {

@@ -77,14 +77,14 @@ public class BasePathMapping extends com.pulumi.resources.CustomResource {
         return this.domainName;
     }
     /**
-     * The identifier for the domain name resource. Supported only for private custom domain names.
+     * Identifier for the domain name resource. Supported only for private custom domain names.
      * 
      */
     @Export(name="domainNameId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domainNameId;
 
     /**
-     * @return The identifier for the domain name resource. Supported only for private custom domain names.
+     * @return Identifier for the domain name resource. Supported only for private custom domain names.
      * 
      */
     public Output<Optional<String>> domainNameId() {

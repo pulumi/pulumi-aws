@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpec
     {
         /// <summary>
-        /// GRPC routing information for the route. See `GrpcRoute` Block for details.
+        /// GRPC routing information for the route. See `spec.grpc_route` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecGrpcRoute? GrpcRoute;
         /// <summary>
-        /// HTTP/2 routing information for the route. See `Http2Route` Block for details.
+        /// HTTP/2 routing information for the route. See `spec.http2_route` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecHttp2Route? Http2Route;
         /// <summary>
-        /// HTTP routing information for the route. See `HttpRoute` Block for details.
+        /// HTTP routing information for the route. See `spec.http_route` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecHttpRoute? HttpRoute;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly int? Priority;
         /// <summary>
-        /// TCP routing information for the route. See `TcpRoute` Block for details.
+        /// TCP routing information for the route. See `spec.tcp_route` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecTcpRoute? TcpRoute;
 

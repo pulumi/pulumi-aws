@@ -72,19 +72,19 @@ export class VpcIngressConnection extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the VPC Ingress Connection.
+     * Amazon Resource Name (ARN) of the VPC Ingress Connection.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The domain name associated with the VPC Ingress Connection resource.
+     * Domain name associated with the VPC Ingress Connection resource.
      */
     declare public /*out*/ readonly domainName: pulumi.Output<string>;
     /**
-     * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+     * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
      */
     declare public readonly ingressVpcConfiguration: pulumi.Output<outputs.apprunner.VpcIngressConnectionIngressVpcConfiguration>;
     /**
-     * A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+     * Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -92,11 +92,11 @@ export class VpcIngressConnection extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+     * Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      */
     declare public readonly serviceArn: pulumi.Output<string>;
     /**
-     * The current status of the VPC Ingress Connection.
+     * Current status of the VPC Ingress Connection.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -158,19 +158,19 @@ export class VpcIngressConnection extends pulumi.CustomResource {
  */
 export interface VpcIngressConnectionState {
     /**
-     * The Amazon Resource Name (ARN) of the VPC Ingress Connection.
+     * Amazon Resource Name (ARN) of the VPC Ingress Connection.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The domain name associated with the VPC Ingress Connection resource.
+     * Domain name associated with the VPC Ingress Connection resource.
      */
     domainName?: pulumi.Input<string | undefined>;
     /**
-     * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+     * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
      */
     ingressVpcConfiguration?: pulumi.Input<inputs.apprunner.VpcIngressConnectionIngressVpcConfiguration | undefined>;
     /**
-     * A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+     * Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -178,11 +178,11 @@ export interface VpcIngressConnectionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+     * Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      */
     serviceArn?: pulumi.Input<string | undefined>;
     /**
-     * The current status of the VPC Ingress Connection.
+     * Current status of the VPC Ingress Connection.
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -200,11 +200,11 @@ export interface VpcIngressConnectionState {
  */
 export interface VpcIngressConnectionArgs {
     /**
-     * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+     * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
      */
     ingressVpcConfiguration: pulumi.Input<inputs.apprunner.VpcIngressConnectionIngressVpcConfiguration>;
     /**
-     * A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+     * Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -212,7 +212,7 @@ export interface VpcIngressConnectionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+     * Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      */
     serviceArn: pulumi.Input<string>;
     /**

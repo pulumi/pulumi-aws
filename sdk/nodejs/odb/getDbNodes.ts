@@ -38,7 +38,7 @@ export function getDbNodes(args: GetDbNodesArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetDbNodesArgs {
     /**
-     * The unique identifier of the cloud vm cluster.
+     * Unique identifier of the cloud vm cluster.
      *
      * The following arguments are optional:
      */
@@ -55,7 +55,7 @@ export interface GetDbNodesArgs {
 export interface GetDbNodesResult {
     readonly cloudVmClusterId: string;
     /**
-     * The list of DB nodes along with their properties.
+     * List of DB nodes along with their properties.
      */
     readonly dbNodes: outputs.odb.GetDbNodesDbNode[];
     readonly region: string;
@@ -91,7 +91,7 @@ export function getDbNodesOutput(args: GetDbNodesOutputArgs, opts?: pulumi.Invok
  */
 export interface GetDbNodesOutputArgs {
     /**
-     * The unique identifier of the cloud vm cluster.
+     * Unique identifier of the cloud vm cluster.
      *
      * The following arguments are optional:
      */

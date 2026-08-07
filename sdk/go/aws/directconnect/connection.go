@@ -149,6 +149,8 @@ type Connection struct {
 	RequestMacsec pulumi.BoolPtrOutput `pulumi:"requestMacsec"`
 	// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
+	// State of the connection. See [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html#API_CreateConnection_ResponseSyntax) for list of possible state values.
+	State pulumi.StringOutput `pulumi:"state"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -227,6 +229,8 @@ type connectionState struct {
 	RequestMacsec *bool `pulumi:"requestMacsec"`
 	// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
+	// State of the connection. See [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html#API_CreateConnection_ResponseSyntax) for list of possible state values.
+	State *string `pulumi:"state"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -270,6 +274,8 @@ type ConnectionState struct {
 	RequestMacsec pulumi.BoolPtrInput
 	// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
 	SkipDestroy pulumi.BoolPtrInput
+	// State of the connection. See [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html#API_CreateConnection_ResponseSyntax) for list of possible state values.
+	State pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -496,6 +502,11 @@ func (o ConnectionOutput) RequestMacsec() pulumi.BoolPtrOutput {
 // Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
 func (o ConnectionOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
+}
+
+// State of the connection. See [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html#API_CreateConnection_ResponseSyntax) for list of possible state values.
+func (o ConnectionOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly bool? CloudWatchEncryptionEnabled;
         /// <summary>
-        /// The name of the CloudWatch log group to send logs to.
+        /// Name of the CloudWatch log group to send logs to.
         /// </summary>
         public readonly string? CloudWatchLogGroupName;
         /// <summary>

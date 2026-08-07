@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScraperSourceEks {
     /**
-     * @return The Amazon Resource Name (ARN) of the source EKS cluster.
+     * @return ARN of the source EKS cluster.
      * 
      */
     private String clusterArn;
@@ -30,7 +30,7 @@ public final class ScraperSourceEks {
 
     private ScraperSourceEks() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the source EKS cluster.
+     * @return ARN of the source EKS cluster.
      * 
      */
     public String clusterArn() {

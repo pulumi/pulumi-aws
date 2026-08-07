@@ -29,14 +29,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     public static final CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs Empty = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs();
 
     /**
-     * The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+     * Minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators. Detailed below.
      * 
      */
     @Import(name="acceleratorCount")
     private @Nullable Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs> acceleratorCount;
 
     /**
-     * @return The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+     * @return Minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators. Detailed below.
      * 
      */
     public Optional<Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs>> acceleratorCount() {
@@ -44,14 +44,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+     * Accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
      * 
      */
     @Import(name="acceleratorManufacturers")
     private @Nullable Output<List<String>> acceleratorManufacturers;
 
     /**
-     * @return The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+     * @return Accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
      * 
      */
     public Optional<Output<List<String>>> acceleratorManufacturers() {
@@ -59,14 +59,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+     * Specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
      * 
      */
     @Import(name="acceleratorNames")
     private @Nullable Output<List<String>> acceleratorNames;
 
     /**
-     * @return The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+     * @return Specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
      * 
      */
     public Optional<Output<List<String>>> acceleratorNames() {
@@ -74,14 +74,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+     * Minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory. Detailed below.
      * 
      */
     @Import(name="acceleratorTotalMemoryMib")
     private @Nullable Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs> acceleratorTotalMemoryMib;
 
     /**
-     * @return The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+     * @return Minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory. Detailed below.
      * 
      */
     public Optional<Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs>> acceleratorTotalMemoryMib() {
@@ -89,14 +89,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+     * Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
      * 
      */
     @Import(name="acceleratorTypes")
     private @Nullable Output<List<String>> acceleratorTypes;
 
     /**
-     * @return The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+     * @return Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
      * 
      */
     public Optional<Output<List<String>>> acceleratorTypes() {
@@ -104,14 +104,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
+     * Instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
      * 
      */
     @Import(name="allowedInstanceTypes")
     private @Nullable Output<List<String>> allowedInstanceTypes;
 
     /**
-     * @return The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
+     * @return Instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
      * 
      */
     public Optional<Output<List<String>>> allowedInstanceTypes() {
@@ -119,14 +119,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
+     * Whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
      * 
      */
     @Import(name="bareMetal")
     private @Nullable Output<String> bareMetal;
 
     /**
-     * @return Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
+     * @return Whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
      * 
      */
     public Optional<Output<String>> bareMetal() {
@@ -134,14 +134,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+     * Minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements. Detailed below.
      * 
      */
     @Import(name="baselineEbsBandwidthMbps")
     private @Nullable Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs> baselineEbsBandwidthMbps;
 
     /**
-     * @return The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+     * @return Minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements. Detailed below.
      * 
      */
     public Optional<Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs>> baselineEbsBandwidthMbps() {
@@ -149,14 +149,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
+     * Whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
      * 
      */
     @Import(name="burstablePerformance")
     private @Nullable Output<String> burstablePerformance;
 
     /**
-     * @return Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
+     * @return Whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
      * 
      */
     public Optional<Output<String>> burstablePerformance() {
@@ -164,14 +164,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+     * CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
      * 
      */
     @Import(name="cpuManufacturers")
     private @Nullable Output<List<String>> cpuManufacturers;
 
     /**
-     * @return The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+     * @return CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
      * 
      */
     public Optional<Output<List<String>>> cpuManufacturers() {
@@ -179,14 +179,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
+     * Instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
      * 
      */
     @Import(name="excludedInstanceTypes")
     private @Nullable Output<List<String>> excludedInstanceTypes;
 
     /**
-     * @return The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
+     * @return Instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
      * 
      */
     public Optional<Output<List<String>>> excludedInstanceTypes() {
@@ -194,14 +194,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+     * Instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
      * 
      */
     @Import(name="instanceGenerations")
     private @Nullable Output<List<String>> instanceGenerations;
 
     /**
-     * @return The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+     * @return Instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
      * 
      */
     public Optional<Output<List<String>>> instanceGenerations() {
@@ -209,14 +209,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
+     * Whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
      * 
      */
     @Import(name="localStorage")
     private @Nullable Output<String> localStorage;
 
     /**
-     * @return Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
+     * @return Whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
      * 
      */
     public Optional<Output<String>> localStorage() {
@@ -224,14 +224,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+     * Local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
      * 
      */
     @Import(name="localStorageTypes")
     private @Nullable Output<List<String>> localStorageTypes;
 
     /**
-     * @return The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+     * @return Local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
      * 
      */
     public Optional<Output<List<String>>> localStorageTypes() {
@@ -239,14 +239,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+     * Maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
      * 
      */
     @Import(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
     private @Nullable Output<Integer> maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
 
     /**
-     * @return The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+     * @return Maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
      * 
      */
     public Optional<Output<Integer>> maxSpotPriceAsPercentageOfOptimalOnDemandPrice() {
@@ -254,14 +254,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+     * Minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads. Detailed below.
      * 
      */
     @Import(name="memoryGibPerVcpu")
     private @Nullable Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs> memoryGibPerVcpu;
 
     /**
-     * @return The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+     * @return Minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads. Detailed below.
      * 
      */
     public Optional<Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs>> memoryGibPerVcpu() {
@@ -269,14 +269,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+     * Minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range. Detailed below.
      * 
      */
     @Import(name="memoryMib", required=true)
     private Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs> memoryMib;
 
     /**
-     * @return The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+     * @return Minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range. Detailed below.
      * 
      */
     public Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs> memoryMib() {
@@ -284,14 +284,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+     * Minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput. Detailed below.
      * 
      */
     @Import(name="networkBandwidthGbps")
     private @Nullable Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs> networkBandwidthGbps;
 
     /**
-     * @return The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+     * @return Minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput. Detailed below.
      * 
      */
     public Optional<Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs>> networkBandwidthGbps() {
@@ -299,14 +299,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+     * Minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces. Detailed below.
      * 
      */
     @Import(name="networkInterfaceCount")
     private @Nullable Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs> networkInterfaceCount;
 
     /**
-     * @return The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+     * @return Minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces. Detailed below.
      * 
      */
     public Optional<Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs>> networkInterfaceCount() {
@@ -314,14 +314,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+     * Price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
      * 
      */
     @Import(name="onDemandMaxPricePercentageOverLowestPrice")
     private @Nullable Output<Integer> onDemandMaxPricePercentageOverLowestPrice;
 
     /**
-     * @return The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+     * @return Price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
      * 
      */
     public Optional<Output<Integer>> onDemandMaxPricePercentageOverLowestPrice() {
@@ -329,14 +329,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
+     * Whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
      * 
      */
     @Import(name="requireHibernateSupport")
     private @Nullable Output<Boolean> requireHibernateSupport;
 
     /**
-     * @return Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
+     * @return Whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
      * 
      */
     public Optional<Output<Boolean>> requireHibernateSupport() {
@@ -344,14 +344,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+     * Maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
      * 
      */
     @Import(name="spotMaxPricePercentageOverLowestPrice")
     private @Nullable Output<Integer> spotMaxPricePercentageOverLowestPrice;
 
     /**
-     * @return The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+     * @return Maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
      * 
      */
     public Optional<Output<Integer>> spotMaxPricePercentageOverLowestPrice() {
@@ -359,14 +359,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+     * Minimum and maximum total local storage in gigabytes (GB) for instance types with local storage. Detailed below.
      * 
      */
     @Import(name="totalLocalStorageGb")
     private @Nullable Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs> totalLocalStorageGb;
 
     /**
-     * @return The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+     * @return Minimum and maximum total local storage in gigabytes (GB) for instance types with local storage. Detailed below.
      * 
      */
     public Optional<Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs>> totalLocalStorageGb() {
@@ -374,14 +374,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+     * Minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range. Detailed below.
      * 
      */
     @Import(name="vcpuCount", required=true)
     private Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs> vcpuCount;
 
     /**
-     * @return The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+     * @return Minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range. Detailed below.
      * 
      */
     public Output<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs> vcpuCount() {
@@ -436,7 +436,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorCount The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+         * @param acceleratorCount Minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators. Detailed below.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorCount The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+         * @param acceleratorCount Minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators. Detailed below.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorManufacturers The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+         * @param acceleratorManufacturers Accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorManufacturers The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+         * @param acceleratorManufacturers Accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorManufacturers The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+         * @param acceleratorManufacturers Accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
          * 
          * @return builder
          * 
@@ -488,7 +488,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorNames The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+         * @param acceleratorNames Specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorNames The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+         * @param acceleratorNames Specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorNames The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+         * @param acceleratorNames Specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
          * 
          * @return builder
          * 
@@ -519,7 +519,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorTotalMemoryMib The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+         * @param acceleratorTotalMemoryMib Minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory. Detailed below.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorTotalMemoryMib The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+         * @param acceleratorTotalMemoryMib Minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory. Detailed below.
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorTypes The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+         * @param acceleratorTypes Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
          * 
          * @return builder
          * 
@@ -551,7 +551,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorTypes The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+         * @param acceleratorTypes Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
          * 
          * @return builder
          * 
@@ -561,7 +561,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param acceleratorTypes The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+         * @param acceleratorTypes Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param allowedInstanceTypes The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
+         * @param allowedInstanceTypes Instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param allowedInstanceTypes The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
+         * @param allowedInstanceTypes Instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param allowedInstanceTypes The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
+         * @param allowedInstanceTypes Instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
          * 
          * @return builder
          * 
@@ -602,7 +602,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param bareMetal Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
+         * @param bareMetal Whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
          * 
          * @return builder
          * 
@@ -613,7 +613,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param bareMetal Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
+         * @param bareMetal Whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
          * 
          * @return builder
          * 
@@ -623,7 +623,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param baselineEbsBandwidthMbps The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+         * @param baselineEbsBandwidthMbps Minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements. Detailed below.
          * 
          * @return builder
          * 
@@ -634,7 +634,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param baselineEbsBandwidthMbps The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+         * @param baselineEbsBandwidthMbps Minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements. Detailed below.
          * 
          * @return builder
          * 
@@ -644,7 +644,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param burstablePerformance Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
+         * @param burstablePerformance Whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
          * 
          * @return builder
          * 
@@ -655,7 +655,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param burstablePerformance Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
+         * @param burstablePerformance Whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
          * 
          * @return builder
          * 
@@ -665,7 +665,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param cpuManufacturers The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+         * @param cpuManufacturers CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
          * 
          * @return builder
          * 
@@ -676,7 +676,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param cpuManufacturers The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+         * @param cpuManufacturers CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
          * 
          * @return builder
          * 
@@ -686,7 +686,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param cpuManufacturers The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+         * @param cpuManufacturers CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
          * 
          * @return builder
          * 
@@ -696,7 +696,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param excludedInstanceTypes The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
+         * @param excludedInstanceTypes Instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
          * 
          * @return builder
          * 
@@ -707,7 +707,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param excludedInstanceTypes The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
+         * @param excludedInstanceTypes Instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
          * 
          * @return builder
          * 
@@ -717,7 +717,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param excludedInstanceTypes The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
+         * @param excludedInstanceTypes Instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
          * 
          * @return builder
          * 
@@ -727,7 +727,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param instanceGenerations The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+         * @param instanceGenerations Instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
          * 
          * @return builder
          * 
@@ -738,7 +738,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param instanceGenerations The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+         * @param instanceGenerations Instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
          * 
          * @return builder
          * 
@@ -748,7 +748,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param instanceGenerations The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+         * @param instanceGenerations Instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
          * 
          * @return builder
          * 
@@ -758,7 +758,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param localStorage Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
+         * @param localStorage Whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
          * 
          * @return builder
          * 
@@ -769,7 +769,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param localStorage Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
+         * @param localStorage Whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
          * 
          * @return builder
          * 
@@ -779,7 +779,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param localStorageTypes The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+         * @param localStorageTypes Local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
          * 
          * @return builder
          * 
@@ -790,7 +790,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param localStorageTypes The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+         * @param localStorageTypes Local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
          * 
          * @return builder
          * 
@@ -800,7 +800,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param localStorageTypes The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+         * @param localStorageTypes Local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
          * 
          * @return builder
          * 
@@ -810,7 +810,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param maxSpotPriceAsPercentageOfOptimalOnDemandPrice The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+         * @param maxSpotPriceAsPercentageOfOptimalOnDemandPrice Maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
          * 
          * @return builder
          * 
@@ -821,7 +821,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param maxSpotPriceAsPercentageOfOptimalOnDemandPrice The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+         * @param maxSpotPriceAsPercentageOfOptimalOnDemandPrice Maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
          * 
          * @return builder
          * 
@@ -831,7 +831,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param memoryGibPerVcpu The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+         * @param memoryGibPerVcpu Minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads. Detailed below.
          * 
          * @return builder
          * 
@@ -842,7 +842,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param memoryGibPerVcpu The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+         * @param memoryGibPerVcpu Minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads. Detailed below.
          * 
          * @return builder
          * 
@@ -852,7 +852,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param memoryMib The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+         * @param memoryMib Minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range. Detailed below.
          * 
          * @return builder
          * 
@@ -863,7 +863,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param memoryMib The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+         * @param memoryMib Minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range. Detailed below.
          * 
          * @return builder
          * 
@@ -873,7 +873,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param networkBandwidthGbps The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+         * @param networkBandwidthGbps Minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput. Detailed below.
          * 
          * @return builder
          * 
@@ -884,7 +884,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param networkBandwidthGbps The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+         * @param networkBandwidthGbps Minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput. Detailed below.
          * 
          * @return builder
          * 
@@ -894,7 +894,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param networkInterfaceCount The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+         * @param networkInterfaceCount Minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces. Detailed below.
          * 
          * @return builder
          * 
@@ -905,7 +905,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param networkInterfaceCount The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+         * @param networkInterfaceCount Minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces. Detailed below.
          * 
          * @return builder
          * 
@@ -915,7 +915,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param onDemandMaxPricePercentageOverLowestPrice The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+         * @param onDemandMaxPricePercentageOverLowestPrice Price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
          * 
          * @return builder
          * 
@@ -926,7 +926,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param onDemandMaxPricePercentageOverLowestPrice The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+         * @param onDemandMaxPricePercentageOverLowestPrice Price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
          * 
          * @return builder
          * 
@@ -936,7 +936,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param requireHibernateSupport Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
+         * @param requireHibernateSupport Whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
          * 
          * @return builder
          * 
@@ -947,7 +947,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param requireHibernateSupport Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
+         * @param requireHibernateSupport Whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
          * 
          * @return builder
          * 
@@ -957,7 +957,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param spotMaxPricePercentageOverLowestPrice The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+         * @param spotMaxPricePercentageOverLowestPrice Maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
          * 
          * @return builder
          * 
@@ -968,7 +968,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param spotMaxPricePercentageOverLowestPrice The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+         * @param spotMaxPricePercentageOverLowestPrice Maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
          * 
          * @return builder
          * 
@@ -978,7 +978,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param totalLocalStorageGb The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+         * @param totalLocalStorageGb Minimum and maximum total local storage in gigabytes (GB) for instance types with local storage. Detailed below.
          * 
          * @return builder
          * 
@@ -989,7 +989,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param totalLocalStorageGb The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+         * @param totalLocalStorageGb Minimum and maximum total local storage in gigabytes (GB) for instance types with local storage. Detailed below.
          * 
          * @return builder
          * 
@@ -999,7 +999,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param vcpuCount The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+         * @param vcpuCount Minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range. Detailed below.
          * 
          * @return builder
          * 
@@ -1010,7 +1010,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param vcpuCount The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+         * @param vcpuCount Minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range. Detailed below.
          * 
          * @return builder
          * 

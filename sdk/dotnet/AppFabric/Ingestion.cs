@@ -51,8 +51,7 @@ namespace Pulumi.Aws.AppFabric
     public partial class Ingestion : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the application.
-        /// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
+        /// Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
         /// </summary>
         [Output("app")]
         public Output<string> App { get; private set; } = null!;
@@ -146,8 +145,7 @@ namespace Pulumi.Aws.AppFabric
     public sealed class IngestionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the application.
-        /// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
+        /// Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
         /// </summary>
         [Input("app", required: true)]
         public Input<string> App { get; set; } = null!;
@@ -197,8 +195,7 @@ namespace Pulumi.Aws.AppFabric
     public sealed class IngestionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the application.
-        /// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
+        /// Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
         /// </summary>
         [Input("app")]
         public Input<string>? App { get; set; }

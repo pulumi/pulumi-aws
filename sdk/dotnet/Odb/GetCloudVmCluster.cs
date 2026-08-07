@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetCloudVmClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the cloud vm cluster.
+        /// Unique identifier of the cloud vm cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetCloudVmClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the cloud vm cluster.
+        /// Unique identifier of the cloud vm cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -146,143 +146,149 @@ namespace Pulumi.Aws.Odb
     public sealed class GetCloudVmClusterResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the cloud vm cluster.
+        /// Amazon Resource Name (ARN) for the cloud vm cluster.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// ARN of the Cloud Exadata Infrastructure.
+        /// </summary>
         public readonly string CloudExadataInfrastructureArn;
         /// <summary>
-        /// The ID of the Cloud Exadata Infrastructure.
+        /// ID of the Cloud Exadata Infrastructure.
         /// </summary>
         public readonly string CloudExadataInfrastructureId;
         /// <summary>
-        /// The name of the Grid Infrastructure (GI) cluster.
+        /// Name of the Grid Infrastructure (GI) cluster.
         /// </summary>
         public readonly string ClusterName;
         /// <summary>
-        /// The OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
+        /// OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
         /// </summary>
         public readonly string ComputeModel;
         /// <summary>
-        /// The number of CPU cores enabled on the VM cluster.
+        /// Number of CPU cores enabled on the VM cluster.
         /// </summary>
         public readonly int CpuCoreCount;
         /// <summary>
-        /// The time when the VM cluster was created.
+        /// Time when the VM cluster was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The set of diagnostic collection options enabled for the VM cluster.
+        /// Set of diagnostic collection options enabled for the VM cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudVmClusterDataCollectionOptionResult> DataCollectionOptions;
         /// <summary>
-        /// The size of the data disk group, in terabytes (TB), that's allocated for the VM cluster.
+        /// Size of the data disk group, in terabytes (TB), that's allocated for the VM cluster.
         /// </summary>
         public readonly double DataStorageSizeInTbs;
         /// <summary>
-        /// The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
+        /// Amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
         /// </summary>
         public readonly int DbNodeStorageSizeInGbs;
         /// <summary>
-        /// The list of database servers for the VM cluster.
+        /// List of database servers for the VM cluster.
         /// </summary>
         public readonly ImmutableArray<string> DbServers;
         /// <summary>
-        /// The type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
+        /// Type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
         /// </summary>
         public readonly string DiskRedundancy;
         /// <summary>
-        /// The display name of the VM cluster.
+        /// Display name of the VM cluster.
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// The domain name of the VM cluster.
+        /// Domain name of the VM cluster.
         /// </summary>
         public readonly string Domain;
         /// <summary>
-        /// The software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
+        /// Software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
         /// </summary>
         public readonly string GiVersion;
         /// <summary>
-        /// The computed hostname prefix for the VM cluster.
+        /// Computed hostname prefix for the VM cluster.
         /// </summary>
         public readonly string HostnamePrefixComputed;
         public readonly string Id;
         /// <summary>
-        /// The ExadataIormConfig cache details for the VM cluster.
+        /// ExadataIormConfig cache details for the VM cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudVmClusterIormConfigCacheResult> IormConfigCaches;
         /// <summary>
-        /// Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
+        /// Whether database backups to local Exadata storage is enabled for the VM cluster.
         /// </summary>
         public readonly bool IsLocalBackupEnabled;
         /// <summary>
-        /// Indicates whether the VM cluster is configured with a sparse disk group.
+        /// Whether the VM cluster is configured with a sparse disk group.
         /// </summary>
         public readonly bool IsSparseDiskGroupEnabled;
         /// <summary>
-        /// The Oracle Cloud ID (OCID) of the last maintenance update history entry.
+        /// Oracle Cloud ID (OCID) of the last maintenance update history entry.
         /// </summary>
         public readonly string LastUpdateHistoryEntryId;
         /// <summary>
-        /// The Oracle license model applied to the VM cluster.
+        /// Oracle license model applied to the VM cluster.
         /// </summary>
         public readonly string LicenseModel;
         /// <summary>
-        /// The port number configured for the listener on the VM cluster.
+        /// Port number configured for the listener on the VM cluster.
         /// </summary>
         public readonly int ListenerPort;
         /// <summary>
-        /// The amount of memory, in gigabytes (GB), that's allocated for the VM cluster.
+        /// Amount of memory, in gigabytes (GB), that's allocated for the VM cluster.
         /// </summary>
         public readonly int MemorySizeInGbs;
         /// <summary>
-        /// The number of nodes in the VM cluster.
+        /// Number of nodes in the VM cluster.
         /// </summary>
         public readonly int NodeCount;
         /// <summary>
-        /// The name of the OCI Resource Anchor.
+        /// Name of the OCI Resource Anchor.
         /// </summary>
         public readonly string OciResourceAnchorName;
         /// <summary>
-        /// The HTTPS link to the VM cluster in OCI.
+        /// HTTPS link to the VM cluster in OCI.
         /// </summary>
         public readonly string OciUrl;
         /// <summary>
-        /// The OCID of the VM cluster.
+        /// OCID of the VM cluster.
         /// </summary>
         public readonly string Ocid;
+        /// <summary>
+        /// ARN of the ODB network.
+        /// </summary>
         public readonly string OdbNetworkArn;
         /// <summary>
-        /// The ID of the ODB network.
+        /// ID of the ODB network.
         /// </summary>
         public readonly string OdbNetworkId;
         /// <summary>
-        /// The amount of progress made on the current operation on the VM cluster, expressed as a percentage.
+        /// Amount of progress made on the current operation on the VM cluster, expressed as a percentage.
         /// </summary>
         public readonly double PercentProgress;
         public readonly string Region;
         /// <summary>
-        /// The FQDN of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.
+        /// FQDN of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.
         /// </summary>
         public readonly string ScanDnsName;
         /// <summary>
-        /// The OCID of the DNS record for the SCAN IP addresses that are associated with the VM cluster.
+        /// OCID of the DNS record for the SCAN IP addresses that are associated with the VM cluster.
         /// </summary>
         public readonly string ScanDnsRecordId;
         /// <summary>
-        /// The OCID of the SCAN IP addresses that are associated with the VM cluster.
+        /// OCID of the SCAN IP addresses that are associated with the VM cluster.
         /// </summary>
         public readonly ImmutableArray<string> ScanIpIds;
         /// <summary>
-        /// The hardware model name of the Exadata infrastructure that's running the VM cluster.
+        /// Hardware model name of the Exadata infrastructure that's running the VM cluster.
         /// </summary>
         public readonly string Shape;
         /// <summary>
-        /// The public key portion of one or more key pairs used for SSH access to the VM cluster.
+        /// Public key portion of one or more key pairs used for SSH access to the VM cluster.
         /// </summary>
         public readonly ImmutableArray<string> SshPublicKeys;
         /// <summary>
-        /// The status of the VM cluster.
+        /// Status of the VM cluster.
         /// </summary>
         public readonly string Status;
         /// <summary>
@@ -290,20 +296,23 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         public readonly string StatusReason;
         /// <summary>
-        /// The amount of local node storage, in gigabytes (GB), that's allocated to the VM cluster.
+        /// Amount of local node storage, in gigabytes (GB), that's allocated to the VM cluster.
         /// </summary>
         public readonly int StorageSizeInGbs;
         /// <summary>
-        /// The operating system version of the image chosen for the VM cluster.
+        /// Operating system version of the image chosen for the VM cluster.
         /// </summary>
         public readonly string SystemVersion;
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The time zone of the VM cluster.
+        /// Time zone of the VM cluster.
         /// </summary>
         public readonly string Timezone;
         /// <summary>
-        /// The virtual IP (VIP) addresses that are associated with the VM cluster. Oracle's Cluster Ready Services (CRS) creates and maintains one VIP address for each node in the VM cluster to enable failover. If one node fails, the VIP is reassigned to another active node in the cluster.
+        /// Virtual IP (VIP) addresses that are associated with the VM cluster. Oracle's Cluster Ready Services (CRS) creates and maintains one VIP address for each node in the VM cluster to enable failover. If one node fails, the VIP is reassigned to another active node in the cluster.
         /// </summary>
         public readonly ImmutableArray<string> VipIds;
 

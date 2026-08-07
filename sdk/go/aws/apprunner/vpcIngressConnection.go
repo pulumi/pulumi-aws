@@ -64,19 +64,19 @@ import (
 type VpcIngressConnection struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the VPC Ingress Connection.
+	// Amazon Resource Name (ARN) of the VPC Ingress Connection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The domain name associated with the VPC Ingress Connection resource.
+	// Domain name associated with the VPC Ingress Connection resource.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
 	IngressVpcConfiguration VpcIngressConnectionIngressVpcConfigurationOutput `pulumi:"ingressVpcConfiguration"`
-	// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+	// Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+	// Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
-	// The current status of the VPC Ingress Connection.
+	// Current status of the VPC Ingress Connection.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -120,19 +120,19 @@ func GetVpcIngressConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIngressConnection resources.
 type vpcIngressConnectionState struct {
-	// The Amazon Resource Name (ARN) of the VPC Ingress Connection.
+	// Amazon Resource Name (ARN) of the VPC Ingress Connection.
 	Arn *string `pulumi:"arn"`
-	// The domain name associated with the VPC Ingress Connection resource.
+	// Domain name associated with the VPC Ingress Connection resource.
 	DomainName *string `pulumi:"domainName"`
-	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
 	IngressVpcConfiguration *VpcIngressConnectionIngressVpcConfiguration `pulumi:"ingressVpcConfiguration"`
-	// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+	// Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+	// Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn *string `pulumi:"serviceArn"`
-	// The current status of the VPC Ingress Connection.
+	// Current status of the VPC Ingress Connection.
 	Status *string `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -141,19 +141,19 @@ type vpcIngressConnectionState struct {
 }
 
 type VpcIngressConnectionState struct {
-	// The Amazon Resource Name (ARN) of the VPC Ingress Connection.
+	// Amazon Resource Name (ARN) of the VPC Ingress Connection.
 	Arn pulumi.StringPtrInput
-	// The domain name associated with the VPC Ingress Connection resource.
+	// Domain name associated with the VPC Ingress Connection resource.
 	DomainName pulumi.StringPtrInput
-	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
 	IngressVpcConfiguration VpcIngressConnectionIngressVpcConfigurationPtrInput
-	// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+	// Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+	// Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn pulumi.StringPtrInput
-	// The current status of the VPC Ingress Connection.
+	// Current status of the VPC Ingress Connection.
 	Status pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -166,13 +166,13 @@ func (VpcIngressConnectionState) ElementType() reflect.Type {
 }
 
 type vpcIngressConnectionArgs struct {
-	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
 	IngressVpcConfiguration VpcIngressConnectionIngressVpcConfiguration `pulumi:"ingressVpcConfiguration"`
-	// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+	// Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+	// Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn string `pulumi:"serviceArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -180,13 +180,13 @@ type vpcIngressConnectionArgs struct {
 
 // The set of arguments for constructing a VpcIngressConnection resource.
 type VpcIngressConnectionArgs struct {
-	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
 	IngressVpcConfiguration VpcIngressConnectionIngressVpcConfigurationInput
-	// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+	// Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+	// Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 	ServiceArn pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -279,24 +279,24 @@ func (o VpcIngressConnectionOutput) ToVpcIngressConnectionOutputWithContext(ctx 
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the VPC Ingress Connection.
+// Amazon Resource Name (ARN) of the VPC Ingress Connection.
 func (o VpcIngressConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIngressConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The domain name associated with the VPC Ingress Connection resource.
+// Domain name associated with the VPC Ingress Connection resource.
 func (o VpcIngressConnectionOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIngressConnection) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
 func (o VpcIngressConnectionOutput) IngressVpcConfiguration() VpcIngressConnectionIngressVpcConfigurationOutput {
 	return o.ApplyT(func(v *VpcIngressConnection) VpcIngressConnectionIngressVpcConfigurationOutput {
 		return v.IngressVpcConfiguration
 	}).(VpcIngressConnectionIngressVpcConfigurationOutput)
 }
 
-// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+// Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
 func (o VpcIngressConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIngressConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -306,12 +306,12 @@ func (o VpcIngressConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIngressConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+// Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
 func (o VpcIngressConnectionOutput) ServiceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIngressConnection) pulumi.StringOutput { return v.ServiceArn }).(pulumi.StringOutput)
 }
 
-// The current status of the VPC Ingress Connection.
+// Current status of the VPC Ingress Connection.
 func (o VpcIngressConnectionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIngressConnection) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

@@ -19,7 +19,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportSto
      */
     private Boolean enabled;
     /**
-     * @return Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+     * @return Encryption of the metrics exports in this S3 tables bucket. See `encryption` below for more details.
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryption encryption;
@@ -33,7 +33,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportSto
         return this.enabled;
     }
     /**
-     * @return Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+     * @return Encryption of the metrics exports in this S3 tables bucket. See `encryption` below for more details.
      * 
      */
     public Optional<StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryption> encryption() {

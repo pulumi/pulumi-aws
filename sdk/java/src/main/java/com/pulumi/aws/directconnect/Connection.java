@@ -372,6 +372,20 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipDestroy);
     }
     /**
+     * State of the connection. See [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html#API_CreateConnection_ResponseSyntax) for list of possible state values.
+     * 
+     */
+    @Export(name="state", refs={String.class}, tree="[0]")
+    private Output<String> state;
+
+    /**
+     * @return State of the connection. See [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html#API_CreateConnection_ResponseSyntax) for list of possible state values.
+     * 
+     */
+    public Output<String> state() {
+        return this.state;
+    }
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

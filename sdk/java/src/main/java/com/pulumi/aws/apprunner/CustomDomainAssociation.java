@@ -68,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apprunner/customDomainAssociation:CustomDomainAssociation")
 public class CustomDomainAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+     * Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
      * 
      */
     @Export(name="certificateValidationRecords", refs={List.class,CustomDomainAssociationCertificateValidationRecord.class}, tree="[0,1]")
     private Output<List<CustomDomainAssociationCertificateValidationRecord>> certificateValidationRecords;
 
     /**
-     * @return A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+     * @return Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
      * 
      */
     public Output<List<CustomDomainAssociationCertificateValidationRecord>> certificateValidationRecords() {

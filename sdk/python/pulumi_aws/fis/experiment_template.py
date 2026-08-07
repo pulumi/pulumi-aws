@@ -40,9 +40,9 @@ class ExperimentTemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]] stop_conditions: When an ongoing experiment should be stopped. See below.
                
                The following arguments are optional:
-        :param pulumi.Input['ExperimentTemplateExperimentOptionsArgs'] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
-        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs'] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
-        :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: The configuration for experiment logging. See below.
+        :param pulumi.Input['ExperimentTemplateExperimentOptionsArgs'] experiment_options: Experiment options for the experiment template. See experiment_options below for more details!
+        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs'] experiment_report_configuration: Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: Configuration for experiment logging. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]] targets: Target of an action. See below.
@@ -118,7 +118,7 @@ class ExperimentTemplateArgs:
     @pulumi.getter(name="experimentOptions")
     def experiment_options(self) -> pulumi.Input[Optional['ExperimentTemplateExperimentOptionsArgs']]:
         """
-        The experiment options for the experiment template. See experiment_options below for more details!
+        Experiment options for the experiment template. See experiment_options below for more details!
         """
         return pulumi.get(self, "experiment_options")
 
@@ -130,7 +130,7 @@ class ExperimentTemplateArgs:
     @pulumi.getter(name="experimentReportConfiguration")
     def experiment_report_configuration(self) -> pulumi.Input[Optional['ExperimentTemplateExperimentReportConfigurationArgs']]:
         """
-        The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         """
         return pulumi.get(self, "experiment_report_configuration")
 
@@ -142,7 +142,7 @@ class ExperimentTemplateArgs:
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> pulumi.Input[Optional['ExperimentTemplateLogConfigurationArgs']]:
         """
-        The configuration for experiment logging. See below.
+        Configuration for experiment logging. See below.
         """
         return pulumi.get(self, "log_configuration")
 
@@ -206,9 +206,9 @@ class _ExperimentTemplateState:
 
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionArgs']]] actions: Action to be performed during an experiment. See below.
         :param pulumi.Input[_builtins.str] description: Description for the experiment template.
-        :param pulumi.Input['ExperimentTemplateExperimentOptionsArgs'] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
-        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs'] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
-        :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: The configuration for experiment logging. See below.
+        :param pulumi.Input['ExperimentTemplateExperimentOptionsArgs'] experiment_options: Experiment options for the experiment template. See experiment_options below for more details!
+        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs'] experiment_report_configuration: Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: Configuration for experiment logging. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]] stop_conditions: When an ongoing experiment should be stopped. See below.
@@ -268,7 +268,7 @@ class _ExperimentTemplateState:
     @pulumi.getter(name="experimentOptions")
     def experiment_options(self) -> pulumi.Input[Optional['ExperimentTemplateExperimentOptionsArgs']]:
         """
-        The experiment options for the experiment template. See experiment_options below for more details!
+        Experiment options for the experiment template. See experiment_options below for more details!
         """
         return pulumi.get(self, "experiment_options")
 
@@ -280,7 +280,7 @@ class _ExperimentTemplateState:
     @pulumi.getter(name="experimentReportConfiguration")
     def experiment_report_configuration(self) -> pulumi.Input[Optional['ExperimentTemplateExperimentReportConfigurationArgs']]:
         """
-        The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         """
         return pulumi.get(self, "experiment_report_configuration")
 
@@ -292,7 +292,7 @@ class _ExperimentTemplateState:
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> pulumi.Input[Optional['ExperimentTemplateLogConfigurationArgs']]:
         """
-        The configuration for experiment logging. See below.
+        Configuration for experiment logging. See below.
         """
         return pulumi.get(self, "log_configuration")
 
@@ -539,9 +539,9 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]] actions: Action to be performed during an experiment. See below.
         :param pulumi.Input[_builtins.str] description: Description for the experiment template.
-        :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
-        :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
-        :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']] log_configuration: The configuration for experiment logging. See below.
+        :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']] experiment_options: Experiment options for the experiment template. See experiment_options below for more details!
+        :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']] experiment_report_configuration: Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']] log_configuration: Configuration for experiment logging. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
@@ -785,9 +785,9 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]] actions: Action to be performed during an experiment. See below.
         :param pulumi.Input[_builtins.str] description: Description for the experiment template.
-        :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']] experiment_options: The experiment options for the experiment template. See experiment_options below for more details!
-        :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']] experiment_report_configuration: The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
-        :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']] log_configuration: The configuration for experiment logging. See below.
+        :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']] experiment_options: Experiment options for the experiment template. See experiment_options below for more details!
+        :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']] experiment_report_configuration: Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']] log_configuration: Configuration for experiment logging. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
@@ -833,7 +833,7 @@ class ExperimentTemplate(pulumi.CustomResource):
     @pulumi.getter(name="experimentOptions")
     def experiment_options(self) -> pulumi.Output['outputs.ExperimentTemplateExperimentOptions']:
         """
-        The experiment options for the experiment template. See experiment_options below for more details!
+        Experiment options for the experiment template. See experiment_options below for more details!
         """
         return pulumi.get(self, "experiment_options")
 
@@ -841,7 +841,7 @@ class ExperimentTemplate(pulumi.CustomResource):
     @pulumi.getter(name="experimentReportConfiguration")
     def experiment_report_configuration(self) -> pulumi.Output[Optional['outputs.ExperimentTemplateExperimentReportConfiguration']]:
         """
-        The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         """
         return pulumi.get(self, "experiment_report_configuration")
 
@@ -849,7 +849,7 @@ class ExperimentTemplate(pulumi.CustomResource):
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> pulumi.Output[Optional['outputs.ExperimentTemplateLogConfiguration']]:
         """
-        The configuration for experiment logging. See below.
+        Configuration for experiment logging. See below.
         """
         return pulumi.get(self, "log_configuration")
 

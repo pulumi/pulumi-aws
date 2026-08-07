@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig {
     /**
-     * @return he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+     * @return Maximum number of processes that Amazon AppFlow runs at the same time when it retrieves your data from your SAP application.
      * 
      */
     private Integer maxPageSize;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig() {}
     /**
-     * @return he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+     * @return Maximum number of processes that Amazon AppFlow runs at the same time when it retrieves your data from your SAP application.
      * 
      */
     public Integer maxPageSize() {

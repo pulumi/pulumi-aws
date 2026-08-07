@@ -18,14 +18,14 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
     public static final VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs Empty = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs();
 
     /**
-     * SANs for a TLS validation context.
+     * SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
      * 
      */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs> subjectAlternativeNames;
 
     /**
-     * @return SANs for a TLS validation context.
+     * @return SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs>> subjectAlternativeNames() {
@@ -33,14 +33,14 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
     }
 
     /**
-     * TLS validation context trust.
+     * TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
      * 
      */
     @Import(name="trust", required=true)
     private Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs> trust;
 
     /**
-     * @return TLS validation context trust.
+     * @return TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
      * 
      */
     public Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs> trust() {
@@ -73,7 +73,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
         }
 
         /**
-         * @param subjectAlternativeNames SANs for a TLS validation context.
+         * @param subjectAlternativeNames SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
         }
 
         /**
-         * @param subjectAlternativeNames SANs for a TLS validation context.
+         * @param subjectAlternativeNames SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
         }
 
         /**
-         * @param trust TLS validation context trust.
+         * @param trust TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
         }
 
         /**
-         * @param trust TLS validation context trust.
+         * @param trust TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
          * 
          * @return builder
          * 

@@ -151,57 +151,55 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+        /// Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         /// </summary>
         [Output("automaticBackupRetentionDays")]
         public Output<int?> AutomaticBackupRetentionDays { get; private set; } = null!;
 
         /// <summary>
-        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
+        /// Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
         /// </summary>
         [Output("dailyAutomaticBackupStartTime")]
         public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
 
         /// <summary>
-        /// The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+        /// Filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
         /// </summary>
         [Output("deploymentType")]
         public Output<string> DeploymentType { get; private set; } = null!;
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
+        /// SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See `DiskIopsConfiguration` below.
         /// </summary>
         [Output("diskIopsConfiguration")]
         public Output<Outputs.OntapFileSystemDiskIopsConfiguration> DiskIopsConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        /// Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
-        /// 
-        /// &gt;  **Note:** The 198.19.* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
+        /// IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\* range. Note that the 198.19.\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
         /// </summary>
         [Output("endpointIpAddressRange")]
         public Output<string> EndpointIpAddressRange { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        /// Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
         /// </summary>
         [Output("endpoints")]
         public Output<ImmutableArray<Outputs.OntapFileSystemEndpoint>> Endpoints { get; private set; } = null!;
 
         /// <summary>
-        /// The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
+        /// ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
         /// </summary>
         [Output("fsxAdminPassword")]
         public Output<string?> FsxAdminPassword { get; private set; } = null!;
 
         /// <summary>
-        /// The number of HaPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
+        /// Number of HaPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
         /// </summary>
         [Output("haPairs")]
         public Output<int> HaPairs { get; private set; } = null!;
@@ -225,7 +223,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+        /// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
         /// </summary>
         [Output("preferredSubnetId")]
         public Output<string> PreferredSubnetId { get; private set; } = null!;
@@ -237,43 +235,43 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+        /// VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         /// </summary>
         [Output("routeTableIds")]
         public Output<ImmutableArray<string>> RouteTableIds { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        /// List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with DeploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with DeploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
+        /// Storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with DeploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with DeploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
         /// </summary>
         [Output("storageCapacity")]
         public Output<int> StorageCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The filesystem storage type. defaults to `SSD`.
+        /// Filesystem storage type. Defaults to `SSD`.
         /// </summary>
         [Output("storageType")]
         public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
+        /// List of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -297,7 +295,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> VpcId { get; private set; } = null!;
 
         /// <summary>
-        /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        /// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
         [Output("weeklyMaintenanceStartTime")]
         public Output<string> WeeklyMaintenanceStartTime { get; private set; } = null!;
@@ -353,33 +351,31 @@ namespace Pulumi.Aws.Fsx
     public sealed class OntapFileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+        /// Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         /// </summary>
         [Input("automaticBackupRetentionDays")]
         public Input<int>? AutomaticBackupRetentionDays { get; set; }
 
         /// <summary>
-        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
+        /// Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
         /// </summary>
         [Input("dailyAutomaticBackupStartTime")]
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
-        /// The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+        /// Filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
         /// </summary>
         [Input("deploymentType", required: true)]
         public Input<string> DeploymentType { get; set; } = null!;
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
+        /// SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See `DiskIopsConfiguration` below.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.OntapFileSystemDiskIopsConfigurationArgs>? DiskIopsConfiguration { get; set; }
 
         /// <summary>
-        /// Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
-        /// 
-        /// &gt;  **Note:** The 198.19.* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
+        /// IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\* range. Note that the 198.19.\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
         /// </summary>
         [Input("endpointIpAddressRange")]
         public Input<string>? EndpointIpAddressRange { get; set; }
@@ -388,7 +384,7 @@ namespace Pulumi.Aws.Fsx
         private Input<string>? _fsxAdminPassword;
 
         /// <summary>
-        /// The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
+        /// ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
         /// </summary>
         public Input<string>? FsxAdminPassword
         {
@@ -401,7 +397,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The number of HaPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
+        /// Number of HaPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
         /// </summary>
         [Input("haPairs")]
         public Input<int>? HaPairs { get; set; }
@@ -413,7 +409,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+        /// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
         /// </summary>
         [Input("preferredSubnetId", required: true)]
         public Input<string> PreferredSubnetId { get; set; } = null!;
@@ -428,7 +424,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _routeTableIds;
 
         /// <summary>
-        /// Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+        /// VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         /// </summary>
         public InputList<string> RouteTableIds
         {
@@ -440,7 +436,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        /// List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -449,13 +445,13 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with DeploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with DeploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
+        /// Storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with DeploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with DeploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
         /// </summary>
         [Input("storageCapacity", required: true)]
         public Input<int> StorageCapacity { get; set; } = null!;
 
         /// <summary>
-        /// The filesystem storage type. defaults to `SSD`.
+        /// Filesystem storage type. Defaults to `SSD`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -464,7 +460,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
+        /// List of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -476,7 +472,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -497,7 +493,7 @@ namespace Pulumi.Aws.Fsx
         public Input<int>? ThroughputCapacityPerHaPair { get; set; }
 
         /// <summary>
-        /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        /// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
         [Input("weeklyMaintenanceStartTime")]
         public Input<string>? WeeklyMaintenanceStartTime { get; set; }
@@ -517,39 +513,37 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+        /// Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         /// </summary>
         [Input("automaticBackupRetentionDays")]
         public Input<int>? AutomaticBackupRetentionDays { get; set; }
 
         /// <summary>
-        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
+        /// Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
         /// </summary>
         [Input("dailyAutomaticBackupStartTime")]
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
-        /// The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+        /// Filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
+        /// SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See `DiskIopsConfiguration` below.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.OntapFileSystemDiskIopsConfigurationGetArgs>? DiskIopsConfiguration { get; set; }
 
         /// <summary>
-        /// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        /// Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
 
         /// <summary>
-        /// Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
-        /// 
-        /// &gt;  **Note:** The 198.19.* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
+        /// IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\* range. Note that the 198.19.\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
         /// </summary>
         [Input("endpointIpAddressRange")]
         public Input<string>? EndpointIpAddressRange { get; set; }
@@ -558,7 +552,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.OntapFileSystemEndpointGetArgs>? _endpoints;
 
         /// <summary>
-        /// The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        /// Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
         /// </summary>
         public InputList<Inputs.OntapFileSystemEndpointGetArgs> Endpoints
         {
@@ -570,7 +564,7 @@ namespace Pulumi.Aws.Fsx
         private Input<string>? _fsxAdminPassword;
 
         /// <summary>
-        /// The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
+        /// ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
         /// </summary>
         public Input<string>? FsxAdminPassword
         {
@@ -583,7 +577,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The number of HaPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
+        /// Number of HaPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
         /// </summary>
         [Input("haPairs")]
         public Input<int>? HaPairs { get; set; }
@@ -613,7 +607,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+        /// ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
         /// </summary>
         [Input("preferredSubnetId")]
         public Input<string>? PreferredSubnetId { get; set; }
@@ -628,7 +622,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _routeTableIds;
 
         /// <summary>
-        /// Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+        /// VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         /// </summary>
         public InputList<string> RouteTableIds
         {
@@ -640,7 +634,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        /// List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -649,13 +643,13 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with DeploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with DeploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
+        /// Storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with DeploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with DeploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
         /// </summary>
         [Input("storageCapacity")]
         public Input<int>? StorageCapacity { get; set; }
 
         /// <summary>
-        /// The filesystem storage type. defaults to `SSD`.
+        /// Filesystem storage type. Defaults to `SSD`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -664,7 +658,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
+        /// List of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -676,7 +670,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -688,7 +682,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -715,7 +709,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? VpcId { get; set; }
 
         /// <summary>
-        /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        /// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
         [Input("weeklyMaintenanceStartTime")]
         public Input<string>? WeeklyMaintenanceStartTime { get; set; }

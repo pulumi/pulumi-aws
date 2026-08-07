@@ -69621,7 +69621,7 @@ func (o EvaluationJobEvaluationConfigPtrOutput) Human() EvaluationJobEvaluationC
 type EvaluationJobEvaluationConfigAutomated struct {
 	// Configuration for custom metrics to compute for the evaluation job. See `customMetricConfig` Block below.
 	CustomMetricConfig *EvaluationJobEvaluationConfigAutomatedCustomMetricConfig `pulumi:"customMetricConfig"`
-	// One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block below.
+	// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
 	DatasetMetricConfigs []EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig `pulumi:"datasetMetricConfigs"`
 	// Configuration for the evaluator (judge) model. Required for automated jobs that use an LLM-as-judge metric, or that evaluate a knowledge base. See `evaluatorModelConfig` Block below.
 	EvaluatorModelConfig *EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig `pulumi:"evaluatorModelConfig"`
@@ -69641,7 +69641,7 @@ type EvaluationJobEvaluationConfigAutomatedInput interface {
 type EvaluationJobEvaluationConfigAutomatedArgs struct {
 	// Configuration for custom metrics to compute for the evaluation job. See `customMetricConfig` Block below.
 	CustomMetricConfig EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrInput `pulumi:"customMetricConfig"`
-	// One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block below.
+	// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
 	DatasetMetricConfigs EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayInput `pulumi:"datasetMetricConfigs"`
 	// Configuration for the evaluator (judge) model. Required for automated jobs that use an LLM-as-judge metric, or that evaluate a knowledge base. See `evaluatorModelConfig` Block below.
 	EvaluatorModelConfig EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigPtrInput `pulumi:"evaluatorModelConfig"`
@@ -69731,7 +69731,7 @@ func (o EvaluationJobEvaluationConfigAutomatedOutput) CustomMetricConfig() Evalu
 	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput)
 }
 
-// One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block below.
+// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
 func (o EvaluationJobEvaluationConfigAutomatedOutput) DatasetMetricConfigs() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput {
 	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomated) []EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig {
 		return v.DatasetMetricConfigs
@@ -69779,7 +69779,7 @@ func (o EvaluationJobEvaluationConfigAutomatedPtrOutput) CustomMetricConfig() Ev
 	}).(EvaluationJobEvaluationConfigAutomatedCustomMetricConfigPtrOutput)
 }
 
-// One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block below.
+// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
 func (o EvaluationJobEvaluationConfigAutomatedPtrOutput) DatasetMetricConfigs() EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArrayOutput {
 	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomated) []EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig {
 		if v == nil {
@@ -70592,7 +70592,7 @@ type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig struct {
 	Dataset EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDataset `pulumi:"dataset"`
 	// Names of the metrics to use for the evaluation job.
 	MetricNames []string `pulumi:"metricNames"`
-	// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+	// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
 	TaskType string `pulumi:"taskType"`
 }
 
@@ -70612,7 +70612,7 @@ type EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs struct {
 	Dataset EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetInput `pulumi:"dataset"`
 	// Names of the metrics to use for the evaluation job.
 	MetricNames pulumi.StringArrayInput `pulumi:"metricNames"`
-	// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+	// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
 	TaskType pulumi.StringInput `pulumi:"taskType"`
 }
 
@@ -70679,7 +70679,7 @@ func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput) MetricN
 	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig) []string { return v.MetricNames }).(pulumi.StringArrayOutput)
 }
 
-// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
 func (o EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig) string { return v.TaskType }).(pulumi.StringOutput)
 }
@@ -71187,7 +71187,7 @@ func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluat
 type EvaluationJobEvaluationConfigHuman struct {
 	// One or more custom metrics for your human workers to use. See `evaluation_config.human.custom_metric` Block below.
 	CustomMetrics []EvaluationJobEvaluationConfigHumanCustomMetric `pulumi:"customMetrics"`
-	// One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block above.
+	// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
 	DatasetMetricConfigs []EvaluationJobEvaluationConfigHumanDatasetMetricConfig `pulumi:"datasetMetricConfigs"`
 	// Configuration for the human workflow. See `humanWorkflowConfig` Block below.
 	HumanWorkflowConfig *EvaluationJobEvaluationConfigHumanHumanWorkflowConfig `pulumi:"humanWorkflowConfig"`
@@ -71207,7 +71207,7 @@ type EvaluationJobEvaluationConfigHumanInput interface {
 type EvaluationJobEvaluationConfigHumanArgs struct {
 	// One or more custom metrics for your human workers to use. See `evaluation_config.human.custom_metric` Block below.
 	CustomMetrics EvaluationJobEvaluationConfigHumanCustomMetricArrayInput `pulumi:"customMetrics"`
-	// One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block above.
+	// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
 	DatasetMetricConfigs EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayInput `pulumi:"datasetMetricConfigs"`
 	// Configuration for the human workflow. See `humanWorkflowConfig` Block below.
 	HumanWorkflowConfig EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrInput `pulumi:"humanWorkflowConfig"`
@@ -71297,7 +71297,7 @@ func (o EvaluationJobEvaluationConfigHumanOutput) CustomMetrics() EvaluationJobE
 	}).(EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput)
 }
 
-// One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block above.
+// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
 func (o EvaluationJobEvaluationConfigHumanOutput) DatasetMetricConfigs() EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput {
 	return o.ApplyT(func(v EvaluationJobEvaluationConfigHuman) []EvaluationJobEvaluationConfigHumanDatasetMetricConfig {
 		return v.DatasetMetricConfigs
@@ -71345,7 +71345,7 @@ func (o EvaluationJobEvaluationConfigHumanPtrOutput) CustomMetrics() EvaluationJ
 	}).(EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput)
 }
 
-// One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block above.
+// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
 func (o EvaluationJobEvaluationConfigHumanPtrOutput) DatasetMetricConfigs() EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput {
 	return o.ApplyT(func(v *EvaluationJobEvaluationConfigHuman) []EvaluationJobEvaluationConfigHumanDatasetMetricConfig {
 		if v == nil {
@@ -71485,7 +71485,7 @@ type EvaluationJobEvaluationConfigHumanDatasetMetricConfig struct {
 	Dataset EvaluationJobEvaluationConfigHumanDatasetMetricConfigDataset `pulumi:"dataset"`
 	// Names of the metrics to use for the evaluation job.
 	MetricNames []string `pulumi:"metricNames"`
-	// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+	// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
 	TaskType string `pulumi:"taskType"`
 }
 
@@ -71505,7 +71505,7 @@ type EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs struct {
 	Dataset EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetInput `pulumi:"dataset"`
 	// Names of the metrics to use for the evaluation job.
 	MetricNames pulumi.StringArrayInput `pulumi:"metricNames"`
-	// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+	// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
 	TaskType pulumi.StringInput `pulumi:"taskType"`
 }
 
@@ -71572,7 +71572,7 @@ func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput) MetricNames
 	return o.ApplyT(func(v EvaluationJobEvaluationConfigHumanDatasetMetricConfig) []string { return v.MetricNames }).(pulumi.StringArrayOutput)
 }
 
-// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
 func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationJobEvaluationConfigHumanDatasetMetricConfig) string { return v.TaskType }).(pulumi.StringOutput)
 }

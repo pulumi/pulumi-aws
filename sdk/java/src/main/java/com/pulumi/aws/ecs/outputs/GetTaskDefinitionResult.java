@@ -29,7 +29,7 @@ public final class GetTaskDefinitionResult {
      */
     private String arnWithoutRevision;
     /**
-     * @return A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     * @return List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      * 
      */
     private String containerDefinitions;
@@ -44,7 +44,7 @@ public final class GetTaskDefinitionResult {
      */
     private Boolean enableFaultInjection;
     /**
-     * @return The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     * @return Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      * 
      */
     private List<GetTaskDefinitionEphemeralStorage> ephemeralStorages;
@@ -54,7 +54,7 @@ public final class GetTaskDefinitionResult {
      */
     private String executionRoleArn;
     /**
-     * @return A unique name for your task definition.
+     * @return Unique name for your task definition.
      * The following arguments are optional:
      * 
      */
@@ -143,7 +143,7 @@ public final class GetTaskDefinitionResult {
         return this.arnWithoutRevision;
     }
     /**
-     * @return A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     * @return List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      * 
      */
     public String containerDefinitions() {
@@ -164,7 +164,7 @@ public final class GetTaskDefinitionResult {
         return this.enableFaultInjection;
     }
     /**
-     * @return The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     * @return Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      * 
      */
     public List<GetTaskDefinitionEphemeralStorage> ephemeralStorages() {
@@ -178,7 +178,7 @@ public final class GetTaskDefinitionResult {
         return this.executionRoleArn;
     }
     /**
-     * @return A unique name for your task definition.
+     * @return Unique name for your task definition.
      * The following arguments are optional:
      * 
      */

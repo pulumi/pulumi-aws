@@ -18,110 +18,110 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CloudExadataInfrastructureMaintenanceWindow {
     /**
-     * @return The custom action timeout in minutes for the maintenance window.
+     * @return Custom action timeout in minutes for the maintenance window.
      * 
      */
     private Integer customActionTimeoutInMins;
     /**
-     * @return The days of the week when maintenance can be performed.
+     * @return Days of the week when maintenance can be performed.
      * 
      */
     private @Nullable List<CloudExadataInfrastructureMaintenanceWindowDaysOfWeek> daysOfWeeks;
     /**
-     * @return The hours of the day when maintenance can be performed.
+     * @return Hours of the day when maintenance can be performed.
      * 
      */
     private @Nullable List<Integer> hoursOfDays;
     /**
-     * @return ndicates whether custom action timeout is enabled for the maintenance window.
+     * @return Whether custom action timeout is enabled for the maintenance window.
      * 
      */
     private Boolean isCustomActionTimeoutEnabled;
     /**
-     * @return The lead time in weeks before the maintenance window.
+     * @return Lead time in weeks before the maintenance window.
      * 
      */
     private @Nullable Integer leadTimeInWeeks;
     /**
-     * @return The months when maintenance can be performed.
+     * @return Months when maintenance can be performed.
      * 
      */
     private @Nullable List<CloudExadataInfrastructureMaintenanceWindowMonth> months;
     /**
-     * @return The patching mode for the maintenance window.
+     * @return Patching mode for the maintenance window.
      * 
      */
     private String patchingMode;
     /**
-     * @return The preference for the maintenance window scheduling.
+     * @return Preference for the maintenance window scheduling.
      * 
      */
     private String preference;
     /**
-     * @return The weeks of the month when maintenance can be performed.
+     * @return Weeks of the month when maintenance can be performed.
      * 
      */
     private @Nullable List<Integer> weeksOfMonths;
 
     private CloudExadataInfrastructureMaintenanceWindow() {}
     /**
-     * @return The custom action timeout in minutes for the maintenance window.
+     * @return Custom action timeout in minutes for the maintenance window.
      * 
      */
     public Integer customActionTimeoutInMins() {
         return this.customActionTimeoutInMins;
     }
     /**
-     * @return The days of the week when maintenance can be performed.
+     * @return Days of the week when maintenance can be performed.
      * 
      */
     public List<CloudExadataInfrastructureMaintenanceWindowDaysOfWeek> daysOfWeeks() {
         return this.daysOfWeeks == null ? List.of() : this.daysOfWeeks;
     }
     /**
-     * @return The hours of the day when maintenance can be performed.
+     * @return Hours of the day when maintenance can be performed.
      * 
      */
     public List<Integer> hoursOfDays() {
         return this.hoursOfDays == null ? List.of() : this.hoursOfDays;
     }
     /**
-     * @return ndicates whether custom action timeout is enabled for the maintenance window.
+     * @return Whether custom action timeout is enabled for the maintenance window.
      * 
      */
     public Boolean isCustomActionTimeoutEnabled() {
         return this.isCustomActionTimeoutEnabled;
     }
     /**
-     * @return The lead time in weeks before the maintenance window.
+     * @return Lead time in weeks before the maintenance window.
      * 
      */
     public Optional<Integer> leadTimeInWeeks() {
         return Optional.ofNullable(this.leadTimeInWeeks);
     }
     /**
-     * @return The months when maintenance can be performed.
+     * @return Months when maintenance can be performed.
      * 
      */
     public List<CloudExadataInfrastructureMaintenanceWindowMonth> months() {
         return this.months == null ? List.of() : this.months;
     }
     /**
-     * @return The patching mode for the maintenance window.
+     * @return Patching mode for the maintenance window.
      * 
      */
     public String patchingMode() {
         return this.patchingMode;
     }
     /**
-     * @return The preference for the maintenance window scheduling.
+     * @return Preference for the maintenance window scheduling.
      * 
      */
     public String preference() {
         return this.preference;
     }
     /**
-     * @return The weeks of the month when maintenance can be performed.
+     * @return Weeks of the month when maintenance can be performed.
      * 
      */
     public List<Integer> weeksOfMonths() {

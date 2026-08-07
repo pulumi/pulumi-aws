@@ -100,22 +100,30 @@ public class ResourceSet extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+     * Details about the resource set to be created or updated. See `resourceSet` Block below.
      * 
      */
     @Export(name="resourceSets", refs={List.class,ResourceSetResourceSet.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ResourceSetResourceSet>> resourceSets;
 
     /**
-     * @return Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+     * @return Details about the resource set to be created or updated. See `resourceSet` Block below.
      * 
      */
     public Output<Optional<List<ResourceSetResourceSet>>> resourceSets() {
         return Codegen.optional(this.resourceSets);
     }
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

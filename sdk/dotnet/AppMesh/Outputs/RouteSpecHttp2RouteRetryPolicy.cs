@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly int MaxRetries;
         /// <summary>
-        /// Per-retry timeout.
+        /// Per-retry timeout. See `spec.http_route.retry_policy.per_retry_timeout` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteRetryPolicyPerRetryTimeout PerRetryTimeout;
         /// <summary>

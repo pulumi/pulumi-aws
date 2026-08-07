@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OntapVolumeSnaplockConfigurationAutocommitPeriod {
     /**
-     * @return The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+     * @return Type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
      * 
      */
     private @Nullable String type;
     /**
-     * @return The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+     * @return Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
      * 
      */
     private @Nullable Integer value;
 
     private OntapVolumeSnaplockConfigurationAutocommitPeriod() {}
     /**
-     * @return The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+     * @return Type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
      * 
      */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
     /**
-     * @return The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+     * @return Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
      * 
      */
     public Optional<Integer> value() {

@@ -19,14 +19,14 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
     public static final ServiceSourceConfigurationCodeRepositoryArgs Empty = new ServiceSourceConfigurationCodeRepositoryArgs();
 
     /**
-     * Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+     * Configuration for building and running the service from a source code repository. See `codeConfiguration` below.
      * 
      */
     @Import(name="codeConfiguration")
     private @Nullable Output<ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs> codeConfiguration;
 
     /**
-     * @return Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+     * @return Configuration for building and running the service from a source code repository. See `codeConfiguration` below.
      * 
      */
     public Optional<Output<ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs>> codeConfiguration() {
@@ -49,14 +49,14 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
     }
 
     /**
-     * Version that should be used within the source code repository. See Source Code Version below for more details.
+     * Version that should be used within the source code repository. See `sourceCodeVersion` below.
      * 
      */
     @Import(name="sourceCodeVersion", required=true)
     private Output<ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs> sourceCodeVersion;
 
     /**
-     * @return Version that should be used within the source code repository. See Source Code Version below for more details.
+     * @return Version that should be used within the source code repository. See `sourceCodeVersion` below.
      * 
      */
     public Output<ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs> sourceCodeVersion() {
@@ -64,14 +64,14 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
     }
 
     /**
-     * The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+     * Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
      * 
      */
     @Import(name="sourceDirectory")
     private @Nullable Output<String> sourceDirectory;
 
     /**
-     * @return The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+     * @return Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
      * 
      */
     public Optional<Output<String>> sourceDirectory() {
@@ -106,7 +106,7 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
         }
 
         /**
-         * @param codeConfiguration Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+         * @param codeConfiguration Configuration for building and running the service from a source code repository. See `codeConfiguration` below.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
         }
 
         /**
-         * @param codeConfiguration Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+         * @param codeConfiguration Configuration for building and running the service from a source code repository. See `codeConfiguration` below.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
         }
 
         /**
-         * @param sourceCodeVersion Version that should be used within the source code repository. See Source Code Version below for more details.
+         * @param sourceCodeVersion Version that should be used within the source code repository. See `sourceCodeVersion` below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
         }
 
         /**
-         * @param sourceCodeVersion Version that should be used within the source code repository. See Source Code Version below for more details.
+         * @param sourceCodeVersion Version that should be used within the source code repository. See `sourceCodeVersion` below.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
         }
 
         /**
-         * @param sourceDirectory The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+         * @param sourceDirectory Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs extends com.pulu
         }
 
         /**
-         * @param sourceDirectory The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+         * @param sourceDirectory Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
          * 
          * @return builder
          * 

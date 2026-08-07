@@ -19,46 +19,30 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
     public static final PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs Empty = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs();
 
     /**
-     * Dimensions of the metric.
+     * Dimensions of the metric. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics.metric_stat.metric.dimensions` Block for details.
      * 
      */
     @Import(name="dimensions")
     private @Nullable Output<List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs>> dimensions;
 
     /**
-     * @return Dimensions of the metric.
+     * @return Dimensions of the metric. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics.metric_stat.metric.dimensions` Block for details.
      * 
      */
     public Optional<Output<List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs>>> dimensions() {
         return Optional.ofNullable(this.dimensions);
     }
 
-    /**
-     * Name of the metric.
-     * 
-     */
     @Import(name="metricName", required=true)
     private Output<String> metricName;
 
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public Output<String> metricName() {
         return this.metricName;
     }
 
-    /**
-     * Namespace of the metric.
-     * 
-     */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
@@ -90,7 +74,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param dimensions Dimensions of the metric.
+         * @param dimensions Dimensions of the metric. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics.metric_stat.metric.dimensions` Block for details.
          * 
          * @return builder
          * 
@@ -101,7 +85,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param dimensions Dimensions of the metric.
+         * @param dimensions Dimensions of the metric. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics.metric_stat.metric.dimensions` Block for details.
          * 
          * @return builder
          * 
@@ -111,7 +95,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
         }
 
         /**
-         * @param dimensions Dimensions of the metric.
+         * @param dimensions Dimensions of the metric. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics.metric_stat.metric.dimensions` Block for details.
          * 
          * @return builder
          * 
@@ -120,44 +104,20 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
             return dimensions(List.of(dimensions));
         }
 
-        /**
-         * @param metricName Name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
 
-        /**
-         * @param metricName Name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(String metricName) {
             return metricName(Output.of(metricName));
         }
 
-        /**
-         * @param namespace Namespace of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Namespace of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }

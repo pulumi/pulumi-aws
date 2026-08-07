@@ -14,23 +14,23 @@ namespace Pulumi.Aws.Fsx.Outputs
     public sealed class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationResult
     {
         /// <summary>
-        /// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+        /// List of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
         /// </summary>
         public readonly ImmutableArray<string> DnsIps;
         /// <summary>
-        /// The fully qualified domain name of the self-managed AD directory.
+        /// Fully qualified domain name of the self-managed AD directory.
         /// </summary>
         public readonly string DomainName;
         /// <summary>
-        /// The name of the domain group whose members have administrative privileges for the FSx file system.
+        /// Name of the domain group whose members have administrative privileges for the FSx file system.
         /// </summary>
         public readonly string FileSystemAdministratorsGroup;
         /// <summary>
-        /// The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
+        /// Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
         /// </summary>
         public readonly string OrganizationalUnitDistinguishedName;
         /// <summary>
-        /// The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
+        /// User name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
         /// </summary>
         public readonly string Username;
 

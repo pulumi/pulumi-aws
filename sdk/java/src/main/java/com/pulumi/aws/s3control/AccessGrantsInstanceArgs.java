@@ -17,14 +17,14 @@ public final class AccessGrantsInstanceArgs extends com.pulumi.resources.Resourc
     public static final AccessGrantsInstanceArgs Empty = new AccessGrantsInstanceArgs();
 
     /**
-     * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * @return AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -32,14 +32,14 @@ public final class AccessGrantsInstanceArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+     * ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
      * 
      */
     @Import(name="identityCenterArn")
     private @Nullable Output<String> identityCenterArn;
 
     /**
-     * @return The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+     * @return ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
      * 
      */
     public Optional<Output<String>> identityCenterArn() {
@@ -104,7 +104,7 @@ public final class AccessGrantsInstanceArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * @param accountId AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AccessGrantsInstanceArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * @param accountId AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class AccessGrantsInstanceArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param identityCenterArn The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+         * @param identityCenterArn ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class AccessGrantsInstanceArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param identityCenterArn The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+         * @param identityCenterArn ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
          * 
          * @return builder
          * 

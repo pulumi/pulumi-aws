@@ -36,14 +36,14 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies the destination for the rule (documented below).
+     * Destination for the rule. See `destination` Block below for details.
      * 
      */
     @Import(name="destination", required=true)
     private Output<BucketReplicationConfigurationRuleDestinationArgs> destination;
 
     /**
-     * @return Specifies the destination for the rule (documented below).
+     * @return Destination for the rule. See `destination` Block below for details.
      * 
      */
     public Output<BucketReplicationConfigurationRuleDestinationArgs> destination() {
@@ -51,14 +51,14 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
     }
 
     /**
-     * Filter that identifies subset of objects to which the replication rule applies (documented below).
+     * Filter that identifies subset of objects to which the replication rule applies. See `filter` Block below for details.
      * 
      */
     @Import(name="filter")
     private @Nullable Output<BucketReplicationConfigurationRuleFilterArgs> filter;
 
     /**
-     * @return Filter that identifies subset of objects to which the replication rule applies (documented below).
+     * @return Filter that identifies subset of objects to which the replication rule applies. See `filter` Block below for details.
      * 
      */
     public Optional<Output<BucketReplicationConfigurationRuleFilterArgs>> filter() {
@@ -111,14 +111,14 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies special object selection criteria (documented below).
+     * Special object selection criteria. See `sourceSelectionCriteria` Block below for details.
      * 
      */
     @Import(name="sourceSelectionCriteria")
     private @Nullable Output<BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs> sourceSelectionCriteria;
 
     /**
-     * @return Specifies special object selection criteria (documented below).
+     * @return Special object selection criteria. See `sourceSelectionCriteria` Block below for details.
      * 
      */
     public Optional<Output<BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs>> sourceSelectionCriteria() {
@@ -193,7 +193,7 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param destination Specifies the destination for the rule (documented below).
+         * @param destination Destination for the rule. See `destination` Block below for details.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param destination Specifies the destination for the rule (documented below).
+         * @param destination Destination for the rule. See `destination` Block below for details.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param filter Filter that identifies subset of objects to which the replication rule applies (documented below).
+         * @param filter Filter that identifies subset of objects to which the replication rule applies. See `filter` Block below for details.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param filter Filter that identifies subset of objects to which the replication rule applies (documented below).
+         * @param filter Filter that identifies subset of objects to which the replication rule applies. See `filter` Block below for details.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param sourceSelectionCriteria Specifies special object selection criteria (documented below).
+         * @param sourceSelectionCriteria Special object selection criteria. See `sourceSelectionCriteria` Block below for details.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param sourceSelectionCriteria Specifies special object selection criteria (documented below).
+         * @param sourceSelectionCriteria Special object selection criteria. See `sourceSelectionCriteria` Block below for details.
          * 
          * @return builder
          * 

@@ -1064,7 +1064,7 @@ export namespace alb {
          */
         regexValues?: string[];
         /**
-         * List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+         * List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. To match host headers containing a non-standard port (for example, `example.com:8443`), use `regexValues`. Conflicts with `regexValues`.
          */
         values?: string[];
     }
@@ -1376,6 +1376,84 @@ export namespace alb {
 }
 
 export namespace amp {
+    export interface AnomalyDetectorConfiguration {
+        /**
+         * Configuration block for the Random Cut Forest anomaly detection algorithm. See `randomCutForest` below.
+         */
+        randomCutForest: outputs.amp.AnomalyDetectorConfigurationRandomCutForest;
+    }
+
+    export interface AnomalyDetectorConfigurationRandomCutForest {
+        /**
+         * Configuration block for suppressing anomalies when the observed value is slightly above the expected value. See `ignoreNearExpectedFromAbove` below.
+         */
+        ignoreNearExpectedFromAbove?: outputs.amp.AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove;
+        /**
+         * Configuration block for suppressing anomalies when the observed value is slightly below the expected value. See `ignoreNearExpectedFromBelow` below.
+         */
+        ignoreNearExpectedFromBelow?: outputs.amp.AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow;
+        /**
+         * PromQL query used to select the time series for anomaly detection.
+         */
+        query: string;
+        /**
+         * Number of data points used to train the model. Must be at least `256`.
+         */
+        sampleSize: number;
+        /**
+         * Number of consecutive data points that form a single input to the model. Must be at least `2`.
+         */
+        shingleSize: number;
+    }
+
+    export interface AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove {
+        /**
+         * Absolute amount by which the observed value may exceed the expected value before being reported as an anomaly. Conflicts with `ratio`.
+         */
+        amount?: number;
+        /**
+         * Ratio by which the observed value may exceed the expected value before being reported as an anomaly. Must be at least `0`. Conflicts with `amount`.
+         */
+        ratio?: number;
+    }
+
+    export interface AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow {
+        /**
+         * Absolute amount by which the observed value may exceed the expected value before being reported as an anomaly. Conflicts with `ratio`.
+         */
+        amount?: number;
+        /**
+         * Ratio by which the observed value may exceed the expected value before being reported as an anomaly. Must be at least `0`. Conflicts with `amount`.
+         */
+        ratio?: number;
+    }
+
+    export interface AnomalyDetectorMissingDataAction {
+        /**
+         * Whether to treat missing data points as anomalies. Must be set to `true`. Conflicts with `skip`.
+         */
+        markAsAnomaly?: boolean;
+        /**
+         * Whether to skip missing data points without reporting them as anomalies. Must be set to `true`. Conflicts with `markAsAnomaly`.
+         */
+        skip?: boolean;
+    }
+
+    export interface AnomalyDetectorTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
     export interface QueryLoggingConfigurationDestination {
         /**
          * Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
@@ -1433,36 +1511,78 @@ export namespace amp {
 
     export interface ScraperDestination {
         /**
-         * Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+         * Configuration block for an Amazon Managed Prometheus workspace destination. See `amp` Block for details.
          */
         amp?: outputs.amp.ScraperDestinationAmp;
+        /**
+         * Configuration block for a CloudWatch Metrics destination. See `cloudwatch` Block for details.
+         *
+         * > **NOTE:** Either `amp` or `cloudwatch` must be specified, but not both.
+         */
+        cloudwatch?: outputs.amp.ScraperDestinationCloudwatch;
     }
 
     export interface ScraperDestinationAmp {
         /**
-         * The Amazon Resource Name (ARN) of the prometheus workspace.
+         * ARN of the prometheus workspace.
          */
         workspaceArn: string;
     }
 
+    export interface ScraperDestinationCloudwatch {
+        /**
+         * ARN of the CloudWatch dataset. Use `arn:aws:cloudwatch:{region}:{account}:dataset/default` for the default dataset.
+         */
+        datasetArn: string;
+    }
+
+    export interface ScraperLoggingConfigurationLoggingDestination {
+        /**
+         * Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block below.
+         */
+        cloudwatchLogs: outputs.amp.ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs;
+    }
+
+    export interface ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs {
+        /**
+         * ARN of the CloudWatch Logs log group. Must end with `:*`.
+         */
+        logGroupArn: string;
+    }
+
+    export interface ScraperLoggingConfigurationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
     export interface ScraperRoleConfiguration {
         /**
-         * The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+         * ARN of the source role configuration. Must be an IAM role ARN.
          */
         sourceRoleArn?: string;
         /**
-         * The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+         * ARN of the target role configuration. Must be an IAM role ARN.
          */
         targetRoleArn?: string;
     }
 
     export interface ScraperSource {
         /**
-         * Configuration block for an EKS cluster source. See `eks`.
+         * Configuration block for an EKS cluster source. See `eks` Block for details.
          */
         eks?: outputs.amp.ScraperSourceEks;
         /**
-         * Configuration block for a VPC source. See `vpc`.
+         * Configuration block for a VPC source. See `vpc` Block for details.
          *
          * > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
          */
@@ -1471,7 +1591,7 @@ export namespace amp {
 
     export interface ScraperSourceEks {
         /**
-         * The Amazon Resource Name (ARN) of the source EKS cluster.
+         * ARN of the source EKS cluster.
          */
         clusterArn: string;
         /**
@@ -1684,13 +1804,7 @@ export namespace amplify {
 
 export namespace apigateway {
     export interface AccountThrottleSetting {
-        /**
-         * Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-         */
         burstLimit: number;
-        /**
-         * Number of times API Gateway allows the API to be called per second on average (RPS).
-         */
         rateLimit: number;
     }
 
@@ -1883,8 +1997,7 @@ export namespace apigateway {
          */
         destinationArn: string;
         /**
-         * Formatting and values recorded in the logs.
-         * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+         * Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
          */
         format: string;
     }
@@ -1910,30 +2023,34 @@ export namespace apigateway {
 
     export interface UsagePlanApiStage {
         /**
-         * API Id of the associated API stage in a usage plan.
+         * API ID of the associated API stage in a usage plan.
          */
         apiId: string;
         /**
          * API stage name of the associated API stage in a usage plan.
+         *
+         * The following arguments are optional:
          */
         stage: string;
         /**
-         * The throttling limits of the usage plan.
+         * Throttling limits applied to the API stage. See `throttle` Block below.
          */
         throttles?: outputs.apigateway.UsagePlanApiStageThrottle[];
     }
 
     export interface UsagePlanApiStageThrottle {
         /**
-         * The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+         * API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
          */
         burstLimit?: number;
         /**
-         * Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+         * Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+         *
+         * The following arguments are optional:
          */
         path: string;
         /**
-         * The API request steady-state rate limit.
+         * API request steady-state rate limit.
          */
         rateLimit?: number;
     }
@@ -1948,13 +2065,21 @@ export namespace apigateway {
          */
         offset?: number;
         /**
-         * Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+         * Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+         *
+         * The following arguments are optional:
          */
         period: string;
     }
 
     export interface UsagePlanThrottleSettings {
+        /**
+         * API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+         */
         burstLimit?: number;
+        /**
+         * API request steady-state rate limit.
+         */
         rateLimit?: number;
     }
 
@@ -2013,7 +2138,7 @@ export namespace apigatewayv2 {
          */
         hostedZoneId: string;
         /**
-         * The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+         * IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
          */
         ipAddressType: string;
         /**
@@ -2070,8 +2195,7 @@ export namespace apigatewayv2 {
 
     export interface IntegrationResponseParameter {
         /**
-         * Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
-         * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+         * Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter. See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
          */
         mappings: {[key: string]: string};
         /**
@@ -2093,7 +2217,7 @@ export namespace apigatewayv2 {
          */
         requestParameterKey: string;
         /**
-         * Boolean whether or not the parameter is required.
+         * Whether the parameter is required.
          */
         required: boolean;
     }
@@ -2122,11 +2246,11 @@ export namespace apigatewayv2 {
 
     export interface RoutingRuleCondition {
         /**
-         * The base path to be matched. See below.
+         * Base path to be matched. See below.
          */
         matchBasePaths?: outputs.apigatewayv2.RoutingRuleConditionMatchBasePaths;
         /**
-         * The headers to be matched. See below.
+         * Headers to be matched. See below.
          */
         matchHeaders?: outputs.apigatewayv2.RoutingRuleConditionMatchHeaders;
     }
@@ -2147,11 +2271,11 @@ export namespace apigatewayv2 {
 
     export interface RoutingRuleConditionMatchHeadersAnyOf {
         /**
-         * The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+         * Case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
          */
         header: string;
         /**
-         * The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+         * Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
          */
         valueGlob: string;
     }
@@ -2169,8 +2293,7 @@ export namespace apigatewayv2 {
 
     export interface StageDefaultRouteSettings {
         /**
-         * Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-         * Defaults to `false`. Supported only for WebSocket APIs.
+         * Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
          */
         dataTraceEnabled?: boolean;
         /**
@@ -2178,8 +2301,7 @@ export namespace apigatewayv2 {
          */
         detailedMetricsEnabled?: boolean;
         /**
-         * Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+         * Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
          */
         loggingLevel: string;
         /**
@@ -2194,8 +2316,7 @@ export namespace apigatewayv2 {
 
     export interface StageRouteSetting {
         /**
-         * Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-         * Defaults to `false`. Supported only for WebSocket APIs.
+         * Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
          */
         dataTraceEnabled?: boolean;
         /**
@@ -2203,8 +2324,7 @@ export namespace apigatewayv2 {
          */
         detailedMetricsEnabled?: boolean;
         /**
-         * Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+         * Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
          */
         loggingLevel: string;
         /**
@@ -2226,7 +2346,7 @@ export namespace apigatewayv2 {
 export namespace appautoscaling {
     export interface PolicyPredictiveScalingPolicyConfiguration {
         /**
-         * The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
+         * Behavior applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
          */
         maxCapacityBreachBehavior?: string;
         /**
@@ -2234,7 +2354,7 @@ export namespace appautoscaling {
          */
         maxCapacityBuffer?: number;
         /**
-         * Metrics and target utilization to use for predictive scaling. See supported fields below.
+         * Metrics and target utilization to use for predictive scaling. See `predictive_scaling_policy_configuration.metric_specification` Block for details.
          */
         metricSpecifications: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecification[];
         /**
@@ -2249,278 +2369,158 @@ export namespace appautoscaling {
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecification {
         /**
-         * Customized capacity metric specification. See supported fields below.
+         * Customized capacity metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_capacity_metric_specification` Block for details.
          */
         customizedCapacityMetricSpecification?: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecification;
         /**
-         * Customized load metric specification. See supported fields below.
+         * Customized load metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_load_metric_specification` Block for details.
          */
         customizedLoadMetricSpecification?: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification;
         /**
-         * Customized scaling metric specification. See supported fields below.
+         * Customized scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification` Block for details.
          */
         customizedScalingMetricSpecification?: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecification;
         /**
-         * Predefined load metric specification. See supported fields below.
+         * Predefined load metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_load_metric_specification` Block for details.
          */
         predefinedLoadMetricSpecification?: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification;
         /**
-         * Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
+         * Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See `predictive_scaling_policy_configuration.metric_specification.predefined_metric_pair_specification` Block for details.
          */
         predefinedMetricPairSpecification?: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification;
         /**
-         * Predefined scaling metric specification. See supported fields below.
+         * Predefined scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_scaling_metric_specification` Block for details.
          */
         predefinedScalingMetricSpecification?: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification;
-        /**
-         * Target utilization.
-         */
         targetValue: string;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecification {
         /**
-         * One or more metric data queries to provide data points for a metric specification. See supported fields below.
+         * One or more metric data queries to provide data points for a metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query` Block for details.
          */
         metricDataQueries: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery[];
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery {
-        /**
-         * Math expression to perform on the returned data, if this object is performing a math expression.
-         */
         expression?: string;
-        /**
-         * Short name that identifies the object's results in the response.
-         */
         id: string;
-        /**
-         * Human-readable label for this metric or expression.
-         */
         label?: string;
-        /**
-         * Information about the metric data to return. See supported fields below.
-         */
         metricStat?: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat;
-        /**
-         * Whether to return the timestamps and raw data values of this metric.
-         */
         returnData?: boolean;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat {
-        /**
-         * Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-         */
         metric: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric;
-        /**
-         * Statistic of the metrics to return.
-         */
         stat: string;
-        /**
-         * Unit of the metrics to return.
-         */
         unit?: string;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric {
         /**
-         * Dimensions of the metric. See supported fields below.
+         * Dimensions of the metric. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query.metric_stat.metric.dimension` Block for details.
          */
         dimensions?: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension[];
-        /**
-         * Name of the metric.
-         */
         metricName?: string;
-        /**
-         * Namespace of the metric.
-         */
         namespace?: string;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension {
         /**
-         * Name of the dimension.
+         * Name of the policy. Must be between 1 and 255 characters in length.
          */
         name: string;
-        /**
-         * Value of the dimension.
-         */
         value: string;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification {
         /**
-         * One or more metric data queries to provide data points for a metric specification. See supported fields below.
+         * One or more metric data queries to provide data points for a metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query` Block for details.
          */
         metricDataQueries: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery[];
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery {
-        /**
-         * Math expression to perform on the returned data, if this object is performing a math expression.
-         */
         expression?: string;
-        /**
-         * Short name that identifies the object's results in the response.
-         */
         id: string;
-        /**
-         * Human-readable label for this metric or expression.
-         */
         label?: string;
-        /**
-         * Information about the metric data to return. See supported fields below.
-         */
         metricStat?: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat;
-        /**
-         * Whether to return the timestamps and raw data values of this metric.
-         */
         returnData?: boolean;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat {
-        /**
-         * Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-         */
         metric: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric;
-        /**
-         * Statistic of the metrics to return.
-         */
         stat: string;
-        /**
-         * Unit of the metrics to return.
-         */
         unit?: string;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric {
         /**
-         * Dimensions of the metric. See supported fields below.
+         * Dimensions of the metric. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query.metric_stat.metric.dimension` Block for details.
          */
         dimensions?: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension[];
-        /**
-         * Name of the metric.
-         */
         metricName?: string;
-        /**
-         * Namespace of the metric.
-         */
         namespace?: string;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension {
         /**
-         * Name of the dimension.
+         * Name of the policy. Must be between 1 and 255 characters in length.
          */
         name: string;
-        /**
-         * Value of the dimension.
-         */
         value: string;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecification {
         /**
-         * One or more metric data queries to provide data points for a metric specification. See supported fields below.
+         * One or more metric data queries to provide data points for a metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query` Block for details.
          */
         metricDataQueries: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery[];
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery {
-        /**
-         * Math expression to perform on the returned data, if this object is performing a math expression.
-         */
         expression?: string;
-        /**
-         * Short name that identifies the object's results in the response.
-         */
         id: string;
-        /**
-         * Human-readable label for this metric or expression.
-         */
         label?: string;
-        /**
-         * Information about the metric data to return. See supported fields below.
-         */
         metricStat?: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat;
-        /**
-         * Whether to return the timestamps and raw data values of this metric.
-         */
         returnData?: boolean;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat {
-        /**
-         * Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-         */
         metric: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric;
-        /**
-         * Statistic of the metrics to return.
-         */
         stat: string;
-        /**
-         * Unit of the metrics to return.
-         */
         unit?: string;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric {
         /**
-         * Dimensions of the metric. See supported fields below.
+         * Dimensions of the metric. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query.metric_stat.metric.dimension` Block for details.
          */
         dimensions?: outputs.appautoscaling.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension[];
-        /**
-         * Name of the metric.
-         */
         metricName?: string;
-        /**
-         * Namespace of the metric.
-         */
         namespace?: string;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension {
         /**
-         * Name of the dimension.
+         * Name of the policy. Must be between 1 and 255 characters in length.
          */
         name: string;
-        /**
-         * Value of the dimension.
-         */
         value: string;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
-        /**
-         * Predefined load metric type. See the [`PredictiveScalingPredefinedLoadMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedLoadMetricSpecification.html) AWS API reference for valid values.
-         */
         predefinedMetricType: string;
-        /**
-         * Label that uniquely identifies a target group. Required when `predefinedMetricType` is an ALB-based value.
-         */
         resourceLabel?: string;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification {
-        /**
-         * Pair of predefined metrics (one load metric and one scaling metric) to use. See the [`PredictiveScalingPredefinedMetricPairSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedMetricPairSpecification.html) AWS API reference for valid values.
-         */
         predefinedMetricType: string;
-        /**
-         * Label that uniquely identifies a specific target group from which to determine the total and average request count. Required when `predefinedMetricType` is an ALB-based value.
-         */
         resourceLabel?: string;
     }
 
     export interface PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification {
-        /**
-         * Predefined scaling metric type. See the [`PredictiveScalingPredefinedScalingMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedScalingMetricSpecification.html) AWS API reference for valid values.
-         */
         predefinedMetricType: string;
-        /**
-         * Label that uniquely identifies a specific target group from which to determine the average request count. Required when `predefinedMetricType` is an ALB-based value.
-         */
         resourceLabel?: string;
     }
 
@@ -2534,46 +2534,26 @@ export namespace appautoscaling {
          */
         cooldown?: number;
         /**
-         * Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+         * Aggregation type for the policy's metrics. Valid values are `Minimum`, `Maximum`, and `Average`. Without a value, AWS treats the aggregation type as `Average`.
          */
         metricAggregationType?: string;
         /**
-         * Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+         * Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is `PercentChangeInCapacity`, the scaling policy changes the scalable dimension of the scalable target by this amount.
          */
         minAdjustmentMagnitude?: number;
         /**
-         * Set of adjustments that manage scaling. These have the following structure:
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const ecsPolicy = new aws.appautoscaling.Policy("ecs_policy", {stepScalingPolicyConfiguration: {
-         *     stepAdjustments: [
-         *         {
-         *             metricIntervalLowerBound: "1",
-         *             metricIntervalUpperBound: "2",
-         *             scalingAdjustment: -1,
-         *         },
-         *         {
-         *             metricIntervalLowerBound: "2",
-         *             metricIntervalUpperBound: "3",
-         *             scalingAdjustment: 1,
-         *         },
-         *     ],
-         * }});
-         * ```
+         * Set of adjustments that manage scaling. See `step_scaling_policy_configuration.step_adjustment` Block for details.
          */
         stepAdjustments?: outputs.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustment[];
     }
 
     export interface PolicyStepScalingPolicyConfigurationStepAdjustment {
         /**
-         * Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
+         * Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS treats this bound as negative infinity.
          */
         metricIntervalLowerBound?: string;
         /**
-         * Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
+         * Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS treats this bound as infinity. The upper bound must be greater than the lower bound.
          */
         metricIntervalUpperBound?: string;
         /**
@@ -2584,15 +2564,15 @@ export namespace appautoscaling {
 
     export interface PolicyTargetTrackingScalingPolicyConfiguration {
         /**
-         * Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+         * Custom CloudWatch metric. See the [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html) documentation. See `target_tracking_scaling_policy_configuration.customized_metric_specification` Block for details.
          */
         customizedMetricSpecification?: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification;
         /**
-         * Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+         * Whether scale in by the target tracking policy is disabled. If `true`, scale in is disabled and the target tracking policy does not remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. Defaults to `false`.
          */
         disableScaleIn?: boolean;
         /**
-         * Predefined metric. See supported fields below.
+         * Predefined metric. See `target_tracking_scaling_policy_configuration.predefined_metric_specification` Block for details.
          */
         predefinedMetricSpecification?: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification;
         /**
@@ -2611,114 +2591,63 @@ export namespace appautoscaling {
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
         /**
-         * Dimensions of the metric.
+         * Dimensions of the metric. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics.metric_stat.metric.dimensions` Block for details.
          */
         dimensions?: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension[];
-        /**
-         * Name of the metric.
-         */
         metricName?: string;
         /**
-         * Metrics to include, as a metric data query.
+         * Metrics to include, as a metric data query. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics` Block for details.
          */
         metrics?: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric[];
-        /**
-         * Namespace of the metric.
-         */
         namespace?: string;
         /**
-         * Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+         * Statistic of the metric. Valid values are `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
          */
         statistic?: string;
-        /**
-         * Unit of the metrics to return.
-         */
         unit?: string;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension {
         /**
-         * Name of the dimension.
+         * Name of the policy. Must be between 1 and 255 characters in length.
          */
         name: string;
-        /**
-         * Value of the dimension.
-         */
         value: string;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric {
-        /**
-         * Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-         */
         expression?: string;
-        /**
-         * Short name for the metric used in target tracking scaling policy.
-         */
         id: string;
-        /**
-         * Human-readable label for this metric or expression.
-         */
         label?: string;
-        /**
-         * Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metricStat`, but not both.
-         */
         metricStat?: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat;
-        /**
-         * Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-         */
         returnData?: boolean;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat {
-        /**
-         * Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-         */
         metric: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric;
-        /**
-         * Statistic of the metrics to return.
-         */
         stat: string;
-        /**
-         * Unit of the metrics to return.
-         */
         unit?: string;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric {
         /**
-         * Dimensions of the metric.
+         * Dimensions of the metric. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics.metric_stat.metric.dimensions` Block for details.
          */
         dimensions?: outputs.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension[];
-        /**
-         * Name of the metric.
-         */
         metricName: string;
-        /**
-         * Namespace of the metric.
-         */
         namespace: string;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension {
         /**
-         * Name of the dimension.
+         * Name of the policy. Must be between 1 and 255 characters in length.
          */
         name: string;
-        /**
-         * Value of the dimension.
-         */
         value: string;
     }
 
     export interface PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification {
-        /**
-         * Metric type.
-         */
         predefinedMetricType: string;
-        /**
-         * Reserved for future use if the `predefinedMetricType` is not `ALBRequestCountPerTarget`. If the `predefinedMetricType` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
-         */
         resourceLabel?: string;
     }
 
@@ -2782,11 +2711,11 @@ export namespace appconfig {
 
     export interface ExtensionActionPoint {
         /**
-         * An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+         * Action the extension performs during the AppConfig workflow. Detailed below.
          */
         actions: outputs.appconfig.ExtensionActionPointAction[];
         /**
-         * The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+         * Point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
          */
         point: string;
     }
@@ -2797,15 +2726,15 @@ export namespace appconfig {
          */
         description?: string;
         /**
-         * The action name.
+         * Action name.
          */
         name: string;
         /**
-         * An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+         * Amazon Resource Name (ARN) for an Identity and Access Management assume role.
          */
         roleArn?: string;
         /**
-         * The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+         * Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
          */
         uri: string;
     }
@@ -2816,7 +2745,7 @@ export namespace appconfig {
          */
         description?: string;
         /**
-         * The parameter name.
+         * Parameter name.
          */
         name: string;
         /**
@@ -2852,11 +2781,11 @@ export namespace appconfig {
 export namespace appfabric {
     export interface AppAuthorizationConnectionAuthRequest {
         /**
-         * The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+         * Authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL).
          */
         code: string;
         /**
-         * The redirect URL that is specified in the AuthURL and the application client.
+         * Redirect URL that is specified in the AuthURL and the application client.
          */
         redirectUri: string;
     }
@@ -2875,40 +2804,40 @@ export namespace appfabric {
 
     export interface AppAuthorizationCredential {
         /**
-         * Contains API key credential information.
+         * API key credential information. See `apiKeyCredential` Block for details.
          */
         apiKeyCredentials?: outputs.appfabric.AppAuthorizationCredentialApiKeyCredential[];
         /**
-         * Contains OAuth2 client credential information.
+         * OAuth2 client credential information. See `oauth2Credential` Block for details.
          */
         oauth2Credential?: outputs.appfabric.AppAuthorizationCredentialOauth2Credential;
     }
 
     export interface AppAuthorizationCredentialApiKeyCredential {
         /**
-         * Contains API key credential information.
+         * API key.
          */
         apiKey: string;
     }
 
     export interface AppAuthorizationCredentialOauth2Credential {
         /**
-         * The client ID of the client application.
+         * Client ID of the client application.
          */
         clientId: string;
         /**
-         * The client secret of the client application.
+         * Client secret of the client application.
          */
         clientSecret: string;
     }
 
     export interface AppAuthorizationTenant {
         /**
-         * The display name of the tenant.
+         * Display name of the tenant.
          */
         tenantDisplayName: string;
         /**
-         * The ID of the application tenant.
+         * ID of the application tenant.
          */
         tenantIdentifier: string;
     }
@@ -2930,55 +2859,61 @@ export namespace appfabric {
 
     export interface IngestionDestinationDestinationConfiguration {
         /**
-         * Contains information about an audit log processing configuration.
+         * Audit log destination configuration. See `destination_configuration.audit_log` Block below.
          */
         auditLog: outputs.appfabric.IngestionDestinationDestinationConfigurationAuditLog;
     }
 
     export interface IngestionDestinationDestinationConfigurationAuditLog {
         /**
-         * Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+         * Destination for the audit log. Only one destination, either `firehoseStream` or `s3Bucket`, can be specified. See `destination_configuration.audit_log.destination` Block below.
          */
         destination: outputs.appfabric.IngestionDestinationDestinationConfigurationAuditLogDestination;
     }
 
     export interface IngestionDestinationDestinationConfigurationAuditLogDestination {
         /**
-         * Contains information about an Amazon Data Firehose delivery stream.
+         * Amazon Data Firehose delivery stream destination. See `destination_configuration.audit_log.destination.firehose_stream` Block below.
          */
         firehoseStream?: outputs.appfabric.IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream;
         /**
-         * Contains information about an Amazon S3 bucket.
+         * Amazon S3 bucket destination. See `destination_configuration.audit_log.destination.s3_bucket` Block below.
          */
         s3Bucket?: outputs.appfabric.IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket;
     }
 
     export interface IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream {
+        /**
+         * Name of the Amazon Data Firehose delivery stream.
+         */
         streamName: string;
     }
 
     export interface IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket {
+        /**
+         * Name of the Amazon S3 bucket.
+         */
         bucketName: string;
         /**
-         * The object key to use.
+         * Object key to use.
          */
         prefix?: string;
     }
 
     export interface IngestionDestinationProcessingConfiguration {
         /**
-         * Contains information about an audit log processing configuration.
+         * Audit log processing configuration. See `processing_configuration.audit_log` Block below.
          */
         auditLog: outputs.appfabric.IngestionDestinationProcessingConfigurationAuditLog;
     }
 
     export interface IngestionDestinationProcessingConfigurationAuditLog {
         /**
-         * The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+         * Format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
          */
         format: string;
         /**
-         * The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+         * Event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
          */
         schema: string;
     }
@@ -3003,212 +2938,272 @@ export namespace appfabric {
 export namespace appflow {
     export interface ConnectorProfileConnectorProfileConfig {
         /**
-         * The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
+         * Connector-specific credentials required by each connector. See `connectorProfileCredentials` Block for details.
          */
         connectorProfileCredentials: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentials;
         /**
-         * The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
+         * Connector-specific properties of the profile configuration. See `connectorProfileProperties` Block for details.
          */
         connectorProfileProperties: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileProperties;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentials {
         /**
-         * The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Amplitude. See `connector_profile_config.connector_profile_credentials.amplitude` Block for details.
          */
         amplitude?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude;
         /**
-         * The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
+         * Connector-specific profile credentials required when using the custom connector. See `connector_profile_config.connector_profile_credentials.custom_connector` Block for details.
          */
         customConnector?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector;
         /**
-         * Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Datadog. See `connector_profile_config.connector_profile_credentials.datadog` Block for details.
          */
         datadog?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog;
         /**
-         * The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Dynatrace. See `connector_profile_config.connector_profile_credentials.dynatrace` Block for details.
          */
         dynatrace?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace;
         /**
-         * The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Google Analytics. See `connector_profile_config.connector_profile_credentials.google_analytics` Block for details.
          */
         googleAnalytics?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics;
         /**
-         * The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Amazon Honeycode. See `connector_profile_config.connector_profile_credentials.honeycode` Block for details.
          */
         honeycode?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode;
         /**
-         * The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Infor Nexus. See `connector_profile_config.connector_profile_credentials.infor_nexus` Block for details.
          */
         inforNexus?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus;
         /**
-         * Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Marketo. See `connector_profile_config.connector_profile_credentials.marketo` Block for details.
          */
         marketo?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo;
         /**
-         * Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Amazon Redshift. See `connector_profile_config.connector_profile_credentials.redshift` Block for details.
          */
         redshift?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift;
         /**
-         * The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Salesforce. See `connector_profile_config.connector_profile_credentials.salesforce` Block for details.
          */
         salesforce?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce;
         /**
-         * The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using SAPOData. See `connector_profile_config.connector_profile_credentials.sapo_data` Block for details.
          */
         sapoData?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData;
         /**
-         * The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using ServiceNow. See `connector_profile_config.connector_profile_credentials.service_now` Block for details.
          */
         serviceNow?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow;
         /**
-         * Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Singular. See `connector_profile_config.connector_profile_credentials.singular` Block for details.
          */
         singular?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular;
         /**
-         * Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Slack. See `connector_profile_config.connector_profile_credentials.slack` Block for details.
          */
         slack?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack;
         /**
-         * The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Snowflake. See `connector_profile_config.connector_profile_credentials.snowflake` Block for details.
          */
         snowflake?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake;
         /**
-         * The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Trend Micro. See `connector_profile_config.connector_profile_credentials.trendmicro` Block for details.
          */
         trendmicro?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro;
         /**
-         * Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Veeva. See `connector_profile_config.connector_profile_credentials.veeva` Block for details.
          */
         veeva?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva;
         /**
-         * Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Zendesk. See `connector_profile_config.connector_profile_credentials.zendesk` Block for details.
          */
         zendesk?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude {
+        /**
+         * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         */
         apiKey: string;
         /**
-         * The Secret Access Key portion of the credentials.
+         * Secret Access Key portion of the credentials.
          */
         secretKey: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector {
+        /**
+         * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         */
         apiKey?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey;
         /**
-         * The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+         * Authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
          */
         authenticationType: string;
         /**
-         * Basic credentials that are required for the authentication of the user.
+         * Basic credentials that are required for the authentication of the user. See `connector_profile_config.connector_profile_credentials.custom_connector.basic` Block for details.
          */
         basic?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic;
         /**
-         * If the connector uses the custom authentication mechanism, this holds the required credentials.
+         * Credentials required when the connector uses the custom authentication mechanism. See `connector_profile_config.connector_profile_credentials.custom_connector.custom` Block for details.
          */
         custom?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom;
         /**
-         * OAuth 2.0 credentials required for the authentication of the user.
+         * OAuth 2.0 credentials required for the authentication of the user. See `connector_profile_config.connector_profile_credentials.custom_connector.oauth2` Block for details.
          */
         oauth2?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey {
+        /**
+         * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         */
         apiKey: string;
+        /**
+         * Secret Access Key portion of the credentials.
+         */
         apiSecretKey?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic {
+        /**
+         * Password that corresponds to the user name.
+         */
         password: string;
+        /**
+         * Name of the user.
+         */
         username: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom {
         /**
-         * A map that holds custom authentication credentials.
+         * Map that holds custom authentication credentials.
          */
         credentialsMap?: {[key: string]: string};
         /**
-         * The custom authentication type that the connector uses.
+         * Custom authentication type that the connector uses.
          */
         customAuthenticationType: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 {
+        /**
+         * Credentials used to access protected Zendesk resources.
+         */
         accessToken?: string;
+        /**
+         * Identifier for the desired client.
+         */
         clientId?: string;
+        /**
+         * Client secret used by the OAuth client to authenticate to the authorization server.
+         */
         clientSecret?: string;
+        /**
+         * OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest;
+        /**
+         * Refresh token used to refresh an expired access token.
+         */
         refreshToken?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest {
         /**
-         * The code provided by the connector when it has been authenticated via the connected app.
+         * Code provided by the connector when it has been authenticated via the connected app.
          */
         authCode?: string;
         /**
-         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         * URL to which the authentication server redirects the browser after authorization has been granted.
          */
         redirectUri?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog {
+        /**
+         * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         */
         apiKey: string;
         /**
-         * Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+         * Application key, used in conjunction with your API key, that gives you full access to Datadog's programmatic API. Application keys are associated with the user account that created them and are used to log all requests made to the API.
          */
         applicationKey: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace {
         /**
-         * The API tokens used by Dynatrace API to authenticate various API calls.
+         * API token used by the Dynatrace API to authenticate various API calls.
          */
         apiToken: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics {
+        /**
+         * Credentials used to access protected Zendesk resources.
+         */
         accessToken?: string;
+        /**
+         * Identifier for the desired client.
+         */
         clientId: string;
+        /**
+         * Client secret used by the OAuth client to authenticate to the authorization server.
+         */
         clientSecret: string;
+        /**
+         * OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest;
+        /**
+         * Refresh token used to refresh an expired access token.
+         */
         refreshToken?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest {
         /**
-         * The code provided by the connector when it has been authenticated via the connected app.
+         * Code provided by the connector when it has been authenticated via the connected app.
          */
         authCode?: string;
         /**
-         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         * URL to which the authentication server redirects the browser after authorization has been granted.
          */
         redirectUri?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode {
+        /**
+         * Credentials used to access protected Zendesk resources.
+         */
         accessToken?: string;
+        /**
+         * OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest;
+        /**
+         * Refresh token used to refresh an expired access token.
+         */
         refreshToken?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest {
         /**
-         * The code provided by the connector when it has been authenticated via the connected app.
+         * Code provided by the connector when it has been authenticated via the connected app.
          */
         authCode?: string;
         /**
-         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         * URL to which the authentication server redirects the browser after authorization has been granted.
          */
         redirectUri?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus {
         /**
-         * The Access Key portion of the credentials.
+         * Access Key portion of the credentials.
          */
         accessKeyId: string;
         /**
@@ -3216,7 +3211,7 @@ export namespace appflow {
          */
         datakey: string;
         /**
-         * The secret key used to sign requests.
+         * Secret key used to sign requests.
          */
         secretAccessKey: string;
         /**
@@ -3226,219 +3221,318 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo {
+        /**
+         * Credentials used to access protected Zendesk resources.
+         */
         accessToken?: string;
+        /**
+         * Identifier for the desired client.
+         */
         clientId: string;
+        /**
+         * Client secret used by the OAuth client to authenticate to the authorization server.
+         */
         clientSecret: string;
+        /**
+         * OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest {
         /**
-         * The code provided by the connector when it has been authenticated via the connected app.
+         * Code provided by the connector when it has been authenticated via the connected app.
          */
         authCode?: string;
         /**
-         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         * URL to which the authentication server redirects the browser after authorization has been granted.
          */
         redirectUri?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift {
+        /**
+         * Password that corresponds to the user name.
+         */
         password: string;
+        /**
+         * Name of the user.
+         */
         username: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce {
+        /**
+         * Credentials used to access protected Zendesk resources.
+         */
         accessToken?: string;
         /**
-         * The secret manager ARN, which contains the client ID and client secret of the connected app.
+         * Secret manager ARN, which contains the client ID and client secret of the connected app.
          */
         clientCredentialsArn?: string;
         /**
-         * A JSON web token (JWT) that authorizes access to Salesforce records.
+         * JSON web token (JWT) that authorizes access to Salesforce records.
          */
         jwtToken?: string;
+        /**
+         * OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+         */
         oauth2GrantType?: string;
+        /**
+         * OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest;
+        /**
+         * Refresh token used to refresh an expired access token.
+         */
         refreshToken?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest {
         /**
-         * The code provided by the connector when it has been authenticated via the connected app.
+         * Code provided by the connector when it has been authenticated via the connected app.
          */
         authCode?: string;
         /**
-         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         * URL to which the authentication server redirects the browser after authorization has been granted.
          */
         redirectUri?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData {
         /**
-         * The SAPOData basic authentication credentials.
+         * SAPOData basic authentication credentials. See `connector_profile_config.connector_profile_credentials.sapo_data.basic_auth_credentials` Block for details.
          */
         basicAuthCredentials?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials;
         /**
-         * The SAPOData OAuth type authentication credentials.
+         * SAPOData OAuth type authentication credentials. See `connector_profile_config.connector_profile_credentials.sapo_data.oauth_credentials` Block for details.
          */
         oauthCredentials?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials {
+        /**
+         * Password that corresponds to the user name.
+         */
         password: string;
+        /**
+         * Name of the user.
+         */
         username: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials {
+        /**
+         * Credentials used to access protected Zendesk resources.
+         */
         accessToken?: string;
+        /**
+         * Identifier for the desired client.
+         */
         clientId: string;
+        /**
+         * Client secret used by the OAuth client to authenticate to the authorization server.
+         */
         clientSecret: string;
+        /**
+         * OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest;
+        /**
+         * Refresh token used to refresh an expired access token.
+         */
         refreshToken?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest {
         /**
-         * The code provided by the connector when it has been authenticated via the connected app.
+         * Code provided by the connector when it has been authenticated via the connected app.
          */
         authCode?: string;
         /**
-         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         * URL to which the authentication server redirects the browser after authorization has been granted.
          */
         redirectUri?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow {
+        /**
+         * Password that corresponds to the user name.
+         */
         password: string;
+        /**
+         * Name of the user.
+         */
         username: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular {
+        /**
+         * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         */
         apiKey: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack {
+        /**
+         * Credentials used to access protected Zendesk resources.
+         */
         accessToken?: string;
+        /**
+         * Identifier for the desired client.
+         */
         clientId: string;
+        /**
+         * Client secret used by the OAuth client to authenticate to the authorization server.
+         */
         clientSecret: string;
+        /**
+         * OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest {
         /**
-         * The code provided by the connector when it has been authenticated via the connected app.
+         * Code provided by the connector when it has been authenticated via the connected app.
          */
         authCode?: string;
         /**
-         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         * URL to which the authentication server redirects the browser after authorization has been granted.
          */
         redirectUri?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake {
+        /**
+         * Password that corresponds to the user name.
+         */
         password: string;
+        /**
+         * Name of the user.
+         */
         username: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro {
+        /**
+         * Secret Access Key portion of the credentials.
+         */
         apiSecretKey: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva {
+        /**
+         * Password that corresponds to the user name.
+         */
         password: string;
+        /**
+         * Name of the user.
+         */
         username: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk {
+        /**
+         * Credentials used to access protected Zendesk resources.
+         */
         accessToken?: string;
+        /**
+         * Identifier for the desired client.
+         */
         clientId: string;
+        /**
+         * Client secret used by the OAuth client to authenticate to the authorization server.
+         */
         clientSecret: string;
+        /**
+         * OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+         */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest {
         /**
-         * The code provided by the connector when it has been authenticated via the connected app.
+         * Code provided by the connector when it has been authenticated via the connected app.
          */
         authCode?: string;
         /**
-         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         * URL to which the authentication server redirects the browser after authorization has been granted.
          */
         redirectUri?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfileProperties {
         /**
-         * The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Amplitude. See `connector_profile_config.connector_profile_credentials.amplitude` Block for details.
          */
         amplitude?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude;
         /**
-         * The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+         * Connector-specific profile properties required when using the custom connector. See `connector_profile_config.connector_profile_properties.custom_connector` Block for details.
          */
         customConnector?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector;
         /**
-         * Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+         * Connector-specific properties required when using Datadog. See `connector_profile_config.connector_profile_properties.datadog` Block for details.
          */
         datadog?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog;
         /**
-         * The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+         * Connector-specific properties required when using Dynatrace. See `connector_profile_config.connector_profile_properties.dynatrace` Block for details.
          */
         dynatrace?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace;
         /**
-         * The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Google Analytics. See `connector_profile_config.connector_profile_credentials.google_analytics` Block for details.
          */
         googleAnalytics?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics;
         /**
-         * The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Amazon Honeycode. See `connector_profile_config.connector_profile_credentials.honeycode` Block for details.
          */
         honeycode?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode;
         /**
-         * The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+         * Connector-specific properties required when using Infor Nexus. See `connector_profile_config.connector_profile_properties.infor_nexus` Block for details.
          */
         inforNexus?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus;
         /**
-         * Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+         * Connector-specific properties required when using Marketo. See `connector_profile_config.connector_profile_properties.marketo` Block for details.
          */
         marketo?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo;
         /**
-         * Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+         * Connector-specific properties required when using Amazon Redshift. See `connector_profile_config.connector_profile_properties.redshift` Block for details.
          */
         redshift?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift;
         /**
-         * The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+         * Connector-specific properties required when using Salesforce. See `connector_profile_config.connector_profile_properties.salesforce` Block for details.
          */
         salesforce?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce;
         /**
-         * The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+         * Connector-specific properties required when using SAPOData. See `connector_profile_config.connector_profile_properties.sapo_data` Block for details.
          */
         sapoData?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData;
         /**
-         * The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+         * Connector-specific properties required when using ServiceNow. See `connector_profile_config.connector_profile_properties.service_now` Block for details.
          */
         serviceNow?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow;
         /**
-         * Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Singular. See `connector_profile_config.connector_profile_credentials.singular` Block for details.
          */
         singular?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular;
         /**
-         * Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+         * Connector-specific properties required when using Slack. See `connector_profile_config.connector_profile_properties.slack` Block for details.
          */
         slack?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack;
         /**
-         * The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+         * Connector-specific properties required when using Snowflake. See `connector_profile_config.connector_profile_properties.snowflake` Block for details.
          */
         snowflake?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake;
         /**
-         * The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+         * Connector-specific credentials required when using Trend Micro. See `connector_profile_config.connector_profile_credentials.trendmicro` Block for details.
          */
         trendmicro?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro;
         /**
-         * Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+         * Connector-specific properties required when using Veeva. See `connector_profile_config.connector_profile_properties.veeva` Block for details.
          */
         veeva?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva;
         /**
-         * Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+         * Connector-specific properties required when using Zendesk. See `connector_profile_config.connector_profile_properties.zendesk` Block for details.
          */
         zendesk?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk;
     }
@@ -3448,29 +3542,41 @@ export namespace appflow {
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector {
         /**
-         * The OAuth 2.0 properties required for OAuth 2.0 authentication.
+         * OAuth 2.0 properties required for OAuth 2.0 authentication. See `connector_profile_config.connector_profile_properties.custom_connector.oauth2_properties` Block for details.
          */
         oauth2Properties?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties;
         /**
-         * A map of properties that are required to create a profile for the custom connector.
+         * Map of properties that are required to create a profile for the custom connector.
          */
         profileProperties?: {[key: string]: string};
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties {
+        /**
+         * OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+         */
         oauth2GrantType: string;
+        /**
+         * Token URL required to fetch access and refresh tokens using the authorization code, and to refresh an expired access token using the refresh token.
+         */
         tokenUrl: string;
         /**
-         * Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+         * Map of properties associated with your token URL. Use this parameter to provide any additional details that the connector requires to authenticate your request.
          */
         tokenUrlCustomProperties?: {[key: string]: string};
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog {
+        /**
+         * Location of the Zendesk resource.
+         */
         instanceUrl: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace {
+        /**
+         * Location of the Zendesk resource.
+         */
         instanceUrl: string;
     }
 
@@ -3481,18 +3587,30 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus {
+        /**
+         * Location of the Zendesk resource.
+         */
         instanceUrl: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo {
+        /**
+         * Location of the Zendesk resource.
+         */
         instanceUrl: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift {
+        /**
+         * Name of the Amazon S3 bucket associated with Snowflake.
+         */
         bucketName: string;
+        /**
+         * Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+         */
         bucketPrefix?: string;
         /**
-         * The unique ID that's assigned to an Amazon Redshift cluster.
+         * Unique ID that's assigned to an Amazon Redshift cluster.
          */
         clusterIdentifier?: string;
         /**
@@ -3500,11 +3618,11 @@ export namespace appflow {
          */
         dataApiRoleArn?: string;
         /**
-         * The name of an Amazon Redshift database.
+         * Name of an Amazon Redshift database.
          */
         databaseName?: string;
         /**
-         * The JDBC URL of the Amazon Redshift cluster.
+         * JDBC URL of the Amazon Redshift cluster.
          */
         databaseUrl?: string;
         /**
@@ -3514,58 +3632,70 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce {
+        /**
+         * Location of the Zendesk resource.
+         */
         instanceUrl?: string;
         /**
-         * Indicates whether the connector profile applies to a sandbox or production environment.
+         * Whether the connector profile applies to a sandbox or production environment.
          */
         isSandboxEnvironment?: boolean;
         /**
-         * Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
+         * Whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
          */
         usePrivatelinkForMetadataAndAuthorization?: boolean;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData {
         /**
-         * The location of the SAPOData resource.
+         * Location of the SAPOData resource.
          */
         applicationHostUrl: string;
         /**
-         * The application path to catalog service.
+         * Application path to catalog service.
          */
         applicationServicePath: string;
         /**
-         * The client number for the client creating the connection.
+         * Client number for the client creating the connection.
          */
         clientNumber: string;
         /**
-         * The logon language of SAPOData instance.
+         * Logon language of the SAPOData instance.
          */
         logonLanguage?: string;
         /**
-         * The SAPOData OAuth properties required for OAuth type authentication.
+         * SAPOData OAuth properties required for OAuth type authentication. See `connector_profile_config.connector_profile_properties.sapo_data.oauth_properties` Block for details.
          */
         oauthProperties?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties;
         /**
-         * The port number of the SAPOData instance.
+         * Port number of the SAPOData instance.
          */
         portNumber: number;
+        /**
+         * Snowflake Private Link service name to be used for private data transfers.
+         */
         privateLinkServiceName?: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties {
         /**
-         * The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
+         * Authorization code URL required to redirect to the SAP Login Page to fetch the authorization code for OAuth type authentication.
          */
         authCodeUrl: string;
         /**
-         * The OAuth scopes required for OAuth type authentication.
+         * OAuth scopes required for OAuth type authentication.
          */
         oauthScopes: string[];
+        /**
+         * Token URL required to fetch access and refresh tokens using the authorization code, and to refresh an expired access token using the refresh token.
+         */
         tokenUrl: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow {
+        /**
+         * Location of the Zendesk resource.
+         */
         instanceUrl: string;
     }
 
@@ -3573,20 +3703,31 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack {
+        /**
+         * Location of the Zendesk resource.
+         */
         instanceUrl: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake {
         /**
-         * The name of the account.
+         * Name of the account.
          */
         accountName?: string;
+        /**
+         * Name of the Amazon S3 bucket associated with Snowflake.
+         */
         bucketName: string;
+        /**
+         * Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+         */
         bucketPrefix?: string;
+        /**
+         * Snowflake Private Link service name to be used for private data transfers.
+         */
         privateLinkServiceName?: string;
         /**
          * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
          */
         region?: string;
         /**
@@ -3594,7 +3735,7 @@ export namespace appflow {
          */
         stage: string;
         /**
-         * The name of the Snowflake warehouse.
+         * Name of the Snowflake warehouse.
          */
         warehouse: string;
     }
@@ -3603,10 +3744,16 @@ export namespace appflow {
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva {
+        /**
+         * Location of the Zendesk resource.
+         */
         instanceUrl: string;
     }
 
     export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk {
+        /**
+         * Location of the Zendesk resource.
+         */
         instanceUrl: string;
     }
 
@@ -3616,7 +3763,7 @@ export namespace appflow {
          */
         apiVersion?: string;
         /**
-         * Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+         * Name of the connector profile. Must be unique for each connector profile in the AWS account.
          */
         connectorProfileName?: string;
         /**
@@ -3624,82 +3771,67 @@ export namespace appflow {
          */
         connectorType: string;
         /**
-         * This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
+         * Information required to query a particular connector. See the `destination_flow_config.destination_connector_properties` Block for details.
          */
         destinationConnectorProperties: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorProperties;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorProperties {
-        /**
-         * Properties that are required to query the custom Connector. See Custom Connector Destination Properties for more details.
-         */
         customConnector?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector;
         /**
-         * Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
+         * Properties required to query Amazon Connect Customer Profiles. See the `destination_flow_config.destination_connector_properties.customer_profiles` Block for details.
          */
         customerProfiles?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles;
         /**
-         * Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
+         * Properties required to query Amazon EventBridge. See the `destination_flow_config.destination_connector_properties.event_bridge` Block for details.
          */
         eventBridge?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge;
         /**
-         * Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
+         * Properties required to query Amazon Honeycode. See the `destination_flow_config.destination_connector_properties.honeycode` Block for details.
          */
         honeycode?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode;
         lookoutMetrics?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics;
-        /**
-         * Properties that are required to query Marketo. See Generic Destination Properties for more details.
-         */
         marketo?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo;
         /**
-         * Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
+         * Properties required to query Amazon Redshift. See the `destination_flow_config.destination_connector_properties.redshift` Block for details.
          */
         redshift?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift;
-        /**
-         * Properties that are required to query Amazon S3. See S3 Destination Properties for more details.
-         */
         s3: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3;
-        /**
-         * Properties that are required to query Salesforce. See Salesforce Destination Properties for more details.
-         */
         salesforce?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce;
-        /**
-         * Properties that are required to query SAPOData. See SAPOData Destination Properties for more details.
-         */
         sapoData?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData;
         /**
-         * Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
+         * Properties required to query Snowflake. See the `destination_flow_config.destination_connector_properties.snowflake` Block for details.
          */
         snowflake?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake;
         /**
-         * Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
+         * Properties required to query Upsolver. See the `destination_flow_config.destination_connector_properties.upsolver` Block for details.
          */
         upsolver?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver;
-        /**
-         * Properties that are required to query Zendesk. See Zendesk Destination Properties for more details.
-         */
         zendesk?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector {
         customProperties?: {[key: string]: string};
         entityName: string;
+        /**
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig;
+        /**
+         * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         */
         idFieldNames?: string[];
+        /**
+         * Type of write operation to be performed in Zendesk. When the value is `UPSERT`, `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+         */
         writeOperationType?: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig {
-        /**
-         * Name of the Amazon S3 bucket.
-         */
         bucketName?: string;
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix?: string;
         /**
-         * If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         * Whether to fail the flow after the first instance of a failure when attempting to place data in the destination.
          */
         failOnFirstDestinationError?: boolean;
     }
@@ -3716,41 +3848,35 @@ export namespace appflow {
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge {
+        /**
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig;
         object: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig {
-        /**
-         * Name of the Amazon S3 bucket.
-         */
         bucketName?: string;
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix?: string;
         /**
-         * If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         * Whether to fail the flow after the first instance of a failure when attempting to place data in the destination.
          */
         failOnFirstDestinationError?: boolean;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode {
+        /**
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig;
         object: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig {
-        /**
-         * Name of the Amazon S3 bucket.
-         */
         bucketName?: string;
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix?: string;
         /**
-         * If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         * Whether to fail the flow after the first instance of a failure when attempting to place data in the destination.
          */
         failOnFirstDestinationError?: boolean;
     }
@@ -3759,43 +3885,40 @@ export namespace appflow {
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo {
+        /**
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig;
         object: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig {
-        /**
-         * Name of the Amazon S3 bucket.
-         */
         bucketName?: string;
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix?: string;
         /**
-         * If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         * Whether to fail the flow after the first instance of a failure when attempting to place data in the destination.
          */
         failOnFirstDestinationError?: boolean;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift {
         bucketPrefix?: string;
+        /**
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig;
+        /**
+         * Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+         */
         intermediateBucketName: string;
         object: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig {
-        /**
-         * Name of the Amazon S3 bucket.
-         */
         bucketName?: string;
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix?: string;
         /**
-         * If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         * Whether to fail the flow after the first instance of a failure when attempting to place data in the destination.
          */
         failOnFirstDestinationError?: boolean;
     }
@@ -3803,132 +3926,135 @@ export namespace appflow {
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3 {
         bucketName: string;
         bucketPrefix: string;
+        /**
+         * Configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config` Block for details.
+         */
         s3OutputFormatConfig: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig {
         /**
-         * Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+         * Aggregation settings that you can use to customize the output format of your flow data. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config.aggregation_config` Block for details.
          */
         aggregationConfig: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig;
         /**
-         * File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+         * File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
          */
         fileType?: string;
         /**
-         * Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+         * Prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config.prefix_config` Block for details.
          */
         prefixConfig: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig;
         /**
-         * Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+         * Whether to preserve the data types from the source system. Only valid for the `PARQUET` file type.
          */
         preserveSourceDataTyping: boolean;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig {
         /**
-         * Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+         * Whether Amazon AppFlow aggregates the flow records into a single file, or leaves them unaggregated. Valid values are `None` and `SingleFile`.
          */
         aggregationType: string;
         /**
-         * The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+         * Desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination.
          */
         targetFileSize: number;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig {
         /**
-         * Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+         * Level of granularity included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
          */
         prefixFormat?: string;
         /**
-         * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+         * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
          */
         prefixHierarchies: string[];
         /**
-         * Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
+         * Format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
          */
         prefixType?: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce {
         dataTransferApi?: string;
+        /**
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig;
+        /**
+         * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         */
         idFieldNames?: string[];
         object: string;
+        /**
+         * Type of write operation to be performed in Zendesk. When the value is `UPSERT`, `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+         */
         writeOperationType?: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig {
-        /**
-         * Name of the Amazon S3 bucket.
-         */
         bucketName?: string;
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix?: string;
         /**
-         * If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         * Whether to fail the flow after the first instance of a failure when attempting to place data in the destination.
          */
         failOnFirstDestinationError?: boolean;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData {
+        /**
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig;
+        /**
+         * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         */
         idFieldNames?: string[];
         objectPath: string;
         /**
-         * Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
+         * Settings that determine how Amazon AppFlow handles the success response it gets from the connector after placing data. See the `destination_flow_config.destination_connector_properties.sapo_data.success_response_handling_config` Block for details.
          */
         successResponseHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig;
+        /**
+         * Type of write operation to be performed in Zendesk. When the value is `UPSERT`, `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+         */
         writeOperationType?: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig {
-        /**
-         * Name of the Amazon S3 bucket.
-         */
         bucketName?: string;
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix?: string;
         /**
-         * If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         * Whether to fail the flow after the first instance of a failure when attempting to place data in the destination.
          */
         failOnFirstDestinationError?: boolean;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig {
-        /**
-         * Name of the Amazon S3 bucket.
-         */
         bucketName?: string;
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix?: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake {
         bucketPrefix?: string;
+        /**
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig;
+        /**
+         * Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+         */
         intermediateBucketName: string;
         object: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig {
-        /**
-         * Name of the Amazon S3 bucket.
-         */
         bucketName?: string;
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix?: string;
         /**
-         * If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         * Whether to fail the flow after the first instance of a failure when attempting to place data in the destination.
          */
         failOnFirstDestinationError?: boolean;
     }
@@ -3936,94 +4062,103 @@ export namespace appflow {
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver {
         bucketName: string;
         bucketPrefix?: string;
+        /**
+         * Configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config` Block for details.
+         */
         s3OutputFormatConfig: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig {
         /**
-         * Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+         * Aggregation settings that you can use to customize the output format of your flow data. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config.aggregation_config` Block for details.
          */
         aggregationConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig;
         /**
-         * File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+         * File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
          */
         fileType?: string;
         /**
-         * Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+         * Prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config.prefix_config` Block for details.
          */
         prefixConfig: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig {
         /**
-         * Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+         * Whether Amazon AppFlow aggregates the flow records into a single file, or leaves them unaggregated. Valid values are `None` and `SingleFile`.
          */
         aggregationType?: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig {
         /**
-         * Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+         * Level of granularity included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
          */
         prefixFormat?: string;
         /**
-         * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+         * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
          */
         prefixHierarchies: string[];
         /**
-         * Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
+         * Format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
          */
         prefixType: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk {
+        /**
+         * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         */
         errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig;
+        /**
+         * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         */
         idFieldNames?: string[];
         object: string;
+        /**
+         * Type of write operation to be performed in Zendesk. When the value is `UPSERT`, `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+         */
         writeOperationType?: string;
     }
 
     export interface FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig {
-        /**
-         * Name of the Amazon S3 bucket.
-         */
         bucketName?: string;
-        /**
-         * Amazon S3 bucket prefix.
-         */
         bucketPrefix?: string;
         /**
-         * If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         * Whether to fail the flow after the first instance of a failure when attempting to place data in the destination.
          */
         failOnFirstDestinationError?: boolean;
     }
 
     export interface FlowMetadataCatalogConfig {
+        /**
+         * Configuration that determines how Amazon AppFlow catalogs data with the AWS Glue Data Catalog. See the `metadata_catalog_config.glue_data_catalog` Block for details.
+         */
         glueDataCatalog?: outputs.appflow.FlowMetadataCatalogConfigGlueDataCatalog;
     }
 
     export interface FlowMetadataCatalogConfigGlueDataCatalog {
         /**
-         * The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+         * Name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
          */
         databaseName: string;
         /**
-         * The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+         * ARN of the IAM role that grants Amazon AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
          */
         roleArn: string;
         /**
-         * A naming prefix for each Data Catalog table that Amazon AppFlow creates
+         * Naming prefix for each Data Catalog table that Amazon AppFlow creates.
          */
         tablePrefix: string;
     }
 
     export interface FlowSourceFlowConfig {
         /**
-         * API version that the destination connector uses.
+         * API version that the source connector uses.
          */
         apiVersion?: string;
         /**
-         * Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+         * Name of the connector profile. Must be unique for each connector profile in the AWS account.
          */
         connectorProfileName?: string;
         /**
@@ -4031,11 +4166,11 @@ export namespace appflow {
          */
         connectorType: string;
         /**
-         * Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
+         * Configuration for a scheduled incremental data pull. When a valid configuration is provided, the specified fields are used when querying for the incremental data pull. See the `source_flow_config.incremental_pull_config` Block for details.
          */
         incrementalPullConfig?: outputs.appflow.FlowSourceFlowConfigIncrementalPullConfig;
         /**
-         * Information that is required to query a particular source connector. See Source Connector Properties for details.
+         * Information required to query a particular source connector. See the `source_flow_config.source_connector_properties` Block for details.
          */
         sourceConnectorProperties: outputs.appflow.FlowSourceFlowConfigSourceConnectorProperties;
     }
@@ -4048,69 +4183,21 @@ export namespace appflow {
     }
 
     export interface FlowSourceFlowConfigSourceConnectorProperties {
-        /**
-         * Information that is required for querying Amplitude. See Generic Source Properties for more details.
-         */
         amplitude?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesAmplitude;
-        /**
-         * Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
-         */
         customConnector?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector;
-        /**
-         * Information that is required for querying Datadog. See Generic Source Properties for more details.
-         */
         datadog?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesDatadog;
-        /**
-         * Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         dynatrace?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesDynatrace;
-        /**
-         * Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-         */
         googleAnalytics?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics;
-        /**
-         * Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
-         */
         inforNexus?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesInforNexus;
-        /**
-         * Information that is required for querying Marketo. See Generic Source Properties for more details.
-         */
         marketo?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesMarketo;
-        /**
-         * Information that is required for querying Amazon S3. See S3 Source Properties for more details.
-         */
         s3: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3;
-        /**
-         * Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
-         */
         salesforce?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSalesforce;
-        /**
-         * Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
-         */
         sapoData?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSapoData;
-        /**
-         * Information that is required for querying ServiceNow. See Generic Source Properties for more details.
-         */
         serviceNow?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesServiceNow;
-        /**
-         * Information that is required for querying Singular. See Generic Source Properties for more details.
-         */
         singular?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSingular;
-        /**
-         * Information that is required for querying Slack. See Generic Source Properties for more details.
-         */
         slack?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSlack;
-        /**
-         * Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         trendmicro?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro;
-        /**
-         * Information that is required for querying Veeva. See Veeva Source Properties for more details.
-         */
         veeva?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesVeeva;
-        /**
-         * Information that is required for querying Zendesk. See Generic Source Properties for more details.
-         */
         zendesk?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesZendesk;
     }
 
@@ -4147,7 +4234,7 @@ export namespace appflow {
         bucketName: string;
         bucketPrefix: string;
         /**
-         * When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+         * When you use Amazon S3 as the source, configuration format that you provide for the flow input data. See the `source_flow_config.source_connector_properties.s3.s3_input_format_config` Block for details.
          */
         s3InputFormatConfig?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig;
     }
@@ -4162,11 +4249,11 @@ export namespace appflow {
     export interface FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
         dataTransferApi?: string;
         /**
-         * Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+         * Whether to enable dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
          */
         enableDynamicFieldUpdate?: boolean;
         /**
-         * Whether Amazon AppFlow includes deleted files in the flow run.
+         * Whether to include deleted files in the flow run.
          */
         includeDeletedRecords?: boolean;
         object: string;
@@ -4175,25 +4262,25 @@ export namespace appflow {
     export interface FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
         objectPath: string;
         /**
-         * Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+         * Page size for each concurrent process that transfers OData records from your SAP instance. See the `source_flow_config.source_connector_properties.sapo_data.pagination_config` Block for details.
          */
         paginationConfig?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig;
         /**
-         * Sets the number of concurrent processes that transfers OData records from your SAP instance.
+         * Number of concurrent processes that transfer OData records from your SAP instance. See the `source_flow_config.source_connector_properties.sapo_data.parallelism_config` Block for details.
          */
         parallelismConfig?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig {
         /**
-         * he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+         * Maximum number of processes that Amazon AppFlow runs at the same time when it retrieves your data from your SAP application.
          */
         maxPageSize: number;
     }
 
     export interface FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig {
         /**
-         * he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+         * Maximum number of processes that Amazon AppFlow runs at the same time when it retrieves your data from your SAP application.
          */
         maxPageSize: number;
     }
@@ -4220,15 +4307,15 @@ export namespace appflow {
          */
         documentType?: string;
         /**
-         * Boolean value to include All Versions of files in Veeva document extract flow.
+         * Whether to include all versions of files in the Veeva document extract flow.
          */
         includeAllVersions?: boolean;
         /**
-         * Boolean value to include file renditions in Veeva document extract flow.
+         * Whether to include file renditions in the Veeva document extract flow.
          */
         includeRenditions?: boolean;
         /**
-         * Boolean value to include source files in Veeva document extract flow.
+         * Whether to include source files in the Veeva document extract flow.
          */
         includeSourceFiles?: boolean;
         object: string;
@@ -4240,7 +4327,7 @@ export namespace appflow {
 
     export interface FlowTask {
         /**
-         * Operation to be performed on the provided source fields. See Connector Operator for details.
+         * Operation to be performed on the provided source fields. See the `task.connector_operator` Block for details.
          */
         connectorOperators?: outputs.appflow.FlowTaskConnectorOperator[];
         /**
@@ -4262,75 +4349,27 @@ export namespace appflow {
     }
 
     export interface FlowTaskConnectorOperator {
-        /**
-         * Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
-         */
         amplitude?: string;
-        /**
-         * Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         customConnector?: string;
-        /**
-         * Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         datadog?: string;
-        /**
-         * Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         dynatrace?: string;
-        /**
-         * Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-         */
         googleAnalytics?: string;
-        /**
-         * Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         inforNexus?: string;
-        /**
-         * Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         marketo?: string;
-        /**
-         * Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         s3?: string;
-        /**
-         * Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         salesforce?: string;
-        /**
-         * Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         sapoData?: string;
-        /**
-         * Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         serviceNow?: string;
-        /**
-         * Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         singular?: string;
-        /**
-         * Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         slack?: string;
-        /**
-         * Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         trendmicro?: string;
-        /**
-         * Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         veeva?: string;
-        /**
-         * Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         */
         zendesk?: string;
     }
 
     export interface FlowTriggerConfig {
         /**
-         * Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+         * Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See the `trigger_config.trigger_properties` Block for details.
          */
         triggerProperties: outputs.appflow.FlowTriggerConfigTriggerProperties;
         /**
@@ -4340,6 +4379,9 @@ export namespace appflow {
     }
 
     export interface FlowTriggerConfigTriggerProperties {
+        /**
+         * Configuration details of a schedule-triggered flow. See the `trigger_config.trigger_properties.scheduled` Block for details.
+         */
         scheduled?: outputs.appflow.FlowTriggerConfigTriggerPropertiesScheduled;
     }
 
@@ -4357,11 +4399,11 @@ export namespace appflow {
          */
         scheduleEndTime?: string;
         /**
-         * Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+         * Scheduling expression that determines the rate at which the schedule runs, for example `rate(5minutes)`.
          */
         scheduleExpression: string;
         /**
-         * Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+         * Offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
          */
         scheduleOffset?: number;
         /**
@@ -4370,17 +4412,6 @@ export namespace appflow {
         scheduleStartTime?: string;
         /**
          * Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
-         *
-         * ```typescript
-         * import * as pulumi from "@pulumi/pulumi";
-         * import * as aws from "@pulumi/aws";
-         *
-         * const example = new aws.appflow.Flow("example", {triggerConfig: {
-         *     scheduled: [{
-         *         scheduleExpression: "rate(1minutes)",
-         *     }],
-         * }});
-         * ```
          */
         timezone?: string;
     }
@@ -4390,11 +4421,11 @@ export namespace appflow {
 export namespace appintegrations {
     export interface DataIntegrationScheduleConfig {
         /**
-         * The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
+         * Start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
          */
         firstExecutionFrom: string;
         /**
-         * The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
+         * Name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
          */
         object: string;
         /**
@@ -4405,7 +4436,7 @@ export namespace appintegrations {
 
     export interface GetEventIntegrationEventFilter {
         /**
-         * The source of the events.
+         * Source of the events.
          */
         source: string;
     }
@@ -4434,29 +4465,29 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecGrpcRoute {
         /**
-         * Action to take if a match is determined. See `action` Block for details.
+         * Action to take if a match is determined. See `spec.grpc_route.action` Block for details.
          */
         action: outputs.appmesh.GatewayRouteSpecGrpcRouteAction;
         /**
-         * Criteria for determining a request match. See `match` Block for details.
+         * Criteria for determining a request match. See `spec.grpc_route.match` Block for details.
          */
         match: outputs.appmesh.GatewayRouteSpecGrpcRouteMatch;
     }
 
     export interface GatewayRouteSpecGrpcRouteAction {
         /**
-         * Target that traffic is routed to when a request matches the gateway route. See `target` Block for details.
+         * Target that traffic is routed to when a request matches the gateway route. See `spec.http2_route.action.target` Block for details.
          */
         target: outputs.appmesh.GatewayRouteSpecGrpcRouteActionTarget;
     }
 
     export interface GatewayRouteSpecGrpcRouteActionTarget {
         /**
-         * The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+         * Port number to match from the request.
          */
         port?: number;
         /**
-         * Virtual service gateway route target. See `virtualService` Block for details.
+         * Virtual service gateway route target. See `spec.http2_route.action.target.virtual_service` Block for details.
          */
         virtualService: outputs.appmesh.GatewayRouteSpecGrpcRouteActionTargetVirtualService;
     }
@@ -4470,7 +4501,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecGrpcRouteMatch {
         /**
-         * The port number to match from the request.
+         * Port number to match from the request.
          */
         port?: number;
         /**
@@ -4481,37 +4512,37 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2Route {
         /**
-         * Action to take if a match is determined. See `action` Block for details.
+         * Action to take if a match is determined. See `spec.http2_route.action` Block for details.
          */
         action: outputs.appmesh.GatewayRouteSpecHttp2RouteAction;
         /**
-         * Criteria for determining a request match. See `match` Block for details.
+         * Criteria for determining a request match. See `spec.http2_route.match` Block for details.
          */
         match: outputs.appmesh.GatewayRouteSpecHttp2RouteMatch;
     }
 
     export interface GatewayRouteSpecHttp2RouteAction {
         /**
-         * Gateway route action to rewrite. See `rewrite` Block for details.
+         * Gateway route action to rewrite. See `spec.http2_route.action.rewrite` Block for details.
          */
         rewrite?: outputs.appmesh.GatewayRouteSpecHttp2RouteActionRewrite;
         /**
-         * Target that traffic is routed to when a request matches the gateway route. See `target` Block for details.
+         * Target that traffic is routed to when a request matches the gateway route. See `spec.http2_route.action.target` Block for details.
          */
         target: outputs.appmesh.GatewayRouteSpecHttp2RouteActionTarget;
     }
 
     export interface GatewayRouteSpecHttp2RouteActionRewrite {
         /**
-         * Host name to rewrite. See `hostname` Block for details.
+         * Host name to match on. See `spec.http2_route.match.hostname` Block for details.
          */
         hostname?: outputs.appmesh.GatewayRouteSpecHttp2RouteActionRewriteHostname;
         /**
-         * Exact path to rewrite. See `path` Block for details.
+         * Client request path to match on. See `spec.http2_route.match.path` Block for details.
          */
         path?: outputs.appmesh.GatewayRouteSpecHttp2RouteActionRewritePath;
         /**
-         * Specified beginning characters to rewrite. See `prefix` Block for details.
+         * Header value sent by the client must begin with the specified characters.
          */
         prefix?: outputs.appmesh.GatewayRouteSpecHttp2RouteActionRewritePrefix;
     }
@@ -4525,7 +4556,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteActionRewritePath {
         /**
-         * The exact path to match on.
+         * Exact query parameter to match on.
          */
         exact: string;
     }
@@ -4543,11 +4574,11 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteActionTarget {
         /**
-         * The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+         * Port number to match from the request.
          */
         port?: number;
         /**
-         * Virtual service gateway route target. See `virtualService` Block for details.
+         * Virtual service gateway route target. See `spec.http2_route.action.target.virtual_service` Block for details.
          */
         virtualService: outputs.appmesh.GatewayRouteSpecHttp2RouteActionTargetVirtualService;
     }
@@ -4561,19 +4592,19 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteMatch {
         /**
-         * Client request headers to match on. See `header` Block for details.
+         * Client request headers to match on. See `spec.http2_route.match.header` Block for details.
          */
         headers?: outputs.appmesh.GatewayRouteSpecHttp2RouteMatchHeader[];
         /**
-         * Host name to match on. See `hostname` Block for details.
+         * Host name to match on. See `spec.http2_route.match.hostname` Block for details.
          */
         hostname?: outputs.appmesh.GatewayRouteSpecHttp2RouteMatchHostname;
         /**
-         * Client request path to match on. See `path` Block for details.
+         * Client request path to match on. See `spec.http2_route.match.path` Block for details.
          */
         path?: outputs.appmesh.GatewayRouteSpecHttp2RouteMatchPath;
         /**
-         * The port number to match from the request.
+         * Port number to match from the request.
          */
         port?: number;
         /**
@@ -4581,7 +4612,7 @@ export namespace appmesh {
          */
         prefix?: string;
         /**
-         * Client request query parameters to match on. See `queryParameter` Block for details.
+         * Client request query parameters to match on. See `spec.http2_route.match.query_parameter` Block for details.
          */
         queryParameters?: outputs.appmesh.GatewayRouteSpecHttp2RouteMatchQueryParameter[];
     }
@@ -4591,19 +4622,16 @@ export namespace appmesh {
          * If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
          */
         invert?: boolean;
-        /**
-         * Method and value to match the header value sent with a request. Specify one match method.
-         */
         match?: outputs.appmesh.GatewayRouteSpecHttp2RouteMatchHeaderMatch;
         /**
-         * Name for the HTTP header in the client request that will be matched on.
+         * Name to use for the gateway route. Must be between 1 and 255 characters in length.
          */
         name: string;
     }
 
     export interface GatewayRouteSpecHttp2RouteMatchHeaderMatch {
         /**
-         * The exact query parameter to match on.
+         * Exact query parameter to match on.
          */
         exact?: string;
         /**
@@ -4611,15 +4639,15 @@ export namespace appmesh {
          */
         prefix?: string;
         /**
-         * Object that specifies the range of numbers that the header value sent by the client must be included in.
+         * Object that specifies the range of numbers that the header value sent by the client must be included in. See `spec.http2_route.match.header.match.range` Block for details.
          */
         range?: outputs.appmesh.GatewayRouteSpecHttp2RouteMatchHeaderMatchRange;
         /**
-         * Header value sent by the client must include the specified characters.
+         * Regex used to match the path.
          */
         regex?: string;
         /**
-         * Header value sent by the client must end with the specified characters.
+         * Specified ending characters of the host name to match on.
          */
         suffix?: string;
     }
@@ -4637,7 +4665,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteMatchHostname {
         /**
-         * Exact host name to match on.
+         * Exact query parameter to match on.
          */
         exact?: string;
         /**
@@ -4648,66 +4676,63 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteMatchPath {
         /**
-         * The exact path to match on.
+         * Exact query parameter to match on.
          */
         exact?: string;
         /**
-         * The regex used to match the path.
+         * Regex used to match the path.
          */
         regex?: string;
     }
 
     export interface GatewayRouteSpecHttp2RouteMatchQueryParameter {
-        /**
-         * The query parameter to match on.
-         */
         match?: outputs.appmesh.GatewayRouteSpecHttp2RouteMatchQueryParameterMatch;
         /**
-         * Name for the query parameter that will be matched on.
+         * Name to use for the gateway route. Must be between 1 and 255 characters in length.
          */
         name: string;
     }
 
     export interface GatewayRouteSpecHttp2RouteMatchQueryParameterMatch {
         /**
-         * The exact query parameter to match on.
+         * Exact query parameter to match on.
          */
         exact?: string;
     }
 
     export interface GatewayRouteSpecHttpRoute {
         /**
-         * Action to take if a match is determined. See `action` Block for details.
+         * Action to take if a match is determined. See `spec.http_route.action` Block for details.
          */
         action: outputs.appmesh.GatewayRouteSpecHttpRouteAction;
         /**
-         * Criteria for determining a request match. See `match` Block for details.
+         * Criteria for determining a request match. See `spec.http_route.match` Block for details.
          */
         match: outputs.appmesh.GatewayRouteSpecHttpRouteMatch;
     }
 
     export interface GatewayRouteSpecHttpRouteAction {
         /**
-         * Gateway route action to rewrite. See `rewrite` Block for details.
+         * Gateway route action to rewrite. See `spec.http2_route.action.rewrite` Block for details.
          */
         rewrite?: outputs.appmesh.GatewayRouteSpecHttpRouteActionRewrite;
         /**
-         * Target that traffic is routed to when a request matches the gateway route. See `target` Block for details.
+         * Target that traffic is routed to when a request matches the gateway route. See `spec.http2_route.action.target` Block for details.
          */
         target: outputs.appmesh.GatewayRouteSpecHttpRouteActionTarget;
     }
 
     export interface GatewayRouteSpecHttpRouteActionRewrite {
         /**
-         * Host name to rewrite. See `hostname` Block for details.
+         * Host name to match on. See `spec.http2_route.match.hostname` Block for details.
          */
         hostname?: outputs.appmesh.GatewayRouteSpecHttpRouteActionRewriteHostname;
         /**
-         * Exact path to rewrite. See `path` Block for details.
+         * Client request path to match on. See `spec.http2_route.match.path` Block for details.
          */
         path?: outputs.appmesh.GatewayRouteSpecHttpRouteActionRewritePath;
         /**
-         * Specified beginning characters to rewrite. See `prefix` Block for details.
+         * Header value sent by the client must begin with the specified characters.
          */
         prefix?: outputs.appmesh.GatewayRouteSpecHttpRouteActionRewritePrefix;
     }
@@ -4721,7 +4746,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteActionRewritePath {
         /**
-         * The exact path to match on.
+         * Exact query parameter to match on.
          */
         exact: string;
     }
@@ -4739,11 +4764,11 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteActionTarget {
         /**
-         * The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+         * Port number to match from the request.
          */
         port?: number;
         /**
-         * Virtual service gateway route target. See `virtualService` Block for details.
+         * Virtual service gateway route target. See `spec.http2_route.action.target.virtual_service` Block for details.
          */
         virtualService: outputs.appmesh.GatewayRouteSpecHttpRouteActionTargetVirtualService;
     }
@@ -4757,19 +4782,19 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteMatch {
         /**
-         * Client request headers to match on. See `header` Block for details.
+         * Client request headers to match on. See `spec.http2_route.match.header` Block for details.
          */
         headers?: outputs.appmesh.GatewayRouteSpecHttpRouteMatchHeader[];
         /**
-         * Host name to match on. See `hostname` Block for details.
+         * Host name to match on. See `spec.http2_route.match.hostname` Block for details.
          */
         hostname?: outputs.appmesh.GatewayRouteSpecHttpRouteMatchHostname;
         /**
-         * Client request path to match on. See `path` Block for details.
+         * Client request path to match on. See `spec.http2_route.match.path` Block for details.
          */
         path?: outputs.appmesh.GatewayRouteSpecHttpRouteMatchPath;
         /**
-         * The port number to match from the request.
+         * Port number to match from the request.
          */
         port?: number;
         /**
@@ -4777,7 +4802,7 @@ export namespace appmesh {
          */
         prefix?: string;
         /**
-         * Client request query parameters to match on. See `queryParameter` Block for details.
+         * Client request query parameters to match on. See `spec.http2_route.match.query_parameter` Block for details.
          */
         queryParameters?: outputs.appmesh.GatewayRouteSpecHttpRouteMatchQueryParameter[];
     }
@@ -4787,19 +4812,16 @@ export namespace appmesh {
          * If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
          */
         invert?: boolean;
-        /**
-         * Method and value to match the header value sent with a request. Specify one match method.
-         */
         match?: outputs.appmesh.GatewayRouteSpecHttpRouteMatchHeaderMatch;
         /**
-         * Name for the HTTP header in the client request that will be matched on.
+         * Name to use for the gateway route. Must be between 1 and 255 characters in length.
          */
         name: string;
     }
 
     export interface GatewayRouteSpecHttpRouteMatchHeaderMatch {
         /**
-         * The exact query parameter to match on.
+         * Exact query parameter to match on.
          */
         exact?: string;
         /**
@@ -4807,15 +4829,15 @@ export namespace appmesh {
          */
         prefix?: string;
         /**
-         * Object that specifies the range of numbers that the header value sent by the client must be included in.
+         * Object that specifies the range of numbers that the header value sent by the client must be included in. See `spec.http2_route.match.header.match.range` Block for details.
          */
         range?: outputs.appmesh.GatewayRouteSpecHttpRouteMatchHeaderMatchRange;
         /**
-         * Header value sent by the client must include the specified characters.
+         * Regex used to match the path.
          */
         regex?: string;
         /**
-         * Header value sent by the client must end with the specified characters.
+         * Specified ending characters of the host name to match on.
          */
         suffix?: string;
     }
@@ -4833,7 +4855,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteMatchHostname {
         /**
-         * Exact host name to match on.
+         * Exact query parameter to match on.
          */
         exact?: string;
         /**
@@ -4844,29 +4866,26 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteMatchPath {
         /**
-         * The exact path to match on.
+         * Exact query parameter to match on.
          */
         exact?: string;
         /**
-         * The regex used to match the path.
+         * Regex used to match the path.
          */
         regex?: string;
     }
 
     export interface GatewayRouteSpecHttpRouteMatchQueryParameter {
-        /**
-         * The query parameter to match on.
-         */
         match?: outputs.appmesh.GatewayRouteSpecHttpRouteMatchQueryParameterMatch;
         /**
-         * Name for the query parameter that will be matched on.
+         * Name to use for the gateway route. Must be between 1 and 255 characters in length.
          */
         name: string;
     }
 
     export interface GatewayRouteSpecHttpRouteMatchQueryParameterMatch {
         /**
-         * The exact query parameter to match on.
+         * Exact query parameter to match on.
          */
         exact?: string;
     }
@@ -5961,7 +5980,7 @@ export namespace appmesh {
          */
         egressFilter?: outputs.appmesh.MeshSpecEgressFilter;
         /**
-         * The service discovery information for the service mesh. See `serviceDiscovery` Block for details.
+         * Service discovery information for the service mesh. See `serviceDiscovery` Block for details.
          */
         serviceDiscovery?: outputs.appmesh.MeshSpecServiceDiscovery;
     }
@@ -5975,22 +5994,22 @@ export namespace appmesh {
 
     export interface MeshSpecServiceDiscovery {
         /**
-         * The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
+         * IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
          */
         ipPreference?: string;
     }
 
     export interface RouteSpec {
         /**
-         * GRPC routing information for the route. See `grpcRoute` Block for details.
+         * GRPC routing information for the route. See `spec.grpc_route` Block for details.
          */
         grpcRoute?: outputs.appmesh.RouteSpecGrpcRoute;
         /**
-         * HTTP/2 routing information for the route. See `http2Route` Block for details.
+         * HTTP/2 routing information for the route. See `spec.http2_route` Block for details.
          */
         http2Route?: outputs.appmesh.RouteSpecHttp2Route;
         /**
-         * HTTP routing information for the route. See `httpRoute` Block for details.
+         * HTTP routing information for the route. See `spec.http_route` Block for details.
          */
         httpRoute?: outputs.appmesh.RouteSpecHttpRoute;
         /**
@@ -5998,40 +6017,40 @@ export namespace appmesh {
          */
         priority?: number;
         /**
-         * TCP routing information for the route. See `tcpRoute` Block for details.
+         * TCP routing information for the route. See `spec.tcp_route` Block for details.
          */
         tcpRoute?: outputs.appmesh.RouteSpecTcpRoute;
     }
 
     export interface RouteSpecGrpcRoute {
         /**
-         * Action to take if a match is determined. See `action` Block for details.
+         * Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
          */
         action: outputs.appmesh.RouteSpecGrpcRouteAction;
         /**
-         * Criteria for determining an gRPC request match. See `match` Block for details.
+         * Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          */
         match?: outputs.appmesh.RouteSpecGrpcRouteMatch;
         /**
-         * Retry policy. See `retryPolicy` Block for details.
+         * Retry policy. See `spec.http_route.retry_policy` Block for details.
          */
         retryPolicy?: outputs.appmesh.RouteSpecGrpcRouteRetryPolicy;
         /**
-         * Types of timeouts. See `timeout` Block for details.
+         * Types of timeouts. See `spec.tcp_route.timeout` Block for details.
          */
         timeout?: outputs.appmesh.RouteSpecGrpcRouteTimeout;
     }
 
     export interface RouteSpecGrpcRouteAction {
         /**
-         * Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic.
+         * Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic. See `spec.tcp_route.action.weighted_target` Block for details.
          */
         weightedTargets: outputs.appmesh.RouteSpecGrpcRouteActionWeightedTarget[];
     }
 
     export interface RouteSpecGrpcRouteActionWeightedTarget {
         /**
-         * The targeted port of the weighted object.
+         * Port number to match from the request.
          */
         port: number;
         /**
@@ -6046,7 +6065,7 @@ export namespace appmesh {
 
     export interface RouteSpecGrpcRouteMatch {
         /**
-         * Data to match from the gRPC request.
+         * Data to match from the gRPC request. See `spec.grpc_route.match.metadata` Block for details.
          */
         metadatas?: outputs.appmesh.RouteSpecGrpcRouteMatchMetadata[];
         /**
@@ -6054,7 +6073,7 @@ export namespace appmesh {
          */
         methodName?: string;
         /**
-         * The port number to match from the request.
+         * Port number to match from the request.
          */
         port?: number;
         /**
@@ -6069,22 +6088,22 @@ export namespace appmesh {
 
     export interface RouteSpecGrpcRouteMatchMetadata {
         /**
-         * If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+         * Whether to match on the opposite of the `match` method and value. Default is `false`.
          */
         invert?: boolean;
         /**
-         * Data to match from the request.
+         * Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          */
         match?: outputs.appmesh.RouteSpecGrpcRouteMatchMetadataMatch;
         /**
-         * Name of the route. Must be between 1 and 50 characters in length.
+         * Name to use for the route. Must be between 1 and 255 characters in length.
          */
         name: string;
     }
 
     export interface RouteSpecGrpcRouteMatchMetadataMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * Exact query parameter to match on.
          */
         exact?: string;
         /**
@@ -6092,11 +6111,11 @@ export namespace appmesh {
          */
         prefix?: string;
         /**
-         * Object that specifies the range of numbers that the header value sent by the client must be included in.
+         * Object that specifies the range of numbers that the header value sent by the client must be included in. See `spec.http_route.match.header.match.range` Block for details.
          */
         range?: outputs.appmesh.RouteSpecGrpcRouteMatchMetadataMatchRange;
         /**
-         * Header value sent by the client must include the specified characters.
+         * Regex used to match the path.
          */
         regex?: string;
         /**
@@ -6130,7 +6149,7 @@ export namespace appmesh {
          */
         maxRetries: number;
         /**
-         * Per-retry timeout.
+         * Per-retry timeout. See `spec.http_route.retry_policy.per_retry_timeout` Block for details.
          */
         perRetryTimeout: outputs.appmesh.RouteSpecGrpcRouteRetryPolicyPerRetryTimeout;
         /**
@@ -6141,22 +6160,22 @@ export namespace appmesh {
 
     export interface RouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
         /**
-         * Retry unit. Valid values: `ms`, `s`.
+         * Unit of time. Valid values: `ms`, `s`.
          */
         unit: string;
         /**
-         * Retry value.
+         * Number of time units. Minimum value of `0`.
          */
         value: number;
     }
 
     export interface RouteSpecGrpcRouteTimeout {
         /**
-         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `idle` Block for details.
+         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.tcp_route.timeout.idle` Block for details.
          */
         idle?: outputs.appmesh.RouteSpecGrpcRouteTimeoutIdle;
         /**
-         * Per request timeout. See `perRequest` Block for details.
+         * Per request timeout. See `spec.http_route.timeout.per_request` Block for details.
          */
         perRequest?: outputs.appmesh.RouteSpecGrpcRouteTimeoutPerRequest;
     }
@@ -6185,33 +6204,33 @@ export namespace appmesh {
 
     export interface RouteSpecHttp2Route {
         /**
-         * Action to take if a match is determined.
+         * Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
          */
         action: outputs.appmesh.RouteSpecHttp2RouteAction;
         /**
-         * Criteria for determining an HTTP request match.
+         * Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          */
         match: outputs.appmesh.RouteSpecHttp2RouteMatch;
         /**
-         * Retry policy.
+         * Retry policy. See `spec.http_route.retry_policy` Block for details.
          */
         retryPolicy?: outputs.appmesh.RouteSpecHttp2RouteRetryPolicy;
         /**
-         * Types of timeouts.
+         * Types of timeouts. See `spec.tcp_route.timeout` Block for details.
          */
         timeout?: outputs.appmesh.RouteSpecHttp2RouteTimeout;
     }
 
     export interface RouteSpecHttp2RouteAction {
         /**
-         * Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic.
+         * Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic. See `spec.tcp_route.action.weighted_target` Block for details.
          */
         weightedTargets: outputs.appmesh.RouteSpecHttp2RouteActionWeightedTarget[];
     }
 
     export interface RouteSpecHttp2RouteActionWeightedTarget {
         /**
-         * The targeted port of the weighted object.
+         * Port number to match from the request.
          */
         port: number;
         /**
@@ -6226,7 +6245,7 @@ export namespace appmesh {
 
     export interface RouteSpecHttp2RouteMatch {
         /**
-         * Client request headers to match on. See `header` Block for details.
+         * Client request headers to match on. See `spec.http_route.match.header` Block for details.
          */
         headers?: outputs.appmesh.RouteSpecHttp2RouteMatchHeader[];
         /**
@@ -6234,11 +6253,11 @@ export namespace appmesh {
          */
         method?: string;
         /**
-         * Client request path to match on. See `path` Block for details.
+         * Client request path to match on. See `spec.http_route.match.path` Block for details.
          */
         path?: outputs.appmesh.RouteSpecHttp2RouteMatchPath;
         /**
-         * The port number to match from the request.
+         * Port number to match from the request.
          */
         port?: number;
         /**
@@ -6246,7 +6265,7 @@ export namespace appmesh {
          */
         prefix?: string;
         /**
-         * Client request query parameters to match on. See `queryParameter` Block for details.
+         * Client request query parameters to match on. See `spec.http_route.match.query_parameter` Block for details.
          */
         queryParameters?: outputs.appmesh.RouteSpecHttp2RouteMatchQueryParameter[];
         /**
@@ -6257,22 +6276,22 @@ export namespace appmesh {
 
     export interface RouteSpecHttp2RouteMatchHeader {
         /**
-         * If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+         * Whether to match on the opposite of the `match` method and value. Default is `false`.
          */
         invert?: boolean;
         /**
-         * Method and value to match the header value sent with a request. Specify one match method.
+         * Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          */
         match?: outputs.appmesh.RouteSpecHttp2RouteMatchHeaderMatch;
         /**
-         * Name for the HTTP header in the client request that will be matched on.
+         * Name to use for the route. Must be between 1 and 255 characters in length.
          */
         name: string;
     }
 
     export interface RouteSpecHttp2RouteMatchHeaderMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * Exact query parameter to match on.
          */
         exact?: string;
         /**
@@ -6280,11 +6299,11 @@ export namespace appmesh {
          */
         prefix?: string;
         /**
-         * Object that specifies the range of numbers that the header value sent by the client must be included in.
+         * Object that specifies the range of numbers that the header value sent by the client must be included in. See `spec.http_route.match.header.match.range` Block for details.
          */
         range?: outputs.appmesh.RouteSpecHttp2RouteMatchHeaderMatchRange;
         /**
-         * Header value sent by the client must include the specified characters.
+         * Regex used to match the path.
          */
         regex?: string;
         /**
@@ -6306,29 +6325,29 @@ export namespace appmesh {
 
     export interface RouteSpecHttp2RouteMatchPath {
         /**
-         * The exact path to match on.
+         * Exact query parameter to match on.
          */
         exact?: string;
         /**
-         * The regex used to match the path.
+         * Regex used to match the path.
          */
         regex?: string;
     }
 
     export interface RouteSpecHttp2RouteMatchQueryParameter {
         /**
-         * The query parameter to match on.
+         * Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          */
         match?: outputs.appmesh.RouteSpecHttp2RouteMatchQueryParameterMatch;
         /**
-         * Name for the query parameter that will be matched on.
+         * Name to use for the route. Must be between 1 and 255 characters in length.
          */
         name: string;
     }
 
     export interface RouteSpecHttp2RouteMatchQueryParameterMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * Exact query parameter to match on.
          */
         exact?: string;
     }
@@ -6343,7 +6362,7 @@ export namespace appmesh {
          */
         maxRetries: number;
         /**
-         * Per-retry timeout.
+         * Per-retry timeout. See `spec.http_route.retry_policy.per_retry_timeout` Block for details.
          */
         perRetryTimeout: outputs.appmesh.RouteSpecHttp2RouteRetryPolicyPerRetryTimeout;
         /**
@@ -6354,22 +6373,22 @@ export namespace appmesh {
 
     export interface RouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
         /**
-         * Retry unit. Valid values: `ms`, `s`.
+         * Unit of time. Valid values: `ms`, `s`.
          */
         unit: string;
         /**
-         * Retry value.
+         * Number of time units. Minimum value of `0`.
          */
         value: number;
     }
 
     export interface RouteSpecHttp2RouteTimeout {
         /**
-         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `idle` Block for details.
+         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.tcp_route.timeout.idle` Block for details.
          */
         idle?: outputs.appmesh.RouteSpecHttp2RouteTimeoutIdle;
         /**
-         * Per request timeout. See `perRequest` Block for details.
+         * Per request timeout. See `spec.http_route.timeout.per_request` Block for details.
          */
         perRequest?: outputs.appmesh.RouteSpecHttp2RouteTimeoutPerRequest;
     }
@@ -6397,22 +6416,34 @@ export namespace appmesh {
     }
 
     export interface RouteSpecHttpRoute {
+        /**
+         * Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
+         */
         action: outputs.appmesh.RouteSpecHttpRouteAction;
+        /**
+         * Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
+         */
         match: outputs.appmesh.RouteSpecHttpRouteMatch;
+        /**
+         * Retry policy. See `spec.http_route.retry_policy` Block for details.
+         */
         retryPolicy?: outputs.appmesh.RouteSpecHttpRouteRetryPolicy;
+        /**
+         * Types of timeouts. See `spec.tcp_route.timeout` Block for details.
+         */
         timeout?: outputs.appmesh.RouteSpecHttpRouteTimeout;
     }
 
     export interface RouteSpecHttpRouteAction {
         /**
-         * Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic.
+         * Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic. See `spec.tcp_route.action.weighted_target` Block for details.
          */
         weightedTargets: outputs.appmesh.RouteSpecHttpRouteActionWeightedTarget[];
     }
 
     export interface RouteSpecHttpRouteActionWeightedTarget {
         /**
-         * The targeted port of the weighted object.
+         * Port number to match from the request.
          */
         port: number;
         /**
@@ -6427,7 +6458,7 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteMatch {
         /**
-         * Client request headers to match on. See `header` Block for details.
+         * Client request headers to match on. See `spec.http_route.match.header` Block for details.
          */
         headers?: outputs.appmesh.RouteSpecHttpRouteMatchHeader[];
         /**
@@ -6435,11 +6466,11 @@ export namespace appmesh {
          */
         method?: string;
         /**
-         * Client request path to match on. See `path` Block for details.
+         * Client request path to match on. See `spec.http_route.match.path` Block for details.
          */
         path?: outputs.appmesh.RouteSpecHttpRouteMatchPath;
         /**
-         * The port number to match from the request.
+         * Port number to match from the request.
          */
         port?: number;
         /**
@@ -6447,7 +6478,7 @@ export namespace appmesh {
          */
         prefix?: string;
         /**
-         * Client request query parameters to match on. See `queryParameter` Block for details.
+         * Client request query parameters to match on. See `spec.http_route.match.query_parameter` Block for details.
          */
         queryParameters?: outputs.appmesh.RouteSpecHttpRouteMatchQueryParameter[];
         /**
@@ -6458,22 +6489,22 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteMatchHeader {
         /**
-         * If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+         * Whether to match on the opposite of the `match` method and value. Default is `false`.
          */
         invert?: boolean;
         /**
-         * Method and value to match the header value sent with a request. Specify one match method.
+         * Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          */
         match?: outputs.appmesh.RouteSpecHttpRouteMatchHeaderMatch;
         /**
-         * Name for the HTTP header in the client request that will be matched on.
+         * Name to use for the route. Must be between 1 and 255 characters in length.
          */
         name: string;
     }
 
     export interface RouteSpecHttpRouteMatchHeaderMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * Exact query parameter to match on.
          */
         exact?: string;
         /**
@@ -6481,11 +6512,11 @@ export namespace appmesh {
          */
         prefix?: string;
         /**
-         * Object that specifies the range of numbers that the header value sent by the client must be included in.
+         * Object that specifies the range of numbers that the header value sent by the client must be included in. See `spec.http_route.match.header.match.range` Block for details.
          */
         range?: outputs.appmesh.RouteSpecHttpRouteMatchHeaderMatchRange;
         /**
-         * Header value sent by the client must include the specified characters.
+         * Regex used to match the path.
          */
         regex?: string;
         /**
@@ -6507,29 +6538,29 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteMatchPath {
         /**
-         * The exact path to match on.
+         * Exact query parameter to match on.
          */
         exact?: string;
         /**
-         * The regex used to match the path.
+         * Regex used to match the path.
          */
         regex?: string;
     }
 
     export interface RouteSpecHttpRouteMatchQueryParameter {
         /**
-         * The query parameter to match on.
+         * Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          */
         match?: outputs.appmesh.RouteSpecHttpRouteMatchQueryParameterMatch;
         /**
-         * Name for the query parameter that will be matched on.
+         * Name to use for the route. Must be between 1 and 255 characters in length.
          */
         name: string;
     }
 
     export interface RouteSpecHttpRouteMatchQueryParameterMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * Exact query parameter to match on.
          */
         exact?: string;
     }
@@ -6544,7 +6575,7 @@ export namespace appmesh {
          */
         maxRetries: number;
         /**
-         * Per-retry timeout.
+         * Per-retry timeout. See `spec.http_route.retry_policy.per_retry_timeout` Block for details.
          */
         perRetryTimeout: outputs.appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeout;
         /**
@@ -6555,22 +6586,22 @@ export namespace appmesh {
 
     export interface RouteSpecHttpRouteRetryPolicyPerRetryTimeout {
         /**
-         * Retry unit. Valid values: `ms`, `s`.
+         * Unit of time. Valid values: `ms`, `s`.
          */
         unit: string;
         /**
-         * Retry value.
+         * Number of time units. Minimum value of `0`.
          */
         value: number;
     }
 
     export interface RouteSpecHttpRouteTimeout {
         /**
-         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `idle` Block for details.
+         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.tcp_route.timeout.idle` Block for details.
          */
         idle?: outputs.appmesh.RouteSpecHttpRouteTimeoutIdle;
         /**
-         * Per request timeout. See `perRequest` Block for details.
+         * Per request timeout. See `spec.http_route.timeout.per_request` Block for details.
          */
         perRequest?: outputs.appmesh.RouteSpecHttpRouteTimeoutPerRequest;
     }
@@ -6599,26 +6630,29 @@ export namespace appmesh {
 
     export interface RouteSpecTcpRoute {
         /**
-         * Action to take if a match is determined.
+         * Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
          */
         action: outputs.appmesh.RouteSpecTcpRouteAction;
+        /**
+         * Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
+         */
         match?: outputs.appmesh.RouteSpecTcpRouteMatch;
         /**
-         * Types of timeouts.
+         * Types of timeouts. See `spec.tcp_route.timeout` Block for details.
          */
         timeout?: outputs.appmesh.RouteSpecTcpRouteTimeout;
     }
 
     export interface RouteSpecTcpRouteAction {
         /**
-         * Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic.
+         * Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic. See `spec.tcp_route.action.weighted_target` Block for details.
          */
         weightedTargets: outputs.appmesh.RouteSpecTcpRouteActionWeightedTarget[];
     }
 
     export interface RouteSpecTcpRouteActionWeightedTarget {
         /**
-         * The targeted port of the weighted object.
+         * Port number to match from the request.
          */
         port: number;
         /**
@@ -6633,14 +6667,14 @@ export namespace appmesh {
 
     export interface RouteSpecTcpRouteMatch {
         /**
-         * The port number to match from the request.
+         * Port number to match from the request.
          */
         port?: number;
     }
 
     export interface RouteSpecTcpRouteTimeout {
         /**
-         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `idle` Block for details.
+         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.tcp_route.timeout.idle` Block for details.
          */
         idle?: outputs.appmesh.RouteSpecTcpRouteTimeoutIdle;
     }
@@ -6680,7 +6714,7 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecBackendDefaultsClientPolicy {
         /**
-         * Transport Layer Security (TLS) client policy. See `tls` Block for details.
+         * Transport Layer Security (TLS) client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
          */
         tls?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTls;
     }
@@ -6705,12 +6739,9 @@ export namespace appmesh {
     }
 
     export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
-        /**
-         * Local file certificate.
-         */
         file?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile;
         /**
-         * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
          */
         sds?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds;
     }
@@ -6760,12 +6791,9 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust {
         /**
-         * TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+         * AWS Certificate Manager (ACM) certificate.
          */
         acm?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm;
-        /**
-         * TLS validation context trust for a local file certificate.
-         */
         file?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile;
         /**
          * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
@@ -6808,7 +6836,7 @@ export namespace appmesh {
          */
         portMapping: outputs.appmesh.VirtualGatewaySpecListenerPortMapping;
         /**
-         * Transport Layer Security (TLS) properties for the listener. See `tls` Block for details.
+         * Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
          */
         tls?: outputs.appmesh.VirtualGatewaySpecListenerTls;
     }
@@ -6912,15 +6940,12 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecListenerTlsCertificate {
         /**
-         * An AWS Certificate Manager (ACM) certificate.
+         * AWS Certificate Manager (ACM) certificate.
          */
         acm?: outputs.appmesh.VirtualGatewaySpecListenerTlsCertificateAcm;
-        /**
-         * Local file certificate.
-         */
         file?: outputs.appmesh.VirtualGatewaySpecListenerTlsCertificateFile;
         /**
-         * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
          */
         sds?: outputs.appmesh.VirtualGatewaySpecListenerTlsCertificateSds;
     }
@@ -6976,9 +7001,6 @@ export namespace appmesh {
     }
 
     export interface VirtualGatewaySpecListenerTlsValidationTrust {
-        /**
-         * TLS validation context trust for a local file certificate.
-         */
         file?: outputs.appmesh.VirtualGatewaySpecListenerTlsValidationTrustFile;
         /**
          * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
@@ -7009,91 +7031,88 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecLoggingAccessLog {
         /**
-         * File object to send virtual gateway access logs to. See `file` Block for details.
+         * File object to send virtual gateway access logs to. See `spec.logging.access_log.file` Block for details.
          */
         file?: outputs.appmesh.VirtualGatewaySpecLoggingAccessLogFile;
     }
 
     export interface VirtualGatewaySpecLoggingAccessLogFile {
         /**
-         * The specified format for the logs. See `format` Block for details.
+         * Specified format for the logs. See `format` Block for details.
          */
         format?: outputs.appmesh.VirtualGatewaySpecLoggingAccessLogFileFormat;
-        /**
-         * File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-         */
         path: string;
     }
 
     export interface VirtualGatewaySpecLoggingAccessLogFileFormat {
         /**
-         * The logging format for JSON. See `json` Block for details.
+         * Logging format for JSON. See `json` Block for details.
          */
         jsons?: outputs.appmesh.VirtualGatewaySpecLoggingAccessLogFileFormatJson[];
         /**
-         * The logging format for text. Must be between 1 and 1000 characters in length.
+         * Logging format for text. Must be between 1 and 1000 characters in length.
          */
         text?: string;
     }
 
     export interface VirtualGatewaySpecLoggingAccessLogFileFormatJson {
         /**
-         * The specified key for the JSON. Must be between 1 and 100 characters in length.
+         * Specified key for the JSON. Must be between 1 and 100 characters in length.
          */
         key: string;
         /**
-         * The specified value for the JSON. Must be between 1 and 100 characters in length.
+         * Specified value for the JSON. Must be between 1 and 100 characters in length.
          */
         value: string;
     }
 
     export interface VirtualNodeSpec {
         /**
-         * Defaults for backends. See `backendDefaults` Block for details.
+         * Defaults for backends. See `spec.backend_defaults` Block for details.
          */
         backendDefaults?: outputs.appmesh.VirtualNodeSpecBackendDefaults;
         /**
-         * Backends to which the virtual node is expected to send outbound traffic. See `backend` Block for details.
+         * Backends to which the virtual node is expected to send outbound traffic. See `spec.backend` Block for details.
          */
         backends?: outputs.appmesh.VirtualNodeSpecBackend[];
         /**
-         * Listeners from which the virtual node is expected to receive inbound traffic. See `listener` Block for details.
+         * Listeners from which the virtual node is expected to receive inbound traffic. See `spec.listener` Block for details.
          */
         listeners?: outputs.appmesh.VirtualNodeSpecListener[];
         /**
-         * Inbound and outbound access logging information for the virtual node. See `logging` Block for details.
+         * Inbound and outbound access logging information for the virtual node. See `spec.logging` Block for details.
          */
         logging?: outputs.appmesh.VirtualNodeSpecLogging;
         /**
-         * Service discovery information for the virtual node. See `serviceDiscovery` Block for details.
+         * Service discovery information for the virtual node. See `spec.service_discovery` Block for details.
          */
         serviceDiscovery?: outputs.appmesh.VirtualNodeSpecServiceDiscovery;
     }
 
     export interface VirtualNodeSpecBackend {
         /**
-         * Virtual service to use as a backend for a virtual node.
+         * Virtual service to use as a backend for a virtual node. See `spec.backend.virtual_service` Block for details.
          */
         virtualService: outputs.appmesh.VirtualNodeSpecBackendVirtualService;
     }
 
     export interface VirtualNodeSpecBackendDefaults {
         /**
-         * Default client policy for virtual service backends. See above for details.
+         * Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
          */
         clientPolicy?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicy;
     }
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicy {
         /**
-         * Transport Layer Security (TLS) client policy.
+         * Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
          */
         tls?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTls;
     }
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTls {
         /**
-         * Listener's TLS certificate.
+         * Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
          */
         certificate?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate;
         /**
@@ -7105,18 +7124,18 @@ export namespace appmesh {
          */
         ports?: number[];
         /**
-         * Listener's Transport Layer Security (TLS) validation context.
+         * Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
          */
         validation: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation;
     }
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
         /**
-         * Local file certificate.
+         * File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
          */
         file?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile;
         /**
-         * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
          */
         sds?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds;
     }
@@ -7141,18 +7160,18 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
         /**
-         * SANs for a TLS validation context.
+         * SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
          */
         subjectAlternativeNames?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames;
         /**
-         * TLS validation context trust.
+         * TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
          */
         trust: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust;
     }
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
         /**
-         * Criteria for determining a SAN's match.
+         * Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
          */
         match: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch;
     }
@@ -7166,15 +7185,15 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
         /**
-         * TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+         * AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
          */
         acm?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm;
         /**
-         * TLS validation context trust for a local file certificate.
+         * File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
          */
         file?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile;
         /**
-         * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
          */
         sds?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds;
     }
@@ -7202,7 +7221,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendVirtualService {
         /**
-         * Client policy for the backend.
+         * Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
          */
         clientPolicy?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicy;
         /**
@@ -7213,14 +7232,14 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicy {
         /**
-         * Transport Layer Security (TLS) client policy.
+         * Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
          */
         tls?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTls;
     }
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
         /**
-         * Listener's TLS certificate.
+         * Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
          */
         certificate?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate;
         /**
@@ -7232,18 +7251,18 @@ export namespace appmesh {
          */
         ports?: number[];
         /**
-         * Listener's Transport Layer Security (TLS) validation context.
+         * Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
          */
         validation: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation;
     }
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate {
         /**
-         * Local file certificate.
+         * File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
          */
         file?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile;
         /**
-         * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
          */
         sds?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds;
     }
@@ -7268,18 +7287,18 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
         /**
-         * SANs for a TLS validation context.
+         * SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
          */
         subjectAlternativeNames?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames;
         /**
-         * TLS validation context trust.
+         * TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
          */
         trust: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust;
     }
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames {
         /**
-         * Criteria for determining a SAN's match.
+         * Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
          */
         match: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch;
     }
@@ -7293,15 +7312,15 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
         /**
-         * TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+         * AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
          */
         acm?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm;
         /**
-         * TLS validation context trust for a local file certificate.
+         * File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
          */
         file?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile;
         /**
-         * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
          */
         sds?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds;
     }
@@ -7329,46 +7348,46 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecListener {
         /**
-         * Connection pool information for the listener. See `connectionPool` Block for details.
+         * Connection pool information for the listener. See `spec.listener.connection_pool` Block for details.
          */
         connectionPool?: outputs.appmesh.VirtualNodeSpecListenerConnectionPool;
         /**
-         * Health check information for the listener. See `healthCheck` Block for details.
+         * Health check information for the listener. See `spec.listener.health_check` Block for details.
          */
         healthCheck?: outputs.appmesh.VirtualNodeSpecListenerHealthCheck;
         /**
-         * Outlier detection information for the listener. See `outlierDetection` Block for details.
+         * Outlier detection information for the listener. See `spec.listener.outlier_detection` Block for details.
          */
         outlierDetection?: outputs.appmesh.VirtualNodeSpecListenerOutlierDetection;
         /**
-         * Port mapping information for the listener. See `portMapping` Block for details.
+         * Port mapping information for the listener. See `spec.listener.port_mapping` Block for details.
          */
         portMapping: outputs.appmesh.VirtualNodeSpecListenerPortMapping;
         /**
-         * Timeouts for different protocols. See `timeout` Block for details.
+         * Timeouts for different protocols. See `spec.listener.timeout` Block for details.
          */
         timeout?: outputs.appmesh.VirtualNodeSpecListenerTimeout;
         /**
-         * Transport Layer Security (TLS) properties for the listener. See `tls` Block for details.
+         * Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
          */
         tls?: outputs.appmesh.VirtualNodeSpecListenerTls;
     }
 
     export interface VirtualNodeSpecListenerConnectionPool {
         /**
-         * Connection pool information for gRPC listeners. See `grpc` Block for details.
+         * Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
          */
         grpc?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolGrpc;
         /**
-         * Connection pool information for HTTP2 listeners. See `http2` Block for details.
+         * Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
          */
         http2s?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolHttp2[];
         /**
-         * Connection pool information for HTTP listeners. See `http` Block for details.
+         * Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
          */
         https?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolHttp[];
         /**
-         * Connection pool information for TCP listeners. See `tcp` Block for details.
+         * Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
          */
         tcps?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolTcp[];
     }
@@ -7415,15 +7434,15 @@ export namespace appmesh {
          */
         intervalMillis: number;
         /**
-         * Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+         * File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
          */
         path?: string;
         /**
-         * Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+         * Port used for the port mapping.
          */
         port: number;
         /**
-         * Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
+         * Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
          */
         protocol: string;
         /**
@@ -7438,11 +7457,11 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecListenerOutlierDetection {
         /**
-         * Base amount of time for which a host is ejected. See `baseEjectionDuration` Block for details.
+         * Base amount of time for which a host is ejected. See `spec.listener.outlier_detection.base_ejection_duration` Block for details.
          */
         baseEjectionDuration: outputs.appmesh.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration;
         /**
-         * Time interval between ejection sweep analysis. See `interval` Block for details.
+         * Time interval between ejection sweep analysis. See `spec.listener.outlier_detection.interval` Block for details.
          */
         interval: outputs.appmesh.VirtualNodeSpecListenerOutlierDetectionInterval;
         /**
@@ -7461,7 +7480,7 @@ export namespace appmesh {
          */
         unit: string;
         /**
-         * Number of time units. Minimum value of `0`.
+         * Value for the JSON. Must be between 1 and 100 characters in length.
          */
         value: number;
     }
@@ -7472,7 +7491,7 @@ export namespace appmesh {
          */
         unit: string;
         /**
-         * Number of time units. Minimum value of `0`.
+         * Value for the JSON. Must be between 1 and 100 characters in length.
          */
         value: number;
     }
@@ -7490,30 +7509,30 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecListenerTimeout {
         /**
-         * Timeouts for gRPC listeners. See `grpc` Block for details.
+         * Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
          */
         grpc?: outputs.appmesh.VirtualNodeSpecListenerTimeoutGrpc;
         /**
-         * Timeouts for HTTP listeners. See `http` Block for details.
+         * Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
          */
         http?: outputs.appmesh.VirtualNodeSpecListenerTimeoutHttp;
         /**
-         * Timeouts for HTTP2 listeners. See `http2` Block for details.
+         * Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
          */
         http2?: outputs.appmesh.VirtualNodeSpecListenerTimeoutHttp2;
         /**
-         * Timeouts for TCP listeners. See `tcp` Block for details.
+         * Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
          */
         tcp?: outputs.appmesh.VirtualNodeSpecListenerTimeoutTcp;
     }
 
     export interface VirtualNodeSpecListenerTimeoutGrpc {
         /**
-         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `idle` Block for details.
+         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.listener.timeout.tcp.idle` Block for details.
          */
         idle?: outputs.appmesh.VirtualNodeSpecListenerTimeoutGrpcIdle;
         /**
-         * Per request timeout. See `perRequest` Block for details.
+         * Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
          */
         perRequest?: outputs.appmesh.VirtualNodeSpecListenerTimeoutGrpcPerRequest;
     }
@@ -7524,7 +7543,7 @@ export namespace appmesh {
          */
         unit: string;
         /**
-         * Number of time units. Minimum value of `0`.
+         * Value for the JSON. Must be between 1 and 100 characters in length.
          */
         value: number;
     }
@@ -7535,29 +7554,29 @@ export namespace appmesh {
          */
         unit: string;
         /**
-         * Number of time units. Minimum value of `0`.
+         * Value for the JSON. Must be between 1 and 100 characters in length.
          */
         value: number;
     }
 
     export interface VirtualNodeSpecListenerTimeoutHttp {
         /**
-         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `idle` Block for details.
+         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.listener.timeout.tcp.idle` Block for details.
          */
         idle?: outputs.appmesh.VirtualNodeSpecListenerTimeoutHttpIdle;
         /**
-         * Per request timeout. See `perRequest` Block for details.
+         * Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
          */
         perRequest?: outputs.appmesh.VirtualNodeSpecListenerTimeoutHttpPerRequest;
     }
 
     export interface VirtualNodeSpecListenerTimeoutHttp2 {
         /**
-         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `idle` Block for details.
+         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.listener.timeout.tcp.idle` Block for details.
          */
         idle?: outputs.appmesh.VirtualNodeSpecListenerTimeoutHttp2Idle;
         /**
-         * Per request timeout. See `perRequest` Block for details.
+         * Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
          */
         perRequest?: outputs.appmesh.VirtualNodeSpecListenerTimeoutHttp2PerRequest;
     }
@@ -7568,7 +7587,7 @@ export namespace appmesh {
          */
         unit: string;
         /**
-         * Number of time units. Minimum value of `0`.
+         * Value for the JSON. Must be between 1 and 100 characters in length.
          */
         value: number;
     }
@@ -7579,7 +7598,7 @@ export namespace appmesh {
          */
         unit: string;
         /**
-         * Number of time units. Minimum value of `0`.
+         * Value for the JSON. Must be between 1 and 100 characters in length.
          */
         value: number;
     }
@@ -7590,7 +7609,7 @@ export namespace appmesh {
          */
         unit: string;
         /**
-         * Number of time units. Minimum value of `0`.
+         * Value for the JSON. Must be between 1 and 100 characters in length.
          */
         value: number;
     }
@@ -7601,14 +7620,14 @@ export namespace appmesh {
          */
         unit: string;
         /**
-         * Number of time units. Minimum value of `0`.
+         * Value for the JSON. Must be between 1 and 100 characters in length.
          */
         value: number;
     }
 
     export interface VirtualNodeSpecListenerTimeoutTcp {
         /**
-         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `idle` Block for details.
+         * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.listener.timeout.tcp.idle` Block for details.
          */
         idle?: outputs.appmesh.VirtualNodeSpecListenerTimeoutTcpIdle;
     }
@@ -7619,14 +7638,14 @@ export namespace appmesh {
          */
         unit: string;
         /**
-         * Number of time units. Minimum value of `0`.
+         * Value for the JSON. Must be between 1 and 100 characters in length.
          */
         value: number;
     }
 
     export interface VirtualNodeSpecListenerTls {
         /**
-         * Listener's TLS certificate.
+         * Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
          */
         certificate: outputs.appmesh.VirtualNodeSpecListenerTlsCertificate;
         /**
@@ -7634,22 +7653,22 @@ export namespace appmesh {
          */
         mode: string;
         /**
-         * Listener's Transport Layer Security (TLS) validation context.
+         * Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
          */
         validation?: outputs.appmesh.VirtualNodeSpecListenerTlsValidation;
     }
 
     export interface VirtualNodeSpecListenerTlsCertificate {
         /**
-         * An AWS Certificate Manager (ACM) certificate.
+         * AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
          */
         acm?: outputs.appmesh.VirtualNodeSpecListenerTlsCertificateAcm;
         /**
-         * Local file certificate.
+         * File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
          */
         file?: outputs.appmesh.VirtualNodeSpecListenerTlsCertificateFile;
         /**
-         * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
          */
         sds?: outputs.appmesh.VirtualNodeSpecListenerTlsCertificateSds;
     }
@@ -7681,18 +7700,18 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecListenerTlsValidation {
         /**
-         * SANs for a TLS validation context.
+         * SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
          */
         subjectAlternativeNames?: outputs.appmesh.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames;
         /**
-         * TLS validation context trust.
+         * TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
          */
         trust: outputs.appmesh.VirtualNodeSpecListenerTlsValidationTrust;
     }
 
     export interface VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
         /**
-         * Criteria for determining a SAN's match.
+         * Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
          */
         match: outputs.appmesh.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch;
     }
@@ -7706,11 +7725,11 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecListenerTlsValidationTrust {
         /**
-         * TLS validation context trust for a local file certificate.
+         * File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
          */
         file?: outputs.appmesh.VirtualNodeSpecListenerTlsValidationTrustFile;
         /**
-         * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
          */
         sds?: outputs.appmesh.VirtualNodeSpecListenerTlsValidationTrustSds;
     }
@@ -7731,21 +7750,21 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecLogging {
         /**
-         * Access log configuration for a virtual node. See `accessLog` Block for details.
+         * Access log configuration for a virtual node. See `spec.logging.access_log` Block for details.
          */
         accessLog?: outputs.appmesh.VirtualNodeSpecLoggingAccessLog;
     }
 
     export interface VirtualNodeSpecLoggingAccessLog {
         /**
-         * File object to send virtual node access logs to. See `file` Block for details.
+         * File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
          */
         file?: outputs.appmesh.VirtualNodeSpecLoggingAccessLogFile;
     }
 
     export interface VirtualNodeSpecLoggingAccessLogFile {
         /**
-         * The specified format for the logs. See `format` Block for details.
+         * Format for the logs. See `spec.logging.access_log.file.format` Block for details.
          */
         format?: outputs.appmesh.VirtualNodeSpecLoggingAccessLogFileFormat;
         /**
@@ -7756,33 +7775,33 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecLoggingAccessLogFileFormat {
         /**
-         * The logging format for JSON. See `json` Block for details.
+         * Logging format for JSON. See `spec.logging.access_log.file.format.json` Block for details.
          */
         jsons?: outputs.appmesh.VirtualNodeSpecLoggingAccessLogFileFormatJson[];
         /**
-         * The logging format for text. Must be between 1 and 1000 characters in length.
+         * Logging format for text. Must be between 1 and 1000 characters in length.
          */
         text?: string;
     }
 
     export interface VirtualNodeSpecLoggingAccessLogFileFormatJson {
         /**
-         * The specified key for the JSON. Must be between 1 and 100 characters in length.
+         * Key for the JSON. Must be between 1 and 100 characters in length.
          */
         key: string;
         /**
-         * The specified value for the JSON. Must be between 1 and 100 characters in length.
+         * Value for the JSON. Must be between 1 and 100 characters in length.
          */
         value: string;
     }
 
     export interface VirtualNodeSpecServiceDiscovery {
         /**
-         * Any AWS Cloud Map information for the virtual node. See `awsCloudMap` Block for details.
+         * Any AWS Cloud Map information for the virtual node. See `spec.service_discovery.aws_cloud_map` Block for details.
          */
         awsCloudMap?: outputs.appmesh.VirtualNodeSpecServiceDiscoveryAwsCloudMap;
         /**
-         * DNS service name for the virtual node. See `dns` Block for details.
+         * DNS service name for the virtual node. See `spec.service_discovery.dns` Block for details.
          */
         dns?: outputs.appmesh.VirtualNodeSpecServiceDiscoveryDns;
     }
@@ -7808,11 +7827,11 @@ export namespace appmesh {
          */
         hostname: string;
         /**
-         * The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
+         * Preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
          */
         ipPreference?: string;
         /**
-         * The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
+         * DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
          */
         responseType?: string;
     }
@@ -7961,11 +7980,11 @@ export namespace apprunner {
 
     export interface ServiceNetworkConfiguration {
         /**
-         * Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+         * Network configuration settings for outbound message traffic. See `egressConfiguration` below.
          */
         egressConfiguration: outputs.apprunner.ServiceNetworkConfigurationEgressConfiguration;
         /**
-         * Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+         * Network configuration settings for inbound network traffic. See `ingressConfiguration` below.
          */
         ingressConfiguration: outputs.apprunner.ServiceNetworkConfigurationIngressConfiguration;
         /**
@@ -7976,18 +7995,18 @@ export namespace apprunner {
 
     export interface ServiceNetworkConfigurationEgressConfiguration {
         /**
-         * The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
+         * Type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
          */
         egressType: string;
         /**
-         * The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+         * Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
          */
         vpcConnectorArn?: string;
     }
 
     export interface ServiceNetworkConfigurationIngressConfiguration {
         /**
-         * Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+         * Whether your App Runner service is publicly accessible. To make the service publicly accessible set it to `true`. To make the service privately accessible, from only within an Amazon VPC, set it to `false`.
          */
         isPubliclyAccessible?: boolean;
     }
@@ -8005,7 +8024,7 @@ export namespace apprunner {
 
     export interface ServiceSourceConfiguration {
         /**
-         * Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+         * Configuration for resources needed to authenticate access to some source repositories. See `authenticationConfiguration` below.
          */
         authenticationConfiguration?: outputs.apprunner.ServiceSourceConfigurationAuthenticationConfiguration;
         /**
@@ -8013,11 +8032,11 @@ export namespace apprunner {
          */
         autoDeploymentsEnabled?: boolean;
         /**
-         * Description of a source code repository. See Code Repository below for more details.
+         * Description of a source code repository. See `codeRepository` below.
          */
         codeRepository?: outputs.apprunner.ServiceSourceConfigurationCodeRepository;
         /**
-         * Description of a source image repository. See Image Repository below for more details.
+         * Description of a source image repository. See `imageRepository` below.
          */
         imageRepository?: outputs.apprunner.ServiceSourceConfigurationImageRepository;
     }
@@ -8035,7 +8054,7 @@ export namespace apprunner {
 
     export interface ServiceSourceConfigurationCodeRepository {
         /**
-         * Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+         * Configuration for building and running the service from a source code repository. See `codeConfiguration` below.
          */
         codeConfiguration?: outputs.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfiguration;
         /**
@@ -8043,26 +8062,22 @@ export namespace apprunner {
          */
         repositoryUrl: string;
         /**
-         * Version that should be used within the source code repository. See Source Code Version below for more details.
+         * Version that should be used within the source code repository. See `sourceCodeVersion` below.
          */
         sourceCodeVersion: outputs.apprunner.ServiceSourceConfigurationCodeRepositorySourceCodeVersion;
         /**
-         * The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+         * Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
          */
         sourceDirectory: string;
     }
 
     export interface ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
         /**
-         * Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+         * Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See `codeConfigurationValues` below.
          */
         codeConfigurationValues?: outputs.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues;
         /**
-         * Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-         * * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-         *   source code repository and ignores the CodeConfigurationValues parameter.
-         * * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-         *   parameter and ignores the apprunner.yaml file in the source code repository.
+         * Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Use `REPOSITORY` to have App Runner read configuration values from the `apprunner.yaml` file in the source code repository and ignore `codeConfigurationValues`. Use `API` to have App Runner use the configuration values provided in `codeConfigurationValues` and ignore the `apprunner.yaml` file in the source code repository.
          */
         configurationSource: string;
     }
@@ -8107,16 +8122,15 @@ export namespace apprunner {
 
     export interface ServiceSourceConfigurationImageRepository {
         /**
-         * Configuration for running the identified image. See Image Configuration below for more details.
+         * Configuration for running the identified image. See `imageConfiguration` below.
          */
         imageConfiguration?: outputs.apprunner.ServiceSourceConfigurationImageRepositoryImageConfiguration;
         /**
-         * Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-         * image name format, see Pulling an image in the Amazon ECR User Guide.
+         * Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see Pulling an image in the Amazon ECR User Guide.
          */
         imageIdentifier: string;
         /**
-         * Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+         * Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR`, `ECR_PUBLIC`.
          */
         imageRepositoryType: string;
     }
@@ -8142,11 +8156,11 @@ export namespace apprunner {
 
     export interface VpcIngressConnectionIngressVpcConfiguration {
         /**
-         * The ID of the VPC endpoint that your App Runner service connects to.
+         * ID of the VPC endpoint that your App Runner service connects to.
          */
         vpcEndpointId?: string;
         /**
-         * The ID of the VPC that is used for the VPC endpoint.
+         * ID of the VPC that is used for the VPC endpoint.
          */
         vpcId?: string;
     }
@@ -8156,11 +8170,11 @@ export namespace apprunner {
 export namespace appstream {
     export interface DirectoryConfigCertificateBasedAuthProperties {
         /**
-         * The ARN of the AWS Certificate Manager Private CA resource.
+         * ARN of the AWS Certificate Manager Private CA resource.
          */
         certificateAuthorityArn?: string;
         /**
-         * The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
+         * Status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
          */
         status?: string;
     }
@@ -8352,8 +8366,7 @@ export namespace appstream {
 
     export interface StackAccessEndpoint {
         /**
-         * Type of the interface endpoint.
-         * See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+         * Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
          */
         endpointType: string;
         /**
@@ -8368,17 +8381,14 @@ export namespace appstream {
          */
         enabled: boolean;
         /**
-         * Name of the settings group.
-         * Required when `enabled` is `true`.
-         * Can be up to 100 characters.
+         * Name of the settings group. Required when `enabled` is `true`. Can be up to 100 characters.
          */
         settingsGroup?: string;
     }
 
     export interface StackStorageConnector {
         /**
-         * Type of storage connector.
-         * Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
+         * Type of storage connector. Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
          */
         connectorType: string;
         /**
@@ -8393,21 +8403,18 @@ export namespace appstream {
 
     export interface StackStreamingExperienceSettings {
         /**
-         * The preferred protocol that you want to use while streaming your application.
-         * Valid values are `TCP` and `UDP`.
+         * Preferred protocol that you want to use while streaming your application. Valid values are `TCP` and `UDP`.
          */
         preferredProtocol?: string;
     }
 
     export interface StackUserSetting {
         /**
-         * Action that is enabled or disabled.
-         * Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
+         * Action that is enabled or disabled. Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
          */
         action: string;
         /**
-         * Whether the action is enabled or disabled.
-         * Valid values are `ENABLED` or `DISABLED`.
+         * Whether the action is enabled or disabled. Valid values are `ENABLED` or `DISABLED`.
          */
         permission: string;
     }
@@ -8417,23 +8424,23 @@ export namespace appstream {
 export namespace appsync {
     export interface ApiEventConfig {
         /**
-         * List of authentication providers. See Auth Providers below.
+         * List of authentication providers. See `event_config.auth_provider` Block below.
          */
         authProviders: outputs.appsync.ApiEventConfigAuthProvider[];
         /**
-         * List of authentication modes for connections. See Auth Modes below.
+         * List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
          */
         connectionAuthModes: outputs.appsync.ApiEventConfigConnectionAuthMode[];
         /**
-         * List of default authentication modes for publishing. See Auth Modes below.
+         * List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
          */
         defaultPublishAuthModes: outputs.appsync.ApiEventConfigDefaultPublishAuthMode[];
         /**
-         * List of default authentication modes for subscribing. See Auth Modes below.
+         * List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
          */
         defaultSubscribeAuthModes: outputs.appsync.ApiEventConfigDefaultSubscribeAuthMode[];
         /**
-         * Logging configuration. See Log Config below.
+         * Logging configuration. See `logConfig` Block below.
          */
         logConfig?: outputs.appsync.ApiEventConfigLogConfig;
     }
@@ -8444,15 +8451,15 @@ export namespace appsync {
          */
         authType: string;
         /**
-         * Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+         * Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See `cognitoConfig` Block below.
          */
         cognitoConfig?: outputs.appsync.ApiEventConfigAuthProviderCognitoConfig;
         /**
-         * Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+         * Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See `lambdaAuthorizerConfig` Block below.
          */
         lambdaAuthorizerConfig?: outputs.appsync.ApiEventConfigAuthProviderLambdaAuthorizerConfig;
         /**
-         * Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
+         * Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See `openidConnectConfig` Block below.
          */
         openidConnectConfig?: outputs.appsync.ApiEventConfigAuthProviderOpenidConnectConfig;
     }
@@ -8540,11 +8547,11 @@ export namespace appsync {
 
     export interface ChannelNamespaceHandlerConfigs {
         /**
-         * Handler configuration. See Handler Config below.
+         * Handler configuration for published events. See `onPublish` below.
          */
         onPublish?: outputs.appsync.ChannelNamespaceHandlerConfigsOnPublish;
         /**
-         * Handler configuration. See Handler Config below.
+         * Handler configuration for subscribe requests. See `onSubscribe` below.
          */
         onSubscribe?: outputs.appsync.ChannelNamespaceHandlerConfigsOnSubscribe;
     }
@@ -8555,7 +8562,7 @@ export namespace appsync {
          */
         behavior: string;
         /**
-         * Integration data source configuration for the handler. See Integration below.
+         * Integration data source configuration for the handler. See `integration` below.
          */
         integration: outputs.appsync.ChannelNamespaceHandlerConfigsOnPublishIntegration;
     }
@@ -8566,7 +8573,7 @@ export namespace appsync {
          */
         dataSourceName: string;
         /**
-         * Configuration for a Lambda data source. See Lambda Config below.
+         * Configuration for a Lambda data source. See `lambdaConfig` below.
          */
         lambdaConfig?: outputs.appsync.ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig;
     }
@@ -8584,7 +8591,7 @@ export namespace appsync {
          */
         behavior: string;
         /**
-         * Integration data source configuration for the handler. See Integration below.
+         * Integration data source configuration for the handler. See `integration` below.
          */
         integration: outputs.appsync.ChannelNamespaceHandlerConfigsOnSubscribeIntegration;
     }
@@ -8595,7 +8602,7 @@ export namespace appsync {
          */
         dataSourceName: string;
         /**
-         * Configuration for a Lambda data source. See Lambda Config below.
+         * Configuration for a Lambda data source. See `lambdaConfig` below.
          */
         lambdaConfig?: outputs.appsync.ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig;
     }
@@ -8623,7 +8630,7 @@ export namespace appsync {
 
     export interface DataSourceDynamodbConfig {
         /**
-         * The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
+         * DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
          */
         deltaSyncConfig?: outputs.appsync.DataSourceDynamodbConfigDeltaSyncConfig;
         /**
@@ -8646,15 +8653,15 @@ export namespace appsync {
 
     export interface DataSourceDynamodbConfigDeltaSyncConfig {
         /**
-         * The number of minutes that an Item is stored in the data source.
+         * Number of minutes that an Item is stored in the data source.
          */
         baseTableTtl?: number;
         /**
-         * The table name.
+         * Table name.
          */
         deltaSyncTableName: string;
         /**
-         * The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+         * Number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
          */
         deltaSyncTableTtl?: number;
     }
@@ -8764,11 +8771,11 @@ export namespace appsync {
 
     export interface FunctionRuntime {
         /**
-         * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+         * Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
          */
         name: string;
         /**
-         * The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+         * Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
          */
         runtimeVersion: string;
     }
@@ -8809,7 +8816,7 @@ export namespace appsync {
          */
         openidConnectConfig?: outputs.appsync.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig;
         /**
-         * Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
+         * Amazon Cognito User Pool configuration. See `additional_authentication_provider.user_pool_config` Block for details.
          */
         userPoolConfig?: outputs.appsync.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig;
     }
@@ -8948,29 +8955,29 @@ export namespace appsync {
 
     export interface ResolverCachingConfig {
         /**
-         * The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+         * Caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
          */
         cachingKeys?: string[];
         /**
-         * The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+         * TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
          */
         ttl?: number;
     }
 
     export interface ResolverPipelineConfig {
         /**
-         * A list of Function objects.
+         * List of Function objects.
          */
         functions?: string[];
     }
 
     export interface ResolverRuntime {
         /**
-         * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+         * Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
          */
         name: string;
         /**
-         * The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+         * Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
          */
         runtimeVersion: string;
     }
@@ -19639,7 +19646,7 @@ export namespace bedrock {
          */
         customMetricConfig?: outputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfig;
         /**
-         * One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block below.
+         * One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
          */
         datasetMetricConfigs: outputs.bedrock.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig[];
         /**
@@ -19727,7 +19734,7 @@ export namespace bedrock {
          */
         metricNames: string[];
         /**
-         * Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+         * Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
          */
         taskType: string;
     }
@@ -19770,7 +19777,7 @@ export namespace bedrock {
          */
         customMetrics?: outputs.bedrock.EvaluationJobEvaluationConfigHumanCustomMetric[];
         /**
-         * One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block above.
+         * One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
          */
         datasetMetricConfigs: outputs.bedrock.EvaluationJobEvaluationConfigHumanDatasetMetricConfig[];
         /**
@@ -19804,7 +19811,7 @@ export namespace bedrock {
          */
         metricNames: string[];
         /**
-         * Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+         * Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
          */
         taskType: string;
     }
@@ -31185,6 +31192,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        resiliencehubv2?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         resourceexplorer2?: string;
         /**
          * Use this to override the default service endpoint URL
@@ -39049,11 +39060,11 @@ export namespace ec2 {
          */
         fileFormat?: string;
         /**
-         * Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+         * Whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
          */
         hiveCompatiblePartitions?: boolean;
         /**
-         * Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+         * Whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
          */
         perHourPartition?: boolean;
     }
@@ -46539,224 +46550,302 @@ export namespace ecs {
 
     export interface CapacityProviderManagedInstancesProvider {
         /**
-         * Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+         * Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
          */
         infrastructureOptimization?: outputs.ecs.CapacityProviderManagedInstancesProviderInfrastructureOptimization;
         /**
-         * The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
+         * ARN of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
          */
         infrastructureRoleArn: string;
         /**
-         * The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
+         * Launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
          */
         instanceLaunchTemplate: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplate;
         /**
-         * Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
+         * Whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
          */
         propagateTags?: string;
     }
 
     export interface CapacityProviderManagedInstancesProviderInfrastructureOptimization {
         /**
-         * This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
-         * * Not set (null) - Uses the default optimization behavior.
-         * * `-1` - Disables automatic infrastructure optimization.
+         * Number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are `-1` to disable automatic infrastructure optimization, `0` to `3600` (inclusive) to specify the number of seconds to wait before optimizing instances, or leave unset (null) to use the default optimization behavior.
          */
         scaleInAfter?: number;
     }
 
     export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplate {
         /**
-         * The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+         * Purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand, Spot, or Capacity Reservation instances. Valid values are `ON_DEMAND`, `SPOT`, and `RESERVED`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
          */
         capacityOptionType: string;
         /**
-         * The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
+         * Capacity Reservation configuration used to launch instances. Required when `capacityOptionType` is `RESERVED`. Detailed below.
+         */
+        capacityReservations?: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations;
+        /**
+         * ARN of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
          */
         ec2InstanceProfileArn: string;
         /**
-         * The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
+         * Instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
          */
         instanceRequirements?: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements;
+        /**
+         * Configuration block for the local storage settings applied to Amazon ECS Managed Instances. Detailed below.
+         */
+        localStorageConfiguration?: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration;
         /**
          * CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html) in the Amazon ECS Developer Guide. Valid values are `BASIC` and `DETAILED`.
          */
         monitoring?: string;
         /**
-         * The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
+         * Network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
          */
         networkConfiguration: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration;
         /**
-         * The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
+         * Storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
          */
         storageConfiguration?: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration;
     }
 
+    export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations {
+        /**
+         * ARN of the Capacity Reservation resource group in which to run instances. Can only be set when `reservationPreference` is `RESERVATIONS_ONLY`.
+         */
+        reservationGroupArn?: string;
+        /**
+         * Preference for when Capacity Reservations should be used. Valid values are `RESERVATIONS_ONLY`, `RESERVATIONS_FIRST`, and `RESERVATIONS_EXCLUDED`. `instanceRequirements` must be provided when set to `RESERVATIONS_ONLY` or `RESERVATIONS_FIRST`.
+         */
+        reservationPreference: string;
+    }
+
     export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements {
         /**
-         * The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+         * Minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators. Detailed below.
          */
         acceleratorCount?: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount;
         /**
-         * The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+         * Accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
          */
         acceleratorManufacturers?: string[];
         /**
-         * The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+         * Specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
          */
         acceleratorNames?: string[];
         /**
-         * The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+         * Minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory. Detailed below.
          */
         acceleratorTotalMemoryMib?: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib;
         /**
-         * The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+         * Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
          */
         acceleratorTypes?: string[];
         /**
-         * The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
+         * Instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
          */
         allowedInstanceTypes?: string[];
         /**
-         * Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
+         * Whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
          */
         bareMetal?: string;
         /**
-         * The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+         * Minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements. Detailed below.
          */
         baselineEbsBandwidthMbps?: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps;
         /**
-         * Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
+         * Whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
          */
         burstablePerformance?: string;
         /**
-         * The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+         * CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
          */
         cpuManufacturers?: string[];
         /**
-         * The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
+         * Instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
          */
         excludedInstanceTypes?: string[];
         /**
-         * The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+         * Instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
          */
         instanceGenerations?: string[];
         /**
-         * Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
+         * Whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
          */
         localStorage?: string;
         /**
-         * The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+         * Local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
          */
         localStorageTypes?: string[];
         /**
-         * The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+         * Maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
          */
         maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
         /**
-         * The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+         * Minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads. Detailed below.
          */
         memoryGibPerVcpu?: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu;
         /**
-         * The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+         * Minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range. Detailed below.
          */
         memoryMib: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib;
         /**
-         * The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+         * Minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput. Detailed below.
          */
         networkBandwidthGbps?: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps;
         /**
-         * The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+         * Minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces. Detailed below.
          */
         networkInterfaceCount?: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount;
         /**
-         * The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+         * Price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
          */
         onDemandMaxPricePercentageOverLowestPrice?: number;
         /**
-         * Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
+         * Whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
          */
         requireHibernateSupport?: boolean;
         /**
-         * The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+         * Maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
          */
         spotMaxPricePercentageOverLowestPrice?: number;
         /**
-         * The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+         * Minimum and maximum total local storage in gigabytes (GB) for instance types with local storage. Detailed below.
          */
         totalLocalStorageGb?: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb;
         /**
-         * The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+         * Minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range. Detailed below.
          */
         vcpuCount: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount;
     }
 
     export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount {
+        /**
+         * Maximum number of accelerators.
+         */
         max?: number;
+        /**
+         * Minimum number of accelerators.
+         */
         min?: number;
     }
 
     export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
+        /**
+         * Maximum total accelerator memory, in MiB.
+         */
         max?: number;
+        /**
+         * Minimum total accelerator memory, in MiB.
+         */
         min?: number;
     }
 
     export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
+        /**
+         * Maximum baseline Amazon EBS bandwidth, in Mbps.
+         */
         max?: number;
+        /**
+         * Minimum baseline Amazon EBS bandwidth, in Mbps.
+         */
         min?: number;
     }
 
     export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
+        /**
+         * Maximum amount of memory per vCPU, in GiB.
+         */
         max?: number;
+        /**
+         * Minimum amount of memory per vCPU, in GiB.
+         */
         min?: number;
     }
 
     export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib {
+        /**
+         * Maximum amount of memory, in MiB.
+         */
         max?: number;
+        /**
+         * Minimum amount of memory, in MiB.
+         */
         min: number;
     }
 
     export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
+        /**
+         * Maximum network bandwidth, in Gbps.
+         */
         max?: number;
+        /**
+         * Minimum network bandwidth, in Gbps.
+         */
         min?: number;
     }
 
     export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount {
+        /**
+         * Maximum number of network interfaces.
+         */
         max?: number;
+        /**
+         * Minimum number of network interfaces.
+         */
         min?: number;
     }
 
     export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb {
+        /**
+         * Maximum total local storage, in GB.
+         */
         max?: number;
+        /**
+         * Minimum total local storage, in GB.
+         */
         min?: number;
     }
 
     export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount {
+        /**
+         * Maximum number of vCPUs.
+         */
         max?: number;
+        /**
+         * Minimum number of vCPUs.
+         */
         min: number;
+    }
+
+    export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration {
+        /**
+         * Whether to use the local storage of the instance for Amazon ECS Managed Instances.
+         */
+        useLocalStorage?: boolean;
     }
 
     export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration {
         /**
-         * The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+         * List of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
          */
         securityGroups?: string[];
         /**
-         * The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+         * List of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
          */
         subnets: string[];
     }
 
     export interface CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration {
         /**
-         * The size of the tasks volume in GiB. Must be at least 1.
+         * Size of the tasks volume in GiB. Must be at least 1.
          */
         storageSizeGib: number;
     }
 
     export interface ClusterCapacityProvidersDefaultCapacityProviderStrategy {
         /**
-         * The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+         * Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
          */
         base?: number;
         /**
@@ -46764,7 +46853,7 @@ export namespace ecs {
          */
         capacityProvider: string;
         /**
-         * The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+         * Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
          */
         weight?: number;
     }
@@ -46801,7 +46890,7 @@ export namespace ecs {
          */
         cloudWatchEncryptionEnabled?: boolean;
         /**
-         * The name of the CloudWatch log group to send logs to.
+         * Name of the CloudWatch log group to send logs to.
          */
         cloudWatchLogGroupName?: string;
         /**
@@ -47269,6 +47358,9 @@ export namespace ecs {
     }
 
     export interface ExpressGatewayServicePrimaryContainer {
+        /**
+         * CloudWatch Logs configuration for the container. See `awsLogsConfiguration` Block below.
+         */
         awsLogsConfigurations: outputs.ecs.ExpressGatewayServicePrimaryContainerAwsLogsConfiguration[];
         /**
          * Command to run in the container. Overrides the default command from the Docker image.
@@ -47317,6 +47409,9 @@ export namespace ecs {
     }
 
     export interface ExpressGatewayServicePrimaryContainerSecret {
+        /**
+         * Name of the secret.
+         */
         name: string;
         /**
          * ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
@@ -47684,7 +47779,7 @@ export namespace ecs {
 
     export interface GetTaskDefinitionEphemeralStorage {
         /**
-         * The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+         * Total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
          */
         sizeInGib: number;
     }
@@ -47777,7 +47872,7 @@ export namespace ecs {
 
     export interface GetTaskExecutionCapacityProviderStrategy {
         /**
-         * The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+         * Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
          */
         base?: number;
         /**
@@ -47785,7 +47880,7 @@ export namespace ecs {
          */
         capacityProvider: string;
         /**
-         * The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+         * Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
          */
         weight?: number;
     }
@@ -47793,8 +47888,6 @@ export namespace ecs {
     export interface GetTaskExecutionNetworkConfiguration {
         /**
          * Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-         *
-         * For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
          */
         assignPublicIp?: boolean;
         /**
@@ -47813,7 +47906,7 @@ export namespace ecs {
          */
         containerOverrides?: outputs.ecs.GetTaskExecutionOverridesContainerOverride[];
         /**
-         * The CPU override for the task.
+         * CPU override for the task.
          */
         cpu?: string;
         /**
@@ -47821,7 +47914,7 @@ export namespace ecs {
          */
         executionRoleArn?: string;
         /**
-         * The memory override for the task.
+         * Memory override for the task.
          */
         memory?: string;
         /**
@@ -47832,77 +47925,75 @@ export namespace ecs {
 
     export interface GetTaskExecutionOverridesContainerOverride {
         /**
-         * The command to send to the container that overrides the default command from the Docker image or the task definition.
+         * Command to send to the container that overrides the default command from the Docker image or the task definition.
          */
         commands?: string[];
         /**
-         * The number of cpu units reserved for the container, instead of the default value from the task definition.
+         * Number of cpu units reserved for the container, instead of the default value from the task definition.
          */
         cpu?: number;
         /**
-         * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+         * Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
          */
         environments?: outputs.ecs.GetTaskExecutionOverridesContainerOverrideEnvironment[];
         /**
-         * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+         * Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
          */
         memory?: number;
         /**
-         * The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+         * Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
          */
         memoryReservation?: number;
         /**
-         * The name of the container that receives the override. This parameter is required if any override is specified.
+         * Name of the container that receives the override. This parameter is required if any override is specified.
          */
         name: string;
         /**
-         * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+         * Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
          */
         resourceRequirements?: outputs.ecs.GetTaskExecutionOverridesContainerOverrideResourceRequirement[];
     }
 
     export interface GetTaskExecutionOverridesContainerOverrideEnvironment {
         /**
-         * The name of the key-value pair. For environment variables, this is the name of the environment variable.
+         * Name of the key-value pair. For environment variables, this is the name of the environment variable.
          */
         key: string;
         /**
-         * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         * Value of the key-value pair. For environment variables, this is the value of the environment variable.
          */
         value: string;
     }
 
     export interface GetTaskExecutionOverridesContainerOverrideResourceRequirement {
         /**
-         * The type of resource to assign to a container. Valid values are `GPU`.
+         * Type of resource to assign to a container. Valid values are `GPU`.
          */
         type: string;
         /**
-         * The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
+         * Value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
          */
         value: string;
     }
 
     export interface GetTaskExecutionPlacementConstraint {
         /**
-         * A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
+         * Cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
          */
         expression?: string;
         /**
-         * The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+         * Type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
          */
         type: string;
     }
 
     export interface GetTaskExecutionPlacementStrategy {
         /**
-         * The field to apply the placement strategy against.
+         * Field to apply the placement strategy against.
          */
         field?: string;
         /**
-         * The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-         *
-         * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+         * Type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
          */
         type: string;
     }
@@ -48033,11 +48124,11 @@ export namespace ecs {
          */
         containerPort: number;
         /**
-         * Name of the ELB (Classic) to associate with the service.
+         * Name of the ELB (Classic) to associate with the service. Required for ELB Classic.
          */
         elbName?: string;
         /**
-         * ARN of the Load Balancer target group to associate with the service.
+         * ARN of the Load Balancer target group to associate with the service. Required for ALB/NLB.
          *
          * > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
          */
@@ -48074,8 +48165,6 @@ export namespace ecs {
         securityGroups?: string[];
         /**
          * Subnets associated with the task or service.
-         *
-         * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
          */
         subnets: string[];
     }
@@ -48129,11 +48218,11 @@ export namespace ecs {
 
     export interface ServiceServiceConnectConfigurationAccessLogConfiguration {
         /**
-         * The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+         * Format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
          */
         format: string;
         /**
-         * Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+         * Whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
          *
          * > **NOTE:** Access logs are delivered to the destination log group specified in the `logConfiguration` block. You must configure `logConfiguration` to enable access logs.
          *
@@ -48328,7 +48417,7 @@ export namespace ecs {
          */
         snapshotId?: string;
         /**
-         * The tags to apply to the volume. See below.
+         * Tags to apply to the volume. See below.
          */
         tagSpecifications?: outputs.ecs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecification[];
         /**
@@ -48351,33 +48440,33 @@ export namespace ecs {
          */
         propagateTags?: string;
         /**
-         * The type of volume resource. Valid values, `volume`.
+         * Type of volume resource. Valid values, `volume`.
          */
         resourceType: string;
         /**
-         * The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
+         * Tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
          */
         tags?: {[key: string]: string};
     }
 
     export interface ServiceVpcLatticeConfiguration {
         /**
-         * The name of the port for a target group associated with the VPC Lattice configuration.
+         * Name of the port for a target group associated with the VPC Lattice configuration.
          */
         portName: string;
         /**
-         * The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+         * ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
          */
         roleArn: string;
         /**
-         * The full ARN of the target group or groups associated with the VPC Lattice configuration.
+         * Full ARN of the target group or groups associated with the VPC Lattice configuration.
          */
         targetGroupArn: string;
     }
 
     export interface TaskDefinitionEphemeralStorage {
         /**
-         * The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+         * Total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
          */
         sizeInGib: number;
     }
@@ -48441,8 +48530,7 @@ export namespace ecs {
          */
         hostPath?: string;
         /**
-         * Name of the volume. This name is referenced in the `sourceVolume`
-         * parameter of container definition in the `mountPoints` section.
+         * Name of the volume. This name is referenced in the `sourceVolume` parameter of container definition in the `mountPoints` section.
          */
         name: string;
         /**
@@ -48514,22 +48602,22 @@ export namespace ecs {
          */
         authorizationConfig: outputs.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig;
         /**
-         * The Amazon FSx for Windows File Server file system ID to use.
+         * Amazon FSx for Windows File Server file system ID to use.
          */
         fileSystemId: string;
         /**
-         * The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+         * Directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
          */
         rootDirectory: string;
     }
 
     export interface TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
         /**
-         * The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+         * Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
          */
         credentialsParameter: string;
         /**
-         * A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+         * Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
          */
         domain: string;
     }
@@ -48555,36 +48643,36 @@ export namespace ecs {
 
     export interface TaskSetCapacityProviderStrategy {
         /**
-         * The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+         * Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
          */
         base?: number;
         /**
-         * The short name or full Amazon Resource Name (ARN) of the capacity provider.
+         * Short name or full Amazon Resource Name (ARN) of the capacity provider.
          */
         capacityProvider: string;
         /**
-         * The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+         * Relative percentage of the total number of launched tasks that should use the specified capacity provider.
          */
         weight: number;
     }
 
     export interface TaskSetLoadBalancer {
         /**
-         * The name of the container to associate with the load balancer (as it appears in a container definition).
+         * Name of the container to associate with the load balancer (as it appears in a container definition).
          */
         containerName: string;
         /**
-         * The port on the container to associate with the load balancer. Defaults to `0` if not specified.
-         *
-         * > **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
+         * Port on the container to associate with the load balancer. Defaults to `0` if not specified.
          */
         containerPort?: number;
         /**
-         * The name of the ELB (Classic) to associate with the service.
+         * Name of the ELB (Classic) to associate with the service.
          */
         loadBalancerName?: string;
         /**
-         * The ARN of the Load Balancer target group to associate with the service.
+         * ARN of the Load Balancer target group to associate with the service.
+         *
+         * > **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
          */
         targetGroupArn?: string;
     }
@@ -48592,46 +48680,44 @@ export namespace ecs {
     export interface TaskSetNetworkConfiguration {
         /**
          * Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
-         *
-         * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
          */
         assignPublicIp?: boolean;
         /**
-         * The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+         * Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
          */
         securityGroups?: string[];
         /**
-         * The subnets associated with the task or service. Maximum of 16.
+         * Subnets associated with the task or service. Maximum of 16.
          */
         subnets: string[];
     }
 
     export interface TaskSetScale {
         /**
-         * The unit of measure for the scale value. Default: `PERCENT`.
+         * Unit of measure for the scale value. Default: `PERCENT`.
          */
         unit?: string;
         /**
-         * The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+         * Value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
          */
         value?: number;
     }
 
     export interface TaskSetServiceRegistries {
         /**
-         * The container name value, already specified in the task definition, to be used for your service discovery service.
+         * Container name value, already specified in the task definition, to be used for your service discovery service.
          */
         containerName?: string;
         /**
-         * The port value, already specified in the task definition, to be used for your service discovery service.
+         * Port value, already specified in the task definition, to be used for your service discovery service.
          */
         containerPort?: number;
         /**
-         * The port value used if your Service Discovery service specified an SRV record.
+         * Port value used if your Service Discovery service specified an SRV record.
          */
         port?: number;
         /**
-         * The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+         * ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service (`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
          */
         registryArn: string;
     }
@@ -52434,7 +52520,7 @@ export namespace finspace {
          */
         autoScalingMetric: string;
         /**
-         * Highest number of nodes to scale. Cannot be greater than 5
+         * Highest number of nodes to scale. Cannot be greater than 5.
          */
         maxNodeCount: number;
         /**
@@ -52456,14 +52542,12 @@ export namespace finspace {
     }
 
     export interface KxClusterCacheStorageConfiguration {
+        /**
+         * Size of cache in Gigabytes.
+         */
         size: number;
         /**
-         * Type of KDB database. The following types are available:
-         * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-         * * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-         * * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-         * * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-         * * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
+         * Type of cache storage. Valid values are `CACHE_1000` (1000 MB/s disk access throughput), `CACHE_250` (250 MB/s disk access throughput), and `CACHE_12` (12 MB/s disk access throughput).
          */
         type: string;
     }
@@ -52474,16 +52558,7 @@ export namespace finspace {
          */
         nodeCount: number;
         /**
-         * Determines the hardware of the host computer used for your cluster instance. Each node type offers different memory and storage capabilities. Choose a node type based on the requirements of the application or software that you plan to run on your instance.
-         *
-         * You can only specify one of the following values:
-         * * kx.s.large - The node type with a configuration of 12 GiB memory and 2 vCPUs.
-         * * kx.s.xlarge - The node type with a configuration of 27 GiB memory and 4 vCPUs.
-         * * kx.s.2xlarge - The node type with a configuration of 54 GiB memory and 8 vCPUs.
-         * * kx.s.4xlarge - The node type with a configuration of 108 GiB memory and 16 vCPUs.
-         * * kx.s.8xlarge - The node type with a configuration of 216 GiB memory and 32 vCPUs.
-         * * kx.s.16xlarge - The node type with a configuration of 432 GiB memory and 64 vCPUs.
-         * * kx.s.32xlarge - The node type with a configuration of 864 GiB memory and 128 vCPUs.
+         * Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
          */
         nodeType: string;
     }
@@ -52505,11 +52580,11 @@ export namespace finspace {
 
     export interface KxClusterDatabase {
         /**
-         * Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
+         * Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See `cacheConfigurations` Block.
          */
         cacheConfigurations?: outputs.finspace.KxClusterDatabaseCacheConfiguration[];
         /**
-         * A unique identifier of the changeset that is associated with the cluster.
+         * Unique identifier of the changeset that is associated with the cluster.
          */
         changesetId?: string;
         /**
@@ -52517,7 +52592,7 @@ export namespace finspace {
          */
         databaseName: string;
         /**
-         * The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
+         * Name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
          */
         dataviewName?: string;
     }
@@ -52539,40 +52614,42 @@ export namespace finspace {
          */
         size?: number;
         /**
-         * Type of writeable storage space for temporarily storing your savedown data. The valid values are:
-         * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
+         * Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
          */
         type?: string;
         /**
-         * The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+         * Name of the kdb volume that you want to use as writeable save-down storage for clusters.
          */
         volumeName?: string;
     }
 
     export interface KxClusterScalingGroupConfiguration {
         /**
-         * The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+         * Number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
          */
         cpu?: number;
         /**
-         * An optional hard limit on the amount of memory a kdb cluster can use.
+         * Hard limit on the amount of memory a kdb cluster can use.
          */
         memoryLimit?: number;
         /**
-         * A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+         * Reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
          */
         memoryReservation: number;
         /**
-         * The number of kdb cluster nodes.
+         * Number of kdb cluster nodes.
          */
         nodeCount: number;
         /**
-         * A unique identifier for the kdb scaling group.
+         * Unique identifier for the kdb scaling group.
          */
         scalingGroupName: string;
     }
 
     export interface KxClusterTickerplantLogConfiguration {
+        /**
+         * Names of the volumes for tickerplant logs.
+         */
         tickerplantLogVolumes: string[];
     }
 
@@ -52583,19 +52660,21 @@ export namespace finspace {
         ipAddressType: string;
         /**
          * Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-         * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
          */
         securityGroupIds: string[];
+        /**
+         * Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+         */
         subnetIds: string[];
         /**
-         * Identifier of the VPC endpoint
+         * Identifier of the VPC endpoint.
          */
         vpcId: string;
     }
 
     export interface KxDataviewSegmentConfiguration {
         /**
-         * The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+         * Database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
          */
         dbPaths: string[];
         /**
@@ -52603,7 +52682,7 @@ export namespace finspace {
          */
         onDemand?: boolean;
         /**
-         * The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+         * Name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
          */
         volumeName: string;
     }
@@ -52636,11 +52715,11 @@ export namespace finspace {
 
     export interface KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration {
         /**
-         * The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+         * IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
          */
         cidrBlock: string;
         /**
-         * Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+         * ICMP protocol that consists of the ICMP type and code. Defined below.
          */
         icmpTypeCode?: outputs.finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode;
         /**
@@ -52652,7 +52731,7 @@ export namespace finspace {
          */
         protocol: string;
         /**
-         * Indicates whether to `allow` or `deny` the traffic that matches the rule.
+         * Whether to `allow` or `deny` the traffic that matches the rule.
          */
         ruleAction: string;
         /**
@@ -52684,18 +52763,27 @@ export namespace finspace {
     }
 
     export interface KxVolumeAttachedCluster {
+        /**
+         * Name of the KX cluster.
+         */
         clusterName: string;
+        /**
+         * Status of the KX cluster.
+         */
         clusterStatus: string;
+        /**
+         * Type of the KX cluster.
+         */
         clusterType: string;
     }
 
     export interface KxVolumeNas1Configuration {
         /**
-         * The size of the network attached storage.
+         * Size of the network attached storage.
          */
         size: number;
         /**
-         * The type of the network attached storage.
+         * Type of the network attached storage.
          */
         type: string;
     }
@@ -52737,115 +52825,95 @@ export namespace fis {
         key: string;
         /**
          * Parameter value.
-         *
-         * For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
          */
         value: string;
     }
 
     export interface ExperimentTemplateActionTarget {
-        /**
-         * Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `KinesisStreams` (Kinesis Data Streams), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `MultiRegionClusters` (MemoryDB Multi-Region clusters), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes), `VPCEndpoints` (Amazon VPC endpoints). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
-         */
         key: string;
-        /**
-         * Target name, referencing a corresponding target.
-         */
         value: string;
     }
 
     export interface ExperimentTemplateExperimentOptions {
         /**
-         * Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+         * Account targeting setting for experiment options. Supports `single-account` and `multi-account`.
          */
         accountTargeting?: string;
         /**
-         * Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+         * Empty target resolution mode for experiment options. Supports `fail` and `skip`.
          */
         emptyTargetResolutionMode?: string;
     }
 
     export interface ExperimentTemplateExperimentReportConfiguration {
         /**
-         * The data sources for the experiment report. See below.
+         * Data sources for the experiment report. See below.
          */
         dataSources?: outputs.fis.ExperimentTemplateExperimentReportConfigurationDataSources;
         /**
-         * The outputs for the experiment report. See below.
+         * Outputs for the experiment report. See below.
          */
         outputs?: outputs.fis.ExperimentTemplateExperimentReportConfigurationOutputs;
         /**
-         * The duration of the post-experiment period. Defaults to `PT20M`.
+         * Duration of the post-experiment period. Defaults to `PT20M`.
          */
         postExperimentDuration?: string;
         /**
-         * The duration of the pre-experiment period. Defaults to `PT20M`.
+         * Duration of the pre-experiment period. Defaults to `PT20M`.
          */
         preExperimentDuration?: string;
     }
 
     export interface ExperimentTemplateExperimentReportConfigurationDataSources {
         /**
-         * The data sources for the experiment report. See below.
+         * Data sources for the experiment report. See below.
          */
         cloudwatchDashboards?: outputs.fis.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard[];
     }
 
     export interface ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard {
         /**
-         * The ARN of the CloudWatch dashboard.
+         * ARN of the CloudWatch dashboard.
          */
         dashboardArn?: string;
     }
 
     export interface ExperimentTemplateExperimentReportConfigurationOutputs {
         /**
-         * The data sources for the experiment report. See below.
+         * Data sources for the experiment report. See below.
          */
         s3Configuration?: outputs.fis.ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration;
     }
 
     export interface ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration {
-        /**
-         * The name of the destination bucket.
-         */
         bucketName: string;
-        /**
-         * The bucket prefix.
-         */
         prefix?: string;
     }
 
     export interface ExperimentTemplateLogConfiguration {
         /**
-         * The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+         * Configuration for experiment logging to Amazon CloudWatch Logs. See below.
          */
         cloudwatchLogsConfiguration?: outputs.fis.ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration;
         /**
-         * The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
+         * Schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
          */
         logSchemaVersion: number;
         /**
-         * The configuration for experiment logging to Amazon S3. See below.
+         * Configuration for experiment logging to Amazon S3. See below.
          */
         s3Configuration?: outputs.fis.ExperimentTemplateLogConfigurationS3Configuration;
     }
 
     export interface ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration {
         /**
-         * The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+         * Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
          */
         logGroupArn: string;
     }
 
     export interface ExperimentTemplateLogConfigurationS3Configuration {
-        /**
-         * The name of the destination bucket.
-         */
         bucketName: string;
-        /**
-         * The bucket prefix.
-         */
         prefix?: string;
     }
 
@@ -52870,9 +52938,7 @@ export namespace fis {
          */
         name: string;
         /**
-         * The resource type parameters.
-         *
-         * > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
+         * Resource type parameters.
          */
         parameters?: {[key: string]: string};
         /**
@@ -52889,6 +52955,8 @@ export namespace fis {
         resourceType: string;
         /**
          * Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
+         *
+         * > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
          */
         selectionMode: string;
     }
@@ -52922,26 +52990,22 @@ export namespace fis {
 export namespace fms {
     export interface PolicyExcludeMap {
         /**
-         * A list of AWS Organization member Accounts that you want to exclude from this AWS FMS Policy.
+         * List of AWS Organization member accounts to exclude from this AWS FMS Policy.
          */
         accounts?: string[];
         /**
-         * A list of IDs of the AWS Organizational Units that you want to exclude from this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-         *
-         * You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
+         * List of IDs of the AWS Organizational Units to exclude from this AWS FMS Policy. Specifying an OU is equivalent to specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
          */
         orgunits?: string[];
     }
 
     export interface PolicyIncludeMap {
         /**
-         * A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+         * List of AWS Organization member accounts to include for this AWS FMS Policy.
          */
         accounts?: string[];
         /**
-         * A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-         *
-         * You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
+         * List of IDs of the AWS Organizational Units to include for this AWS FMS Policy. Specifying an OU is equivalent to specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
          */
         orgunits?: string[];
     }
@@ -52956,163 +53020,169 @@ export namespace fms {
          */
         policyOption?: outputs.fms.PolicySecurityServicePolicyDataPolicyOption;
         /**
-         * The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
+         * Service that the policy uses to protect the resources. For the current list of supported types, refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
          */
         type: string;
     }
 
     export interface PolicySecurityServicePolicyDataPolicyOption {
         /**
-         * Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
+         * Network ACL rules applied across accounts in the AWS Organization. See the `networkAclCommonPolicy` block.
          */
         networkAclCommonPolicy?: outputs.fms.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy;
         /**
-         * Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
+         * Network Firewall policy options that configure a centralized deployment model. See the `networkFirewallPolicy` block.
          */
         networkFirewallPolicy?: outputs.fms.PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy;
+        /**
+         * Third-party firewall policy options. See the `thirdPartyFirewallPolicy` block.
+         */
         thirdPartyFirewallPolicy?: outputs.fms.PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy;
     }
 
     export interface PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy {
         /**
-         * Defines NACL entries for Network ACL policy. See the `networkAclEntrySet` block.
+         * Network ACL entries for the Network ACL policy. See the `networkAclEntrySet` block.
          */
         networkAclEntrySet?: outputs.fms.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet;
     }
 
     export interface PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet {
         /**
-         * The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
+         * Rules to run first in the Firewall Manager managed network ACLs. Firewall Manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
          */
         firstEntries?: outputs.fms.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry[];
         /**
-         * A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+         * Whether Firewall Manager applies this setting to first-entry policy violations that involve conflicts between the custom entries and the policy entries. If `false`, Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
          */
         forceRemediateForFirstEntries: boolean;
         /**
-         * A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+         * Whether Firewall Manager applies this setting to last-entry policy violations that involve conflicts between the custom entries and the policy entries. If `false`, Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
          */
         forceRemediateForLastEntries: boolean;
         /**
-         * The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
+         * Rules to run last in the Firewall Manager managed network ACLs. Firewall Manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
          */
         lastEntries?: outputs.fms.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry[];
     }
 
     export interface PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry {
         /**
-         * A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+         * IPv4 network range to allow or deny, in CIDR notation.
          */
         cidrBlock?: string;
         /**
-         * A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+         * Whether Firewall Manager creates an egress rule. If `false`, Firewall Manager creates an ingress rule.
          */
         egress: boolean;
         /**
-         * A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+         * ICMP protocol configuration specifying the ICMP type and code. See the `icmpTypeCode` block.
          */
         icmpTypeCodes?: outputs.fms.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode[];
         /**
-         * A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+         * IPv6 network range to allow or deny, in CIDR notation.
          */
         ipv6CidrBlock?: string;
         /**
-         * A configuration block for PortRange. See the `portRange` block.
+         * Port range configuration for the rule. See the `portRange` block.
          */
         portRanges?: outputs.fms.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange[];
         /**
-         * The protocol number. A value of "-1" means all protocols.
+         * Protocol number. A value of `-1` means all protocols.
          */
         protocol: string;
         /**
-         * A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+         * Whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
          */
         ruleAction: string;
     }
 
     export interface PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode {
         /**
-         * An integer value containing ICMP code.
+         * ICMP code.
          */
         code?: number;
         /**
-         * An integer value containing ICMP type.
+         * ICMP type.
          */
         type?: number;
     }
 
     export interface PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange {
         /**
-         * The beginning port number of the range.
+         * Beginning port number of the range.
          */
         from?: number;
         /**
-         * The ending port number of the range.
+         * Ending port number of the range.
          */
         to?: number;
     }
 
     export interface PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry {
         /**
-         * A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+         * IPv4 network range to allow or deny, in CIDR notation.
          */
         cidrBlock?: string;
         /**
-         * A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+         * Whether Firewall Manager creates an egress rule. If `false`, Firewall Manager creates an ingress rule.
          */
         egress: boolean;
         /**
-         * A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+         * ICMP protocol configuration specifying the ICMP type and code. See the `icmpTypeCode` block.
          */
         icmpTypeCodes?: outputs.fms.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode[];
         /**
-         * A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+         * IPv6 network range to allow or deny, in CIDR notation.
          */
         ipv6CidrBlock?: string;
         /**
-         * A configuration block for PortRange. See the `portRange` block.
+         * Port range configuration for the rule. See the `portRange` block.
          */
         portRanges?: outputs.fms.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange[];
         /**
-         * The protocol number. A value of "-1" means all protocols.
+         * Protocol number. A value of `-1` means all protocols.
          */
         protocol: string;
         /**
-         * A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+         * Whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
          */
         ruleAction: string;
     }
 
     export interface PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode {
         /**
-         * An integer value containing ICMP code.
+         * ICMP code.
          */
         code?: number;
         /**
-         * An integer value containing ICMP type.
+         * ICMP type.
          */
         type?: number;
     }
 
     export interface PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange {
         /**
-         * The beginning port number of the range.
+         * Beginning port number of the range.
          */
         from?: number;
         /**
-         * The ending port number of the range.
+         * Ending port number of the range.
          */
         to?: number;
     }
 
     export interface PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy {
         /**
-         * Defines the deployment model to use for the firewall policy. To use a distributed model, remove the `policyOption` section. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+         * Deployment model for the firewall policy. To use a distributed model, remove the `policyOption` section. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
          */
         firewallDeploymentModel?: string;
     }
 
     export interface PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy {
+        /**
+         * Deployment model for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+         */
         firewallDeploymentModel?: string;
     }
 
@@ -53126,21 +53196,26 @@ export namespace fms {
          */
         id: string;
         /**
-         * Last time that the reosurce set was changed.
+         * Last time that the resource set was changed.
          */
         lastUpdateTime: string;
         /**
          * Descriptive name of the resource set. You can't change the name of a resource set after you create it.
+         *
+         * The following arguments are optional:
          */
         name: string;
         /**
-         * Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
+         * Whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
          */
         resourceSetStatus: string;
         /**
          * Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
          */
         resourceTypeLists?: string[];
+        /**
+         * Unique identifier for each update to the resource set.
+         */
         updateToken: string;
     }
 
@@ -53164,89 +53239,110 @@ export namespace fms {
 export namespace fsx {
     export interface DataRepositoryAssociationS3 {
         /**
-         * Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+         * Type of updated objects that are automatically exported from your file system to the linked S3 bucket. See the `autoExportPolicy` Block below.
          */
         autoExportPolicy: outputs.fsx.DataRepositoryAssociationS3AutoExportPolicy;
         /**
-         * Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+         * Type of updated objects that are automatically imported from the linked S3 bucket to your file system. See the `autoImportPolicy` Block below.
          */
         autoImportPolicy: outputs.fsx.DataRepositoryAssociationS3AutoImportPolicy;
     }
 
     export interface DataRepositoryAssociationS3AutoExportPolicy {
         /**
-         * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+         * List of file event types to automatically export to your linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
          */
         events: string[];
     }
 
     export interface DataRepositoryAssociationS3AutoImportPolicy {
         /**
-         * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+         * List of file event types to automatically import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
          */
         events: string[];
     }
 
     export interface FileCacheDataRepositoryAssociation {
+        /**
+         * System-generated, unique ID of the data repository association.
+         */
         associationId: string;
         /**
-         * The path to the S3 or NFS data repository that links to the cache.
+         * Path to the S3 or NFS data repository that links to the cache.
          */
         dataRepositoryPath: string;
         /**
-         * A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+         * NFS exports linked with this data repository association, in the format `/exportpath1`. Configure `dataRepositoryPath` as the domain name of the NFS file system to use this argument. Not supported for S3 data repositories. Maximum of 500.
          */
         dataRepositorySubdirectories?: string[];
         /**
-         * The system-generated, unique ID of the cache.
+         * System-generated, unique ID of the cache.
          */
         fileCacheId: string;
         /**
-         * A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+         * Path on the cache that maps 1-1 with `dataRepositoryPath`. Must begin with a forward slash and cannot overlap the cache path of another data repository association.
          */
         fileCachePath: string;
+        /**
+         * ID of the file system for an NFS data repository association.
+         */
         fileSystemId: string;
+        /**
+         * Path to the data repository on the file system.
+         */
         fileSystemPath: string;
+        /**
+         * Size, in mebibytes (MiB), of the data blocks used to represent imported files.
+         */
         importedFileChunkSize: number;
         /**
-         * (Optional) See the `nfs` configuration block.
+         * Configuration for a data repository association linked to an NFS file system. See `nfs` Block below.
          */
         nfs?: outputs.fsx.FileCacheDataRepositoryAssociationNf[];
+        /**
+         * Amazon Resource Name (ARN) of the data repository association.
+         */
         resourceArn: string;
         /**
-         * A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          */
         tags: {[key: string]: string};
     }
 
     export interface FileCacheDataRepositoryAssociationNf {
         /**
-         * A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+         * Up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name.
          */
         dnsIps?: string[];
         /**
-         * The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+         * Version of the NFS protocol of the NFS data repository. The only supported value is `NFS3`.
          */
         version: string;
     }
 
     export interface FileCacheLustreConfiguration {
         /**
-         * Specifies the cache deployment type. The only supported value is `CACHE_1`.
+         * Cache deployment type. The only supported value is `CACHE_1`.
          */
         deploymentType: string;
+        /**
+         * Configuration for Lustre logging used to write the enabled logging events for the cache.
+         */
         logConfigurations: outputs.fsx.FileCacheLustreConfigurationLogConfiguration[];
         /**
-         * The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
+         * Configuration for a Lustre MDT (Metadata Target) storage volume. See `metadataConfiguration` Block below.
          */
         metadataConfigurations: outputs.fsx.FileCacheLustreConfigurationMetadataConfiguration[];
+        /**
+         * Mount name of the cache.
+         */
         mountName: string;
         /**
-         * Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+         * Throughput provisioned for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
          */
         perUnitStorageThroughput: number;
         /**
-         * A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+         * Recurring weekly time to start maintenance, in the format `D:HH:MM`. `D` is the day of the week, where `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
          */
         weeklyMaintenanceStartTime?: string;
     }
@@ -53258,29 +53354,29 @@ export namespace fsx {
 
     export interface FileCacheLustreConfigurationMetadataConfiguration {
         /**
-         * The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+         * Storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
          */
         storageCapacity: number;
     }
 
     export interface GetOntapFileSystemDiskIopsConfiguration {
         /**
-         * The total number of SSD IOPS provisioned for the file system.
+         * Total number of SSD IOPS provisioned for the file system.
          */
         iops: number;
         /**
-         * Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
+         * Whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
          */
         mode: string;
     }
 
     export interface GetOntapFileSystemEndpoint {
         /**
-         * A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
+         * FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
          */
         interclusters: outputs.fsx.GetOntapFileSystemEndpointIntercluster[];
         /**
-         * A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
+         * FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
          */
         managements: outputs.fsx.GetOntapFileSystemEndpointManagement[];
     }
@@ -53303,7 +53399,7 @@ export namespace fsx {
 
     export interface GetOntapStorageVirtualMachineActiveDirectoryConfiguration {
         /**
-         * The NetBIOS name of the AD computer object to which the SVM is joined.
+         * NetBIOS name of the AD computer object to which the SVM is joined.
          */
         netbiosName: string;
         selfManagedActiveDirectoryConfigurations: outputs.fsx.GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration[];
@@ -53311,23 +53407,23 @@ export namespace fsx {
 
     export interface GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
         /**
-         * A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+         * List of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
          */
         dnsIps: string[];
         /**
-         * The fully qualified domain name of the self-managed AD directory.
+         * Fully qualified domain name of the self-managed AD directory.
          */
         domainName: string;
         /**
-         * The name of the domain group whose members have administrative privileges for the FSx file system.
+         * Name of the domain group whose members have administrative privileges for the FSx file system.
          */
         fileSystemAdministratorsGroup: string;
         /**
-         * The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
+         * Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
          */
         organizationalUnitDistinguishedName: string;
         /**
-         * The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
+         * User name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
          */
         username: string;
     }
@@ -53335,15 +53431,15 @@ export namespace fsx {
     export interface GetOntapStorageVirtualMachineEndpoint {
         iscsis: outputs.fsx.GetOntapStorageVirtualMachineEndpointIscsi[];
         /**
-         * An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
+         * Endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
          */
         managements: outputs.fsx.GetOntapStorageVirtualMachineEndpointManagement[];
         /**
-         * An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
+         * Endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
          */
         nfs: outputs.fsx.GetOntapStorageVirtualMachineEndpointNf[];
         /**
-         * An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
+         * Endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
          */
         smbs: outputs.fsx.GetOntapStorageVirtualMachineEndpointSmb[];
     }
@@ -53381,7 +53477,7 @@ export namespace fsx {
 
     export interface GetOntapStorageVirtualMachineLifecycleTransitionReason {
         /**
-         * A detailed message.
+         * Detailed message.
          */
         message: string;
     }
@@ -53399,9 +53495,12 @@ export namespace fsx {
 
     export interface GetOpenZfsSnapshotFilter {
         /**
-         * Name of the snapshot.
+         * Name of the field to filter by.
          */
         name: string;
+        /**
+         * Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
+         */
         values: string[];
     }
 
@@ -53429,7 +53528,7 @@ export namespace fsx {
 
     export interface LustreFileSystemLogConfiguration {
         /**
-         * The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+         * Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
          */
         destination: string;
         /**
@@ -53464,29 +53563,29 @@ export namespace fsx {
 
     export interface OntapFileSystemDiskIopsConfiguration {
         /**
-         * The total number of SSD IOPS provisioned for the file system.
+         * Total number of SSD IOPS provisioned for the file system.
          */
         iops: number;
         /**
-         * Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+         * Whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
          */
         mode?: string;
     }
 
     export interface OntapFileSystemEndpoint {
         /**
-         * An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+         * Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
          */
         interclusters: outputs.fsx.OntapFileSystemEndpointIntercluster[];
         /**
-         * An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         * Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
          */
         managements: outputs.fsx.OntapFileSystemEndpointManagement[];
     }
 
     export interface OntapFileSystemEndpointIntercluster {
         /**
-         * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+         * Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
          */
         dnsName: string;
         /**
@@ -53497,7 +53596,7 @@ export namespace fsx {
 
     export interface OntapFileSystemEndpointManagement {
         /**
-         * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+         * Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
          */
         dnsName: string;
         /**
@@ -53508,61 +53607,64 @@ export namespace fsx {
 
     export interface OntapStorageVirtualMachineActiveDirectoryConfiguration {
         /**
-         * The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+         * NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
          */
         netbiosName?: string;
+        /**
+         * Configuration block that Amazon FSx uses to join the SVM to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Detailed below.
+         */
         selfManagedActiveDirectoryConfiguration?: outputs.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration;
     }
 
     export interface OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
         /**
-         * A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+         * List of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
          */
         dnsIps: string[];
         /**
-         * The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+         * Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
          */
         domainName: string;
         /**
-         * The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+         * Name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
          */
         fileSystemAdministratorsGroup?: string;
         /**
-         * The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+         * Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
          */
         organizationalUnitDistinguishedName?: string;
         /**
-         * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
          */
         password: string;
         /**
-         * The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+         * User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
          */
         username: string;
     }
 
     export interface OntapStorageVirtualMachineEndpoint {
         /**
-         * An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+         * Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
          */
         iscsis: outputs.fsx.OntapStorageVirtualMachineEndpointIscsi[];
         /**
-         * An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         * Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
          */
         managements: outputs.fsx.OntapStorageVirtualMachineEndpointManagement[];
         /**
-         * An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+         * Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
          */
         nfs: outputs.fsx.OntapStorageVirtualMachineEndpointNf[];
         /**
-         * An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+         * Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
          */
         smbs: outputs.fsx.OntapStorageVirtualMachineEndpointSmb[];
     }
 
     export interface OntapStorageVirtualMachineEndpointIscsi {
         /**
-         * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+         * Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
          */
         dnsName: string;
         /**
@@ -53573,7 +53675,7 @@ export namespace fsx {
 
     export interface OntapStorageVirtualMachineEndpointManagement {
         /**
-         * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+         * Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
          */
         dnsName: string;
         /**
@@ -53584,7 +53686,7 @@ export namespace fsx {
 
     export interface OntapStorageVirtualMachineEndpointNf {
         /**
-         * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+         * Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
          */
         dnsName: string;
         /**
@@ -53595,7 +53697,7 @@ export namespace fsx {
 
     export interface OntapStorageVirtualMachineEndpointSmb {
         /**
-         * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+         * Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
          */
         dnsName: string;
         /**
@@ -53606,123 +53708,123 @@ export namespace fsx {
 
     export interface OntapVolumeAggregateConfiguration {
         /**
-         * Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+         * Names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
          */
         aggregates: string[];
         /**
-         * Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+         * Number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
          */
         constituentsPerAggregate: number;
         /**
-         * The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
+         * Total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
          */
         totalConstituents: number;
     }
 
     export interface OntapVolumeSnaplockConfiguration {
         /**
-         * Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+         * Whether to enable the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
          */
         auditLogVolume?: boolean;
         /**
-         * The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
+         * Configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
          */
         autocommitPeriod: outputs.fsx.OntapVolumeSnaplockConfigurationAutocommitPeriod;
         /**
-         * Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+         * Whether privileged delete is enabled, disabled, or permanently disabled on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
          */
         privilegedDelete?: string;
         /**
-         * The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
+         * Retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
          */
         retentionPeriod: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriod;
         /**
-         * Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+         * Retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
          */
         snaplockType: string;
         /**
-         * Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+         * Whether to enable volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
          */
         volumeAppendModeEnabled?: boolean;
     }
 
     export interface OntapVolumeSnaplockConfigurationAutocommitPeriod {
         /**
-         * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+         * Type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
          */
         type: string;
         /**
-         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         * Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
          */
         value?: number;
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriod {
         /**
-         * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
+         * Retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
          */
         defaultRetention: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention;
         /**
-         * The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
+         * Longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
          */
         maximumRetention: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention;
         /**
-         * The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
+         * Shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
          */
         minimumRetention: outputs.fsx.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention;
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
         /**
-         * The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+         * Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
          */
         type: string;
         /**
-         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         * Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
          */
         value?: number;
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
         /**
-         * The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+         * Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
          */
         type: string;
         /**
-         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         * Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
          */
         value?: number;
     }
 
     export interface OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
         /**
-         * The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+         * Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
          */
         type: string;
         /**
-         * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         * Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
          */
         value?: number;
     }
 
     export interface OntapVolumeTieringPolicy {
         /**
-         * Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+         * Number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
          */
         coolingPeriod: number;
         /**
-         * Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+         * Tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
          */
         name: string;
     }
 
     export interface OpenZfsFileSystemDiskIopsConfiguration {
         /**
-         * The total number of SSD IOPS provisioned for the file system.
+         * Total number of SSD IOPS provisioned for the file system.
          */
         iops: number;
         /**
-         * Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+         * How the number of IOPS for the file system is set. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
          */
         mode?: string;
     }
@@ -53733,14 +53835,14 @@ export namespace fsx {
          */
         size: number;
         /**
-         * Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
+         * How the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
          */
         sizingMode?: string;
     }
 
     export interface OpenZfsFileSystemRootVolumeConfiguration {
         /**
-         * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+         * Whether tags for the file system should be copied to snapshots. Default value is false.
          */
         copyTagsToSnapshots?: boolean;
         /**
@@ -53756,7 +53858,7 @@ export namespace fsx {
          */
         readOnly: boolean;
         /**
-         * Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+         * Record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
          */
         recordSizeKib?: number;
         /**
@@ -53767,33 +53869,33 @@ export namespace fsx {
 
     export interface OpenZfsFileSystemRootVolumeConfigurationNfsExports {
         /**
-         * A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
+         * List of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
          */
         clientConfigurations: outputs.fsx.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration[];
     }
 
     export interface OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration {
         /**
-         * A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+         * Value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
          */
         clients: string;
         /**
-         * The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+         * Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
          */
         options: string[];
     }
 
     export interface OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
         /**
-         * The ID of the user or group. Valid values between `0` and `2147483647`
+         * ID of the user or group. Valid values between `0` and `2147483647`
          */
         id: number;
         /**
-         * The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+         * Amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
          */
         storageCapacityQuotaGib: number;
         /**
-         * A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+         * Value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
          */
         type: string;
     }
@@ -53834,9 +53936,11 @@ export namespace fsx {
         id: number;
         /**
          * The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-         * * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
          */
         storageCapacityQuotaGib: number;
+        /**
+         * A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+         */
         type: string;
     }
 
@@ -53908,7 +54012,7 @@ export namespace fsx {
 
     export interface WindowsFileSystemAuditLogConfiguration {
         /**
-         * The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+         * Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
          */
         auditLogDestination: string;
         /**
@@ -53923,43 +54027,43 @@ export namespace fsx {
 
     export interface WindowsFileSystemDiskIopsConfiguration {
         /**
-         * The total number of SSD IOPS provisioned for the file system.
+         * Total number of SSD IOPS provisioned for the file system.
          */
         iops: number;
         /**
-         * Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+         * Mode for the number of IOPS for the file system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
          */
         mode?: string;
     }
 
     export interface WindowsFileSystemSelfManagedActiveDirectory {
         /**
-         * A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+         * List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
          */
         dnsIps: string[];
         /**
-         * The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+         * Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
          */
         domainJoinServiceAccountSecret?: string;
         /**
-         * The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+         * Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
          */
         domainName: string;
         /**
-         * The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+         * Name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
          */
         fileSystemAdministratorsGroup?: string;
         /**
-         * The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+         * Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
          */
         organizationalUnitDistinguishedName?: string;
         /**
-         * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
+         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
          */
         password?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
          */
         passwordWo?: string;
         /**
@@ -53967,7 +54071,7 @@ export namespace fsx {
          */
         passwordWoVersion?: number;
         /**
-         * The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+         * User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
          */
         username: string;
     }
@@ -54648,6 +54752,10 @@ export namespace glue {
 
     export interface CatalogTableOptimizerConfiguration {
         /**
+         * The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+         */
+        compactionConfiguration?: outputs.glue.CatalogTableOptimizerConfigurationCompactionConfiguration;
+        /**
          * Indicates whether the table optimizer is enabled.
          */
         enabled: boolean;
@@ -54663,6 +54771,28 @@ export namespace glue {
          * The ARN of the IAM role to use for the table optimizer.
          */
         roleArn: string;
+    }
+
+    export interface CatalogTableOptimizerConfigurationCompactionConfiguration {
+        /**
+         * The configuration for an Iceberg compaction optimizer.
+         */
+        icebergConfiguration?: outputs.glue.CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration;
+    }
+
+    export interface CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration {
+        /**
+         * The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+         */
+        deleteFileThreshold?: number;
+        /**
+         * The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+         */
+        minInputFiles?: number;
+        /**
+         * The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+         */
+        strategy: string;
     }
 
     export interface CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration {
@@ -54963,15 +55093,15 @@ export namespace glue {
         /**
          * Name of the connection to be used to validate the specific representation of the view.
          */
-        validationConnection?: string;
+        validationConnection: string;
         /**
          * String that represents the SQL query that describes the view with expanded resource ARNs.
          */
-        viewExpandedText?: string;
+        viewExpandedText: string;
         /**
          * String that represents the original SQL query that describes the view.
          */
-        viewOriginalText?: string;
+        viewOriginalText: string;
     }
 
     export interface CatalogTargetRedshiftCatalog {
@@ -65615,7 +65745,7 @@ export namespace lambda {
 
     export interface EventSourceMappingMetricsConfig {
         /**
-         * List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+         * List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`, `ErrorCount`, `KafkaMetrics`.
          */
         metrics: string[];
     }
@@ -67141,7 +67271,7 @@ export namespace lb {
          */
         regexValues?: string[];
         /**
-         * List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+         * List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. To match host headers containing a non-standard port (for example, `example.com:8443`), use `regexValues`. Conflicts with `regexValues`.
          */
         values?: string[];
     }
@@ -81226,6 +81356,692 @@ export namespace macie2 {
 }
 
 export namespace mailmanager {
+    export interface RuleSetRule {
+        /**
+         * One or more actions to execute when all conditions match. Between 1 and 10 actions are supported. Each action must contain exactly one action configuration. See `action` Block.
+         */
+        actions?: outputs.mailmanager.RuleSetRuleAction[];
+        /**
+         * One or more conditions that must all evaluate to true for the rule to match. Up to 10 conditions are supported. See `condition` Block.
+         */
+        conditions?: outputs.mailmanager.RuleSetRuleCondition[];
+        /**
+         * Name of the rule.
+         */
+        name?: string;
+        /**
+         * One or more conditions that prevent the rule from matching when any evaluates to true. Up to 10 conditions are supported. See `condition` Block.
+         */
+        unlesses?: outputs.mailmanager.RuleSetRuleUnless[];
+    }
+
+    export interface RuleSetRuleAction {
+        /**
+         * Adds a header to the email. See `addHeader` Block.
+         */
+        addHeader?: outputs.mailmanager.RuleSetRuleActionAddHeader;
+        /**
+         * Archives the email. See `archive` Block.
+         */
+        archive?: outputs.mailmanager.RuleSetRuleActionArchive;
+        /**
+         * Sends a bounce response. See `bounce` Block.
+         */
+        bounce?: outputs.mailmanager.RuleSetRuleActionBounce;
+        /**
+         * Delivers the email to a WorkMail mailbox. See `deliverToMailbox` Block.
+         */
+        deliverToMailbox?: outputs.mailmanager.RuleSetRuleActionDeliverToMailbox;
+        /**
+         * Delivers the email to an Amazon Q Business application. See `deliverToQBusiness` Block.
+         */
+        deliverToQBusiness?: outputs.mailmanager.RuleSetRuleActionDeliverToQBusiness;
+        /**
+         * Stops rule evaluation and drops the email.
+         */
+        drop?: outputs.mailmanager.RuleSetRuleActionDrop;
+        /**
+         * Invokes a Lambda function. See `invokeLambda` Block.
+         */
+        invokeLambda?: outputs.mailmanager.RuleSetRuleActionInvokeLambda;
+        /**
+         * Publishes the email to an SNS topic. See `publishToSns` Block.
+         */
+        publishToSns?: outputs.mailmanager.RuleSetRuleActionPublishToSns;
+        /**
+         * Relays the email to an SMTP server. See `relay` Block.
+         */
+        relay?: outputs.mailmanager.RuleSetRuleActionRelay;
+        /**
+         * Replaces envelope recipients. See `replaceRecipient` Block.
+         */
+        replaceRecipient?: outputs.mailmanager.RuleSetRuleActionReplaceRecipient;
+        /**
+         * Sends the email to the internet. See `send` Block.
+         */
+        send?: outputs.mailmanager.RuleSetRuleActionSend;
+        /**
+         * Writes the email MIME content to an S3 bucket. See `writeToS3` Block.
+         */
+        writeToS3?: outputs.mailmanager.RuleSetRuleActionWriteToS3;
+    }
+
+    export interface RuleSetRuleActionAddHeader {
+        /**
+         * Header name. Must begin with `X-`.
+         */
+        headerName: string;
+        /**
+         * Header value.
+         */
+        headerValue: string;
+    }
+
+    export interface RuleSetRuleActionArchive {
+        /**
+         * Policy applied when the action fails.
+         */
+        actionFailurePolicy?: string;
+        /**
+         * Identifier of the archive.
+         */
+        targetArchive: string;
+    }
+
+    export interface RuleSetRuleActionBounce {
+        /**
+         * Policy applied when the action fails.
+         */
+        actionFailurePolicy?: string;
+        /**
+         * Diagnostic message included in the bounce.
+         */
+        diagnosticMessage: string;
+        /**
+         * Human-readable bounce message.
+         */
+        message?: string;
+        /**
+         * ARN of the IAM role used to send the bounce.
+         */
+        roleArn: string;
+        /**
+         * Sender address of the bounce.
+         */
+        sender: string;
+        /**
+         * SMTP reply code.
+         */
+        smtpReplyCode: string;
+        /**
+         * Enhanced status code.
+         */
+        statusCode: string;
+    }
+
+    export interface RuleSetRuleActionDeliverToMailbox {
+        /**
+         * Policy applied when the action fails.
+         */
+        actionFailurePolicy?: string;
+        /**
+         * ARN of the WorkMail organization.
+         */
+        mailboxArn: string;
+        /**
+         * ARN of the IAM role used to deliver the email.
+         */
+        roleArn: string;
+    }
+
+    export interface RuleSetRuleActionDeliverToQBusiness {
+        /**
+         * Policy applied when the action fails.
+         */
+        actionFailurePolicy?: string;
+        /**
+         * Q Business application identifier.
+         */
+        applicationId: string;
+        /**
+         * Q Business index identifier.
+         */
+        indexId: string;
+        /**
+         * ARN of the IAM role used to deliver the email.
+         */
+        roleArn: string;
+    }
+
+    export interface RuleSetRuleActionDrop {
+    }
+
+    export interface RuleSetRuleActionInvokeLambda {
+        /**
+         * Policy applied when the action fails.
+         */
+        actionFailurePolicy?: string;
+        /**
+         * ARN of the Lambda function.
+         */
+        functionArn: string;
+        /**
+         * Lambda invocation type.
+         */
+        invocationType: string;
+        /**
+         * Maximum retry time in minutes.
+         */
+        retryTimeMinutes?: number;
+        /**
+         * ARN of the IAM role used to invoke the function.
+         */
+        roleArn: string;
+    }
+
+    export interface RuleSetRuleActionPublishToSns {
+        /**
+         * Policy applied when the action fails.
+         */
+        actionFailurePolicy?: string;
+        /**
+         * Email encoding in the notification.
+         */
+        encoding?: string;
+        /**
+         * Notification payload type.
+         */
+        payloadType?: string;
+        /**
+         * ARN of the IAM role used to publish the email.
+         */
+        roleArn: string;
+        /**
+         * ARN of the SNS topic.
+         */
+        topicArn: string;
+    }
+
+    export interface RuleSetRuleActionRelay {
+        /**
+         * Policy applied when the action fails.
+         */
+        actionFailurePolicy?: string;
+        /**
+         * Whether to preserve or replace the original MAIL FROM address.
+         */
+        mailFrom?: string;
+        /**
+         * Identifier of the relay resource.
+         */
+        relay: string;
+    }
+
+    export interface RuleSetRuleActionReplaceRecipient {
+        /**
+         * Replacement envelope recipient addresses.
+         */
+        replaceWiths?: string[];
+    }
+
+    export interface RuleSetRuleActionSend {
+        /**
+         * Policy applied when the action fails.
+         */
+        actionFailurePolicy?: string;
+        /**
+         * ARN of the IAM role used to send the email.
+         */
+        roleArn: string;
+    }
+
+    export interface RuleSetRuleActionWriteToS3 {
+        /**
+         * Policy applied when the action fails.
+         */
+        actionFailurePolicy?: string;
+        /**
+         * ARN of the IAM role used to write to S3.
+         */
+        roleArn: string;
+        /**
+         * Name of the S3 bucket.
+         */
+        s3Bucket: string;
+        /**
+         * S3 object key prefix.
+         */
+        s3Prefix?: string;
+        /**
+         * KMS key identifier used to encrypt the email.
+         */
+        s3SseKmsKeyId?: string;
+    }
+
+    export interface RuleSetRuleCondition {
+        /**
+         * Boolean expression evaluated against an email attribute or Add On result. See `booleanExpression` Block.
+         */
+        booleanExpression?: outputs.mailmanager.RuleSetRuleConditionBooleanExpression;
+        /**
+         * DMARC policy expression evaluated against the email's DMARC result. See `dmarcExpression` Block.
+         */
+        dmarcExpression?: outputs.mailmanager.RuleSetRuleConditionDmarcExpression;
+        /**
+         * IP CIDR expression evaluated against the sender IP address. See `ipExpression` Block.
+         */
+        ipExpression?: outputs.mailmanager.RuleSetRuleConditionIpExpression;
+        /**
+         * Numeric expression evaluated against an email attribute such as message size. See `numberExpression` Block.
+         */
+        numberExpression?: outputs.mailmanager.RuleSetRuleConditionNumberExpression;
+        /**
+         * String expression evaluated against an email attribute, MIME header, client certificate field, or Add On result. See `stringExpression` Block.
+         */
+        stringExpression?: outputs.mailmanager.RuleSetRuleConditionStringExpression;
+        /**
+         * Verdict expression evaluated against email authentication results such as SPF or DKIM. See `verdictExpression` Block.
+         */
+        verdictExpression?: outputs.mailmanager.RuleSetRuleConditionVerdictExpression;
+    }
+
+    export interface RuleSetRuleConditionBooleanExpression {
+        /**
+         * Operand evaluated by the expression. Exactly one of `analysis`, `attribute`, or `isInAddressList` must be configured.
+         */
+        evaluate?: outputs.mailmanager.RuleSetRuleConditionBooleanExpressionEvaluate;
+        /**
+         * Boolean matching operator. Valid values are `IS_TRUE` and `IS_FALSE`.
+         */
+        operator: string;
+    }
+
+    export interface RuleSetRuleConditionBooleanExpressionEvaluate {
+        /**
+         * Add On result to evaluate. See `analysis` Block.
+         */
+        analysis?: outputs.mailmanager.RuleSetRuleConditionBooleanExpressionEvaluateAnalysis;
+        /**
+         * Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+         */
+        attribute?: string;
+        /**
+         * Address-list membership expression.
+         */
+        isInAddressList?: outputs.mailmanager.RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList;
+    }
+
+    export interface RuleSetRuleConditionBooleanExpressionEvaluateAnalysis {
+        /**
+         * ARN of the Mail Manager Add On.
+         */
+        analyzer: string;
+        /**
+         * Result field returned by the Add On. Must contain between 1 and 256 characters.
+         */
+        resultField: string;
+    }
+
+    export interface RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList {
+        /**
+         * List containing exactly one address list ARN or identifier.
+         */
+        addressLists: string[];
+        /**
+         * Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+         */
+        attribute: string;
+    }
+
+    export interface RuleSetRuleConditionDmarcExpression {
+        /**
+         * DMARC policy matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+         */
+        operator: string;
+        /**
+         * List of DMARC policy values. Valid values are `NONE`, `QUARANTINE`, and `REJECT`.
+         */
+        values: string[];
+    }
+
+    export interface RuleSetRuleConditionIpExpression {
+        /**
+         * Left-hand operand of the expression.
+         */
+        evaluate?: outputs.mailmanager.RuleSetRuleConditionIpExpressionEvaluate;
+        /**
+         * CIDR matching operator. Valid values are `CIDR_MATCHES` and `NOT_CIDR_MATCHES`.
+         */
+        operator: string;
+        /**
+         * List of IP CIDR ranges against which the sender IP address is evaluated. Between 1 and 10 values are supported.
+         */
+        values: string[];
+    }
+
+    export interface RuleSetRuleConditionIpExpressionEvaluate {
+        /**
+         * Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+         */
+        attribute: string;
+    }
+
+    export interface RuleSetRuleConditionNumberExpression {
+        /**
+         * Left-hand operand of the expression.
+         */
+        evaluate?: outputs.mailmanager.RuleSetRuleConditionNumberExpressionEvaluate;
+        /**
+         * Numeric comparison operator. Valid values are `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `GREATER_THAN`, `LESS_THAN_OR_EQUAL`, and `GREATER_THAN_OR_EQUAL`.
+         */
+        operator: string;
+        /**
+         * Numeric value to compare against.
+         */
+        value: number;
+    }
+
+    export interface RuleSetRuleConditionNumberExpressionEvaluate {
+        /**
+         * Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+         */
+        attribute: string;
+    }
+
+    export interface RuleSetRuleConditionStringExpression {
+        /**
+         * Left-hand operand of the expression. Exactly one of `analysis`, `attribute`, `clientCertificateAttribute`, or `mimeHeaderAttribute` must be configured.
+         */
+        evaluate?: outputs.mailmanager.RuleSetRuleConditionStringExpressionEvaluate;
+        /**
+         * String matching operator. Valid values are `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, and `CONTAINS`.
+         */
+        operator: string;
+        /**
+         * List of strings against which the selected operand is evaluated. Between 1 and 10 values are supported, each up to 4096 characters.
+         */
+        values: string[];
+    }
+
+    export interface RuleSetRuleConditionStringExpressionEvaluate {
+        /**
+         * Add On result to evaluate. See `analysis` Block.
+         */
+        analysis?: outputs.mailmanager.RuleSetRuleConditionStringExpressionEvaluateAnalysis;
+        /**
+         * Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+         */
+        attribute?: string;
+        /**
+         * Client certificate field to evaluate. Valid values are `CN`, `SAN_RFC822_NAME`, `SAN_DNS_NAME`, `SAN_DIRECTORY_NAME`, `SAN_UNIFORM_RESOURCE_IDENTIFIER`, `SAN_IP_ADDRESS`, `SAN_REGISTERED_ID`, and `SERIAL_NUMBER`.
+         */
+        clientCertificateAttribute?: string;
+        /**
+         * MIME header name to evaluate. Must contain between 1 and 256 characters and begin with `X-` or `x-`.
+         */
+        mimeHeaderAttribute?: string;
+    }
+
+    export interface RuleSetRuleConditionStringExpressionEvaluateAnalysis {
+        /**
+         * ARN of the Mail Manager Add On.
+         */
+        analyzer: string;
+        /**
+         * Result field returned by the Add On. Must contain between 1 and 256 characters.
+         */
+        resultField: string;
+    }
+
+    export interface RuleSetRuleConditionVerdictExpression {
+        /**
+         * Left-hand operand of the expression. Exactly one of `analysis` or `attribute` must be configured.
+         */
+        evaluate?: outputs.mailmanager.RuleSetRuleConditionVerdictExpressionEvaluate;
+        /**
+         * Verdict matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+         */
+        operator: string;
+        /**
+         * List of verdict values. Valid values are `PASS`, `FAIL`, `GRAY`, and `PROCESSING_FAILED`. Between 1 and 10 values are supported.
+         */
+        values: string[];
+    }
+
+    export interface RuleSetRuleConditionVerdictExpressionEvaluate {
+        /**
+         * Add On result to evaluate. See `analysis` Block.
+         */
+        analysis?: outputs.mailmanager.RuleSetRuleConditionVerdictExpressionEvaluateAnalysis;
+        /**
+         * Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+         */
+        attribute?: string;
+    }
+
+    export interface RuleSetRuleConditionVerdictExpressionEvaluateAnalysis {
+        /**
+         * ARN of the Mail Manager Add On.
+         */
+        analyzer: string;
+        /**
+         * Result field returned by the Add On. Must contain between 1 and 256 characters.
+         */
+        resultField: string;
+    }
+
+    export interface RuleSetRuleUnless {
+        /**
+         * Boolean expression evaluated against an email attribute or Add On result. See `booleanExpression` Block.
+         */
+        booleanExpression?: outputs.mailmanager.RuleSetRuleUnlessBooleanExpression;
+        /**
+         * DMARC policy expression evaluated against the email's DMARC result. See `dmarcExpression` Block.
+         */
+        dmarcExpression?: outputs.mailmanager.RuleSetRuleUnlessDmarcExpression;
+        /**
+         * IP CIDR expression evaluated against the sender IP address. See `ipExpression` Block.
+         */
+        ipExpression?: outputs.mailmanager.RuleSetRuleUnlessIpExpression;
+        /**
+         * Numeric expression evaluated against an email attribute such as message size. See `numberExpression` Block.
+         */
+        numberExpression?: outputs.mailmanager.RuleSetRuleUnlessNumberExpression;
+        /**
+         * String expression evaluated against an email attribute, MIME header, client certificate field, or Add On result. See `stringExpression` Block.
+         */
+        stringExpression?: outputs.mailmanager.RuleSetRuleUnlessStringExpression;
+        /**
+         * Verdict expression evaluated against email authentication results such as SPF or DKIM. See `verdictExpression` Block.
+         */
+        verdictExpression?: outputs.mailmanager.RuleSetRuleUnlessVerdictExpression;
+    }
+
+    export interface RuleSetRuleUnlessBooleanExpression {
+        /**
+         * Operand evaluated by the expression. Exactly one of `analysis`, `attribute`, or `isInAddressList` must be configured.
+         */
+        evaluate?: outputs.mailmanager.RuleSetRuleUnlessBooleanExpressionEvaluate;
+        /**
+         * Boolean matching operator. Valid values are `IS_TRUE` and `IS_FALSE`.
+         */
+        operator: string;
+    }
+
+    export interface RuleSetRuleUnlessBooleanExpressionEvaluate {
+        /**
+         * Add On result to evaluate. See `analysis` Block.
+         */
+        analysis?: outputs.mailmanager.RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis;
+        /**
+         * Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+         */
+        attribute?: string;
+        /**
+         * Address-list membership expression.
+         */
+        isInAddressList?: outputs.mailmanager.RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList;
+    }
+
+    export interface RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis {
+        /**
+         * ARN of the Mail Manager Add On.
+         */
+        analyzer: string;
+        /**
+         * Result field returned by the Add On. Must contain between 1 and 256 characters.
+         */
+        resultField: string;
+    }
+
+    export interface RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList {
+        /**
+         * List containing exactly one address list ARN or identifier.
+         */
+        addressLists: string[];
+        /**
+         * Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+         */
+        attribute: string;
+    }
+
+    export interface RuleSetRuleUnlessDmarcExpression {
+        /**
+         * DMARC policy matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+         */
+        operator: string;
+        /**
+         * List of DMARC policy values. Valid values are `NONE`, `QUARANTINE`, and `REJECT`.
+         */
+        values: string[];
+    }
+
+    export interface RuleSetRuleUnlessIpExpression {
+        /**
+         * Left-hand operand of the expression.
+         */
+        evaluate?: outputs.mailmanager.RuleSetRuleUnlessIpExpressionEvaluate;
+        /**
+         * CIDR matching operator. Valid values are `CIDR_MATCHES` and `NOT_CIDR_MATCHES`.
+         */
+        operator: string;
+        /**
+         * List of IP CIDR ranges against which the sender IP address is evaluated. Between 1 and 10 values are supported.
+         */
+        values: string[];
+    }
+
+    export interface RuleSetRuleUnlessIpExpressionEvaluate {
+        /**
+         * Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+         */
+        attribute: string;
+    }
+
+    export interface RuleSetRuleUnlessNumberExpression {
+        /**
+         * Left-hand operand of the expression.
+         */
+        evaluate?: outputs.mailmanager.RuleSetRuleUnlessNumberExpressionEvaluate;
+        /**
+         * Numeric comparison operator. Valid values are `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `GREATER_THAN`, `LESS_THAN_OR_EQUAL`, and `GREATER_THAN_OR_EQUAL`.
+         */
+        operator: string;
+        /**
+         * Numeric value to compare against.
+         */
+        value: number;
+    }
+
+    export interface RuleSetRuleUnlessNumberExpressionEvaluate {
+        /**
+         * Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+         */
+        attribute: string;
+    }
+
+    export interface RuleSetRuleUnlessStringExpression {
+        /**
+         * Left-hand operand of the expression. Exactly one of `analysis`, `attribute`, `clientCertificateAttribute`, or `mimeHeaderAttribute` must be configured.
+         */
+        evaluate?: outputs.mailmanager.RuleSetRuleUnlessStringExpressionEvaluate;
+        /**
+         * String matching operator. Valid values are `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, and `CONTAINS`.
+         */
+        operator: string;
+        /**
+         * List of strings against which the selected operand is evaluated. Between 1 and 10 values are supported, each up to 4096 characters.
+         */
+        values: string[];
+    }
+
+    export interface RuleSetRuleUnlessStringExpressionEvaluate {
+        /**
+         * Add On result to evaluate. See `analysis` Block.
+         */
+        analysis?: outputs.mailmanager.RuleSetRuleUnlessStringExpressionEvaluateAnalysis;
+        /**
+         * Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+         */
+        attribute?: string;
+        /**
+         * Client certificate field to evaluate. Valid values are `CN`, `SAN_RFC822_NAME`, `SAN_DNS_NAME`, `SAN_DIRECTORY_NAME`, `SAN_UNIFORM_RESOURCE_IDENTIFIER`, `SAN_IP_ADDRESS`, `SAN_REGISTERED_ID`, and `SERIAL_NUMBER`.
+         */
+        clientCertificateAttribute?: string;
+        /**
+         * MIME header name to evaluate. Must contain between 1 and 256 characters and begin with `X-` or `x-`.
+         */
+        mimeHeaderAttribute?: string;
+    }
+
+    export interface RuleSetRuleUnlessStringExpressionEvaluateAnalysis {
+        /**
+         * ARN of the Mail Manager Add On.
+         */
+        analyzer: string;
+        /**
+         * Result field returned by the Add On. Must contain between 1 and 256 characters.
+         */
+        resultField: string;
+    }
+
+    export interface RuleSetRuleUnlessVerdictExpression {
+        /**
+         * Left-hand operand of the expression. Exactly one of `analysis` or `attribute` must be configured.
+         */
+        evaluate?: outputs.mailmanager.RuleSetRuleUnlessVerdictExpressionEvaluate;
+        /**
+         * Verdict matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+         */
+        operator: string;
+        /**
+         * List of verdict values. Valid values are `PASS`, `FAIL`, `GRAY`, and `PROCESSING_FAILED`. Between 1 and 10 values are supported.
+         */
+        values: string[];
+    }
+
+    export interface RuleSetRuleUnlessVerdictExpressionEvaluate {
+        /**
+         * Add On result to evaluate. See `analysis` Block.
+         */
+        analysis?: outputs.mailmanager.RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis;
+        /**
+         * Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+         */
+        attribute?: string;
+    }
+
+    export interface RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis {
+        /**
+         * ARN of the Mail Manager Add On.
+         */
+        analyzer: string;
+        /**
+         * Result field returned by the Add On. Must contain between 1 and 256 characters.
+         */
+        resultField: string;
+    }
+
     export interface TrafficPolicyPolicyStatement {
         /**
          * Action applied when all conditions match. Valid values are `ALLOW` and `DENY`.
@@ -88240,27 +89056,27 @@ export namespace observabilityadmin {
 export namespace odb {
     export interface CloudAutonomousVmClusterMaintenanceWindow {
         /**
-         * The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+         * Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
          */
         daysOfWeeks?: outputs.odb.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek[];
         /**
-         * The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
+         * Hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
          */
         hoursOfDays?: number[];
         /**
-         * The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
+         * Lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
          */
         leadTimeInWeeks?: number;
         /**
-         * The months when maintenance can be performed. Changing this will force terraform to create new resource.
+         * Months when maintenance can be performed. Changing this will force terraform to create new resource.
          */
         months?: outputs.odb.CloudAutonomousVmClusterMaintenanceWindowMonth[];
         /**
-         * The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
+         * Preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
          */
         preference: string;
         /**
-         * Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
+         * Whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
          */
         weeksOfMonths?: number[];
     }
@@ -88294,39 +89110,39 @@ export namespace odb {
 
     export interface CloudExadataInfrastructureMaintenanceWindow {
         /**
-         * The custom action timeout in minutes for the maintenance window.
+         * Custom action timeout in minutes for the maintenance window.
          */
         customActionTimeoutInMins: number;
         /**
-         * The days of the week when maintenance can be performed.
+         * Days of the week when maintenance can be performed.
          */
         daysOfWeeks: outputs.odb.CloudExadataInfrastructureMaintenanceWindowDaysOfWeek[];
         /**
-         * The hours of the day when maintenance can be performed.
+         * Hours of the day when maintenance can be performed.
          */
         hoursOfDays: number[];
         /**
-         * ndicates whether custom action timeout is enabled for the maintenance window.
+         * Whether custom action timeout is enabled for the maintenance window.
          */
         isCustomActionTimeoutEnabled: boolean;
         /**
-         * The lead time in weeks before the maintenance window.
+         * Lead time in weeks before the maintenance window.
          */
         leadTimeInWeeks: number;
         /**
-         * The months when maintenance can be performed.
+         * Months when maintenance can be performed.
          */
         months: outputs.odb.CloudExadataInfrastructureMaintenanceWindowMonth[];
         /**
-         * The patching mode for the maintenance window.
+         * Patching mode for the maintenance window.
          */
         patchingMode: string;
         /**
-         * The preference for the maintenance window scheduling.
+         * Preference for the maintenance window scheduling.
          */
         preference: string;
         /**
-         * The weeks of the month when maintenance can be performed.
+         * Weeks of the month when maintenance can be performed.
          */
         weeksOfMonths: number[];
     }
@@ -88355,8 +89171,17 @@ export namespace odb {
     }
 
     export interface CloudVmClusterDataCollectionOptions {
+        /**
+         * Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
+         */
         isDiagnosticsEventsEnabled: boolean;
+        /**
+         * Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
+         */
         isHealthMonitoringEnabled: boolean;
+        /**
+         * Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
+         */
         isIncidentLogsEnabled: boolean;
     }
 
@@ -88407,7 +89232,7 @@ export namespace odb {
 
     export interface GetCloudAutonomousVmClustersCloudAutonomousVmCluster {
         /**
-         * The Amazon Resource Name (ARN) for the Exadata infrastructure.
+         * Amazon Resource Name (ARN) for the Exadata infrastructure.
          */
         arn: string;
         /**
@@ -88415,27 +89240,27 @@ export namespace odb {
          */
         cloudExadataInfrastructureId: string;
         /**
-         * The display name of the Autonomous VM cluster.
+         * Display name of the Autonomous VM cluster.
          */
         displayName: string;
         /**
-         * The unique identifier of the cloud autonomous vm cluster.
+         * Unique identifier of the cloud autonomous vm cluster.
          */
         id: string;
         /**
-         * The name of the OCI resource anchor associated with this Autonomous VM cluster.
+         * Name of the OCI resource anchor associated with this Autonomous VM cluster.
          */
         ociResourceAnchorName: string;
         /**
-         * The URL for accessing the OCI console page for this Autonomous VM cluster.
+         * URL for accessing the OCI console page for this Autonomous VM cluster.
          */
         ociUrl: string;
         /**
-         * The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+         * Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
          */
         ocid: string;
         /**
-         * The unique identifier of the ODB network associated with this Autonomous VM cluster.
+         * Unique identifier of the ODB network associated with this Autonomous VM cluster.
          */
         odbNetworkId: string;
     }
@@ -88466,27 +89291,27 @@ export namespace odb {
 
     export interface GetCloudExadataInfrastructuresCloudExadataInfrastructure {
         /**
-         * The Amazon Resource Name (ARN) for the Exadata infrastructure.
+         * Amazon Resource Name (ARN) for the Exadata infrastructure.
          */
         arn: string;
         /**
-         * The display name of the Exadata infrastructure.
+         * Display name of the Exadata infrastructure.
          */
         displayName: string;
         /**
-         * The unique identifier of the Exadata infrastructure.
+         * Unique identifier of the Exadata infrastructure.
          */
         id: string;
         /**
-         * The name of the OCI resource anchor for the Exadata infrastructure.
+         * Name of the OCI resource anchor for the Exadata infrastructure.
          */
         ociResourceAnchorName: string;
         /**
-         * The HTTPS link to the Exadata infrastructure in OCI.
+         * HTTPS link to the Exadata infrastructure in OCI.
          */
         ociUrl: string;
         /**
-         * The OCID of the Exadata infrastructure in OCI.
+         * OCID of the Exadata infrastructure in OCI.
          */
         ocid: string;
     }
@@ -88512,35 +89337,35 @@ export namespace odb {
 
     export interface GetCloudVmClustersCloudVmCluster {
         /**
-         * The Amazon Resource Name (ARN) for the cloud vm cluster.
+         * Amazon Resource Name (ARN) for the cloud vm cluster.
          */
         arn: string;
         /**
-         * The ID of the Cloud Exadata Infrastructure.
+         * ID of the Cloud Exadata Infrastructure.
          */
         cloudExadataInfrastructureId: string;
         /**
-         * The display name of the VM cluster.
+         * Display name of the VM cluster.
          */
         displayName: string;
         /**
-         * The unique identifier of the cloud vm cluster.
+         * Unique identifier of the cloud vm cluster.
          */
         id: string;
         /**
-         * The name of the OCI Resource Anchor.
+         * Name of the OCI Resource Anchor.
          */
         ociResourceAnchorName: string;
         /**
-         * The HTTPS link to the VM cluster in OCI.
+         * HTTPS link to the VM cluster in OCI.
          */
         ociUrl: string;
         /**
-         * The OCID of the VM cluster.
+         * OCID of the VM cluster.
          */
         ocid: string;
         /**
-         * The ID of the ODB network.
+         * ID of the ODB network.
          */
         odbNetworkId: string;
     }
@@ -88552,60 +89377,60 @@ export namespace odb {
         additionalDetails: string;
         arn: string;
         /**
-         * The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+         * Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
          */
         backupIpId: string;
         backupVnic2Id: string;
         /**
-         * The OCID of the backup VNIC for the DB node.
+         * OCID of the backup VNIC for the DB node.
          */
         backupVnicId: string;
         /**
-         * The number of CPU cores enabled on the DB node.
+         * Number of CPU cores enabled on the DB node.
          */
         cpuCoreCount: number;
         /**
-         * The date and time when the DB node was created.
+         * Date and time when the DB node was created.
          */
         createdAt: string;
         dbNodeStorageSize: number;
         /**
-         * The unique identifier of the database server that's associated with the DB node.
+         * Unique identifier of the database server that's associated with the DB node.
          */
         dbServerId: string;
         /**
-         * The OCID of the DB system.
+         * OCID of the DB system.
          */
         dbSystemId: string;
         /**
-         * The name of the fault domain where the DB node is located.
+         * Name of the fault domain where the DB node is located.
          */
         faultDomain: string;
         /**
-         * The OCID of the host IP address that's associated with the DB node.
+         * OCID of the host IP address that's associated with the DB node.
          */
         hostIpId: string;
         /**
-         * The host name for the DB node.
+         * Host name for the DB node.
          */
         hostname: string;
         id: string;
         /**
-         * The type of maintenance the DB node is undergoing.
+         * Type of maintenance the DB node is undergoing.
          */
         maintenanceType: string;
         memorySize: number;
         /**
-         * The name of the OCI resource anchor for the DB node.
+         * Name of the OCI resource anchor for the DB node.
          */
         ociResourceAnchorName: string;
         /**
-         * The OCID of the DB node.
+         * OCID of the DB node.
          */
         ocid: string;
         softwareStorageSize: number;
         /**
-         * The current status of the DB node.
+         * Current status of the DB node.
          */
         status: string;
         /**
@@ -88613,20 +89438,20 @@ export namespace odb {
          */
         statusReason: string;
         /**
-         * The end date and time of the maintenance window.
+         * End date and time of the maintenance window.
          */
         timeMaintenanceWindowEnd: string;
         /**
-         * The start date and time of the maintenance window.
+         * Start date and time of the maintenance window.
          */
         timeMaintenanceWindowStart: string;
         /**
-         * The total number of CPU cores reserved on the DB node.
+         * Total number of CPU cores reserved on the DB node.
          */
         totalCpuCoreCount: number;
         vnic2Id: string;
         /**
-         * The OCID of the VNIC.
+         * OCID of the VNIC.
          */
         vnicId: string;
     }
@@ -88640,75 +89465,75 @@ export namespace odb {
 
     export interface GetDbServersDbServer {
         /**
-         * A list of unique identifiers for the Autonomous VMs.
+         * List of unique identifiers for the Autonomous VMs.
          */
         autonomousVirtualMachineIds: string[];
         /**
-         * A list of identifiers for the Autonomous VM clusters.
+         * List of identifiers for the Autonomous VM clusters.
          */
         autonomousVmClusterIds: string[];
         /**
-         * The OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
+         * OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
          */
         computeModel: string;
         /**
-         * The number of CPU cores enabled on the database server.
+         * Number of CPU cores enabled on the database server.
          */
         cpuCoreCount: number;
         /**
-         * The date and time when the database server was created.
+         * Date and time when the database server was created.
          */
         createdAt: string;
         /**
-         * The amount of local node storage, in gigabytes (GB), that's allocated on the database server.
+         * Amount of local node storage, in gigabytes (GB), that's allocated on the database server.
          */
         dbNodeStorageSizeInGbs: number;
         /**
-         * The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+         * Scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
          */
         dbServerPatchingDetails: outputs.odb.GetDbServersDbServerDbServerPatchingDetail[];
         /**
-         * The user-friendly name of the database server. The name doesn't need to be unique.
+         * User-friendly name of the database server. The name doesn't need to be unique.
          */
         displayName: string;
         /**
-         * The ID of the Exadata infrastructure that hosts the database server.
+         * ID of the Exadata infrastructure that hosts the database server.
          */
         exadataInfrastructureId: string;
         /**
-         * The unique identifier of the database server.
+         * Unique identifier of the database server.
          */
         id: string;
         /**
-         * The total number of CPU cores available on the database server.
+         * Total number of CPU cores available on the database server.
          */
         maxCpuCount: number;
         /**
-         * The total amount of local node storage, in gigabytes (GB), that's available on the database server.
+         * Total amount of local node storage, in gigabytes (GB), that's available on the database server.
          */
         maxDbNodeStorageInGbs: number;
         /**
-         * The total amount of memory, in gigabytes (GB), that's available on the database server.
+         * Total amount of memory, in gigabytes (GB), that's available on the database server.
          */
         maxMemoryInGbs: number;
         /**
-         * The amount of memory, in gigabytes (GB), that's allocated on the database server.
+         * Amount of memory, in gigabytes (GB), that's allocated on the database server.
          */
         memorySizeInGbs: number;
         /**
-         * The name of the OCI resource anchor for the database server.
+         * Name of the OCI resource anchor for the database server.
          */
         ociResourceAnchorName: string;
         /**
-         * The OCID of the database server.
+         * OCID of the database server.
          */
         ocid: string;
         /**
-         * The hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
+         * Hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
          */
         shape: string;
         /**
-         * The current status of the database server.
+         * Current status of the database server.
          */
         status: string;
         /**
@@ -88716,7 +89541,7 @@ export namespace odb {
          */
         statusReason: string;
         /**
-         * The IDs of the VM clusters that are associated with the database server.
+         * IDs of the VM clusters that are associated with the database server.
          */
         vmClusterIds: string[];
     }
@@ -88730,98 +89555,98 @@ export namespace odb {
 
     export interface GetDbSystemShapesDbSystemShape {
         /**
-         * The maximum number of CPU cores that can be enabled for the shape.
+         * Maximum number of CPU cores that can be enabled for the shape.
          */
         availableCoreCount: number;
         /**
-         * The maximum number of CPU cores per DB node that can be enabled for the shape.
+         * Maximum number of CPU cores per DB node that can be enabled for the shape.
          */
         availableCoreCountPerNode: number;
         /**
-         * The maximum amount of data storage, in terabytes (TB), that can be enabled for the shape.
+         * Maximum amount of data storage, in terabytes (TB), that can be enabled for the shape.
          */
         availableDataStorageInTbs: number;
         /**
-         * The maximum amount of data storage, in terabytes (TB), that's available per storage server for the shape.
+         * Maximum amount of data storage, in terabytes (TB), that's available per storage server for the shape.
          */
         availableDataStoragePerServerInTbs: number;
         /**
-         * The maximum amount of DB node storage, in gigabytes (GB), that's available per DB node for the shape.
+         * Maximum amount of DB node storage, in gigabytes (GB), that's available per DB node for the shape.
          */
         availableDbNodePerNodeInGbs: number;
         /**
-         * The maximum amount of DB node storage, in gigabytes (GB), that can be enabled for the shape.
+         * Maximum amount of DB node storage, in gigabytes (GB), that can be enabled for the shape.
          */
         availableDbNodeStorageInGbs: number;
         /**
-         * The maximum amount of memory, in gigabytes (GB), that can be enabled for the shape.
+         * Maximum amount of memory, in gigabytes (GB), that can be enabled for the shape.
          */
         availableMemoryInGbs: number;
         /**
-         * The maximum amount of memory, in gigabytes (GB), that's available per DB node for the shape.
+         * Maximum amount of memory, in gigabytes (GB), that's available per DB node for the shape.
          */
         availableMemoryPerNodeInGbs: number;
         /**
-         * The discrete number by which the CPU core count for the shape can be increased or decreased.
+         * Discrete number by which the CPU core count for the shape can be increased or decreased.
          */
         coreCountIncrement: number;
         /**
-         * The maximum number of Exadata storage servers available for the shape.
+         * Maximum number of Exadata storage servers available for the shape.
          */
         maxStorageCount: number;
         /**
-         * The maximum number of compute servers available for the shape.
+         * Maximum number of compute servers available for the shape.
          */
         maximumNodeCount: number;
         /**
-         * The minimum number of CPU cores that can be enabled per node for the shape.
+         * Minimum number of CPU cores that can be enabled per node for the shape.
          */
         minCoreCountPerNode: number;
         /**
-         * The minimum amount of data storage, in terabytes (TB), that must be allocated for the shape.
+         * Minimum amount of data storage, in terabytes (TB), that must be allocated for the shape.
          */
         minDataStorageInTbs: number;
         /**
-         * The minimum amount of DB node storage, in gigabytes (GB), that must be allocated per DB node for the shape.
+         * Minimum amount of DB node storage, in gigabytes (GB), that must be allocated per DB node for the shape.
          */
         minDbNodeStoragePerNodeInGbs: number;
         /**
-         * The minimum amount of memory, in gigabytes (GB), that must be allocated per DB node for the shape.
+         * Minimum amount of memory, in gigabytes (GB), that must be allocated per DB node for the shape.
          */
         minMemoryPerNodeInGbs: number;
         /**
-         * The minimum number of Exadata storage servers available for the shape.
+         * Minimum number of Exadata storage servers available for the shape.
          */
         minStorageCount: number;
         /**
-         * The minimum number of CPU cores that can be enabled for the shape.
+         * Minimum number of CPU cores that can be enabled for the shape.
          */
         minimumCoreCount: number;
         /**
-         * The minimum number of compute servers available for the shape.
+         * Minimum number of compute servers available for the shape.
          */
         minimumNodeCount: number;
         /**
-         * The name of the shape.
+         * Name of the shape.
          */
         name: string;
         /**
-         * The runtime minimum number of CPU cores that can be enabled for the shape.
+         * Runtime minimum number of CPU cores that can be enabled for the shape.
          */
         runtimeMinimumCoreCount: number;
         /**
-         * The family of the shape.
+         * Family of the shape.
          */
         shapeFamily: string;
         /**
-         * The shape type, determined by the CPU hardware.
+         * Shape type, determined by the CPU hardware.
          */
         shapeType: string;
     }
 
     export interface GetGiVersionsGiVersion {
         /**
-         * The GI software version.
+         * GI software version.
          */
         version: string;
     }
@@ -88846,7 +89671,7 @@ export namespace odb {
          */
         region: string;
         /**
-         * The status of the network resource.
+         * Status of the network resource.
          */
         status: string;
     }
@@ -88856,7 +89681,7 @@ export namespace odb {
         ipv4Addresses: string[];
         kmsPolicyDocument: string;
         /**
-         * The status of the network resource.
+         * Status of the network resource.
          */
         status: string;
     }
@@ -88864,7 +89689,7 @@ export namespace odb {
     export interface GetNetworkManagedServiceManagedS3BackupAccess {
         ipv4Addresses: string[];
         /**
-         * The status of the network resource.
+         * Status of the network resource.
          */
         status: string;
     }
@@ -88874,7 +89699,7 @@ export namespace odb {
         ipv4Addresses: string[];
         s3PolicyDocument: string;
         /**
-         * The status of the network resource.
+         * Status of the network resource.
          */
         status: string;
     }
@@ -88888,7 +89713,7 @@ export namespace odb {
         domainName: string;
         ipv4Addresses: string[];
         /**
-         * The status of the network resource.
+         * Status of the network resource.
          */
         status: string;
         stsPolicyDocument: string;
@@ -88897,7 +89722,7 @@ export namespace odb {
     export interface GetNetworkManagedServiceZeroTlAccess {
         cidr: string;
         /**
-         * The status of the network resource.
+         * Status of the network resource.
          */
         status: string;
     }
@@ -88909,7 +89734,7 @@ export namespace odb {
 
     export interface GetNetworkPeeringConnectionsOdbPeeringConnection {
         /**
-         * The Amazon Resource Name (ARN) for the  ODB network peering connection.
+         * Amazon Resource Name (ARN) for the ODB network peering connection.
          */
         arn: string;
         /**
@@ -88917,7 +89742,7 @@ export namespace odb {
          */
         displayName: string;
         /**
-         * The unique identifier of the  ODB network peering connection.
+         * Unique identifier of the ODB network peering connection.
          */
         id: string;
         /**
@@ -88944,43 +89769,43 @@ export namespace odb {
          */
         id: string;
         /**
-         * The unique identifier of the OCI network anchor for the ODB network.
+         * Unique identifier of the OCI network anchor for the ODB network.
          */
         ociNetworkAnchorId: string;
         /**
-         * The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+         * Unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
          */
         ociVcnId: string;
         /**
-         * The URL of the OCI VCN for the ODB network.
+         * URL of the OCI VCN for the ODB network.
          */
         ociVcnUrl: string;
     }
 
     export interface NetworkManagedService {
         /**
-         * The list of regions enabled for cross-region restore in the ODB network.
+         * List of regions enabled for cross-region restore in the ODB network.
          */
         crossRegionS3RestoreSourcesAccesses: outputs.odb.NetworkManagedServiceCrossRegionS3RestoreSourcesAccess[];
         /**
-         * Specifies the configuration for KMS access from the ODB network.
+         * Configuration for KMS access from the ODB network.
          */
         kmsAccesses: outputs.odb.NetworkManagedServiceKmsAccess[];
         managedS3BackupAccesses: outputs.odb.NetworkManagedServiceManagedS3BackupAccess[];
         managedServiceIpv4Cidrs: string[];
         resourceGatewayArn: string;
         /**
-         * Specifies the configuration for Amazon S3 access from the ODB network.
+         * Configuration for Amazon S3 access from the ODB network.
          */
         s3Accesses: outputs.odb.NetworkManagedServiceS3Access[];
         serviceNetworkArn: string;
         serviceNetworkEndpoints: outputs.odb.NetworkManagedServiceServiceNetworkEndpoint[];
         /**
-         * Specifies the configuration for STS access from the ODB network.
+         * Configuration for STS access from the ODB network.
          */
         stsAccesses: outputs.odb.NetworkManagedServiceStsAccess[];
         /**
-         * Specifies the configuration for Zero-ETL access from the ODB network.
+         * Configuration for Zero-ETL access from the ODB network.
          *
          * The following arguments are optional:
          */
@@ -88994,7 +89819,7 @@ export namespace odb {
          */
         region: string;
         /**
-         * The status of the network resource.
+         * Status of the network resource.
          */
         status: string;
     }
@@ -89003,11 +89828,11 @@ export namespace odb {
         domainName: string;
         ipv4Addresses: string[];
         /**
-         * Specifies the endpoint policy for KMS access from the ODB network.
+         * Endpoint policy for KMS access from the ODB network.
          */
         kmsPolicyDocument: string;
         /**
-         * The status of the network resource.
+         * Status of the network resource.
          */
         status: string;
     }
@@ -89015,7 +89840,7 @@ export namespace odb {
     export interface NetworkManagedServiceManagedS3BackupAccess {
         ipv4Addresses: string[];
         /**
-         * The status of the network resource.
+         * Status of the network resource.
          */
         status: string;
     }
@@ -89024,11 +89849,11 @@ export namespace odb {
         domainName: string;
         ipv4Addresses: string[];
         /**
-         * Specifies the endpoint policy for Amazon S3 access from the ODB network.
+         * Endpoint policy for Amazon S3 access from the ODB network.
          */
         s3PolicyDocument: string;
         /**
-         * The status of the network resource.
+         * Status of the network resource.
          */
         status: string;
     }
@@ -89042,11 +89867,11 @@ export namespace odb {
         domainName: string;
         ipv4Addresses: string[];
         /**
-         * The status of the network resource.
+         * Status of the network resource.
          */
         status: string;
         /**
-         * Specifies the endpoint policy for STS access from the ODB network.
+         * Endpoint policy for STS access from the ODB network.
          */
         stsPolicyDocument: string;
     }
@@ -89054,7 +89879,7 @@ export namespace odb {
     export interface NetworkManagedServiceZeroEtlAccess {
         cidr: string;
         /**
-         * The status of the network resource.
+         * Status of the network resource.
          */
         status: string;
     }
@@ -94016,7 +94841,7 @@ export namespace ram {
 
     export interface ResourceShareResourceShareConfiguration {
         /**
-         * Specifies whether consumer account retains access to resource share after leaving AWS organization.
+         * Whether consumer account retains access to resource share after leaving AWS organization.
          */
         retainSharingOnAccountLeaveOrganization: boolean;
     }
@@ -95214,6 +96039,50 @@ export namespace resiliencehub {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         update?: string;
+    }
+
+    export interface V2PolicyAvailabilitySlo {
+        /**
+         * Availability target as a percentage (e.g., `99.9`).
+         */
+        target: number;
+    }
+
+    export interface V2PolicyDataRecovery {
+        /**
+         * Maximum time between backups in minutes.
+         */
+        timeBetweenBackupsInMinutes: number;
+    }
+
+    export interface V2PolicyMultiAz {
+        /**
+         * Multi-AZ disaster recovery approach. Valid values: `ACTIVE_ACTIVE`, `HOT_STANDBY`, `WARM_STANDBY`, `PILOT_LIGHT`, `BACKUP_AND_RESTORE`.
+         */
+        disasterRecoveryApproach: string;
+        /**
+         * Recovery point objective in minutes.
+         */
+        rpoInMinutes?: number;
+        /**
+         * Recovery time objective in minutes.
+         */
+        rtoInMinutes?: number;
+    }
+
+    export interface V2PolicyMultiRegion {
+        /**
+         * Multi-region disaster recovery approach. Valid values: `ACTIVE_ACTIVE`, `HOT_STANDBY`, `WARM_STANDBY`, `PILOT_LIGHT`, `BACKUP_AND_RESTORE`.
+         */
+        disasterRecoveryApproach: string;
+        /**
+         * Recovery point objective in minutes.
+         */
+        rpoInMinutes?: number;
+        /**
+         * Recovery time objective in minutes.
+         */
+        rtoInMinutes?: number;
     }
 
 }
@@ -96960,25 +97829,19 @@ export namespace rum {
 export namespace s3 {
     export interface AccessPointPublicAccessBlockConfiguration {
         /**
-         * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-         * * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-         * * PUT Object calls fail if the request includes a public ACL.
-         * * PUT Bucket calls fail if the request includes a public ACL.
+         * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
          */
         blockPublicAcls?: boolean;
         /**
-         * Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-         * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+         * Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
          */
         blockPublicPolicy?: boolean;
         /**
-         * Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-         * * Ignore all public ACLs on buckets in this account and any objects that they contain.
+         * Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true`, Amazon S3 ignores all public ACLs on buckets in this account and any objects that they contain.
          */
         ignorePublicAcls?: boolean;
         /**
-         * Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-         * * Only the bucket owner and AWS Services can access buckets with public policies.
+         * Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`, only the bucket owner and AWS Services can access buckets with public policies.
          */
         restrictPublicBuckets?: boolean;
     }
@@ -97010,7 +97873,7 @@ export namespace s3 {
 
     export interface AnalyticsConfigurationStorageClassAnalysisDataExport {
         /**
-         * Specifies the destination for the exported analytics data (documented below).
+         * Destination for the exported analytics data (documented below).
          */
         destination: outputs.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestination;
         /**
@@ -97047,9 +97910,7 @@ export namespace s3 {
 
     export interface BucketAbacAbacStatus {
         /**
-         * ABAC status of the general purpose bucket.
-         * Valid values are `Enabled` and `Disabled`.
-         * By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+         * ABAC status of the general purpose bucket. Valid values are `Enabled` and `Disabled`. By default, ABAC is disabled for all Amazon S3 general purpose buckets.
          */
         status: string;
     }
@@ -97246,7 +98107,7 @@ export namespace s3 {
          */
         exposeHeaders?: string[];
         /**
-         * Specifies time in seconds that browser can cache the response for a preflight request.
+         * Time in seconds that browser can cache the response for a preflight request.
          */
         maxAgeSeconds?: number;
     }
@@ -97302,8 +98163,7 @@ export namespace s3 {
          */
         expiration?: outputs.s3.BucketLifecycleConfigurationRuleExpiration;
         /**
-         * Configuration block used to identify objects that a Lifecycle Rule applies to.
-         * See below.
+         * Configuration block used to identify objects that a Lifecycle Rule applies to. See below.
          */
         filter?: outputs.s3.BucketLifecycleConfigurationRuleFilter;
         /**
@@ -97319,9 +98179,7 @@ export namespace s3 {
          */
         noncurrentVersionTransitions?: outputs.s3.BucketLifecycleConfigurationRuleNoncurrentVersionTransition[];
         /**
-         * **DEPRECATED** Use `filter` instead.
-         * This has been deprecated by Amazon S3.
-         * Prefix identifying one or more objects to which the rule applies.
+         * Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
          *
          * @deprecated Specify a prefix using 'filter' instead
          */
@@ -97353,7 +98211,7 @@ export namespace s3 {
          */
         days: number;
         /**
-         * Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+         * Whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
          */
         expiredObjectDeleteMarker: boolean;
     }
@@ -97395,9 +98253,7 @@ export namespace s3 {
          */
         prefix: string;
         /**
-         * Key-value map of resource tags.
-         * All of these tags must exist in the object's tag set in order for the rule to apply.
-         * If set, must contain at least one key-value pair.
+         * Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply. If set, must contain at least one key-value pair.
          */
         tags?: {[key: string]: string};
     }
@@ -97475,8 +98331,7 @@ export namespace s3 {
          */
         expiration?: outputs.s3.BucketLifecycleConfigurationV2RuleExpiration;
         /**
-         * Configuration block used to identify objects that a Lifecycle Rule applies to.
-         * See below.
+         * Configuration block used to identify objects that a Lifecycle Rule applies to. See below.
          */
         filter?: outputs.s3.BucketLifecycleConfigurationV2RuleFilter;
         /**
@@ -97492,9 +98347,7 @@ export namespace s3 {
          */
         noncurrentVersionTransitions?: outputs.s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition[];
         /**
-         * **DEPRECATED** Use `filter` instead.
-         * This has been deprecated by Amazon S3.
-         * Prefix identifying one or more objects to which the rule applies.
+         * Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
          *
          * @deprecated Specify a prefix using 'filter' instead
          */
@@ -97526,7 +98379,7 @@ export namespace s3 {
          */
         days: number;
         /**
-         * Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+         * Whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
          */
         expiredObjectDeleteMarker: boolean;
     }
@@ -97568,9 +98421,7 @@ export namespace s3 {
          */
         prefix: string;
         /**
-         * Key-value map of resource tags.
-         * All of these tags must exist in the object's tag set in order for the rule to apply.
-         * If set, must contain at least one key-value pair.
+         * Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply. If set, must contain at least one key-value pair.
          */
         tags?: {[key: string]: string};
     }
@@ -97640,15 +98491,15 @@ export namespace s3 {
 
     export interface BucketLifecycleRule {
         /**
-         * Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+         * Number of days after initiating a multipart upload when the multipart upload must be completed.
          */
         abortIncompleteMultipartUploadDays?: number;
         /**
-         * Specifies lifecycle rule status.
+         * Lifecycle rule status.
          */
         enabled: boolean;
         /**
-         * Specifies a period in the object's expire. See Expiration below for details.
+         * Configuration of the object expiration. See `expiration` Block below for details.
          */
         expiration?: outputs.s3.BucketLifecycleRuleExpiration;
         /**
@@ -97656,11 +98507,11 @@ export namespace s3 {
          */
         id: string;
         /**
-         * Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+         * When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
          */
         noncurrentVersionExpiration?: outputs.s3.BucketLifecycleRuleNoncurrentVersionExpiration;
         /**
-         * Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+         * When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
          */
         noncurrentVersionTransitions?: outputs.s3.BucketLifecycleRuleNoncurrentVersionTransition[];
         /**
@@ -97668,22 +98519,22 @@ export namespace s3 {
          */
         prefix?: string;
         /**
-         * Specifies object tags key and value.
+         * Object tags key and value.
          */
         tags?: {[key: string]: string};
         /**
-         * Specifies a period in the object's transitions. See Transition below for details.
+         * Configuration of the object transition. See `transition` Block below for details.
          */
         transitions?: outputs.s3.BucketLifecycleRuleTransition[];
     }
 
     export interface BucketLifecycleRuleExpiration {
         /**
-         * Specifies the date after which you want the corresponding action to take effect.
+         * Date after which you want the corresponding action to take effect.
          */
         date?: string;
         /**
-         * Specifies the number of days after object creation when the specific rule action takes effect.
+         * Number of days after object creation when the specific rule action takes effect.
          */
         days?: number;
         /**
@@ -97694,33 +98545,33 @@ export namespace s3 {
 
     export interface BucketLifecycleRuleNoncurrentVersionExpiration {
         /**
-         * Specifies the number of days noncurrent object versions expire.
+         * Number of days noncurrent object versions expire.
          */
         days?: number;
     }
 
     export interface BucketLifecycleRuleNoncurrentVersionTransition {
         /**
-         * Specifies the number of days noncurrent object versions transition.
+         * Number of days noncurrent object versions transition.
          */
         days?: number;
         /**
-         * Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+         * Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
          */
         storageClass: string;
     }
 
     export interface BucketLifecycleRuleTransition {
         /**
-         * Specifies the date after which you want the corresponding action to take effect.
+         * Date after which you want the corresponding action to take effect.
          */
         date?: string;
         /**
-         * Specifies the number of days after object creation when the specific rule action takes effect.
+         * Number of days after object creation when the specific rule action takes effect.
          */
         days?: number;
         /**
-         * Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+         * Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
          */
         storageClass: string;
     }
@@ -97783,7 +98634,7 @@ export namespace s3 {
 
     export interface BucketLoggingTargetObjectKeyFormatPartitionedPrefix {
         /**
-         * Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+         * Partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
          */
         partitionDateSource: string;
     }
@@ -97838,7 +98689,7 @@ export namespace s3 {
 
     export interface BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
         /**
-         * Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+         * Partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
          */
         partitionDateSource: string;
     }
@@ -97848,7 +98699,7 @@ export namespace s3 {
 
     export interface BucketMetadataConfigurationMetadataConfiguration {
         /**
-         * Destination information for the S3 Metadata configuration.
+         * Destination information for the S3 Metadata configuration. See `destination` Block for details.
          */
         destinations: outputs.s3.BucketMetadataConfigurationMetadataConfigurationDestination[];
         /**
@@ -97886,11 +98737,11 @@ export namespace s3 {
          */
         encryptionConfiguration?: outputs.s3.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfiguration;
         /**
-         * Inventory table ARN.
+         * Journal table ARN.
          */
         tableArn: string;
         /**
-         * Inventory table name.
+         * Journal table name.
          */
         tableName: string;
     }
@@ -97994,7 +98845,7 @@ export namespace s3 {
 
     export interface BucketNotificationQueue {
         /**
-         * Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+         * [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
          */
         events: string[];
         /**
@@ -98040,13 +98891,13 @@ export namespace s3 {
 
     export interface BucketObjectLockConfiguration {
         /**
-         * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+         * Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
          *
          * @deprecated object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
          */
         objectLockEnabled?: string;
         /**
-         * Object Lock rule in place for this bucket (documented below).
+         * Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
          *
          * @deprecated rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
          */
@@ -98099,24 +98950,21 @@ export namespace s3 {
 
     export interface BucketObjectv2OverrideProvider {
         /**
-         * Override the provider `defaultTags` configuration block.
+         * Override the provider `defaultTags` configuration block. See `defaultTags` Block below for more details.
          */
         defaultTags?: outputs.s3.BucketObjectv2OverrideProviderDefaultTags;
     }
 
     export interface BucketObjectv2OverrideProviderDefaultTags {
         /**
-         * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * Map of tags to override the provider-level `defaultTags`. Must be an empty map to suppress all provider-level `defaultTags`.
          */
         tags?: {[key: string]: string};
     }
 
     export interface BucketOwnershipControlsRule {
         /**
-         * Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
-         * * `BucketOwnerPreferred` - Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL.
-         * * `ObjectWriter` - Uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL.
-         * * `BucketOwnerEnforced` - Bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect permissions to data in the S3 bucket.
+         * Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`. `BucketOwnerPreferred` means objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL. `ObjectWriter` means the uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL. `BucketOwnerEnforced` means the bucket owner automatically owns and has full control over every object in the bucket, and ACLs no longer affect permissions to data in the S3 bucket.
          */
         objectOwnership: string;
     }
@@ -98127,7 +98975,7 @@ export namespace s3 {
          */
         deleteMarkerReplication?: outputs.s3.BucketReplicationConfigRuleDeleteMarkerReplication;
         /**
-         * Specifies the destination for the rule. See below.
+         * Destination for the rule. See below.
          */
         destination: outputs.s3.BucketReplicationConfigRuleDestination;
         /**
@@ -98153,7 +99001,7 @@ export namespace s3 {
          */
         priority?: number;
         /**
-         * Specifies special object selection criteria. See below.
+         * Special object selection criteria. See below.
          */
         sourceSelectionCriteria?: outputs.s3.BucketReplicationConfigRuleSourceSelectionCriteria;
         /**
@@ -98195,14 +99043,14 @@ export namespace s3 {
          */
         replicationTime?: outputs.s3.BucketReplicationConfigRuleDestinationReplicationTime;
         /**
-         * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+         * [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
          */
         storageClass?: string;
     }
 
     export interface BucketReplicationConfigRuleDestinationAccessControlTranslation {
         /**
-         * Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
+         * Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
          */
         owner: string;
     }
@@ -98325,7 +99173,7 @@ export namespace s3 {
          */
         role: string;
         /**
-         * Specifies the rules managing the replication (documented below).
+         * Rules managing the replication. See `rules` Block below for details.
          */
         rules: outputs.s3.BucketReplicationConfigurationRule[];
     }
@@ -98336,11 +99184,11 @@ export namespace s3 {
          */
         deleteMarkerReplicationStatus?: string;
         /**
-         * Specifies the destination for the rule (documented below).
+         * Destination for the rule. See `destination` Block below for details.
          */
         destination: outputs.s3.BucketReplicationConfigurationRuleDestination;
         /**
-         * Filter that identifies subset of objects to which the replication rule applies (documented below).
+         * Filter that identifies subset of objects to which the replication rule applies. See `filter` Block below for details.
          */
         filter?: outputs.s3.BucketReplicationConfigurationRuleFilter;
         /**
@@ -98356,7 +99204,7 @@ export namespace s3 {
          */
         priority?: number;
         /**
-         * Specifies special object selection criteria (documented below).
+         * Special object selection criteria. See `sourceSelectionCriteria` Block below for details.
          */
         sourceSelectionCriteria?: outputs.s3.BucketReplicationConfigurationRuleSourceSelectionCriteria;
         /**
@@ -98367,7 +99215,7 @@ export namespace s3 {
 
     export interface BucketReplicationConfigurationRuleDestination {
         /**
-         * Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
+         * Overrides to use for object owners on replication. See `accessControlTranslation` Block below for details. Must be used in conjunction with `accountId` owner override configuration.
          */
         accessControlTranslation?: outputs.s3.BucketReplicationConfigurationRuleDestinationAccessControlTranslation;
         /**
@@ -98379,27 +99227,26 @@ export namespace s3 {
          */
         bucket: string;
         /**
-         * Enables replication metrics (required for S3 RTC) (documented below).
+         * Enables replication metrics (required for S3 RTC). See `metrics` Block below for details.
          */
         metrics?: outputs.s3.BucketReplicationConfigurationRuleDestinationMetrics;
         /**
-         * Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-         * `sseKmsEncryptedObjects` source selection criteria.
+         * Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with `sseKmsEncryptedObjects` source selection criteria.
          */
         replicaKmsKeyId?: string;
         /**
-         * Enables S3 Replication Time Control (S3 RTC) (documented below).
+         * Enables S3 Replication Time Control (S3 RTC). See `replicationTime` Block below for details.
          */
         replicationTime?: outputs.s3.BucketReplicationConfigurationRuleDestinationReplicationTime;
         /**
-         * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+         * [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
          */
         storageClass?: string;
     }
 
     export interface BucketReplicationConfigurationRuleDestinationAccessControlTranslation {
         /**
-         * Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+         * Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
          */
         owner: string;
     }
@@ -98432,16 +99279,14 @@ export namespace s3 {
          */
         prefix?: string;
         /**
-         * A map of tags that identifies subset of objects to which the rule applies.
-         * The rule applies only to objects having all the tags in its tagset.
+         * Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
          */
         tags?: {[key: string]: string};
     }
 
     export interface BucketReplicationConfigurationRuleSourceSelectionCriteria {
         /**
-         * Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
-         * in `destination` must be specified as well.
+         * Match SSE-KMS encrypted objects. See `sseKmsEncryptedObjects` Block below for details. If specified, `replicaKmsKeyId` in `destination` must be specified as well.
          */
         sseKmsEncryptedObjects?: outputs.s3.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects;
     }
@@ -98455,7 +99300,7 @@ export namespace s3 {
 
     export interface BucketServerSideEncryptionConfiguration {
         /**
-         * Single object for server-side encryption by default configuration. (documented below)
+         * Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
          */
         rule: outputs.s3.BucketServerSideEncryptionConfigurationRule;
     }
@@ -98530,7 +99375,7 @@ export namespace s3 {
          */
         exposeHeaders?: string[];
         /**
-         * Specifies time in seconds that browser can cache the response for a preflight request.
+         * Time in seconds that browser can cache the response for a preflight request.
          */
         maxAgeSeconds?: number;
     }
@@ -98556,15 +99401,15 @@ export namespace s3 {
 
     export interface BucketV2LifecycleRule {
         /**
-         * Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+         * Number of days after initiating a multipart upload when the multipart upload must be completed.
          */
         abortIncompleteMultipartUploadDays?: number;
         /**
-         * Specifies lifecycle rule status.
+         * Lifecycle rule status.
          */
         enabled: boolean;
         /**
-         * Specifies a period in the object's expire. See Expiration below for details.
+         * Configuration of the object expiration. See `expiration` Block below for details.
          */
         expirations?: outputs.s3.BucketV2LifecycleRuleExpiration[];
         /**
@@ -98572,11 +99417,11 @@ export namespace s3 {
          */
         id: string;
         /**
-         * Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+         * When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
          */
         noncurrentVersionExpirations?: outputs.s3.BucketV2LifecycleRuleNoncurrentVersionExpiration[];
         /**
-         * Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+         * When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
          */
         noncurrentVersionTransitions?: outputs.s3.BucketV2LifecycleRuleNoncurrentVersionTransition[];
         /**
@@ -98584,22 +99429,22 @@ export namespace s3 {
          */
         prefix?: string;
         /**
-         * Specifies object tags key and value.
+         * Object tags key and value.
          */
         tags?: {[key: string]: string};
         /**
-         * Specifies a period in the object's transitions. See Transition below for details.
+         * Configuration of the object transition. See `transition` Block below for details.
          */
         transitions?: outputs.s3.BucketV2LifecycleRuleTransition[];
     }
 
     export interface BucketV2LifecycleRuleExpiration {
         /**
-         * Specifies the date after which you want the corresponding action to take effect.
+         * Date after which you want the corresponding action to take effect.
          */
         date?: string;
         /**
-         * Specifies the number of days after object creation when the specific rule action takes effect.
+         * Number of days after object creation when the specific rule action takes effect.
          */
         days?: number;
         /**
@@ -98610,33 +99455,33 @@ export namespace s3 {
 
     export interface BucketV2LifecycleRuleNoncurrentVersionExpiration {
         /**
-         * Specifies the number of days noncurrent object versions expire.
+         * Number of days noncurrent object versions expire.
          */
         days?: number;
     }
 
     export interface BucketV2LifecycleRuleNoncurrentVersionTransition {
         /**
-         * Specifies the number of days noncurrent object versions transition.
+         * Number of days noncurrent object versions transition.
          */
         days?: number;
         /**
-         * Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+         * Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
          */
         storageClass: string;
     }
 
     export interface BucketV2LifecycleRuleTransition {
         /**
-         * Specifies the date after which you want the corresponding action to take effect.
+         * Date after which you want the corresponding action to take effect.
          */
         date?: string;
         /**
-         * Specifies the number of days after object creation when the specific rule action takes effect.
+         * Number of days after object creation when the specific rule action takes effect.
          */
         days?: number;
         /**
-         * Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+         * Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
          */
         storageClass: string;
     }
@@ -98654,13 +99499,13 @@ export namespace s3 {
 
     export interface BucketV2ObjectLockConfiguration {
         /**
-         * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+         * Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
          *
          * @deprecated object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
          */
         objectLockEnabled?: string;
         /**
-         * Object Lock rule in place for this bucket (documented below).
+         * Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
          *
          * @deprecated rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
          */
@@ -98669,7 +99514,7 @@ export namespace s3 {
 
     export interface BucketV2ObjectLockConfigurationRule {
         /**
-         * Default retention period that you want to apply to new objects placed in this bucket (documented below).
+         * Default retention period that you want to apply to new objects placed in this bucket. See `defaultRetention` Block below for details.
          */
         defaultRetentions: outputs.s3.BucketV2ObjectLockConfigurationRuleDefaultRetention[];
     }
@@ -98695,7 +99540,7 @@ export namespace s3 {
          */
         role: string;
         /**
-         * Specifies the rules managing the replication (documented below).
+         * Rules managing the replication. See `rules` Block below for details.
          */
         rules: outputs.s3.BucketV2ReplicationConfigurationRule[];
     }
@@ -98706,11 +99551,11 @@ export namespace s3 {
          */
         deleteMarkerReplicationStatus?: string;
         /**
-         * Specifies the destination for the rule (documented below).
+         * Destination for the rule. See `destination` Block below for details.
          */
         destinations: outputs.s3.BucketV2ReplicationConfigurationRuleDestination[];
         /**
-         * Filter that identifies subset of objects to which the replication rule applies (documented below).
+         * Filter that identifies subset of objects to which the replication rule applies. See `filter` Block below for details.
          */
         filters?: outputs.s3.BucketV2ReplicationConfigurationRuleFilter[];
         /**
@@ -98726,7 +99571,7 @@ export namespace s3 {
          */
         priority?: number;
         /**
-         * Specifies special object selection criteria (documented below).
+         * Special object selection criteria. See `sourceSelectionCriteria` Block below for details.
          */
         sourceSelectionCriterias?: outputs.s3.BucketV2ReplicationConfigurationRuleSourceSelectionCriteria[];
         /**
@@ -98737,7 +99582,7 @@ export namespace s3 {
 
     export interface BucketV2ReplicationConfigurationRuleDestination {
         /**
-         * Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
+         * Overrides to use for object owners on replication. See `accessControlTranslation` Block below for details. Must be used in conjunction with `accountId` owner override configuration.
          */
         accessControlTranslations?: outputs.s3.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation[];
         /**
@@ -98749,27 +99594,26 @@ export namespace s3 {
          */
         bucket: string;
         /**
-         * Enables replication metrics (required for S3 RTC) (documented below).
+         * Enables replication metrics (required for S3 RTC). See `metrics` Block below for details.
          */
         metrics?: outputs.s3.BucketV2ReplicationConfigurationRuleDestinationMetric[];
         /**
-         * Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-         * `sseKmsEncryptedObjects` source selection criteria.
+         * Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with `sseKmsEncryptedObjects` source selection criteria.
          */
         replicaKmsKeyId?: string;
         /**
-         * Enables S3 Replication Time Control (S3 RTC) (documented below).
+         * Enables S3 Replication Time Control (S3 RTC). See `replicationTime` Block below for details.
          */
         replicationTimes?: outputs.s3.BucketV2ReplicationConfigurationRuleDestinationReplicationTime[];
         /**
-         * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+         * [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
          */
         storageClass?: string;
     }
 
     export interface BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation {
         /**
-         * Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+         * Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
          */
         owner: string;
     }
@@ -98802,16 +99646,14 @@ export namespace s3 {
          */
         prefix?: string;
         /**
-         * A map of tags that identifies subset of objects to which the rule applies.
-         * The rule applies only to objects having all the tags in its tagset.
+         * Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
          */
         tags?: {[key: string]: string};
     }
 
     export interface BucketV2ReplicationConfigurationRuleSourceSelectionCriteria {
         /**
-         * Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
-         * in `destination` must be specified as well.
+         * Match SSE-KMS encrypted objects. See `sseKmsEncryptedObjects` Block below for details. If specified, `replicaKmsKeyId` in `destination` must be specified as well.
          */
         sseKmsEncryptedObjects?: outputs.s3.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject[];
     }
@@ -98825,14 +99667,14 @@ export namespace s3 {
 
     export interface BucketV2ServerSideEncryptionConfiguration {
         /**
-         * Single object for server-side encryption by default configuration. (documented below)
+         * Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
          */
         rules: outputs.s3.BucketV2ServerSideEncryptionConfigurationRule[];
     }
 
     export interface BucketV2ServerSideEncryptionConfigurationRule {
         /**
-         * Single object for setting server-side encryption by default. (documented below)
+         * Single object for setting server-side encryption by default. See `applyServerSideEncryptionByDefault` Block below for details.
          */
         applyServerSideEncryptionByDefaults: outputs.s3.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault[];
         /**
@@ -98877,8 +99719,7 @@ export namespace s3 {
          */
         redirectAllRequestsTo?: string;
         /**
-         * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-         * describing redirect behavior and when redirects are applied.
+         * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
          */
         routingRules?: string;
     }
@@ -98896,7 +99737,7 @@ export namespace s3 {
 
     export interface BucketVersioningV2VersioningConfiguration {
         /**
-         * Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+         * Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
          */
         mfaDelete: string;
         /**
@@ -98907,7 +99748,7 @@ export namespace s3 {
 
     export interface BucketVersioningVersioningConfiguration {
         /**
-         * Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+         * Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
          */
         mfaDelete: string;
         /**
@@ -98930,8 +99771,7 @@ export namespace s3 {
          */
         redirectAllRequestsTo?: string;
         /**
-         * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-         * describing redirect behavior and when redirects are applied.
+         * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
          */
         routingRules?: string;
     }
@@ -98945,9 +99785,7 @@ export namespace s3 {
 
     export interface BucketWebsiteConfigurationIndexDocument {
         /**
-         * Suffix that is appended to a request that is for a directory on the website endpoint.
-         * For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
-         * The suffix must not be empty and must not include a slash character.
+         * Suffix that is appended to a request that is for a directory on the website endpoint. The suffix must not be empty and must not include a slash character. For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
          */
         suffix: string;
     }
@@ -99017,9 +99855,7 @@ export namespace s3 {
 
     export interface BucketWebsiteConfigurationV2IndexDocument {
         /**
-         * Suffix that is appended to a request that is for a directory on the website endpoint.
-         * For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
-         * The suffix must not be empty and must not include a slash character.
+         * Suffix that is appended to a request that is for a directory on the website endpoint. The suffix must not be empty and must not include a slash character. For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
          */
         suffix: string;
     }
@@ -99315,7 +100151,7 @@ export namespace s3 {
         filters: outputs.s3.GetBucketReplicationConfigurationRuleFilter[];
         id: string;
         /**
-         * The object key name prefix that identifies the subset of objects to which the rule applies.
+         * Object key name prefix that identifies the subset of objects to which the rule applies.
          */
         prefix: string;
         priority: number;
@@ -99331,7 +100167,7 @@ export namespace s3 {
         accessControlTranslations: outputs.s3.GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation[];
         account: string;
         /**
-         * The name of the bucket to get the replication configuration for.
+         * Name of the bucket to get the replication configuration for.
          */
         bucket: string;
         encryptionConfigurations: outputs.s3.GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration[];
@@ -99373,45 +100209,33 @@ export namespace s3 {
     export interface GetBucketReplicationConfigurationRuleFilter {
         ands: outputs.s3.GetBucketReplicationConfigurationRuleFilterAnd[];
         /**
-         * The object key name prefix that identifies the subset of objects to which the rule applies.
+         * Object key name prefix that identifies the subset of objects to which the rule applies.
          */
         prefix: string;
         /**
-         * An unordered list of tags that identify a subset of objects to which the rule applies.
+         * Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
          */
         tags: outputs.s3.GetBucketReplicationConfigurationRuleFilterTag[];
     }
 
     export interface GetBucketReplicationConfigurationRuleFilterAnd {
         /**
-         * The object key name prefix that identifies the subset of objects to which the rule applies.
+         * Object key name prefix that identifies the subset of objects to which the rule applies.
          */
         prefix: string;
         /**
-         * An unordered list of tags that identify a subset of objects to which the rule applies.
+         * Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
          */
         tags: outputs.s3.GetBucketReplicationConfigurationRuleFilterAndTag[];
     }
 
     export interface GetBucketReplicationConfigurationRuleFilterAndTag {
-        /**
-         * The key of the tag.
-         */
         key: string;
-        /**
-         * The value of the tag.
-         */
         value: string;
     }
 
     export interface GetBucketReplicationConfigurationRuleFilterTag {
-        /**
-         * The key of the tag.
-         */
         key: string;
-        /**
-         * The value of the tag.
-         */
         value: string;
     }
 
@@ -99533,7 +100357,7 @@ export namespace s3 {
 
     export interface InventoryDestination {
         /**
-         * S3 bucket configuration where inventory results are published (documented below).
+         * S3 bucket configuration where inventory results are published. See `bucket` Block below.
          */
         bucket: outputs.s3.InventoryDestinationBucket;
     }
@@ -99548,11 +100372,13 @@ export namespace s3 {
          */
         bucketArn: string;
         /**
-         * Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+         * Type of server-side encryption to use to encrypt the inventory. See `encryption` Block below.
          */
         encryption?: outputs.s3.InventoryDestinationBucketEncryption;
         /**
-         * Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+         * Output format of the inventory results. Valid values: `CSV`, [`ORC`](https://orc.apache.org/), [`Parquet`](https://parquet.apache.org/).
+         *
+         * The following arguments are optional:
          */
         format: string;
         /**
@@ -99563,11 +100389,11 @@ export namespace s3 {
 
     export interface InventoryDestinationBucketEncryption {
         /**
-         * Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+         * Server-side encryption with AWS KMS-managed keys to encrypt the inventory file. See `sseKms` Block below.
          */
         sseKms?: outputs.s3.InventoryDestinationBucketEncryptionSseKms;
         /**
-         * Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+         * Server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
          */
         sseS3?: outputs.s3.InventoryDestinationBucketEncryptionSseS3;
     }
@@ -99591,7 +100417,7 @@ export namespace s3 {
 
     export interface InventorySchedule {
         /**
-         * Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
+         * How frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
          */
         frequency: string;
     }
@@ -99611,8 +100437,6 @@ export namespace s3 {
         permissions: string[];
         /**
          * Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
-         *
-         * This configuration block has the following optional arguments (one of the three is required):
          */
         type: string;
         /**
@@ -99623,7 +100447,7 @@ export namespace s3 {
 
     export interface ObjectCopyOverrideProvider {
         /**
-         * Override the provider `defaultTags` configuration block.
+         * Configuration block to override the provider `defaultTags` configuration block. See `defaultTags` Block below.
          */
         defaultTags?: outputs.s3.ObjectCopyOverrideProviderDefaultTags;
     }
@@ -99687,15 +100511,15 @@ export namespace s3control {
 
     export interface BucketLifecycleConfigurationRule {
         /**
-         * Configuration block containing settings for abort incomplete multipart upload.
+         * Configuration block containing settings for abort incomplete multipart upload. See `abortIncompleteMultipartUpload` below.
          */
         abortIncompleteMultipartUpload?: outputs.s3control.BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload;
         /**
-         * Configuration block containing settings for expiration of objects.
+         * Configuration block containing settings for expiration of objects. See `expiration` below.
          */
         expiration?: outputs.s3control.BucketLifecycleConfigurationRuleExpiration;
         /**
-         * Configuration block containing settings for filtering.
+         * Configuration block containing settings for filtering. See `filter` below.
          */
         filter?: outputs.s3control.BucketLifecycleConfigurationRuleFilter;
         /**
@@ -99748,8 +100572,6 @@ export namespace s3control {
         permissions?: string[];
         /**
          * You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-         *
-         * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
          */
         prefixes?: string[];
     }
@@ -99784,7 +100606,7 @@ export namespace s3control {
          */
         name: string;
         /**
-         * Indicates whether the access point allows access from the public Internet.
+         * Whether the access point allows access from the public Internet.
          */
         networkOrigin: string;
         /**
@@ -99802,36 +100624,30 @@ export namespace s3control {
 
     export interface GetMultiRegionAccessPointPublicAccessBlock {
         /**
-         * Specifies whether Amazon S3 should block public access control lists (ACLs). When set to `true` causes the following behavior:
-         * * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-         * * PUT Object calls fail if the request includes a public ACL.
-         * * PUT Bucket calls fail if the request includes a public ACL.
+         * Whether Amazon S3 should block public access control lists (ACLs). When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
          */
         blockPublicAcls: boolean;
         /**
-         * Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true` causes Amazon S3 to:
-         * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+         * Whether Amazon S3 should block public bucket policies for buckets in this account. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
          */
         blockPublicPolicy: boolean;
         /**
-         * Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true` causes Amazon S3 to:
-         * * Ignore all public ACLs on buckets in this account and any objects that they contain.
+         * Whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `true`, Amazon S3 ignores all public ACLs on buckets in this account and any objects that they contain.
          */
         ignorePublicAcls: boolean;
         /**
-         * Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`:
-         * * Only the bucket owner and AWS Services can access buckets with public policies.
+         * Whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `true`, only the bucket owner and AWS Services can access buckets with public policies.
          */
         restrictPublicBuckets: boolean;
     }
 
     export interface GetMultiRegionAccessPointRegion {
         /**
-         * The name of the bucket.
+         * Name of the bucket.
          */
         bucket: string;
         /**
-         * The AWS account ID that owns the bucket.
+         * AWS account ID that owns the bucket.
          */
         bucketAccountId: string;
         /**
@@ -99903,53 +100719,45 @@ export namespace s3control {
 
     export interface MultiRegionAccessPointDetails {
         /**
-         * The name of the Multi-Region Access Point.
+         * Name of the Multi-Region Access Point.
          */
         name: string;
         /**
-         * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+         * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See `publicAccessBlock` Block below.
          */
         publicAccessBlock?: outputs.s3control.MultiRegionAccessPointDetailsPublicAccessBlock;
         /**
-         * The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-         *
-         * For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
+         * Region configuration block to specify the bucket associated with the Multi-Region Access Point. See `region` Block below.
          */
         regions: outputs.s3control.MultiRegionAccessPointDetailsRegion[];
     }
 
     export interface MultiRegionAccessPointDetailsPublicAccessBlock {
         /**
-         * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-         * * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-         * * PUT Object calls fail if the request includes a public ACL.
-         * * PUT Bucket calls fail if the request includes a public ACL.
+         * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
          */
         blockPublicAcls?: boolean;
         /**
-         * Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-         * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+         * Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
          */
         blockPublicPolicy?: boolean;
         /**
-         * Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-         * * Ignore all public ACLs on buckets in this account and any objects that they contain.
+         * Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true`, Amazon S3 ignores all public ACLs on buckets in this account and any objects that they contain.
          */
         ignorePublicAcls?: boolean;
         /**
-         * Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-         * * Only the bucket owner and AWS Services can access buckets with public policies.
+         * Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`, only the bucket owner and AWS Services can access buckets with public policies.
          */
         restrictPublicBuckets?: boolean;
     }
 
     export interface MultiRegionAccessPointDetailsRegion {
         /**
-         * The name of the associated bucket for the Region.
+         * Name of the associated bucket for the Region.
          */
         bucket: string;
         /**
-         * The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
+         * AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
          */
         bucketAccountId: string;
         /**
@@ -99960,11 +100768,11 @@ export namespace s3control {
 
     export interface MultiRegionAccessPointPolicyDetails {
         /**
-         * The name of the Multi-Region Access Point.
+         * Name of the Multi-Region Access Point.
          */
         name: string;
         /**
-         * A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+         * Valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
          *
          * > **NOTE:** When you update the `policy`, the update is first listed as the proposed policy. After the update is finished and all Regions have been updated, the proposed policy is listed as the established policy. If both policies have the same version number, the proposed policy is the established policy.
          */
@@ -100000,32 +100808,32 @@ export namespace s3control {
          */
         supportingAccessPoint: string;
         /**
-         * List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+         * List of transformation configurations for the Object Lambda Access Point. See `transformationConfiguration` Block below for more details.
          */
         transformationConfigurations: outputs.s3control.ObjectLambdaAccessPointConfigurationTransformationConfiguration[];
     }
 
     export interface ObjectLambdaAccessPointConfigurationTransformationConfiguration {
         /**
-         * The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+         * Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
          */
         actions: string[];
         /**
-         * The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+         * Content transformation of an Object Lambda Access Point configuration. See `contentTransformation` Block below for more details.
          */
         contentTransformation: outputs.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation;
     }
 
     export interface ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation {
         /**
-         * Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+         * Configuration for an AWS Lambda function. See `awsLambda` Block below for more details.
          */
         awsLambda: outputs.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda;
     }
 
     export interface ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda {
         /**
-         * The Amazon Resource Name (ARN) of the AWS Lambda function.
+         * Amazon Resource Name (ARN) of the AWS Lambda function.
          */
         functionArn: string;
         /**
@@ -100036,15 +100844,15 @@ export namespace s3control {
 
     export interface StorageLensConfigurationStorageLensConfiguration {
         /**
-         * The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+         * Account-level configurations of the S3 Storage Lens configuration. See `accountLevel` below for more details.
          */
         accountLevel: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevel;
         /**
-         * The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+         * Amazon Web Services organization for the S3 Storage Lens configuration. See `awsOrg` below for more details.
          */
         awsOrg?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAwsOrg;
         /**
-         * Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+         * Properties of S3 Storage Lens metrics export including the destination, schema and format. See `dataExport` below for more details.
          */
         dataExport?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationDataExport;
         /**
@@ -100052,15 +100860,15 @@ export namespace s3control {
          */
         enabled: boolean;
         /**
-         * What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+         * What is excluded in this configuration. Conflicts with `include`. See `exclude` below for more details.
          */
         exclude?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationExclude;
         /**
-         * Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+         * Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See `expandedPrefixesDataExport` below for more details.
          */
         expandedPrefixesDataExport?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport;
         /**
-         * What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+         * What is included in this configuration. Conflicts with `exclude`. See `include` below for more details.
          */
         include?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationInclude;
         /**
@@ -100071,27 +100879,27 @@ export namespace s3control {
 
     export interface StorageLensConfigurationStorageLensConfigurationAccountLevel {
         /**
-         * S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+         * S3 Storage Lens activity metrics. See `activityMetrics` below for more details.
          */
         activityMetrics?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics;
         /**
-         * Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
+         * Advanced cost-optimization metrics for S3 Storage Lens. See `advancedCostOptimizationMetrics` below for more details.
          */
         advancedCostOptimizationMetrics?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics;
         /**
-         * Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
+         * Advanced data-protection metrics for S3 Storage Lens. See `advancedDataProtectionMetrics` below for more details.
          */
         advancedDataProtectionMetrics?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics;
         /**
-         * Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.
+         * Advanced performance metrics for S3 Storage Lens. See `advancedPerformanceMetrics` below for more details.
          */
         advancedPerformanceMetrics?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetrics;
         /**
-         * S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+         * S3 Storage Lens bucket-level configuration. See `bucketLevel` below for more details.
          */
         bucketLevel: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel;
         /**
-         * Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
+         * Detailed status code metrics for S3 Storage Lens. See `detailedStatusCodeMetrics` below for more details.
          */
         detailedStatusCodeMetrics?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics;
     }
@@ -100126,27 +100934,27 @@ export namespace s3control {
 
     export interface StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel {
         /**
-         * S3 Storage Lens activity metrics. See Activity Metrics above for more details.
+         * S3 Storage Lens activity metrics. See `activityMetrics` above for more details.
          */
         activityMetrics?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics;
         /**
-         * Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
+         * Advanced cost-optimization metrics for S3 Storage Lens. See `advancedCostOptimizationMetrics` above for more details.
          */
         advancedCostOptimizationMetrics?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics;
         /**
-         * Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
+         * Advanced data-protection metrics for S3 Storage Lens. See `advancedDataProtectionMetrics` above for more details.
          */
         advancedDataProtectionMetrics?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics;
         /**
-         * Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics above for more details.
+         * Advanced performance metrics for S3 Storage Lens. See `advancedPerformanceMetrics` above for more details.
          */
         advancedPerformanceMetrics?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetrics;
         /**
-         * Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
+         * Detailed status code metrics for S3 Storage Lens. See `detailedStatusCodeMetrics` above for more details.
          */
         detailedStatusCodeMetrics?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics;
         /**
-         * Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
+         * Prefix-level metrics for S3 Storage Lens. See `prefixLevel` below for more details.
          */
         prefixLevel?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel;
     }
@@ -100188,7 +100996,7 @@ export namespace s3control {
 
     export interface StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel {
         /**
-         * Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+         * Prefix-level storage metrics for S3 Storage Lens. See `storageMetrics` below for more details.
          */
         storageMetrics: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics;
     }
@@ -100199,22 +101007,22 @@ export namespace s3control {
          */
         enabled?: boolean;
         /**
-         * Selection criteria. See Selection Criteria below for more details.
+         * Selection criteria. See `selectionCriteria` below for more details.
          */
         selectionCriteria?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria;
     }
 
     export interface StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria {
         /**
-         * The delimiter of the selection criteria being used.
+         * Delimiter of the selection criteria being used.
          */
         delimiter?: string;
         /**
-         * The max depth of the selection criteria.
+         * Max depth of the selection criteria.
          */
         maxDepth?: number;
         /**
-         * The minimum number of storage bytes percentage whose metrics will be selected.
+         * Minimum number of storage bytes percentage whose metrics will be selected.
          */
         minStorageBytesPercentage?: number;
     }
@@ -100228,22 +101036,22 @@ export namespace s3control {
 
     export interface StorageLensConfigurationStorageLensConfigurationAwsOrg {
         /**
-         * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+         * Amazon Resource Name (ARN) of the Amazon Web Services organization.
          */
         arn: string;
     }
 
     export interface StorageLensConfigurationStorageLensConfigurationDataExport {
         /**
-         * Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+         * Amazon CloudWatch publishing for S3 Storage Lens metrics. See `cloudWatchMetrics` below for more details.
          */
         cloudWatchMetrics?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics;
         /**
-         * The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+         * Bucket where the S3 Storage Lens metrics export will be located. See `s3BucketDestination` below for more details.
          */
         s3BucketDestination?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination;
         /**
-         * S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+         * S3 table bucket where the S3 Storage Lens metrics export will be located. See `storageLensTableDestination` below for more details.
          */
         storageLensTableDestination?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestination;
     }
@@ -100257,34 +101065,34 @@ export namespace s3control {
 
     export interface StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination {
         /**
-         * The account ID of the owner of the S3 Storage Lens metrics export bucket.
+         * Account ID of the owner of the S3 Storage Lens metrics export bucket.
          */
         accountId: string;
         /**
-         * The Amazon Resource Name (ARN) of the bucket.
+         * Amazon Resource Name (ARN) of the bucket.
          */
         arn: string;
         /**
-         * Encryption of the metrics exports in this bucket. See Encryption below for more details.
+         * Encryption of the metrics exports in this bucket. See `encryption` below for more details.
          */
         encryption?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption;
         /**
-         * The export format. Valid values: `CSV`, `Parquet`.
+         * Export format. Valid values: `CSV`, `Parquet`.
          */
         format: string;
         /**
-         * The schema version of the export file. Valid values: `V_1`.
+         * Schema version of the export file. Valid values: `V_1`.
          */
         outputSchemaVersion: string;
         /**
-         * The prefix of the destination bucket where the metrics export will be delivered.
+         * Prefix of the destination bucket where the metrics export will be delivered.
          */
         prefix?: string;
     }
 
     export interface StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption {
         /**
-         * SSE-KMS encryption. See SSE KMS below for more details.
+         * SSE-KMS encryption. See `sseKms` below for more details.
          */
         sseKms?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms;
         /**
@@ -100309,14 +101117,14 @@ export namespace s3control {
          */
         enabled: boolean;
         /**
-         * Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+         * Encryption of the metrics exports in this S3 tables bucket. See `encryption` below for more details.
          */
         encryption?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryption;
     }
 
     export interface StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryption {
         /**
-         * SSE-KMS encryption. See SSE KMS below for more details.
+         * SSE-KMS encryption. See `sseKms` below for more details.
          */
         sseKms?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseKms;
         /**
@@ -100348,45 +101156,45 @@ export namespace s3control {
 
     export interface StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport {
         /**
-         * The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
+         * Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `s3BucketDestination` below for more details.
          */
         s3BucketDestination?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestination;
         /**
-         * S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
+         * S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `storageLensTableDestination` below for more details.
          */
         storageLensTableDestination?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestination;
     }
 
     export interface StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestination {
         /**
-         * The account ID of the owner of the S3 Storage Lens metrics export bucket.
+         * Account ID of the owner of the S3 Storage Lens metrics export bucket.
          */
         accountId: string;
         /**
-         * The Amazon Resource Name (ARN) of the bucket.
+         * Amazon Resource Name (ARN) of the bucket.
          */
         arn: string;
         /**
-         * Encryption of the metrics exports in this bucket. See Encryption below for more details.
+         * Encryption of the metrics exports in this bucket. See `encryption` below for more details.
          */
         encryption?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryption;
         /**
-         * The export format. Valid values: `CSV`, `Parquet`.
+         * Export format. Valid values: `CSV`, `Parquet`.
          */
         format: string;
         /**
-         * The schema version of the export file. Valid values: `V_1`.
+         * Schema version of the export file. Valid values: `V_1`.
          */
         outputSchemaVersion: string;
         /**
-         * The prefix of the destination bucket where the metrics export will be delivered.
+         * Prefix of the destination bucket where the metrics export will be delivered.
          */
         prefix?: string;
     }
 
     export interface StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryption {
         /**
-         * SSE-KMS encryption. See SSE KMS below for more details.
+         * SSE-KMS encryption. See `sseKms` below for more details.
          */
         sseKms?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKms;
         /**
@@ -100411,14 +101219,14 @@ export namespace s3control {
          */
         enabled: boolean;
         /**
-         * Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+         * Encryption of the metrics exports in this S3 tables bucket. See `encryption` below for more details.
          */
         encryption?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryption;
     }
 
     export interface StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryption {
         /**
-         * SSE-KMS encryption. See SSE KMS below for more details.
+         * SSE-KMS encryption. See `sseKms` below for more details.
          */
         sseKms?: outputs.s3control.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKms;
         /**
@@ -100463,7 +101271,7 @@ export namespace s3outposts {
 export namespace s3tables {
     export interface TableBucketEncryptionConfiguration {
         /**
-         * The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+         * ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
          */
         kmsKeyArn: string;
         /**
@@ -100474,34 +101282,29 @@ export namespace s3tables {
 
     export interface TableBucketMaintenanceConfiguration {
         /**
-         * A single Iceberg unreferenced file removal settings object.
-         * See `icebergUnreferencedFileRemoval` below.
+         * Iceberg unreferenced file removal settings for the table bucket. See `icebergUnreferencedFileRemoval` below.
          */
         icebergUnreferencedFileRemoval: outputs.s3tables.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval;
     }
 
     export interface TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval {
         /**
-         * Settings object for unreferenced file removal.
-         * See `iceberg_unreferenced_file_removal.settings` below.
+         * Settings object for unreferenced file removal. See `iceberg_unreferenced_file_removal.settings` below.
          */
         settings: outputs.s3tables.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings;
         /**
-         * Whether the configuration is enabled.
-         * Valid values are `enabled` and `disabled`.
+         * Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
          */
         status: string;
     }
 
     export interface TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings {
         /**
-         * Data objects marked for deletion are deleted after this many days.
-         * Must be at least `1`.
+         * Data objects marked for deletion are deleted after this many days. Must be at least `1`.
          */
         nonCurrentDays: number;
         /**
-         * Unreferenced data objects are marked for deletion after this many days.
-         * Must be at least `1`.
+         * Unreferenced data objects are marked for deletion after this many days. Must be at least `1`.
          */
         unreferencedDays: number;
     }
@@ -100522,7 +101325,7 @@ export namespace s3tables {
 
     export interface TableEncryptionConfiguration {
         /**
-         * The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+         * ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
          */
         kmsKeyArn: string;
         /**
@@ -100533,68 +101336,58 @@ export namespace s3tables {
 
     export interface TableMaintenanceConfiguration {
         /**
-         * A single Iceberg compaction settings object.
-         * See `icebergCompaction` below.
+         * Single Iceberg compaction settings object. See `icebergCompaction` below.
          */
         icebergCompaction: outputs.s3tables.TableMaintenanceConfigurationIcebergCompaction;
         /**
-         * A single Iceberg snapshot management settings object.
-         * See `icebergSnapshotManagement` below.
+         * Single Iceberg snapshot management settings object. See `icebergSnapshotManagement` below.
          */
         icebergSnapshotManagement: outputs.s3tables.TableMaintenanceConfigurationIcebergSnapshotManagement;
     }
 
     export interface TableMaintenanceConfigurationIcebergCompaction {
         /**
-         * Settings object for compaction.
-         * See `iceberg_compaction.settings` below.
+         * Settings object for compaction. See `iceberg_compaction.settings` below.
          */
         settings: outputs.s3tables.TableMaintenanceConfigurationIcebergCompactionSettings;
         /**
-         * Whether the configuration is enabled.
-         * Valid values are `enabled` and `disabled`.
+         * Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
          */
         status: string;
     }
 
     export interface TableMaintenanceConfigurationIcebergCompactionSettings {
         /**
-         * Data objects smaller than this size may be combined with others to improve query performance.
-         * Must be between `64` and `512`.
+         * Data objects smaller than this size may be combined with others to improve query performance. Must be between `64` and `512`.
          */
         targetFileSizeMb: number;
     }
 
     export interface TableMaintenanceConfigurationIcebergSnapshotManagement {
         /**
-         * Settings object for snapshot management.
-         * See `iceberg_snapshot_management.settings` below.
+         * Settings object for snapshot management. See `iceberg_snapshot_management.settings` below.
          */
         settings: outputs.s3tables.TableMaintenanceConfigurationIcebergSnapshotManagementSettings;
         /**
-         * Whether the configuration is enabled.
-         * Valid values are `enabled` and `disabled`.
+         * Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
          */
         status: string;
     }
 
     export interface TableMaintenanceConfigurationIcebergSnapshotManagementSettings {
         /**
-         * Snapshots older than this will be marked for deletion.
-         * Must be at least `1`.
+         * Snapshots older than this will be marked for deletion. Must be at least `1`.
          */
         maxSnapshotAgeHours: number;
         /**
-         * Minimum number of snapshots to keep.
-         * Must be at least `1`.
+         * Minimum number of snapshots to keep. Must be at least `1`.
          */
         minSnapshotsToKeep: number;
     }
 
     export interface TableMetadata {
         /**
-         * Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-         * See `iceberg` below.
+         * Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
          */
         iceberg: outputs.s3tables.TableMetadataIceberg;
     }
@@ -100605,31 +101398,29 @@ export namespace s3tables {
          */
         properties?: {[key: string]: string};
         /**
-         * Schema configuration for the Iceberg table.
-         * See `schema` below.
+         * Schema configuration for the Iceberg table. See `schema` below.
          */
         schema: outputs.s3tables.TableMetadataIcebergSchema;
     }
 
     export interface TableMetadataIcebergSchema {
         /**
-         * List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-         * See `field` below.
+         * List of schema fields for the Iceberg table. Each field defines a column in the table schema. See `field` below.
          */
         fields: outputs.s3tables.TableMetadataIcebergSchemaField[];
     }
 
     export interface TableMetadataIcebergSchemaField {
         /**
-         * The name of the field.
+         * Name of the field.
          */
         name: string;
         /**
-         * A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+         * Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
          */
         required: boolean;
         /**
-         * The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+         * Field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
          */
         type: string;
     }
@@ -107138,7 +107929,7 @@ export namespace secretsmanager {
          */
         duration: string;
         /**
-         * A `cron()` or `rate()` expression that defines the schedule for rotating the secret.
+         * `cron()` or `rate()` expression that defines the schedule for rotating the secret.
          */
         scheduleExpression: string;
     }
@@ -107198,18 +107989,18 @@ export namespace secretsmanager {
 
     export interface SecretRotationExternalSecretRotationMetadata {
         /**
-         * The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+         * Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
          */
         key: string;
         /**
-         * The metadata value for the specified key.
+         * Metadata value for the specified key.
          */
         value: string;
     }
 
     export interface SecretRotationRotationRules {
         /**
-         * Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+         * Number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
          */
         automaticallyAfterDays?: number;
         /**
@@ -107217,7 +108008,7 @@ export namespace secretsmanager {
          */
         duration?: string;
         /**
-         * A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+         * `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
          */
         scheduleExpression?: string;
     }
@@ -114198,9 +114989,12 @@ export namespace vpclattice {
     }
 
     export interface ListenerDefaultAction {
+        /**
+         * Configuration block for returning a fixed response. See `fixedResponse` Block below.
+         */
         fixedResponse?: outputs.vpclattice.ListenerDefaultActionFixedResponse;
         /**
-         * Route requests to one or more target groups. See Forward blocks below.
+         * Route requests to one or more target groups. See `forward` Block below.
          *
          * > **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
          */
@@ -114216,7 +115010,7 @@ export namespace vpclattice {
 
     export interface ListenerDefaultActionForward {
         /**
-         * One or more target group blocks.
+         * One or more target group blocks. See `targetGroups` Block below.
          */
         targetGroups?: outputs.vpclattice.ListenerDefaultActionForwardTargetGroup[];
     }
@@ -114227,126 +115021,117 @@ export namespace vpclattice {
          */
         targetGroupIdentifier?: string;
         /**
-         * Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
-         * weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+         * Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
          */
         weight?: number;
     }
 
     export interface ListenerRuleAction {
         /**
-         * Describes the rule action that returns a custom HTTP response.
-         * See `fixedResponse` Block for details.
+         * Rule action that returns a custom HTTP response. See `fixedResponse` Block for details.
          */
         fixedResponse?: outputs.vpclattice.ListenerRuleActionFixedResponse;
         /**
-         * The forward action. Traffic that matches the rule is forwarded to the specified target groups.
-         * See `forward` Block for details.
+         * Forward action. Traffic that matches the rule is forwarded to the specified target groups. See `forward` Block for details.
          */
         forward?: outputs.vpclattice.ListenerRuleActionForward;
     }
 
     export interface ListenerRuleActionFixedResponse {
         /**
-         * The HTTP response code.
+         * HTTP response code.
          */
         statusCode: number;
     }
 
     export interface ListenerRuleActionForward {
         /**
-         * The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
-         *
-         * The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
+         * Target groups that traffic matching the rule is forwarded to. See `targetGroups` Block for details.
          */
         targetGroups: outputs.vpclattice.ListenerRuleActionForwardTargetGroup[];
     }
 
     export interface ListenerRuleActionForwardTargetGroup {
+        /**
+         * ID or ARN of the target group.
+         */
         targetGroupIdentifier: string;
+        /**
+         * Weight assigned to the target group, controlling the prioritization and selection of each target group so that requests are distributed based on their weights. Default is `100`.
+         */
         weight?: number;
     }
 
     export interface ListenerRuleMatch {
         /**
-         * The HTTP criteria that a rule must match.
-         * See `httpMatch` Block for details.
+         * HTTP criteria that a rule must match. See `httpMatch` Block for details.
          */
         httpMatch: outputs.vpclattice.ListenerRuleMatchHttpMatch;
     }
 
     export interface ListenerRuleMatchHttpMatch {
         /**
-         * The header matches.
-         * Matches incoming requests with rule based on request header value before applying rule action.
-         * See `headerMatches` Block for details.
+         * Header matches that match incoming requests based on the request header value before applying the rule action. See `headerMatches` Block for details.
          */
         headerMatches?: outputs.vpclattice.ListenerRuleMatchHttpMatchHeaderMatch[];
         /**
-         * The HTTP method type.
+         * HTTP method type.
          */
         method?: string;
         /**
-         * The path match.
-         * See `pathMatch` Block for details.
+         * Path match. See `pathMatch` Block for details.
          */
         pathMatch?: outputs.vpclattice.ListenerRuleMatchHttpMatchPathMatch;
     }
 
     export interface ListenerRuleMatchHttpMatchHeaderMatch {
         /**
-         * Indicates whether the match is case sensitive.
-         * Default is `false`.
+         * Whether the match is case sensitive. Default is `false`.
          */
         caseSensitive?: boolean;
         /**
-         * The header match type.
-         * See Header Match `match` Block for details.
+         * Header match type. See `match.http_match.header_matches.match` Block for details.
          */
         match: outputs.vpclattice.ListenerRuleMatchHttpMatchHeaderMatchMatch;
         /**
-         * The name of the header.
+         * Name of the header.
          */
         name: string;
     }
 
     export interface ListenerRuleMatchHttpMatchHeaderMatchMatch {
         /**
-         * Specifies a contains type match.
+         * Contains type match.
          */
         contains?: string;
         /**
-         * Specifies an exact type match.
+         * Exact type match.
          */
         exact?: string;
         /**
-         * Specifies a prefix type match.
-         * Matches the value with the prefix.
+         * Prefix type match. Matches the value with the prefix.
          */
         prefix?: string;
     }
 
     export interface ListenerRuleMatchHttpMatchPathMatch {
         /**
-         * Indicates whether the match is case sensitive.
-         * Default is `false`.
+         * Whether the match is case sensitive. Default is `false`.
          */
         caseSensitive?: boolean;
         /**
-         * The header match type.
-         * See Path Match `match` Block for details.
+         * Path match type. See `match.http_match.path_match.match` Block for details.
          */
         match: outputs.vpclattice.ListenerRuleMatchHttpMatchPathMatchMatch;
     }
 
     export interface ListenerRuleMatchHttpMatchPathMatchMatch {
         /**
-         * Specifies an exact type match.
+         * Exact type match.
          */
         exact?: string;
         /**
-         * Specifies a prefix type match.
-         * Matches the value with the prefix.
+         * Prefix type match. Matches the value with the prefix.
          */
         prefix?: string;
     }
@@ -114368,25 +115153,25 @@ export namespace vpclattice {
 
     export interface ResourceConfigurationResourceConfigurationDefinitionArnResource {
         /**
-         * The ARN of the Resource for this configuration.
+         * ARN of the Resource for this configuration.
          */
         arn: string;
     }
 
     export interface ResourceConfigurationResourceConfigurationDefinitionDnsResource {
         /**
-         * The hostname of the Resource for this configuration.
+         * Hostname of the Resource for this configuration.
          */
         domainName: string;
         /**
-         * The IP Address type either `IPV4` or `IPV6`
+         * IP Address type either `IPV4` or `IPV6`
          */
         ipAddressType: string;
     }
 
     export interface ResourceConfigurationResourceConfigurationDefinitionIpResource {
         /**
-         * The IP Address of the Resource for this configuration.
+         * IP Address of the Resource for this configuration.
          */
         ipAddress: string;
     }
@@ -114428,11 +115213,11 @@ export namespace vpclattice {
 
     export interface ServiceNetworkResourceAssociationDnsEntry {
         /**
-         * The domain name of the association in the service network.
+         * Domain name of the association in the service network.
          */
         domainName: string;
         /**
-         * The ID of the hosted zone containing the domain name.
+         * ID of the hosted zone containing the domain name.
          */
         hostedZoneId: string;
     }
@@ -114450,11 +115235,11 @@ export namespace vpclattice {
 
     export interface ServiceNetworkServiceAssociationDnsEntry {
         /**
-         * The domain name of the service.
+         * Domain name of the service.
          */
         domainName: string;
         /**
-         * The ID of the hosted zone.
+         * ID of the hosted zone.
          */
         hostedZoneId: string;
     }
@@ -114472,7 +115257,7 @@ export namespace vpclattice {
 
     export interface TargetGroupAttachmentTarget {
         /**
-         * The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
+         * ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
          */
         id: string;
         /**
@@ -114483,79 +115268,81 @@ export namespace vpclattice {
 
     export interface TargetGroupConfig {
         /**
-         * The health check configuration.
+         * Health check configuration. See `healthCheck` Block below.
          */
         healthCheck?: outputs.vpclattice.TargetGroupConfigHealthCheck;
         /**
-         * The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
+         * Type of IP address used for the target group. Valid values: `IPV4` or `IPV6`.
          */
         ipAddressType: string;
         /**
-         * The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+         * Version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid values are `V1` or `V2`.
          */
         lambdaEventStructureVersion: string;
         /**
-         * The port on which the targets are listening.
+         * Port on which the targets are listening.
          */
         port: number;
         /**
-         * The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
+         * Protocol to use for routing traffic to the targets. Valid values are `HTTP` or `HTTPS`.
          */
         protocol: string;
         /**
-         * The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+         * Protocol version. Valid values are `HTTP1`, `HTTP2`, or `GRPC`. Default value is `HTTP1`.
          */
         protocolVersion: string;
         /**
-         * The ID of the VPC.
+         * ID of the VPC.
          */
         vpcIdentifier?: string;
     }
 
     export interface TargetGroupConfigHealthCheck {
         /**
-         * Indicates whether health checking is enabled. Defaults to `true`.
+         * Whether health checking is enabled. Defaults to `true`.
          */
         enabled?: boolean;
         /**
-         * The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+         * Approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
          */
         healthCheckIntervalSeconds?: number;
         /**
-         * The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-         * * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+         * Amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
          */
         healthCheckTimeoutSeconds?: number;
+        /**
+         * Number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+         */
         healthyThresholdCount?: number;
         /**
-         * The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
+         * Codes to use when checking for a successful response from a target. See `matcher` Block below.
          */
         matcher?: outputs.vpclattice.TargetGroupConfigHealthCheckMatcher;
         /**
-         * The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
+         * Destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
          */
         path?: string;
         /**
-         * The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+         * Port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
          */
         port: number;
         /**
-         * The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
+         * Protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
          */
         protocol: string;
         /**
-         * The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
+         * Protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
          */
         protocolVersion?: string;
         /**
-         * The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+         * Number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
          */
         unhealthyThresholdCount?: number;
     }
 
     export interface TargetGroupConfigHealthCheckMatcher {
         /**
-         * The HTTP codes to use when checking for a successful response from a target.
+         * HTTP codes to use when checking for a successful response from a target.
          */
         value?: string;
     }

@@ -34,7 +34,7 @@ class BucketLifecycleConfigurationV2Args:
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]] rules: List of configuration blocks describing the rules managing the replication. See below.
-        :param pulumi.Input[_builtins.str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        :param pulumi.Input[_builtins.str] transition_default_minimum_object_size: Default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         pulumi.set(__self__, "bucket", bucket)
         if expected_bucket_owner is not None:
@@ -113,7 +113,7 @@ class BucketLifecycleConfigurationV2Args:
     @pulumi.getter(name="transitionDefaultMinimumObjectSize")
     def transition_default_minimum_object_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        Default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         return pulumi.get(self, "transition_default_minimum_object_size")
 
@@ -138,7 +138,7 @@ class _BucketLifecycleConfigurationV2State:
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]] rules: List of configuration blocks describing the rules managing the replication. See below.
-        :param pulumi.Input[_builtins.str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        :param pulumi.Input[_builtins.str] transition_default_minimum_object_size: Default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -218,7 +218,7 @@ class _BucketLifecycleConfigurationV2State:
     @pulumi.getter(name="transitionDefaultMinimumObjectSize")
     def transition_default_minimum_object_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        Default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         return pulumi.get(self, "transition_default_minimum_object_size")
 
@@ -579,7 +579,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
-        :param pulumi.Input[_builtins.str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        :param pulumi.Input[_builtins.str] transition_default_minimum_object_size: Default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         ...
     @overload
@@ -983,7 +983,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
-        :param pulumi.Input[_builtins.str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        :param pulumi.Input[_builtins.str] transition_default_minimum_object_size: Default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1039,7 +1039,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
     @pulumi.getter(name="transitionDefaultMinimumObjectSize")
     def transition_default_minimum_object_size(self) -> pulumi.Output[_builtins.str]:
         """
-        The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
+        Default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         return pulumi.get(self, "transition_default_minimum_object_size")
 

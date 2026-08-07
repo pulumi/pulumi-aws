@@ -56,31 +56,31 @@ export interface GetNetworkResult {
      */
     readonly arn: string;
     /**
-     * The availability zone where the ODB network is located.
+     * Availability zone where the ODB network is located.
      */
     readonly availabilityZone: string;
     /**
-     * The AZ ID of the AZ where the ODB network is located.
+     * AZ ID of the AZ where the ODB network is located.
      */
     readonly availabilityZoneId: string;
     /**
-     * The CIDR range of the backup subnet for the ODB network.
+     * CIDR range of the backup subnet for the ODB network.
      */
     readonly backupSubnetCidr: string;
     /**
-     * The CIDR notation for the network resource.
+     * CIDR notation for the network resource.
      */
     readonly clientSubnetCidr: string;
     /**
-     * The date and time when the ODB network was created.
+     * Date and time when the ODB network was created.
      */
     readonly createdAt: string;
     /**
-     * The name of the custom domain that the network is located.
+     * Name of the custom domain that the network is located.
      */
     readonly customDomainName: string;
     /**
-     * The default DNS prefix for the network resource.
+     * Default DNS prefix for the network resource.
      */
     readonly defaultDnsPrefix: string;
     /**
@@ -88,7 +88,7 @@ export interface GetNetworkResult {
      */
     readonly displayName: string;
     /**
-     * A list of EC2 placement group IDs associated with the ODB network.
+     * List of EC2 placement group IDs associated with the ODB network.
      */
     readonly ec2PlacementGroupIds: string[];
     /**
@@ -96,47 +96,53 @@ export interface GetNetworkResult {
      */
     readonly id: string;
     /**
-     * The managed services configuration for the ODB network.
+     * Managed services configuration for the ODB network.
      */
     readonly managedServices: outputs.odb.GetNetworkManagedService[];
+    /**
+     * DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
+     */
     readonly ociDnsForwardingConfigs: outputs.odb.GetNetworkOciDnsForwardingConfig[];
     /**
-     * The unique identifier of the OCI network anchor for the ODB network.
+     * Unique identifier of the OCI network anchor for the ODB network.
      */
     readonly ociNetworkAnchorId: string;
     /**
-     * The URL of the OCI network anchor for the ODB network.
+     * URL of the OCI network anchor for the ODB network.
      */
     readonly ociNetworkAnchorUrl: string;
     /**
-     * The name of the OCI resource anchor for the ODB network.
+     * Name of the OCI resource anchor for the ODB network.
      */
     readonly ociResourceAnchorName: string;
     /**
-     * The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+     * Unique identifier Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
      */
     readonly ociVcnId: string;
     /**
-     * The URL of the OCI VCN for the ODB network.
+     * URL of the OCI VCN for the ODB network.
      */
     readonly ociVcnUrl: string;
     /**
-     * The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+     * List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
      */
     readonly peeredCidrs: string[];
     /**
-     * The amount of progress made on the current operation on the ODB network, expressed as a percentage.
+     * Amount of progress made on the current operation on the ODB network, expressed as a percentage.
      */
     readonly percentProgress: number;
     readonly region: string;
     /**
-     * The status of the network resource.
+     * Status of the network resource.
      */
     readonly status: string;
     /**
      * Additional information about the current status of the ODB network.
      */
     readonly statusReason: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
     readonly tags: {[key: string]: string};
 }
 /**

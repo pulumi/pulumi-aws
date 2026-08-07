@@ -57,35 +57,27 @@ type KxScalingGroup struct {
 
 	// Amazon Resource Name (ARN) identifier of the KX Scaling Group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The availability zone identifiers for the requested regions.
+	// Availability zone identifiers for the requested regions.
 	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
-	// The list of Managed kdb clusters that are currently active in the given scaling group.
+	// List of Managed kdb clusters that are currently active in the given scaling group.
 	Clusters pulumi.StringArrayOutput `pulumi:"clusters"`
-	// The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+	// Timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
 	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
-	// A unique identifier for the kdb environment, where you want to create the scaling group.
+	// Unique identifier for the kdb environment, where you want to create the scaling group.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
-	// The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-	//
-	// The following arguments are optional:
+	// Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
 	HostType pulumi.StringOutput `pulumi:"hostType"`
 	// Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 	LastModifiedTimestamp pulumi.StringOutput `pulumi:"lastModifiedTimestamp"`
 	// Unique name for the scaling group that you want to create.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The status of scaling group.
-	// * `CREATING` - The scaling group creation is in progress.
-	// * `CREATE_FAILED` - The scaling group creation has failed.
-	// * `ACTIVE` - The scaling group is active.
-	// * `UPDATING` - The scaling group is in the process of being updated.
-	// * `UPDATE_FAILED` - The update action failed.
-	// * `DELETING` - The scaling group is in the process of being deleted.
-	// * `DELETE_FAILED` - The system failed to delete the scaling group.
-	// * `DELETED` - The scaling group is successfully deleted.
+	// Status of scaling group (`CREATING`, `CREATE_FAILED`, `ACTIVE`, `UPDATING`, `UPDATE_FAILED`, `DELETING`, `DELETE_FAILED`, `DELETED`).
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The error message when a failed state occurs.
+	// Error message when a failed state occurs.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -134,35 +126,27 @@ func GetKxScalingGroup(ctx *pulumi.Context,
 type kxScalingGroupState struct {
 	// Amazon Resource Name (ARN) identifier of the KX Scaling Group.
 	Arn *string `pulumi:"arn"`
-	// The availability zone identifiers for the requested regions.
+	// Availability zone identifiers for the requested regions.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
-	// The list of Managed kdb clusters that are currently active in the given scaling group.
+	// List of Managed kdb clusters that are currently active in the given scaling group.
 	Clusters []string `pulumi:"clusters"`
-	// The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+	// Timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
 	CreatedTimestamp *string `pulumi:"createdTimestamp"`
-	// A unique identifier for the kdb environment, where you want to create the scaling group.
+	// Unique identifier for the kdb environment, where you want to create the scaling group.
 	EnvironmentId *string `pulumi:"environmentId"`
-	// The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-	//
-	// The following arguments are optional:
+	// Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
 	HostType *string `pulumi:"hostType"`
 	// Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 	LastModifiedTimestamp *string `pulumi:"lastModifiedTimestamp"`
 	// Unique name for the scaling group that you want to create.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The status of scaling group.
-	// * `CREATING` - The scaling group creation is in progress.
-	// * `CREATE_FAILED` - The scaling group creation has failed.
-	// * `ACTIVE` - The scaling group is active.
-	// * `UPDATING` - The scaling group is in the process of being updated.
-	// * `UPDATE_FAILED` - The update action failed.
-	// * `DELETING` - The scaling group is in the process of being deleted.
-	// * `DELETE_FAILED` - The system failed to delete the scaling group.
-	// * `DELETED` - The scaling group is successfully deleted.
+	// Status of scaling group (`CREATING`, `CREATE_FAILED`, `ACTIVE`, `UPDATING`, `UPDATE_FAILED`, `DELETING`, `DELETE_FAILED`, `DELETED`).
 	Status *string `pulumi:"status"`
-	// The error message when a failed state occurs.
+	// Error message when a failed state occurs.
 	StatusReason *string `pulumi:"statusReason"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
 	Tags map[string]string `pulumi:"tags"`
@@ -173,35 +157,27 @@ type kxScalingGroupState struct {
 type KxScalingGroupState struct {
 	// Amazon Resource Name (ARN) identifier of the KX Scaling Group.
 	Arn pulumi.StringPtrInput
-	// The availability zone identifiers for the requested regions.
+	// Availability zone identifiers for the requested regions.
 	AvailabilityZoneId pulumi.StringPtrInput
-	// The list of Managed kdb clusters that are currently active in the given scaling group.
+	// List of Managed kdb clusters that are currently active in the given scaling group.
 	Clusters pulumi.StringArrayInput
-	// The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+	// Timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
 	CreatedTimestamp pulumi.StringPtrInput
-	// A unique identifier for the kdb environment, where you want to create the scaling group.
+	// Unique identifier for the kdb environment, where you want to create the scaling group.
 	EnvironmentId pulumi.StringPtrInput
-	// The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-	//
-	// The following arguments are optional:
+	// Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
 	HostType pulumi.StringPtrInput
 	// Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 	LastModifiedTimestamp pulumi.StringPtrInput
 	// Unique name for the scaling group that you want to create.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The status of scaling group.
-	// * `CREATING` - The scaling group creation is in progress.
-	// * `CREATE_FAILED` - The scaling group creation has failed.
-	// * `ACTIVE` - The scaling group is active.
-	// * `UPDATING` - The scaling group is in the process of being updated.
-	// * `UPDATE_FAILED` - The update action failed.
-	// * `DELETING` - The scaling group is in the process of being deleted.
-	// * `DELETE_FAILED` - The system failed to delete the scaling group.
-	// * `DELETED` - The scaling group is successfully deleted.
+	// Status of scaling group (`CREATING`, `CREATE_FAILED`, `ACTIVE`, `UPDATING`, `UPDATE_FAILED`, `DELETING`, `DELETE_FAILED`, `DELETED`).
 	Status pulumi.StringPtrInput
-	// The error message when a failed state occurs.
+	// Error message when a failed state occurs.
 	StatusReason pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
 	Tags pulumi.StringMapInput
@@ -214,15 +190,15 @@ func (KxScalingGroupState) ElementType() reflect.Type {
 }
 
 type kxScalingGroupArgs struct {
-	// The availability zone identifiers for the requested regions.
+	// Availability zone identifiers for the requested regions.
 	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
-	// A unique identifier for the kdb environment, where you want to create the scaling group.
+	// Unique identifier for the kdb environment, where you want to create the scaling group.
 	EnvironmentId string `pulumi:"environmentId"`
-	// The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-	//
-	// The following arguments are optional:
+	// Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
 	HostType string `pulumi:"hostType"`
 	// Unique name for the scaling group that you want to create.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -232,15 +208,15 @@ type kxScalingGroupArgs struct {
 
 // The set of arguments for constructing a KxScalingGroup resource.
 type KxScalingGroupArgs struct {
-	// The availability zone identifiers for the requested regions.
+	// Availability zone identifiers for the requested regions.
 	AvailabilityZoneId pulumi.StringInput
-	// A unique identifier for the kdb environment, where you want to create the scaling group.
+	// Unique identifier for the kdb environment, where you want to create the scaling group.
 	EnvironmentId pulumi.StringInput
-	// The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-	//
-	// The following arguments are optional:
+	// Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
 	HostType pulumi.StringInput
 	// Unique name for the scaling group that you want to create.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -340,29 +316,27 @@ func (o KxScalingGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The availability zone identifiers for the requested regions.
+// Availability zone identifiers for the requested regions.
 func (o KxScalingGroupOutput) AvailabilityZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.AvailabilityZoneId }).(pulumi.StringOutput)
 }
 
-// The list of Managed kdb clusters that are currently active in the given scaling group.
+// List of Managed kdb clusters that are currently active in the given scaling group.
 func (o KxScalingGroupOutput) Clusters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringArrayOutput { return v.Clusters }).(pulumi.StringArrayOutput)
 }
 
-// The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+// Timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
 func (o KxScalingGroupOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
 }
 
-// A unique identifier for the kdb environment, where you want to create the scaling group.
+// Unique identifier for the kdb environment, where you want to create the scaling group.
 func (o KxScalingGroupOutput) EnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.EnvironmentId }).(pulumi.StringOutput)
 }
 
-// The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-//
-// The following arguments are optional:
+// Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
 func (o KxScalingGroupOutput) HostType() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.HostType }).(pulumi.StringOutput)
 }
@@ -373,6 +347,8 @@ func (o KxScalingGroupOutput) LastModifiedTimestamp() pulumi.StringOutput {
 }
 
 // Unique name for the scaling group that you want to create.
+//
+// The following arguments are optional:
 func (o KxScalingGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -382,20 +358,12 @@ func (o KxScalingGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The status of scaling group.
-// * `CREATING` - The scaling group creation is in progress.
-// * `CREATE_FAILED` - The scaling group creation has failed.
-// * `ACTIVE` - The scaling group is active.
-// * `UPDATING` - The scaling group is in the process of being updated.
-// * `UPDATE_FAILED` - The update action failed.
-// * `DELETING` - The scaling group is in the process of being deleted.
-// * `DELETE_FAILED` - The system failed to delete the scaling group.
-// * `DELETED` - The scaling group is successfully deleted.
+// Status of scaling group (`CREATING`, `CREATE_FAILED`, `ACTIVE`, `UPDATING`, `UPDATE_FAILED`, `DELETING`, `DELETE_FAILED`, `DELETED`).
 func (o KxScalingGroupOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The error message when a failed state occurs.
+// Error message when a failed state occurs.
 func (o KxScalingGroupOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
 }

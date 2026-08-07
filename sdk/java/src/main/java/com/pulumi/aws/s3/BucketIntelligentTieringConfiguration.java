@@ -154,14 +154,14 @@ public class BucketIntelligentTieringConfiguration extends com.pulumi.resources.
         return this.bucket;
     }
     /**
-     * Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
+     * Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria. See `filter` Block below.
      * 
      */
     @Export(name="filter", refs={BucketIntelligentTieringConfigurationFilter.class}, tree="[0]")
     private Output</* @Nullable */ BucketIntelligentTieringConfigurationFilter> filter;
 
     /**
-     * @return Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
+     * @return Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria. See `filter` Block below.
      * 
      */
     public Output<Optional<BucketIntelligentTieringConfigurationFilter>> filter() {
@@ -196,28 +196,28 @@ public class BucketIntelligentTieringConfiguration extends com.pulumi.resources.
         return this.region;
     }
     /**
-     * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+     * Status of the configuration. Valid values: `Enabled`, `Disabled`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
     /**
-     * @return Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+     * @return Status of the configuration. Valid values: `Enabled`, `Disabled`.
      * 
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
     /**
-     * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+     * S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
      * 
      */
     @Export(name="tierings", refs={List.class,BucketIntelligentTieringConfigurationTiering.class}, tree="[0,1]")
     private Output<List<BucketIntelligentTieringConfigurationTiering>> tierings;
 
     /**
-     * @return S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+     * @return S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
      * 
      */
     public Output<List<BucketIntelligentTieringConfigurationTiering>> tierings() {

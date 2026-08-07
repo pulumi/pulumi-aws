@@ -16,23 +16,47 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs();
 
+    /**
+     * Credentials used to access protected Zendesk resources.
+     * 
+     */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
+    /**
+     * @return Credentials used to access protected Zendesk resources.
+     * 
+     */
     public Optional<Output<String>> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
 
+    /**
+     * OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+     * 
+     */
     @Import(name="oauthRequest")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs> oauthRequest;
 
+    /**
+     * @return OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+     * 
+     */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs>> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
 
+    /**
+     * Refresh token used to refresh an expired access token.
+     * 
+     */
     @Import(name="refreshToken")
     private @Nullable Output<String> refreshToken;
 
+    /**
+     * @return Refresh token used to refresh an expired access token.
+     * 
+     */
     public Optional<Output<String>> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }
@@ -63,29 +87,65 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accessToken Credentials used to access protected Zendesk resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessToken(@Nullable Output<String> accessToken) {
             $.accessToken = accessToken;
             return this;
         }
 
+        /**
+         * @param accessToken Credentials used to access protected Zendesk resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessToken(String accessToken) {
             return accessToken(Output.of(accessToken));
         }
 
+        /**
+         * @param oauthRequest OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthRequest(@Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs> oauthRequest) {
             $.oauthRequest = oauthRequest;
             return this;
         }
 
+        /**
+         * @param oauthRequest OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthRequest(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs oauthRequest) {
             return oauthRequest(Output.of(oauthRequest));
         }
 
+        /**
+         * @param refreshToken Refresh token used to refresh an expired access token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder refreshToken(@Nullable Output<String> refreshToken) {
             $.refreshToken = refreshToken;
             return this;
         }
 
+        /**
+         * @param refreshToken Refresh token used to refresh an expired access token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder refreshToken(String refreshToken) {
             return refreshToken(Output.of(refreshToken));
         }

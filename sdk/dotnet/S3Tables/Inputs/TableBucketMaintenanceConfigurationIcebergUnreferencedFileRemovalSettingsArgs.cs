@@ -13,15 +13,13 @@ namespace Pulumi.Aws.S3Tables.Inputs
     public sealed class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Data objects marked for deletion are deleted after this many days.
-        /// Must be at least `1`.
+        /// Data objects marked for deletion are deleted after this many days. Must be at least `1`.
         /// </summary>
         [Input("nonCurrentDays", required: true)]
         public Input<int> NonCurrentDays { get; set; } = null!;
 
         /// <summary>
-        /// Unreferenced data objects are marked for deletion after this many days.
-        /// Must be at least `1`.
+        /// Unreferenced data objects are marked for deletion after this many days. Must be at least `1`.
         /// </summary>
         [Input("unreferencedDays", required: true)]
         public Input<int> UnreferencedDays { get; set; } = null!;

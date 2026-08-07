@@ -14,39 +14,39 @@ namespace Pulumi.Aws.Odb.Outputs
     public sealed class CloudExadataInfrastructureMaintenanceWindow
     {
         /// <summary>
-        /// The custom action timeout in minutes for the maintenance window.
+        /// Custom action timeout in minutes for the maintenance window.
         /// </summary>
         public readonly int CustomActionTimeoutInMins;
         /// <summary>
-        /// The days of the week when maintenance can be performed.
+        /// Days of the week when maintenance can be performed.
         /// </summary>
         public readonly ImmutableArray<Outputs.CloudExadataInfrastructureMaintenanceWindowDaysOfWeek> DaysOfWeeks;
         /// <summary>
-        /// The hours of the day when maintenance can be performed.
+        /// Hours of the day when maintenance can be performed.
         /// </summary>
         public readonly ImmutableArray<int> HoursOfDays;
         /// <summary>
-        /// ndicates whether custom action timeout is enabled for the maintenance window.
+        /// Whether custom action timeout is enabled for the maintenance window.
         /// </summary>
         public readonly bool IsCustomActionTimeoutEnabled;
         /// <summary>
-        /// The lead time in weeks before the maintenance window.
+        /// Lead time in weeks before the maintenance window.
         /// </summary>
         public readonly int? LeadTimeInWeeks;
         /// <summary>
-        /// The months when maintenance can be performed.
+        /// Months when maintenance can be performed.
         /// </summary>
         public readonly ImmutableArray<Outputs.CloudExadataInfrastructureMaintenanceWindowMonth> Months;
         /// <summary>
-        /// The patching mode for the maintenance window.
+        /// Patching mode for the maintenance window.
         /// </summary>
         public readonly string PatchingMode;
         /// <summary>
-        /// The preference for the maintenance window scheduling.
+        /// Preference for the maintenance window scheduling.
         /// </summary>
         public readonly string Preference;
         /// <summary>
-        /// The weeks of the month when maintenance can be performed.
+        /// Weeks of the month when maintenance can be performed.
         /// </summary>
         public readonly ImmutableArray<int> WeeksOfMonths;
 

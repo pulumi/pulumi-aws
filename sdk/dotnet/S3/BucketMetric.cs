@@ -172,7 +172,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        /// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
         /// </summary>
         [Output("filter")]
         public Output<Outputs.BucketMetricFilter?> Filter { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.S3
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        /// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketMetricFilterArgs>? Filter { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        /// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketMetricFilterGetArgs>? Filter { get; set; }

@@ -15,16 +15,32 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
 
     public static final CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs Empty = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs();
 
+    /**
+     * Maximum network bandwidth, in Gbps.
+     * 
+     */
     @Import(name="max")
     private @Nullable Output<Double> max;
 
+    /**
+     * @return Maximum network bandwidth, in Gbps.
+     * 
+     */
     public Optional<Output<Double>> max() {
         return Optional.ofNullable(this.max);
     }
 
+    /**
+     * Minimum network bandwidth, in Gbps.
+     * 
+     */
     @Import(name="min")
     private @Nullable Output<Double> min;
 
+    /**
+     * @return Minimum network bandwidth, in Gbps.
+     * 
+     */
     public Optional<Output<Double>> min() {
         return Optional.ofNullable(this.min);
     }
@@ -54,20 +70,44 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
             $ = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param max Maximum network bandwidth, in Gbps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder max(@Nullable Output<Double> max) {
             $.max = max;
             return this;
         }
 
+        /**
+         * @param max Maximum network bandwidth, in Gbps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder max(Double max) {
             return max(Output.of(max));
         }
 
+        /**
+         * @param min Minimum network bandwidth, in Gbps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder min(@Nullable Output<Double> min) {
             $.min = min;
             return this;
         }
 
+        /**
+         * @param min Minimum network bandwidth, in Gbps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder min(Double min) {
             return min(Output.of(min));
         }

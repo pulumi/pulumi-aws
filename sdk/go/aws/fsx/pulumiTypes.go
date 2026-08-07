@@ -14,9 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DataRepositoryAssociationS3 struct {
-	// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+	// Type of updated objects that are automatically exported from your file system to the linked S3 bucket. See the `autoExportPolicy` Block below.
 	AutoExportPolicy *DataRepositoryAssociationS3AutoExportPolicy `pulumi:"autoExportPolicy"`
-	// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+	// Type of updated objects that are automatically imported from the linked S3 bucket to your file system. See the `autoImportPolicy` Block below.
 	AutoImportPolicy *DataRepositoryAssociationS3AutoImportPolicy `pulumi:"autoImportPolicy"`
 }
 
@@ -32,9 +32,9 @@ type DataRepositoryAssociationS3Input interface {
 }
 
 type DataRepositoryAssociationS3Args struct {
-	// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+	// Type of updated objects that are automatically exported from your file system to the linked S3 bucket. See the `autoExportPolicy` Block below.
 	AutoExportPolicy DataRepositoryAssociationS3AutoExportPolicyPtrInput `pulumi:"autoExportPolicy"`
-	// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+	// Type of updated objects that are automatically imported from the linked S3 bucket to your file system. See the `autoImportPolicy` Block below.
 	AutoImportPolicy DataRepositoryAssociationS3AutoImportPolicyPtrInput `pulumi:"autoImportPolicy"`
 }
 
@@ -115,14 +115,14 @@ func (o DataRepositoryAssociationS3Output) ToDataRepositoryAssociationS3PtrOutpu
 	}).(DataRepositoryAssociationS3PtrOutput)
 }
 
-// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+// Type of updated objects that are automatically exported from your file system to the linked S3 bucket. See the `autoExportPolicy` Block below.
 func (o DataRepositoryAssociationS3Output) AutoExportPolicy() DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationS3) *DataRepositoryAssociationS3AutoExportPolicy {
 		return v.AutoExportPolicy
 	}).(DataRepositoryAssociationS3AutoExportPolicyPtrOutput)
 }
 
-// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+// Type of updated objects that are automatically imported from the linked S3 bucket to your file system. See the `autoImportPolicy` Block below.
 func (o DataRepositoryAssociationS3Output) AutoImportPolicy() DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationS3) *DataRepositoryAssociationS3AutoImportPolicy {
 		return v.AutoImportPolicy
@@ -153,7 +153,7 @@ func (o DataRepositoryAssociationS3PtrOutput) Elem() DataRepositoryAssociationS3
 	}).(DataRepositoryAssociationS3Output)
 }
 
-// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+// Type of updated objects that are automatically exported from your file system to the linked S3 bucket. See the `autoExportPolicy` Block below.
 func (o DataRepositoryAssociationS3PtrOutput) AutoExportPolicy() DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationS3) *DataRepositoryAssociationS3AutoExportPolicy {
 		if v == nil {
@@ -163,7 +163,7 @@ func (o DataRepositoryAssociationS3PtrOutput) AutoExportPolicy() DataRepositoryA
 	}).(DataRepositoryAssociationS3AutoExportPolicyPtrOutput)
 }
 
-// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+// Type of updated objects that are automatically imported from the linked S3 bucket to your file system. See the `autoImportPolicy` Block below.
 func (o DataRepositoryAssociationS3PtrOutput) AutoImportPolicy() DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationS3) *DataRepositoryAssociationS3AutoImportPolicy {
 		if v == nil {
@@ -174,7 +174,7 @@ func (o DataRepositoryAssociationS3PtrOutput) AutoImportPolicy() DataRepositoryA
 }
 
 type DataRepositoryAssociationS3AutoExportPolicy struct {
-	// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+	// List of file event types to automatically export to your linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 	Events []string `pulumi:"events"`
 }
 
@@ -190,7 +190,7 @@ type DataRepositoryAssociationS3AutoExportPolicyInput interface {
 }
 
 type DataRepositoryAssociationS3AutoExportPolicyArgs struct {
-	// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+	// List of file event types to automatically export to your linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 	Events pulumi.StringArrayInput `pulumi:"events"`
 }
 
@@ -271,7 +271,7 @@ func (o DataRepositoryAssociationS3AutoExportPolicyOutput) ToDataRepositoryAssoc
 	}).(DataRepositoryAssociationS3AutoExportPolicyPtrOutput)
 }
 
-// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+// List of file event types to automatically export to your linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 func (o DataRepositoryAssociationS3AutoExportPolicyOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationS3AutoExportPolicy) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
@@ -300,7 +300,7 @@ func (o DataRepositoryAssociationS3AutoExportPolicyPtrOutput) Elem() DataReposit
 	}).(DataRepositoryAssociationS3AutoExportPolicyOutput)
 }
 
-// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+// List of file event types to automatically export to your linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 func (o DataRepositoryAssociationS3AutoExportPolicyPtrOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationS3AutoExportPolicy) []string {
 		if v == nil {
@@ -311,7 +311,7 @@ func (o DataRepositoryAssociationS3AutoExportPolicyPtrOutput) Events() pulumi.St
 }
 
 type DataRepositoryAssociationS3AutoImportPolicy struct {
-	// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+	// List of file event types to automatically import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 	Events []string `pulumi:"events"`
 }
 
@@ -327,7 +327,7 @@ type DataRepositoryAssociationS3AutoImportPolicyInput interface {
 }
 
 type DataRepositoryAssociationS3AutoImportPolicyArgs struct {
-	// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+	// List of file event types to automatically import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 	Events pulumi.StringArrayInput `pulumi:"events"`
 }
 
@@ -408,7 +408,7 @@ func (o DataRepositoryAssociationS3AutoImportPolicyOutput) ToDataRepositoryAssoc
 	}).(DataRepositoryAssociationS3AutoImportPolicyPtrOutput)
 }
 
-// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+// List of file event types to automatically import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 func (o DataRepositoryAssociationS3AutoImportPolicyOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationS3AutoImportPolicy) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
@@ -437,7 +437,7 @@ func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) Elem() DataReposit
 	}).(DataRepositoryAssociationS3AutoImportPolicyOutput)
 }
 
-// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+// List of file event types to automatically import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationS3AutoImportPolicy) []string {
 		if v == nil {
@@ -448,22 +448,27 @@ func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) Events() pulumi.St
 }
 
 type FileCacheDataRepositoryAssociation struct {
+	// System-generated, unique ID of the data repository association.
 	AssociationId *string `pulumi:"associationId"`
-	// The path to the S3 or NFS data repository that links to the cache.
+	// Path to the S3 or NFS data repository that links to the cache.
 	DataRepositoryPath string `pulumi:"dataRepositoryPath"`
-	// A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+	// NFS exports linked with this data repository association, in the format `/exportpath1`. Configure `dataRepositoryPath` as the domain name of the NFS file system to use this argument. Not supported for S3 data repositories. Maximum of 500.
 	DataRepositorySubdirectories []string `pulumi:"dataRepositorySubdirectories"`
-	// The system-generated, unique ID of the cache.
+	// System-generated, unique ID of the cache.
 	FileCacheId *string `pulumi:"fileCacheId"`
-	// A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
-	FileCachePath         string  `pulumi:"fileCachePath"`
-	FileSystemId          *string `pulumi:"fileSystemId"`
-	FileSystemPath        *string `pulumi:"fileSystemPath"`
-	ImportedFileChunkSize *int    `pulumi:"importedFileChunkSize"`
-	// (Optional) See the `nfs` configuration block.
-	Nfs         []FileCacheDataRepositoryAssociationNf `pulumi:"nfs"`
-	ResourceArn *string                                `pulumi:"resourceArn"`
-	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Path on the cache that maps 1-1 with `dataRepositoryPath`. Must begin with a forward slash and cannot overlap the cache path of another data repository association.
+	FileCachePath string `pulumi:"fileCachePath"`
+	// ID of the file system for an NFS data repository association.
+	FileSystemId *string `pulumi:"fileSystemId"`
+	// Path to the data repository on the file system.
+	FileSystemPath *string `pulumi:"fileSystemPath"`
+	// Size, in mebibytes (MiB), of the data blocks used to represent imported files.
+	ImportedFileChunkSize *int `pulumi:"importedFileChunkSize"`
+	// Configuration for a data repository association linked to an NFS file system. See `nfs` Block below.
+	Nfs []FileCacheDataRepositoryAssociationNf `pulumi:"nfs"`
+	// Amazon Resource Name (ARN) of the data repository association.
+	ResourceArn *string `pulumi:"resourceArn"`
+	// Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -479,22 +484,27 @@ type FileCacheDataRepositoryAssociationInput interface {
 }
 
 type FileCacheDataRepositoryAssociationArgs struct {
+	// System-generated, unique ID of the data repository association.
 	AssociationId pulumi.StringPtrInput `pulumi:"associationId"`
-	// The path to the S3 or NFS data repository that links to the cache.
+	// Path to the S3 or NFS data repository that links to the cache.
 	DataRepositoryPath pulumi.StringInput `pulumi:"dataRepositoryPath"`
-	// A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+	// NFS exports linked with this data repository association, in the format `/exportpath1`. Configure `dataRepositoryPath` as the domain name of the NFS file system to use this argument. Not supported for S3 data repositories. Maximum of 500.
 	DataRepositorySubdirectories pulumi.StringArrayInput `pulumi:"dataRepositorySubdirectories"`
-	// The system-generated, unique ID of the cache.
+	// System-generated, unique ID of the cache.
 	FileCacheId pulumi.StringPtrInput `pulumi:"fileCacheId"`
-	// A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
-	FileCachePath         pulumi.StringInput    `pulumi:"fileCachePath"`
-	FileSystemId          pulumi.StringPtrInput `pulumi:"fileSystemId"`
-	FileSystemPath        pulumi.StringPtrInput `pulumi:"fileSystemPath"`
-	ImportedFileChunkSize pulumi.IntPtrInput    `pulumi:"importedFileChunkSize"`
-	// (Optional) See the `nfs` configuration block.
-	Nfs         FileCacheDataRepositoryAssociationNfArrayInput `pulumi:"nfs"`
-	ResourceArn pulumi.StringPtrInput                          `pulumi:"resourceArn"`
-	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Path on the cache that maps 1-1 with `dataRepositoryPath`. Must begin with a forward slash and cannot overlap the cache path of another data repository association.
+	FileCachePath pulumi.StringInput `pulumi:"fileCachePath"`
+	// ID of the file system for an NFS data repository association.
+	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
+	// Path to the data repository on the file system.
+	FileSystemPath pulumi.StringPtrInput `pulumi:"fileSystemPath"`
+	// Size, in mebibytes (MiB), of the data blocks used to represent imported files.
+	ImportedFileChunkSize pulumi.IntPtrInput `pulumi:"importedFileChunkSize"`
+	// Configuration for a data repository association linked to an NFS file system. See `nfs` Block below.
+	Nfs FileCacheDataRepositoryAssociationNfArrayInput `pulumi:"nfs"`
+	// Amazon Resource Name (ARN) of the data repository association.
+	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
+	// Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -549,52 +559,57 @@ func (o FileCacheDataRepositoryAssociationOutput) ToFileCacheDataRepositoryAssoc
 	return o
 }
 
+// System-generated, unique ID of the data repository association.
 func (o FileCacheDataRepositoryAssociationOutput) AssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *string { return v.AssociationId }).(pulumi.StringPtrOutput)
 }
 
-// The path to the S3 or NFS data repository that links to the cache.
+// Path to the S3 or NFS data repository that links to the cache.
 func (o FileCacheDataRepositoryAssociationOutput) DataRepositoryPath() pulumi.StringOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) string { return v.DataRepositoryPath }).(pulumi.StringOutput)
 }
 
-// A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+// NFS exports linked with this data repository association, in the format `/exportpath1`. Configure `dataRepositoryPath` as the domain name of the NFS file system to use this argument. Not supported for S3 data repositories. Maximum of 500.
 func (o FileCacheDataRepositoryAssociationOutput) DataRepositorySubdirectories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) []string { return v.DataRepositorySubdirectories }).(pulumi.StringArrayOutput)
 }
 
-// The system-generated, unique ID of the cache.
+// System-generated, unique ID of the cache.
 func (o FileCacheDataRepositoryAssociationOutput) FileCacheId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *string { return v.FileCacheId }).(pulumi.StringPtrOutput)
 }
 
-// A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+// Path on the cache that maps 1-1 with `dataRepositoryPath`. Must begin with a forward slash and cannot overlap the cache path of another data repository association.
 func (o FileCacheDataRepositoryAssociationOutput) FileCachePath() pulumi.StringOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) string { return v.FileCachePath }).(pulumi.StringOutput)
 }
 
+// ID of the file system for an NFS data repository association.
 func (o FileCacheDataRepositoryAssociationOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
 
+// Path to the data repository on the file system.
 func (o FileCacheDataRepositoryAssociationOutput) FileSystemPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *string { return v.FileSystemPath }).(pulumi.StringPtrOutput)
 }
 
+// Size, in mebibytes (MiB), of the data blocks used to represent imported files.
 func (o FileCacheDataRepositoryAssociationOutput) ImportedFileChunkSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *int { return v.ImportedFileChunkSize }).(pulumi.IntPtrOutput)
 }
 
-// (Optional) See the `nfs` configuration block.
+// Configuration for a data repository association linked to an NFS file system. See `nfs` Block below.
 func (o FileCacheDataRepositoryAssociationOutput) Nfs() FileCacheDataRepositoryAssociationNfArrayOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) []FileCacheDataRepositoryAssociationNf { return v.Nfs }).(FileCacheDataRepositoryAssociationNfArrayOutput)
 }
 
+// Amazon Resource Name (ARN) of the data repository association.
 func (o FileCacheDataRepositoryAssociationOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o FileCacheDataRepositoryAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -620,9 +635,9 @@ func (o FileCacheDataRepositoryAssociationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type FileCacheDataRepositoryAssociationNf struct {
-	// A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+	// Up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name.
 	DnsIps []string `pulumi:"dnsIps"`
-	// The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+	// Version of the NFS protocol of the NFS data repository. The only supported value is `NFS3`.
 	Version string `pulumi:"version"`
 }
 
@@ -638,9 +653,9 @@ type FileCacheDataRepositoryAssociationNfInput interface {
 }
 
 type FileCacheDataRepositoryAssociationNfArgs struct {
-	// A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+	// Up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name.
 	DnsIps pulumi.StringArrayInput `pulumi:"dnsIps"`
-	// The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+	// Version of the NFS protocol of the NFS data repository. The only supported value is `NFS3`.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -695,12 +710,12 @@ func (o FileCacheDataRepositoryAssociationNfOutput) ToFileCacheDataRepositoryAss
 	return o
 }
 
-// A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+// Up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name.
 func (o FileCacheDataRepositoryAssociationNfOutput) DnsIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociationNf) []string { return v.DnsIps }).(pulumi.StringArrayOutput)
 }
 
-// The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+// Version of the NFS protocol of the NFS data repository. The only supported value is `NFS3`.
 func (o FileCacheDataRepositoryAssociationNfOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v FileCacheDataRepositoryAssociationNf) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -726,15 +741,17 @@ func (o FileCacheDataRepositoryAssociationNfArrayOutput) Index(i pulumi.IntInput
 }
 
 type FileCacheLustreConfiguration struct {
-	// Specifies the cache deployment type. The only supported value is `CACHE_1`.
-	DeploymentType    string                                         `pulumi:"deploymentType"`
+	// Cache deployment type. The only supported value is `CACHE_1`.
+	DeploymentType string `pulumi:"deploymentType"`
+	// Configuration for Lustre logging used to write the enabled logging events for the cache.
 	LogConfigurations []FileCacheLustreConfigurationLogConfiguration `pulumi:"logConfigurations"`
-	// The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
+	// Configuration for a Lustre MDT (Metadata Target) storage volume. See `metadataConfiguration` Block below.
 	MetadataConfigurations []FileCacheLustreConfigurationMetadataConfiguration `pulumi:"metadataConfigurations"`
-	MountName              *string                                             `pulumi:"mountName"`
-	// Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+	// Mount name of the cache.
+	MountName *string `pulumi:"mountName"`
+	// Throughput provisioned for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
 	PerUnitStorageThroughput int `pulumi:"perUnitStorageThroughput"`
-	// A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+	// Recurring weekly time to start maintenance, in the format `D:HH:MM`. `D` is the day of the week, where `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
 	WeeklyMaintenanceStartTime *string `pulumi:"weeklyMaintenanceStartTime"`
 }
 
@@ -750,15 +767,17 @@ type FileCacheLustreConfigurationInput interface {
 }
 
 type FileCacheLustreConfigurationArgs struct {
-	// Specifies the cache deployment type. The only supported value is `CACHE_1`.
-	DeploymentType    pulumi.StringInput                                     `pulumi:"deploymentType"`
+	// Cache deployment type. The only supported value is `CACHE_1`.
+	DeploymentType pulumi.StringInput `pulumi:"deploymentType"`
+	// Configuration for Lustre logging used to write the enabled logging events for the cache.
 	LogConfigurations FileCacheLustreConfigurationLogConfigurationArrayInput `pulumi:"logConfigurations"`
-	// The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
+	// Configuration for a Lustre MDT (Metadata Target) storage volume. See `metadataConfiguration` Block below.
 	MetadataConfigurations FileCacheLustreConfigurationMetadataConfigurationArrayInput `pulumi:"metadataConfigurations"`
-	MountName              pulumi.StringPtrInput                                       `pulumi:"mountName"`
-	// Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+	// Mount name of the cache.
+	MountName pulumi.StringPtrInput `pulumi:"mountName"`
+	// Throughput provisioned for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
 	PerUnitStorageThroughput pulumi.IntInput `pulumi:"perUnitStorageThroughput"`
-	// A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+	// Recurring weekly time to start maintenance, in the format `D:HH:MM`. `D` is the day of the week, where `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
 	WeeklyMaintenanceStartTime pulumi.StringPtrInput `pulumi:"weeklyMaintenanceStartTime"`
 }
 
@@ -813,34 +832,36 @@ func (o FileCacheLustreConfigurationOutput) ToFileCacheLustreConfigurationOutput
 	return o
 }
 
-// Specifies the cache deployment type. The only supported value is `CACHE_1`.
+// Cache deployment type. The only supported value is `CACHE_1`.
 func (o FileCacheLustreConfigurationOutput) DeploymentType() pulumi.StringOutput {
 	return o.ApplyT(func(v FileCacheLustreConfiguration) string { return v.DeploymentType }).(pulumi.StringOutput)
 }
 
+// Configuration for Lustre logging used to write the enabled logging events for the cache.
 func (o FileCacheLustreConfigurationOutput) LogConfigurations() FileCacheLustreConfigurationLogConfigurationArrayOutput {
 	return o.ApplyT(func(v FileCacheLustreConfiguration) []FileCacheLustreConfigurationLogConfiguration {
 		return v.LogConfigurations
 	}).(FileCacheLustreConfigurationLogConfigurationArrayOutput)
 }
 
-// The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
+// Configuration for a Lustre MDT (Metadata Target) storage volume. See `metadataConfiguration` Block below.
 func (o FileCacheLustreConfigurationOutput) MetadataConfigurations() FileCacheLustreConfigurationMetadataConfigurationArrayOutput {
 	return o.ApplyT(func(v FileCacheLustreConfiguration) []FileCacheLustreConfigurationMetadataConfiguration {
 		return v.MetadataConfigurations
 	}).(FileCacheLustreConfigurationMetadataConfigurationArrayOutput)
 }
 
+// Mount name of the cache.
 func (o FileCacheLustreConfigurationOutput) MountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileCacheLustreConfiguration) *string { return v.MountName }).(pulumi.StringPtrOutput)
 }
 
-// Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+// Throughput provisioned for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
 func (o FileCacheLustreConfigurationOutput) PerUnitStorageThroughput() pulumi.IntOutput {
 	return o.ApplyT(func(v FileCacheLustreConfiguration) int { return v.PerUnitStorageThroughput }).(pulumi.IntOutput)
 }
 
-// A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+// Recurring weekly time to start maintenance, in the format `D:HH:MM`. `D` is the day of the week, where `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
 func (o FileCacheLustreConfigurationOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileCacheLustreConfiguration) *string { return v.WeeklyMaintenanceStartTime }).(pulumi.StringPtrOutput)
 }
@@ -966,7 +987,7 @@ func (o FileCacheLustreConfigurationLogConfigurationArrayOutput) Index(i pulumi.
 }
 
 type FileCacheLustreConfigurationMetadataConfiguration struct {
-	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+	// Storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
 	StorageCapacity int `pulumi:"storageCapacity"`
 }
 
@@ -982,7 +1003,7 @@ type FileCacheLustreConfigurationMetadataConfigurationInput interface {
 }
 
 type FileCacheLustreConfigurationMetadataConfigurationArgs struct {
-	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+	// Storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
 	StorageCapacity pulumi.IntInput `pulumi:"storageCapacity"`
 }
 
@@ -1037,7 +1058,7 @@ func (o FileCacheLustreConfigurationMetadataConfigurationOutput) ToFileCacheLust
 	return o
 }
 
-// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+// Storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
 func (o FileCacheLustreConfigurationMetadataConfigurationOutput) StorageCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v FileCacheLustreConfigurationMetadataConfiguration) int { return v.StorageCapacity }).(pulumi.IntOutput)
 }
@@ -1219,7 +1240,7 @@ func (o LustreFileSystemDataReadCacheConfigurationPtrOutput) SizingMode() pulumi
 }
 
 type LustreFileSystemLogConfiguration struct {
-	// The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+	// Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
 	Destination *string `pulumi:"destination"`
 	// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
 	Level *string `pulumi:"level"`
@@ -1237,7 +1258,7 @@ type LustreFileSystemLogConfigurationInput interface {
 }
 
 type LustreFileSystemLogConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+	// Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
 	Destination pulumi.StringPtrInput `pulumi:"destination"`
 	// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
 	Level pulumi.StringPtrInput `pulumi:"level"`
@@ -1320,7 +1341,7 @@ func (o LustreFileSystemLogConfigurationOutput) ToLustreFileSystemLogConfigurati
 	}).(LustreFileSystemLogConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+// Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
 func (o LustreFileSystemLogConfigurationOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LustreFileSystemLogConfiguration) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
@@ -1354,7 +1375,7 @@ func (o LustreFileSystemLogConfigurationPtrOutput) Elem() LustreFileSystemLogCon
 	}).(LustreFileSystemLogConfigurationOutput)
 }
 
-// The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+// Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
 func (o LustreFileSystemLogConfigurationPtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LustreFileSystemLogConfiguration) *string {
 		if v == nil {
@@ -1695,9 +1716,9 @@ func (o LustreFileSystemRootSquashConfigurationPtrOutput) RootSquash() pulumi.St
 }
 
 type OntapFileSystemDiskIopsConfiguration struct {
-	// The total number of SSD IOPS provisioned for the file system.
+	// Total number of SSD IOPS provisioned for the file system.
 	Iops *int `pulumi:"iops"`
-	// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	// Whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 	Mode *string `pulumi:"mode"`
 }
 
@@ -1713,9 +1734,9 @@ type OntapFileSystemDiskIopsConfigurationInput interface {
 }
 
 type OntapFileSystemDiskIopsConfigurationArgs struct {
-	// The total number of SSD IOPS provisioned for the file system.
+	// Total number of SSD IOPS provisioned for the file system.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	// Whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
@@ -1796,12 +1817,12 @@ func (o OntapFileSystemDiskIopsConfigurationOutput) ToOntapFileSystemDiskIopsCon
 	}).(OntapFileSystemDiskIopsConfigurationPtrOutput)
 }
 
-// The total number of SSD IOPS provisioned for the file system.
+// Total number of SSD IOPS provisioned for the file system.
 func (o OntapFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapFileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+// Whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 func (o OntapFileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapFileSystemDiskIopsConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -1830,7 +1851,7 @@ func (o OntapFileSystemDiskIopsConfigurationPtrOutput) Elem() OntapFileSystemDis
 	}).(OntapFileSystemDiskIopsConfigurationOutput)
 }
 
-// The total number of SSD IOPS provisioned for the file system.
+// Total number of SSD IOPS provisioned for the file system.
 func (o OntapFileSystemDiskIopsConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OntapFileSystemDiskIopsConfiguration) *int {
 		if v == nil {
@@ -1840,7 +1861,7 @@ func (o OntapFileSystemDiskIopsConfigurationPtrOutput) Iops() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+// Whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 func (o OntapFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapFileSystemDiskIopsConfiguration) *string {
 		if v == nil {
@@ -1851,9 +1872,9 @@ func (o OntapFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtrOu
 }
 
 type OntapFileSystemEndpoint struct {
-	// An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+	// Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
 	Interclusters []OntapFileSystemEndpointIntercluster `pulumi:"interclusters"`
-	// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+	// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
 	Managements []OntapFileSystemEndpointManagement `pulumi:"managements"`
 }
 
@@ -1869,9 +1890,9 @@ type OntapFileSystemEndpointInput interface {
 }
 
 type OntapFileSystemEndpointArgs struct {
-	// An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+	// Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
 	Interclusters OntapFileSystemEndpointInterclusterArrayInput `pulumi:"interclusters"`
-	// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+	// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
 	Managements OntapFileSystemEndpointManagementArrayInput `pulumi:"managements"`
 }
 
@@ -1926,12 +1947,12 @@ func (o OntapFileSystemEndpointOutput) ToOntapFileSystemEndpointOutputWithContex
 	return o
 }
 
-// An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+// Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
 func (o OntapFileSystemEndpointOutput) Interclusters() OntapFileSystemEndpointInterclusterArrayOutput {
 	return o.ApplyT(func(v OntapFileSystemEndpoint) []OntapFileSystemEndpointIntercluster { return v.Interclusters }).(OntapFileSystemEndpointInterclusterArrayOutput)
 }
 
-// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
 func (o OntapFileSystemEndpointOutput) Managements() OntapFileSystemEndpointManagementArrayOutput {
 	return o.ApplyT(func(v OntapFileSystemEndpoint) []OntapFileSystemEndpointManagement { return v.Managements }).(OntapFileSystemEndpointManagementArrayOutput)
 }
@@ -1957,7 +1978,7 @@ func (o OntapFileSystemEndpointArrayOutput) Index(i pulumi.IntInput) OntapFileSy
 }
 
 type OntapFileSystemEndpointIntercluster struct {
-	// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+	// Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
 	DnsName *string `pulumi:"dnsName"`
 	// IP addresses of the file system endpoint.
 	IpAddresses []string `pulumi:"ipAddresses"`
@@ -1975,7 +1996,7 @@ type OntapFileSystemEndpointInterclusterInput interface {
 }
 
 type OntapFileSystemEndpointInterclusterArgs struct {
-	// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+	// Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
 	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
 	// IP addresses of the file system endpoint.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
@@ -2032,7 +2053,7 @@ func (o OntapFileSystemEndpointInterclusterOutput) ToOntapFileSystemEndpointInte
 	return o
 }
 
-// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+// Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
 func (o OntapFileSystemEndpointInterclusterOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapFileSystemEndpointIntercluster) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
@@ -2063,7 +2084,7 @@ func (o OntapFileSystemEndpointInterclusterArrayOutput) Index(i pulumi.IntInput)
 }
 
 type OntapFileSystemEndpointManagement struct {
-	// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+	// Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
 	DnsName *string `pulumi:"dnsName"`
 	// IP addresses of the file system endpoint.
 	IpAddresses []string `pulumi:"ipAddresses"`
@@ -2081,7 +2102,7 @@ type OntapFileSystemEndpointManagementInput interface {
 }
 
 type OntapFileSystemEndpointManagementArgs struct {
-	// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+	// Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
 	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
 	// IP addresses of the file system endpoint.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
@@ -2138,7 +2159,7 @@ func (o OntapFileSystemEndpointManagementOutput) ToOntapFileSystemEndpointManage
 	return o
 }
 
-// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+// Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
 func (o OntapFileSystemEndpointManagementOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapFileSystemEndpointManagement) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
@@ -2169,8 +2190,9 @@ func (o OntapFileSystemEndpointManagementArrayOutput) Index(i pulumi.IntInput) O
 }
 
 type OntapStorageVirtualMachineActiveDirectoryConfiguration struct {
-	// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
-	NetbiosName                             *string                                                                                        `pulumi:"netbiosName"`
+	// NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+	NetbiosName *string `pulumi:"netbiosName"`
+	// Configuration block that Amazon FSx uses to join the SVM to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Detailed below.
 	SelfManagedActiveDirectoryConfiguration *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration `pulumi:"selfManagedActiveDirectoryConfiguration"`
 }
 
@@ -2186,8 +2208,9 @@ type OntapStorageVirtualMachineActiveDirectoryConfigurationInput interface {
 }
 
 type OntapStorageVirtualMachineActiveDirectoryConfigurationArgs struct {
-	// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
-	NetbiosName                             pulumi.StringPtrInput                                                                                 `pulumi:"netbiosName"`
+	// NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+	NetbiosName pulumi.StringPtrInput `pulumi:"netbiosName"`
+	// Configuration block that Amazon FSx uses to join the SVM to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Detailed below.
 	SelfManagedActiveDirectoryConfiguration OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrInput `pulumi:"selfManagedActiveDirectoryConfiguration"`
 }
 
@@ -2268,11 +2291,12 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ToOntapSto
 	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
 }
 
-// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+// NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) NetbiosName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfiguration) *string { return v.NetbiosName }).(pulumi.StringPtrOutput)
 }
 
+// Configuration block that Amazon FSx uses to join the SVM to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Detailed below.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) SelfManagedActiveDirectoryConfiguration() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfiguration) *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
 		return v.SelfManagedActiveDirectoryConfiguration
@@ -2303,7 +2327,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) Elem() 
 	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationOutput)
 }
 
-// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+// NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) NetbiosName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -2313,6 +2337,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) Netbios
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration block that Amazon FSx uses to join the SVM to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Detailed below.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) SelfManagedActiveDirectoryConfiguration() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfiguration) *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
 		if v == nil {
@@ -2323,17 +2348,17 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) SelfMan
 }
 
 type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration struct {
-	// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+	// List of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
 	DnsIps []string `pulumi:"dnsIps"`
-	// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+	// Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
 	DomainName string `pulumi:"domainName"`
-	// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+	// Name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
 	FileSystemAdministratorsGroup *string `pulumi:"fileSystemAdministratorsGroup"`
-	// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+	// Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
-	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+	// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 	Password string `pulumi:"password"`
-	// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+	// User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 	Username string `pulumi:"username"`
 }
 
@@ -2349,17 +2374,17 @@ type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDire
 }
 
 type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs struct {
-	// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+	// List of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
 	DnsIps pulumi.StringArrayInput `pulumi:"dnsIps"`
-	// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+	// Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+	// Name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
 	FileSystemAdministratorsGroup pulumi.StringPtrInput `pulumi:"fileSystemAdministratorsGroup"`
-	// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+	// Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
-	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+	// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+	// User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -2440,42 +2465,42 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput)
 }
 
-// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+// List of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) DnsIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) []string {
 		return v.DnsIps
 	}).(pulumi.StringArrayOutput)
 }
 
-// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+// Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
 		return v.DomainName
 	}).(pulumi.StringOutput)
 }
 
-// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+// Name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) FileSystemAdministratorsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		return v.FileSystemAdministratorsGroup
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+// Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		return v.OrganizationalUnitDistinguishedName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
 		return v.Password
 	}).(pulumi.StringOutput)
 }
 
-// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+// User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
 		return v.Username
@@ -2506,7 +2531,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput)
 }
 
-// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+// List of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) DnsIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) []string {
 		if v == nil {
@@ -2516,7 +2541,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(pulumi.StringArrayOutput)
 }
 
-// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+// Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -2526,7 +2551,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+// Name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) FileSystemAdministratorsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -2536,7 +2561,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+// Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -2546,7 +2571,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -2556,7 +2581,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(pulumi.StringPtrOutput)
 }
 
-// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+// User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -2567,13 +2592,13 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 }
 
 type OntapStorageVirtualMachineEndpoint struct {
-	// An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+	// Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
 	Iscsis []OntapStorageVirtualMachineEndpointIscsi `pulumi:"iscsis"`
-	// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+	// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
 	Managements []OntapStorageVirtualMachineEndpointManagement `pulumi:"managements"`
-	// An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+	// Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
 	Nfs []OntapStorageVirtualMachineEndpointNf `pulumi:"nfs"`
-	// An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+	// Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
 	Smbs []OntapStorageVirtualMachineEndpointSmb `pulumi:"smbs"`
 }
 
@@ -2589,13 +2614,13 @@ type OntapStorageVirtualMachineEndpointInput interface {
 }
 
 type OntapStorageVirtualMachineEndpointArgs struct {
-	// An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+	// Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
 	Iscsis OntapStorageVirtualMachineEndpointIscsiArrayInput `pulumi:"iscsis"`
-	// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+	// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
 	Managements OntapStorageVirtualMachineEndpointManagementArrayInput `pulumi:"managements"`
-	// An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+	// Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
 	Nfs OntapStorageVirtualMachineEndpointNfArrayInput `pulumi:"nfs"`
-	// An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+	// Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
 	Smbs OntapStorageVirtualMachineEndpointSmbArrayInput `pulumi:"smbs"`
 }
 
@@ -2650,24 +2675,24 @@ func (o OntapStorageVirtualMachineEndpointOutput) ToOntapStorageVirtualMachineEn
 	return o
 }
 
-// An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+// Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
 func (o OntapStorageVirtualMachineEndpointOutput) Iscsis() OntapStorageVirtualMachineEndpointIscsiArrayOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineEndpoint) []OntapStorageVirtualMachineEndpointIscsi { return v.Iscsis }).(OntapStorageVirtualMachineEndpointIscsiArrayOutput)
 }
 
-// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
 func (o OntapStorageVirtualMachineEndpointOutput) Managements() OntapStorageVirtualMachineEndpointManagementArrayOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineEndpoint) []OntapStorageVirtualMachineEndpointManagement {
 		return v.Managements
 	}).(OntapStorageVirtualMachineEndpointManagementArrayOutput)
 }
 
-// An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+// Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
 func (o OntapStorageVirtualMachineEndpointOutput) Nfs() OntapStorageVirtualMachineEndpointNfArrayOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineEndpoint) []OntapStorageVirtualMachineEndpointNf { return v.Nfs }).(OntapStorageVirtualMachineEndpointNfArrayOutput)
 }
 
-// An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+// Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
 func (o OntapStorageVirtualMachineEndpointOutput) Smbs() OntapStorageVirtualMachineEndpointSmbArrayOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineEndpoint) []OntapStorageVirtualMachineEndpointSmb { return v.Smbs }).(OntapStorageVirtualMachineEndpointSmbArrayOutput)
 }
@@ -2693,7 +2718,7 @@ func (o OntapStorageVirtualMachineEndpointArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type OntapStorageVirtualMachineEndpointIscsi struct {
-	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	// Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
 	DnsName *string `pulumi:"dnsName"`
 	// IP addresses of the storage virtual machine endpoint.
 	IpAddresses []string `pulumi:"ipAddresses"`
@@ -2711,7 +2736,7 @@ type OntapStorageVirtualMachineEndpointIscsiInput interface {
 }
 
 type OntapStorageVirtualMachineEndpointIscsiArgs struct {
-	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	// Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
 	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
 	// IP addresses of the storage virtual machine endpoint.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
@@ -2768,7 +2793,7 @@ func (o OntapStorageVirtualMachineEndpointIscsiOutput) ToOntapStorageVirtualMach
 	return o
 }
 
-// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+// Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
 func (o OntapStorageVirtualMachineEndpointIscsiOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointIscsi) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
@@ -2799,7 +2824,7 @@ func (o OntapStorageVirtualMachineEndpointIscsiArrayOutput) Index(i pulumi.IntIn
 }
 
 type OntapStorageVirtualMachineEndpointManagement struct {
-	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	// Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
 	DnsName *string `pulumi:"dnsName"`
 	// IP addresses of the storage virtual machine endpoint.
 	IpAddresses []string `pulumi:"ipAddresses"`
@@ -2817,7 +2842,7 @@ type OntapStorageVirtualMachineEndpointManagementInput interface {
 }
 
 type OntapStorageVirtualMachineEndpointManagementArgs struct {
-	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	// Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
 	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
 	// IP addresses of the storage virtual machine endpoint.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
@@ -2874,7 +2899,7 @@ func (o OntapStorageVirtualMachineEndpointManagementOutput) ToOntapStorageVirtua
 	return o
 }
 
-// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+// Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
 func (o OntapStorageVirtualMachineEndpointManagementOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointManagement) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
@@ -2905,7 +2930,7 @@ func (o OntapStorageVirtualMachineEndpointManagementArrayOutput) Index(i pulumi.
 }
 
 type OntapStorageVirtualMachineEndpointNf struct {
-	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	// Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
 	DnsName *string `pulumi:"dnsName"`
 	// IP addresses of the storage virtual machine endpoint.
 	IpAddresses []string `pulumi:"ipAddresses"`
@@ -2923,7 +2948,7 @@ type OntapStorageVirtualMachineEndpointNfInput interface {
 }
 
 type OntapStorageVirtualMachineEndpointNfArgs struct {
-	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	// Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
 	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
 	// IP addresses of the storage virtual machine endpoint.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
@@ -2980,7 +3005,7 @@ func (o OntapStorageVirtualMachineEndpointNfOutput) ToOntapStorageVirtualMachine
 	return o
 }
 
-// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+// Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
 func (o OntapStorageVirtualMachineEndpointNfOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointNf) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
@@ -3011,7 +3036,7 @@ func (o OntapStorageVirtualMachineEndpointNfArrayOutput) Index(i pulumi.IntInput
 }
 
 type OntapStorageVirtualMachineEndpointSmb struct {
-	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	// Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
 	DnsName *string `pulumi:"dnsName"`
 	// IP addresses of the storage virtual machine endpoint.
 	IpAddresses []string `pulumi:"ipAddresses"`
@@ -3029,7 +3054,7 @@ type OntapStorageVirtualMachineEndpointSmbInput interface {
 }
 
 type OntapStorageVirtualMachineEndpointSmbArgs struct {
-	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	// Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
 	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
 	// IP addresses of the storage virtual machine endpoint.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
@@ -3086,7 +3111,7 @@ func (o OntapStorageVirtualMachineEndpointSmbOutput) ToOntapStorageVirtualMachin
 	return o
 }
 
-// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+// Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
 func (o OntapStorageVirtualMachineEndpointSmbOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointSmb) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
@@ -3117,11 +3142,11 @@ func (o OntapStorageVirtualMachineEndpointSmbArrayOutput) Index(i pulumi.IntInpu
 }
 
 type OntapVolumeAggregateConfiguration struct {
-	// Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+	// Names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
 	Aggregates []string `pulumi:"aggregates"`
-	// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+	// Number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
 	ConstituentsPerAggregate *int `pulumi:"constituentsPerAggregate"`
-	// The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
+	// Total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
 	TotalConstituents *int `pulumi:"totalConstituents"`
 }
 
@@ -3137,11 +3162,11 @@ type OntapVolumeAggregateConfigurationInput interface {
 }
 
 type OntapVolumeAggregateConfigurationArgs struct {
-	// Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+	// Names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
 	Aggregates pulumi.StringArrayInput `pulumi:"aggregates"`
-	// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+	// Number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
 	ConstituentsPerAggregate pulumi.IntPtrInput `pulumi:"constituentsPerAggregate"`
-	// The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
+	// Total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
 	TotalConstituents pulumi.IntPtrInput `pulumi:"totalConstituents"`
 }
 
@@ -3222,17 +3247,17 @@ func (o OntapVolumeAggregateConfigurationOutput) ToOntapVolumeAggregateConfigura
 	}).(OntapVolumeAggregateConfigurationPtrOutput)
 }
 
-// Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+// Names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
 func (o OntapVolumeAggregateConfigurationOutput) Aggregates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OntapVolumeAggregateConfiguration) []string { return v.Aggregates }).(pulumi.StringArrayOutput)
 }
 
-// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+// Number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
 func (o OntapVolumeAggregateConfigurationOutput) ConstituentsPerAggregate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapVolumeAggregateConfiguration) *int { return v.ConstituentsPerAggregate }).(pulumi.IntPtrOutput)
 }
 
-// The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
+// Total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
 func (o OntapVolumeAggregateConfigurationOutput) TotalConstituents() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapVolumeAggregateConfiguration) *int { return v.TotalConstituents }).(pulumi.IntPtrOutput)
 }
@@ -3261,7 +3286,7 @@ func (o OntapVolumeAggregateConfigurationPtrOutput) Elem() OntapVolumeAggregateC
 	}).(OntapVolumeAggregateConfigurationOutput)
 }
 
-// Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+// Names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
 func (o OntapVolumeAggregateConfigurationPtrOutput) Aggregates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OntapVolumeAggregateConfiguration) []string {
 		if v == nil {
@@ -3271,7 +3296,7 @@ func (o OntapVolumeAggregateConfigurationPtrOutput) Aggregates() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+// Number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
 func (o OntapVolumeAggregateConfigurationPtrOutput) ConstituentsPerAggregate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeAggregateConfiguration) *int {
 		if v == nil {
@@ -3281,7 +3306,7 @@ func (o OntapVolumeAggregateConfigurationPtrOutput) ConstituentsPerAggregate() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
+// Total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
 func (o OntapVolumeAggregateConfigurationPtrOutput) TotalConstituents() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeAggregateConfiguration) *int {
 		if v == nil {
@@ -3292,17 +3317,17 @@ func (o OntapVolumeAggregateConfigurationPtrOutput) TotalConstituents() pulumi.I
 }
 
 type OntapVolumeSnaplockConfiguration struct {
-	// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+	// Whether to enable the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
 	AuditLogVolume *bool `pulumi:"auditLogVolume"`
-	// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
+	// Configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
 	AutocommitPeriod *OntapVolumeSnaplockConfigurationAutocommitPeriod `pulumi:"autocommitPeriod"`
-	// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+	// Whether privileged delete is enabled, disabled, or permanently disabled on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
 	PrivilegedDelete *string `pulumi:"privilegedDelete"`
-	// The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
+	// Retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
 	RetentionPeriod *OntapVolumeSnaplockConfigurationRetentionPeriod `pulumi:"retentionPeriod"`
-	// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+	// Retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
 	SnaplockType string `pulumi:"snaplockType"`
-	// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+	// Whether to enable volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
 	VolumeAppendModeEnabled *bool `pulumi:"volumeAppendModeEnabled"`
 }
 
@@ -3318,17 +3343,17 @@ type OntapVolumeSnaplockConfigurationInput interface {
 }
 
 type OntapVolumeSnaplockConfigurationArgs struct {
-	// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+	// Whether to enable the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
 	AuditLogVolume pulumi.BoolPtrInput `pulumi:"auditLogVolume"`
-	// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
+	// Configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
 	AutocommitPeriod OntapVolumeSnaplockConfigurationAutocommitPeriodPtrInput `pulumi:"autocommitPeriod"`
-	// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+	// Whether privileged delete is enabled, disabled, or permanently disabled on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
 	PrivilegedDelete pulumi.StringPtrInput `pulumi:"privilegedDelete"`
-	// The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
+	// Retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
 	RetentionPeriod OntapVolumeSnaplockConfigurationRetentionPeriodPtrInput `pulumi:"retentionPeriod"`
-	// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+	// Retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
 	SnaplockType pulumi.StringInput `pulumi:"snaplockType"`
-	// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+	// Whether to enable volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
 	VolumeAppendModeEnabled pulumi.BoolPtrInput `pulumi:"volumeAppendModeEnabled"`
 }
 
@@ -3409,36 +3434,36 @@ func (o OntapVolumeSnaplockConfigurationOutput) ToOntapVolumeSnaplockConfigurati
 	}).(OntapVolumeSnaplockConfigurationPtrOutput)
 }
 
-// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+// Whether to enable the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
 func (o OntapVolumeSnaplockConfigurationOutput) AuditLogVolume() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) *bool { return v.AuditLogVolume }).(pulumi.BoolPtrOutput)
 }
 
-// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
+// Configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
 func (o OntapVolumeSnaplockConfigurationOutput) AutocommitPeriod() OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) *OntapVolumeSnaplockConfigurationAutocommitPeriod {
 		return v.AutocommitPeriod
 	}).(OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput)
 }
 
-// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+// Whether privileged delete is enabled, disabled, or permanently disabled on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
 func (o OntapVolumeSnaplockConfigurationOutput) PrivilegedDelete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) *string { return v.PrivilegedDelete }).(pulumi.StringPtrOutput)
 }
 
-// The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
+// Retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
 func (o OntapVolumeSnaplockConfigurationOutput) RetentionPeriod() OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) *OntapVolumeSnaplockConfigurationRetentionPeriod {
 		return v.RetentionPeriod
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput)
 }
 
-// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+// Retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
 func (o OntapVolumeSnaplockConfigurationOutput) SnaplockType() pulumi.StringOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) string { return v.SnaplockType }).(pulumi.StringOutput)
 }
 
-// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+// Whether to enable volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
 func (o OntapVolumeSnaplockConfigurationOutput) VolumeAppendModeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfiguration) *bool { return v.VolumeAppendModeEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -3467,7 +3492,7 @@ func (o OntapVolumeSnaplockConfigurationPtrOutput) Elem() OntapVolumeSnaplockCon
 	}).(OntapVolumeSnaplockConfigurationOutput)
 }
 
-// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+// Whether to enable the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
 func (o OntapVolumeSnaplockConfigurationPtrOutput) AuditLogVolume() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) *bool {
 		if v == nil {
@@ -3477,7 +3502,7 @@ func (o OntapVolumeSnaplockConfigurationPtrOutput) AuditLogVolume() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
+// Configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
 func (o OntapVolumeSnaplockConfigurationPtrOutput) AutocommitPeriod() OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) *OntapVolumeSnaplockConfigurationAutocommitPeriod {
 		if v == nil {
@@ -3487,7 +3512,7 @@ func (o OntapVolumeSnaplockConfigurationPtrOutput) AutocommitPeriod() OntapVolum
 	}).(OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput)
 }
 
-// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+// Whether privileged delete is enabled, disabled, or permanently disabled on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
 func (o OntapVolumeSnaplockConfigurationPtrOutput) PrivilegedDelete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) *string {
 		if v == nil {
@@ -3497,7 +3522,7 @@ func (o OntapVolumeSnaplockConfigurationPtrOutput) PrivilegedDelete() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
+// Retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
 func (o OntapVolumeSnaplockConfigurationPtrOutput) RetentionPeriod() OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) *OntapVolumeSnaplockConfigurationRetentionPeriod {
 		if v == nil {
@@ -3507,7 +3532,7 @@ func (o OntapVolumeSnaplockConfigurationPtrOutput) RetentionPeriod() OntapVolume
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput)
 }
 
-// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+// Retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
 func (o OntapVolumeSnaplockConfigurationPtrOutput) SnaplockType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) *string {
 		if v == nil {
@@ -3517,7 +3542,7 @@ func (o OntapVolumeSnaplockConfigurationPtrOutput) SnaplockType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+// Whether to enable volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
 func (o OntapVolumeSnaplockConfigurationPtrOutput) VolumeAppendModeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfiguration) *bool {
 		if v == nil {
@@ -3528,9 +3553,9 @@ func (o OntapVolumeSnaplockConfigurationPtrOutput) VolumeAppendModeEnabled() pul
 }
 
 type OntapVolumeSnaplockConfigurationAutocommitPeriod struct {
-	// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+	// Type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
 	Type *string `pulumi:"type"`
-	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 	Value *int `pulumi:"value"`
 }
 
@@ -3546,9 +3571,9 @@ type OntapVolumeSnaplockConfigurationAutocommitPeriodInput interface {
 }
 
 type OntapVolumeSnaplockConfigurationAutocommitPeriodArgs struct {
-	// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+	// Type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
@@ -3629,12 +3654,12 @@ func (o OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) ToOntapVolumeSna
 	}).(OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput)
 }
 
-// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+// Type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
 func (o OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationAutocommitPeriod) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 func (o OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationAutocommitPeriod) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -3663,7 +3688,7 @@ func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) Elem() OntapV
 	}).(OntapVolumeSnaplockConfigurationAutocommitPeriodOutput)
 }
 
-// The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+// Type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
 func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationAutocommitPeriod) *string {
 		if v == nil {
@@ -3673,7 +3698,7 @@ func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) Type() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationAutocommitPeriod) *int {
 		if v == nil {
@@ -3684,11 +3709,11 @@ func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) Value() pulum
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriod struct {
-	// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
+	// Retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
 	DefaultRetention *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention `pulumi:"defaultRetention"`
-	// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
+	// Longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
 	MaximumRetention *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention `pulumi:"maximumRetention"`
-	// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
+	// Shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
 	MinimumRetention *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention `pulumi:"minimumRetention"`
 }
 
@@ -3704,11 +3729,11 @@ type OntapVolumeSnaplockConfigurationRetentionPeriodInput interface {
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodArgs struct {
-	// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
+	// Retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
 	DefaultRetention OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrInput `pulumi:"defaultRetention"`
-	// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
+	// Longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
 	MaximumRetention OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrInput `pulumi:"maximumRetention"`
-	// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
+	// Shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
 	MinimumRetention OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrInput `pulumi:"minimumRetention"`
 }
 
@@ -3789,21 +3814,21 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) ToOntapVolumeSnap
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput)
 }
 
-// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
+// Retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) DefaultRetention() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
 		return v.DefaultRetention
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput)
 }
 
-// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
+// Longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) MaximumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
 		return v.MaximumRetention
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput)
 }
 
-// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
+// Shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) MinimumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
 		return v.MinimumRetention
@@ -3834,7 +3859,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) Elem() OntapVo
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodOutput)
 }
 
-// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
+// Retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `defaultRetention` Block for details.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) DefaultRetention() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
 		if v == nil {
@@ -3844,7 +3869,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) DefaultRetenti
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput)
 }
 
-// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
+// Longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximumRetention` Block for details.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) MaximumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
 		if v == nil {
@@ -3854,7 +3879,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) MaximumRetenti
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput)
 }
 
-// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
+// Shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimumRetention` Block for details.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) MinimumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
 		if v == nil {
@@ -3865,9 +3890,9 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) MinimumRetenti
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention struct {
-	// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+	// Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 	Type *string `pulumi:"type"`
-	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 	Value *int `pulumi:"value"`
 }
 
@@ -3883,9 +3908,9 @@ type OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionInput interf
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs struct {
-	// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+	// Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
@@ -3966,12 +3991,12 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) T
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput)
 }
 
-// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+// Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -4000,7 +4025,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput)
 }
 
-// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+// Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) *string {
 		if v == nil {
@@ -4010,7 +4035,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) *int {
 		if v == nil {
@@ -4021,9 +4046,9 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention struct {
-	// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+	// Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 	Type *string `pulumi:"type"`
-	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 	Value *int `pulumi:"value"`
 }
 
@@ -4039,9 +4064,9 @@ type OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionInput interf
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs struct {
-	// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+	// Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
@@ -4122,12 +4147,12 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) T
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput)
 }
 
-// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+// Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -4156,7 +4181,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput)
 }
 
-// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+// Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) *string {
 		if v == nil {
@@ -4166,7 +4191,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) *int {
 		if v == nil {
@@ -4177,9 +4202,9 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention struct {
-	// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+	// Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 	Type *string `pulumi:"type"`
-	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 	Value *int `pulumi:"value"`
 }
 
@@ -4195,9 +4220,9 @@ type OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionInput interf
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs struct {
-	// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+	// Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
@@ -4278,12 +4303,12 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) T
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput)
 }
 
-// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+// Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -4312,7 +4337,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput)
 }
 
-// The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+// Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) *string {
 		if v == nil {
@@ -4322,7 +4347,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+// Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) *int {
 		if v == nil {
@@ -4333,9 +4358,9 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput
 }
 
 type OntapVolumeTieringPolicy struct {
-	// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+	// Number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
 	CoolingPeriod *int `pulumi:"coolingPeriod"`
-	// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+	// Tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
 	Name *string `pulumi:"name"`
 }
 
@@ -4351,9 +4376,9 @@ type OntapVolumeTieringPolicyInput interface {
 }
 
 type OntapVolumeTieringPolicyArgs struct {
-	// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+	// Number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
 	CoolingPeriod pulumi.IntPtrInput `pulumi:"coolingPeriod"`
-	// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+	// Tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -4434,12 +4459,12 @@ func (o OntapVolumeTieringPolicyOutput) ToOntapVolumeTieringPolicyPtrOutputWithC
 	}).(OntapVolumeTieringPolicyPtrOutput)
 }
 
-// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+// Number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
 func (o OntapVolumeTieringPolicyOutput) CoolingPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapVolumeTieringPolicy) *int { return v.CoolingPeriod }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+// Tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
 func (o OntapVolumeTieringPolicyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapVolumeTieringPolicy) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -4468,7 +4493,7 @@ func (o OntapVolumeTieringPolicyPtrOutput) Elem() OntapVolumeTieringPolicyOutput
 	}).(OntapVolumeTieringPolicyOutput)
 }
 
-// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+// Number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
 func (o OntapVolumeTieringPolicyPtrOutput) CoolingPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeTieringPolicy) *int {
 		if v == nil {
@@ -4478,7 +4503,7 @@ func (o OntapVolumeTieringPolicyPtrOutput) CoolingPeriod() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+// Tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
 func (o OntapVolumeTieringPolicyPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeTieringPolicy) *string {
 		if v == nil {
@@ -4489,9 +4514,9 @@ func (o OntapVolumeTieringPolicyPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type OpenZfsFileSystemDiskIopsConfiguration struct {
-	// The total number of SSD IOPS provisioned for the file system.
+	// Total number of SSD IOPS provisioned for the file system.
 	Iops *int `pulumi:"iops"`
-	// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	// How the number of IOPS for the file system is set. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 	Mode *string `pulumi:"mode"`
 }
 
@@ -4507,9 +4532,9 @@ type OpenZfsFileSystemDiskIopsConfigurationInput interface {
 }
 
 type OpenZfsFileSystemDiskIopsConfigurationArgs struct {
-	// The total number of SSD IOPS provisioned for the file system.
+	// Total number of SSD IOPS provisioned for the file system.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	// How the number of IOPS for the file system is set. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
@@ -4590,12 +4615,12 @@ func (o OpenZfsFileSystemDiskIopsConfigurationOutput) ToOpenZfsFileSystemDiskIop
 	}).(OpenZfsFileSystemDiskIopsConfigurationPtrOutput)
 }
 
-// The total number of SSD IOPS provisioned for the file system.
+// Total number of SSD IOPS provisioned for the file system.
 func (o OpenZfsFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+// How the number of IOPS for the file system is set. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 func (o OpenZfsFileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemDiskIopsConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -4624,7 +4649,7 @@ func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Elem() OpenZfsFileSyste
 	}).(OpenZfsFileSystemDiskIopsConfigurationOutput)
 }
 
-// The total number of SSD IOPS provisioned for the file system.
+// Total number of SSD IOPS provisioned for the file system.
 func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemDiskIopsConfiguration) *int {
 		if v == nil {
@@ -4634,7 +4659,7 @@ func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Iops() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+// How the number of IOPS for the file system is set. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemDiskIopsConfiguration) *string {
 		if v == nil {
@@ -4647,7 +4672,7 @@ func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtr
 type OpenZfsFileSystemReadCacheConfiguration struct {
 	// Size of the file system's SSD read cache, in gibibytes (GiB). Required when `sizingMode` is set to `USER_PROVISIONED`. Must not be set when any other `sizingMode` is used.
 	Size *int `pulumi:"size"`
-	// Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
+	// How the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
 	SizingMode *string `pulumi:"sizingMode"`
 }
 
@@ -4665,7 +4690,7 @@ type OpenZfsFileSystemReadCacheConfigurationInput interface {
 type OpenZfsFileSystemReadCacheConfigurationArgs struct {
 	// Size of the file system's SSD read cache, in gibibytes (GiB). Required when `sizingMode` is set to `USER_PROVISIONED`. Must not be set when any other `sizingMode` is used.
 	Size pulumi.IntPtrInput `pulumi:"size"`
-	// Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
+	// How the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
 	SizingMode pulumi.StringPtrInput `pulumi:"sizingMode"`
 }
 
@@ -4751,7 +4776,7 @@ func (o OpenZfsFileSystemReadCacheConfigurationOutput) Size() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v OpenZfsFileSystemReadCacheConfiguration) *int { return v.Size }).(pulumi.IntPtrOutput)
 }
 
-// Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
+// How the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
 func (o OpenZfsFileSystemReadCacheConfigurationOutput) SizingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemReadCacheConfiguration) *string { return v.SizingMode }).(pulumi.StringPtrOutput)
 }
@@ -4790,7 +4815,7 @@ func (o OpenZfsFileSystemReadCacheConfigurationPtrOutput) Size() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
+// How the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
 func (o OpenZfsFileSystemReadCacheConfigurationPtrOutput) SizingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemReadCacheConfiguration) *string {
 		if v == nil {
@@ -4801,7 +4826,7 @@ func (o OpenZfsFileSystemReadCacheConfigurationPtrOutput) SizingMode() pulumi.St
 }
 
 type OpenZfsFileSystemRootVolumeConfiguration struct {
-	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+	// Whether tags for the file system should be copied to snapshots. Default value is false.
 	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`
 	// Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType *string `pulumi:"dataCompressionType"`
@@ -4809,7 +4834,7 @@ type OpenZfsFileSystemRootVolumeConfiguration struct {
 	NfsExports *OpenZfsFileSystemRootVolumeConfigurationNfsExports `pulumi:"nfsExports"`
 	// specifies whether the volume is read-only. Default is false.
 	ReadOnly *bool `pulumi:"readOnly"`
-	// Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+	// Record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
 	RecordSizeKib *int `pulumi:"recordSizeKib"`
 	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block for details.
 	UserAndGroupQuotas []OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
@@ -4827,7 +4852,7 @@ type OpenZfsFileSystemRootVolumeConfigurationInput interface {
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationArgs struct {
-	// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+	// Whether tags for the file system should be copied to snapshots. Default value is false.
 	CopyTagsToSnapshots pulumi.BoolPtrInput `pulumi:"copyTagsToSnapshots"`
 	// Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType pulumi.StringPtrInput `pulumi:"dataCompressionType"`
@@ -4835,7 +4860,7 @@ type OpenZfsFileSystemRootVolumeConfigurationArgs struct {
 	NfsExports OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrInput `pulumi:"nfsExports"`
 	// specifies whether the volume is read-only. Default is false.
 	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
-	// Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+	// Record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
 	RecordSizeKib pulumi.IntPtrInput `pulumi:"recordSizeKib"`
 	// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `userAndGroupQuotas` Block for details.
 	UserAndGroupQuotas OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayInput `pulumi:"userAndGroupQuotas"`
@@ -4918,7 +4943,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationOutput) ToOpenZfsFileSystemRootV
 	}).(OpenZfsFileSystemRootVolumeConfigurationPtrOutput)
 }
 
-// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+// Whether tags for the file system should be copied to snapshots. Default value is false.
 func (o OpenZfsFileSystemRootVolumeConfigurationOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *bool { return v.CopyTagsToSnapshots }).(pulumi.BoolPtrOutput)
 }
@@ -4940,7 +4965,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationOutput) ReadOnly() pulumi.BoolPt
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+// Record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
 func (o OpenZfsFileSystemRootVolumeConfigurationOutput) RecordSizeKib() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *int { return v.RecordSizeKib }).(pulumi.IntPtrOutput)
 }
@@ -4976,7 +5001,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) Elem() OpenZfsFileSys
 	}).(OpenZfsFileSystemRootVolumeConfigurationOutput)
 }
 
-// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+// Whether tags for the file system should be copied to snapshots. Default value is false.
 func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) *bool {
 		if v == nil {
@@ -5016,7 +5041,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) ReadOnly() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+// Record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
 func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) RecordSizeKib() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) *int {
 		if v == nil {
@@ -5037,7 +5062,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) UserAndGroupQuotas() 
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationNfsExports struct {
-	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
+	// List of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
 	ClientConfigurations []OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration `pulumi:"clientConfigurations"`
 }
 
@@ -5053,7 +5078,7 @@ type OpenZfsFileSystemRootVolumeConfigurationNfsExportsInput interface {
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs struct {
-	// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
+	// List of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
 	ClientConfigurations OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayInput `pulumi:"clientConfigurations"`
 }
 
@@ -5134,7 +5159,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ToOpenZfsFileS
 	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput)
 }
 
-// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
+// List of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ClientConfigurations() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationNfsExports) []OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration {
 		return v.ClientConfigurations
@@ -5165,7 +5190,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) Elem() Open
 	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput)
 }
 
-// A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
+// List of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `clientConfigurations` Block for details.
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) ClientConfigurations() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfigurationNfsExports) []OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration {
 		if v == nil {
@@ -5176,9 +5201,9 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) ClientConfi
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration struct {
-	// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+	// Value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
 	Clients string `pulumi:"clients"`
-	// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+	// Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 	Options []string `pulumi:"options"`
 }
 
@@ -5194,9 +5219,9 @@ type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationInput 
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs struct {
-	// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+	// Value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
 	Clients pulumi.StringInput `pulumi:"clients"`
-	// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+	// Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 	Options pulumi.StringArrayInput `pulumi:"options"`
 }
 
@@ -5251,12 +5276,12 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOut
 	return o
 }
 
-// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+// Value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput) Clients() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration) string { return v.Clients }).(pulumi.StringOutput)
 }
 
-// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+// Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput) Options() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration) []string {
 		return v.Options
@@ -5284,11 +5309,11 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArr
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota struct {
-	// The ID of the user or group. Valid values between `0` and `2147483647`
+	// ID of the user or group. Valid values between `0` and `2147483647`
 	Id int `pulumi:"id"`
-	// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	// Amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 	StorageCapacityQuotaGib int `pulumi:"storageCapacityQuotaGib"`
-	// A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+	// Value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
 	Type string `pulumi:"type"`
 }
 
@@ -5304,11 +5329,11 @@ type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaInput interface {
 }
 
 type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs struct {
-	// The ID of the user or group. Valid values between `0` and `2147483647`
+	// ID of the user or group. Valid values between `0` and `2147483647`
 	Id pulumi.IntInput `pulumi:"id"`
-	// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+	// Amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 	StorageCapacityQuotaGib pulumi.IntInput `pulumi:"storageCapacityQuotaGib"`
-	// A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+	// Value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5363,19 +5388,19 @@ func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) ToOpenZ
 	return o
 }
 
-// The ID of the user or group. Valid values between `0` and `2147483647`
+// ID of the user or group. Valid values between `0` and `2147483647`
 func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota) int { return v.Id }).(pulumi.IntOutput)
 }
 
-// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+// Amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
 func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) StorageCapacityQuotaGib() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota) int {
 		return v.StorageCapacityQuotaGib
 	}).(pulumi.IntOutput)
 }
 
-// A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+// Value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
 func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5805,9 +5830,9 @@ type OpenZfsVolumeUserAndGroupQuota struct {
 	// The ID of the user or group. Valid values between `0` and `2147483647`
 	Id int `pulumi:"id"`
 	// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-	// * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
-	StorageCapacityQuotaGib int    `pulumi:"storageCapacityQuotaGib"`
-	Type                    string `pulumi:"type"`
+	StorageCapacityQuotaGib int `pulumi:"storageCapacityQuotaGib"`
+	// A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+	Type string `pulumi:"type"`
 }
 
 // OpenZfsVolumeUserAndGroupQuotaInput is an input type that accepts OpenZfsVolumeUserAndGroupQuotaArgs and OpenZfsVolumeUserAndGroupQuotaOutput values.
@@ -5825,9 +5850,9 @@ type OpenZfsVolumeUserAndGroupQuotaArgs struct {
 	// The ID of the user or group. Valid values between `0` and `2147483647`
 	Id pulumi.IntInput `pulumi:"id"`
 	// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-	// * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
-	StorageCapacityQuotaGib pulumi.IntInput    `pulumi:"storageCapacityQuotaGib"`
-	Type                    pulumi.StringInput `pulumi:"type"`
+	StorageCapacityQuotaGib pulumi.IntInput `pulumi:"storageCapacityQuotaGib"`
+	// A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (OpenZfsVolumeUserAndGroupQuotaArgs) ElementType() reflect.Type {
@@ -5887,11 +5912,11 @@ func (o OpenZfsVolumeUserAndGroupQuotaOutput) Id() pulumi.IntOutput {
 }
 
 // The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-// * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
 func (o OpenZfsVolumeUserAndGroupQuotaOutput) StorageCapacityQuotaGib() pulumi.IntOutput {
 	return o.ApplyT(func(v OpenZfsVolumeUserAndGroupQuota) int { return v.StorageCapacityQuotaGib }).(pulumi.IntOutput)
 }
 
+// A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
 func (o OpenZfsVolumeUserAndGroupQuotaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenZfsVolumeUserAndGroupQuota) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6861,7 +6886,7 @@ func (o S3AccessPointAttachmentTimeoutsPtrOutput) Delete() pulumi.StringPtrOutpu
 }
 
 type WindowsFileSystemAuditLogConfiguration struct {
-	// The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+	// Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
 	AuditLogDestination *string `pulumi:"auditLogDestination"`
 	// Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
 	FileAccessAuditLogLevel *string `pulumi:"fileAccessAuditLogLevel"`
@@ -6881,7 +6906,7 @@ type WindowsFileSystemAuditLogConfigurationInput interface {
 }
 
 type WindowsFileSystemAuditLogConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+	// Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
 	AuditLogDestination pulumi.StringPtrInput `pulumi:"auditLogDestination"`
 	// Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
 	FileAccessAuditLogLevel pulumi.StringPtrInput `pulumi:"fileAccessAuditLogLevel"`
@@ -6966,7 +6991,7 @@ func (o WindowsFileSystemAuditLogConfigurationOutput) ToWindowsFileSystemAuditLo
 	}).(WindowsFileSystemAuditLogConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+// Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
 func (o WindowsFileSystemAuditLogConfigurationOutput) AuditLogDestination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemAuditLogConfiguration) *string { return v.AuditLogDestination }).(pulumi.StringPtrOutput)
 }
@@ -7005,7 +7030,7 @@ func (o WindowsFileSystemAuditLogConfigurationPtrOutput) Elem() WindowsFileSyste
 	}).(WindowsFileSystemAuditLogConfigurationOutput)
 }
 
-// The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+// Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
 func (o WindowsFileSystemAuditLogConfigurationPtrOutput) AuditLogDestination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemAuditLogConfiguration) *string {
 		if v == nil {
@@ -7036,9 +7061,9 @@ func (o WindowsFileSystemAuditLogConfigurationPtrOutput) FileShareAccessAuditLog
 }
 
 type WindowsFileSystemDiskIopsConfiguration struct {
-	// The total number of SSD IOPS provisioned for the file system.
+	// Total number of SSD IOPS provisioned for the file system.
 	Iops *int `pulumi:"iops"`
-	// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	// Mode for the number of IOPS for the file system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 	Mode *string `pulumi:"mode"`
 }
 
@@ -7054,9 +7079,9 @@ type WindowsFileSystemDiskIopsConfigurationInput interface {
 }
 
 type WindowsFileSystemDiskIopsConfigurationArgs struct {
-	// The total number of SSD IOPS provisioned for the file system.
+	// Total number of SSD IOPS provisioned for the file system.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	// Mode for the number of IOPS for the file system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
@@ -7137,12 +7162,12 @@ func (o WindowsFileSystemDiskIopsConfigurationOutput) ToWindowsFileSystemDiskIop
 	}).(WindowsFileSystemDiskIopsConfigurationPtrOutput)
 }
 
-// The total number of SSD IOPS provisioned for the file system.
+// Total number of SSD IOPS provisioned for the file system.
 func (o WindowsFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+// Mode for the number of IOPS for the file system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 func (o WindowsFileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemDiskIopsConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -7171,7 +7196,7 @@ func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) Elem() WindowsFileSyste
 	}).(WindowsFileSystemDiskIopsConfigurationOutput)
 }
 
-// The total number of SSD IOPS provisioned for the file system.
+// Total number of SSD IOPS provisioned for the file system.
 func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemDiskIopsConfiguration) *int {
 		if v == nil {
@@ -7181,7 +7206,7 @@ func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) Iops() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+// Mode for the number of IOPS for the file system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
 func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemDiskIopsConfiguration) *string {
 		if v == nil {
@@ -7192,24 +7217,24 @@ func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtr
 }
 
 type WindowsFileSystemSelfManagedActiveDirectory struct {
-	// A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+	// List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
 	DnsIps []string `pulumi:"dnsIps"`
-	// The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+	// Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
 	DomainJoinServiceAccountSecret *string `pulumi:"domainJoinServiceAccountSecret"`
-	// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+	// Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
 	DomainName string `pulumi:"domainName"`
-	// The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+	// Name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
 	FileSystemAdministratorsGroup *string `pulumi:"fileSystemAdministratorsGroup"`
-	// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+	// Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
-	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
+	// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
 	Password *string `pulumi:"password"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+	// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
 	PasswordWo *string `pulumi:"passwordWo"`
 	// Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
 	PasswordWoVersion *int `pulumi:"passwordWoVersion"`
-	// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+	// User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
 	Username *string `pulumi:"username"`
 }
 
@@ -7225,24 +7250,24 @@ type WindowsFileSystemSelfManagedActiveDirectoryInput interface {
 }
 
 type WindowsFileSystemSelfManagedActiveDirectoryArgs struct {
-	// A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+	// List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
 	DnsIps pulumi.StringArrayInput `pulumi:"dnsIps"`
-	// The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+	// Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
 	DomainJoinServiceAccountSecret pulumi.StringPtrInput `pulumi:"domainJoinServiceAccountSecret"`
-	// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+	// Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+	// Name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
 	FileSystemAdministratorsGroup pulumi.StringPtrInput `pulumi:"fileSystemAdministratorsGroup"`
-	// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+	// Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
-	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
+	// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+	// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
 	PasswordWo pulumi.StringPtrInput `pulumi:"passwordWo"`
 	// Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
 	PasswordWoVersion pulumi.IntPtrInput `pulumi:"passwordWoVersion"`
-	// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+	// User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -7323,40 +7348,40 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) ToWindowsFileSystemSe
 	}).(WindowsFileSystemSelfManagedActiveDirectoryPtrOutput)
 }
 
-// A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+// List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
 func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) DnsIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) []string { return v.DnsIps }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+// Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) DomainJoinServiceAccountSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *string { return v.DomainJoinServiceAccountSecret }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+// Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+// Name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) FileSystemAdministratorsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *string { return v.FileSystemAdministratorsGroup }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+// Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *string {
 		return v.OrganizationalUnitDistinguishedName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
+// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) PasswordWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *string { return v.PasswordWo }).(pulumi.StringPtrOutput)
 }
@@ -7366,7 +7391,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) PasswordWoVersion() p
 	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *int { return v.PasswordWoVersion }).(pulumi.IntPtrOutput)
 }
 
-// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+// User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -7395,7 +7420,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Elem() WindowsFile
 	}).(WindowsFileSystemSelfManagedActiveDirectoryOutput)
 }
 
-// A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+// List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) DnsIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) []string {
 		if v == nil {
@@ -7405,7 +7430,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) DnsIps() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+// Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) DomainJoinServiceAccountSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
 		if v == nil {
@@ -7415,7 +7440,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) DomainJoinServiceA
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+// Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
 		if v == nil {
@@ -7425,7 +7450,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) DomainName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+// Name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) FileSystemAdministratorsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
 		if v == nil {
@@ -7435,7 +7460,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) FileSystemAdminist
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+// Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
 		if v == nil {
@@ -7445,7 +7470,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) OrganizationalUnit
 	}).(pulumi.StringPtrOutput)
 }
 
-// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
+// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
 		if v == nil {
@@ -7456,7 +7481,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Password() pulumi.
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) PasswordWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
 		if v == nil {
@@ -7476,7 +7501,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) PasswordWoVersion(
 	}).(pulumi.IntPtrOutput)
 }
 
-// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+// User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
 		if v == nil {
@@ -7487,9 +7512,9 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Username() pulumi.
 }
 
 type GetOntapFileSystemDiskIopsConfiguration struct {
-	// The total number of SSD IOPS provisioned for the file system.
+	// Total number of SSD IOPS provisioned for the file system.
 	Iops int `pulumi:"iops"`
-	// Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
+	// Whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
 	Mode string `pulumi:"mode"`
 }
 
@@ -7505,9 +7530,9 @@ type GetOntapFileSystemDiskIopsConfigurationInput interface {
 }
 
 type GetOntapFileSystemDiskIopsConfigurationArgs struct {
-	// The total number of SSD IOPS provisioned for the file system.
+	// Total number of SSD IOPS provisioned for the file system.
 	Iops pulumi.IntInput `pulumi:"iops"`
-	// Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
+	// Whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
 	Mode pulumi.StringInput `pulumi:"mode"`
 }
 
@@ -7562,12 +7587,12 @@ func (o GetOntapFileSystemDiskIopsConfigurationOutput) ToGetOntapFileSystemDiskI
 	return o
 }
 
-// The total number of SSD IOPS provisioned for the file system.
+// Total number of SSD IOPS provisioned for the file system.
 func (o GetOntapFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v GetOntapFileSystemDiskIopsConfiguration) int { return v.Iops }).(pulumi.IntOutput)
 }
 
-// Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
+// Whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
 func (o GetOntapFileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOntapFileSystemDiskIopsConfiguration) string { return v.Mode }).(pulumi.StringOutput)
 }
@@ -7593,9 +7618,9 @@ func (o GetOntapFileSystemDiskIopsConfigurationArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetOntapFileSystemEndpoint struct {
-	// A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
+	// FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
 	Interclusters []GetOntapFileSystemEndpointIntercluster `pulumi:"interclusters"`
-	// A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
+	// FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
 	Managements []GetOntapFileSystemEndpointManagement `pulumi:"managements"`
 }
 
@@ -7611,9 +7636,9 @@ type GetOntapFileSystemEndpointInput interface {
 }
 
 type GetOntapFileSystemEndpointArgs struct {
-	// A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
+	// FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
 	Interclusters GetOntapFileSystemEndpointInterclusterArrayInput `pulumi:"interclusters"`
-	// A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
+	// FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
 	Managements GetOntapFileSystemEndpointManagementArrayInput `pulumi:"managements"`
 }
 
@@ -7668,12 +7693,12 @@ func (o GetOntapFileSystemEndpointOutput) ToGetOntapFileSystemEndpointOutputWith
 	return o
 }
 
-// A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
+// FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
 func (o GetOntapFileSystemEndpointOutput) Interclusters() GetOntapFileSystemEndpointInterclusterArrayOutput {
 	return o.ApplyT(func(v GetOntapFileSystemEndpoint) []GetOntapFileSystemEndpointIntercluster { return v.Interclusters }).(GetOntapFileSystemEndpointInterclusterArrayOutput)
 }
 
-// A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
+// FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
 func (o GetOntapFileSystemEndpointOutput) Managements() GetOntapFileSystemEndpointManagementArrayOutput {
 	return o.ApplyT(func(v GetOntapFileSystemEndpoint) []GetOntapFileSystemEndpointManagement { return v.Managements }).(GetOntapFileSystemEndpointManagementArrayOutput)
 }
@@ -7905,7 +7930,7 @@ func (o GetOntapFileSystemEndpointManagementArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetOntapStorageVirtualMachineActiveDirectoryConfiguration struct {
-	// The NetBIOS name of the AD computer object to which the SVM is joined.
+	// NetBIOS name of the AD computer object to which the SVM is joined.
 	NetbiosName                              string                                                                                             `pulumi:"netbiosName"`
 	SelfManagedActiveDirectoryConfigurations []GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration `pulumi:"selfManagedActiveDirectoryConfigurations"`
 }
@@ -7922,7 +7947,7 @@ type GetOntapStorageVirtualMachineActiveDirectoryConfigurationInput interface {
 }
 
 type GetOntapStorageVirtualMachineActiveDirectoryConfigurationArgs struct {
-	// The NetBIOS name of the AD computer object to which the SVM is joined.
+	// NetBIOS name of the AD computer object to which the SVM is joined.
 	NetbiosName                              pulumi.StringInput                                                                                         `pulumi:"netbiosName"`
 	SelfManagedActiveDirectoryConfigurations GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrayInput `pulumi:"selfManagedActiveDirectoryConfigurations"`
 }
@@ -7978,7 +8003,7 @@ func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ToGetOn
 	return o
 }
 
-// The NetBIOS name of the AD computer object to which the SVM is joined.
+// NetBIOS name of the AD computer object to which the SVM is joined.
 func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationOutput) NetbiosName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfiguration) string { return v.NetbiosName }).(pulumi.StringOutput)
 }
@@ -8010,15 +8035,15 @@ func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationArrayOutput) In
 }
 
 type GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration struct {
-	// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+	// List of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
 	DnsIps []string `pulumi:"dnsIps"`
-	// The fully qualified domain name of the self-managed AD directory.
+	// Fully qualified domain name of the self-managed AD directory.
 	DomainName string `pulumi:"domainName"`
-	// The name of the domain group whose members have administrative privileges for the FSx file system.
+	// Name of the domain group whose members have administrative privileges for the FSx file system.
 	FileSystemAdministratorsGroup string `pulumi:"fileSystemAdministratorsGroup"`
-	// The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
+	// Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
 	OrganizationalUnitDistinguishedName string `pulumi:"organizationalUnitDistinguishedName"`
-	// The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
+	// User name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
 	Username string `pulumi:"username"`
 }
 
@@ -8034,15 +8059,15 @@ type GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 }
 
 type GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs struct {
-	// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+	// List of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
 	DnsIps pulumi.StringArrayInput `pulumi:"dnsIps"`
-	// The fully qualified domain name of the self-managed AD directory.
+	// Fully qualified domain name of the self-managed AD directory.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// The name of the domain group whose members have administrative privileges for the FSx file system.
+	// Name of the domain group whose members have administrative privileges for the FSx file system.
 	FileSystemAdministratorsGroup pulumi.StringInput `pulumi:"fileSystemAdministratorsGroup"`
-	// The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
+	// Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
 	OrganizationalUnitDistinguishedName pulumi.StringInput `pulumi:"organizationalUnitDistinguishedName"`
-	// The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
+	// User name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -8097,35 +8122,35 @@ func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActi
 	return o
 }
 
-// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+// List of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
 func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) DnsIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) []string {
 		return v.DnsIps
 	}).(pulumi.StringArrayOutput)
 }
 
-// The fully qualified domain name of the self-managed AD directory.
+// Fully qualified domain name of the self-managed AD directory.
 func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
 		return v.DomainName
 	}).(pulumi.StringOutput)
 }
 
-// The name of the domain group whose members have administrative privileges for the FSx file system.
+// Name of the domain group whose members have administrative privileges for the FSx file system.
 func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) FileSystemAdministratorsGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
 		return v.FileSystemAdministratorsGroup
 	}).(pulumi.StringOutput)
 }
 
-// The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
+// Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
 func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) OrganizationalUnitDistinguishedName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
 		return v.OrganizationalUnitDistinguishedName
 	}).(pulumi.StringOutput)
 }
 
-// The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
+// User name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
 func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
 		return v.Username
@@ -8154,11 +8179,11 @@ func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActi
 
 type GetOntapStorageVirtualMachineEndpoint struct {
 	Iscsis []GetOntapStorageVirtualMachineEndpointIscsi `pulumi:"iscsis"`
-	// An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
+	// Endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
 	Managements []GetOntapStorageVirtualMachineEndpointManagement `pulumi:"managements"`
-	// An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
+	// Endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
 	Nfs []GetOntapStorageVirtualMachineEndpointNf `pulumi:"nfs"`
-	// An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
+	// Endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
 	Smbs []GetOntapStorageVirtualMachineEndpointSmb `pulumi:"smbs"`
 }
 
@@ -8175,11 +8200,11 @@ type GetOntapStorageVirtualMachineEndpointInput interface {
 
 type GetOntapStorageVirtualMachineEndpointArgs struct {
 	Iscsis GetOntapStorageVirtualMachineEndpointIscsiArrayInput `pulumi:"iscsis"`
-	// An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
+	// Endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
 	Managements GetOntapStorageVirtualMachineEndpointManagementArrayInput `pulumi:"managements"`
-	// An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
+	// Endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
 	Nfs GetOntapStorageVirtualMachineEndpointNfArrayInput `pulumi:"nfs"`
-	// An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
+	// Endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
 	Smbs GetOntapStorageVirtualMachineEndpointSmbArrayInput `pulumi:"smbs"`
 }
 
@@ -8240,19 +8265,19 @@ func (o GetOntapStorageVirtualMachineEndpointOutput) Iscsis() GetOntapStorageVir
 	}).(GetOntapStorageVirtualMachineEndpointIscsiArrayOutput)
 }
 
-// An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
+// Endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
 func (o GetOntapStorageVirtualMachineEndpointOutput) Managements() GetOntapStorageVirtualMachineEndpointManagementArrayOutput {
 	return o.ApplyT(func(v GetOntapStorageVirtualMachineEndpoint) []GetOntapStorageVirtualMachineEndpointManagement {
 		return v.Managements
 	}).(GetOntapStorageVirtualMachineEndpointManagementArrayOutput)
 }
 
-// An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
+// Endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
 func (o GetOntapStorageVirtualMachineEndpointOutput) Nfs() GetOntapStorageVirtualMachineEndpointNfArrayOutput {
 	return o.ApplyT(func(v GetOntapStorageVirtualMachineEndpoint) []GetOntapStorageVirtualMachineEndpointNf { return v.Nfs }).(GetOntapStorageVirtualMachineEndpointNfArrayOutput)
 }
 
-// An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
+// Endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
 func (o GetOntapStorageVirtualMachineEndpointOutput) Smbs() GetOntapStorageVirtualMachineEndpointSmbArrayOutput {
 	return o.ApplyT(func(v GetOntapStorageVirtualMachineEndpoint) []GetOntapStorageVirtualMachineEndpointSmb {
 		return v.Smbs
@@ -8786,7 +8811,7 @@ func (o GetOntapStorageVirtualMachineFilterArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetOntapStorageVirtualMachineLifecycleTransitionReason struct {
-	// A detailed message.
+	// Detailed message.
 	Message string `pulumi:"message"`
 }
 
@@ -8802,7 +8827,7 @@ type GetOntapStorageVirtualMachineLifecycleTransitionReasonInput interface {
 }
 
 type GetOntapStorageVirtualMachineLifecycleTransitionReasonArgs struct {
-	// A detailed message.
+	// Detailed message.
 	Message pulumi.StringInput `pulumi:"message"`
 }
 
@@ -8857,7 +8882,7 @@ func (o GetOntapStorageVirtualMachineLifecycleTransitionReasonOutput) ToGetOntap
 	return o
 }
 
-// A detailed message.
+// Detailed message.
 func (o GetOntapStorageVirtualMachineLifecycleTransitionReasonOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOntapStorageVirtualMachineLifecycleTransitionReason) string { return v.Message }).(pulumi.StringOutput)
 }
@@ -8989,8 +9014,9 @@ func (o GetOntapStorageVirtualMachinesFilterArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetOpenZfsSnapshotFilter struct {
-	// Name of the snapshot.
-	Name   string   `pulumi:"name"`
+	// Name of the field to filter by.
+	Name string `pulumi:"name"`
+	// Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
 	Values []string `pulumi:"values"`
 }
 
@@ -9006,8 +9032,9 @@ type GetOpenZfsSnapshotFilterInput interface {
 }
 
 type GetOpenZfsSnapshotFilterArgs struct {
-	// Name of the snapshot.
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// Name of the field to filter by.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -9062,11 +9089,12 @@ func (o GetOpenZfsSnapshotFilterOutput) ToGetOpenZfsSnapshotFilterOutputWithCont
 	return o
 }
 
-// Name of the snapshot.
+// Name of the field to filter by.
 func (o GetOpenZfsSnapshotFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOpenZfsSnapshotFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
 func (o GetOpenZfsSnapshotFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOpenZfsSnapshotFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

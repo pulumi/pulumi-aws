@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Amp.Outputs
     public sealed class ScraperRoleConfiguration
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+        /// ARN of the source role configuration. Must be an IAM role ARN.
         /// </summary>
         public readonly string? SourceRoleArn;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+        /// ARN of the target role configuration. Must be an IAM role ARN.
         /// </summary>
         public readonly string? TargetRoleArn;
 

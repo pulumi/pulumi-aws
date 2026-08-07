@@ -14,75 +14,75 @@ namespace Pulumi.Aws.Odb.Outputs
     public sealed class GetDbServersDbServerResult
     {
         /// <summary>
-        /// A list of unique identifiers for the Autonomous VMs.
+        /// List of unique identifiers for the Autonomous VMs.
         /// </summary>
         public readonly ImmutableArray<string> AutonomousVirtualMachineIds;
         /// <summary>
-        /// A list of identifiers for the Autonomous VM clusters.
+        /// List of identifiers for the Autonomous VM clusters.
         /// </summary>
         public readonly ImmutableArray<string> AutonomousVmClusterIds;
         /// <summary>
-        /// The OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
+        /// OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
         /// </summary>
         public readonly string ComputeModel;
         /// <summary>
-        /// The number of CPU cores enabled on the database server.
+        /// Number of CPU cores enabled on the database server.
         /// </summary>
         public readonly int CpuCoreCount;
         /// <summary>
-        /// The date and time when the database server was created.
+        /// Date and time when the database server was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The amount of local node storage, in gigabytes (GB), that's allocated on the database server.
+        /// Amount of local node storage, in gigabytes (GB), that's allocated on the database server.
         /// </summary>
         public readonly int DbNodeStorageSizeInGbs;
         /// <summary>
-        /// The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+        /// Scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDbServersDbServerDbServerPatchingDetailResult> DbServerPatchingDetails;
         /// <summary>
-        /// The user-friendly name of the database server. The name doesn't need to be unique.
+        /// User-friendly name of the database server. The name doesn't need to be unique.
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// The ID of the Exadata infrastructure that hosts the database server.
+        /// ID of the Exadata infrastructure that hosts the database server.
         /// </summary>
         public readonly string ExadataInfrastructureId;
         /// <summary>
-        /// The unique identifier of the database server.
+        /// Unique identifier of the database server.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The total number of CPU cores available on the database server.
+        /// Total number of CPU cores available on the database server.
         /// </summary>
         public readonly int MaxCpuCount;
         /// <summary>
-        /// The total amount of local node storage, in gigabytes (GB), that's available on the database server.
+        /// Total amount of local node storage, in gigabytes (GB), that's available on the database server.
         /// </summary>
         public readonly int MaxDbNodeStorageInGbs;
         /// <summary>
-        /// The total amount of memory, in gigabytes (GB), that's available on the database server.
+        /// Total amount of memory, in gigabytes (GB), that's available on the database server.
         /// </summary>
         public readonly int MaxMemoryInGbs;
         /// <summary>
-        /// The amount of memory, in gigabytes (GB), that's allocated on the database server.
+        /// Amount of memory, in gigabytes (GB), that's allocated on the database server.
         /// </summary>
         public readonly int MemorySizeInGbs;
         /// <summary>
-        /// The name of the OCI resource anchor for the database server.
+        /// Name of the OCI resource anchor for the database server.
         /// </summary>
         public readonly string OciResourceAnchorName;
         /// <summary>
-        /// The OCID of the database server.
+        /// OCID of the database server.
         /// </summary>
         public readonly string Ocid;
         /// <summary>
-        /// The hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
+        /// Hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
         /// </summary>
         public readonly string Shape;
         /// <summary>
-        /// The current status of the database server.
+        /// Current status of the database server.
         /// </summary>
         public readonly string Status;
         /// <summary>
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Odb.Outputs
         /// </summary>
         public readonly string StatusReason;
         /// <summary>
-        /// The IDs of the VM clusters that are associated with the database server.
+        /// IDs of the VM clusters that are associated with the database server.
         /// </summary>
         public readonly ImmutableArray<string> VmClusterIds;
 

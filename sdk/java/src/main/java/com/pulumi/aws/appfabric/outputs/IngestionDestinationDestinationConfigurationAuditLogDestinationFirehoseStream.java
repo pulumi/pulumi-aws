@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream {
+    /**
+     * @return Name of the Amazon Data Firehose delivery stream.
+     * 
+     */
     private String streamName;
 
     private IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream() {}
+    /**
+     * @return Name of the Amazon Data Firehose delivery stream.
+     * 
+     */
     public String streamName() {
         return this.streamName;
     }

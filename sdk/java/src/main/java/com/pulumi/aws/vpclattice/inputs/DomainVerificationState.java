@@ -17,14 +17,14 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
     public static final DomainVerificationState Empty = new DomainVerificationState();
 
     /**
-     * The Amazon Resource Name (ARN) of the domain verification.
+     * Amazon Resource Name (ARN) of the domain verification.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the domain verification.
+     * @return Amazon Resource Name (ARN) of the domain verification.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The date and time that the domain verification was created, in ISO-8601 format.
+     * Date and time that the domain verification was created, in ISO-8601 format.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The date and time that the domain verification was created, in ISO-8601 format.
+     * @return Date and time that the domain verification was created, in ISO-8601 format.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -47,7 +47,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The domain name to verify ownership for.
+     * Domain name to verify ownership for.
      * 
      * The following arguments are optional:
      * 
@@ -56,7 +56,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
     private @Nullable Output<String> domainName;
 
     /**
-     * @return The domain name to verify ownership for.
+     * @return Domain name to verify ownership for.
      * 
      * The following arguments are optional:
      * 
@@ -66,14 +66,14 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The date and time that the domain was last successfully verified, in ISO-8601 format.
+     * Date and time that the domain was last successfully verified, in ISO-8601 format.
      * 
      */
     @Import(name="lastVerifiedTime")
     private @Nullable Output<String> lastVerifiedTime;
 
     /**
-     * @return The date and time that the domain was last successfully verified, in ISO-8601 format.
+     * @return Date and time that the domain was last successfully verified, in ISO-8601 format.
      * 
      */
     public Optional<Output<String>> lastVerifiedTime() {
@@ -96,14 +96,14 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
+     * Current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
+     * @return Current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -141,14 +141,14 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the TXT record that must be created for domain verification.
+     * Name of the TXT record that must be created for domain verification.
      * 
      */
     @Import(name="txtRecordName")
     private @Nullable Output<String> txtRecordName;
 
     /**
-     * @return The name of the TXT record that must be created for domain verification.
+     * @return Name of the TXT record that must be created for domain verification.
      * 
      */
     public Optional<Output<String>> txtRecordName() {
@@ -156,14 +156,14 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The value that must be added to the TXT record for domain verification.
+     * Value that must be added to the TXT record for domain verification.
      * 
      */
     @Import(name="txtRecordValue")
     private @Nullable Output<String> txtRecordValue;
 
     /**
-     * @return The value that must be added to the TXT record for domain verification.
+     * @return Value that must be added to the TXT record for domain verification.
      * 
      */
     public Optional<Output<String>> txtRecordValue() {
@@ -204,7 +204,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the domain verification.
+         * @param arn Amazon Resource Name (ARN) of the domain verification.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the domain verification.
+         * @param arn Amazon Resource Name (ARN) of the domain verification.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param createdAt The date and time that the domain verification was created, in ISO-8601 format.
+         * @param createdAt Date and time that the domain verification was created, in ISO-8601 format.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param createdAt The date and time that the domain verification was created, in ISO-8601 format.
+         * @param createdAt Date and time that the domain verification was created, in ISO-8601 format.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param domainName The domain name to verify ownership for.
+         * @param domainName Domain name to verify ownership for.
          * 
          * The following arguments are optional:
          * 
@@ -259,7 +259,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param domainName The domain name to verify ownership for.
+         * @param domainName Domain name to verify ownership for.
          * 
          * The following arguments are optional:
          * 
@@ -271,7 +271,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param lastVerifiedTime The date and time that the domain was last successfully verified, in ISO-8601 format.
+         * @param lastVerifiedTime Date and time that the domain was last successfully verified, in ISO-8601 format.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param lastVerifiedTime The date and time that the domain was last successfully verified, in ISO-8601 format.
+         * @param lastVerifiedTime Date and time that the domain was last successfully verified, in ISO-8601 format.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param status The current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
+         * @param status Current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param status The current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
+         * @param status Current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param txtRecordName The name of the TXT record that must be created for domain verification.
+         * @param txtRecordName Name of the TXT record that must be created for domain verification.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param txtRecordName The name of the TXT record that must be created for domain verification.
+         * @param txtRecordName Name of the TXT record that must be created for domain verification.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param txtRecordValue The value that must be added to the TXT record for domain verification.
+         * @param txtRecordValue Value that must be added to the TXT record for domain verification.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class DomainVerificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param txtRecordValue The value that must be added to the TXT record for domain verification.
+         * @param txtRecordValue Value that must be added to the TXT record for domain verification.
          * 
          * @return builder
          * 

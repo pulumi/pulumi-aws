@@ -12,21 +12,12 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
 
     public sealed class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-        /// </summary>
         [Input("metric", required: true)]
         public Input<Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricGetArgs> Metric { get; set; } = null!;
 
-        /// <summary>
-        /// Statistic of the metrics to return.
-        /// </summary>
         [Input("stat", required: true)]
         public Input<string> Stat { get; set; } = null!;
 
-        /// <summary>
-        /// Unit of the metrics to return.
-        /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 

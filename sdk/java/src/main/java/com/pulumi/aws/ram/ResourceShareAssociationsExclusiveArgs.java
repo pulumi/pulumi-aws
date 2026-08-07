@@ -18,26 +18,14 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
     public static final ResourceShareAssociationsExclusiveArgs Empty = new ResourceShareAssociationsExclusiveArgs();
 
     /**
-     * A set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include:
-     * * AWS account ID (exactly 12 digits, e.g., `123456789012`)
-     * * AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`)
-     * * AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`)
-     * * IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`)
-     * * IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`)
-     * * Service principal (e.g., `ec2.amazonaws.com`)
+     * Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
      * 
      */
     @Import(name="principals")
     private @Nullable Output<List<String>> principals;
 
     /**
-     * @return A set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include:
-     * * AWS account ID (exactly 12 digits, e.g., `123456789012`)
-     * * AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`)
-     * * AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`)
-     * * IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`)
-     * * IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`)
-     * * Service principal (e.g., `ec2.amazonaws.com`)
+     * @return Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
      * 
      */
     public Optional<Output<List<String>>> principals() {
@@ -60,14 +48,14 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
     }
 
     /**
-     * A set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+     * Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
      * 
      */
     @Import(name="resourceArns")
     private @Nullable Output<List<String>> resourceArns;
 
     /**
-     * @return A set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+     * @return Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
      * 
      */
     public Optional<Output<List<String>>> resourceArns() {
@@ -75,14 +63,14 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+     * Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
      * 
      */
     @Import(name="resourceShareArn", required=true)
     private Output<String> resourceShareArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+     * @return Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
      * 
      */
     public Output<String> resourceShareArn() {
@@ -90,14 +78,14 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
     }
 
     /**
-     * A set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
+     * Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
      * 
      */
     @Import(name="sources")
     private @Nullable Output<List<String>> sources;
 
     /**
-     * @return A set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
+     * @return Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
      * 
      */
     public Optional<Output<List<String>>> sources() {
@@ -133,13 +121,7 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
         }
 
         /**
-         * @param principals A set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include:
-         * * AWS account ID (exactly 12 digits, e.g., `123456789012`)
-         * * AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`)
-         * * AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`)
-         * * IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`)
-         * * IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`)
-         * * Service principal (e.g., `ec2.amazonaws.com`)
+         * @param principals Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
          * 
          * @return builder
          * 
@@ -150,13 +132,7 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
         }
 
         /**
-         * @param principals A set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include:
-         * * AWS account ID (exactly 12 digits, e.g., `123456789012`)
-         * * AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`)
-         * * AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`)
-         * * IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`)
-         * * IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`)
-         * * Service principal (e.g., `ec2.amazonaws.com`)
+         * @param principals Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
          * 
          * @return builder
          * 
@@ -166,13 +142,7 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
         }
 
         /**
-         * @param principals A set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include:
-         * * AWS account ID (exactly 12 digits, e.g., `123456789012`)
-         * * AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`)
-         * * AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`)
-         * * IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`)
-         * * IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`)
-         * * Service principal (e.g., `ec2.amazonaws.com`)
+         * @param principals Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
          * 
          * @return builder
          * 
@@ -203,7 +173,7 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
         }
 
         /**
-         * @param resourceArns A set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+         * @param resourceArns Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
          * 
          * @return builder
          * 
@@ -214,7 +184,7 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
         }
 
         /**
-         * @param resourceArns A set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+         * @param resourceArns Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
          * 
          * @return builder
          * 
@@ -224,7 +194,7 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
         }
 
         /**
-         * @param resourceArns A set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+         * @param resourceArns Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
          * 
          * @return builder
          * 
@@ -234,7 +204,7 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
         }
 
         /**
-         * @param resourceShareArn The Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+         * @param resourceShareArn Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
          * 
          * @return builder
          * 
@@ -245,7 +215,7 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
         }
 
         /**
-         * @param resourceShareArn The Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+         * @param resourceShareArn Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
          * 
          * @return builder
          * 
@@ -255,7 +225,7 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
         }
 
         /**
-         * @param sources A set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
+         * @param sources Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
          * 
          * @return builder
          * 
@@ -266,7 +236,7 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
         }
 
         /**
-         * @param sources A set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
+         * @param sources Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
          * 
          * @return builder
          * 
@@ -276,7 +246,7 @@ public final class ResourceShareAssociationsExclusiveArgs extends com.pulumi.res
         }
 
         /**
-         * @param sources A set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
+         * @param sources Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
          * 
          * @return builder
          * 

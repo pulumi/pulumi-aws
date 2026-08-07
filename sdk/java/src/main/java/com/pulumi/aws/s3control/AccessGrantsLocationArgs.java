@@ -18,14 +18,14 @@ public final class AccessGrantsLocationArgs extends com.pulumi.resources.Resourc
     public static final AccessGrantsLocationArgs Empty = new AccessGrantsLocationArgs();
 
     /**
-     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * @return AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -33,16 +33,14 @@ public final class AccessGrantsLocationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-     * requests to the location.
+     * ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
      * 
      */
     @Import(name="iamRoleArn", required=true)
     private Output<String> iamRoleArn;
 
     /**
-     * @return The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-     * requests to the location.
+     * @return ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
      * 
      */
     public Output<String> iamRoleArn() {
@@ -50,14 +48,14 @@ public final class AccessGrantsLocationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+     * Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
      * 
      */
     @Import(name="locationScope", required=true)
     private Output<String> locationScope;
 
     /**
-     * @return The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+     * @return Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
      * 
      */
     public Output<String> locationScope() {
@@ -123,7 +121,7 @@ public final class AccessGrantsLocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * @param accountId AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -134,7 +132,7 @@ public final class AccessGrantsLocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * @param accountId AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -144,8 +142,7 @@ public final class AccessGrantsLocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param iamRoleArn The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-         * requests to the location.
+         * @param iamRoleArn ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
          * 
          * @return builder
          * 
@@ -156,8 +153,7 @@ public final class AccessGrantsLocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param iamRoleArn The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-         * requests to the location.
+         * @param iamRoleArn ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
          * 
          * @return builder
          * 
@@ -167,7 +163,7 @@ public final class AccessGrantsLocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param locationScope The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+         * @param locationScope Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
          * 
          * @return builder
          * 
@@ -178,7 +174,7 @@ public final class AccessGrantsLocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param locationScope The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+         * @param locationScope Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
          * 
          * @return builder
          * 

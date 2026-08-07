@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecLoggingAccessLogFileFormat {
     /**
-     * @return The logging format for JSON. See `json` Block for details.
+     * @return Logging format for JSON. See `spec.logging.access_log.file.format.json` Block for details.
      * 
      */
     private @Nullable List<VirtualNodeSpecLoggingAccessLogFileFormatJson> jsons;
     /**
-     * @return The logging format for text. Must be between 1 and 1000 characters in length.
+     * @return Logging format for text. Must be between 1 and 1000 characters in length.
      * 
      */
     private @Nullable String text;
 
     private VirtualNodeSpecLoggingAccessLogFileFormat() {}
     /**
-     * @return The logging format for JSON. See `json` Block for details.
+     * @return Logging format for JSON. See `spec.logging.access_log.file.format.json` Block for details.
      * 
      */
     public List<VirtualNodeSpecLoggingAccessLogFileFormatJson> jsons() {
         return this.jsons == null ? List.of() : this.jsons;
     }
     /**
-     * @return The logging format for text. Must be between 1 and 1000 characters in length.
+     * @return Logging format for text. Must be between 1 and 1000 characters in length.
      * 
      */
     public Optional<String> text() {

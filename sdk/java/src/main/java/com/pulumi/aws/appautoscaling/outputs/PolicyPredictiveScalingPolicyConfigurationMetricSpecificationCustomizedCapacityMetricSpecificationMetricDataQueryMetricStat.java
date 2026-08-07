@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat {
-    /**
-     * @return Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-     * 
-     */
     private PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric metric;
-    /**
-     * @return Statistic of the metrics to return.
-     * 
-     */
     private String stat;
-    /**
-     * @return Unit of the metrics to return.
-     * 
-     */
     private @Nullable String unit;
 
     private PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat() {}
-    /**
-     * @return Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
-     * 
-     */
     public PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric metric() {
         return this.metric;
     }
-    /**
-     * @return Statistic of the metrics to return.
-     * 
-     */
     public String stat() {
         return this.stat;
     }
-    /**
-     * @return Unit of the metrics to return.
-     * 
-     */
     public Optional<String> unit() {
         return Optional.ofNullable(this.unit);
     }

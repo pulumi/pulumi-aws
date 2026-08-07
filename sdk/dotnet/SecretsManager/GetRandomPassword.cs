@@ -97,31 +97,31 @@ namespace Pulumi.Aws.SecretsManager
         public string? ExcludeCharacters { get; set; }
 
         /// <summary>
-        /// Specifies whether to exclude lowercase letters from the password.
+        /// Whether to exclude lowercase letters from the password.
         /// </summary>
         [Input("excludeLowercase")]
         public bool? ExcludeLowercase { get; set; }
 
         /// <summary>
-        /// Specifies whether to exclude numbers from the password.
+        /// Whether to exclude numbers from the password.
         /// </summary>
         [Input("excludeNumbers")]
         public bool? ExcludeNumbers { get; set; }
 
         /// <summary>
-        /// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
+        /// Whether to exclude the following punctuation characters from the password: ``! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
         /// </summary>
         [Input("excludePunctuation")]
         public bool? ExcludePunctuation { get; set; }
 
         /// <summary>
-        /// Specifies whether to exclude uppercase letters from the password.
+        /// Whether to exclude uppercase letters from the password.
         /// </summary>
         [Input("excludeUppercase")]
         public bool? ExcludeUppercase { get; set; }
 
         /// <summary>
-        /// Specifies whether to include the space character.
+        /// Whether to include the space character.
         /// </summary>
         [Input("includeSpace")]
         public bool? IncludeSpace { get; set; }
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.SecretsManager
         public string? Region { get; set; }
 
         /// <summary>
-        /// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
+        /// Whether to include at least one upper and lowercase letter, one number, and one punctuation.
         /// </summary>
         [Input("requireEachIncludedType")]
         public bool? RequireEachIncludedType { get; set; }
@@ -159,31 +159,31 @@ namespace Pulumi.Aws.SecretsManager
         public Input<string>? ExcludeCharacters { get; set; }
 
         /// <summary>
-        /// Specifies whether to exclude lowercase letters from the password.
+        /// Whether to exclude lowercase letters from the password.
         /// </summary>
         [Input("excludeLowercase")]
         public Input<bool>? ExcludeLowercase { get; set; }
 
         /// <summary>
-        /// Specifies whether to exclude numbers from the password.
+        /// Whether to exclude numbers from the password.
         /// </summary>
         [Input("excludeNumbers")]
         public Input<bool>? ExcludeNumbers { get; set; }
 
         /// <summary>
-        /// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
+        /// Whether to exclude the following punctuation characters from the password: ``! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
         /// </summary>
         [Input("excludePunctuation")]
         public Input<bool>? ExcludePunctuation { get; set; }
 
         /// <summary>
-        /// Specifies whether to exclude uppercase letters from the password.
+        /// Whether to exclude uppercase letters from the password.
         /// </summary>
         [Input("excludeUppercase")]
         public Input<bool>? ExcludeUppercase { get; set; }
 
         /// <summary>
-        /// Specifies whether to include the space character.
+        /// Whether to include the space character.
         /// </summary>
         [Input("includeSpace")]
         public Input<bool>? IncludeSpace { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.SecretsManager
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
+        /// Whether to include at least one upper and lowercase letter, one number, and one punctuation.
         /// </summary>
         [Input("requireEachIncludedType")]
         public Input<bool>? RequireEachIncludedType { get; set; }

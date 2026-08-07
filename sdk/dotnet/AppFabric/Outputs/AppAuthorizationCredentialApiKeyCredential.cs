@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppFabric.Outputs
     public sealed class AppAuthorizationCredentialApiKeyCredential
     {
         /// <summary>
-        /// Contains API key credential information.
+        /// API key.
         /// </summary>
         public readonly string ApiKey;
 

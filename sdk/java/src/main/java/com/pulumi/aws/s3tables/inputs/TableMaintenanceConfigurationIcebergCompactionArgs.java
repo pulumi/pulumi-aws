@@ -16,16 +16,14 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs extends co
     public static final TableMaintenanceConfigurationIcebergCompactionArgs Empty = new TableMaintenanceConfigurationIcebergCompactionArgs();
 
     /**
-     * Settings object for compaction.
-     * See `iceberg_compaction.settings` below.
+     * Settings object for compaction. See `iceberg_compaction.settings` below.
      * 
      */
     @Import(name="settings", required=true)
     private Output<TableMaintenanceConfigurationIcebergCompactionSettingsArgs> settings;
 
     /**
-     * @return Settings object for compaction.
-     * See `iceberg_compaction.settings` below.
+     * @return Settings object for compaction. See `iceberg_compaction.settings` below.
      * 
      */
     public Output<TableMaintenanceConfigurationIcebergCompactionSettingsArgs> settings() {
@@ -33,16 +31,14 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs extends co
     }
 
     /**
-     * Whether the configuration is enabled.
-     * Valid values are `enabled` and `disabled`.
+     * Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return Whether the configuration is enabled.
-     * Valid values are `enabled` and `disabled`.
+     * @return Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
      * 
      */
     public Output<String> status() {
@@ -75,8 +71,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs extends co
         }
 
         /**
-         * @param settings Settings object for compaction.
-         * See `iceberg_compaction.settings` below.
+         * @param settings Settings object for compaction. See `iceberg_compaction.settings` below.
          * 
          * @return builder
          * 
@@ -87,8 +82,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs extends co
         }
 
         /**
-         * @param settings Settings object for compaction.
-         * See `iceberg_compaction.settings` below.
+         * @param settings Settings object for compaction. See `iceberg_compaction.settings` below.
          * 
          * @return builder
          * 
@@ -98,8 +92,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs extends co
         }
 
         /**
-         * @param status Whether the configuration is enabled.
-         * Valid values are `enabled` and `disabled`.
+         * @param status Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
          * 
          * @return builder
          * 
@@ -110,8 +103,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs extends co
         }
 
         /**
-         * @param status Whether the configuration is enabled.
-         * Valid values are `enabled` and `disabled`.
+         * @param status Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
          * 
          * @return builder
          * 

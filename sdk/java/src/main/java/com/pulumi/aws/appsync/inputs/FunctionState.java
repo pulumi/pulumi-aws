@@ -49,14 +49,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      * 
      */
     @Import(name="code")
     private @Nullable Output<String> code;
 
     /**
-     * @return The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * @return Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      * 
      */
     public Optional<Output<String>> code() {
@@ -199,14 +199,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+     * Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
      * 
      */
     @Import(name="runtime")
     private @Nullable Output<FunctionRuntimeArgs> runtime;
 
     /**
-     * @return Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+     * @return Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
      * 
      */
     public Optional<Output<FunctionRuntimeArgs>> runtime() {
@@ -214,14 +214,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
+     * Sync configuration for a resolver. See `syncConfig` Block for details.
      * 
      */
     @Import(name="syncConfig")
     private @Nullable Output<FunctionSyncConfigArgs> syncConfig;
 
     /**
-     * @return Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
+     * @return Sync configuration for a resolver. See `syncConfig` Block for details.
      * 
      */
     public Optional<Output<FunctionSyncConfigArgs>> syncConfig() {
@@ -308,7 +308,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+         * @param code Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+         * @param code Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtime Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+         * @param runtime Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtime Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+         * @param runtime Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
          * 
          * @return builder
          * 
@@ -539,7 +539,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param syncConfig Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
+         * @param syncConfig Sync configuration for a resolver. See `syncConfig` Block for details.
          * 
          * @return builder
          * 
@@ -550,7 +550,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param syncConfig Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
+         * @param syncConfig Sync configuration for a resolver. See `syncConfig` Block for details.
          * 
          * @return builder
          * 

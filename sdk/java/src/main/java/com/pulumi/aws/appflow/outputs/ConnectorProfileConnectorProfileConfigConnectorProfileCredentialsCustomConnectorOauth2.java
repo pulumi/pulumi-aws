@@ -12,25 +12,65 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 {
+    /**
+     * @return Credentials used to access protected Zendesk resources.
+     * 
+     */
     private @Nullable String accessToken;
+    /**
+     * @return Identifier for the desired client.
+     * 
+     */
     private @Nullable String clientId;
+    /**
+     * @return Client secret used by the OAuth client to authenticate to the authorization server.
+     * 
+     */
     private @Nullable String clientSecret;
+    /**
+     * @return OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+     * 
+     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest oauthRequest;
+    /**
+     * @return Refresh token used to refresh an expired access token.
+     * 
+     */
     private @Nullable String refreshToken;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2() {}
+    /**
+     * @return Credentials used to access protected Zendesk resources.
+     * 
+     */
     public Optional<String> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
+    /**
+     * @return Identifier for the desired client.
+     * 
+     */
     public Optional<String> clientId() {
         return Optional.ofNullable(this.clientId);
     }
+    /**
+     * @return Client secret used by the OAuth client to authenticate to the authorization server.
+     * 
+     */
     public Optional<String> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
     }
+    /**
+     * @return OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+     * 
+     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
+    /**
+     * @return Refresh token used to refresh an expired access token.
+     * 
+     */
     public Optional<String> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }

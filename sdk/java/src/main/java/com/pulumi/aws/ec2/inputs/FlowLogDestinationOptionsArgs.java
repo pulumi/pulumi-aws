@@ -32,14 +32,14 @@ public final class FlowLogDestinationOptionsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+     * Whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
      * 
      */
     @Import(name="hiveCompatiblePartitions")
     private @Nullable Output<Boolean> hiveCompatiblePartitions;
 
     /**
-     * @return Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+     * @return Whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
      * 
      */
     public Optional<Output<Boolean>> hiveCompatiblePartitions() {
@@ -47,14 +47,14 @@ public final class FlowLogDestinationOptionsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+     * Whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
      * 
      */
     @Import(name="perHourPartition")
     private @Nullable Output<Boolean> perHourPartition;
 
     /**
-     * @return Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+     * @return Whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
      * 
      */
     public Optional<Output<Boolean>> perHourPartition() {
@@ -109,7 +109,7 @@ public final class FlowLogDestinationOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hiveCompatiblePartitions Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+         * @param hiveCompatiblePartitions Whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FlowLogDestinationOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hiveCompatiblePartitions Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+         * @param hiveCompatiblePartitions Whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class FlowLogDestinationOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param perHourPartition Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+         * @param perHourPartition Whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FlowLogDestinationOptionsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param perHourPartition Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+         * @param perHourPartition Whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
          * 
          * @return builder
          * 

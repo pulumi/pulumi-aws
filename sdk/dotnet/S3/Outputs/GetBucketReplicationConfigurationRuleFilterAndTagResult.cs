@@ -13,13 +13,7 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class GetBucketReplicationConfigurationRuleFilterAndTagResult
     {
-        /// <summary>
-        /// The key of the tag.
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// The value of the tag.
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

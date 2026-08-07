@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class SecretRotationExternalSecretRotationMetadata {
     /**
-     * @return The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+     * @return Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
      * 
      */
     private String key;
     /**
-     * @return The metadata value for the specified key.
+     * @return Metadata value for the specified key.
      * 
      */
     private String value;
 
     private SecretRotationExternalSecretRotationMetadata() {}
     /**
-     * @return The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+     * @return Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return The metadata value for the specified key.
+     * @return Metadata value for the specified key.
      * 
      */
     public String value() {

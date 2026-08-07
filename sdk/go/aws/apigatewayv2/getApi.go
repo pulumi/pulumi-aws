@@ -63,7 +63,7 @@ type LookupApiResult struct {
 	// URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
 	ApiEndpoint string `pulumi:"apiEndpoint"`
 	ApiId       string `pulumi:"apiId"`
-	// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
+	// [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
 	ApiKeySelectionExpression string `pulumi:"apiKeySelectionExpression"`
 	// ARN of the API.
 	Arn string `pulumi:"arn"`
@@ -77,14 +77,14 @@ type LookupApiResult struct {
 	ExecutionArn string `pulumi:"executionArn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The IP address types that can invoke an API.
+	// IP address types that can invoke an API.
 	IpAddressType string `pulumi:"ipAddressType"`
 	// Name of the API.
 	Name string `pulumi:"name"`
 	// API protocol.
 	ProtocolType string `pulumi:"protocolType"`
 	Region       string `pulumi:"region"`
-	// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
+	// [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
 	RouteSelectionExpression string `pulumi:"routeSelectionExpression"`
 	// Map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -139,7 +139,7 @@ func (o LookupApiResultOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
+// [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
 func (o LookupApiResultOutput) ApiKeySelectionExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.ApiKeySelectionExpression }).(pulumi.StringOutput)
 }
@@ -174,7 +174,7 @@ func (o LookupApiResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The IP address types that can invoke an API.
+// IP address types that can invoke an API.
 func (o LookupApiResultOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.IpAddressType }).(pulumi.StringOutput)
 }
@@ -193,7 +193,7 @@ func (o LookupApiResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
+// [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
 func (o LookupApiResultOutput) RouteSelectionExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.RouteSelectionExpression }).(pulumi.StringOutput)
 }

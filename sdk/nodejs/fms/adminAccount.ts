@@ -53,7 +53,7 @@ export class AdminAccount extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
+     * AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
      */
     declare public readonly accountId: pulumi.Output<string>;
 
@@ -85,7 +85,7 @@ export class AdminAccount extends pulumi.CustomResource {
  */
 export interface AdminAccountState {
     /**
-     * The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
+     * AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
      */
     accountId?: pulumi.Input<string | undefined>;
 }
@@ -95,7 +95,7 @@ export interface AdminAccountState {
  */
 export interface AdminAccountArgs {
     /**
-     * The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
+     * AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager administrator account. This can be an AWS Organizations master account or a member account. Defaults to the current account. Must be configured to perform drift detection.
      */
     accountId?: pulumi.Input<string | undefined>;
 }

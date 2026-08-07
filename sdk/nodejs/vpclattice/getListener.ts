@@ -62,11 +62,11 @@ export interface GetListenerResult {
      */
     readonly arn: string;
     /**
-     * The date and time that the listener was created.
+     * Date and time that the listener was created.
      */
     readonly createdAt: string;
     /**
-     * The actions for the default listener rule.
+     * Actions for the default listener rule.
      */
     readonly defaultActions: outputs.vpclattice.GetListenerDefaultAction[];
     /**
@@ -74,33 +74,33 @@ export interface GetListenerResult {
      */
     readonly id: string;
     /**
-     * The date and time the listener was last updated.
+     * Date and time the listener was last updated.
      */
     readonly lastUpdatedAt: string;
     /**
-     * The ID of the listener.
+     * ID of the listener.
      */
     readonly listenerId: string;
     readonly listenerIdentifier: string;
     /**
-     * The name of the listener.
+     * Name of the listener.
      */
     readonly name: string;
     /**
-     * The listener port.
+     * Listener port.
      */
     readonly port: number;
     /**
-     * The listener protocol. Either `HTTPS` or `HTTP`.
+     * Listener protocol. Either `HTTPS` or `HTTP`.
      */
     readonly protocol: string;
     readonly region: string;
     /**
-     * The ARN of the service.
+     * ARN of the service.
      */
     readonly serviceArn: string;
     /**
-     * The ID of the service.
+     * ID of the service.
      */
     readonly serviceId: string;
     readonly serviceIdentifier: string;

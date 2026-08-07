@@ -55,7 +55,7 @@ class GetAuthPolicyResult:
     @pulumi.getter
     def policy(self) -> Optional[_builtins.str]:
         """
-        The auth policy. The policy string in JSON must not contain newlines or blank lines.
+        Auth policy. The policy string in JSON must not contain newlines or blank lines.
         """
         return pulumi.get(self, "policy")
 
@@ -73,7 +73,7 @@ class GetAuthPolicyResult:
     @pulumi.getter
     def state(self) -> Optional[_builtins.str]:
         """
-        The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        State of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
         """
         return pulumi.get(self, "state")
 
@@ -111,10 +111,10 @@ def get_auth_policy(policy: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.
+    :param _builtins.str policy: Auth policy. The policy string in JSON must not contain newlines or blank lines.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-    :param _builtins.str state: The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+    :param _builtins.str resource_identifier: ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+    :param _builtins.str state: State of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
     """
     __args__ = dict()
     __args__['policy'] = policy
@@ -150,10 +150,10 @@ def get_auth_policy_output(policy: pulumi.Input[Optional[Optional[_builtins.str]
     ```
 
 
-    :param _builtins.str policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.
+    :param _builtins.str policy: Auth policy. The policy string in JSON must not contain newlines or blank lines.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
-    :param _builtins.str state: The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+    :param _builtins.str resource_identifier: ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+    :param _builtins.str state: State of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
     """
     __args__ = dict()
     __args__['policy'] = policy

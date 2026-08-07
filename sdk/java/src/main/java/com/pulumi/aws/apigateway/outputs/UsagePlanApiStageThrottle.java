@@ -15,38 +15,42 @@ import javax.annotation.Nullable;
 @CustomType
 public final class UsagePlanApiStageThrottle {
     /**
-     * @return The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+     * @return API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
      * 
      */
     private @Nullable Integer burstLimit;
     /**
-     * @return Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+     * @return Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+     * 
+     * The following arguments are optional:
      * 
      */
     private String path;
     /**
-     * @return The API request steady-state rate limit.
+     * @return API request steady-state rate limit.
      * 
      */
     private @Nullable Double rateLimit;
 
     private UsagePlanApiStageThrottle() {}
     /**
-     * @return The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+     * @return API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
      * 
      */
     public Optional<Integer> burstLimit() {
         return Optional.ofNullable(this.burstLimit);
     }
     /**
-     * @return Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+     * @return Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String path() {
         return this.path;
     }
     /**
-     * @return The API request steady-state rate limit.
+     * @return API request steady-state rate limit.
      * 
      */
     public Optional<Double> rateLimit() {

@@ -16,7 +16,7 @@ public final class GetCloudVmClusterPlainArgs extends com.pulumi.resources.Invok
     public static final GetCloudVmClusterPlainArgs Empty = new GetCloudVmClusterPlainArgs();
 
     /**
-     * The unique identifier of the cloud vm cluster.
+     * Unique identifier of the cloud vm cluster.
      * 
      * The following arguments are optional:
      * 
@@ -25,7 +25,7 @@ public final class GetCloudVmClusterPlainArgs extends com.pulumi.resources.Invok
     private String id;
 
     /**
-     * @return The unique identifier of the cloud vm cluster.
+     * @return Unique identifier of the cloud vm cluster.
      * 
      * The following arguments are optional:
      * 
@@ -75,7 +75,7 @@ public final class GetCloudVmClusterPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param id The unique identifier of the cloud vm cluster.
+         * @param id Unique identifier of the cloud vm cluster.
          * 
          * The following arguments are optional:
          * 

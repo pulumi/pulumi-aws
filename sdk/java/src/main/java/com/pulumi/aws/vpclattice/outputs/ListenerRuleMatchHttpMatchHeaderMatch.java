@@ -15,42 +15,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ListenerRuleMatchHttpMatchHeaderMatch {
     /**
-     * @return Indicates whether the match is case sensitive.
-     * Default is `false`.
+     * @return Whether the match is case sensitive. Default is `false`.
      * 
      */
     private @Nullable Boolean caseSensitive;
     /**
-     * @return The header match type.
-     * See Header Match `match` Block for details.
+     * @return Header match type. See `match.http_match.header_matches.match` Block for details.
      * 
      */
     private ListenerRuleMatchHttpMatchHeaderMatchMatch match;
     /**
-     * @return The name of the header.
+     * @return Name of the header.
      * 
      */
     private String name;
 
     private ListenerRuleMatchHttpMatchHeaderMatch() {}
     /**
-     * @return Indicates whether the match is case sensitive.
-     * Default is `false`.
+     * @return Whether the match is case sensitive. Default is `false`.
      * 
      */
     public Optional<Boolean> caseSensitive() {
         return Optional.ofNullable(this.caseSensitive);
     }
     /**
-     * @return The header match type.
-     * See Header Match `match` Block for details.
+     * @return Header match type. See `match.http_match.header_matches.match` Block for details.
      * 
      */
     public ListenerRuleMatchHttpMatchHeaderMatchMatch match() {
         return this.match;
     }
     /**
-     * @return The name of the header.
+     * @return Name of the header.
      * 
      */
     public String name() {

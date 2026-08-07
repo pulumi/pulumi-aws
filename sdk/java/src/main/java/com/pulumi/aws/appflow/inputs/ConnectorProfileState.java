@@ -32,14 +32,14 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+     * Connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
      * 
      */
     @Import(name="connectionMode")
     private @Nullable Output<String> connectionMode;
 
     /**
-     * @return Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+     * @return Connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
      * 
      */
     public Optional<Output<String>> connectionMode() {
@@ -47,14 +47,14 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+     * Label of the connector. The label is unique for each `ConnectorRegistration` in your AWS account. Only needed if calling for the `CustomConnector` connector type.
      * 
      */
     @Import(name="connectorLabel")
     private @Nullable Output<String> connectorLabel;
 
     /**
-     * @return The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+     * @return Label of the connector. The label is unique for each `ConnectorRegistration` in your AWS account. Only needed if calling for the `CustomConnector` connector type.
      * 
      */
     public Optional<Output<String>> connectorLabel() {
@@ -62,14 +62,14 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+     * Connector-specific configuration and credentials. See `connectorProfileConfig` Block for details.
      * 
      */
     @Import(name="connectorProfileConfig")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigArgs> connectorProfileConfig;
 
     /**
-     * @return Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+     * @return Connector-specific configuration and credentials. See `connectorProfileConfig` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigArgs>> connectorProfileConfig() {
@@ -77,14 +77,14 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+     * Type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
      * 
      */
     @Import(name="connectorType")
     private @Nullable Output<String> connectorType;
 
     /**
-     * @return The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+     * @return Type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
      * 
      */
     public Optional<Output<String>> connectorType() {
@@ -107,30 +107,37 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
     @Import(name="kmsArn")
     private @Nullable Output<String> kmsArn;
 
     /**
-     * @return ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * @return ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
     public Optional<Output<String>> kmsArn() {
         return Optional.ofNullable(this.kmsArn);
     }
 
+    /**
+     * Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      * 
      */
     @Import(name="region")
@@ -138,7 +145,6 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      * 
      */
     public Optional<Output<String>> region() {
@@ -199,7 +205,7 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectionMode Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+         * @param connectionMode Connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
          * 
          * @return builder
          * 
@@ -210,7 +216,7 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectionMode Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+         * @param connectionMode Connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
          * 
          * @return builder
          * 
@@ -220,7 +226,7 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectorLabel The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+         * @param connectorLabel Label of the connector. The label is unique for each `ConnectorRegistration` in your AWS account. Only needed if calling for the `CustomConnector` connector type.
          * 
          * @return builder
          * 
@@ -231,7 +237,7 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectorLabel The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+         * @param connectorLabel Label of the connector. The label is unique for each `ConnectorRegistration` in your AWS account. Only needed if calling for the `CustomConnector` connector type.
          * 
          * @return builder
          * 
@@ -241,7 +247,7 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectorProfileConfig Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+         * @param connectorProfileConfig Connector-specific configuration and credentials. See `connectorProfileConfig` Block for details.
          * 
          * @return builder
          * 
@@ -252,7 +258,7 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectorProfileConfig Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+         * @param connectorProfileConfig Connector-specific configuration and credentials. See `connectorProfileConfig` Block for details.
          * 
          * @return builder
          * 
@@ -262,7 +268,7 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectorType The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+         * @param connectorType Type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
          * 
          * @return builder
          * 
@@ -273,7 +279,7 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param connectorType The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+         * @param connectorType Type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
          * 
          * @return builder
          * 
@@ -304,7 +310,7 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param kmsArn ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+         * @param kmsArn ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
          * 
          * @return builder
          * 
@@ -315,7 +321,7 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param kmsArn ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+         * @param kmsArn ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
          * 
          * @return builder
          * 
@@ -324,18 +330,29 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
             return kmsArn(Output.of(kmsArn));
         }
 
+        /**
+         * @param name Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
          * 
          * @return builder
          * 
@@ -347,7 +364,6 @@ public final class ConnectorProfileState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
          * 
          * @return builder
          * 

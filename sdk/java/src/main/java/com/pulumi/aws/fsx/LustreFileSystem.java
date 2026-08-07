@@ -135,56 +135,56 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
         return this.autoImportPolicy;
     }
     /**
-     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+     * Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
      * 
      */
     @Export(name="automaticBackupRetentionDays", refs={Integer.class}, tree="[0]")
     private Output<Integer> automaticBackupRetentionDays;
 
     /**
-     * @return The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+     * @return Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
      * 
      */
     public Output<Integer> automaticBackupRetentionDays() {
         return this.automaticBackupRetentionDays;
     }
     /**
-     * The ID of the source backup to create the filesystem from.
+     * ID of the source backup to create the filesystem from.
      * 
      */
     @Export(name="backupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> backupId;
 
     /**
-     * @return The ID of the source backup to create the filesystem from.
+     * @return ID of the source backup to create the filesystem from.
      * 
      */
     public Output<Optional<String>> backupId() {
         return Codegen.optional(this.backupId);
     }
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+     * Whether to copy tags for the file system to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
      * 
      */
     @Export(name="copyTagsToBackups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTagsToBackups;
 
     /**
-     * @return A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+     * @return Whether to copy tags for the file system to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
      * 
      */
     public Output<Optional<Boolean>> copyTagsToBackups() {
         return Codegen.optional(this.copyTagsToBackups);
     }
     /**
-     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
+     * Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      * 
      */
     @Export(name="dailyAutomaticBackupStartTime", refs={String.class}, tree="[0]")
     private Output<String> dailyAutomaticBackupStartTime;
 
     /**
-     * @return A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
+     * @return Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      * 
      */
     public Output<String> dailyAutomaticBackupStartTime() {
@@ -211,14 +211,14 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataReadCacheConfiguration);
     }
     /**
-     * The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+     * Filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
      * 
      */
     @Export(name="deploymentType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deploymentType;
 
     /**
-     * @return The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+     * @return Filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
      * 
      */
     public Output<Optional<String>> deploymentType() {
@@ -239,14 +239,14 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
         return this.dnsName;
     }
     /**
-     * The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+     * Type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
      * 
      */
     @Export(name="driveCacheType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> driveCacheType;
 
     /**
-     * @return The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+     * @return Type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
      * 
      */
     public Output<Optional<String>> driveCacheType() {
@@ -295,7 +295,7 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
         return this.fileSystemTypeVersion;
     }
     /**
-     * A map of tags to apply to the file system&#39;s final backup.
+     * Map of tags to apply to the file system&#39;s final backup.
      * 
      * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
      * 
@@ -304,7 +304,7 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Map<String,String>> finalBackupTags;
 
     /**
-     * @return A map of tags to apply to the file system&#39;s final backup.
+     * @return Map of tags to apply to the file system&#39;s final backup.
      * 
      * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
      * 
@@ -355,42 +355,42 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
         return this.kmsKeyId;
     }
     /**
-     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
+     * Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
      * 
      */
     @Export(name="logConfiguration", refs={LustreFileSystemLogConfiguration.class}, tree="[0]")
     private Output<LustreFileSystemLogConfiguration> logConfiguration;
 
     /**
-     * @return The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
+     * @return Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
      * 
      */
     public Output<LustreFileSystemLogConfiguration> logConfiguration() {
         return this.logConfiguration;
     }
     /**
-     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
+     * Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
      * 
      */
     @Export(name="metadataConfiguration", refs={LustreFileSystemMetadataConfiguration.class}, tree="[0]")
     private Output<LustreFileSystemMetadataConfiguration> metadataConfiguration;
 
     /**
-     * @return The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
+     * @return Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
      * 
      */
     public Output<LustreFileSystemMetadataConfiguration> metadataConfiguration() {
         return this.metadataConfiguration;
     }
     /**
-     * The value to be used when mounting the filesystem.
+     * Value to be used when mounting the filesystem.
      * 
      */
     @Export(name="mountName", refs={String.class}, tree="[0]")
     private Output<String> mountName;
 
     /**
-     * @return The value to be used when mounting the filesystem.
+     * @return Value to be used when mounting the filesystem.
      * 
      */
     public Output<String> mountName() {
@@ -425,14 +425,14 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
         return this.ownerId;
     }
     /**
-     * Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
+     * Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
      * 
      */
     @Export(name="perUnitStorageThroughput", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> perUnitStorageThroughput;
 
     /**
-     * @return Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
+     * @return Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
      * 
      */
     public Output<Optional<Integer>> perUnitStorageThroughput() {
@@ -453,28 +453,28 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
+     * Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
      * 
      */
     @Export(name="rootSquashConfiguration", refs={LustreFileSystemRootSquashConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ LustreFileSystemRootSquashConfiguration> rootSquashConfiguration;
 
     /**
-     * @return The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
+     * @return Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
      * 
      */
     public Output<Optional<LustreFileSystemRootSquashConfiguration>> rootSquashConfiguration() {
         return Codegen.optional(this.rootSquashConfiguration);
     }
     /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
-     * @return A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * @return List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
     public Output<Optional<List<String>>> securityGroupIds() {
@@ -499,74 +499,70 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipFinalBackup);
     }
     /**
-     * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+     * Storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
      * 
      */
     @Export(name="storageCapacity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> storageCapacity;
 
     /**
-     * @return The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+     * @return Storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
      * 
      */
     public Output<Optional<Integer>> storageCapacity() {
         return Codegen.optional(this.storageCapacity);
     }
     /**
-     * The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
+     * Filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageType;
 
     /**
-     * @return The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
+     * @return Filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
      * 
      */
     public Output<Optional<String>> storageType() {
         return Codegen.optional(this.storageType);
     }
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
-     * 
-     * The following arguments are optional:
+     * List of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
      * 
      */
     @Export(name="subnetIds", refs={String.class}, tree="[0]")
     private Output<String> subnetIds;
 
     /**
-     * @return A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
-     * 
-     * The following arguments are optional:
+     * @return List of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
      * 
      */
     public Output<String> subnetIds() {
         return this.subnetIds;
     }
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -601,14 +597,14 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
         return this.vpcId;
     }
     /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     @Export(name="weeklyMaintenanceStartTime", refs={String.class}, tree="[0]")
     private Output<String> weeklyMaintenanceStartTime;
 
     /**
-     * @return The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * @return Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     public Output<String> weeklyMaintenanceStartTime() {

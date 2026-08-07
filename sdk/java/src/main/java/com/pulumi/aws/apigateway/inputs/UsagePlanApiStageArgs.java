@@ -19,14 +19,14 @@ public final class UsagePlanApiStageArgs extends com.pulumi.resources.ResourceAr
     public static final UsagePlanApiStageArgs Empty = new UsagePlanApiStageArgs();
 
     /**
-     * API Id of the associated API stage in a usage plan.
+     * API ID of the associated API stage in a usage plan.
      * 
      */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
     /**
-     * @return API Id of the associated API stage in a usage plan.
+     * @return API ID of the associated API stage in a usage plan.
      * 
      */
     public Output<String> apiId() {
@@ -36,6 +36,8 @@ public final class UsagePlanApiStageArgs extends com.pulumi.resources.ResourceAr
     /**
      * API stage name of the associated API stage in a usage plan.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="stage", required=true)
     private Output<String> stage;
@@ -43,20 +45,22 @@ public final class UsagePlanApiStageArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return API stage name of the associated API stage in a usage plan.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> stage() {
         return this.stage;
     }
 
     /**
-     * The throttling limits of the usage plan.
+     * Throttling limits applied to the API stage. See `throttle` Block below.
      * 
      */
     @Import(name="throttles")
     private @Nullable Output<List<UsagePlanApiStageThrottleArgs>> throttles;
 
     /**
-     * @return The throttling limits of the usage plan.
+     * @return Throttling limits applied to the API stage. See `throttle` Block below.
      * 
      */
     public Optional<Output<List<UsagePlanApiStageThrottleArgs>>> throttles() {
@@ -90,7 +94,7 @@ public final class UsagePlanApiStageArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param apiId API Id of the associated API stage in a usage plan.
+         * @param apiId API ID of the associated API stage in a usage plan.
          * 
          * @return builder
          * 
@@ -101,7 +105,7 @@ public final class UsagePlanApiStageArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param apiId API Id of the associated API stage in a usage plan.
+         * @param apiId API ID of the associated API stage in a usage plan.
          * 
          * @return builder
          * 
@@ -112,6 +116,8 @@ public final class UsagePlanApiStageArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param stage API stage name of the associated API stage in a usage plan.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -124,6 +130,8 @@ public final class UsagePlanApiStageArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param stage API stage name of the associated API stage in a usage plan.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -132,7 +140,7 @@ public final class UsagePlanApiStageArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param throttles The throttling limits of the usage plan.
+         * @param throttles Throttling limits applied to the API stage. See `throttle` Block below.
          * 
          * @return builder
          * 
@@ -143,7 +151,7 @@ public final class UsagePlanApiStageArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param throttles The throttling limits of the usage plan.
+         * @param throttles Throttling limits applied to the API stage. See `throttle` Block below.
          * 
          * @return builder
          * 
@@ -153,7 +161,7 @@ public final class UsagePlanApiStageArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param throttles The throttling limits of the usage plan.
+         * @param throttles Throttling limits applied to the API stage. See `throttle` Block below.
          * 
          * @return builder
          * 

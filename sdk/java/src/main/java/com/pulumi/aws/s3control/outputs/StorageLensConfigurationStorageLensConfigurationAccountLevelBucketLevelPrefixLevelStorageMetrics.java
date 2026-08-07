@@ -18,7 +18,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
      */
     private @Nullable Boolean enabled;
     /**
-     * @return Selection criteria. See Selection Criteria below for more details.
+     * @return Selection criteria. See `selectionCriteria` below for more details.
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria selectionCriteria;
@@ -32,7 +32,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return Selection criteria. See Selection Criteria below for more details.
+     * @return Selection criteria. See `selectionCriteria` below for more details.
      * 
      */
     public Optional<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria> selectionCriteria() {

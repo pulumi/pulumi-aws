@@ -25,13 +25,15 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string> BucketArn { get; set; } = null!;
 
         /// <summary>
-        /// Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+        /// Type of server-side encryption to use to encrypt the inventory. See `Encryption` Block below.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.InventoryDestinationBucketEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+        /// Output format of the inventory results. Valid values: `CSV`, [`ORC`](https://orc.apache.org/), [`Parquet`](https://parquet.apache.org/).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;

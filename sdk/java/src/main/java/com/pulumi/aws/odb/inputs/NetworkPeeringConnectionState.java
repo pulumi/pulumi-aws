@@ -19,9 +19,17 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
 
     public static final NetworkPeeringConnectionState Empty = new NetworkPeeringConnectionState();
 
+    /**
+     * ARN of the ODB network peering connection.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return ARN of the ODB network peering connection.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -44,16 +52,12 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
     /**
      * Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
      * @return Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -76,14 +80,14 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
     }
 
     /**
-     * The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+     * Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
      * 
      */
     @Import(name="odbNetworkId")
     private @Nullable Output<String> odbNetworkId;
 
     /**
-     * @return The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+     * @return Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
      * 
      */
     public Optional<Output<String>> odbNetworkId() {
@@ -136,14 +140,18 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
     }
 
     /**
-     * The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="peerNetworkId")
     private @Nullable Output<String> peerNetworkId;
 
     /**
-     * @return The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * @return Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> peerNetworkId() {
@@ -196,14 +204,14 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
     }
 
     /**
-     * The reason for the current status of the ODB peering connection.
+     * Reason for the current status of the ODB peering connection.
      * 
      */
     @Import(name="statusReason")
     private @Nullable Output<String> statusReason;
 
     /**
-     * @return The reason for the current status of the ODB peering connection.
+     * @return Reason for the current status of the ODB peering connection.
      * 
      */
     public Optional<Output<String>> statusReason() {
@@ -211,14 +219,14 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -226,14 +234,14 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
     }
 
     /**
-     * A map of tags assigned to the resource, including inherited tags.
+     * Map of tags assigned to the resource, including inherited tags.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including inherited tags.
+     * @return Map of tags assigned to the resource, including inherited tags.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -286,11 +294,23 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
             $ = new NetworkPeeringConnectionState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN of the ODB network peering connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN of the ODB network peering connection.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
@@ -319,8 +339,6 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         /**
          * @param displayName Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -331,8 +349,6 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
 
         /**
          * @param displayName Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -363,7 +379,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param odbNetworkId The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+         * @param odbNetworkId Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
          * 
          * @return builder
          * 
@@ -374,7 +390,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param odbNetworkId The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+         * @param odbNetworkId Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
          * 
          * @return builder
          * 
@@ -457,7 +473,9 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param peerNetworkId The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+         * @param peerNetworkId Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -468,7 +486,9 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param peerNetworkId The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+         * @param peerNetworkId Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -541,7 +561,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param statusReason The reason for the current status of the ODB peering connection.
+         * @param statusReason Reason for the current status of the ODB peering connection.
          * 
          * @return builder
          * 
@@ -552,7 +572,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param statusReason The reason for the current status of the ODB peering connection.
+         * @param statusReason Reason for the current status of the ODB peering connection.
          * 
          * @return builder
          * 
@@ -562,7 +582,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -573,7 +593,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -583,7 +603,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including inherited tags.
+         * @param tagsAll Map of tags assigned to the resource, including inherited tags.
          * 
          * @return builder
          * 
@@ -594,7 +614,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including inherited tags.
+         * @param tagsAll Map of tags assigned to the resource, including inherited tags.
          * 
          * @return builder
          * 

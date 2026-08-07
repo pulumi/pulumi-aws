@@ -17,14 +17,14 @@ public final class BucketObjectv2OverrideProviderDefaultTagsArgs extends com.pul
     public static final BucketObjectv2OverrideProviderDefaultTagsArgs Empty = new BucketObjectv2OverrideProviderDefaultTagsArgs();
 
     /**
-     * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to override the provider-level `defaultTags`. Must be an empty map to suppress all provider-level `defaultTags`.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to override the provider-level `defaultTags`. Must be an empty map to suppress all provider-level `defaultTags`.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -56,7 +56,7 @@ public final class BucketObjectv2OverrideProviderDefaultTagsArgs extends com.pul
         }
 
         /**
-         * @param tags Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to override the provider-level `defaultTags`. Must be an empty map to suppress all provider-level `defaultTags`.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class BucketObjectv2OverrideProviderDefaultTagsArgs extends com.pul
         }
 
         /**
-         * @param tags Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to override the provider-level `defaultTags`. Must be an empty map to suppress all provider-level `defaultTags`.
          * 
          * @return builder
          * 

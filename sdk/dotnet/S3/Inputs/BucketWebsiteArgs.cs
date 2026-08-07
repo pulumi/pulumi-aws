@@ -31,8 +31,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? RedirectAllRequestsTo { get; set; }
 
         /// <summary>
-        /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-        /// describing redirect behavior and when redirects are applied.
+        /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
         /// </summary>
         [Input("routingRules")]
         public Input<string>? RoutingRules { get; set; }

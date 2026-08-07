@@ -131,7 +131,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     declare public readonly instanceType: pulumi.Output<string>;
     /**
-     * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+     * Maximum number of user sessions on an instance. This only applies to multi-session fleets.
      */
     declare public readonly maxSessionsPerInstance: pulumi.Output<number | undefined>;
     /**
@@ -300,7 +300,7 @@ export interface FleetState {
      */
     instanceType?: pulumi.Input<string | undefined>;
     /**
-     * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+     * Maximum number of user sessions on an instance. This only applies to multi-session fleets.
      */
     maxSessionsPerInstance?: pulumi.Input<number | undefined>;
     /**
@@ -389,7 +389,7 @@ export interface FleetArgs {
      */
     instanceType: pulumi.Input<string>;
     /**
-     * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+     * Maximum number of user sessions on an instance. This only applies to multi-session fleets.
      */
     maxSessionsPerInstance?: pulumi.Input<number | undefined>;
     /**

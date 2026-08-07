@@ -75,7 +75,7 @@ export interface GetAccessPointsArgs {
  */
 export interface GetAccessPointsResult {
     /**
-     * A list of access points matching the search criteria. See `accessPoints` below.
+     * List of access points matching the search criteria. See `accessPoints` below.
      */
     readonly accessPoints: outputs.s3control.GetAccessPointsAccessPoint[];
     readonly accountId?: string;

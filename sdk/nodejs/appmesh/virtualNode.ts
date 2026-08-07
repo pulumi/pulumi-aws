@@ -223,7 +223,7 @@ export class VirtualNode extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceOwner: pulumi.Output<string>;
     /**
-     * Virtual node specification to apply.
+     * Virtual node specification to apply. See `spec` Block for details.
      */
     declare public readonly spec: pulumi.Output<outputs.appmesh.VirtualNodeSpec>;
     /**
@@ -321,7 +321,7 @@ export interface VirtualNodeState {
      */
     resourceOwner?: pulumi.Input<string | undefined>;
     /**
-     * Virtual node specification to apply.
+     * Virtual node specification to apply. See `spec` Block for details.
      */
     spec?: pulumi.Input<inputs.appmesh.VirtualNodeSpec | undefined>;
     /**
@@ -355,7 +355,7 @@ export interface VirtualNodeArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Virtual node specification to apply.
+     * Virtual node specification to apply. See `spec` Block for details.
      */
     spec: pulumi.Input<inputs.appmesh.VirtualNodeSpec>;
     /**

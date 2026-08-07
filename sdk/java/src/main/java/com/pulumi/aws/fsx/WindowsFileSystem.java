@@ -203,28 +203,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:fsx/windowsFileSystem:WindowsFileSystem")
 public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
     /**
-     * The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
+     * ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
      * 
      */
     @Export(name="activeDirectoryId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> activeDirectoryId;
 
     /**
-     * @return The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
+     * @return ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
      * 
      */
     public Output<Optional<String>> activeDirectoryId() {
         return Codegen.optional(this.activeDirectoryId);
     }
     /**
-     * An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+     * Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
      * 
      */
     @Export(name="aliases", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> aliases;
 
     /**
-     * @return An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+     * @return Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
      * 
      */
     public Output<Optional<List<String>>> aliases() {
@@ -245,98 +245,98 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
+     * Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      * 
      */
     @Export(name="auditLogConfiguration", refs={WindowsFileSystemAuditLogConfiguration.class}, tree="[0]")
     private Output<WindowsFileSystemAuditLogConfiguration> auditLogConfiguration;
 
     /**
-     * @return The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
+     * @return Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      * 
      */
     public Output<WindowsFileSystemAuditLogConfiguration> auditLogConfiguration() {
         return this.auditLogConfiguration;
     }
     /**
-     * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+     * Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      * 
      */
     @Export(name="automaticBackupRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> automaticBackupRetentionDays;
 
     /**
-     * @return The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+     * @return Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      * 
      */
     public Output<Optional<Integer>> automaticBackupRetentionDays() {
         return Codegen.optional(this.automaticBackupRetentionDays);
     }
     /**
-     * The ID of the source backup to create the filesystem from.
+     * ID of the source backup to create the filesystem from.
      * 
      */
     @Export(name="backupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> backupId;
 
     /**
-     * @return The ID of the source backup to create the filesystem from.
+     * @return ID of the source backup to create the filesystem from.
      * 
      */
     public Output<Optional<String>> backupId() {
         return Codegen.optional(this.backupId);
     }
     /**
-     * A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+     * Whether to copy tags on the file system to backups. Defaults to `false`.
      * 
      */
     @Export(name="copyTagsToBackups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTagsToBackups;
 
     /**
-     * @return A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+     * @return Whether to copy tags on the file system to backups. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> copyTagsToBackups() {
         return Codegen.optional(this.copyTagsToBackups);
     }
     /**
-     * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+     * Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      * 
      */
     @Export(name="dailyAutomaticBackupStartTime", refs={String.class}, tree="[0]")
     private Output<String> dailyAutomaticBackupStartTime;
 
     /**
-     * @return The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+     * @return Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      * 
      */
     public Output<String> dailyAutomaticBackupStartTime() {
         return this.dailyAutomaticBackupStartTime;
     }
     /**
-     * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+     * File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      * 
      */
     @Export(name="deploymentType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deploymentType;
 
     /**
-     * @return Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+     * @return File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      * 
      */
     public Output<Optional<String>> deploymentType() {
         return Codegen.optional(this.deploymentType);
     }
     /**
-     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
+     * SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      * 
      */
     @Export(name="diskIopsConfiguration", refs={WindowsFileSystemDiskIopsConfiguration.class}, tree="[0]")
     private Output<WindowsFileSystemDiskIopsConfiguration> diskIopsConfiguration;
 
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
+     * @return SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      * 
      */
     public Output<WindowsFileSystemDiskIopsConfiguration> diskIopsConfiguration() {
@@ -357,14 +357,14 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
         return this.dnsName;
     }
     /**
-     * A map of tags to apply to the file system&#39;s final backup.
+     * Map of tags to apply to the file system&#39;s final backup.
      * 
      */
     @Export(name="finalBackupTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> finalBackupTags;
 
     /**
-     * @return A map of tags to apply to the file system&#39;s final backup.
+     * @return Map of tags to apply to the file system&#39;s final backup.
      * 
      */
     public Output<Optional<Map<String,String>>> finalBackupTags() {
@@ -413,28 +413,28 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
         return this.ownerId;
     }
     /**
-     * The IP address of the primary, or preferred, file server.
+     * IP address of the primary, or preferred, file server.
      * 
      */
     @Export(name="preferredFileServerIp", refs={String.class}, tree="[0]")
     private Output<String> preferredFileServerIp;
 
     /**
-     * @return The IP address of the primary, or preferred, file server.
+     * @return IP address of the primary, or preferred, file server.
      * 
      */
     public Output<String> preferredFileServerIp() {
         return this.preferredFileServerIp;
     }
     /**
-     * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+     * Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      * 
      */
     @Export(name="preferredSubnetId", refs={String.class}, tree="[0]")
     private Output<String> preferredSubnetId;
 
     /**
-     * @return Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+     * @return Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      * 
      */
     public Output<String> preferredSubnetId() {
@@ -469,14 +469,14 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
         return this.remoteAdministrationEndpoint;
     }
     /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
-     * @return A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * @return List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
     public Output<Optional<List<String>>> securityGroupIds() {
@@ -525,56 +525,56 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
         return this.storageCapacity;
     }
     /**
-     * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+     * Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageType;
 
     /**
-     * @return Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+     * @return Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      * 
      */
     public Output<Optional<String>> storageType() {
         return Codegen.optional(this.storageType);
     }
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
+     * List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
-     * @return A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
+     * @return List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
      * 
      */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -613,14 +613,14 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
         return this.vpcId;
     }
     /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     @Export(name="weeklyMaintenanceStartTime", refs={String.class}, tree="[0]")
     private Output<String> weeklyMaintenanceStartTime;
 
     /**
-     * @return The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * @return Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     public Output<String> weeklyMaintenanceStartTime() {

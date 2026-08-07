@@ -56,14 +56,14 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
     }
 
     /**
-     * Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
+     * Whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
      * 
      */
     @Import(name="objectLockEnabled")
     private @Nullable Output<String> objectLockEnabled;
 
     /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
+     * @return Whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
      * 
      */
     public Optional<Output<String>> objectLockEnabled() {
@@ -101,16 +101,14 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
     }
 
     /**
-     * This argument is deprecated and no longer needed to enable Object Lock.
-     * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
+     * Token to allow Object Lock to be enabled for an existing bucket. To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
      * 
      */
     @Import(name="token")
     private @Nullable Output<String> token;
 
     /**
-     * @return This argument is deprecated and no longer needed to enable Object Lock.
-     * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
+     * @return Token to allow Object Lock to be enabled for an existing bucket. To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
      * 
      */
     public Optional<Output<String>> token() {
@@ -197,7 +195,7 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param objectLockEnabled Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
+         * @param objectLockEnabled Whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
          * 
          * @return builder
          * 
@@ -208,7 +206,7 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param objectLockEnabled Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
+         * @param objectLockEnabled Whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
          * 
          * @return builder
          * 
@@ -260,8 +258,7 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param token This argument is deprecated and no longer needed to enable Object Lock.
-         * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
+         * @param token Token to allow Object Lock to be enabled for an existing bucket. To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
          * 
          * @return builder
          * 
@@ -272,8 +269,7 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param token This argument is deprecated and no longer needed to enable Object Lock.
-         * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
+         * @param token Token to allow Object Lock to be enabled for an existing bucket. To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
          * 
          * @return builder
          * 

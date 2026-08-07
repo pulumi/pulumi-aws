@@ -91,7 +91,7 @@ class _ClientCertificateState:
         :param pulumi.Input[_builtins.str] created_date: Date when the client certificate was created.
         :param pulumi.Input[_builtins.str] description: Description of the client certificate.
         :param pulumi.Input[_builtins.str] expiration_date: Date when the client certificate will expire.
-        :param pulumi.Input[_builtins.str] pem_encoded_certificate: The PEM-encoded public key of the client certificate.
+        :param pulumi.Input[_builtins.str] pem_encoded_certificate: PEM-encoded public key of the client certificate.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -165,7 +165,7 @@ class _ClientCertificateState:
     @pulumi.getter(name="pemEncodedCertificate")
     def pem_encoded_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The PEM-encoded public key of the client certificate.
+        PEM-encoded public key of the client certificate.
         """
         return pulumi.get(self, "pem_encoded_certificate")
 
@@ -338,7 +338,7 @@ class ClientCertificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created_date: Date when the client certificate was created.
         :param pulumi.Input[_builtins.str] description: Description of the client certificate.
         :param pulumi.Input[_builtins.str] expiration_date: Date when the client certificate will expire.
-        :param pulumi.Input[_builtins.str] pem_encoded_certificate: The PEM-encoded public key of the client certificate.
+        :param pulumi.Input[_builtins.str] pem_encoded_certificate: PEM-encoded public key of the client certificate.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -393,7 +393,7 @@ class ClientCertificate(pulumi.CustomResource):
     @pulumi.getter(name="pemEncodedCertificate")
     def pem_encoded_certificate(self) -> pulumi.Output[_builtins.str]:
         """
-        The PEM-encoded public key of the client certificate.
+        PEM-encoded public key of the client certificate.
         """
         return pulumi.get(self, "pem_encoded_certificate")
 

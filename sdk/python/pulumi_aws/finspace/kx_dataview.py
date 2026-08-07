@@ -36,24 +36,19 @@ class KxDataviewArgs:
         """
         The set of arguments for constructing a KxDataview resource.
 
-        :param pulumi.Input[_builtins.bool] auto_update: The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
-        :param pulumi.Input[_builtins.str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
-               * `SINGLE` - Assigns one availability zone per cluster.
-               * `MULTI` - Assigns all the availability zones per cluster.
-        :param pulumi.Input[_builtins.str] database_name: The name of the database where you want to create a dataview.
+        :param pulumi.Input[_builtins.bool] auto_update: Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] az_mode: Number of availability zones you want to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
+        :param pulumi.Input[_builtins.str] database_name: Name of the database where you want to create a dataview.
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
-        :param pulumi.Input[_builtins.str] availability_zone_id: The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
-        :param pulumi.Input[_builtins.str] changeset_id: A unique identifier of the changeset of the database that you want to use to ingest data.
-        :param pulumi.Input[_builtins.str] description: A description for the dataview.
-        :param pulumi.Input[_builtins.str] name: A unique identifier for the dataview.
+        :param pulumi.Input[_builtins.str] availability_zone_id: Identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
+        :param pulumi.Input[_builtins.str] changeset_id: Unique identifier of the changeset of the database that you want to use to ingest data.
+        :param pulumi.Input[_builtins.str] description: Description for the dataview.
+        :param pulumi.Input[_builtins.str] name: Unique identifier for the dataview.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] read_write: The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-               * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
-               * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-               * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        :param pulumi.Input[_builtins.bool] read_write: Whether to make the dataview writable to perform database maintenance. You cannot create partial writable dataviews; you must provide the entire database path and cannot perform updates, so `auto_update` must be `false` when `read_write` is `true`. You must also use a unique volume, and once a dataview is writable you cannot change it to read-only.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]] segment_configurations: The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
+        :param pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]] segment_configurations: Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `segment_configurations` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "auto_update", auto_update)
@@ -81,7 +76,7 @@ class KxDataviewArgs:
     @pulumi.getter(name="autoUpdate")
     def auto_update(self) -> pulumi.Input[_builtins.bool]:
         """
-        The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
+        Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
         """
         return pulumi.get(self, "auto_update")
 
@@ -93,9 +88,7 @@ class KxDataviewArgs:
     @pulumi.getter(name="azMode")
     def az_mode(self) -> pulumi.Input[_builtins.str]:
         """
-        The number of availability zones you want to assign per cluster. This can be one of the following:
-        * `SINGLE` - Assigns one availability zone per cluster.
-        * `MULTI` - Assigns all the availability zones per cluster.
+        Number of availability zones you want to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
         """
         return pulumi.get(self, "az_mode")
 
@@ -107,7 +100,7 @@ class KxDataviewArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the database where you want to create a dataview.
+        Name of the database where you want to create a dataview.
         """
         return pulumi.get(self, "database_name")
 
@@ -131,7 +124,7 @@ class KxDataviewArgs:
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
+        Identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         """
         return pulumi.get(self, "availability_zone_id")
 
@@ -143,7 +136,7 @@ class KxDataviewArgs:
     @pulumi.getter(name="changesetId")
     def changeset_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique identifier of the changeset of the database that you want to use to ingest data.
+        Unique identifier of the changeset of the database that you want to use to ingest data.
         """
         return pulumi.get(self, "changeset_id")
 
@@ -155,7 +148,7 @@ class KxDataviewArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description for the dataview.
+        Description for the dataview.
         """
         return pulumi.get(self, "description")
 
@@ -167,7 +160,7 @@ class KxDataviewArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique identifier for the dataview.
+        Unique identifier for the dataview.
 
         The following arguments are optional:
         """
@@ -181,10 +174,7 @@ class KxDataviewArgs:
     @pulumi.getter(name="readWrite")
     def read_write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-        * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
-        * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-        * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        Whether to make the dataview writable to perform database maintenance. You cannot create partial writable dataviews; you must provide the entire database path and cannot perform updates, so `auto_update` must be `false` when `read_write` is `true`. You must also use a unique volume, and once a dataview is writable you cannot change it to read-only.
         """
         return pulumi.get(self, "read_write")
 
@@ -208,7 +198,7 @@ class KxDataviewArgs:
     @pulumi.getter(name="segmentConfigurations")
     def segment_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]]]:
         """
-        The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
+        Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `segment_configurations` below.
         """
         return pulumi.get(self, "segment_configurations")
 
@@ -253,26 +243,22 @@ class _KxDataviewState:
         Input properties used for looking up and filtering KxDataview resources.
 
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX dataview.
-        :param pulumi.Input[_builtins.bool] auto_update: The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
-        :param pulumi.Input[_builtins.str] availability_zone_id: The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
-        :param pulumi.Input[_builtins.str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
-               * `SINGLE` - Assigns one availability zone per cluster.
-               * `MULTI` - Assigns all the availability zones per cluster.
-        :param pulumi.Input[_builtins.str] changeset_id: A unique identifier of the changeset of the database that you want to use to ingest data.
+        :param pulumi.Input[_builtins.bool] auto_update: Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] availability_zone_id: Identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
+        :param pulumi.Input[_builtins.str] az_mode: Number of availability zones you want to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
+        :param pulumi.Input[_builtins.str] changeset_id: Unique identifier of the changeset of the database that you want to use to ingest data.
         :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the dataview was created in FinSpace. Value determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
-        :param pulumi.Input[_builtins.str] database_name: The name of the database where you want to create a dataview.
-        :param pulumi.Input[_builtins.str] description: A description for the dataview.
+        :param pulumi.Input[_builtins.str] database_name: Name of the database where you want to create a dataview.
+        :param pulumi.Input[_builtins.str] description: Description for the dataview.
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
-        :param pulumi.Input[_builtins.str] last_modified_timestamp: The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
-        :param pulumi.Input[_builtins.str] name: A unique identifier for the dataview.
+        :param pulumi.Input[_builtins.str] last_modified_timestamp: Last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+        :param pulumi.Input[_builtins.str] name: Unique identifier for the dataview.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] read_write: The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-               * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
-               * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-               * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        :param pulumi.Input[_builtins.bool] read_write: Whether to make the dataview writable to perform database maintenance. You cannot create partial writable dataviews; you must provide the entire database path and cannot perform updates, so `auto_update` must be `false` when `read_write` is `true`. You must also use a unique volume, and once a dataview is writable you cannot change it to read-only.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]] segment_configurations: The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
+        :param pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]] segment_configurations: Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `segment_configurations` below.
+        :param pulumi.Input[_builtins.str] status: Status of the dataview.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -327,7 +313,7 @@ class _KxDataviewState:
     @pulumi.getter(name="autoUpdate")
     def auto_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
+        Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
         """
         return pulumi.get(self, "auto_update")
 
@@ -339,7 +325,7 @@ class _KxDataviewState:
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
+        Identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         """
         return pulumi.get(self, "availability_zone_id")
 
@@ -351,9 +337,7 @@ class _KxDataviewState:
     @pulumi.getter(name="azMode")
     def az_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The number of availability zones you want to assign per cluster. This can be one of the following:
-        * `SINGLE` - Assigns one availability zone per cluster.
-        * `MULTI` - Assigns all the availability zones per cluster.
+        Number of availability zones you want to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
         """
         return pulumi.get(self, "az_mode")
 
@@ -365,7 +349,7 @@ class _KxDataviewState:
     @pulumi.getter(name="changesetId")
     def changeset_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique identifier of the changeset of the database that you want to use to ingest data.
+        Unique identifier of the changeset of the database that you want to use to ingest data.
         """
         return pulumi.get(self, "changeset_id")
 
@@ -389,7 +373,7 @@ class _KxDataviewState:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the database where you want to create a dataview.
+        Name of the database where you want to create a dataview.
         """
         return pulumi.get(self, "database_name")
 
@@ -401,7 +385,7 @@ class _KxDataviewState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description for the dataview.
+        Description for the dataview.
         """
         return pulumi.get(self, "description")
 
@@ -425,7 +409,7 @@ class _KxDataviewState:
     @pulumi.getter(name="lastModifiedTimestamp")
     def last_modified_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+        Last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         """
         return pulumi.get(self, "last_modified_timestamp")
 
@@ -437,7 +421,7 @@ class _KxDataviewState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique identifier for the dataview.
+        Unique identifier for the dataview.
 
         The following arguments are optional:
         """
@@ -451,10 +435,7 @@ class _KxDataviewState:
     @pulumi.getter(name="readWrite")
     def read_write(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-        * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
-        * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-        * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        Whether to make the dataview writable to perform database maintenance. You cannot create partial writable dataviews; you must provide the entire database path and cannot perform updates, so `auto_update` must be `false` when `read_write` is `true`. You must also use a unique volume, and once a dataview is writable you cannot change it to read-only.
         """
         return pulumi.get(self, "read_write")
 
@@ -478,7 +459,7 @@ class _KxDataviewState:
     @pulumi.getter(name="segmentConfigurations")
     def segment_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]]]:
         """
-        The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
+        Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `segment_configurations` below.
         """
         return pulumi.get(self, "segment_configurations")
 
@@ -489,6 +470,9 @@ class _KxDataviewState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Status of the dataview.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -575,24 +559,19 @@ class KxDataview(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] auto_update: The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
-        :param pulumi.Input[_builtins.str] availability_zone_id: The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
-        :param pulumi.Input[_builtins.str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
-               * `SINGLE` - Assigns one availability zone per cluster.
-               * `MULTI` - Assigns all the availability zones per cluster.
-        :param pulumi.Input[_builtins.str] changeset_id: A unique identifier of the changeset of the database that you want to use to ingest data.
-        :param pulumi.Input[_builtins.str] database_name: The name of the database where you want to create a dataview.
-        :param pulumi.Input[_builtins.str] description: A description for the dataview.
+        :param pulumi.Input[_builtins.bool] auto_update: Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] availability_zone_id: Identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
+        :param pulumi.Input[_builtins.str] az_mode: Number of availability zones you want to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
+        :param pulumi.Input[_builtins.str] changeset_id: Unique identifier of the changeset of the database that you want to use to ingest data.
+        :param pulumi.Input[_builtins.str] database_name: Name of the database where you want to create a dataview.
+        :param pulumi.Input[_builtins.str] description: Description for the dataview.
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
-        :param pulumi.Input[_builtins.str] name: A unique identifier for the dataview.
+        :param pulumi.Input[_builtins.str] name: Unique identifier for the dataview.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] read_write: The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-               * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
-               * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-               * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        :param pulumi.Input[_builtins.bool] read_write: Whether to make the dataview writable to perform database maintenance. You cannot create partial writable dataviews; you must provide the entire database path and cannot perform updates, so `auto_update` must be `false` when `read_write` is `true`. You must also use a unique volume, and once a dataview is writable you cannot change it to read-only.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]] segment_configurations: The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]] segment_configurations: Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `segment_configurations` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -731,26 +710,22 @@ class KxDataview(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX dataview.
-        :param pulumi.Input[_builtins.bool] auto_update: The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
-        :param pulumi.Input[_builtins.str] availability_zone_id: The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
-        :param pulumi.Input[_builtins.str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
-               * `SINGLE` - Assigns one availability zone per cluster.
-               * `MULTI` - Assigns all the availability zones per cluster.
-        :param pulumi.Input[_builtins.str] changeset_id: A unique identifier of the changeset of the database that you want to use to ingest data.
+        :param pulumi.Input[_builtins.bool] auto_update: Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] availability_zone_id: Identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
+        :param pulumi.Input[_builtins.str] az_mode: Number of availability zones you want to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
+        :param pulumi.Input[_builtins.str] changeset_id: Unique identifier of the changeset of the database that you want to use to ingest data.
         :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the dataview was created in FinSpace. Value determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
-        :param pulumi.Input[_builtins.str] database_name: The name of the database where you want to create a dataview.
-        :param pulumi.Input[_builtins.str] description: A description for the dataview.
+        :param pulumi.Input[_builtins.str] database_name: Name of the database where you want to create a dataview.
+        :param pulumi.Input[_builtins.str] description: Description for the dataview.
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
-        :param pulumi.Input[_builtins.str] last_modified_timestamp: The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
-        :param pulumi.Input[_builtins.str] name: A unique identifier for the dataview.
+        :param pulumi.Input[_builtins.str] last_modified_timestamp: Last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+        :param pulumi.Input[_builtins.str] name: Unique identifier for the dataview.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] read_write: The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-               * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
-               * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-               * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        :param pulumi.Input[_builtins.bool] read_write: Whether to make the dataview writable to perform database maintenance. You cannot create partial writable dataviews; you must provide the entire database path and cannot perform updates, so `auto_update` must be `false` when `read_write` is `true`. You must also use a unique volume, and once a dataview is writable you cannot change it to read-only.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]] segment_configurations: The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KxDataviewSegmentConfigurationArgs', 'KxDataviewSegmentConfigurationArgsDict']]]] segment_configurations: Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `segment_configurations` below.
+        :param pulumi.Input[_builtins.str] status: Status of the dataview.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -789,7 +764,7 @@ class KxDataview(pulumi.CustomResource):
     @pulumi.getter(name="autoUpdate")
     def auto_update(self) -> pulumi.Output[_builtins.bool]:
         """
-        The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
+        Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
         """
         return pulumi.get(self, "auto_update")
 
@@ -797,7 +772,7 @@ class KxDataview(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
+        Identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         """
         return pulumi.get(self, "availability_zone_id")
 
@@ -805,9 +780,7 @@ class KxDataview(pulumi.CustomResource):
     @pulumi.getter(name="azMode")
     def az_mode(self) -> pulumi.Output[_builtins.str]:
         """
-        The number of availability zones you want to assign per cluster. This can be one of the following:
-        * `SINGLE` - Assigns one availability zone per cluster.
-        * `MULTI` - Assigns all the availability zones per cluster.
+        Number of availability zones you want to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
         """
         return pulumi.get(self, "az_mode")
 
@@ -815,7 +788,7 @@ class KxDataview(pulumi.CustomResource):
     @pulumi.getter(name="changesetId")
     def changeset_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A unique identifier of the changeset of the database that you want to use to ingest data.
+        Unique identifier of the changeset of the database that you want to use to ingest data.
         """
         return pulumi.get(self, "changeset_id")
 
@@ -831,7 +804,7 @@ class KxDataview(pulumi.CustomResource):
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the database where you want to create a dataview.
+        Name of the database where you want to create a dataview.
         """
         return pulumi.get(self, "database_name")
 
@@ -839,7 +812,7 @@ class KxDataview(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A description for the dataview.
+        Description for the dataview.
         """
         return pulumi.get(self, "description")
 
@@ -855,7 +828,7 @@ class KxDataview(pulumi.CustomResource):
     @pulumi.getter(name="lastModifiedTimestamp")
     def last_modified_timestamp(self) -> pulumi.Output[_builtins.str]:
         """
-        The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+        Last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         """
         return pulumi.get(self, "last_modified_timestamp")
 
@@ -863,7 +836,7 @@ class KxDataview(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        A unique identifier for the dataview.
+        Unique identifier for the dataview.
 
         The following arguments are optional:
         """
@@ -873,10 +846,7 @@ class KxDataview(pulumi.CustomResource):
     @pulumi.getter(name="readWrite")
     def read_write(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-        * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
-        * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-        * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        Whether to make the dataview writable to perform database maintenance. You cannot create partial writable dataviews; you must provide the entire database path and cannot perform updates, so `auto_update` must be `false` when `read_write` is `true`. You must also use a unique volume, and once a dataview is writable you cannot change it to read-only.
         """
         return pulumi.get(self, "read_write")
 
@@ -892,13 +862,16 @@ class KxDataview(pulumi.CustomResource):
     @pulumi.getter(name="segmentConfigurations")
     def segment_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.KxDataviewSegmentConfiguration']]]:
         """
-        The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
+        Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `segment_configurations` below.
         """
         return pulumi.get(self, "segment_configurations")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
+        """
+        Status of the dataview.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property

@@ -14,75 +14,75 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentials
     {
         /// <summary>
-        /// The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Amplitude. See `connector_profile_config.connector_profile_credentials.amplitude` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude? Amplitude;
         /// <summary>
-        /// The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
+        /// Connector-specific profile credentials required when using the custom connector. See `connector_profile_config.connector_profile_credentials.custom_connector` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector? CustomConnector;
         /// <summary>
-        /// Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Datadog. See `connector_profile_config.connector_profile_credentials.datadog` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog? Datadog;
         /// <summary>
-        /// The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Dynatrace. See `connector_profile_config.connector_profile_credentials.dynatrace` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace? Dynatrace;
         /// <summary>
-        /// The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Google Analytics. See `connector_profile_config.connector_profile_credentials.google_analytics` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics? GoogleAnalytics;
         /// <summary>
-        /// The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Amazon Honeycode. See `connector_profile_config.connector_profile_credentials.honeycode` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode? Honeycode;
         /// <summary>
-        /// The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Infor Nexus. See `connector_profile_config.connector_profile_credentials.infor_nexus` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus? InforNexus;
         /// <summary>
-        /// Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Marketo. See `connector_profile_config.connector_profile_credentials.marketo` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo? Marketo;
         /// <summary>
-        /// Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Amazon Redshift. See `connector_profile_config.connector_profile_credentials.redshift` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift? Redshift;
         /// <summary>
-        /// The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Salesforce. See `connector_profile_config.connector_profile_credentials.salesforce` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce? Salesforce;
         /// <summary>
-        /// The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using SAPOData. See `connector_profile_config.connector_profile_credentials.sapo_data` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData? SapoData;
         /// <summary>
-        /// The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using ServiceNow. See `connector_profile_config.connector_profile_credentials.service_now` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow? ServiceNow;
         /// <summary>
-        /// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Singular. See `connector_profile_config.connector_profile_credentials.singular` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular? Singular;
         /// <summary>
-        /// Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Slack. See `connector_profile_config.connector_profile_credentials.slack` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack? Slack;
         /// <summary>
-        /// The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Snowflake. See `connector_profile_config.connector_profile_credentials.snowflake` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake? Snowflake;
         /// <summary>
-        /// The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Trend Micro. See `connector_profile_config.connector_profile_credentials.trendmicro` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro? Trendmicro;
         /// <summary>
-        /// Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Veeva. See `connector_profile_config.connector_profile_credentials.veeva` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva? Veeva;
         /// <summary>
-        /// Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Zendesk. See `connector_profile_config.connector_profile_credentials.zendesk` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk? Zendesk;
 

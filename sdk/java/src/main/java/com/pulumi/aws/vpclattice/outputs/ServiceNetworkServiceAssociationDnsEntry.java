@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceNetworkServiceAssociationDnsEntry {
     /**
-     * @return The domain name of the service.
+     * @return Domain name of the service.
      * 
      */
     private @Nullable String domainName;
     /**
-     * @return The ID of the hosted zone.
+     * @return ID of the hosted zone.
      * 
      */
     private @Nullable String hostedZoneId;
 
     private ServiceNetworkServiceAssociationDnsEntry() {}
     /**
-     * @return The domain name of the service.
+     * @return Domain name of the service.
      * 
      */
     public Optional<String> domainName() {
         return Optional.ofNullable(this.domainName);
     }
     /**
-     * @return The ID of the hosted zone.
+     * @return ID of the hosted zone.
      * 
      */
     public Optional<String> hostedZoneId() {

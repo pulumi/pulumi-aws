@@ -14,11 +14,11 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
     public sealed class RoutingRuleCondition
     {
         /// <summary>
-        /// The base path to be matched. See below.
+        /// Base path to be matched. See below.
         /// </summary>
         public readonly Outputs.RoutingRuleConditionMatchBasePaths? MatchBasePaths;
         /// <summary>
-        /// The headers to be matched. See below.
+        /// Headers to be matched. See below.
         /// </summary>
         public readonly Outputs.RoutingRuleConditionMatchHeaders? MatchHeaders;
 

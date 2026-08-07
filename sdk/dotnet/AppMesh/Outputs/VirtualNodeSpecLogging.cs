@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecLogging
     {
         /// <summary>
-        /// Access log configuration for a virtual node. See `AccessLog` Block for details.
+        /// Access log configuration for a virtual node. See `spec.logging.access_log` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecLoggingAccessLog? AccessLog;
 

@@ -108,14 +108,14 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+     * [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      * 
      */
     @Import(name="templateSelectionExpression")
     private @Nullable Output<String> templateSelectionExpression;
 
     /**
-     * @return The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+     * @return [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      * 
      */
     public Optional<Output<String>> templateSelectionExpression() {
@@ -279,7 +279,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param templateSelectionExpression The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+         * @param templateSelectionExpression [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param templateSelectionExpression The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+         * @param templateSelectionExpression [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
          * 
          * @return builder
          * 

@@ -31,7 +31,7 @@ public final class GraphQLApiAdditionalAuthenticationProvider {
      */
     private @Nullable GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig openidConnectConfig;
     /**
-     * @return Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
+     * @return Amazon Cognito User Pool configuration. See `additional_authentication_provider.user_pool_config` Block for details.
      * 
      */
     private @Nullable GraphQLApiAdditionalAuthenticationProviderUserPoolConfig userPoolConfig;
@@ -59,7 +59,7 @@ public final class GraphQLApiAdditionalAuthenticationProvider {
         return Optional.ofNullable(this.openidConnectConfig);
     }
     /**
-     * @return Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
+     * @return Amazon Cognito User Pool configuration. See `additional_authentication_provider.user_pool_config` Block for details.
      * 
      */
     public Optional<GraphQLApiAdditionalAuthenticationProviderUserPoolConfig> userPoolConfig() {

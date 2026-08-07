@@ -77,9 +77,17 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
         return this.key;
     }
 
+    /**
+     * Byte range of the object to retrieve, in the format expected by the [HTTP `Range` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-range).
+     * 
+     */
     @Import(name="range")
     private @Nullable Output<String> range;
 
+    /**
+     * @return Byte range of the object to retrieve, in the format expected by the [HTTP `Range` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-range).
+     * 
+     */
     public Optional<Output<String>> range() {
         return Optional.ofNullable(this.range);
     }
@@ -244,11 +252,23 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
             return key(Output.of(key));
         }
 
+        /**
+         * @param range Byte range of the object to retrieve, in the format expected by the [HTTP `Range` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-range).
+         * 
+         * @return builder
+         * 
+         */
         public Builder range(@Nullable Output<String> range) {
             $.range = range;
             return this;
         }
 
+        /**
+         * @param range Byte range of the object to retrieve, in the format expected by the [HTTP `Range` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-range).
+         * 
+         * @return builder
+         * 
+         */
         public Builder range(String range) {
             return range(Output.of(range));
         }

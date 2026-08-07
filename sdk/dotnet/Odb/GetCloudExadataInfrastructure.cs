@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetCloudExadataInfrastructureArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the Exadata infrastructure.
+        /// Unique identifier of the Exadata infrastructure.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetCloudExadataInfrastructureInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the Exadata infrastructure.
+        /// Unique identifier of the Exadata infrastructure.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -146,130 +146,136 @@ namespace Pulumi.Aws.Odb
     public sealed class GetCloudExadataInfrastructureResult
     {
         /// <summary>
-        /// The number of storage servers requested for the Exadata infrastructure.
+        /// Number of storage servers requested for the Exadata infrastructure.
         /// </summary>
         public readonly int ActivatedStorageCount;
         /// <summary>
-        /// The number of storage servers requested for the Exadata infrastructure.
+        /// Number of storage servers requested for the Exadata infrastructure.
         /// </summary>
         public readonly int AdditionalStorageCount;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+        /// Amazon Resource Name (ARN) for the Exadata infrastructure.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The name of the Availability Zone (AZ) where the Exadata infrastructure is located.
+        /// Name of the Availability Zone (AZ) where the Exadata infrastructure is located.
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
-        /// The AZ ID of the AZ where the Exadata infrastructure is located.
+        /// AZ ID of the AZ where the Exadata infrastructure is located.
         /// </summary>
         public readonly string AvailabilityZoneId;
+        /// <summary>
+        /// Amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+        /// </summary>
         public readonly int AvailableStorageSizeInGbs;
         /// <summary>
-        /// The number of database servers for the Exadata infrastructure.
+        /// Number of database servers for the Exadata infrastructure.
         /// </summary>
         public readonly int ComputeCount;
         /// <summary>
-        /// The OCI compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
+        /// OCI compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
         /// </summary>
         public readonly string ComputeModel;
         /// <summary>
-        /// The total number of CPU cores that are allocated to the Exadata infrastructure.
+        /// Total number of CPU cores that are allocated to the Exadata infrastructure.
         /// </summary>
         public readonly int CpuCount;
         /// <summary>
-        /// The time when the Exadata infrastructure was created.
+        /// Time when the Exadata infrastructure was created.
         /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudExadataInfrastructureCustomerContactsToSendToOciResult> CustomerContactsToSendToOcis;
         /// <summary>
-        /// The size of the Exadata infrastructure's data disk group, in terabytes (TB).
+        /// Size of the Exadata infrastructure's data disk group, in terabytes (TB).
         /// </summary>
         public readonly double DataStorageSizeInTbs;
         /// <summary>
-        /// The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
+        /// Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
         /// </summary>
         public readonly string DatabaseServerType;
         /// <summary>
-        /// The size of the storage available on each database node, in gigabytes (GB).
+        /// Size of the storage available on each database node, in gigabytes (GB).
         /// </summary>
         public readonly int DbNodeStorageSizeInGbs;
         /// <summary>
-        /// The version of the Exadata infrastructure.
+        /// Version of the Exadata infrastructure.
         /// </summary>
         public readonly string DbServerVersion;
         /// <summary>
-        /// The display name of the Exadata infrastructure.
+        /// Display name of the Exadata infrastructure.
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// The unique identifier of the Exadata infrastructure.
+        /// Unique identifier of the Exadata infrastructure.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+        /// Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
         /// </summary>
         public readonly string LastMaintenanceRunId;
         /// <summary>
-        /// The scheduling details of the maintenance window. Patching and system updates take place during the maintenance window.
+        /// Scheduling details of the maintenance window. Patching and system updates take place during the maintenance window.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudExadataInfrastructureMaintenanceWindowResult> MaintenanceWindows;
         /// <summary>
-        /// The total number of CPU cores available on the Exadata infrastructure.
+        /// Total number of CPU cores available on the Exadata infrastructure.
         /// </summary>
         public readonly int MaxCpuCount;
         /// <summary>
-        /// The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
+        /// Total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
         /// </summary>
         public readonly double MaxDataStorageInTbs;
         /// <summary>
-        /// The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
+        /// Total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
         /// </summary>
         public readonly int MaxDbNodeStorageSizeInGbs;
         /// <summary>
-        /// The total amount of memory, in gigabytes (GB), that's available on the Exadata infrastructure.
+        /// Total amount of memory, in gigabytes (GB), that's available on the Exadata infrastructure.
         /// </summary>
         public readonly int MaxMemoryInGbs;
         /// <summary>
-        /// The amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure.
+        /// Amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure.
         /// </summary>
         public readonly int MemorySizeInGbs;
         /// <summary>
-        /// The monthly software version of the database servers installed on the Exadata infrastructure.
+        /// Monthly software version of the database servers installed on the Exadata infrastructure.
         /// </summary>
         public readonly string MonthlyDbServerVersion;
         /// <summary>
-        /// The monthly software version of the storage servers installed on the Exadata infrastructure.
+        /// Monthly software version of the storage servers installed on the Exadata infrastructure.
         /// </summary>
         public readonly string MonthlyStorageServerVersion;
         /// <summary>
-        /// The OCID of the next maintenance run for the Exadata infrastructure.
+        /// OCID of the next maintenance run for the Exadata infrastructure.
         /// </summary>
         public readonly string NextMaintenanceRunId;
         /// <summary>
-        /// The name of the OCI resource anchor for the Exadata infrastructure.
+        /// Name of the OCI resource anchor for the Exadata infrastructure.
         /// </summary>
         public readonly string OciResourceAnchorName;
         /// <summary>
-        /// The HTTPS link to the Exadata infrastructure in OCI.
+        /// HTTPS link to the Exadata infrastructure in OCI.
         /// </summary>
         public readonly string OciUrl;
         /// <summary>
-        /// The OCID of the Exadata infrastructure in OCI.
+        /// OCID of the Exadata infrastructure in OCI.
         /// </summary>
         public readonly string Ocid;
         /// <summary>
-        /// The amount of progress made on the current operation on the Exadata infrastructure expressed as a percentage.
+        /// Amount of progress made on the current operation on the Exadata infrastructure expressed as a percentage.
         /// </summary>
         public readonly double PercentProgress;
         public readonly string Region;
         /// <summary>
-        /// The model name of the Exadata infrastructure.
+        /// Model name of the Exadata infrastructure.
         /// </summary>
         public readonly string Shape;
         /// <summary>
-        /// The status of the Exadata infrastructure.
+        /// Status of the Exadata infrastructure.
         /// </summary>
         public readonly string Status;
         /// <summary>
@@ -277,23 +283,23 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         public readonly string StatusReason;
         /// <summary>
-        /// The number of storage servers that are activated for the Exadata infrastructure.
+        /// Number of storage servers that are activated for the Exadata infrastructure.
         /// </summary>
         public readonly int StorageCount;
         /// <summary>
-        /// The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
+        /// Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
         /// </summary>
         public readonly string StorageServerType;
         /// <summary>
-        /// The software version of the storage servers on the Exadata infrastructure.
+        /// Software version of the storage servers on the Exadata infrastructure.
         /// </summary>
         public readonly string StorageServerVersion;
         /// <summary>
-        /// (Optional) A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the Exadata infrastructure.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
+        /// Total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
         /// </summary>
         public readonly int TotalStorageSizeInGbs;
 

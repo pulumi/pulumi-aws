@@ -14,9 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AppAuthorizationConnectionAuthRequest struct {
-	// The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+	// Authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL).
 	Code string `pulumi:"code"`
-	// The redirect URL that is specified in the AuthURL and the application client.
+	// Redirect URL that is specified in the AuthURL and the application client.
 	RedirectUri string `pulumi:"redirectUri"`
 }
 
@@ -32,9 +32,9 @@ type AppAuthorizationConnectionAuthRequestInput interface {
 }
 
 type AppAuthorizationConnectionAuthRequestArgs struct {
-	// The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+	// Authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL).
 	Code pulumi.StringInput `pulumi:"code"`
-	// The redirect URL that is specified in the AuthURL and the application client.
+	// Redirect URL that is specified in the AuthURL and the application client.
 	RedirectUri pulumi.StringInput `pulumi:"redirectUri"`
 }
 
@@ -115,12 +115,12 @@ func (o AppAuthorizationConnectionAuthRequestOutput) ToAppAuthorizationConnectio
 	}).(AppAuthorizationConnectionAuthRequestPtrOutput)
 }
 
-// The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+// Authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL).
 func (o AppAuthorizationConnectionAuthRequestOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuthorizationConnectionAuthRequest) string { return v.Code }).(pulumi.StringOutput)
 }
 
-// The redirect URL that is specified in the AuthURL and the application client.
+// Redirect URL that is specified in the AuthURL and the application client.
 func (o AppAuthorizationConnectionAuthRequestOutput) RedirectUri() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuthorizationConnectionAuthRequest) string { return v.RedirectUri }).(pulumi.StringOutput)
 }
@@ -149,7 +149,7 @@ func (o AppAuthorizationConnectionAuthRequestPtrOutput) Elem() AppAuthorizationC
 	}).(AppAuthorizationConnectionAuthRequestOutput)
 }
 
-// The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+// Authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL).
 func (o AppAuthorizationConnectionAuthRequestPtrOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnectionAuthRequest) *string {
 		if v == nil {
@@ -159,7 +159,7 @@ func (o AppAuthorizationConnectionAuthRequestPtrOutput) Code() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The redirect URL that is specified in the AuthURL and the application client.
+// Redirect URL that is specified in the AuthURL and the application client.
 func (o AppAuthorizationConnectionAuthRequestPtrOutput) RedirectUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnectionAuthRequest) *string {
 		if v == nil {
@@ -407,9 +407,9 @@ func (o AppAuthorizationConnectionTimeoutsPtrOutput) Create() pulumi.StringPtrOu
 }
 
 type AppAuthorizationCredential struct {
-	// Contains API key credential information.
+	// API key credential information. See `apiKeyCredential` Block for details.
 	ApiKeyCredentials []AppAuthorizationCredentialApiKeyCredential `pulumi:"apiKeyCredentials"`
-	// Contains OAuth2 client credential information.
+	// OAuth2 client credential information. See `oauth2Credential` Block for details.
 	Oauth2Credential *AppAuthorizationCredentialOauth2Credential `pulumi:"oauth2Credential"`
 }
 
@@ -425,9 +425,9 @@ type AppAuthorizationCredentialInput interface {
 }
 
 type AppAuthorizationCredentialArgs struct {
-	// Contains API key credential information.
+	// API key credential information. See `apiKeyCredential` Block for details.
 	ApiKeyCredentials AppAuthorizationCredentialApiKeyCredentialArrayInput `pulumi:"apiKeyCredentials"`
-	// Contains OAuth2 client credential information.
+	// OAuth2 client credential information. See `oauth2Credential` Block for details.
 	Oauth2Credential AppAuthorizationCredentialOauth2CredentialPtrInput `pulumi:"oauth2Credential"`
 }
 
@@ -508,14 +508,14 @@ func (o AppAuthorizationCredentialOutput) ToAppAuthorizationCredentialPtrOutputW
 	}).(AppAuthorizationCredentialPtrOutput)
 }
 
-// Contains API key credential information.
+// API key credential information. See `apiKeyCredential` Block for details.
 func (o AppAuthorizationCredentialOutput) ApiKeyCredentials() AppAuthorizationCredentialApiKeyCredentialArrayOutput {
 	return o.ApplyT(func(v AppAuthorizationCredential) []AppAuthorizationCredentialApiKeyCredential {
 		return v.ApiKeyCredentials
 	}).(AppAuthorizationCredentialApiKeyCredentialArrayOutput)
 }
 
-// Contains OAuth2 client credential information.
+// OAuth2 client credential information. See `oauth2Credential` Block for details.
 func (o AppAuthorizationCredentialOutput) Oauth2Credential() AppAuthorizationCredentialOauth2CredentialPtrOutput {
 	return o.ApplyT(func(v AppAuthorizationCredential) *AppAuthorizationCredentialOauth2Credential {
 		return v.Oauth2Credential
@@ -546,7 +546,7 @@ func (o AppAuthorizationCredentialPtrOutput) Elem() AppAuthorizationCredentialOu
 	}).(AppAuthorizationCredentialOutput)
 }
 
-// Contains API key credential information.
+// API key credential information. See `apiKeyCredential` Block for details.
 func (o AppAuthorizationCredentialPtrOutput) ApiKeyCredentials() AppAuthorizationCredentialApiKeyCredentialArrayOutput {
 	return o.ApplyT(func(v *AppAuthorizationCredential) []AppAuthorizationCredentialApiKeyCredential {
 		if v == nil {
@@ -556,7 +556,7 @@ func (o AppAuthorizationCredentialPtrOutput) ApiKeyCredentials() AppAuthorizatio
 	}).(AppAuthorizationCredentialApiKeyCredentialArrayOutput)
 }
 
-// Contains OAuth2 client credential information.
+// OAuth2 client credential information. See `oauth2Credential` Block for details.
 func (o AppAuthorizationCredentialPtrOutput) Oauth2Credential() AppAuthorizationCredentialOauth2CredentialPtrOutput {
 	return o.ApplyT(func(v *AppAuthorizationCredential) *AppAuthorizationCredentialOauth2Credential {
 		if v == nil {
@@ -567,7 +567,7 @@ func (o AppAuthorizationCredentialPtrOutput) Oauth2Credential() AppAuthorization
 }
 
 type AppAuthorizationCredentialApiKeyCredential struct {
-	// Contains API key credential information.
+	// API key.
 	ApiKey string `pulumi:"apiKey"`
 }
 
@@ -583,7 +583,7 @@ type AppAuthorizationCredentialApiKeyCredentialInput interface {
 }
 
 type AppAuthorizationCredentialApiKeyCredentialArgs struct {
-	// Contains API key credential information.
+	// API key.
 	ApiKey pulumi.StringInput `pulumi:"apiKey"`
 }
 
@@ -638,7 +638,7 @@ func (o AppAuthorizationCredentialApiKeyCredentialOutput) ToAppAuthorizationCred
 	return o
 }
 
-// Contains API key credential information.
+// API key.
 func (o AppAuthorizationCredentialApiKeyCredentialOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuthorizationCredentialApiKeyCredential) string { return v.ApiKey }).(pulumi.StringOutput)
 }
@@ -664,9 +664,9 @@ func (o AppAuthorizationCredentialApiKeyCredentialArrayOutput) Index(i pulumi.In
 }
 
 type AppAuthorizationCredentialOauth2Credential struct {
-	// The client ID of the client application.
+	// Client ID of the client application.
 	ClientId string `pulumi:"clientId"`
-	// The client secret of the client application.
+	// Client secret of the client application.
 	ClientSecret string `pulumi:"clientSecret"`
 }
 
@@ -682,9 +682,9 @@ type AppAuthorizationCredentialOauth2CredentialInput interface {
 }
 
 type AppAuthorizationCredentialOauth2CredentialArgs struct {
-	// The client ID of the client application.
+	// Client ID of the client application.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The client secret of the client application.
+	// Client secret of the client application.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
 }
 
@@ -765,12 +765,12 @@ func (o AppAuthorizationCredentialOauth2CredentialOutput) ToAppAuthorizationCred
 	}).(AppAuthorizationCredentialOauth2CredentialPtrOutput)
 }
 
-// The client ID of the client application.
+// Client ID of the client application.
 func (o AppAuthorizationCredentialOauth2CredentialOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuthorizationCredentialOauth2Credential) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The client secret of the client application.
+// Client secret of the client application.
 func (o AppAuthorizationCredentialOauth2CredentialOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuthorizationCredentialOauth2Credential) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
@@ -799,7 +799,7 @@ func (o AppAuthorizationCredentialOauth2CredentialPtrOutput) Elem() AppAuthoriza
 	}).(AppAuthorizationCredentialOauth2CredentialOutput)
 }
 
-// The client ID of the client application.
+// Client ID of the client application.
 func (o AppAuthorizationCredentialOauth2CredentialPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppAuthorizationCredentialOauth2Credential) *string {
 		if v == nil {
@@ -809,7 +809,7 @@ func (o AppAuthorizationCredentialOauth2CredentialPtrOutput) ClientId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The client secret of the client application.
+// Client secret of the client application.
 func (o AppAuthorizationCredentialOauth2CredentialPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppAuthorizationCredentialOauth2Credential) *string {
 		if v == nil {
@@ -820,9 +820,9 @@ func (o AppAuthorizationCredentialOauth2CredentialPtrOutput) ClientSecret() pulu
 }
 
 type AppAuthorizationTenant struct {
-	// The display name of the tenant.
+	// Display name of the tenant.
 	TenantDisplayName string `pulumi:"tenantDisplayName"`
-	// The ID of the application tenant.
+	// ID of the application tenant.
 	TenantIdentifier string `pulumi:"tenantIdentifier"`
 }
 
@@ -838,9 +838,9 @@ type AppAuthorizationTenantInput interface {
 }
 
 type AppAuthorizationTenantArgs struct {
-	// The display name of the tenant.
+	// Display name of the tenant.
 	TenantDisplayName pulumi.StringInput `pulumi:"tenantDisplayName"`
-	// The ID of the application tenant.
+	// ID of the application tenant.
 	TenantIdentifier pulumi.StringInput `pulumi:"tenantIdentifier"`
 }
 
@@ -895,12 +895,12 @@ func (o AppAuthorizationTenantOutput) ToAppAuthorizationTenantOutputWithContext(
 	return o
 }
 
-// The display name of the tenant.
+// Display name of the tenant.
 func (o AppAuthorizationTenantOutput) TenantDisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuthorizationTenant) string { return v.TenantDisplayName }).(pulumi.StringOutput)
 }
 
-// The ID of the application tenant.
+// ID of the application tenant.
 func (o AppAuthorizationTenantOutput) TenantIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuthorizationTenant) string { return v.TenantIdentifier }).(pulumi.StringOutput)
 }
@@ -1101,7 +1101,7 @@ func (o AppAuthorizationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type IngestionDestinationDestinationConfiguration struct {
-	// Contains information about an audit log processing configuration.
+	// Audit log destination configuration. See `destination_configuration.audit_log` Block below.
 	AuditLog IngestionDestinationDestinationConfigurationAuditLog `pulumi:"auditLog"`
 }
 
@@ -1117,7 +1117,7 @@ type IngestionDestinationDestinationConfigurationInput interface {
 }
 
 type IngestionDestinationDestinationConfigurationArgs struct {
-	// Contains information about an audit log processing configuration.
+	// Audit log destination configuration. See `destination_configuration.audit_log` Block below.
 	AuditLog IngestionDestinationDestinationConfigurationAuditLogInput `pulumi:"auditLog"`
 }
 
@@ -1198,7 +1198,7 @@ func (o IngestionDestinationDestinationConfigurationOutput) ToIngestionDestinati
 	}).(IngestionDestinationDestinationConfigurationPtrOutput)
 }
 
-// Contains information about an audit log processing configuration.
+// Audit log destination configuration. See `destination_configuration.audit_log` Block below.
 func (o IngestionDestinationDestinationConfigurationOutput) AuditLog() IngestionDestinationDestinationConfigurationAuditLogOutput {
 	return o.ApplyT(func(v IngestionDestinationDestinationConfiguration) IngestionDestinationDestinationConfigurationAuditLog {
 		return v.AuditLog
@@ -1229,7 +1229,7 @@ func (o IngestionDestinationDestinationConfigurationPtrOutput) Elem() IngestionD
 	}).(IngestionDestinationDestinationConfigurationOutput)
 }
 
-// Contains information about an audit log processing configuration.
+// Audit log destination configuration. See `destination_configuration.audit_log` Block below.
 func (o IngestionDestinationDestinationConfigurationPtrOutput) AuditLog() IngestionDestinationDestinationConfigurationAuditLogPtrOutput {
 	return o.ApplyT(func(v *IngestionDestinationDestinationConfiguration) *IngestionDestinationDestinationConfigurationAuditLog {
 		if v == nil {
@@ -1240,7 +1240,7 @@ func (o IngestionDestinationDestinationConfigurationPtrOutput) AuditLog() Ingest
 }
 
 type IngestionDestinationDestinationConfigurationAuditLog struct {
-	// Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+	// Destination for the audit log. Only one destination, either `firehoseStream` or `s3Bucket`, can be specified. See `destination_configuration.audit_log.destination` Block below.
 	Destination IngestionDestinationDestinationConfigurationAuditLogDestination `pulumi:"destination"`
 }
 
@@ -1256,7 +1256,7 @@ type IngestionDestinationDestinationConfigurationAuditLogInput interface {
 }
 
 type IngestionDestinationDestinationConfigurationAuditLogArgs struct {
-	// Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+	// Destination for the audit log. Only one destination, either `firehoseStream` or `s3Bucket`, can be specified. See `destination_configuration.audit_log.destination` Block below.
 	Destination IngestionDestinationDestinationConfigurationAuditLogDestinationInput `pulumi:"destination"`
 }
 
@@ -1337,7 +1337,7 @@ func (o IngestionDestinationDestinationConfigurationAuditLogOutput) ToIngestionD
 	}).(IngestionDestinationDestinationConfigurationAuditLogPtrOutput)
 }
 
-// Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+// Destination for the audit log. Only one destination, either `firehoseStream` or `s3Bucket`, can be specified. See `destination_configuration.audit_log.destination` Block below.
 func (o IngestionDestinationDestinationConfigurationAuditLogOutput) Destination() IngestionDestinationDestinationConfigurationAuditLogDestinationOutput {
 	return o.ApplyT(func(v IngestionDestinationDestinationConfigurationAuditLog) IngestionDestinationDestinationConfigurationAuditLogDestination {
 		return v.Destination
@@ -1368,7 +1368,7 @@ func (o IngestionDestinationDestinationConfigurationAuditLogPtrOutput) Elem() In
 	}).(IngestionDestinationDestinationConfigurationAuditLogOutput)
 }
 
-// Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+// Destination for the audit log. Only one destination, either `firehoseStream` or `s3Bucket`, can be specified. See `destination_configuration.audit_log.destination` Block below.
 func (o IngestionDestinationDestinationConfigurationAuditLogPtrOutput) Destination() IngestionDestinationDestinationConfigurationAuditLogDestinationPtrOutput {
 	return o.ApplyT(func(v *IngestionDestinationDestinationConfigurationAuditLog) *IngestionDestinationDestinationConfigurationAuditLogDestination {
 		if v == nil {
@@ -1379,9 +1379,9 @@ func (o IngestionDestinationDestinationConfigurationAuditLogPtrOutput) Destinati
 }
 
 type IngestionDestinationDestinationConfigurationAuditLogDestination struct {
-	// Contains information about an Amazon Data Firehose delivery stream.
+	// Amazon Data Firehose delivery stream destination. See `destination_configuration.audit_log.destination.firehose_stream` Block below.
 	FirehoseStream *IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream `pulumi:"firehoseStream"`
-	// Contains information about an Amazon S3 bucket.
+	// Amazon S3 bucket destination. See `destination_configuration.audit_log.destination.s3_bucket` Block below.
 	S3Bucket *IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket `pulumi:"s3Bucket"`
 }
 
@@ -1397,9 +1397,9 @@ type IngestionDestinationDestinationConfigurationAuditLogDestinationInput interf
 }
 
 type IngestionDestinationDestinationConfigurationAuditLogDestinationArgs struct {
-	// Contains information about an Amazon Data Firehose delivery stream.
+	// Amazon Data Firehose delivery stream destination. See `destination_configuration.audit_log.destination.firehose_stream` Block below.
 	FirehoseStream IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamPtrInput `pulumi:"firehoseStream"`
-	// Contains information about an Amazon S3 bucket.
+	// Amazon S3 bucket destination. See `destination_configuration.audit_log.destination.s3_bucket` Block below.
 	S3Bucket IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketPtrInput `pulumi:"s3Bucket"`
 }
 
@@ -1480,14 +1480,14 @@ func (o IngestionDestinationDestinationConfigurationAuditLogDestinationOutput) T
 	}).(IngestionDestinationDestinationConfigurationAuditLogDestinationPtrOutput)
 }
 
-// Contains information about an Amazon Data Firehose delivery stream.
+// Amazon Data Firehose delivery stream destination. See `destination_configuration.audit_log.destination.firehose_stream` Block below.
 func (o IngestionDestinationDestinationConfigurationAuditLogDestinationOutput) FirehoseStream() IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamPtrOutput {
 	return o.ApplyT(func(v IngestionDestinationDestinationConfigurationAuditLogDestination) *IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream {
 		return v.FirehoseStream
 	}).(IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamPtrOutput)
 }
 
-// Contains information about an Amazon S3 bucket.
+// Amazon S3 bucket destination. See `destination_configuration.audit_log.destination.s3_bucket` Block below.
 func (o IngestionDestinationDestinationConfigurationAuditLogDestinationOutput) S3Bucket() IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketPtrOutput {
 	return o.ApplyT(func(v IngestionDestinationDestinationConfigurationAuditLogDestination) *IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket {
 		return v.S3Bucket
@@ -1518,7 +1518,7 @@ func (o IngestionDestinationDestinationConfigurationAuditLogDestinationPtrOutput
 	}).(IngestionDestinationDestinationConfigurationAuditLogDestinationOutput)
 }
 
-// Contains information about an Amazon Data Firehose delivery stream.
+// Amazon Data Firehose delivery stream destination. See `destination_configuration.audit_log.destination.firehose_stream` Block below.
 func (o IngestionDestinationDestinationConfigurationAuditLogDestinationPtrOutput) FirehoseStream() IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamPtrOutput {
 	return o.ApplyT(func(v *IngestionDestinationDestinationConfigurationAuditLogDestination) *IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream {
 		if v == nil {
@@ -1528,7 +1528,7 @@ func (o IngestionDestinationDestinationConfigurationAuditLogDestinationPtrOutput
 	}).(IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamPtrOutput)
 }
 
-// Contains information about an Amazon S3 bucket.
+// Amazon S3 bucket destination. See `destination_configuration.audit_log.destination.s3_bucket` Block below.
 func (o IngestionDestinationDestinationConfigurationAuditLogDestinationPtrOutput) S3Bucket() IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketPtrOutput {
 	return o.ApplyT(func(v *IngestionDestinationDestinationConfigurationAuditLogDestination) *IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket {
 		if v == nil {
@@ -1539,6 +1539,7 @@ func (o IngestionDestinationDestinationConfigurationAuditLogDestinationPtrOutput
 }
 
 type IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream struct {
+	// Name of the Amazon Data Firehose delivery stream.
 	StreamName string `pulumi:"streamName"`
 }
 
@@ -1554,6 +1555,7 @@ type IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStre
 }
 
 type IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs struct {
+	// Name of the Amazon Data Firehose delivery stream.
 	StreamName pulumi.StringInput `pulumi:"streamName"`
 }
 
@@ -1634,6 +1636,7 @@ func (o IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseS
 	}).(IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamPtrOutput)
 }
 
+// Name of the Amazon Data Firehose delivery stream.
 func (o IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamOutput) StreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream) string {
 		return v.StreamName
@@ -1664,6 +1667,7 @@ func (o IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseS
 	}).(IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamOutput)
 }
 
+// Name of the Amazon Data Firehose delivery stream.
 func (o IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamPtrOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream) *string {
 		if v == nil {
@@ -1674,8 +1678,9 @@ func (o IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseS
 }
 
 type IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket struct {
+	// Name of the Amazon S3 bucket.
 	BucketName string `pulumi:"bucketName"`
-	// The object key to use.
+	// Object key to use.
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -1691,8 +1696,9 @@ type IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketInpu
 }
 
 type IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs struct {
+	// Name of the Amazon S3 bucket.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// The object key to use.
+	// Object key to use.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -1773,13 +1779,14 @@ func (o IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketO
 	}).(IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketPtrOutput)
 }
 
+// Name of the Amazon S3 bucket.
 func (o IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket) string {
 		return v.BucketName
 	}).(pulumi.StringOutput)
 }
 
-// The object key to use.
+// Object key to use.
 func (o IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket) *string {
 		return v.Prefix
@@ -1810,6 +1817,7 @@ func (o IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketP
 	}).(IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketOutput)
 }
 
+// Name of the Amazon S3 bucket.
 func (o IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket) *string {
 		if v == nil {
@@ -1819,7 +1827,7 @@ func (o IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key to use.
+// Object key to use.
 func (o IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket) *string {
 		if v == nil {
@@ -1830,7 +1838,7 @@ func (o IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketP
 }
 
 type IngestionDestinationProcessingConfiguration struct {
-	// Contains information about an audit log processing configuration.
+	// Audit log processing configuration. See `processing_configuration.audit_log` Block below.
 	AuditLog IngestionDestinationProcessingConfigurationAuditLog `pulumi:"auditLog"`
 }
 
@@ -1846,7 +1854,7 @@ type IngestionDestinationProcessingConfigurationInput interface {
 }
 
 type IngestionDestinationProcessingConfigurationArgs struct {
-	// Contains information about an audit log processing configuration.
+	// Audit log processing configuration. See `processing_configuration.audit_log` Block below.
 	AuditLog IngestionDestinationProcessingConfigurationAuditLogInput `pulumi:"auditLog"`
 }
 
@@ -1927,7 +1935,7 @@ func (o IngestionDestinationProcessingConfigurationOutput) ToIngestionDestinatio
 	}).(IngestionDestinationProcessingConfigurationPtrOutput)
 }
 
-// Contains information about an audit log processing configuration.
+// Audit log processing configuration. See `processing_configuration.audit_log` Block below.
 func (o IngestionDestinationProcessingConfigurationOutput) AuditLog() IngestionDestinationProcessingConfigurationAuditLogOutput {
 	return o.ApplyT(func(v IngestionDestinationProcessingConfiguration) IngestionDestinationProcessingConfigurationAuditLog {
 		return v.AuditLog
@@ -1958,7 +1966,7 @@ func (o IngestionDestinationProcessingConfigurationPtrOutput) Elem() IngestionDe
 	}).(IngestionDestinationProcessingConfigurationOutput)
 }
 
-// Contains information about an audit log processing configuration.
+// Audit log processing configuration. See `processing_configuration.audit_log` Block below.
 func (o IngestionDestinationProcessingConfigurationPtrOutput) AuditLog() IngestionDestinationProcessingConfigurationAuditLogPtrOutput {
 	return o.ApplyT(func(v *IngestionDestinationProcessingConfiguration) *IngestionDestinationProcessingConfigurationAuditLog {
 		if v == nil {
@@ -1969,9 +1977,9 @@ func (o IngestionDestinationProcessingConfigurationPtrOutput) AuditLog() Ingesti
 }
 
 type IngestionDestinationProcessingConfigurationAuditLog struct {
-	// The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+	// Format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
 	Format string `pulumi:"format"`
-	// The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+	// Event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
 	Schema string `pulumi:"schema"`
 }
 
@@ -1987,9 +1995,9 @@ type IngestionDestinationProcessingConfigurationAuditLogInput interface {
 }
 
 type IngestionDestinationProcessingConfigurationAuditLogArgs struct {
-	// The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+	// Format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
 	Format pulumi.StringInput `pulumi:"format"`
-	// The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+	// Event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
 	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
@@ -2070,12 +2078,12 @@ func (o IngestionDestinationProcessingConfigurationAuditLogOutput) ToIngestionDe
 	}).(IngestionDestinationProcessingConfigurationAuditLogPtrOutput)
 }
 
-// The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+// Format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
 func (o IngestionDestinationProcessingConfigurationAuditLogOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v IngestionDestinationProcessingConfigurationAuditLog) string { return v.Format }).(pulumi.StringOutput)
 }
 
-// The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+// Event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
 func (o IngestionDestinationProcessingConfigurationAuditLogOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v IngestionDestinationProcessingConfigurationAuditLog) string { return v.Schema }).(pulumi.StringOutput)
 }
@@ -2104,7 +2112,7 @@ func (o IngestionDestinationProcessingConfigurationAuditLogPtrOutput) Elem() Ing
 	}).(IngestionDestinationProcessingConfigurationAuditLogOutput)
 }
 
-// The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+// Format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
 func (o IngestionDestinationProcessingConfigurationAuditLogPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IngestionDestinationProcessingConfigurationAuditLog) *string {
 		if v == nil {
@@ -2114,7 +2122,7 @@ func (o IngestionDestinationProcessingConfigurationAuditLogPtrOutput) Format() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+// Event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
 func (o IngestionDestinationProcessingConfigurationAuditLogPtrOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IngestionDestinationProcessingConfigurationAuditLog) *string {
 		if v == nil {

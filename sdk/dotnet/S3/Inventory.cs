@@ -121,19 +121,19 @@ namespace Pulumi.Aws.S3
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// Contains information about where to publish the inventory results (documented below).
+        /// Where to publish the inventory results. See `Destination` Block below.
         /// </summary>
         [Output("destination")]
         public Output<Outputs.InventoryDestination> Destination { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the inventory is enabled or disabled.
+        /// Whether to enable the inventory.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+        /// Inventory filter. The inventory only includes objects that meet the filter's criteria. See `Filter` Block below.
         /// </summary>
         [Output("filter")]
         public Output<Outputs.InventoryFilter?> Filter { get; private set; } = null!;
@@ -163,7 +163,9 @@ namespace Pulumi.Aws.S3
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the schedule for generating inventory results (documented below).
+        /// Schedule for generating inventory results. See `Schedule` Block below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.InventorySchedule> Schedule { get; private set; } = null!;
@@ -221,19 +223,19 @@ namespace Pulumi.Aws.S3
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Contains information about where to publish the inventory results (documented below).
+        /// Where to publish the inventory results. See `Destination` Block below.
         /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.InventoryDestinationArgs> Destination { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the inventory is enabled or disabled.
+        /// Whether to enable the inventory.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+        /// Inventory filter. The inventory only includes objects that meet the filter's criteria. See `Filter` Block below.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.InventoryFilterArgs>? Filter { get; set; }
@@ -269,7 +271,9 @@ namespace Pulumi.Aws.S3
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the schedule for generating inventory results (documented below).
+        /// Schedule for generating inventory results. See `Schedule` Block below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("schedule", required: true)]
         public Input<Inputs.InventoryScheduleArgs> Schedule { get; set; } = null!;
@@ -289,19 +293,19 @@ namespace Pulumi.Aws.S3
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// Contains information about where to publish the inventory results (documented below).
+        /// Where to publish the inventory results. See `Destination` Block below.
         /// </summary>
         [Input("destination")]
         public Input<Inputs.InventoryDestinationGetArgs>? Destination { get; set; }
 
         /// <summary>
-        /// Specifies whether the inventory is enabled or disabled.
+        /// Whether to enable the inventory.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+        /// Inventory filter. The inventory only includes objects that meet the filter's criteria. See `Filter` Block below.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.InventoryFilterGetArgs>? Filter { get; set; }
@@ -337,7 +341,9 @@ namespace Pulumi.Aws.S3
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the schedule for generating inventory results (documented below).
+        /// Schedule for generating inventory results. See `Schedule` Block below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.InventoryScheduleGetArgs>? Schedule { get; set; }

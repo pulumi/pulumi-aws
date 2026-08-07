@@ -15,14 +15,14 @@ public final class AppAuthorizationTenantArgs extends com.pulumi.resources.Resou
     public static final AppAuthorizationTenantArgs Empty = new AppAuthorizationTenantArgs();
 
     /**
-     * The display name of the tenant.
+     * Display name of the tenant.
      * 
      */
     @Import(name="tenantDisplayName", required=true)
     private Output<String> tenantDisplayName;
 
     /**
-     * @return The display name of the tenant.
+     * @return Display name of the tenant.
      * 
      */
     public Output<String> tenantDisplayName() {
@@ -30,14 +30,14 @@ public final class AppAuthorizationTenantArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the application tenant.
+     * ID of the application tenant.
      * 
      */
     @Import(name="tenantIdentifier", required=true)
     private Output<String> tenantIdentifier;
 
     /**
-     * @return The ID of the application tenant.
+     * @return ID of the application tenant.
      * 
      */
     public Output<String> tenantIdentifier() {
@@ -70,7 +70,7 @@ public final class AppAuthorizationTenantArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tenantDisplayName The display name of the tenant.
+         * @param tenantDisplayName Display name of the tenant.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class AppAuthorizationTenantArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tenantDisplayName The display name of the tenant.
+         * @param tenantDisplayName Display name of the tenant.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class AppAuthorizationTenantArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tenantIdentifier The ID of the application tenant.
+         * @param tenantIdentifier ID of the application tenant.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class AppAuthorizationTenantArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tenantIdentifier The ID of the application tenant.
+         * @param tenantIdentifier ID of the application tenant.
          * 
          * @return builder
          * 

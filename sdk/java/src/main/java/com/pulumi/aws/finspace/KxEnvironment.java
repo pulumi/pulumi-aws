@@ -295,16 +295,12 @@ public class KxEnvironment extends com.pulumi.resources.CustomResource {
     /**
      * KMS key ID to encrypt your data in the FinSpace environment.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
      * @return KMS key ID to encrypt your data in the FinSpace environment.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> kmsKeyId() {
@@ -327,12 +323,16 @@ public class KxEnvironment extends com.pulumi.resources.CustomResource {
     /**
      * Name of the KX environment that you want to create.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the KX environment that you want to create.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

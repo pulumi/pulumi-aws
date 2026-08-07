@@ -67,6 +67,116 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Container Logging, Environment Variables, and Secrets
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.ExpressGatewayService;
+ * import com.pulumi.aws.ecs.ExpressGatewayServiceArgs;
+ * import com.pulumi.aws.ecs.inputs.ExpressGatewayServicePrimaryContainerArgs;
+ * import com.pulumi.aws.ecs.inputs.ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs;
+ * import com.pulumi.aws.ecs.inputs.ExpressGatewayServicePrimaryContainerEnvironmentArgs;
+ * import com.pulumi.aws.ecs.inputs.ExpressGatewayServicePrimaryContainerSecretArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ExpressGatewayService("example", ExpressGatewayServiceArgs.builder()
+ *             .executionRoleArn(execution.arn())
+ *             .infrastructureRoleArn(infrastructure.arn())
+ *             .healthCheckPath("/health")
+ *             .primaryContainer(ExpressGatewayServicePrimaryContainerArgs.builder()
+ *                 .image("my-app:latest")
+ *                 .containerPort(8080)
+ *                 .commands("./start.sh")
+ *                 .awsLogsConfigurations(ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs.builder()
+ *                     .logGroup(app.name())
+ *                     .build())
+ *                 .environments(                
+ *                     ExpressGatewayServicePrimaryContainerEnvironmentArgs.builder()
+ *                         .name("ENV")
+ *                         .value("production")
+ *                         .build(),
+ *                     ExpressGatewayServicePrimaryContainerEnvironmentArgs.builder()
+ *                         .name("PORT")
+ *                         .value("8080")
+ *                         .build())
+ *                 .secrets(ExpressGatewayServicePrimaryContainerSecretArgs.builder()
+ *                     .name("DB_PASSWORD")
+ *                     .valueFrom(dbPassword.arn())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Custom Networking
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.ExpressGatewayService;
+ * import com.pulumi.aws.ecs.ExpressGatewayServiceArgs;
+ * import com.pulumi.aws.ecs.inputs.ExpressGatewayServicePrimaryContainerArgs;
+ * import com.pulumi.aws.ecs.inputs.ExpressGatewayServiceNetworkConfigurationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ExpressGatewayService("example", ExpressGatewayServiceArgs.builder()
+ *             .serviceName("my-express-service")
+ *             .cluster(main.name())
+ *             .executionRoleArn(execution.arn())
+ *             .infrastructureRoleArn(infrastructure.arn())
+ *             .cpu("256")
+ *             .memory("512")
+ *             .primaryContainer(ExpressGatewayServicePrimaryContainerArgs.builder()
+ *                 .image("nginx:latest")
+ *                 .containerPort(80)
+ *                 .build())
+ *             .networkConfigurations(ExpressGatewayServiceNetworkConfigurationArgs.builder()
+ *                 .subnets(                
+ *                     privateA.id(),
+ *                     privateB.id())
+ *                 .securityGroups(app.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Service Updates and Deletion
  * 
  * ### Updates
@@ -208,9 +318,17 @@ public class ExpressGatewayService extends com.pulumi.resources.CustomResource {
     public Output<String> memory() {
         return this.memory;
     }
+    /**
+     * Network configuration for the service. See `networkConfiguration` Block below.
+     * 
+     */
     @Export(name="networkConfigurations", refs={List.class,ExpressGatewayServiceNetworkConfiguration.class}, tree="[0,1]")
     private Output<List<ExpressGatewayServiceNetworkConfiguration>> networkConfigurations;
 
+    /**
+     * @return Network configuration for the service. See `networkConfiguration` Block below.
+     * 
+     */
     public Output<List<ExpressGatewayServiceNetworkConfiguration>> networkConfigurations() {
         return this.networkConfigurations;
     }
@@ -234,9 +352,17 @@ public class ExpressGatewayService extends com.pulumi.resources.CustomResource {
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * Auto-scaling configuration for the service. See `scalingTarget` Block below.
+     * 
+     */
     @Export(name="scalingTargets", refs={List.class,ExpressGatewayServiceScalingTarget.class}, tree="[0,1]")
     private Output<List<ExpressGatewayServiceScalingTarget>> scalingTargets;
 
+    /**
+     * @return Auto-scaling configuration for the service. See `scalingTarget` Block below.
+     * 
+     */
     public Output<List<ExpressGatewayServiceScalingTarget>> scalingTargets() {
         return this.scalingTargets;
     }

@@ -11,18 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class BucketAbacAbacStatus {
     /**
-     * @return ABAC status of the general purpose bucket.
-     * Valid values are `Enabled` and `Disabled`.
-     * By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+     * @return ABAC status of the general purpose bucket. Valid values are `Enabled` and `Disabled`. By default, ABAC is disabled for all Amazon S3 general purpose buckets.
      * 
      */
     private String status;
 
     private BucketAbacAbacStatus() {}
     /**
-     * @return ABAC status of the general purpose bucket.
-     * Valid values are `Enabled` and `Disabled`.
-     * By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+     * @return ABAC status of the general purpose bucket. Valid values are `Enabled` and `Disabled`. By default, ABAC is disabled for all Amazon S3 general purpose buckets.
      * 
      */
     public String status() {

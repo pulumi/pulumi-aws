@@ -240,6 +240,8 @@ public final class FsxFunctions {
     /**
      * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
      * 
+     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+     * 
      * ## Example Usage
      * 
      * ### Basic Usage
@@ -318,6 +320,8 @@ public final class FsxFunctions {
     }
     /**
      * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
+     * 
+     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
      * 
      * ## Example Usage
      * 
@@ -398,6 +402,8 @@ public final class FsxFunctions {
     /**
      * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
      * 
+     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+     * 
      * ## Example Usage
      * 
      * ### Basic Usage
@@ -476,6 +482,8 @@ public final class FsxFunctions {
     }
     /**
      * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
+     * 
+     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
      * 
      * ## Example Usage
      * 
@@ -556,6 +564,8 @@ public final class FsxFunctions {
     /**
      * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
      * 
+     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+     * 
      * ## Example Usage
      * 
      * ### Basic Usage
@@ -635,6 +645,8 @@ public final class FsxFunctions {
     /**
      * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
      * 
+     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+     * 
      * ## Example Usage
      * 
      * ### Basic Usage
@@ -713,6 +725,8 @@ public final class FsxFunctions {
     }
     /**
      * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
+     * 
+     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
      * 
      * ## Example Usage
      * 

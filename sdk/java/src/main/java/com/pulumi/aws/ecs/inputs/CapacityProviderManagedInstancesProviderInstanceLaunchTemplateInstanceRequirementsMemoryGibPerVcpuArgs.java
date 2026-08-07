@@ -15,16 +15,32 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
 
     public static final CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs Empty = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs();
 
+    /**
+     * Maximum amount of memory per vCPU, in GiB.
+     * 
+     */
     @Import(name="max")
     private @Nullable Output<Double> max;
 
+    /**
+     * @return Maximum amount of memory per vCPU, in GiB.
+     * 
+     */
     public Optional<Output<Double>> max() {
         return Optional.ofNullable(this.max);
     }
 
+    /**
+     * Minimum amount of memory per vCPU, in GiB.
+     * 
+     */
     @Import(name="min")
     private @Nullable Output<Double> min;
 
+    /**
+     * @return Minimum amount of memory per vCPU, in GiB.
+     * 
+     */
     public Optional<Output<Double>> min() {
         return Optional.ofNullable(this.min);
     }
@@ -54,20 +70,44 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
             $ = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param max Maximum amount of memory per vCPU, in GiB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder max(@Nullable Output<Double> max) {
             $.max = max;
             return this;
         }
 
+        /**
+         * @param max Maximum amount of memory per vCPU, in GiB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder max(Double max) {
             return max(Output.of(max));
         }
 
+        /**
+         * @param min Minimum amount of memory per vCPU, in GiB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder min(@Nullable Output<Double> min) {
             $.min = min;
             return this;
         }
 
+        /**
+         * @param min Minimum amount of memory per vCPU, in GiB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder min(Double min) {
             return min(Output.of(min));
         }

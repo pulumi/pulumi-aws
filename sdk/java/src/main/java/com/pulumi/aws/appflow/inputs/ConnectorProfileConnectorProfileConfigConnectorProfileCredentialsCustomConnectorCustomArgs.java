@@ -18,14 +18,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs();
 
     /**
-     * A map that holds custom authentication credentials.
+     * Map that holds custom authentication credentials.
      * 
      */
     @Import(name="credentialsMap")
     private @Nullable Output<Map<String,String>> credentialsMap;
 
     /**
-     * @return A map that holds custom authentication credentials.
+     * @return Map that holds custom authentication credentials.
      * 
      */
     public Optional<Output<Map<String,String>>> credentialsMap() {
@@ -33,14 +33,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The custom authentication type that the connector uses.
+     * Custom authentication type that the connector uses.
      * 
      */
     @Import(name="customAuthenticationType", required=true)
     private Output<String> customAuthenticationType;
 
     /**
-     * @return The custom authentication type that the connector uses.
+     * @return Custom authentication type that the connector uses.
      * 
      */
     public Output<String> customAuthenticationType() {
@@ -73,7 +73,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param credentialsMap A map that holds custom authentication credentials.
+         * @param credentialsMap Map that holds custom authentication credentials.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param credentialsMap A map that holds custom authentication credentials.
+         * @param credentialsMap Map that holds custom authentication credentials.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param customAuthenticationType The custom authentication type that the connector uses.
+         * @param customAuthenticationType Custom authentication type that the connector uses.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param customAuthenticationType The custom authentication type that the connector uses.
+         * @param customAuthenticationType Custom authentication type that the connector uses.
          * 
          * @return builder
          * 

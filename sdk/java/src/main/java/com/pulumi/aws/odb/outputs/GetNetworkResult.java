@@ -21,37 +21,37 @@ public final class GetNetworkResult {
      */
     private String arn;
     /**
-     * @return The availability zone where the ODB network is located.
+     * @return Availability zone where the ODB network is located.
      * 
      */
     private String availabilityZone;
     /**
-     * @return The AZ ID of the AZ where the ODB network is located.
+     * @return AZ ID of the AZ where the ODB network is located.
      * 
      */
     private String availabilityZoneId;
     /**
-     * @return The CIDR range of the backup subnet for the ODB network.
+     * @return CIDR range of the backup subnet for the ODB network.
      * 
      */
     private String backupSubnetCidr;
     /**
-     * @return The CIDR notation for the network resource.
+     * @return CIDR notation for the network resource.
      * 
      */
     private String clientSubnetCidr;
     /**
-     * @return The date and time when the ODB network was created.
+     * @return Date and time when the ODB network was created.
      * 
      */
     private String createdAt;
     /**
-     * @return The name of the custom domain that the network is located.
+     * @return Name of the custom domain that the network is located.
      * 
      */
     private String customDomainName;
     /**
-     * @return The default DNS prefix for the network resource.
+     * @return Default DNS prefix for the network resource.
      * 
      */
     private String defaultDnsPrefix;
@@ -61,7 +61,7 @@ public final class GetNetworkResult {
      */
     private String displayName;
     /**
-     * @return A list of EC2 placement group IDs associated with the ODB network.
+     * @return List of EC2 placement group IDs associated with the ODB network.
      * 
      */
     private List<String> ec2PlacementGroupIds;
@@ -71,49 +71,53 @@ public final class GetNetworkResult {
      */
     private String id;
     /**
-     * @return The managed services configuration for the ODB network.
+     * @return Managed services configuration for the ODB network.
      * 
      */
     private List<GetNetworkManagedService> managedServices;
+    /**
+     * @return DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
+     * 
+     */
     private List<GetNetworkOciDnsForwardingConfig> ociDnsForwardingConfigs;
     /**
-     * @return The unique identifier of the OCI network anchor for the ODB network.
+     * @return Unique identifier of the OCI network anchor for the ODB network.
      * 
      */
     private String ociNetworkAnchorId;
     /**
-     * @return The URL of the OCI network anchor for the ODB network.
+     * @return URL of the OCI network anchor for the ODB network.
      * 
      */
     private String ociNetworkAnchorUrl;
     /**
-     * @return The name of the OCI resource anchor for the ODB network.
+     * @return Name of the OCI resource anchor for the ODB network.
      * 
      */
     private String ociResourceAnchorName;
     /**
-     * @return The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+     * @return Unique identifier Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
      * 
      */
     private String ociVcnId;
     /**
-     * @return The URL of the OCI VCN for the ODB network.
+     * @return URL of the OCI VCN for the ODB network.
      * 
      */
     private String ociVcnUrl;
     /**
-     * @return The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+     * @return List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
      * 
      */
     private List<String> peeredCidrs;
     /**
-     * @return The amount of progress made on the current operation on the ODB network, expressed as a percentage.
+     * @return Amount of progress made on the current operation on the ODB network, expressed as a percentage.
      * 
      */
     private Double percentProgress;
     private String region;
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     private String status;
@@ -122,6 +126,10 @@ public final class GetNetworkResult {
      * 
      */
     private String statusReason;
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetNetworkResult() {}
@@ -133,49 +141,49 @@ public final class GetNetworkResult {
         return this.arn;
     }
     /**
-     * @return The availability zone where the ODB network is located.
+     * @return Availability zone where the ODB network is located.
      * 
      */
     public String availabilityZone() {
         return this.availabilityZone;
     }
     /**
-     * @return The AZ ID of the AZ where the ODB network is located.
+     * @return AZ ID of the AZ where the ODB network is located.
      * 
      */
     public String availabilityZoneId() {
         return this.availabilityZoneId;
     }
     /**
-     * @return The CIDR range of the backup subnet for the ODB network.
+     * @return CIDR range of the backup subnet for the ODB network.
      * 
      */
     public String backupSubnetCidr() {
         return this.backupSubnetCidr;
     }
     /**
-     * @return The CIDR notation for the network resource.
+     * @return CIDR notation for the network resource.
      * 
      */
     public String clientSubnetCidr() {
         return this.clientSubnetCidr;
     }
     /**
-     * @return The date and time when the ODB network was created.
+     * @return Date and time when the ODB network was created.
      * 
      */
     public String createdAt() {
         return this.createdAt;
     }
     /**
-     * @return The name of the custom domain that the network is located.
+     * @return Name of the custom domain that the network is located.
      * 
      */
     public String customDomainName() {
         return this.customDomainName;
     }
     /**
-     * @return The default DNS prefix for the network resource.
+     * @return Default DNS prefix for the network resource.
      * 
      */
     public String defaultDnsPrefix() {
@@ -189,7 +197,7 @@ public final class GetNetworkResult {
         return this.displayName;
     }
     /**
-     * @return A list of EC2 placement group IDs associated with the ODB network.
+     * @return List of EC2 placement group IDs associated with the ODB network.
      * 
      */
     public List<String> ec2PlacementGroupIds() {
@@ -203,59 +211,63 @@ public final class GetNetworkResult {
         return this.id;
     }
     /**
-     * @return The managed services configuration for the ODB network.
+     * @return Managed services configuration for the ODB network.
      * 
      */
     public List<GetNetworkManagedService> managedServices() {
         return this.managedServices;
     }
+    /**
+     * @return DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
+     * 
+     */
     public List<GetNetworkOciDnsForwardingConfig> ociDnsForwardingConfigs() {
         return this.ociDnsForwardingConfigs;
     }
     /**
-     * @return The unique identifier of the OCI network anchor for the ODB network.
+     * @return Unique identifier of the OCI network anchor for the ODB network.
      * 
      */
     public String ociNetworkAnchorId() {
         return this.ociNetworkAnchorId;
     }
     /**
-     * @return The URL of the OCI network anchor for the ODB network.
+     * @return URL of the OCI network anchor for the ODB network.
      * 
      */
     public String ociNetworkAnchorUrl() {
         return this.ociNetworkAnchorUrl;
     }
     /**
-     * @return The name of the OCI resource anchor for the ODB network.
+     * @return Name of the OCI resource anchor for the ODB network.
      * 
      */
     public String ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
     /**
-     * @return The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+     * @return Unique identifier Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
      * 
      */
     public String ociVcnId() {
         return this.ociVcnId;
     }
     /**
-     * @return The URL of the OCI VCN for the ODB network.
+     * @return URL of the OCI VCN for the ODB network.
      * 
      */
     public String ociVcnUrl() {
         return this.ociVcnUrl;
     }
     /**
-     * @return The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+     * @return List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
      * 
      */
     public List<String> peeredCidrs() {
         return this.peeredCidrs;
     }
     /**
-     * @return The amount of progress made on the current operation on the ODB network, expressed as a percentage.
+     * @return Amount of progress made on the current operation on the ODB network, expressed as a percentage.
      * 
      */
     public Double percentProgress() {
@@ -265,7 +277,7 @@ public final class GetNetworkResult {
         return this.region;
     }
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     public String status() {
@@ -278,6 +290,10 @@ public final class GetNetworkResult {
     public String statusReason() {
         return this.statusReason;
     }
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

@@ -17,7 +17,7 @@ public final class VirtualNodeSpecListenerTimeoutHttpIdle {
      */
     private String unit;
     /**
-     * @return Number of time units. Minimum value of `0`.
+     * @return Value for the JSON. Must be between 1 and 100 characters in length.
      * 
      */
     private Integer value;
@@ -31,7 +31,7 @@ public final class VirtualNodeSpecListenerTimeoutHttpIdle {
         return this.unit;
     }
     /**
-     * @return Number of time units. Minimum value of `0`.
+     * @return Value for the JSON. Must be between 1 and 100 characters in length.
      * 
      */
     public Integer value() {

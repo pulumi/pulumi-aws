@@ -100,7 +100,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly kmsKeyArn: pulumi.Output<string>;
     /**
-     * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+     * KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
      */
     declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
@@ -112,7 +112,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -225,7 +225,7 @@ export interface DeploymentState {
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
-     * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+     * KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
      */
     kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -237,7 +237,7 @@ export interface DeploymentState {
      */
     state?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -275,7 +275,7 @@ export interface DeploymentArgs {
      */
     environmentId: pulumi.Input<string>;
     /**
-     * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+     * KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
      */
     kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -283,7 +283,7 @@ export interface DeploymentArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

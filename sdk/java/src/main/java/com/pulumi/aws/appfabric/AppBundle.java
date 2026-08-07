@@ -86,14 +86,14 @@ public class AppBundle extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+     * Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
      * 
      */
     @Export(name="customerManagedKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerManagedKeyArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+     * @return Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
      * 
      */
     public Output<Optional<String>> customerManagedKeyArn() {

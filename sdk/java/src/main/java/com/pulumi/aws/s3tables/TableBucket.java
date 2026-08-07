@@ -102,16 +102,14 @@ public class TableBucket extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
-     * A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
+     * Encryption configuration for the table bucket. See `encryptionConfiguration` below.
      * 
      */
     @Export(name="encryptionConfiguration", refs={TableBucketEncryptionConfiguration.class}, tree="[0]")
     private Output<TableBucketEncryptionConfiguration> encryptionConfiguration;
 
     /**
-     * @return A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
+     * @return Encryption configuration for the table bucket. See `encryptionConfiguration` below.
      * 
      */
     public Output<TableBucketEncryptionConfiguration> encryptionConfiguration() {
@@ -132,26 +130,21 @@ public class TableBucket extends com.pulumi.resources.CustomResource {
         return this.forceDestroy;
     }
     /**
-     * A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
+     * Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
      * 
      */
     @Export(name="maintenanceConfiguration", refs={TableBucketMaintenanceConfiguration.class}, tree="[0]")
     private Output<TableBucketMaintenanceConfiguration> maintenanceConfiguration;
 
     /**
-     * @return A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
+     * @return Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
      * 
      */
     public Output<TableBucketMaintenanceConfiguration> maintenanceConfiguration() {
         return this.maintenanceConfiguration;
     }
     /**
-     * Name of the table bucket.
-     * Must be between 3 and 63 characters in length.
-     * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-     * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+     * Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      * 
      * The following arguments are optional:
      * 
@@ -160,10 +153,7 @@ public class TableBucket extends com.pulumi.resources.CustomResource {
     private Output<String> name;
 
     /**
-     * @return Name of the table bucket.
-     * Must be between 3 and 63 characters in length.
-     * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-     * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+     * @return Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      * 
      * The following arguments are optional:
      * 
@@ -214,14 +204,14 @@ public class TableBucket extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

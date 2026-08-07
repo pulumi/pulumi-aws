@@ -13,15 +13,13 @@ namespace Pulumi.Aws.S3Tables.Inputs
     public sealed class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Snapshots older than this will be marked for deletion.
-        /// Must be at least `1`.
+        /// Snapshots older than this will be marked for deletion. Must be at least `1`.
         /// </summary>
         [Input("maxSnapshotAgeHours", required: true)]
         public Input<int> MaxSnapshotAgeHours { get; set; } = null!;
 
         /// <summary>
-        /// Minimum number of snapshots to keep.
-        /// Must be at least `1`.
+        /// Minimum number of snapshots to keep. Must be at least `1`.
         /// </summary>
         [Input("minSnapshotsToKeep", required: true)]
         public Input<int> MinSnapshotsToKeep { get; set; } = null!;

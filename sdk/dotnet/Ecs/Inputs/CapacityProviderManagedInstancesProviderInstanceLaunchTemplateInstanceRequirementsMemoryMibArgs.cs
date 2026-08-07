@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum amount of memory, in MiB.
+        /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
+        /// <summary>
+        /// Minimum amount of memory, in MiB.
+        /// </summary>
         [Input("min", required: true)]
         public Input<int> Min { get; set; } = null!;
 

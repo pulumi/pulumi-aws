@@ -255,16 +255,14 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
         return this.region;
     }
     /**
-     * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-     * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
+     * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
      * 
      */
     @Export(name="routingRuleDetails", refs={String.class}, tree="[0]")
     private Output<String> routingRuleDetails;
 
     /**
-     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-     * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
+     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
      * 
      */
     public Output<String> routingRuleDetails() {

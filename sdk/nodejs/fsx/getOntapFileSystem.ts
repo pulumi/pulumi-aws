@@ -45,7 +45,7 @@ export interface GetOntapFileSystemArgs {
      */
     region?: string;
     /**
-     * The tags associated with the file system.
+     * Tags associated with the file system.
      */
     tags?: {[key: string]: string};
 }
@@ -59,19 +59,19 @@ export interface GetOntapFileSystemResult {
      */
     readonly arn: string;
     /**
-     * The number of days to retain automatic backups.
+     * Number of days to retain automatic backups.
      */
     readonly automaticBackupRetentionDays: number;
     /**
-     * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+     * Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      */
     readonly dailyAutomaticBackupStartTime: string;
     /**
-     * The file system deployment type.
+     * File system deployment type.
      */
     readonly deploymentType: string;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
+     * SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
      */
     readonly diskIopsConfigurations: outputs.fsx.GetOntapFileSystemDiskIopsConfiguration[];
     /**
@@ -79,15 +79,15 @@ export interface GetOntapFileSystemResult {
      */
     readonly dnsName: string;
     /**
-     * (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system exist.
+     * (Multi-AZ only) IP address range in which the endpoints to access your file system exist.
      */
     readonly endpointIpAddressRange: string;
     /**
-     * The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
+     * Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
      */
     readonly endpoints: outputs.fsx.GetOntapFileSystemEndpoint[];
     /**
-     * The number of HA pairs for the file system.
+     * Number of HA pairs for the file system.
      */
     readonly haPairs: number;
     /**
@@ -99,7 +99,7 @@ export interface GetOntapFileSystemResult {
      */
     readonly kmsKeyId: string;
     /**
-     * The IDs of the elastic network interfaces from which a specific file system is accessible.
+     * IDs of the elastic network interfaces from which a specific file system is accessible.
      */
     readonly networkInterfaceIds: string[];
     /**
@@ -107,44 +107,44 @@ export interface GetOntapFileSystemResult {
      */
     readonly ownerId: string;
     /**
-     * Specifies the subnet in which you want the preferred file server to be located.
+     * Subnet in which you want the preferred file server to be located.
      */
     readonly preferredSubnetId: string;
     readonly region: string;
     /**
-     * (Multi-AZ only) The VPC route tables in which your file system's endpoints exist.
+     * (Multi-AZ only) VPC route tables in which your file system's endpoints exist.
      */
     readonly routeTableIds: string[];
     /**
-     * The storage capacity of the file system in gibibytes (GiB).
+     * Storage capacity of the file system in gibibytes (GiB).
      */
     readonly storageCapacity: number;
     /**
-     * The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
+     * Type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
      */
     readonly storageType: string;
     /**
-     * Specifies the IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferredSubnetId` property.
+     * IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferredSubnetId` property.
      */
     readonly subnetIds: string[];
     /**
-     * The tags associated with the file system.
+     * Tags associated with the file system.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthputCapacityPerHaPair x ha_pairs
+     * Sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthputCapacityPerHaPair x ha_pairs
      */
     readonly throughputCapacity: number;
     /**
-     * The sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
+     * Sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
      */
     readonly throughputCapacityPerHaPair: number;
     /**
-     * The ID of the primary virtual private cloud (VPC) for the file system.
+     * ID of the primary virtual private cloud (VPC) for the file system.
      */
     readonly vpcId: string;
     /**
-     * The preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
     readonly weeklyMaintenanceStartTime: string;
 }
@@ -186,7 +186,7 @@ export interface GetOntapFileSystemOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The tags associated with the file system.
+     * Tags associated with the file system.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

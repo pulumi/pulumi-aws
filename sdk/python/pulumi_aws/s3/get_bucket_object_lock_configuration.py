@@ -58,7 +58,7 @@ class GetBucketObjectLockConfigurationResult:
     @pulumi.getter(name="objectLockEnabled")
     def object_lock_enabled(self) -> _builtins.str:
         """
-        Indicates whether this bucket has an Object Lock configuration enabled.
+        Whether this bucket has an Object Lock configuration enabled.
         """
         return pulumi.get(self, "object_lock_enabled")
 

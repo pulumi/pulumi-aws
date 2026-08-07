@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Fsx.Inputs
     public sealed class OpenZfsFileSystemDiskIopsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The total number of SSD IOPS provisioned for the file system.
+        /// Total number of SSD IOPS provisioned for the file system.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
         /// <summary>
-        /// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        /// How the number of IOPS for the file system is set. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }

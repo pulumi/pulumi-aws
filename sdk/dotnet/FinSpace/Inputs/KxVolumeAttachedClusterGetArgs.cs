@@ -12,12 +12,21 @@ namespace Pulumi.Aws.FinSpace.Inputs
 
     public sealed class KxVolumeAttachedClusterGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the KX cluster.
+        /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
+        /// <summary>
+        /// Status of the KX cluster.
+        /// </summary>
         [Input("clusterStatus", required: true)]
         public Input<string> ClusterStatus { get; set; } = null!;
 
+        /// <summary>
+        /// Type of the KX cluster.
+        /// </summary>
         [Input("clusterType", required: true)]
         public Input<string> ClusterType { get; set; } = null!;
 

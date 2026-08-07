@@ -62,13 +62,13 @@ type GetImageArgs struct {
 	NameRegex *string `pulumi:"nameRegex"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
+	// Type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
 	Type *string `pulumi:"type"`
 }
 
 // A collection of values returned by getImage.
 type GetImageResult struct {
-	// A application object that contains the following:
+	// Application object that contains the following:
 	Applications []GetImageApplication `pulumi:"applications"`
 	// Version of the AppStream 2.0 agent to use for instances that are launched from this image. Has a maximum length of 100 characters.
 	AppstreamAgentVersion string `pulumi:"appstreamAgentVersion"`
@@ -82,7 +82,7 @@ type GetImageResult struct {
 	Description string `pulumi:"description"`
 	// Image name to display.
 	DisplayName string `pulumi:"displayName"`
-	// The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
+	// Name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
 	ImageBuilderName string `pulumi:"imageBuilderName"`
 	// Boolean to indicate whether an image builder can be launched from this image.
 	ImageBuilderSupported bool `pulumi:"imageBuilderSupported"`
@@ -125,7 +125,7 @@ type GetImageOutputArgs struct {
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
+	// Type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -148,7 +148,7 @@ func (o GetImageResultOutput) ToGetImageResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A application object that contains the following:
+// Application object that contains the following:
 func (o GetImageResultOutput) Applications() GetImageApplicationArrayOutput {
 	return o.ApplyT(func(v GetImageResult) []GetImageApplication { return v.Applications }).(GetImageApplicationArrayOutput)
 }
@@ -183,7 +183,7 @@ func (o GetImageResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
+// Name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
 func (o GetImageResultOutput) ImageBuilderName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.ImageBuilderName }).(pulumi.StringOutput)
 }

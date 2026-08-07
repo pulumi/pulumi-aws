@@ -19,14 +19,14 @@ public final class AppAuthorizationConnectionArgs extends com.pulumi.resources.R
     public static final AppAuthorizationConnectionArgs Empty = new AppAuthorizationConnectionArgs();
 
     /**
-     * The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+     * Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      * 
      */
     @Import(name="appAuthorizationArn", required=true)
     private Output<String> appAuthorizationArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+     * @return Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      * 
      */
     public Output<String> appAuthorizationArn() {
@@ -34,14 +34,18 @@ public final class AppAuthorizationConnectionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="appBundleArn", required=true)
     private Output<String> appBundleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> appBundleArn() {
@@ -49,14 +53,14 @@ public final class AppAuthorizationConnectionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+     * OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `authRequest` Block for details.
      * 
      */
     @Import(name="authRequest")
     private @Nullable Output<AppAuthorizationConnectionAuthRequestArgs> authRequest;
 
     /**
-     * @return Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+     * @return OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `authRequest` Block for details.
      * 
      */
     public Optional<Output<AppAuthorizationConnectionAuthRequestArgs>> authRequest() {
@@ -114,7 +118,7 @@ public final class AppAuthorizationConnectionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param appAuthorizationArn The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+         * @param appAuthorizationArn Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
          * 
          * @return builder
          * 
@@ -125,7 +129,7 @@ public final class AppAuthorizationConnectionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param appAuthorizationArn The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+         * @param appAuthorizationArn Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
          * 
          * @return builder
          * 
@@ -135,7 +139,9 @@ public final class AppAuthorizationConnectionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param appBundleArn The Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -146,7 +152,9 @@ public final class AppAuthorizationConnectionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param appBundleArn The Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -156,7 +164,7 @@ public final class AppAuthorizationConnectionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param authRequest Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+         * @param authRequest OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `authRequest` Block for details.
          * 
          * @return builder
          * 
@@ -167,7 +175,7 @@ public final class AppAuthorizationConnectionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param authRequest Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+         * @param authRequest OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `authRequest` Block for details.
          * 
          * @return builder
          * 

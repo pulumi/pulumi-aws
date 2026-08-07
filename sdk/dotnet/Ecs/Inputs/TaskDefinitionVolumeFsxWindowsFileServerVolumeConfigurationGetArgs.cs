@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigGetArgs> AuthorizationConfig { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon FSx for Windows File Server file system ID to use.
+        /// Amazon FSx for Windows File Server file system ID to use.
         /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 
         /// <summary>
-        /// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+        /// Directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
         /// </summary>
         [Input("rootDirectory", required: true)]
         public Input<string> RootDirectory { get; set; } = null!;

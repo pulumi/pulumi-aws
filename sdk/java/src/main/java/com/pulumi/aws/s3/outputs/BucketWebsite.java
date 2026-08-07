@@ -27,8 +27,7 @@ public final class BucketWebsite {
      */
     private @Nullable String redirectAllRequestsTo;
     /**
-     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-     * describing redirect behavior and when redirects are applied.
+     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
      * 
      */
     private @Nullable String routingRules;
@@ -56,8 +55,7 @@ public final class BucketWebsite {
         return Optional.ofNullable(this.redirectAllRequestsTo);
     }
     /**
-     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-     * describing redirect behavior and when redirects are applied.
+     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
      * 
      */
     public Optional<String> routingRules() {

@@ -76,23 +76,23 @@ import (
 type ResourceShareAccepter struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the resource share invitation.
+	// ARN of the resource share invitation.
 	InvitationArn pulumi.StringOutput `pulumi:"invitationArn"`
-	// The account ID of the receiver account which accepts the invitation.
+	// Account ID of the receiver account which accepts the invitation.
 	ReceiverAccountId pulumi.StringOutput `pulumi:"receiverAccountId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A list of the resource ARNs shared via the resource share.
+	// List of the resource ARNs shared via the resource share.
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
-	// The account ID of the sender account which submits the invitation.
+	// Account ID of the sender account which submits the invitation.
 	SenderAccountId pulumi.StringOutput `pulumi:"senderAccountId"`
-	// The ARN of the resource share.
+	// ARN of the resource share.
 	ShareArn pulumi.StringOutput `pulumi:"shareArn"`
-	// The ID of the resource share as displayed in the console.
+	// ID of the resource share as displayed in the console.
 	ShareId pulumi.StringOutput `pulumi:"shareId"`
-	// The name of the resource share.
+	// Name of the resource share.
 	ShareName pulumi.StringOutput `pulumi:"shareName"`
-	// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+	// Status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
 	Status pulumi.StringOutput `pulumi:"status"`
 }
 
@@ -129,44 +129,44 @@ func GetResourceShareAccepter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceShareAccepter resources.
 type resourceShareAccepterState struct {
-	// The ARN of the resource share invitation.
+	// ARN of the resource share invitation.
 	InvitationArn *string `pulumi:"invitationArn"`
-	// The account ID of the receiver account which accepts the invitation.
+	// Account ID of the receiver account which accepts the invitation.
 	ReceiverAccountId *string `pulumi:"receiverAccountId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A list of the resource ARNs shared via the resource share.
+	// List of the resource ARNs shared via the resource share.
 	Resources []string `pulumi:"resources"`
-	// The account ID of the sender account which submits the invitation.
+	// Account ID of the sender account which submits the invitation.
 	SenderAccountId *string `pulumi:"senderAccountId"`
-	// The ARN of the resource share.
+	// ARN of the resource share.
 	ShareArn *string `pulumi:"shareArn"`
-	// The ID of the resource share as displayed in the console.
+	// ID of the resource share as displayed in the console.
 	ShareId *string `pulumi:"shareId"`
-	// The name of the resource share.
+	// Name of the resource share.
 	ShareName *string `pulumi:"shareName"`
-	// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+	// Status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
 	Status *string `pulumi:"status"`
 }
 
 type ResourceShareAccepterState struct {
-	// The ARN of the resource share invitation.
+	// ARN of the resource share invitation.
 	InvitationArn pulumi.StringPtrInput
-	// The account ID of the receiver account which accepts the invitation.
+	// Account ID of the receiver account which accepts the invitation.
 	ReceiverAccountId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A list of the resource ARNs shared via the resource share.
+	// List of the resource ARNs shared via the resource share.
 	Resources pulumi.StringArrayInput
-	// The account ID of the sender account which submits the invitation.
+	// Account ID of the sender account which submits the invitation.
 	SenderAccountId pulumi.StringPtrInput
-	// The ARN of the resource share.
+	// ARN of the resource share.
 	ShareArn pulumi.StringPtrInput
-	// The ID of the resource share as displayed in the console.
+	// ID of the resource share as displayed in the console.
 	ShareId pulumi.StringPtrInput
-	// The name of the resource share.
+	// Name of the resource share.
 	ShareName pulumi.StringPtrInput
-	// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+	// Status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
 	Status pulumi.StringPtrInput
 }
 
@@ -177,7 +177,7 @@ func (ResourceShareAccepterState) ElementType() reflect.Type {
 type resourceShareAccepterArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ARN of the resource share.
+	// ARN of the resource share.
 	ShareArn string `pulumi:"shareArn"`
 }
 
@@ -185,7 +185,7 @@ type resourceShareAccepterArgs struct {
 type ResourceShareAccepterArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ARN of the resource share.
+	// ARN of the resource share.
 	ShareArn pulumi.StringInput
 }
 
@@ -276,12 +276,12 @@ func (o ResourceShareAccepterOutput) ToResourceShareAccepterOutputWithContext(ct
 	return o
 }
 
-// The ARN of the resource share invitation.
+// ARN of the resource share invitation.
 func (o ResourceShareAccepterOutput) InvitationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.InvitationArn }).(pulumi.StringOutput)
 }
 
-// The account ID of the receiver account which accepts the invitation.
+// Account ID of the receiver account which accepts the invitation.
 func (o ResourceShareAccepterOutput) ReceiverAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.ReceiverAccountId }).(pulumi.StringOutput)
 }
@@ -291,32 +291,32 @@ func (o ResourceShareAccepterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list of the resource ARNs shared via the resource share.
+// List of the resource ARNs shared via the resource share.
 func (o ResourceShareAccepterOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
-// The account ID of the sender account which submits the invitation.
+// Account ID of the sender account which submits the invitation.
 func (o ResourceShareAccepterOutput) SenderAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.SenderAccountId }).(pulumi.StringOutput)
 }
 
-// The ARN of the resource share.
+// ARN of the resource share.
 func (o ResourceShareAccepterOutput) ShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.ShareArn }).(pulumi.StringOutput)
 }
 
-// The ID of the resource share as displayed in the console.
+// ID of the resource share as displayed in the console.
 func (o ResourceShareAccepterOutput) ShareId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.ShareId }).(pulumi.StringOutput)
 }
 
-// The name of the resource share.
+// Name of the resource share.
 func (o ResourceShareAccepterOutput) ShareName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.ShareName }).(pulumi.StringOutput)
 }
 
-// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+// Status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
 func (o ResourceShareAccepterOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShareAccepter) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

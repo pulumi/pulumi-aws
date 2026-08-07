@@ -122,7 +122,7 @@ public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
         return this.resourceArn;
     }
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+     * ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      * The following arguments are optional:
      * 
@@ -131,7 +131,7 @@ public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
     private Output<String> resourceIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+     * @return ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      * The following arguments are optional:
      * 
@@ -153,9 +153,17 @@ public class AccessLogSubscription extends com.pulumi.resources.CustomResource {
     public Output<String> serviceNetworkLogType() {
         return this.serviceNetworkLogType;
     }
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

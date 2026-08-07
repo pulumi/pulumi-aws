@@ -19,7 +19,7 @@ public final class FlowDestinationFlowConfig {
      */
     private @Nullable String apiVersion;
     /**
-     * @return Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+     * @return Name of the connector profile. Must be unique for each connector profile in the AWS account.
      * 
      */
     private @Nullable String connectorProfileName;
@@ -29,7 +29,7 @@ public final class FlowDestinationFlowConfig {
      */
     private String connectorType;
     /**
-     * @return This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
+     * @return Information required to query a particular connector. See the `destination_flow_config.destination_connector_properties` Block for details.
      * 
      */
     private FlowDestinationFlowConfigDestinationConnectorProperties destinationConnectorProperties;
@@ -43,7 +43,7 @@ public final class FlowDestinationFlowConfig {
         return Optional.ofNullable(this.apiVersion);
     }
     /**
-     * @return Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+     * @return Name of the connector profile. Must be unique for each connector profile in the AWS account.
      * 
      */
     public Optional<String> connectorProfileName() {
@@ -57,7 +57,7 @@ public final class FlowDestinationFlowConfig {
         return this.connectorType;
     }
     /**
-     * @return This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
+     * @return Information required to query a particular connector. See the `destination_flow_config.destination_connector_properties` Block for details.
      * 
      */
     public FlowDestinationFlowConfigDestinationConnectorProperties destinationConnectorProperties() {

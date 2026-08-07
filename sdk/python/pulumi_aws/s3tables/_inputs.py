@@ -56,7 +56,7 @@ __all__ = [
 class TableBucketEncryptionConfigurationArgsDict(TypedDict):
     kms_key_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+    ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
     """
     sse_algorithm: pulumi.Input[_builtins.str]
     """
@@ -69,7 +69,7 @@ class TableBucketEncryptionConfigurationArgs:
                  kms_key_arn: pulumi.Input[_builtins.str],
                  sse_algorithm: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
         :param pulumi.Input[_builtins.str] sse_algorithm: One of `aws:kms` or `AES256`
         """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
@@ -79,7 +79,7 @@ class TableBucketEncryptionConfigurationArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+        ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -103,8 +103,7 @@ class TableBucketEncryptionConfigurationArgs:
 class TableBucketMaintenanceConfigurationArgsDict(TypedDict):
     iceberg_unreferenced_file_removal: pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgsDict']
     """
-    A single Iceberg unreferenced file removal settings object.
-    See `iceberg_unreferenced_file_removal` below.
+    Iceberg unreferenced file removal settings for the table bucket. See `iceberg_unreferenced_file_removal` below.
     """
 
 @pulumi.input_type
@@ -112,8 +111,7 @@ class TableBucketMaintenanceConfigurationArgs:
     def __init__(__self__, *,
                  iceberg_unreferenced_file_removal: pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs']):
         """
-        :param pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs'] iceberg_unreferenced_file_removal: A single Iceberg unreferenced file removal settings object.
-               See `iceberg_unreferenced_file_removal` below.
+        :param pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs'] iceberg_unreferenced_file_removal: Iceberg unreferenced file removal settings for the table bucket. See `iceberg_unreferenced_file_removal` below.
         """
         pulumi.set(__self__, "iceberg_unreferenced_file_removal", iceberg_unreferenced_file_removal)
 
@@ -121,8 +119,7 @@ class TableBucketMaintenanceConfigurationArgs:
     @pulumi.getter(name="icebergUnreferencedFileRemoval")
     def iceberg_unreferenced_file_removal(self) -> pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs']:
         """
-        A single Iceberg unreferenced file removal settings object.
-        See `iceberg_unreferenced_file_removal` below.
+        Iceberg unreferenced file removal settings for the table bucket. See `iceberg_unreferenced_file_removal` below.
         """
         return pulumi.get(self, "iceberg_unreferenced_file_removal")
 
@@ -134,13 +131,11 @@ class TableBucketMaintenanceConfigurationArgs:
 class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgsDict(TypedDict):
     settings: pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgsDict']
     """
-    Settings object for unreferenced file removal.
-    See `iceberg_unreferenced_file_removal.settings` below.
+    Settings object for unreferenced file removal. See `iceberg_unreferenced_file_removal.settings` below.
     """
     status: pulumi.Input[_builtins.str]
     """
-    Whether the configuration is enabled.
-    Valid values are `enabled` and `disabled`.
+    Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
     """
 
 @pulumi.input_type
@@ -149,10 +144,8 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs:
                  settings: pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs'],
                  status: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs'] settings: Settings object for unreferenced file removal.
-               See `iceberg_unreferenced_file_removal.settings` below.
-        :param pulumi.Input[_builtins.str] status: Whether the configuration is enabled.
-               Valid values are `enabled` and `disabled`.
+        :param pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs'] settings: Settings object for unreferenced file removal. See `iceberg_unreferenced_file_removal.settings` below.
+        :param pulumi.Input[_builtins.str] status: Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
         """
         pulumi.set(__self__, "settings", settings)
         pulumi.set(__self__, "status", status)
@@ -161,8 +154,7 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs:
     @pulumi.getter
     def settings(self) -> pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs']:
         """
-        Settings object for unreferenced file removal.
-        See `iceberg_unreferenced_file_removal.settings` below.
+        Settings object for unreferenced file removal. See `iceberg_unreferenced_file_removal.settings` below.
         """
         return pulumi.get(self, "settings")
 
@@ -174,8 +166,7 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
         """
-        Whether the configuration is enabled.
-        Valid values are `enabled` and `disabled`.
+        Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
         """
         return pulumi.get(self, "status")
 
@@ -187,13 +178,11 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs:
 class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgsDict(TypedDict):
     non_current_days: pulumi.Input[_builtins.int]
     """
-    Data objects marked for deletion are deleted after this many days.
-    Must be at least `1`.
+    Data objects marked for deletion are deleted after this many days. Must be at least `1`.
     """
     unreferenced_days: pulumi.Input[_builtins.int]
     """
-    Unreferenced data objects are marked for deletion after this many days.
-    Must be at least `1`.
+    Unreferenced data objects are marked for deletion after this many days. Must be at least `1`.
     """
 
 @pulumi.input_type
@@ -202,10 +191,8 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsA
                  non_current_days: pulumi.Input[_builtins.int],
                  unreferenced_days: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.int] non_current_days: Data objects marked for deletion are deleted after this many days.
-               Must be at least `1`.
-        :param pulumi.Input[_builtins.int] unreferenced_days: Unreferenced data objects are marked for deletion after this many days.
-               Must be at least `1`.
+        :param pulumi.Input[_builtins.int] non_current_days: Data objects marked for deletion are deleted after this many days. Must be at least `1`.
+        :param pulumi.Input[_builtins.int] unreferenced_days: Unreferenced data objects are marked for deletion after this many days. Must be at least `1`.
         """
         pulumi.set(__self__, "non_current_days", non_current_days)
         pulumi.set(__self__, "unreferenced_days", unreferenced_days)
@@ -214,8 +201,7 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsA
     @pulumi.getter(name="nonCurrentDays")
     def non_current_days(self) -> pulumi.Input[_builtins.int]:
         """
-        Data objects marked for deletion are deleted after this many days.
-        Must be at least `1`.
+        Data objects marked for deletion are deleted after this many days. Must be at least `1`.
         """
         return pulumi.get(self, "non_current_days")
 
@@ -227,8 +213,7 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsA
     @pulumi.getter(name="unreferencedDays")
     def unreferenced_days(self) -> pulumi.Input[_builtins.int]:
         """
-        Unreferenced data objects are marked for deletion after this many days.
-        Must be at least `1`.
+        Unreferenced data objects are marked for deletion after this many days. Must be at least `1`.
         """
         return pulumi.get(self, "unreferenced_days")
 
@@ -296,7 +281,7 @@ class TableBucketReplicationRuleDestinationArgs:
 class TableEncryptionConfigurationArgsDict(TypedDict):
     kms_key_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+    ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
     """
     sse_algorithm: pulumi.Input[_builtins.str]
     """
@@ -309,7 +294,7 @@ class TableEncryptionConfigurationArgs:
                  kms_key_arn: pulumi.Input[_builtins.str],
                  sse_algorithm: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
         :param pulumi.Input[_builtins.str] sse_algorithm: One of `aws:kms` or `AES256`
         """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
@@ -319,7 +304,7 @@ class TableEncryptionConfigurationArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+        ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -343,13 +328,11 @@ class TableEncryptionConfigurationArgs:
 class TableMaintenanceConfigurationArgsDict(TypedDict):
     iceberg_compaction: pulumi.Input['TableMaintenanceConfigurationIcebergCompactionArgsDict']
     """
-    A single Iceberg compaction settings object.
-    See `iceberg_compaction` below.
+    Single Iceberg compaction settings object. See `iceberg_compaction` below.
     """
     iceberg_snapshot_management: pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementArgsDict']
     """
-    A single Iceberg snapshot management settings object.
-    See `iceberg_snapshot_management` below.
+    Single Iceberg snapshot management settings object. See `iceberg_snapshot_management` below.
     """
 
 @pulumi.input_type
@@ -358,10 +341,8 @@ class TableMaintenanceConfigurationArgs:
                  iceberg_compaction: pulumi.Input['TableMaintenanceConfigurationIcebergCompactionArgs'],
                  iceberg_snapshot_management: pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementArgs']):
         """
-        :param pulumi.Input['TableMaintenanceConfigurationIcebergCompactionArgs'] iceberg_compaction: A single Iceberg compaction settings object.
-               See `iceberg_compaction` below.
-        :param pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementArgs'] iceberg_snapshot_management: A single Iceberg snapshot management settings object.
-               See `iceberg_snapshot_management` below.
+        :param pulumi.Input['TableMaintenanceConfigurationIcebergCompactionArgs'] iceberg_compaction: Single Iceberg compaction settings object. See `iceberg_compaction` below.
+        :param pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementArgs'] iceberg_snapshot_management: Single Iceberg snapshot management settings object. See `iceberg_snapshot_management` below.
         """
         pulumi.set(__self__, "iceberg_compaction", iceberg_compaction)
         pulumi.set(__self__, "iceberg_snapshot_management", iceberg_snapshot_management)
@@ -370,8 +351,7 @@ class TableMaintenanceConfigurationArgs:
     @pulumi.getter(name="icebergCompaction")
     def iceberg_compaction(self) -> pulumi.Input['TableMaintenanceConfigurationIcebergCompactionArgs']:
         """
-        A single Iceberg compaction settings object.
-        See `iceberg_compaction` below.
+        Single Iceberg compaction settings object. See `iceberg_compaction` below.
         """
         return pulumi.get(self, "iceberg_compaction")
 
@@ -383,8 +363,7 @@ class TableMaintenanceConfigurationArgs:
     @pulumi.getter(name="icebergSnapshotManagement")
     def iceberg_snapshot_management(self) -> pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementArgs']:
         """
-        A single Iceberg snapshot management settings object.
-        See `iceberg_snapshot_management` below.
+        Single Iceberg snapshot management settings object. See `iceberg_snapshot_management` below.
         """
         return pulumi.get(self, "iceberg_snapshot_management")
 
@@ -396,13 +375,11 @@ class TableMaintenanceConfigurationArgs:
 class TableMaintenanceConfigurationIcebergCompactionArgsDict(TypedDict):
     settings: pulumi.Input['TableMaintenanceConfigurationIcebergCompactionSettingsArgsDict']
     """
-    Settings object for compaction.
-    See `iceberg_compaction.settings` below.
+    Settings object for compaction. See `iceberg_compaction.settings` below.
     """
     status: pulumi.Input[_builtins.str]
     """
-    Whether the configuration is enabled.
-    Valid values are `enabled` and `disabled`.
+    Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
     """
 
 @pulumi.input_type
@@ -411,10 +388,8 @@ class TableMaintenanceConfigurationIcebergCompactionArgs:
                  settings: pulumi.Input['TableMaintenanceConfigurationIcebergCompactionSettingsArgs'],
                  status: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input['TableMaintenanceConfigurationIcebergCompactionSettingsArgs'] settings: Settings object for compaction.
-               See `iceberg_compaction.settings` below.
-        :param pulumi.Input[_builtins.str] status: Whether the configuration is enabled.
-               Valid values are `enabled` and `disabled`.
+        :param pulumi.Input['TableMaintenanceConfigurationIcebergCompactionSettingsArgs'] settings: Settings object for compaction. See `iceberg_compaction.settings` below.
+        :param pulumi.Input[_builtins.str] status: Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
         """
         pulumi.set(__self__, "settings", settings)
         pulumi.set(__self__, "status", status)
@@ -423,8 +398,7 @@ class TableMaintenanceConfigurationIcebergCompactionArgs:
     @pulumi.getter
     def settings(self) -> pulumi.Input['TableMaintenanceConfigurationIcebergCompactionSettingsArgs']:
         """
-        Settings object for compaction.
-        See `iceberg_compaction.settings` below.
+        Settings object for compaction. See `iceberg_compaction.settings` below.
         """
         return pulumi.get(self, "settings")
 
@@ -436,8 +410,7 @@ class TableMaintenanceConfigurationIcebergCompactionArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
         """
-        Whether the configuration is enabled.
-        Valid values are `enabled` and `disabled`.
+        Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
         """
         return pulumi.get(self, "status")
 
@@ -449,8 +422,7 @@ class TableMaintenanceConfigurationIcebergCompactionArgs:
 class TableMaintenanceConfigurationIcebergCompactionSettingsArgsDict(TypedDict):
     target_file_size_mb: pulumi.Input[_builtins.int]
     """
-    Data objects smaller than this size may be combined with others to improve query performance.
-    Must be between `64` and `512`.
+    Data objects smaller than this size may be combined with others to improve query performance. Must be between `64` and `512`.
     """
 
 @pulumi.input_type
@@ -458,8 +430,7 @@ class TableMaintenanceConfigurationIcebergCompactionSettingsArgs:
     def __init__(__self__, *,
                  target_file_size_mb: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.int] target_file_size_mb: Data objects smaller than this size may be combined with others to improve query performance.
-               Must be between `64` and `512`.
+        :param pulumi.Input[_builtins.int] target_file_size_mb: Data objects smaller than this size may be combined with others to improve query performance. Must be between `64` and `512`.
         """
         pulumi.set(__self__, "target_file_size_mb", target_file_size_mb)
 
@@ -467,8 +438,7 @@ class TableMaintenanceConfigurationIcebergCompactionSettingsArgs:
     @pulumi.getter(name="targetFileSizeMb")
     def target_file_size_mb(self) -> pulumi.Input[_builtins.int]:
         """
-        Data objects smaller than this size may be combined with others to improve query performance.
-        Must be between `64` and `512`.
+        Data objects smaller than this size may be combined with others to improve query performance. Must be between `64` and `512`.
         """
         return pulumi.get(self, "target_file_size_mb")
 
@@ -480,13 +450,11 @@ class TableMaintenanceConfigurationIcebergCompactionSettingsArgs:
 class TableMaintenanceConfigurationIcebergSnapshotManagementArgsDict(TypedDict):
     settings: pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgsDict']
     """
-    Settings object for snapshot management.
-    See `iceberg_snapshot_management.settings` below.
+    Settings object for snapshot management. See `iceberg_snapshot_management.settings` below.
     """
     status: pulumi.Input[_builtins.str]
     """
-    Whether the configuration is enabled.
-    Valid values are `enabled` and `disabled`.
+    Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
     """
 
 @pulumi.input_type
@@ -495,10 +463,8 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementArgs:
                  settings: pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs'],
                  status: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs'] settings: Settings object for snapshot management.
-               See `iceberg_snapshot_management.settings` below.
-        :param pulumi.Input[_builtins.str] status: Whether the configuration is enabled.
-               Valid values are `enabled` and `disabled`.
+        :param pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs'] settings: Settings object for snapshot management. See `iceberg_snapshot_management.settings` below.
+        :param pulumi.Input[_builtins.str] status: Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
         """
         pulumi.set(__self__, "settings", settings)
         pulumi.set(__self__, "status", status)
@@ -507,8 +473,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementArgs:
     @pulumi.getter
     def settings(self) -> pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs']:
         """
-        Settings object for snapshot management.
-        See `iceberg_snapshot_management.settings` below.
+        Settings object for snapshot management. See `iceberg_snapshot_management.settings` below.
         """
         return pulumi.get(self, "settings")
 
@@ -520,8 +485,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
         """
-        Whether the configuration is enabled.
-        Valid values are `enabled` and `disabled`.
+        Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
         """
         return pulumi.get(self, "status")
 
@@ -533,13 +497,11 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementArgs:
 class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgsDict(TypedDict):
     max_snapshot_age_hours: pulumi.Input[_builtins.int]
     """
-    Snapshots older than this will be marked for deletion.
-    Must be at least `1`.
+    Snapshots older than this will be marked for deletion. Must be at least `1`.
     """
     min_snapshots_to_keep: pulumi.Input[_builtins.int]
     """
-    Minimum number of snapshots to keep.
-    Must be at least `1`.
+    Minimum number of snapshots to keep. Must be at least `1`.
     """
 
 @pulumi.input_type
@@ -548,10 +510,8 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs:
                  max_snapshot_age_hours: pulumi.Input[_builtins.int],
                  min_snapshots_to_keep: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.int] max_snapshot_age_hours: Snapshots older than this will be marked for deletion.
-               Must be at least `1`.
-        :param pulumi.Input[_builtins.int] min_snapshots_to_keep: Minimum number of snapshots to keep.
-               Must be at least `1`.
+        :param pulumi.Input[_builtins.int] max_snapshot_age_hours: Snapshots older than this will be marked for deletion. Must be at least `1`.
+        :param pulumi.Input[_builtins.int] min_snapshots_to_keep: Minimum number of snapshots to keep. Must be at least `1`.
         """
         pulumi.set(__self__, "max_snapshot_age_hours", max_snapshot_age_hours)
         pulumi.set(__self__, "min_snapshots_to_keep", min_snapshots_to_keep)
@@ -560,8 +520,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs:
     @pulumi.getter(name="maxSnapshotAgeHours")
     def max_snapshot_age_hours(self) -> pulumi.Input[_builtins.int]:
         """
-        Snapshots older than this will be marked for deletion.
-        Must be at least `1`.
+        Snapshots older than this will be marked for deletion. Must be at least `1`.
         """
         return pulumi.get(self, "max_snapshot_age_hours")
 
@@ -573,8 +532,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs:
     @pulumi.getter(name="minSnapshotsToKeep")
     def min_snapshots_to_keep(self) -> pulumi.Input[_builtins.int]:
         """
-        Minimum number of snapshots to keep.
-        Must be at least `1`.
+        Minimum number of snapshots to keep. Must be at least `1`.
         """
         return pulumi.get(self, "min_snapshots_to_keep")
 
@@ -586,8 +544,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs:
 class TableMetadataArgsDict(TypedDict):
     iceberg: pulumi.Input['TableMetadataIcebergArgsDict']
     """
-    Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-    See `iceberg` below.
+    Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
     """
 
 @pulumi.input_type
@@ -595,8 +552,7 @@ class TableMetadataArgs:
     def __init__(__self__, *,
                  iceberg: pulumi.Input['TableMetadataIcebergArgs']):
         """
-        :param pulumi.Input['TableMetadataIcebergArgs'] iceberg: Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-               See `iceberg` below.
+        :param pulumi.Input['TableMetadataIcebergArgs'] iceberg: Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
         """
         pulumi.set(__self__, "iceberg", iceberg)
 
@@ -604,8 +560,7 @@ class TableMetadataArgs:
     @pulumi.getter
     def iceberg(self) -> pulumi.Input['TableMetadataIcebergArgs']:
         """
-        Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-        See `iceberg` below.
+        Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
         """
         return pulumi.get(self, "iceberg")
 
@@ -617,8 +572,7 @@ class TableMetadataArgs:
 class TableMetadataIcebergArgsDict(TypedDict):
     schema: pulumi.Input['TableMetadataIcebergSchemaArgsDict']
     """
-    Schema configuration for the Iceberg table.
-    See `schema` below.
+    Schema configuration for the Iceberg table. See `schema` below.
     """
     properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
@@ -631,8 +585,7 @@ class TableMetadataIcebergArgs:
                  schema: pulumi.Input['TableMetadataIcebergSchemaArgs'],
                  properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input['TableMetadataIcebergSchemaArgs'] schema: Schema configuration for the Iceberg table.
-               See `schema` below.
+        :param pulumi.Input['TableMetadataIcebergSchemaArgs'] schema: Schema configuration for the Iceberg table. See `schema` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
         """
         pulumi.set(__self__, "schema", schema)
@@ -643,8 +596,7 @@ class TableMetadataIcebergArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input['TableMetadataIcebergSchemaArgs']:
         """
-        Schema configuration for the Iceberg table.
-        See `schema` below.
+        Schema configuration for the Iceberg table. See `schema` below.
         """
         return pulumi.get(self, "schema")
 
@@ -668,8 +620,7 @@ class TableMetadataIcebergArgs:
 class TableMetadataIcebergSchemaArgsDict(TypedDict):
     fields: pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgsDict']]]
     """
-    List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-    See `field` below.
+    List of schema fields for the Iceberg table. Each field defines a column in the table schema. See `field` below.
     """
 
 @pulumi.input_type
@@ -677,8 +628,7 @@ class TableMetadataIcebergSchemaArgs:
     def __init__(__self__, *,
                  fields: pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]] fields: List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-               See `field` below.
+        :param pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]] fields: List of schema fields for the Iceberg table. Each field defines a column in the table schema. See `field` below.
         """
         pulumi.set(__self__, "fields", fields)
 
@@ -686,8 +636,7 @@ class TableMetadataIcebergSchemaArgs:
     @pulumi.getter
     def fields(self) -> pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgs']]]:
         """
-        List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-        See `field` below.
+        List of schema fields for the Iceberg table. Each field defines a column in the table schema. See `field` below.
         """
         return pulumi.get(self, "fields")
 
@@ -699,15 +648,15 @@ class TableMetadataIcebergSchemaArgs:
 class TableMetadataIcebergSchemaFieldArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    The name of the field.
+    Name of the field.
     """
     type: pulumi.Input[_builtins.str]
     """
-    The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+    Field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
     """
     required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+    Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
     """
 
 @pulumi.input_type
@@ -717,9 +666,9 @@ class TableMetadataIcebergSchemaFieldArgs:
                  type: pulumi.Input[_builtins.str],
                  required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: The name of the field.
-        :param pulumi.Input[_builtins.str] type: The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
-        :param pulumi.Input[_builtins.bool] required: A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] name: Name of the field.
+        :param pulumi.Input[_builtins.str] type: Field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+        :param pulumi.Input[_builtins.bool] required: Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -730,7 +679,7 @@ class TableMetadataIcebergSchemaFieldArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the field.
+        Name of the field.
         """
         return pulumi.get(self, "name")
 
@@ -742,7 +691,7 @@ class TableMetadataIcebergSchemaFieldArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+        Field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
         """
         return pulumi.get(self, "type")
 
@@ -754,7 +703,7 @@ class TableMetadataIcebergSchemaFieldArgs:
     @pulumi.getter
     def required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+        Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
         """
         return pulumi.get(self, "required")
 

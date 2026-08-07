@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationGetArgs>? _accessControlTranslations;
 
         /// <summary>
-        /// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `AccountId` owner override configuration.
+        /// Overrides to use for object owners on replication. See `AccessControlTranslation` Block below for details. Must be used in conjunction with `AccountId` owner override configuration.
         /// </summary>
         public InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationGetArgs> AccessControlTranslations
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationMetricGetArgs>? _metrics;
 
         /// <summary>
-        /// Enables replication metrics (required for S3 RTC) (documented below).
+        /// Enables replication metrics (required for S3 RTC). See `Metrics` Block below for details.
         /// </summary>
         public InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationMetricGetArgs> Metrics
         {
@@ -49,8 +49,7 @@ namespace Pulumi.Aws.S3.Inputs
         }
 
         /// <summary>
-        /// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-        /// `SseKmsEncryptedObjects` source selection criteria.
+        /// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with `SseKmsEncryptedObjects` source selection criteria.
         /// </summary>
         [Input("replicaKmsKeyId")]
         public Input<string>? ReplicaKmsKeyId { get; set; }
@@ -59,7 +58,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeGetArgs>? _replicationTimes;
 
         /// <summary>
-        /// Enables S3 Replication Time Control (S3 RTC) (documented below).
+        /// Enables S3 Replication Time Control (S3 RTC). See `ReplicationTime` Block below for details.
         /// </summary>
         public InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeGetArgs> ReplicationTimes
         {
@@ -68,7 +67,7 @@ namespace Pulumi.Aws.S3.Inputs
         }
 
         /// <summary>
-        /// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+        /// [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         /// </summary>
         [Input("storageClass")]
         public Input<string>? StorageClass { get; set; }

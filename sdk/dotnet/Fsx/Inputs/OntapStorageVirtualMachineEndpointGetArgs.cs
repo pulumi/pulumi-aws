@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private InputList<Inputs.OntapStorageVirtualMachineEndpointIscsiGetArgs>? _iscsis;
 
         /// <summary>
-        /// An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+        /// Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
         /// </summary>
         public InputList<Inputs.OntapStorageVirtualMachineEndpointIscsiGetArgs> Iscsis
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private InputList<Inputs.OntapStorageVirtualMachineEndpointManagementGetArgs>? _managements;
 
         /// <summary>
-        /// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        /// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
         /// </summary>
         public InputList<Inputs.OntapStorageVirtualMachineEndpointManagementGetArgs> Managements
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private InputList<Inputs.OntapStorageVirtualMachineEndpointNfGetArgs>? _nfs;
 
         /// <summary>
-        /// An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+        /// Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
         /// </summary>
         public InputList<Inputs.OntapStorageVirtualMachineEndpointNfGetArgs> Nfs
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private InputList<Inputs.OntapStorageVirtualMachineEndpointSmbGetArgs>? _smbs;
 
         /// <summary>
-        /// An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an ActiveDirectoryConfiguration has been set. See Endpoint.
+        /// Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an ActiveDirectoryConfiguration has been set. See Endpoint.
         /// </summary>
         public InputList<Inputs.OntapStorageVirtualMachineEndpointSmbGetArgs> Smbs
         {

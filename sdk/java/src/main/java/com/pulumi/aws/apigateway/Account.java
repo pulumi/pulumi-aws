@@ -108,14 +108,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
     /**
-     * The version of the API keys used for the account.
+     * Version of the API keys used for the account.
      * 
      */
     @Export(name="apiKeyVersion", refs={String.class}, tree="[0]")
     private Output<String> apiKeyVersion;
 
     /**
-     * @return The version of the API keys used for the account.
+     * @return Version of the API keys used for the account.
      * 
      */
     public Output<String> apiKeyVersion() {
@@ -136,14 +136,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.cloudwatchRoleArn;
     }
     /**
-     * A list of features supported for the account.
+     * List of features supported for the account.
      * 
      */
     @Export(name="features", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> features;
 
     /**
-     * @return A list of features supported for the account.
+     * @return List of features supported for the account.
      * 
      */
     public Output<List<String>> features() {
@@ -164,14 +164,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Account-Level throttle settings. See exported fields below.
+     * Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
      * 
      */
     @Export(name="throttleSettings", refs={List.class,AccountThrottleSetting.class}, tree="[0,1]")
     private Output<List<AccountThrottleSetting>> throttleSettings;
 
     /**
-     * @return Account-Level throttle settings. See exported fields below.
+     * @return Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
      * 
      */
     public Output<List<AccountThrottleSetting>> throttleSettings() {

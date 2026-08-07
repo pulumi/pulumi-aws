@@ -250,70 +250,70 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.autoScalingConfigurationArn;
     }
     /**
-     * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
+     * Custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See `encryptionConfiguration` below.
      * 
      */
     @Export(name="encryptionConfiguration", refs={ServiceEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEncryptionConfiguration> encryptionConfiguration;
 
     /**
-     * @return An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
+     * @return Custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See `encryptionConfiguration` below.
      * 
      */
     public Output<Optional<ServiceEncryptionConfiguration>> encryptionConfiguration() {
         return Codegen.optional(this.encryptionConfiguration);
     }
     /**
-     * Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
+     * Settings of the health check that AWS App Runner performs to monitor the health of your service. See `healthCheckConfiguration` below.
      * 
      */
     @Export(name="healthCheckConfiguration", refs={ServiceHealthCheckConfiguration.class}, tree="[0]")
     private Output<ServiceHealthCheckConfiguration> healthCheckConfiguration;
 
     /**
-     * @return Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
+     * @return Settings of the health check that AWS App Runner performs to monitor the health of your service. See `healthCheckConfiguration` below.
      * 
      */
     public Output<ServiceHealthCheckConfiguration> healthCheckConfiguration() {
         return this.healthCheckConfiguration;
     }
     /**
-     * The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+     * Runtime configuration of instances (scaling units) of the App Runner service. See `instanceConfiguration` below.
      * 
      */
     @Export(name="instanceConfiguration", refs={ServiceInstanceConfiguration.class}, tree="[0]")
     private Output<ServiceInstanceConfiguration> instanceConfiguration;
 
     /**
-     * @return The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+     * @return Runtime configuration of instances (scaling units) of the App Runner service. See `instanceConfiguration` below.
      * 
      */
     public Output<ServiceInstanceConfiguration> instanceConfiguration() {
         return this.instanceConfiguration;
     }
     /**
-     * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+     * Configuration settings related to network traffic of the web application that the App Runner service runs. See `networkConfiguration` below.
      * 
      */
     @Export(name="networkConfiguration", refs={ServiceNetworkConfiguration.class}, tree="[0]")
     private Output<ServiceNetworkConfiguration> networkConfiguration;
 
     /**
-     * @return Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+     * @return Configuration settings related to network traffic of the web application that the App Runner service runs. See `networkConfiguration` below.
      * 
      */
     public Output<ServiceNetworkConfiguration> networkConfiguration() {
         return this.networkConfiguration;
     }
     /**
-     * The observability configuration of your service. See Observability Configuration below for more details.
+     * Observability configuration of your service. See `observabilityConfiguration` below.
      * 
      */
     @Export(name="observabilityConfiguration", refs={ServiceObservabilityConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ServiceObservabilityConfiguration> observabilityConfiguration;
 
     /**
-     * @return The observability configuration of your service. See Observability Configuration below for more details.
+     * @return Observability configuration of your service. See `observabilityConfiguration` below.
      * 
      */
     public Output<Optional<ServiceObservabilityConfiguration>> observabilityConfiguration() {
@@ -334,14 +334,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
+     * Alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      * 
      */
     @Export(name="serviceId", refs={String.class}, tree="[0]")
     private Output<String> serviceId;
 
     /**
-     * @return An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
+     * @return Alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      * 
      */
     public Output<String> serviceId() {
@@ -376,18 +376,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.serviceUrl;
     }
     /**
-     * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
-     * 
-     * The following arguments are optional:
+     * Source to deploy to the App Runner service. Can be a code or an image repository. See `sourceConfiguration` below.
      * 
      */
     @Export(name="sourceConfiguration", refs={ServiceSourceConfiguration.class}, tree="[0]")
     private Output<ServiceSourceConfiguration> sourceConfiguration;
 
     /**
-     * @return The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
-     * 
-     * The following arguments are optional:
+     * @return Source to deploy to the App Runner service. Can be a code or an image repository. See `sourceConfiguration` below.
      * 
      */
     public Output<ServiceSourceConfiguration> sourceConfiguration() {

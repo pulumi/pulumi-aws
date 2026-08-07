@@ -14,8 +14,7 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     public sealed class ListenerRuleMatch
     {
         /// <summary>
-        /// The HTTP criteria that a rule must match.
-        /// See `HttpMatch` Block for details.
+        /// HTTP criteria that a rule must match. See `HttpMatch` Block for details.
         /// </summary>
         public readonly Outputs.ListenerRuleMatchHttpMatch HttpMatch;
 

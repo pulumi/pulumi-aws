@@ -834,7 +834,7 @@ class EventSourceMappingMetricsConfig(dict):
     def __init__(__self__, *,
                  metrics: Sequence[_builtins.str]):
         """
-        :param Sequence[_builtins.str] metrics: List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+        :param Sequence[_builtins.str] metrics: List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`, `ErrorCount`, `KafkaMetrics`.
         """
         pulumi.set(__self__, "metrics", metrics)
 
@@ -842,7 +842,7 @@ class EventSourceMappingMetricsConfig(dict):
     @pulumi.getter
     def metrics(self) -> Sequence[_builtins.str]:
         """
-        List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+        List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`, `ErrorCount`, `KafkaMetrics`.
         """
         return pulumi.get(self, "metrics")
 

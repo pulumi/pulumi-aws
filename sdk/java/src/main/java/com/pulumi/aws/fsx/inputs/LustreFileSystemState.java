@@ -54,14 +54,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+     * Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
      * 
      */
     @Import(name="automaticBackupRetentionDays")
     private @Nullable Output<Integer> automaticBackupRetentionDays;
 
     /**
-     * @return The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+     * @return Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
      * 
      */
     public Optional<Output<Integer>> automaticBackupRetentionDays() {
@@ -69,14 +69,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The ID of the source backup to create the filesystem from.
+     * ID of the source backup to create the filesystem from.
      * 
      */
     @Import(name="backupId")
     private @Nullable Output<String> backupId;
 
     /**
-     * @return The ID of the source backup to create the filesystem from.
+     * @return ID of the source backup to create the filesystem from.
      * 
      */
     public Optional<Output<String>> backupId() {
@@ -84,14 +84,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+     * Whether to copy tags for the file system to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
      * 
      */
     @Import(name="copyTagsToBackups")
     private @Nullable Output<Boolean> copyTagsToBackups;
 
     /**
-     * @return A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+     * @return Whether to copy tags for the file system to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
      * 
      */
     public Optional<Output<Boolean>> copyTagsToBackups() {
@@ -99,14 +99,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
+     * Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      * 
      */
     @Import(name="dailyAutomaticBackupStartTime")
     private @Nullable Output<String> dailyAutomaticBackupStartTime;
 
     /**
-     * @return A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
+     * @return Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      * 
      */
     public Optional<Output<String>> dailyAutomaticBackupStartTime() {
@@ -136,14 +136,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+     * Filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
      * 
      */
     @Import(name="deploymentType")
     private @Nullable Output<String> deploymentType;
 
     /**
-     * @return The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+     * @return Filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
      * 
      */
     public Optional<Output<String>> deploymentType() {
@@ -166,14 +166,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+     * Type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
      * 
      */
     @Import(name="driveCacheType")
     private @Nullable Output<String> driveCacheType;
 
     /**
-     * @return The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+     * @return Type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
      * 
      */
     public Optional<Output<String>> driveCacheType() {
@@ -226,7 +226,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags to apply to the file system&#39;s final backup.
+     * Map of tags to apply to the file system&#39;s final backup.
      * 
      * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
      * 
@@ -235,7 +235,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     private @Nullable Output<Map<String,String>> finalBackupTags;
 
     /**
-     * @return A map of tags to apply to the file system&#39;s final backup.
+     * @return Map of tags to apply to the file system&#39;s final backup.
      * 
      * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
      * 
@@ -290,14 +290,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
+     * Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
      * 
      */
     @Import(name="logConfiguration")
     private @Nullable Output<LustreFileSystemLogConfigurationArgs> logConfiguration;
 
     /**
-     * @return The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
+     * @return Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
      * 
      */
     public Optional<Output<LustreFileSystemLogConfigurationArgs>> logConfiguration() {
@@ -305,14 +305,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
+     * Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
      * 
      */
     @Import(name="metadataConfiguration")
     private @Nullable Output<LustreFileSystemMetadataConfigurationArgs> metadataConfiguration;
 
     /**
-     * @return The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
+     * @return Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
      * 
      */
     public Optional<Output<LustreFileSystemMetadataConfigurationArgs>> metadataConfiguration() {
@@ -320,14 +320,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The value to be used when mounting the filesystem.
+     * Value to be used when mounting the filesystem.
      * 
      */
     @Import(name="mountName")
     private @Nullable Output<String> mountName;
 
     /**
-     * @return The value to be used when mounting the filesystem.
+     * @return Value to be used when mounting the filesystem.
      * 
      */
     public Optional<Output<String>> mountName() {
@@ -365,14 +365,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
+     * Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
      * 
      */
     @Import(name="perUnitStorageThroughput")
     private @Nullable Output<Integer> perUnitStorageThroughput;
 
     /**
-     * @return Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
+     * @return Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
      * 
      */
     public Optional<Output<Integer>> perUnitStorageThroughput() {
@@ -395,14 +395,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
+     * Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
      * 
      */
     @Import(name="rootSquashConfiguration")
     private @Nullable Output<LustreFileSystemRootSquashConfigurationArgs> rootSquashConfiguration;
 
     /**
-     * @return The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
+     * @return Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
      * 
      */
     public Optional<Output<LustreFileSystemRootSquashConfigurationArgs>> rootSquashConfiguration() {
@@ -410,14 +410,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * @return List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -444,14 +444,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+     * Storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
      * 
      */
     @Import(name="storageCapacity")
     private @Nullable Output<Integer> storageCapacity;
 
     /**
-     * @return The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+     * @return Storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
      * 
      */
     public Optional<Output<Integer>> storageCapacity() {
@@ -459,14 +459,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
+     * Filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
+     * @return Filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -474,18 +474,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
-     * 
-     * The following arguments are optional:
+     * List of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
      * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<String> subnetIds;
 
     /**
-     * @return A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
-     * 
-     * The following arguments are optional:
+     * @return List of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
      * 
      */
     public Optional<Output<String>> subnetIds() {
@@ -493,14 +489,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -508,14 +504,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -553,14 +549,14 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     @Import(name="weeklyMaintenanceStartTime")
     private @Nullable Output<String> weeklyMaintenanceStartTime;
 
     /**
-     * @return The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * @return Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     public Optional<Output<String>> weeklyMaintenanceStartTime() {
@@ -669,7 +665,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param automaticBackupRetentionDays The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+         * @param automaticBackupRetentionDays Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
          * 
          * @return builder
          * 
@@ -680,7 +676,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param automaticBackupRetentionDays The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+         * @param automaticBackupRetentionDays Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
          * 
          * @return builder
          * 
@@ -690,7 +686,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param backupId The ID of the source backup to create the filesystem from.
+         * @param backupId ID of the source backup to create the filesystem from.
          * 
          * @return builder
          * 
@@ -701,7 +697,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param backupId The ID of the source backup to create the filesystem from.
+         * @param backupId ID of the source backup to create the filesystem from.
          * 
          * @return builder
          * 
@@ -711,7 +707,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param copyTagsToBackups A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+         * @param copyTagsToBackups Whether to copy tags for the file system to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
          * 
          * @return builder
          * 
@@ -722,7 +718,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param copyTagsToBackups A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+         * @param copyTagsToBackups Whether to copy tags for the file system to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
          * 
          * @return builder
          * 
@@ -732,7 +728,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dailyAutomaticBackupStartTime A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
+         * @param dailyAutomaticBackupStartTime Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
          * 
          * @return builder
          * 
@@ -743,7 +739,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dailyAutomaticBackupStartTime A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
+         * @param dailyAutomaticBackupStartTime Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automaticBackupRetentionDays` to be set.
          * 
          * @return builder
          * 
@@ -783,7 +779,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deploymentType The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+         * @param deploymentType Filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
          * 
          * @return builder
          * 
@@ -794,7 +790,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deploymentType The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+         * @param deploymentType Filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
          * 
          * @return builder
          * 
@@ -825,7 +821,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param driveCacheType The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+         * @param driveCacheType Type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
          * 
          * @return builder
          * 
@@ -836,7 +832,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param driveCacheType The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+         * @param driveCacheType Type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
          * 
          * @return builder
          * 
@@ -909,7 +905,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param finalBackupTags A map of tags to apply to the file system&#39;s final backup.
+         * @param finalBackupTags Map of tags to apply to the file system&#39;s final backup.
          * 
          * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
          * 
@@ -922,7 +918,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param finalBackupTags A map of tags to apply to the file system&#39;s final backup.
+         * @param finalBackupTags Map of tags to apply to the file system&#39;s final backup.
          * 
          * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
          * 
@@ -997,7 +993,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param logConfiguration The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
+         * @param logConfiguration Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -1008,7 +1004,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param logConfiguration The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
+         * @param logConfiguration Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `logConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -1018,7 +1014,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param metadataConfiguration The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
+         * @param metadataConfiguration Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -1029,7 +1025,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param metadataConfiguration The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
+         * @param metadataConfiguration Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deploymentType` is set to `PERSISTENT_2`. See `metadataConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -1039,7 +1035,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param mountName The value to be used when mounting the filesystem.
+         * @param mountName Value to be used when mounting the filesystem.
          * 
          * @return builder
          * 
@@ -1050,7 +1046,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param mountName The value to be used when mounting the filesystem.
+         * @param mountName Value to be used when mounting the filesystem.
          * 
          * @return builder
          * 
@@ -1112,7 +1108,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param perUnitStorageThroughput Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
+         * @param perUnitStorageThroughput Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
          * 
          * @return builder
          * 
@@ -1123,7 +1119,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param perUnitStorageThroughput Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
+         * @param perUnitStorageThroughput Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and `  SSD ` storageType are 125, 250, 500, 1000.
          * 
          * @return builder
          * 
@@ -1154,7 +1150,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param rootSquashConfiguration The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
+         * @param rootSquashConfiguration Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -1165,7 +1161,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param rootSquashConfiguration The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
+         * @param rootSquashConfiguration Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -1175,7 +1171,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param securityGroupIds A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+         * @param securityGroupIds List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
          * 
          * @return builder
          * 
@@ -1186,7 +1182,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param securityGroupIds A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+         * @param securityGroupIds List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
          * 
          * @return builder
          * 
@@ -1196,7 +1192,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param securityGroupIds A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+         * @param securityGroupIds List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
          * 
          * @return builder
          * 
@@ -1231,7 +1227,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageCapacity The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+         * @param storageCapacity Storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
          * 
          * @return builder
          * 
@@ -1242,7 +1238,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageCapacity The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+         * @param storageCapacity Storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
          * 
          * @return builder
          * 
@@ -1252,7 +1248,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageType The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
+         * @param storageType Filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
          * 
          * @return builder
          * 
@@ -1263,7 +1259,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageType The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
+         * @param storageType Filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `dataReadCacheConfiguration` and `metadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
          * 
          * @return builder
          * 
@@ -1273,9 +1269,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
-         * 
-         * The following arguments are optional:
+         * @param subnetIds List of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
          * 
          * @return builder
          * 
@@ -1286,9 +1280,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
-         * 
-         * The following arguments are optional:
+         * @param subnetIds List of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet&#39;s Availability Zone.
          * 
          * @return builder
          * 
@@ -1298,7 +1290,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1309,7 +1301,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1319,7 +1311,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1330,7 +1322,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1382,7 +1374,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param weeklyMaintenanceStartTime The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+         * @param weeklyMaintenanceStartTime Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
          * 
          * @return builder
          * 
@@ -1393,7 +1385,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param weeklyMaintenanceStartTime The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+         * @param weeklyMaintenanceStartTime Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
          * 
          * @return builder
          * 

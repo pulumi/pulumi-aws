@@ -163,11 +163,11 @@ export class Resolver extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The Caching Config. See Caching Config.
+     * Caching Config. See Caching Config.
      */
     declare public readonly cachingConfig: pulumi.Output<outputs.appsync.ResolverCachingConfig | undefined>;
     /**
-     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      */
     declare public readonly code: pulumi.Output<string | undefined>;
     /**
@@ -187,7 +187,7 @@ export class Resolver extends pulumi.CustomResource {
      */
     declare public readonly maxBatchSize: pulumi.Output<number | undefined>;
     /**
-     * The caching configuration for the resolver. See Pipeline Config.
+     * Caching configuration for the resolver. See Pipeline Config.
      */
     declare public readonly pipelineConfig: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
     /**
@@ -203,11 +203,11 @@ export class Resolver extends pulumi.CustomResource {
      */
     declare public readonly responseTemplate: pulumi.Output<string | undefined>;
     /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      */
     declare public readonly runtime: pulumi.Output<outputs.appsync.ResolverRuntime | undefined>;
     /**
-     * Describes a Sync configuration for a resolver. See Sync Config.
+     * Sync configuration for a resolver. See Sync Config.
      */
     declare public readonly syncConfig: pulumi.Output<outputs.appsync.ResolverSyncConfig | undefined>;
     /**
@@ -288,11 +288,11 @@ export interface ResolverState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The Caching Config. See Caching Config.
+     * Caching Config. See Caching Config.
      */
     cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig | undefined>;
     /**
-     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      */
     code?: pulumi.Input<string | undefined>;
     /**
@@ -312,7 +312,7 @@ export interface ResolverState {
      */
     maxBatchSize?: pulumi.Input<number | undefined>;
     /**
-     * The caching configuration for the resolver. See Pipeline Config.
+     * Caching configuration for the resolver. See Pipeline Config.
      */
     pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig | undefined>;
     /**
@@ -328,11 +328,11 @@ export interface ResolverState {
      */
     responseTemplate?: pulumi.Input<string | undefined>;
     /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      */
     runtime?: pulumi.Input<inputs.appsync.ResolverRuntime | undefined>;
     /**
-     * Describes a Sync configuration for a resolver. See Sync Config.
+     * Sync configuration for a resolver. See Sync Config.
      */
     syncConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfig | undefined>;
     /**
@@ -350,11 +350,11 @@ export interface ResolverArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * The Caching Config. See Caching Config.
+     * Caching Config. See Caching Config.
      */
     cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig | undefined>;
     /**
-     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      */
     code?: pulumi.Input<string | undefined>;
     /**
@@ -374,7 +374,7 @@ export interface ResolverArgs {
      */
     maxBatchSize?: pulumi.Input<number | undefined>;
     /**
-     * The caching configuration for the resolver. See Pipeline Config.
+     * Caching configuration for the resolver. See Pipeline Config.
      */
     pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig | undefined>;
     /**
@@ -390,11 +390,11 @@ export interface ResolverArgs {
      */
     responseTemplate?: pulumi.Input<string | undefined>;
     /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      */
     runtime?: pulumi.Input<inputs.appsync.ResolverRuntime | undefined>;
     /**
-     * Describes a Sync configuration for a resolver. See Sync Config.
+     * Sync configuration for a resolver. See Sync Config.
      */
     syncConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfig | undefined>;
     /**

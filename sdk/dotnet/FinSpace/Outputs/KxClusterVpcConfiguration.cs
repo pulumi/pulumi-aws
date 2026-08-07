@@ -19,12 +19,14 @@ namespace Pulumi.Aws.FinSpace.Outputs
         public readonly string IpAddressType;
         /// <summary>
         /// Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-        /// * `SubnetIds `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
-        /// Identifier of the VPC endpoint
+        /// Identifier of the VPC endpoint.
         /// </summary>
         public readonly string VpcId;
 

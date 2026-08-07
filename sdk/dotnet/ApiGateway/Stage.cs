@@ -114,16 +114,13 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> DocumentationVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Execution ARN to be used in `LambdaPermission`'s `SourceArn`
-        /// when allowing API Gateway to invoke a Lambda function,
-        /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        /// Execution ARN to be used in `LambdaPermission`'s `SourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         /// </summary>
         [Output("executionArn")]
         public Output<string> ExecutionArn { get; private set; } = null!;
 
         /// <summary>
-        /// URL to invoke the API pointing to the stage,
-        /// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        /// URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         /// </summary>
         [Output("invokeUrl")]
         public Output<string> InvokeUrl { get; private set; } = null!;
@@ -381,16 +378,13 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? DocumentationVersion { get; set; }
 
         /// <summary>
-        /// Execution ARN to be used in `LambdaPermission`'s `SourceArn`
-        /// when allowing API Gateway to invoke a Lambda function,
-        /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        /// Execution ARN to be used in `LambdaPermission`'s `SourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         /// </summary>
         [Input("executionArn")]
         public Input<string>? ExecutionArn { get; set; }
 
         /// <summary>
-        /// URL to invoke the API pointing to the stage,
-        /// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        /// URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         /// </summary>
         [Input("invokeUrl")]
         public Input<string>? InvokeUrl { get; set; }

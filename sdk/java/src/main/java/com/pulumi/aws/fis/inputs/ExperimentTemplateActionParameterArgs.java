@@ -32,16 +32,12 @@ public final class ExperimentTemplateActionParameterArgs extends com.pulumi.reso
     /**
      * Parameter value.
      * 
-     * For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-     * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
      * @return Parameter value.
-     * 
-     * For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
      * 
      */
     public Output<String> value() {
@@ -97,8 +93,6 @@ public final class ExperimentTemplateActionParameterArgs extends com.pulumi.reso
         /**
          * @param value Parameter value.
          * 
-         * For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-         * 
          * @return builder
          * 
          */
@@ -109,8 +103,6 @@ public final class ExperimentTemplateActionParameterArgs extends com.pulumi.reso
 
         /**
          * @param value Parameter value.
-         * 
-         * For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
          * 
          * @return builder
          * 

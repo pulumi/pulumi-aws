@@ -17,14 +17,14 @@ public final class GetDbServerArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetDbServerArgs Empty = new GetDbServerArgs();
 
     /**
-     * The unique identifier of the cloud vm cluster.
+     * Unique identifier of the cloud vm cluster.
      * 
      */
     @Import(name="cloudExadataInfrastructureId", required=true)
     private Output<String> cloudExadataInfrastructureId;
 
     /**
-     * @return The unique identifier of the cloud vm cluster.
+     * @return Unique identifier of the cloud vm cluster.
      * 
      */
     public Output<String> cloudExadataInfrastructureId() {
@@ -32,7 +32,7 @@ public final class GetDbServerArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The unique identifier of db node associated with vm cluster.
+     * Unique identifier of db node associated with vm cluster.
      * 
      * The following arguments are optional:
      * 
@@ -41,7 +41,7 @@ public final class GetDbServerArgs extends com.pulumi.resources.InvokeArgs {
     private Output<String> id;
 
     /**
-     * @return The unique identifier of db node associated with vm cluster.
+     * @return Unique identifier of db node associated with vm cluster.
      * 
      * The following arguments are optional:
      * 
@@ -92,7 +92,7 @@ public final class GetDbServerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param cloudExadataInfrastructureId The unique identifier of the cloud vm cluster.
+         * @param cloudExadataInfrastructureId Unique identifier of the cloud vm cluster.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetDbServerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param cloudExadataInfrastructureId The unique identifier of the cloud vm cluster.
+         * @param cloudExadataInfrastructureId Unique identifier of the cloud vm cluster.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class GetDbServerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The unique identifier of db node associated with vm cluster.
+         * @param id Unique identifier of db node associated with vm cluster.
          * 
          * The following arguments are optional:
          * 
@@ -126,7 +126,7 @@ public final class GetDbServerArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The unique identifier of db node associated with vm cluster.
+         * @param id Unique identifier of db node associated with vm cluster.
          * 
          * The following arguments are optional:
          * 

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.FinSpace.Outputs
     public sealed class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration
     {
         /// <summary>
-        /// The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+        /// IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
         /// </summary>
         public readonly string CidrBlock;
         /// <summary>
-        /// Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+        /// ICMP protocol that consists of the ICMP type and code. Defined below.
         /// </summary>
         public readonly Outputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode? IcmpTypeCode;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.FinSpace.Outputs
         /// </summary>
         public readonly string Protocol;
         /// <summary>
-        /// Indicates whether to `Allow` or `Deny` the traffic that matches the rule.
+        /// Whether to `Allow` or `Deny` the traffic that matches the rule.
         /// </summary>
         public readonly string RuleAction;
         /// <summary>

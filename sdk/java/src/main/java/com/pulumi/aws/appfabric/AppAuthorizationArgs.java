@@ -22,14 +22,14 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
     public static final AppAuthorizationArgs Empty = new AppAuthorizationArgs();
 
     /**
-     * The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
+     * Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
      * 
      */
     @Import(name="app", required=true)
     private Output<String> app;
 
     /**
-     * @return The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
+     * @return Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
      * 
      */
     public Output<String> app() {
@@ -37,14 +37,14 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
     @Import(name="appBundleArn", required=true)
     private Output<String> appBundleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
     public Output<String> appBundleArn() {
@@ -52,14 +52,14 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The authorization type for the app authorization valid values are oauth2 and apiKey.
+     * Authorization type for the app authorization. Valid values are `oauth2` and `apiKey`.
      * 
      */
     @Import(name="authType", required=true)
     private Output<String> authType;
 
     /**
-     * @return The authorization type for the app authorization valid values are oauth2 and apiKey.
+     * @return Authorization type for the app authorization. Valid values are `oauth2` and `apiKey`.
      * 
      */
     public Output<String> authType() {
@@ -67,16 +67,14 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-     * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
+     * Credentials for the application, such as an API key or OAuth2 client ID and secret. Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (`oauth2`), then you should provide only the OAuth2 credentials. See `credential` Block for details.
      * 
      */
     @Import(name="credential", required=true)
     private Output<AppAuthorizationCredentialArgs> credential;
 
     /**
-     * @return Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-     * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
+     * @return Credentials for the application, such as an API key or OAuth2 client ID and secret. Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (`oauth2`), then you should provide only the OAuth2 credentials. See `credential` Block for details.
      * 
      */
     public Output<AppAuthorizationCredentialArgs> credential() {
@@ -98,22 +96,34 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
-     * Contains information about an application tenant, such as the application display name and identifier.
+     * Information about an application tenant, such as the application display name and identifier. See `tenant` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="tenants", required=true)
     private Output<List<AppAuthorizationTenantArgs>> tenants;
 
     /**
-     * @return Contains information about an application tenant, such as the application display name and identifier.
+     * @return Information about an application tenant, such as the application display name and identifier. See `tenant` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<AppAuthorizationTenantArgs>> tenants() {
@@ -159,7 +169,7 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param app The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
+         * @param app Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
          * 
          * @return builder
          * 
@@ -170,7 +180,7 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param app The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
+         * @param app Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
          * 
          * @return builder
          * 
@@ -180,7 +190,7 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appBundleArn The Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
          * 
          * @return builder
          * 
@@ -191,7 +201,7 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param appBundleArn The Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
          * 
          * @return builder
          * 
@@ -201,7 +211,7 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authType The authorization type for the app authorization valid values are oauth2 and apiKey.
+         * @param authType Authorization type for the app authorization. Valid values are `oauth2` and `apiKey`.
          * 
          * @return builder
          * 
@@ -212,7 +222,7 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authType The authorization type for the app authorization valid values are oauth2 and apiKey.
+         * @param authType Authorization type for the app authorization. Valid values are `oauth2` and `apiKey`.
          * 
          * @return builder
          * 
@@ -222,8 +232,7 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param credential Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-         * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
+         * @param credential Credentials for the application, such as an API key or OAuth2 client ID and secret. Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (`oauth2`), then you should provide only the OAuth2 credentials. See `credential` Block for details.
          * 
          * @return builder
          * 
@@ -234,8 +243,7 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param credential Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-         * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
+         * @param credential Credentials for the application, such as an API key or OAuth2 client ID and secret. Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (`oauth2`), then you should provide only the OAuth2 credentials. See `credential` Block for details.
          * 
          * @return builder
          * 
@@ -265,17 +273,31 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
             return region(Output.of(region));
         }
 
+        /**
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
         /**
-         * @param tenants Contains information about an application tenant, such as the application display name and identifier.
+         * @param tenants Information about an application tenant, such as the application display name and identifier. See `tenant` Block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -286,7 +308,9 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tenants Contains information about an application tenant, such as the application display name and identifier.
+         * @param tenants Information about an application tenant, such as the application display name and identifier. See `tenant` Block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -296,7 +320,9 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tenants Contains information about an application tenant, such as the application display name and identifier.
+         * @param tenants Information about an application tenant, such as the application display name and identifier. See `tenant` Block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

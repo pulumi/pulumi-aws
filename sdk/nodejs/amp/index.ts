@@ -10,6 +10,11 @@ export type AlertManagerDefinition = import("./alertManagerDefinition").AlertMan
 export const AlertManagerDefinition: typeof import("./alertManagerDefinition").AlertManagerDefinition = null as any;
 utilities.lazyLoad(exports, ["AlertManagerDefinition"], () => require("./alertManagerDefinition"));
 
+export { AnomalyDetectorArgs, AnomalyDetectorState } from "./anomalyDetector";
+export type AnomalyDetector = import("./anomalyDetector").AnomalyDetector;
+export const AnomalyDetector: typeof import("./anomalyDetector").AnomalyDetector = null as any;
+utilities.lazyLoad(exports, ["AnomalyDetector"], () => require("./anomalyDetector"));
+
 export { GetDefaultScraperConfigurationArgs, GetDefaultScraperConfigurationResult, GetDefaultScraperConfigurationOutputArgs } from "./getDefaultScraperConfiguration";
 export const getDefaultScraperConfiguration: typeof import("./getDefaultScraperConfiguration").getDefaultScraperConfiguration = null as any;
 export const getDefaultScraperConfigurationOutput: typeof import("./getDefaultScraperConfiguration").getDefaultScraperConfigurationOutput = null as any;
@@ -45,6 +50,11 @@ export type Scraper = import("./scraper").Scraper;
 export const Scraper: typeof import("./scraper").Scraper = null as any;
 utilities.lazyLoad(exports, ["Scraper"], () => require("./scraper"));
 
+export { ScraperLoggingConfigurationArgs, ScraperLoggingConfigurationState } from "./scraperLoggingConfiguration";
+export type ScraperLoggingConfiguration = import("./scraperLoggingConfiguration").ScraperLoggingConfiguration;
+export const ScraperLoggingConfiguration: typeof import("./scraperLoggingConfiguration").ScraperLoggingConfiguration = null as any;
+utilities.lazyLoad(exports, ["ScraperLoggingConfiguration"], () => require("./scraperLoggingConfiguration"));
+
 export { WorkspaceArgs, WorkspaceState } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
@@ -62,6 +72,8 @@ const _module = {
         switch (type) {
             case "aws:amp/alertManagerDefinition:AlertManagerDefinition":
                 return new AlertManagerDefinition(name, <any>undefined, { urn })
+            case "aws:amp/anomalyDetector:AnomalyDetector":
+                return new AnomalyDetector(name, <any>undefined, { urn })
             case "aws:amp/queryLoggingConfiguration:QueryLoggingConfiguration":
                 return new QueryLoggingConfiguration(name, <any>undefined, { urn })
             case "aws:amp/resourcePolicy:ResourcePolicy":
@@ -70,6 +82,8 @@ const _module = {
                 return new RuleGroupNamespace(name, <any>undefined, { urn })
             case "aws:amp/scraper:Scraper":
                 return new Scraper(name, <any>undefined, { urn })
+            case "aws:amp/scraperLoggingConfiguration:ScraperLoggingConfiguration":
+                return new ScraperLoggingConfiguration(name, <any>undefined, { urn })
             case "aws:amp/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             case "aws:amp/workspaceConfiguration:WorkspaceConfiguration":
@@ -80,9 +94,11 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "amp/alertManagerDefinition", _module)
+pulumi.runtime.registerResourceModule("aws", "amp/anomalyDetector", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/queryLoggingConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/ruleGroupNamespace", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/scraper", _module)
+pulumi.runtime.registerResourceModule("aws", "amp/scraperLoggingConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/workspace", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/workspaceConfiguration", _module)

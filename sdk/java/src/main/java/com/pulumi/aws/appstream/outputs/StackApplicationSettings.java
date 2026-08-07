@@ -19,9 +19,7 @@ public final class StackApplicationSettings {
      */
     private Boolean enabled;
     /**
-     * @return Name of the settings group.
-     * Required when `enabled` is `true`.
-     * Can be up to 100 characters.
+     * @return Name of the settings group. Required when `enabled` is `true`. Can be up to 100 characters.
      * 
      */
     private @Nullable String settingsGroup;
@@ -35,9 +33,7 @@ public final class StackApplicationSettings {
         return this.enabled;
     }
     /**
-     * @return Name of the settings group.
-     * Required when `enabled` is `true`.
-     * Can be up to 100 characters.
+     * @return Name of the settings group. Required when `enabled` is `true`. Can be up to 100 characters.
      * 
      */
     public Optional<String> settingsGroup() {

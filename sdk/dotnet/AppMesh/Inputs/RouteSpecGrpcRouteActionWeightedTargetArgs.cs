@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecGrpcRouteActionWeightedTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The targeted port of the weighted object.
+        /// Port number to match from the request.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

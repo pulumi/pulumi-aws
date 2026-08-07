@@ -144,31 +144,31 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The availability zone where the ODB network is located.
+        /// Availability zone where the ODB network is located.
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
-        /// The AZ ID of the AZ where the ODB network is located.
+        /// AZ ID of the AZ where the ODB network is located.
         /// </summary>
         public readonly string AvailabilityZoneId;
         /// <summary>
-        /// The CIDR range of the backup subnet for the ODB network.
+        /// CIDR range of the backup subnet for the ODB network.
         /// </summary>
         public readonly string BackupSubnetCidr;
         /// <summary>
-        /// The CIDR notation for the network resource.
+        /// CIDR notation for the network resource.
         /// </summary>
         public readonly string ClientSubnetCidr;
         /// <summary>
-        /// The date and time when the ODB network was created.
+        /// Date and time when the ODB network was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The name of the custom domain that the network is located.
+        /// Name of the custom domain that the network is located.
         /// </summary>
         public readonly string CustomDomainName;
         /// <summary>
-        /// The default DNS prefix for the network resource.
+        /// Default DNS prefix for the network resource.
         /// </summary>
         public readonly string DefaultDnsPrefix;
         /// <summary>
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// A list of EC2 placement group IDs associated with the ODB network.
+        /// List of EC2 placement group IDs associated with the ODB network.
         /// </summary>
         public readonly ImmutableArray<string> Ec2PlacementGroupIds;
         /// <summary>
@@ -184,47 +184,53 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The managed services configuration for the ODB network.
+        /// Managed services configuration for the ODB network.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkManagedServiceResult> ManagedServices;
+        /// <summary>
+        /// DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkOciDnsForwardingConfigResult> OciDnsForwardingConfigs;
         /// <summary>
-        /// The unique identifier of the OCI network anchor for the ODB network.
+        /// Unique identifier of the OCI network anchor for the ODB network.
         /// </summary>
         public readonly string OciNetworkAnchorId;
         /// <summary>
-        /// The URL of the OCI network anchor for the ODB network.
+        /// URL of the OCI network anchor for the ODB network.
         /// </summary>
         public readonly string OciNetworkAnchorUrl;
         /// <summary>
-        /// The name of the OCI resource anchor for the ODB network.
+        /// Name of the OCI resource anchor for the ODB network.
         /// </summary>
         public readonly string OciResourceAnchorName;
         /// <summary>
-        /// The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+        /// Unique identifier Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
         /// </summary>
         public readonly string OciVcnId;
         /// <summary>
-        /// The URL of the OCI VCN for the ODB network.
+        /// URL of the OCI VCN for the ODB network.
         /// </summary>
         public readonly string OciVcnUrl;
         /// <summary>
-        /// The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+        /// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
         /// </summary>
         public readonly ImmutableArray<string> PeeredCidrs;
         /// <summary>
-        /// The amount of progress made on the current operation on the ODB network, expressed as a percentage.
+        /// Amount of progress made on the current operation on the ODB network, expressed as a percentage.
         /// </summary>
         public readonly double PercentProgress;
         public readonly string Region;
         /// <summary>
-        /// The status of the network resource.
+        /// Status of the network resource.
         /// </summary>
         public readonly string Status;
         /// <summary>
         /// Additional information about the current status of the ODB network.
         /// </summary>
         public readonly string StatusReason;
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

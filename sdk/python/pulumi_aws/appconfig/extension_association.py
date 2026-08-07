@@ -26,9 +26,9 @@ class ExtensionAssociationArgs:
         """
         The set of arguments for constructing a ExtensionAssociation resource.
 
-        :param pulumi.Input[_builtins.str] extension_arn: The ARN of the extension defined in the association.
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The parameter names and values defined for the association.
+        :param pulumi.Input[_builtins.str] extension_arn: ARN of the extension defined in the association.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the application, configuration profile, or environment to associate with the extension.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Parameter names and values defined for the association.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "extension_arn", extension_arn)
@@ -42,7 +42,7 @@ class ExtensionAssociationArgs:
     @pulumi.getter(name="extensionArn")
     def extension_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the extension defined in the association.
+        ARN of the extension defined in the association.
         """
         return pulumi.get(self, "extension_arn")
 
@@ -54,7 +54,7 @@ class ExtensionAssociationArgs:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the application, configuration profile, or environment to associate with the extension.
+        ARN of the application, configuration profile, or environment to associate with the extension.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -66,7 +66,7 @@ class ExtensionAssociationArgs:
     @pulumi.getter
     def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        The parameter names and values defined for the association.
+        Parameter names and values defined for the association.
         """
         return pulumi.get(self, "parameters")
 
@@ -100,11 +100,11 @@ class _ExtensionAssociationState:
         Input properties used for looking up and filtering ExtensionAssociation resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Extension Association.
-        :param pulumi.Input[_builtins.str] extension_arn: The ARN of the extension defined in the association.
-        :param pulumi.Input[_builtins.int] extension_version: The version number for the extension defined in the association.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The parameter names and values defined for the association.
+        :param pulumi.Input[_builtins.str] extension_arn: ARN of the extension defined in the association.
+        :param pulumi.Input[_builtins.int] extension_version: Version number for the extension defined in the association.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Parameter names and values defined for the association.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the application, configuration profile, or environment to associate with the extension.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -135,7 +135,7 @@ class _ExtensionAssociationState:
     @pulumi.getter(name="extensionArn")
     def extension_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the extension defined in the association.
+        ARN of the extension defined in the association.
         """
         return pulumi.get(self, "extension_arn")
 
@@ -147,7 +147,7 @@ class _ExtensionAssociationState:
     @pulumi.getter(name="extensionVersion")
     def extension_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The version number for the extension defined in the association.
+        Version number for the extension defined in the association.
         """
         return pulumi.get(self, "extension_version")
 
@@ -159,7 +159,7 @@ class _ExtensionAssociationState:
     @pulumi.getter
     def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        The parameter names and values defined for the association.
+        Parameter names and values defined for the association.
         """
         return pulumi.get(self, "parameters")
 
@@ -183,7 +183,7 @@ class _ExtensionAssociationState:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the application, configuration profile, or environment to associate with the extension.
+        ARN of the application, configuration profile, or environment to associate with the extension.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -254,10 +254,10 @@ class ExtensionAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] extension_arn: The ARN of the extension defined in the association.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The parameter names and values defined for the association.
+        :param pulumi.Input[_builtins.str] extension_arn: ARN of the extension defined in the association.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Parameter names and values defined for the association.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the application, configuration profile, or environment to associate with the extension.
         """
         ...
     @overload
@@ -376,11 +376,11 @@ class ExtensionAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Extension Association.
-        :param pulumi.Input[_builtins.str] extension_arn: The ARN of the extension defined in the association.
-        :param pulumi.Input[_builtins.int] extension_version: The version number for the extension defined in the association.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: The parameter names and values defined for the association.
+        :param pulumi.Input[_builtins.str] extension_arn: ARN of the extension defined in the association.
+        :param pulumi.Input[_builtins.int] extension_version: Version number for the extension defined in the association.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Parameter names and values defined for the association.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the application, configuration profile, or environment to associate with the extension.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the application, configuration profile, or environment to associate with the extension.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -406,7 +406,7 @@ class ExtensionAssociation(pulumi.CustomResource):
     @pulumi.getter(name="extensionArn")
     def extension_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the extension defined in the association.
+        ARN of the extension defined in the association.
         """
         return pulumi.get(self, "extension_arn")
 
@@ -414,7 +414,7 @@ class ExtensionAssociation(pulumi.CustomResource):
     @pulumi.getter(name="extensionVersion")
     def extension_version(self) -> pulumi.Output[_builtins.int]:
         """
-        The version number for the extension defined in the association.
+        Version number for the extension defined in the association.
         """
         return pulumi.get(self, "extension_version")
 
@@ -422,7 +422,7 @@ class ExtensionAssociation(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        The parameter names and values defined for the association.
+        Parameter names and values defined for the association.
         """
         return pulumi.get(self, "parameters")
 
@@ -438,7 +438,7 @@ class ExtensionAssociation(pulumi.CustomResource):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the application, configuration profile, or environment to associate with the extension.
+        ARN of the application, configuration profile, or environment to associate with the extension.
         """
         return pulumi.get(self, "resource_arn")
 

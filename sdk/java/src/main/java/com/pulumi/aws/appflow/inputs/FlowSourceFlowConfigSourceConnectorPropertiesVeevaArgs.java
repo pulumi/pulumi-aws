@@ -33,14 +33,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
     }
 
     /**
-     * Boolean value to include All Versions of files in Veeva document extract flow.
+     * Whether to include all versions of files in the Veeva document extract flow.
      * 
      */
     @Import(name="includeAllVersions")
     private @Nullable Output<Boolean> includeAllVersions;
 
     /**
-     * @return Boolean value to include All Versions of files in Veeva document extract flow.
+     * @return Whether to include all versions of files in the Veeva document extract flow.
      * 
      */
     public Optional<Output<Boolean>> includeAllVersions() {
@@ -48,14 +48,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
     }
 
     /**
-     * Boolean value to include file renditions in Veeva document extract flow.
+     * Whether to include file renditions in the Veeva document extract flow.
      * 
      */
     @Import(name="includeRenditions")
     private @Nullable Output<Boolean> includeRenditions;
 
     /**
-     * @return Boolean value to include file renditions in Veeva document extract flow.
+     * @return Whether to include file renditions in the Veeva document extract flow.
      * 
      */
     public Optional<Output<Boolean>> includeRenditions() {
@@ -63,14 +63,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
     }
 
     /**
-     * Boolean value to include source files in Veeva document extract flow.
+     * Whether to include source files in the Veeva document extract flow.
      * 
      */
     @Import(name="includeSourceFiles")
     private @Nullable Output<Boolean> includeSourceFiles;
 
     /**
-     * @return Boolean value to include source files in Veeva document extract flow.
+     * @return Whether to include source files in the Veeva document extract flow.
      * 
      */
     public Optional<Output<Boolean>> includeSourceFiles() {
@@ -134,7 +134,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
         }
 
         /**
-         * @param includeAllVersions Boolean value to include All Versions of files in Veeva document extract flow.
+         * @param includeAllVersions Whether to include all versions of files in the Veeva document extract flow.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
         }
 
         /**
-         * @param includeAllVersions Boolean value to include All Versions of files in Veeva document extract flow.
+         * @param includeAllVersions Whether to include all versions of files in the Veeva document extract flow.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
         }
 
         /**
-         * @param includeRenditions Boolean value to include file renditions in Veeva document extract flow.
+         * @param includeRenditions Whether to include file renditions in the Veeva document extract flow.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
         }
 
         /**
-         * @param includeRenditions Boolean value to include file renditions in Veeva document extract flow.
+         * @param includeRenditions Whether to include file renditions in the Veeva document extract flow.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
         }
 
         /**
-         * @param includeSourceFiles Boolean value to include source files in Veeva document extract flow.
+         * @param includeSourceFiles Whether to include source files in the Veeva document extract flow.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs extend
         }
 
         /**
-         * @param includeSourceFiles Boolean value to include source files in Veeva document extract flow.
+         * @param includeSourceFiles Whether to include source files in the Veeva document extract flow.
          * 
          * @return builder
          * 

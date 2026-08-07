@@ -90,7 +90,7 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Configuration block(s) containing lifecycle rules for the bucket.
+     * Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
      */
     declare public readonly rules: pulumi.Output<outputs.s3control.BucketLifecycleConfigurationRule[]>;
 
@@ -140,7 +140,7 @@ export interface BucketLifecycleConfigurationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block(s) containing lifecycle rules for the bucket.
+     * Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRule>[] | undefined>;
 }
@@ -158,7 +158,7 @@ export interface BucketLifecycleConfigurationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block(s) containing lifecycle rules for the bucket.
+     * Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
      */
     rules: pulumi.Input<pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRule>[]>;
 }

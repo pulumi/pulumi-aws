@@ -33,18 +33,14 @@ public final class StackApplicationSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Name of the settings group.
-     * Required when `enabled` is `true`.
-     * Can be up to 100 characters.
+     * Name of the settings group. Required when `enabled` is `true`. Can be up to 100 characters.
      * 
      */
     @Import(name="settingsGroup")
     private @Nullable Output<String> settingsGroup;
 
     /**
-     * @return Name of the settings group.
-     * Required when `enabled` is `true`.
-     * Can be up to 100 characters.
+     * @return Name of the settings group. Required when `enabled` is `true`. Can be up to 100 characters.
      * 
      */
     public Optional<Output<String>> settingsGroup() {
@@ -98,9 +94,7 @@ public final class StackApplicationSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param settingsGroup Name of the settings group.
-         * Required when `enabled` is `true`.
-         * Can be up to 100 characters.
+         * @param settingsGroup Name of the settings group. Required when `enabled` is `true`. Can be up to 100 characters.
          * 
          * @return builder
          * 
@@ -111,9 +105,7 @@ public final class StackApplicationSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param settingsGroup Name of the settings group.
-         * Required when `enabled` is `true`.
-         * Can be up to 100 characters.
+         * @param settingsGroup Name of the settings group. Required when `enabled` is `true`. Can be up to 100 characters.
          * 
          * @return builder
          * 

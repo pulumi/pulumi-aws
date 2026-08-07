@@ -48,7 +48,7 @@ public final class GetAccessPointsAccessPoint {
      */
     private String name;
     /**
-     * @return Indicates whether the access point allows access from the public Internet.
+     * @return Whether the access point allows access from the public Internet.
      * 
      */
     private String networkOrigin;
@@ -109,7 +109,7 @@ public final class GetAccessPointsAccessPoint {
         return this.name;
     }
     /**
-     * @return Indicates whether the access point allows access from the public Internet.
+     * @return Whether the access point allows access from the public Internet.
      * 
      */
     public String networkOrigin() {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     public sealed class TargetGroupAttachmentTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
+        /// ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

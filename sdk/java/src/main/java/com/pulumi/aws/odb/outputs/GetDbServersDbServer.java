@@ -14,92 +14,92 @@ import java.util.Objects;
 @CustomType
 public final class GetDbServersDbServer {
     /**
-     * @return A list of unique identifiers for the Autonomous VMs.
+     * @return List of unique identifiers for the Autonomous VMs.
      * 
      */
     private List<String> autonomousVirtualMachineIds;
     /**
-     * @return A list of identifiers for the Autonomous VM clusters.
+     * @return List of identifiers for the Autonomous VM clusters.
      * 
      */
     private List<String> autonomousVmClusterIds;
     /**
-     * @return The OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
+     * @return OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
      * 
      */
     private String computeModel;
     /**
-     * @return The number of CPU cores enabled on the database server.
+     * @return Number of CPU cores enabled on the database server.
      * 
      */
     private Integer cpuCoreCount;
     /**
-     * @return The date and time when the database server was created.
+     * @return Date and time when the database server was created.
      * 
      */
     private String createdAt;
     /**
-     * @return The amount of local node storage, in gigabytes (GB), that&#39;s allocated on the database server.
+     * @return Amount of local node storage, in gigabytes (GB), that&#39;s allocated on the database server.
      * 
      */
     private Integer dbNodeStorageSizeInGbs;
     /**
-     * @return The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+     * @return Scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
      * 
      */
     private List<GetDbServersDbServerDbServerPatchingDetail> dbServerPatchingDetails;
     /**
-     * @return The user-friendly name of the database server. The name doesn&#39;t need to be unique.
+     * @return User-friendly name of the database server. The name doesn&#39;t need to be unique.
      * 
      */
     private String displayName;
     /**
-     * @return The ID of the Exadata infrastructure that hosts the database server.
+     * @return ID of the Exadata infrastructure that hosts the database server.
      * 
      */
     private String exadataInfrastructureId;
     /**
-     * @return The unique identifier of the database server.
+     * @return Unique identifier of the database server.
      * 
      */
     private String id;
     /**
-     * @return The total number of CPU cores available on the database server.
+     * @return Total number of CPU cores available on the database server.
      * 
      */
     private Integer maxCpuCount;
     /**
-     * @return The total amount of local node storage, in gigabytes (GB), that&#39;s available on the database server.
+     * @return Total amount of local node storage, in gigabytes (GB), that&#39;s available on the database server.
      * 
      */
     private Integer maxDbNodeStorageInGbs;
     /**
-     * @return The total amount of memory, in gigabytes (GB), that&#39;s available on the database server.
+     * @return Total amount of memory, in gigabytes (GB), that&#39;s available on the database server.
      * 
      */
     private Integer maxMemoryInGbs;
     /**
-     * @return The amount of memory, in gigabytes (GB), that&#39;s allocated on the database server.
+     * @return Amount of memory, in gigabytes (GB), that&#39;s allocated on the database server.
      * 
      */
     private Integer memorySizeInGbs;
     /**
-     * @return The name of the OCI resource anchor for the database server.
+     * @return Name of the OCI resource anchor for the database server.
      * 
      */
     private String ociResourceAnchorName;
     /**
-     * @return The OCID of the database server.
+     * @return OCID of the database server.
      * 
      */
     private String ocid;
     /**
-     * @return The hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
+     * @return Hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
      * 
      */
     private String shape;
     /**
-     * @return The current status of the database server.
+     * @return Current status of the database server.
      * 
      */
     private String status;
@@ -109,133 +109,133 @@ public final class GetDbServersDbServer {
      */
     private String statusReason;
     /**
-     * @return The IDs of the VM clusters that are associated with the database server.
+     * @return IDs of the VM clusters that are associated with the database server.
      * 
      */
     private List<String> vmClusterIds;
 
     private GetDbServersDbServer() {}
     /**
-     * @return A list of unique identifiers for the Autonomous VMs.
+     * @return List of unique identifiers for the Autonomous VMs.
      * 
      */
     public List<String> autonomousVirtualMachineIds() {
         return this.autonomousVirtualMachineIds;
     }
     /**
-     * @return A list of identifiers for the Autonomous VM clusters.
+     * @return List of identifiers for the Autonomous VM clusters.
      * 
      */
     public List<String> autonomousVmClusterIds() {
         return this.autonomousVmClusterIds;
     }
     /**
-     * @return The OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
+     * @return OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
      * 
      */
     public String computeModel() {
         return this.computeModel;
     }
     /**
-     * @return The number of CPU cores enabled on the database server.
+     * @return Number of CPU cores enabled on the database server.
      * 
      */
     public Integer cpuCoreCount() {
         return this.cpuCoreCount;
     }
     /**
-     * @return The date and time when the database server was created.
+     * @return Date and time when the database server was created.
      * 
      */
     public String createdAt() {
         return this.createdAt;
     }
     /**
-     * @return The amount of local node storage, in gigabytes (GB), that&#39;s allocated on the database server.
+     * @return Amount of local node storage, in gigabytes (GB), that&#39;s allocated on the database server.
      * 
      */
     public Integer dbNodeStorageSizeInGbs() {
         return this.dbNodeStorageSizeInGbs;
     }
     /**
-     * @return The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+     * @return Scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
      * 
      */
     public List<GetDbServersDbServerDbServerPatchingDetail> dbServerPatchingDetails() {
         return this.dbServerPatchingDetails;
     }
     /**
-     * @return The user-friendly name of the database server. The name doesn&#39;t need to be unique.
+     * @return User-friendly name of the database server. The name doesn&#39;t need to be unique.
      * 
      */
     public String displayName() {
         return this.displayName;
     }
     /**
-     * @return The ID of the Exadata infrastructure that hosts the database server.
+     * @return ID of the Exadata infrastructure that hosts the database server.
      * 
      */
     public String exadataInfrastructureId() {
         return this.exadataInfrastructureId;
     }
     /**
-     * @return The unique identifier of the database server.
+     * @return Unique identifier of the database server.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return The total number of CPU cores available on the database server.
+     * @return Total number of CPU cores available on the database server.
      * 
      */
     public Integer maxCpuCount() {
         return this.maxCpuCount;
     }
     /**
-     * @return The total amount of local node storage, in gigabytes (GB), that&#39;s available on the database server.
+     * @return Total amount of local node storage, in gigabytes (GB), that&#39;s available on the database server.
      * 
      */
     public Integer maxDbNodeStorageInGbs() {
         return this.maxDbNodeStorageInGbs;
     }
     /**
-     * @return The total amount of memory, in gigabytes (GB), that&#39;s available on the database server.
+     * @return Total amount of memory, in gigabytes (GB), that&#39;s available on the database server.
      * 
      */
     public Integer maxMemoryInGbs() {
         return this.maxMemoryInGbs;
     }
     /**
-     * @return The amount of memory, in gigabytes (GB), that&#39;s allocated on the database server.
+     * @return Amount of memory, in gigabytes (GB), that&#39;s allocated on the database server.
      * 
      */
     public Integer memorySizeInGbs() {
         return this.memorySizeInGbs;
     }
     /**
-     * @return The name of the OCI resource anchor for the database server.
+     * @return Name of the OCI resource anchor for the database server.
      * 
      */
     public String ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
     /**
-     * @return The OCID of the database server.
+     * @return OCID of the database server.
      * 
      */
     public String ocid() {
         return this.ocid;
     }
     /**
-     * @return The hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
+     * @return Hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
      * 
      */
     public String shape() {
         return this.shape;
     }
     /**
-     * @return The current status of the database server.
+     * @return Current status of the database server.
      * 
      */
     public String status() {
@@ -249,7 +249,7 @@ public final class GetDbServersDbServer {
         return this.statusReason;
     }
     /**
-     * @return The IDs of the VM clusters that are associated with the database server.
+     * @return IDs of the VM clusters that are associated with the database server.
      * 
      */
     public List<String> vmClusterIds() {

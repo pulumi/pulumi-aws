@@ -3694,6 +3694,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="resiliencehubv2")
+    private @Nullable Output<String> resiliencehubv2;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> resiliencehubv2() {
+        return Optional.ofNullable(this.resiliencehubv2);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="resourceexplorer2")
     private @Nullable Output<String> resourceexplorer2;
 
@@ -4988,6 +5003,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.redshiftserverless = $.redshiftserverless;
         this.rekognition = $.rekognition;
         this.resiliencehub = $.resiliencehub;
+        this.resiliencehubv2 = $.resiliencehubv2;
         this.resourceexplorer2 = $.resourceexplorer2;
         this.resourcegroups = $.resourcegroups;
         this.resourcegroupstagging = $.resourcegroupstagging;
@@ -10221,6 +10237,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder resiliencehub(String resiliencehub) {
             return resiliencehub(Output.of(resiliencehub));
+        }
+
+        /**
+         * @param resiliencehubv2 Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resiliencehubv2(@Nullable Output<String> resiliencehubv2) {
+            $.resiliencehubv2 = resiliencehubv2;
+            return this;
+        }
+
+        /**
+         * @param resiliencehubv2 Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resiliencehubv2(String resiliencehubv2) {
+            return resiliencehubv2(Output.of(resiliencehubv2));
         }
 
         /**

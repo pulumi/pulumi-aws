@@ -18,14 +18,14 @@ public final class FlowTriggerConfigArgs extends com.pulumi.resources.ResourceAr
     public static final FlowTriggerConfigArgs Empty = new FlowTriggerConfigArgs();
 
     /**
-     * Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+     * Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See the `trigger_config.trigger_properties` Block for details.
      * 
      */
     @Import(name="triggerProperties")
     private @Nullable Output<FlowTriggerConfigTriggerPropertiesArgs> triggerProperties;
 
     /**
-     * @return Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+     * @return Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See the `trigger_config.trigger_properties` Block for details.
      * 
      */
     public Optional<Output<FlowTriggerConfigTriggerPropertiesArgs>> triggerProperties() {
@@ -73,7 +73,7 @@ public final class FlowTriggerConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param triggerProperties Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+         * @param triggerProperties Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See the `trigger_config.trigger_properties` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class FlowTriggerConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param triggerProperties Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+         * @param triggerProperties Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See the `trigger_config.trigger_properties` Block for details.
          * 
          * @return builder
          * 

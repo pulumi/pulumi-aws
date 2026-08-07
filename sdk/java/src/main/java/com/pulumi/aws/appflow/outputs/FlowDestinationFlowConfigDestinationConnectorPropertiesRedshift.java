@@ -14,7 +14,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift {
     private @Nullable String bucketPrefix;
+    /**
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+     * 
+     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig errorHandlingConfig;
+    /**
+     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+     * 
+     */
     private String intermediateBucketName;
     private String object;
 
@@ -22,9 +30,17 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
+    /**
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+     * 
+     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
+    /**
+     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+     * 
+     */
     public String intermediateBucketName() {
         return this.intermediateBucketName;
     }

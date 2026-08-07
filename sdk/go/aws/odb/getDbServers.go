@@ -54,7 +54,7 @@ func GetDbServers(ctx *pulumi.Context, args *GetDbServersArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getDbServers.
 type GetDbServersArgs struct {
-	// The unique identifier of the cloud vm cluster.
+	// Unique identifier of the cloud vm cluster.
 	//
 	// The following arguments are optional:
 	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
@@ -81,7 +81,7 @@ func GetDbServersOutput(ctx *pulumi.Context, args GetDbServersOutputArgs, opts .
 
 // A collection of arguments for invoking getDbServers.
 type GetDbServersOutputArgs struct {
-	// The unique identifier of the cloud vm cluster.
+	// Unique identifier of the cloud vm cluster.
 	//
 	// The following arguments are optional:
 	CloudExadataInfrastructureId pulumi.StringInput `pulumi:"cloudExadataInfrastructureId"`

@@ -73,7 +73,7 @@ type BucketRequestPaymentConfigurationV2 struct {
 	//
 	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+	// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringOutput `pulumi:"payer"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -127,7 +127,7 @@ type bucketRequestPaymentConfigurationV2State struct {
 	//
 	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+	// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer *string `pulumi:"payer"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -140,7 +140,7 @@ type BucketRequestPaymentConfigurationV2State struct {
 	//
 	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+	// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -157,7 +157,7 @@ type bucketRequestPaymentConfigurationV2Args struct {
 	//
 	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+	// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer string `pulumi:"payer"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -171,7 +171,7 @@ type BucketRequestPaymentConfigurationV2Args struct {
 	//
 	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+	// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -276,7 +276,7 @@ func (o BucketRequestPaymentConfigurationV2Output) ExpectedBucketOwner() pulumi.
 	return o.ApplyT(func(v *BucketRequestPaymentConfigurationV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 func (o BucketRequestPaymentConfigurationV2Output) Payer() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketRequestPaymentConfigurationV2) pulumi.StringOutput { return v.Payer }).(pulumi.StringOutput)
 }

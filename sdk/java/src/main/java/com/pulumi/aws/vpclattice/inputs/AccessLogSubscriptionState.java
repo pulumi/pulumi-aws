@@ -77,7 +77,7 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+     * ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      * The following arguments are optional:
      * 
@@ -86,7 +86,7 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
     private @Nullable Output<String> resourceIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+     * @return ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      * The following arguments are optional:
      * 
@@ -110,9 +110,17 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.serviceNetworkLogType);
     }
 
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -240,7 +248,7 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceIdentifier The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+         * @param resourceIdentifier ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
          * 
          * The following arguments are optional:
          * 
@@ -253,7 +261,7 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceIdentifier The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+         * @param resourceIdentifier ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
          * 
          * The following arguments are optional:
          * 
@@ -285,11 +293,23 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
             return serviceNetworkLogType(Output.of(serviceNetworkLogType));
         }
 
+        /**
+         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

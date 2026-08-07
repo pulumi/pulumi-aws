@@ -46,18 +46,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the namespace.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
     /**
-     * @return Name of the namespace.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * @return Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
     public Optional<Output<String>> namespace() {
@@ -181,9 +177,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespace Name of the namespace.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+         * @param namespace Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
          * 
          * @return builder
          * 
@@ -194,9 +188,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespace Name of the namespace.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+         * @param namespace Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
          * 
          * @return builder
          * 

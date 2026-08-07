@@ -1368,6 +1368,10 @@ class ProviderEndpointArgsDict(TypedDict):
     """
     Use this to override the default service endpoint URL
     """
+    resiliencehubv2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this to override the default service endpoint URL
+    """
     resourceexplorer2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to override the default service endpoint URL
@@ -1897,6 +1901,7 @@ class ProviderEndpointArgs:
                  redshiftserverless: pulumi.Input[Optional[_builtins.str]] = None,
                  rekognition: pulumi.Input[Optional[_builtins.str]] = None,
                  resiliencehub: pulumi.Input[Optional[_builtins.str]] = None,
+                 resiliencehubv2: pulumi.Input[Optional[_builtins.str]] = None,
                  resourceexplorer2: pulumi.Input[Optional[_builtins.str]] = None,
                  resourcegroups: pulumi.Input[Optional[_builtins.str]] = None,
                  resourcegroupstagging: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2213,6 +2218,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] redshiftserverless: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] rekognition: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] resiliencehub: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] resiliencehubv2: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] resourceexplorer2: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] resourcegroups: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] resourcegroupstagging: Use this to override the default service endpoint URL
@@ -2774,6 +2780,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "rekognition", rekognition)
         if resiliencehub is not None:
             pulumi.set(__self__, "resiliencehub", resiliencehub)
+        if resiliencehubv2 is not None:
+            pulumi.set(__self__, "resiliencehubv2", resiliencehubv2)
         if resourceexplorer2 is not None:
             pulumi.set(__self__, "resourceexplorer2", resourceexplorer2)
         if resourcegroups is not None:
@@ -5854,6 +5862,18 @@ class ProviderEndpointArgs:
     @resiliencehub.setter
     def resiliencehub(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resiliencehub", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def resiliencehubv2(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "resiliencehubv2")
+
+    @resiliencehubv2.setter
+    def resiliencehubv2(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resiliencehubv2", value)
 
     @_builtins.property
     @pulumi.getter

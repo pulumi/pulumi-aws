@@ -35,14 +35,14 @@ public final class EvaluationJobEvaluationConfigAutomatedArgs extends com.pulumi
     }
 
     /**
-     * One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block below.
+     * One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
      * 
      */
     @Import(name="datasetMetricConfigs", required=true)
     private Output<List<EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs>> datasetMetricConfigs;
 
     /**
-     * @return One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block below.
+     * @return One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
      * 
      */
     public Output<List<EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs>> datasetMetricConfigs() {
@@ -112,7 +112,7 @@ public final class EvaluationJobEvaluationConfigAutomatedArgs extends com.pulumi
         }
 
         /**
-         * @param datasetMetricConfigs One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block below.
+         * @param datasetMetricConfigs One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class EvaluationJobEvaluationConfigAutomatedArgs extends com.pulumi
         }
 
         /**
-         * @param datasetMetricConfigs One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block below.
+         * @param datasetMetricConfigs One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class EvaluationJobEvaluationConfigAutomatedArgs extends com.pulumi
         }
 
         /**
-         * @param datasetMetricConfigs One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block below.
+         * @param datasetMetricConfigs One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
          * 
          * @return builder
          * 

@@ -15,8 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StageDefaultRouteSettings {
     /**
-     * @return Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-     * Defaults to `false`. Supported only for WebSocket APIs.
+     * @return Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
      * 
      */
     private @Nullable Boolean dataTraceEnabled;
@@ -26,8 +25,7 @@ public final class StageDefaultRouteSettings {
      */
     private @Nullable Boolean detailedMetricsEnabled;
     /**
-     * @return Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-     * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+     * @return Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
     private @Nullable String loggingLevel;
@@ -44,8 +42,7 @@ public final class StageDefaultRouteSettings {
 
     private StageDefaultRouteSettings() {}
     /**
-     * @return Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-     * Defaults to `false`. Supported only for WebSocket APIs.
+     * @return Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
      * 
      */
     public Optional<Boolean> dataTraceEnabled() {
@@ -59,8 +56,7 @@ public final class StageDefaultRouteSettings {
         return Optional.ofNullable(this.detailedMetricsEnabled);
     }
     /**
-     * @return Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-     * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+     * @return Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
     public Optional<String> loggingLevel() {

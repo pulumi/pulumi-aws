@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowTriggerConfigTriggerProperties {
+    /**
+     * @return Configuration details of a schedule-triggered flow. See the `trigger_config.trigger_properties.scheduled` Block for details.
+     * 
+     */
     private @Nullable FlowTriggerConfigTriggerPropertiesScheduled scheduled;
 
     private FlowTriggerConfigTriggerProperties() {}
+    /**
+     * @return Configuration details of a schedule-triggered flow. See the `trigger_config.trigger_properties.scheduled` Block for details.
+     * 
+     */
     public Optional<FlowTriggerConfigTriggerPropertiesScheduled> scheduled() {
         return Optional.ofNullable(this.scheduled);
     }

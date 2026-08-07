@@ -14,17 +14,17 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CloudAutonomousVmClusterMaintenanceWindow struct {
-	// The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+	// Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
 	DaysOfWeeks []CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek `pulumi:"daysOfWeeks"`
-	// The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
+	// Hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
 	HoursOfDays []int `pulumi:"hoursOfDays"`
-	// The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
+	// Lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
 	LeadTimeInWeeks *int `pulumi:"leadTimeInWeeks"`
-	// The months when maintenance can be performed. Changing this will force terraform to create new resource.
+	// Months when maintenance can be performed. Changing this will force terraform to create new resource.
 	Months []CloudAutonomousVmClusterMaintenanceWindowMonth `pulumi:"months"`
-	// The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
+	// Preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
 	Preference string `pulumi:"preference"`
-	// Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
+	// Whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
 	WeeksOfMonths []int `pulumi:"weeksOfMonths"`
 }
 
@@ -40,17 +40,17 @@ type CloudAutonomousVmClusterMaintenanceWindowInput interface {
 }
 
 type CloudAutonomousVmClusterMaintenanceWindowArgs struct {
-	// The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+	// Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
 	DaysOfWeeks CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArrayInput `pulumi:"daysOfWeeks"`
-	// The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
+	// Hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
 	HoursOfDays pulumi.IntArrayInput `pulumi:"hoursOfDays"`
-	// The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
+	// Lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
 	LeadTimeInWeeks pulumi.IntPtrInput `pulumi:"leadTimeInWeeks"`
-	// The months when maintenance can be performed. Changing this will force terraform to create new resource.
+	// Months when maintenance can be performed. Changing this will force terraform to create new resource.
 	Months CloudAutonomousVmClusterMaintenanceWindowMonthArrayInput `pulumi:"months"`
-	// The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
+	// Preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
 	Preference pulumi.StringInput `pulumi:"preference"`
-	// Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
+	// Whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
 	WeeksOfMonths pulumi.IntArrayInput `pulumi:"weeksOfMonths"`
 }
 
@@ -131,36 +131,36 @@ func (o CloudAutonomousVmClusterMaintenanceWindowOutput) ToCloudAutonomousVmClus
 	}).(CloudAutonomousVmClusterMaintenanceWindowPtrOutput)
 }
 
-// The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+// Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowOutput) DaysOfWeeks() CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArrayOutput {
 	return o.ApplyT(func(v CloudAutonomousVmClusterMaintenanceWindow) []CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek {
 		return v.DaysOfWeeks
 	}).(CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArrayOutput)
 }
 
-// The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
+// Hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowOutput) HoursOfDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v CloudAutonomousVmClusterMaintenanceWindow) []int { return v.HoursOfDays }).(pulumi.IntArrayOutput)
 }
 
-// The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
+// Lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowOutput) LeadTimeInWeeks() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CloudAutonomousVmClusterMaintenanceWindow) *int { return v.LeadTimeInWeeks }).(pulumi.IntPtrOutput)
 }
 
-// The months when maintenance can be performed. Changing this will force terraform to create new resource.
+// Months when maintenance can be performed. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowOutput) Months() CloudAutonomousVmClusterMaintenanceWindowMonthArrayOutput {
 	return o.ApplyT(func(v CloudAutonomousVmClusterMaintenanceWindow) []CloudAutonomousVmClusterMaintenanceWindowMonth {
 		return v.Months
 	}).(CloudAutonomousVmClusterMaintenanceWindowMonthArrayOutput)
 }
 
-// The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
+// Preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowOutput) Preference() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudAutonomousVmClusterMaintenanceWindow) string { return v.Preference }).(pulumi.StringOutput)
 }
 
-// Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
+// Whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowOutput) WeeksOfMonths() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v CloudAutonomousVmClusterMaintenanceWindow) []int { return v.WeeksOfMonths }).(pulumi.IntArrayOutput)
 }
@@ -189,7 +189,7 @@ func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) Elem() CloudAutonomo
 	}).(CloudAutonomousVmClusterMaintenanceWindowOutput)
 }
 
-// The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+// Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) DaysOfWeeks() CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArrayOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmClusterMaintenanceWindow) []CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek {
 		if v == nil {
@@ -199,7 +199,7 @@ func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) DaysOfWeeks() CloudA
 	}).(CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArrayOutput)
 }
 
-// The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
+// Hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) HoursOfDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmClusterMaintenanceWindow) []int {
 		if v == nil {
@@ -209,7 +209,7 @@ func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) HoursOfDays() pulumi
 	}).(pulumi.IntArrayOutput)
 }
 
-// The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
+// Lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) LeadTimeInWeeks() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmClusterMaintenanceWindow) *int {
 		if v == nil {
@@ -219,7 +219,7 @@ func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) LeadTimeInWeeks() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The months when maintenance can be performed. Changing this will force terraform to create new resource.
+// Months when maintenance can be performed. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) Months() CloudAutonomousVmClusterMaintenanceWindowMonthArrayOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmClusterMaintenanceWindow) []CloudAutonomousVmClusterMaintenanceWindowMonth {
 		if v == nil {
@@ -229,7 +229,7 @@ func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) Months() CloudAutono
 	}).(CloudAutonomousVmClusterMaintenanceWindowMonthArrayOutput)
 }
 
-// The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
+// Preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) Preference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmClusterMaintenanceWindow) *string {
 		if v == nil {
@@ -239,7 +239,7 @@ func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) Preference() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
+// Whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) WeeksOfMonths() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmClusterMaintenanceWindow) []int {
 		if v == nil {
@@ -707,23 +707,23 @@ func (o CloudExadataInfrastructureCustomerContactsToSendToOciArrayOutput) Index(
 }
 
 type CloudExadataInfrastructureMaintenanceWindow struct {
-	// The custom action timeout in minutes for the maintenance window.
+	// Custom action timeout in minutes for the maintenance window.
 	CustomActionTimeoutInMins int `pulumi:"customActionTimeoutInMins"`
-	// The days of the week when maintenance can be performed.
+	// Days of the week when maintenance can be performed.
 	DaysOfWeeks []CloudExadataInfrastructureMaintenanceWindowDaysOfWeek `pulumi:"daysOfWeeks"`
-	// The hours of the day when maintenance can be performed.
+	// Hours of the day when maintenance can be performed.
 	HoursOfDays []int `pulumi:"hoursOfDays"`
-	// ndicates whether custom action timeout is enabled for the maintenance window.
+	// Whether custom action timeout is enabled for the maintenance window.
 	IsCustomActionTimeoutEnabled bool `pulumi:"isCustomActionTimeoutEnabled"`
-	// The lead time in weeks before the maintenance window.
+	// Lead time in weeks before the maintenance window.
 	LeadTimeInWeeks *int `pulumi:"leadTimeInWeeks"`
-	// The months when maintenance can be performed.
+	// Months when maintenance can be performed.
 	Months []CloudExadataInfrastructureMaintenanceWindowMonth `pulumi:"months"`
-	// The patching mode for the maintenance window.
+	// Patching mode for the maintenance window.
 	PatchingMode string `pulumi:"patchingMode"`
-	// The preference for the maintenance window scheduling.
+	// Preference for the maintenance window scheduling.
 	Preference string `pulumi:"preference"`
-	// The weeks of the month when maintenance can be performed.
+	// Weeks of the month when maintenance can be performed.
 	WeeksOfMonths []int `pulumi:"weeksOfMonths"`
 }
 
@@ -739,23 +739,23 @@ type CloudExadataInfrastructureMaintenanceWindowInput interface {
 }
 
 type CloudExadataInfrastructureMaintenanceWindowArgs struct {
-	// The custom action timeout in minutes for the maintenance window.
+	// Custom action timeout in minutes for the maintenance window.
 	CustomActionTimeoutInMins pulumi.IntInput `pulumi:"customActionTimeoutInMins"`
-	// The days of the week when maintenance can be performed.
+	// Days of the week when maintenance can be performed.
 	DaysOfWeeks CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArrayInput `pulumi:"daysOfWeeks"`
-	// The hours of the day when maintenance can be performed.
+	// Hours of the day when maintenance can be performed.
 	HoursOfDays pulumi.IntArrayInput `pulumi:"hoursOfDays"`
-	// ndicates whether custom action timeout is enabled for the maintenance window.
+	// Whether custom action timeout is enabled for the maintenance window.
 	IsCustomActionTimeoutEnabled pulumi.BoolInput `pulumi:"isCustomActionTimeoutEnabled"`
-	// The lead time in weeks before the maintenance window.
+	// Lead time in weeks before the maintenance window.
 	LeadTimeInWeeks pulumi.IntPtrInput `pulumi:"leadTimeInWeeks"`
-	// The months when maintenance can be performed.
+	// Months when maintenance can be performed.
 	Months CloudExadataInfrastructureMaintenanceWindowMonthArrayInput `pulumi:"months"`
-	// The patching mode for the maintenance window.
+	// Patching mode for the maintenance window.
 	PatchingMode pulumi.StringInput `pulumi:"patchingMode"`
-	// The preference for the maintenance window scheduling.
+	// Preference for the maintenance window scheduling.
 	Preference pulumi.StringInput `pulumi:"preference"`
-	// The weeks of the month when maintenance can be performed.
+	// Weeks of the month when maintenance can be performed.
 	WeeksOfMonths pulumi.IntArrayInput `pulumi:"weeksOfMonths"`
 }
 
@@ -836,51 +836,51 @@ func (o CloudExadataInfrastructureMaintenanceWindowOutput) ToCloudExadataInfrast
 	}).(CloudExadataInfrastructureMaintenanceWindowPtrOutput)
 }
 
-// The custom action timeout in minutes for the maintenance window.
+// Custom action timeout in minutes for the maintenance window.
 func (o CloudExadataInfrastructureMaintenanceWindowOutput) CustomActionTimeoutInMins() pulumi.IntOutput {
 	return o.ApplyT(func(v CloudExadataInfrastructureMaintenanceWindow) int { return v.CustomActionTimeoutInMins }).(pulumi.IntOutput)
 }
 
-// The days of the week when maintenance can be performed.
+// Days of the week when maintenance can be performed.
 func (o CloudExadataInfrastructureMaintenanceWindowOutput) DaysOfWeeks() CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArrayOutput {
 	return o.ApplyT(func(v CloudExadataInfrastructureMaintenanceWindow) []CloudExadataInfrastructureMaintenanceWindowDaysOfWeek {
 		return v.DaysOfWeeks
 	}).(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArrayOutput)
 }
 
-// The hours of the day when maintenance can be performed.
+// Hours of the day when maintenance can be performed.
 func (o CloudExadataInfrastructureMaintenanceWindowOutput) HoursOfDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v CloudExadataInfrastructureMaintenanceWindow) []int { return v.HoursOfDays }).(pulumi.IntArrayOutput)
 }
 
-// ndicates whether custom action timeout is enabled for the maintenance window.
+// Whether custom action timeout is enabled for the maintenance window.
 func (o CloudExadataInfrastructureMaintenanceWindowOutput) IsCustomActionTimeoutEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v CloudExadataInfrastructureMaintenanceWindow) bool { return v.IsCustomActionTimeoutEnabled }).(pulumi.BoolOutput)
 }
 
-// The lead time in weeks before the maintenance window.
+// Lead time in weeks before the maintenance window.
 func (o CloudExadataInfrastructureMaintenanceWindowOutput) LeadTimeInWeeks() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CloudExadataInfrastructureMaintenanceWindow) *int { return v.LeadTimeInWeeks }).(pulumi.IntPtrOutput)
 }
 
-// The months when maintenance can be performed.
+// Months when maintenance can be performed.
 func (o CloudExadataInfrastructureMaintenanceWindowOutput) Months() CloudExadataInfrastructureMaintenanceWindowMonthArrayOutput {
 	return o.ApplyT(func(v CloudExadataInfrastructureMaintenanceWindow) []CloudExadataInfrastructureMaintenanceWindowMonth {
 		return v.Months
 	}).(CloudExadataInfrastructureMaintenanceWindowMonthArrayOutput)
 }
 
-// The patching mode for the maintenance window.
+// Patching mode for the maintenance window.
 func (o CloudExadataInfrastructureMaintenanceWindowOutput) PatchingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudExadataInfrastructureMaintenanceWindow) string { return v.PatchingMode }).(pulumi.StringOutput)
 }
 
-// The preference for the maintenance window scheduling.
+// Preference for the maintenance window scheduling.
 func (o CloudExadataInfrastructureMaintenanceWindowOutput) Preference() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudExadataInfrastructureMaintenanceWindow) string { return v.Preference }).(pulumi.StringOutput)
 }
 
-// The weeks of the month when maintenance can be performed.
+// Weeks of the month when maintenance can be performed.
 func (o CloudExadataInfrastructureMaintenanceWindowOutput) WeeksOfMonths() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v CloudExadataInfrastructureMaintenanceWindow) []int { return v.WeeksOfMonths }).(pulumi.IntArrayOutput)
 }
@@ -909,7 +909,7 @@ func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) Elem() CloudExadat
 	}).(CloudExadataInfrastructureMaintenanceWindowOutput)
 }
 
-// The custom action timeout in minutes for the maintenance window.
+// Custom action timeout in minutes for the maintenance window.
 func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) CustomActionTimeoutInMins() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructureMaintenanceWindow) *int {
 		if v == nil {
@@ -919,7 +919,7 @@ func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) CustomActionTimeou
 	}).(pulumi.IntPtrOutput)
 }
 
-// The days of the week when maintenance can be performed.
+// Days of the week when maintenance can be performed.
 func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) DaysOfWeeks() CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArrayOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructureMaintenanceWindow) []CloudExadataInfrastructureMaintenanceWindowDaysOfWeek {
 		if v == nil {
@@ -929,7 +929,7 @@ func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) DaysOfWeeks() Clou
 	}).(CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArrayOutput)
 }
 
-// The hours of the day when maintenance can be performed.
+// Hours of the day when maintenance can be performed.
 func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) HoursOfDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructureMaintenanceWindow) []int {
 		if v == nil {
@@ -939,7 +939,7 @@ func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) HoursOfDays() pulu
 	}).(pulumi.IntArrayOutput)
 }
 
-// ndicates whether custom action timeout is enabled for the maintenance window.
+// Whether custom action timeout is enabled for the maintenance window.
 func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) IsCustomActionTimeoutEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructureMaintenanceWindow) *bool {
 		if v == nil {
@@ -949,7 +949,7 @@ func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) IsCustomActionTime
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The lead time in weeks before the maintenance window.
+// Lead time in weeks before the maintenance window.
 func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) LeadTimeInWeeks() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructureMaintenanceWindow) *int {
 		if v == nil {
@@ -959,7 +959,7 @@ func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) LeadTimeInWeeks() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The months when maintenance can be performed.
+// Months when maintenance can be performed.
 func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) Months() CloudExadataInfrastructureMaintenanceWindowMonthArrayOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructureMaintenanceWindow) []CloudExadataInfrastructureMaintenanceWindowMonth {
 		if v == nil {
@@ -969,7 +969,7 @@ func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) Months() CloudExad
 	}).(CloudExadataInfrastructureMaintenanceWindowMonthArrayOutput)
 }
 
-// The patching mode for the maintenance window.
+// Patching mode for the maintenance window.
 func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) PatchingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructureMaintenanceWindow) *string {
 		if v == nil {
@@ -979,7 +979,7 @@ func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) PatchingMode() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The preference for the maintenance window scheduling.
+// Preference for the maintenance window scheduling.
 func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) Preference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructureMaintenanceWindow) *string {
 		if v == nil {
@@ -989,7 +989,7 @@ func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) Preference() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The weeks of the month when maintenance can be performed.
+// Weeks of the month when maintenance can be performed.
 func (o CloudExadataInfrastructureMaintenanceWindowPtrOutput) WeeksOfMonths() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructureMaintenanceWindow) []int {
 		if v == nil {
@@ -1363,9 +1363,12 @@ func (o CloudExadataInfrastructureTimeoutsPtrOutput) Update() pulumi.StringPtrOu
 }
 
 type CloudVmClusterDataCollectionOptions struct {
+	// Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
 	IsDiagnosticsEventsEnabled bool `pulumi:"isDiagnosticsEventsEnabled"`
-	IsHealthMonitoringEnabled  bool `pulumi:"isHealthMonitoringEnabled"`
-	IsIncidentLogsEnabled      bool `pulumi:"isIncidentLogsEnabled"`
+	// Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
+	IsHealthMonitoringEnabled bool `pulumi:"isHealthMonitoringEnabled"`
+	// Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
+	IsIncidentLogsEnabled bool `pulumi:"isIncidentLogsEnabled"`
 }
 
 // CloudVmClusterDataCollectionOptionsInput is an input type that accepts CloudVmClusterDataCollectionOptionsArgs and CloudVmClusterDataCollectionOptionsOutput values.
@@ -1380,9 +1383,12 @@ type CloudVmClusterDataCollectionOptionsInput interface {
 }
 
 type CloudVmClusterDataCollectionOptionsArgs struct {
+	// Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
 	IsDiagnosticsEventsEnabled pulumi.BoolInput `pulumi:"isDiagnosticsEventsEnabled"`
-	IsHealthMonitoringEnabled  pulumi.BoolInput `pulumi:"isHealthMonitoringEnabled"`
-	IsIncidentLogsEnabled      pulumi.BoolInput `pulumi:"isIncidentLogsEnabled"`
+	// Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
+	IsHealthMonitoringEnabled pulumi.BoolInput `pulumi:"isHealthMonitoringEnabled"`
+	// Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
+	IsIncidentLogsEnabled pulumi.BoolInput `pulumi:"isIncidentLogsEnabled"`
 }
 
 func (CloudVmClusterDataCollectionOptionsArgs) ElementType() reflect.Type {
@@ -1462,14 +1468,17 @@ func (o CloudVmClusterDataCollectionOptionsOutput) ToCloudVmClusterDataCollectio
 	}).(CloudVmClusterDataCollectionOptionsPtrOutput)
 }
 
+// Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
 func (o CloudVmClusterDataCollectionOptionsOutput) IsDiagnosticsEventsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v CloudVmClusterDataCollectionOptions) bool { return v.IsDiagnosticsEventsEnabled }).(pulumi.BoolOutput)
 }
 
+// Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
 func (o CloudVmClusterDataCollectionOptionsOutput) IsHealthMonitoringEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v CloudVmClusterDataCollectionOptions) bool { return v.IsHealthMonitoringEnabled }).(pulumi.BoolOutput)
 }
 
+// Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
 func (o CloudVmClusterDataCollectionOptionsOutput) IsIncidentLogsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v CloudVmClusterDataCollectionOptions) bool { return v.IsIncidentLogsEnabled }).(pulumi.BoolOutput)
 }
@@ -1498,6 +1507,7 @@ func (o CloudVmClusterDataCollectionOptionsPtrOutput) Elem() CloudVmClusterDataC
 	}).(CloudVmClusterDataCollectionOptionsOutput)
 }
 
+// Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
 func (o CloudVmClusterDataCollectionOptionsPtrOutput) IsDiagnosticsEventsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudVmClusterDataCollectionOptions) *bool {
 		if v == nil {
@@ -1507,6 +1517,7 @@ func (o CloudVmClusterDataCollectionOptionsPtrOutput) IsDiagnosticsEventsEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
 func (o CloudVmClusterDataCollectionOptionsPtrOutput) IsHealthMonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudVmClusterDataCollectionOptions) *bool {
 		if v == nil {
@@ -1516,6 +1527,7 @@ func (o CloudVmClusterDataCollectionOptionsPtrOutput) IsHealthMonitoringEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
 func (o CloudVmClusterDataCollectionOptionsPtrOutput) IsIncidentLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CloudVmClusterDataCollectionOptions) *bool {
 		if v == nil {
@@ -1919,20 +1931,20 @@ func (o CloudVmClusterTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type NetworkManagedService struct {
-	// The list of regions enabled for cross-region restore in the ODB network.
+	// List of regions enabled for cross-region restore in the ODB network.
 	CrossRegionS3RestoreSourcesAccesses []NetworkManagedServiceCrossRegionS3RestoreSourcesAccess `pulumi:"crossRegionS3RestoreSourcesAccesses"`
-	// Specifies the configuration for KMS access from the ODB network.
+	// Configuration for KMS access from the ODB network.
 	KmsAccesses             []NetworkManagedServiceKmsAccess             `pulumi:"kmsAccesses"`
 	ManagedS3BackupAccesses []NetworkManagedServiceManagedS3BackupAccess `pulumi:"managedS3BackupAccesses"`
 	ManagedServiceIpv4Cidrs []string                                     `pulumi:"managedServiceIpv4Cidrs"`
 	ResourceGatewayArn      string                                       `pulumi:"resourceGatewayArn"`
-	// Specifies the configuration for Amazon S3 access from the ODB network.
+	// Configuration for Amazon S3 access from the ODB network.
 	S3Accesses              []NetworkManagedServiceS3Access               `pulumi:"s3Accesses"`
 	ServiceNetworkArn       string                                        `pulumi:"serviceNetworkArn"`
 	ServiceNetworkEndpoints []NetworkManagedServiceServiceNetworkEndpoint `pulumi:"serviceNetworkEndpoints"`
-	// Specifies the configuration for STS access from the ODB network.
+	// Configuration for STS access from the ODB network.
 	StsAccesses []NetworkManagedServiceStsAccess `pulumi:"stsAccesses"`
-	// Specifies the configuration for Zero-ETL access from the ODB network.
+	// Configuration for Zero-ETL access from the ODB network.
 	//
 	// The following arguments are optional:
 	ZeroEtlAccesses []NetworkManagedServiceZeroEtlAccess `pulumi:"zeroEtlAccesses"`
@@ -1950,20 +1962,20 @@ type NetworkManagedServiceInput interface {
 }
 
 type NetworkManagedServiceArgs struct {
-	// The list of regions enabled for cross-region restore in the ODB network.
+	// List of regions enabled for cross-region restore in the ODB network.
 	CrossRegionS3RestoreSourcesAccesses NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayInput `pulumi:"crossRegionS3RestoreSourcesAccesses"`
-	// Specifies the configuration for KMS access from the ODB network.
+	// Configuration for KMS access from the ODB network.
 	KmsAccesses             NetworkManagedServiceKmsAccessArrayInput             `pulumi:"kmsAccesses"`
 	ManagedS3BackupAccesses NetworkManagedServiceManagedS3BackupAccessArrayInput `pulumi:"managedS3BackupAccesses"`
 	ManagedServiceIpv4Cidrs pulumi.StringArrayInput                              `pulumi:"managedServiceIpv4Cidrs"`
 	ResourceGatewayArn      pulumi.StringInput                                   `pulumi:"resourceGatewayArn"`
-	// Specifies the configuration for Amazon S3 access from the ODB network.
+	// Configuration for Amazon S3 access from the ODB network.
 	S3Accesses              NetworkManagedServiceS3AccessArrayInput               `pulumi:"s3Accesses"`
 	ServiceNetworkArn       pulumi.StringInput                                    `pulumi:"serviceNetworkArn"`
 	ServiceNetworkEndpoints NetworkManagedServiceServiceNetworkEndpointArrayInput `pulumi:"serviceNetworkEndpoints"`
-	// Specifies the configuration for STS access from the ODB network.
+	// Configuration for STS access from the ODB network.
 	StsAccesses NetworkManagedServiceStsAccessArrayInput `pulumi:"stsAccesses"`
-	// Specifies the configuration for Zero-ETL access from the ODB network.
+	// Configuration for Zero-ETL access from the ODB network.
 	//
 	// The following arguments are optional:
 	ZeroEtlAccesses NetworkManagedServiceZeroEtlAccessArrayInput `pulumi:"zeroEtlAccesses"`
@@ -2020,14 +2032,14 @@ func (o NetworkManagedServiceOutput) ToNetworkManagedServiceOutputWithContext(ct
 	return o
 }
 
-// The list of regions enabled for cross-region restore in the ODB network.
+// List of regions enabled for cross-region restore in the ODB network.
 func (o NetworkManagedServiceOutput) CrossRegionS3RestoreSourcesAccesses() NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput {
 	return o.ApplyT(func(v NetworkManagedService) []NetworkManagedServiceCrossRegionS3RestoreSourcesAccess {
 		return v.CrossRegionS3RestoreSourcesAccesses
 	}).(NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput)
 }
 
-// Specifies the configuration for KMS access from the ODB network.
+// Configuration for KMS access from the ODB network.
 func (o NetworkManagedServiceOutput) KmsAccesses() NetworkManagedServiceKmsAccessArrayOutput {
 	return o.ApplyT(func(v NetworkManagedService) []NetworkManagedServiceKmsAccess { return v.KmsAccesses }).(NetworkManagedServiceKmsAccessArrayOutput)
 }
@@ -2046,7 +2058,7 @@ func (o NetworkManagedServiceOutput) ResourceGatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkManagedService) string { return v.ResourceGatewayArn }).(pulumi.StringOutput)
 }
 
-// Specifies the configuration for Amazon S3 access from the ODB network.
+// Configuration for Amazon S3 access from the ODB network.
 func (o NetworkManagedServiceOutput) S3Accesses() NetworkManagedServiceS3AccessArrayOutput {
 	return o.ApplyT(func(v NetworkManagedService) []NetworkManagedServiceS3Access { return v.S3Accesses }).(NetworkManagedServiceS3AccessArrayOutput)
 }
@@ -2061,12 +2073,12 @@ func (o NetworkManagedServiceOutput) ServiceNetworkEndpoints() NetworkManagedSer
 	}).(NetworkManagedServiceServiceNetworkEndpointArrayOutput)
 }
 
-// Specifies the configuration for STS access from the ODB network.
+// Configuration for STS access from the ODB network.
 func (o NetworkManagedServiceOutput) StsAccesses() NetworkManagedServiceStsAccessArrayOutput {
 	return o.ApplyT(func(v NetworkManagedService) []NetworkManagedServiceStsAccess { return v.StsAccesses }).(NetworkManagedServiceStsAccessArrayOutput)
 }
 
-// Specifies the configuration for Zero-ETL access from the ODB network.
+// Configuration for Zero-ETL access from the ODB network.
 //
 // The following arguments are optional:
 func (o NetworkManagedServiceOutput) ZeroEtlAccesses() NetworkManagedServiceZeroEtlAccessArrayOutput {
@@ -2097,7 +2109,7 @@ type NetworkManagedServiceCrossRegionS3RestoreSourcesAccess struct {
 	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status string `pulumi:"status"`
 }
 
@@ -2116,7 +2128,7 @@ type NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs struct {
 	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -2180,7 +2192,7 @@ func (o NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) Region() p
 	return o.ApplyT(func(v NetworkManagedServiceCrossRegionS3RestoreSourcesAccess) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The status of the network resource.
+// Status of the network resource.
 func (o NetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkManagedServiceCrossRegionS3RestoreSourcesAccess) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -2208,9 +2220,9 @@ func (o NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArrayOutput) Index
 type NetworkManagedServiceKmsAccess struct {
 	DomainName    string   `pulumi:"domainName"`
 	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
-	// Specifies the endpoint policy for KMS access from the ODB network.
+	// Endpoint policy for KMS access from the ODB network.
 	KmsPolicyDocument string `pulumi:"kmsPolicyDocument"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status string `pulumi:"status"`
 }
 
@@ -2228,9 +2240,9 @@ type NetworkManagedServiceKmsAccessInput interface {
 type NetworkManagedServiceKmsAccessArgs struct {
 	DomainName    pulumi.StringInput      `pulumi:"domainName"`
 	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
-	// Specifies the endpoint policy for KMS access from the ODB network.
+	// Endpoint policy for KMS access from the ODB network.
 	KmsPolicyDocument pulumi.StringInput `pulumi:"kmsPolicyDocument"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -2293,12 +2305,12 @@ func (o NetworkManagedServiceKmsAccessOutput) Ipv4Addresses() pulumi.StringArray
 	return o.ApplyT(func(v NetworkManagedServiceKmsAccess) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the endpoint policy for KMS access from the ODB network.
+// Endpoint policy for KMS access from the ODB network.
 func (o NetworkManagedServiceKmsAccessOutput) KmsPolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkManagedServiceKmsAccess) string { return v.KmsPolicyDocument }).(pulumi.StringOutput)
 }
 
-// The status of the network resource.
+// Status of the network resource.
 func (o NetworkManagedServiceKmsAccessOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkManagedServiceKmsAccess) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -2325,7 +2337,7 @@ func (o NetworkManagedServiceKmsAccessArrayOutput) Index(i pulumi.IntInput) Netw
 
 type NetworkManagedServiceManagedS3BackupAccess struct {
 	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status string `pulumi:"status"`
 }
 
@@ -2342,7 +2354,7 @@ type NetworkManagedServiceManagedS3BackupAccessInput interface {
 
 type NetworkManagedServiceManagedS3BackupAccessArgs struct {
 	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -2401,7 +2413,7 @@ func (o NetworkManagedServiceManagedS3BackupAccessOutput) Ipv4Addresses() pulumi
 	return o.ApplyT(func(v NetworkManagedServiceManagedS3BackupAccess) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
 }
 
-// The status of the network resource.
+// Status of the network resource.
 func (o NetworkManagedServiceManagedS3BackupAccessOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkManagedServiceManagedS3BackupAccess) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -2429,9 +2441,9 @@ func (o NetworkManagedServiceManagedS3BackupAccessArrayOutput) Index(i pulumi.In
 type NetworkManagedServiceS3Access struct {
 	DomainName    string   `pulumi:"domainName"`
 	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
-	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
+	// Endpoint policy for Amazon S3 access from the ODB network.
 	S3PolicyDocument string `pulumi:"s3PolicyDocument"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status string `pulumi:"status"`
 }
 
@@ -2449,9 +2461,9 @@ type NetworkManagedServiceS3AccessInput interface {
 type NetworkManagedServiceS3AccessArgs struct {
 	DomainName    pulumi.StringInput      `pulumi:"domainName"`
 	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
-	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
+	// Endpoint policy for Amazon S3 access from the ODB network.
 	S3PolicyDocument pulumi.StringInput `pulumi:"s3PolicyDocument"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -2514,12 +2526,12 @@ func (o NetworkManagedServiceS3AccessOutput) Ipv4Addresses() pulumi.StringArrayO
 	return o.ApplyT(func(v NetworkManagedServiceS3Access) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the endpoint policy for Amazon S3 access from the ODB network.
+// Endpoint policy for Amazon S3 access from the ODB network.
 func (o NetworkManagedServiceS3AccessOutput) S3PolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkManagedServiceS3Access) string { return v.S3PolicyDocument }).(pulumi.StringOutput)
 }
 
-// The status of the network resource.
+// Status of the network resource.
 func (o NetworkManagedServiceS3AccessOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkManagedServiceS3Access) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -2647,9 +2659,9 @@ func (o NetworkManagedServiceServiceNetworkEndpointArrayOutput) Index(i pulumi.I
 type NetworkManagedServiceStsAccess struct {
 	DomainName    string   `pulumi:"domainName"`
 	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status string `pulumi:"status"`
-	// Specifies the endpoint policy for STS access from the ODB network.
+	// Endpoint policy for STS access from the ODB network.
 	StsPolicyDocument string `pulumi:"stsPolicyDocument"`
 }
 
@@ -2667,9 +2679,9 @@ type NetworkManagedServiceStsAccessInput interface {
 type NetworkManagedServiceStsAccessArgs struct {
 	DomainName    pulumi.StringInput      `pulumi:"domainName"`
 	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status pulumi.StringInput `pulumi:"status"`
-	// Specifies the endpoint policy for STS access from the ODB network.
+	// Endpoint policy for STS access from the ODB network.
 	StsPolicyDocument pulumi.StringInput `pulumi:"stsPolicyDocument"`
 }
 
@@ -2732,12 +2744,12 @@ func (o NetworkManagedServiceStsAccessOutput) Ipv4Addresses() pulumi.StringArray
 	return o.ApplyT(func(v NetworkManagedServiceStsAccess) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
 }
 
-// The status of the network resource.
+// Status of the network resource.
 func (o NetworkManagedServiceStsAccessOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkManagedServiceStsAccess) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Specifies the endpoint policy for STS access from the ODB network.
+// Endpoint policy for STS access from the ODB network.
 func (o NetworkManagedServiceStsAccessOutput) StsPolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkManagedServiceStsAccess) string { return v.StsPolicyDocument }).(pulumi.StringOutput)
 }
@@ -2764,7 +2776,7 @@ func (o NetworkManagedServiceStsAccessArrayOutput) Index(i pulumi.IntInput) Netw
 
 type NetworkManagedServiceZeroEtlAccess struct {
 	Cidr string `pulumi:"cidr"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status string `pulumi:"status"`
 }
 
@@ -2781,7 +2793,7 @@ type NetworkManagedServiceZeroEtlAccessInput interface {
 
 type NetworkManagedServiceZeroEtlAccessArgs struct {
 	Cidr pulumi.StringInput `pulumi:"cidr"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -2840,7 +2852,7 @@ func (o NetworkManagedServiceZeroEtlAccessOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkManagedServiceZeroEtlAccess) string { return v.Cidr }).(pulumi.StringOutput)
 }
 
-// The status of the network resource.
+// Status of the network resource.
 func (o NetworkManagedServiceZeroEtlAccessOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkManagedServiceZeroEtlAccess) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -3632,21 +3644,21 @@ func (o GetCloudAutonomousVmClusterMaintenanceWindowMonthArrayOutput) Index(i pu
 }
 
 type GetCloudAutonomousVmClustersCloudAutonomousVmCluster struct {
-	// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// Amazon Resource Name (ARN) for the Exadata infrastructure.
 	Arn string `pulumi:"arn"`
 	// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
 	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
-	// The display name of the Autonomous VM cluster.
+	// Display name of the Autonomous VM cluster.
 	DisplayName string `pulumi:"displayName"`
-	// The unique identifier of the cloud autonomous vm cluster.
+	// Unique identifier of the cloud autonomous vm cluster.
 	Id string `pulumi:"id"`
-	// The name of the OCI resource anchor associated with this Autonomous VM cluster.
+	// Name of the OCI resource anchor associated with this Autonomous VM cluster.
 	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
-	// The URL for accessing the OCI console page for this Autonomous VM cluster.
+	// URL for accessing the OCI console page for this Autonomous VM cluster.
 	OciUrl string `pulumi:"ociUrl"`
-	// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+	// Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
 	Ocid string `pulumi:"ocid"`
-	// The unique identifier of the ODB network associated with this Autonomous VM cluster.
+	// Unique identifier of the ODB network associated with this Autonomous VM cluster.
 	OdbNetworkId string `pulumi:"odbNetworkId"`
 }
 
@@ -3662,21 +3674,21 @@ type GetCloudAutonomousVmClustersCloudAutonomousVmClusterInput interface {
 }
 
 type GetCloudAutonomousVmClustersCloudAutonomousVmClusterArgs struct {
-	// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// Amazon Resource Name (ARN) for the Exadata infrastructure.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
 	CloudExadataInfrastructureId pulumi.StringInput `pulumi:"cloudExadataInfrastructureId"`
-	// The display name of the Autonomous VM cluster.
+	// Display name of the Autonomous VM cluster.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// The unique identifier of the cloud autonomous vm cluster.
+	// Unique identifier of the cloud autonomous vm cluster.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the OCI resource anchor associated with this Autonomous VM cluster.
+	// Name of the OCI resource anchor associated with this Autonomous VM cluster.
 	OciResourceAnchorName pulumi.StringInput `pulumi:"ociResourceAnchorName"`
-	// The URL for accessing the OCI console page for this Autonomous VM cluster.
+	// URL for accessing the OCI console page for this Autonomous VM cluster.
 	OciUrl pulumi.StringInput `pulumi:"ociUrl"`
-	// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+	// Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
 	Ocid pulumi.StringInput `pulumi:"ocid"`
-	// The unique identifier of the ODB network associated with this Autonomous VM cluster.
+	// Unique identifier of the ODB network associated with this Autonomous VM cluster.
 	OdbNetworkId pulumi.StringInput `pulumi:"odbNetworkId"`
 }
 
@@ -3731,7 +3743,7 @@ func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) ToGetCloudAu
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+// Amazon Resource Name (ARN) for the Exadata infrastructure.
 func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -3743,32 +3755,32 @@ func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) CloudExadata
 	}).(pulumi.StringOutput)
 }
 
-// The display name of the Autonomous VM cluster.
+// Display name of the Autonomous VM cluster.
 func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the cloud autonomous vm cluster.
+// Unique identifier of the cloud autonomous vm cluster.
 func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the OCI resource anchor associated with this Autonomous VM cluster.
+// Name of the OCI resource anchor associated with this Autonomous VM cluster.
 func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) OciResourceAnchorName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.OciResourceAnchorName }).(pulumi.StringOutput)
 }
 
-// The URL for accessing the OCI console page for this Autonomous VM cluster.
+// URL for accessing the OCI console page for this Autonomous VM cluster.
 func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) OciUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.OciUrl }).(pulumi.StringOutput)
 }
 
-// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+// Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
 func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) Ocid() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.Ocid }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the ODB network associated with this Autonomous VM cluster.
+// Unique identifier of the ODB network associated with this Autonomous VM cluster.
 func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) OdbNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.OdbNetworkId }).(pulumi.StringOutput)
 }
@@ -4222,17 +4234,17 @@ func (o GetCloudExadataInfrastructureMaintenanceWindowMonthArrayOutput) Index(i 
 }
 
 type GetCloudExadataInfrastructuresCloudExadataInfrastructure struct {
-	// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// Amazon Resource Name (ARN) for the Exadata infrastructure.
 	Arn string `pulumi:"arn"`
-	// The display name of the Exadata infrastructure.
+	// Display name of the Exadata infrastructure.
 	DisplayName string `pulumi:"displayName"`
-	// The unique identifier of the Exadata infrastructure.
+	// Unique identifier of the Exadata infrastructure.
 	Id string `pulumi:"id"`
-	// The name of the OCI resource anchor for the Exadata infrastructure.
+	// Name of the OCI resource anchor for the Exadata infrastructure.
 	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
-	// The HTTPS link to the Exadata infrastructure in OCI.
+	// HTTPS link to the Exadata infrastructure in OCI.
 	OciUrl string `pulumi:"ociUrl"`
-	// The OCID of the Exadata infrastructure in OCI.
+	// OCID of the Exadata infrastructure in OCI.
 	Ocid string `pulumi:"ocid"`
 }
 
@@ -4248,17 +4260,17 @@ type GetCloudExadataInfrastructuresCloudExadataInfrastructureInput interface {
 }
 
 type GetCloudExadataInfrastructuresCloudExadataInfrastructureArgs struct {
-	// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// Amazon Resource Name (ARN) for the Exadata infrastructure.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The display name of the Exadata infrastructure.
+	// Display name of the Exadata infrastructure.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// The unique identifier of the Exadata infrastructure.
+	// Unique identifier of the Exadata infrastructure.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the OCI resource anchor for the Exadata infrastructure.
+	// Name of the OCI resource anchor for the Exadata infrastructure.
 	OciResourceAnchorName pulumi.StringInput `pulumi:"ociResourceAnchorName"`
-	// The HTTPS link to the Exadata infrastructure in OCI.
+	// HTTPS link to the Exadata infrastructure in OCI.
 	OciUrl pulumi.StringInput `pulumi:"ociUrl"`
-	// The OCID of the Exadata infrastructure in OCI.
+	// OCID of the Exadata infrastructure in OCI.
 	Ocid pulumi.StringInput `pulumi:"ocid"`
 }
 
@@ -4313,34 +4325,34 @@ func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) ToGetClo
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+// Amazon Resource Name (ARN) for the Exadata infrastructure.
 func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudExadataInfrastructuresCloudExadataInfrastructure) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The display name of the Exadata infrastructure.
+// Display name of the Exadata infrastructure.
 func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudExadataInfrastructuresCloudExadataInfrastructure) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the Exadata infrastructure.
+// Unique identifier of the Exadata infrastructure.
 func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudExadataInfrastructuresCloudExadataInfrastructure) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the OCI resource anchor for the Exadata infrastructure.
+// Name of the OCI resource anchor for the Exadata infrastructure.
 func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) OciResourceAnchorName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudExadataInfrastructuresCloudExadataInfrastructure) string {
 		return v.OciResourceAnchorName
 	}).(pulumi.StringOutput)
 }
 
-// The HTTPS link to the Exadata infrastructure in OCI.
+// HTTPS link to the Exadata infrastructure in OCI.
 func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) OciUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudExadataInfrastructuresCloudExadataInfrastructure) string { return v.OciUrl }).(pulumi.StringOutput)
 }
 
-// The OCID of the Exadata infrastructure in OCI.
+// OCID of the Exadata infrastructure in OCI.
 func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) Ocid() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudExadataInfrastructuresCloudExadataInfrastructure) string { return v.Ocid }).(pulumi.StringOutput)
 }
@@ -4690,21 +4702,21 @@ func (o GetCloudVmClusterIormConfigCacheDbPlanArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetCloudVmClustersCloudVmCluster struct {
-	// The Amazon Resource Name (ARN) for the cloud vm cluster.
+	// Amazon Resource Name (ARN) for the cloud vm cluster.
 	Arn string `pulumi:"arn"`
-	// The ID of the Cloud Exadata Infrastructure.
+	// ID of the Cloud Exadata Infrastructure.
 	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
-	// The display name of the VM cluster.
+	// Display name of the VM cluster.
 	DisplayName string `pulumi:"displayName"`
-	// The unique identifier of the cloud vm cluster.
+	// Unique identifier of the cloud vm cluster.
 	Id string `pulumi:"id"`
-	// The name of the OCI Resource Anchor.
+	// Name of the OCI Resource Anchor.
 	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
-	// The HTTPS link to the VM cluster in OCI.
+	// HTTPS link to the VM cluster in OCI.
 	OciUrl string `pulumi:"ociUrl"`
-	// The OCID of the VM cluster.
+	// OCID of the VM cluster.
 	Ocid string `pulumi:"ocid"`
-	// The ID of the ODB network.
+	// ID of the ODB network.
 	OdbNetworkId string `pulumi:"odbNetworkId"`
 }
 
@@ -4720,21 +4732,21 @@ type GetCloudVmClustersCloudVmClusterInput interface {
 }
 
 type GetCloudVmClustersCloudVmClusterArgs struct {
-	// The Amazon Resource Name (ARN) for the cloud vm cluster.
+	// Amazon Resource Name (ARN) for the cloud vm cluster.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The ID of the Cloud Exadata Infrastructure.
+	// ID of the Cloud Exadata Infrastructure.
 	CloudExadataInfrastructureId pulumi.StringInput `pulumi:"cloudExadataInfrastructureId"`
-	// The display name of the VM cluster.
+	// Display name of the VM cluster.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// The unique identifier of the cloud vm cluster.
+	// Unique identifier of the cloud vm cluster.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The name of the OCI Resource Anchor.
+	// Name of the OCI Resource Anchor.
 	OciResourceAnchorName pulumi.StringInput `pulumi:"ociResourceAnchorName"`
-	// The HTTPS link to the VM cluster in OCI.
+	// HTTPS link to the VM cluster in OCI.
 	OciUrl pulumi.StringInput `pulumi:"ociUrl"`
-	// The OCID of the VM cluster.
+	// OCID of the VM cluster.
 	Ocid pulumi.StringInput `pulumi:"ocid"`
-	// The ID of the ODB network.
+	// ID of the ODB network.
 	OdbNetworkId pulumi.StringInput `pulumi:"odbNetworkId"`
 }
 
@@ -4789,42 +4801,42 @@ func (o GetCloudVmClustersCloudVmClusterOutput) ToGetCloudVmClustersCloudVmClust
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the cloud vm cluster.
+// Amazon Resource Name (ARN) for the cloud vm cluster.
 func (o GetCloudVmClustersCloudVmClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID of the Cloud Exadata Infrastructure.
+// ID of the Cloud Exadata Infrastructure.
 func (o GetCloudVmClustersCloudVmClusterOutput) CloudExadataInfrastructureId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.CloudExadataInfrastructureId }).(pulumi.StringOutput)
 }
 
-// The display name of the VM cluster.
+// Display name of the VM cluster.
 func (o GetCloudVmClustersCloudVmClusterOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the cloud vm cluster.
+// Unique identifier of the cloud vm cluster.
 func (o GetCloudVmClustersCloudVmClusterOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of the OCI Resource Anchor.
+// Name of the OCI Resource Anchor.
 func (o GetCloudVmClustersCloudVmClusterOutput) OciResourceAnchorName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.OciResourceAnchorName }).(pulumi.StringOutput)
 }
 
-// The HTTPS link to the VM cluster in OCI.
+// HTTPS link to the VM cluster in OCI.
 func (o GetCloudVmClustersCloudVmClusterOutput) OciUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.OciUrl }).(pulumi.StringOutput)
 }
 
-// The OCID of the VM cluster.
+// OCID of the VM cluster.
 func (o GetCloudVmClustersCloudVmClusterOutput) Ocid() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.Ocid }).(pulumi.StringOutput)
 }
 
-// The ID of the ODB network.
+// ID of the ODB network.
 func (o GetCloudVmClustersCloudVmClusterOutput) OdbNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.OdbNetworkId }).(pulumi.StringOutput)
 }
@@ -4853,47 +4865,47 @@ type GetDbNodesDbNode struct {
 	// Additional information about the planned maintenance.
 	AdditionalDetails string `pulumi:"additionalDetails"`
 	Arn               string `pulumi:"arn"`
-	// The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+	// Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
 	BackupIpId    string `pulumi:"backupIpId"`
 	BackupVnic2Id string `pulumi:"backupVnic2Id"`
-	// The OCID of the backup VNIC for the DB node.
+	// OCID of the backup VNIC for the DB node.
 	BackupVnicId string `pulumi:"backupVnicId"`
-	// The number of CPU cores enabled on the DB node.
+	// Number of CPU cores enabled on the DB node.
 	CpuCoreCount int `pulumi:"cpuCoreCount"`
-	// The date and time when the DB node was created.
+	// Date and time when the DB node was created.
 	CreatedAt         string `pulumi:"createdAt"`
 	DbNodeStorageSize int    `pulumi:"dbNodeStorageSize"`
-	// The unique identifier of the database server that's associated with the DB node.
+	// Unique identifier of the database server that's associated with the DB node.
 	DbServerId string `pulumi:"dbServerId"`
-	// The OCID of the DB system.
+	// OCID of the DB system.
 	DbSystemId string `pulumi:"dbSystemId"`
-	// The name of the fault domain where the DB node is located.
+	// Name of the fault domain where the DB node is located.
 	FaultDomain string `pulumi:"faultDomain"`
-	// The OCID of the host IP address that's associated with the DB node.
+	// OCID of the host IP address that's associated with the DB node.
 	HostIpId string `pulumi:"hostIpId"`
-	// The host name for the DB node.
+	// Host name for the DB node.
 	Hostname string `pulumi:"hostname"`
 	Id       string `pulumi:"id"`
-	// The type of maintenance the DB node is undergoing.
+	// Type of maintenance the DB node is undergoing.
 	MaintenanceType string `pulumi:"maintenanceType"`
 	MemorySize      int    `pulumi:"memorySize"`
-	// The name of the OCI resource anchor for the DB node.
+	// Name of the OCI resource anchor for the DB node.
 	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
-	// The OCID of the DB node.
+	// OCID of the DB node.
 	Ocid                string `pulumi:"ocid"`
 	SoftwareStorageSize int    `pulumi:"softwareStorageSize"`
-	// The current status of the DB node.
+	// Current status of the DB node.
 	Status string `pulumi:"status"`
 	// Additional information about the status of the DB node.
 	StatusReason string `pulumi:"statusReason"`
-	// The end date and time of the maintenance window.
+	// End date and time of the maintenance window.
 	TimeMaintenanceWindowEnd string `pulumi:"timeMaintenanceWindowEnd"`
-	// The start date and time of the maintenance window.
+	// Start date and time of the maintenance window.
 	TimeMaintenanceWindowStart string `pulumi:"timeMaintenanceWindowStart"`
-	// The total number of CPU cores reserved on the DB node.
+	// Total number of CPU cores reserved on the DB node.
 	TotalCpuCoreCount int    `pulumi:"totalCpuCoreCount"`
 	Vnic2Id           string `pulumi:"vnic2Id"`
-	// The OCID of the VNIC.
+	// OCID of the VNIC.
 	VnicId string `pulumi:"vnicId"`
 }
 
@@ -4912,47 +4924,47 @@ type GetDbNodesDbNodeArgs struct {
 	// Additional information about the planned maintenance.
 	AdditionalDetails pulumi.StringInput `pulumi:"additionalDetails"`
 	Arn               pulumi.StringInput `pulumi:"arn"`
-	// The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+	// Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
 	BackupIpId    pulumi.StringInput `pulumi:"backupIpId"`
 	BackupVnic2Id pulumi.StringInput `pulumi:"backupVnic2Id"`
-	// The OCID of the backup VNIC for the DB node.
+	// OCID of the backup VNIC for the DB node.
 	BackupVnicId pulumi.StringInput `pulumi:"backupVnicId"`
-	// The number of CPU cores enabled on the DB node.
+	// Number of CPU cores enabled on the DB node.
 	CpuCoreCount pulumi.IntInput `pulumi:"cpuCoreCount"`
-	// The date and time when the DB node was created.
+	// Date and time when the DB node was created.
 	CreatedAt         pulumi.StringInput `pulumi:"createdAt"`
 	DbNodeStorageSize pulumi.IntInput    `pulumi:"dbNodeStorageSize"`
-	// The unique identifier of the database server that's associated with the DB node.
+	// Unique identifier of the database server that's associated with the DB node.
 	DbServerId pulumi.StringInput `pulumi:"dbServerId"`
-	// The OCID of the DB system.
+	// OCID of the DB system.
 	DbSystemId pulumi.StringInput `pulumi:"dbSystemId"`
-	// The name of the fault domain where the DB node is located.
+	// Name of the fault domain where the DB node is located.
 	FaultDomain pulumi.StringInput `pulumi:"faultDomain"`
-	// The OCID of the host IP address that's associated with the DB node.
+	// OCID of the host IP address that's associated with the DB node.
 	HostIpId pulumi.StringInput `pulumi:"hostIpId"`
-	// The host name for the DB node.
+	// Host name for the DB node.
 	Hostname pulumi.StringInput `pulumi:"hostname"`
 	Id       pulumi.StringInput `pulumi:"id"`
-	// The type of maintenance the DB node is undergoing.
+	// Type of maintenance the DB node is undergoing.
 	MaintenanceType pulumi.StringInput `pulumi:"maintenanceType"`
 	MemorySize      pulumi.IntInput    `pulumi:"memorySize"`
-	// The name of the OCI resource anchor for the DB node.
+	// Name of the OCI resource anchor for the DB node.
 	OciResourceAnchorName pulumi.StringInput `pulumi:"ociResourceAnchorName"`
-	// The OCID of the DB node.
+	// OCID of the DB node.
 	Ocid                pulumi.StringInput `pulumi:"ocid"`
 	SoftwareStorageSize pulumi.IntInput    `pulumi:"softwareStorageSize"`
-	// The current status of the DB node.
+	// Current status of the DB node.
 	Status pulumi.StringInput `pulumi:"status"`
 	// Additional information about the status of the DB node.
 	StatusReason pulumi.StringInput `pulumi:"statusReason"`
-	// The end date and time of the maintenance window.
+	// End date and time of the maintenance window.
 	TimeMaintenanceWindowEnd pulumi.StringInput `pulumi:"timeMaintenanceWindowEnd"`
-	// The start date and time of the maintenance window.
+	// Start date and time of the maintenance window.
 	TimeMaintenanceWindowStart pulumi.StringInput `pulumi:"timeMaintenanceWindowStart"`
-	// The total number of CPU cores reserved on the DB node.
+	// Total number of CPU cores reserved on the DB node.
 	TotalCpuCoreCount pulumi.IntInput    `pulumi:"totalCpuCoreCount"`
 	Vnic2Id           pulumi.StringInput `pulumi:"vnic2Id"`
-	// The OCID of the VNIC.
+	// OCID of the VNIC.
 	VnicId pulumi.StringInput `pulumi:"vnicId"`
 }
 
@@ -5016,7 +5028,7 @@ func (o GetDbNodesDbNodeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+// Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
 func (o GetDbNodesDbNodeOutput) BackupIpId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.BackupIpId }).(pulumi.StringOutput)
 }
@@ -5025,17 +5037,17 @@ func (o GetDbNodesDbNodeOutput) BackupVnic2Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.BackupVnic2Id }).(pulumi.StringOutput)
 }
 
-// The OCID of the backup VNIC for the DB node.
+// OCID of the backup VNIC for the DB node.
 func (o GetDbNodesDbNodeOutput) BackupVnicId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.BackupVnicId }).(pulumi.StringOutput)
 }
 
-// The number of CPU cores enabled on the DB node.
+// Number of CPU cores enabled on the DB node.
 func (o GetDbNodesDbNodeOutput) CpuCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) int { return v.CpuCoreCount }).(pulumi.IntOutput)
 }
 
-// The date and time when the DB node was created.
+// Date and time when the DB node was created.
 func (o GetDbNodesDbNodeOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -5044,27 +5056,27 @@ func (o GetDbNodesDbNodeOutput) DbNodeStorageSize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) int { return v.DbNodeStorageSize }).(pulumi.IntOutput)
 }
 
-// The unique identifier of the database server that's associated with the DB node.
+// Unique identifier of the database server that's associated with the DB node.
 func (o GetDbNodesDbNodeOutput) DbServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.DbServerId }).(pulumi.StringOutput)
 }
 
-// The OCID of the DB system.
+// OCID of the DB system.
 func (o GetDbNodesDbNodeOutput) DbSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.DbSystemId }).(pulumi.StringOutput)
 }
 
-// The name of the fault domain where the DB node is located.
+// Name of the fault domain where the DB node is located.
 func (o GetDbNodesDbNodeOutput) FaultDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.FaultDomain }).(pulumi.StringOutput)
 }
 
-// The OCID of the host IP address that's associated with the DB node.
+// OCID of the host IP address that's associated with the DB node.
 func (o GetDbNodesDbNodeOutput) HostIpId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.HostIpId }).(pulumi.StringOutput)
 }
 
-// The host name for the DB node.
+// Host name for the DB node.
 func (o GetDbNodesDbNodeOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Hostname }).(pulumi.StringOutput)
 }
@@ -5073,7 +5085,7 @@ func (o GetDbNodesDbNodeOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The type of maintenance the DB node is undergoing.
+// Type of maintenance the DB node is undergoing.
 func (o GetDbNodesDbNodeOutput) MaintenanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.MaintenanceType }).(pulumi.StringOutput)
 }
@@ -5082,12 +5094,12 @@ func (o GetDbNodesDbNodeOutput) MemorySize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) int { return v.MemorySize }).(pulumi.IntOutput)
 }
 
-// The name of the OCI resource anchor for the DB node.
+// Name of the OCI resource anchor for the DB node.
 func (o GetDbNodesDbNodeOutput) OciResourceAnchorName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.OciResourceAnchorName }).(pulumi.StringOutput)
 }
 
-// The OCID of the DB node.
+// OCID of the DB node.
 func (o GetDbNodesDbNodeOutput) Ocid() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Ocid }).(pulumi.StringOutput)
 }
@@ -5096,7 +5108,7 @@ func (o GetDbNodesDbNodeOutput) SoftwareStorageSize() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) int { return v.SoftwareStorageSize }).(pulumi.IntOutput)
 }
 
-// The current status of the DB node.
+// Current status of the DB node.
 func (o GetDbNodesDbNodeOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -5106,17 +5118,17 @@ func (o GetDbNodesDbNodeOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// The end date and time of the maintenance window.
+// End date and time of the maintenance window.
 func (o GetDbNodesDbNodeOutput) TimeMaintenanceWindowEnd() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.TimeMaintenanceWindowEnd }).(pulumi.StringOutput)
 }
 
-// The start date and time of the maintenance window.
+// Start date and time of the maintenance window.
 func (o GetDbNodesDbNodeOutput) TimeMaintenanceWindowStart() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.TimeMaintenanceWindowStart }).(pulumi.StringOutput)
 }
 
-// The total number of CPU cores reserved on the DB node.
+// Total number of CPU cores reserved on the DB node.
 func (o GetDbNodesDbNodeOutput) TotalCpuCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) int { return v.TotalCpuCoreCount }).(pulumi.IntOutput)
 }
@@ -5125,7 +5137,7 @@ func (o GetDbNodesDbNodeOutput) Vnic2Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Vnic2Id }).(pulumi.StringOutput)
 }
 
-// The OCID of the VNIC.
+// OCID of the VNIC.
 func (o GetDbNodesDbNodeOutput) VnicId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.VnicId }).(pulumi.StringOutput)
 }
@@ -5263,45 +5275,45 @@ func (o GetDbServerDbServerPatchingDetailArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetDbServersDbServer struct {
-	// A list of unique identifiers for the Autonomous VMs.
+	// List of unique identifiers for the Autonomous VMs.
 	AutonomousVirtualMachineIds []string `pulumi:"autonomousVirtualMachineIds"`
-	// A list of identifiers for the Autonomous VM clusters.
+	// List of identifiers for the Autonomous VM clusters.
 	AutonomousVmClusterIds []string `pulumi:"autonomousVmClusterIds"`
-	// The OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
+	// OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
 	ComputeModel string `pulumi:"computeModel"`
-	// The number of CPU cores enabled on the database server.
+	// Number of CPU cores enabled on the database server.
 	CpuCoreCount int `pulumi:"cpuCoreCount"`
-	// The date and time when the database server was created.
+	// Date and time when the database server was created.
 	CreatedAt string `pulumi:"createdAt"`
-	// The amount of local node storage, in gigabytes (GB), that's allocated on the database server.
+	// Amount of local node storage, in gigabytes (GB), that's allocated on the database server.
 	DbNodeStorageSizeInGbs int `pulumi:"dbNodeStorageSizeInGbs"`
-	// The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+	// Scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
 	DbServerPatchingDetails []GetDbServersDbServerDbServerPatchingDetail `pulumi:"dbServerPatchingDetails"`
-	// The user-friendly name of the database server. The name doesn't need to be unique.
+	// User-friendly name of the database server. The name doesn't need to be unique.
 	DisplayName string `pulumi:"displayName"`
-	// The ID of the Exadata infrastructure that hosts the database server.
+	// ID of the Exadata infrastructure that hosts the database server.
 	ExadataInfrastructureId string `pulumi:"exadataInfrastructureId"`
-	// The unique identifier of the database server.
+	// Unique identifier of the database server.
 	Id string `pulumi:"id"`
-	// The total number of CPU cores available on the database server.
+	// Total number of CPU cores available on the database server.
 	MaxCpuCount int `pulumi:"maxCpuCount"`
-	// The total amount of local node storage, in gigabytes (GB), that's available on the database server.
+	// Total amount of local node storage, in gigabytes (GB), that's available on the database server.
 	MaxDbNodeStorageInGbs int `pulumi:"maxDbNodeStorageInGbs"`
-	// The total amount of memory, in gigabytes (GB), that's available on the database server.
+	// Total amount of memory, in gigabytes (GB), that's available on the database server.
 	MaxMemoryInGbs int `pulumi:"maxMemoryInGbs"`
-	// The amount of memory, in gigabytes (GB), that's allocated on the database server.
+	// Amount of memory, in gigabytes (GB), that's allocated on the database server.
 	MemorySizeInGbs int `pulumi:"memorySizeInGbs"`
-	// The name of the OCI resource anchor for the database server.
+	// Name of the OCI resource anchor for the database server.
 	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
-	// The OCID of the database server.
+	// OCID of the database server.
 	Ocid string `pulumi:"ocid"`
-	// The hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
+	// Hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
 	Shape string `pulumi:"shape"`
-	// The current status of the database server.
+	// Current status of the database server.
 	Status string `pulumi:"status"`
 	// Additional information about the status of the database server.
 	StatusReason string `pulumi:"statusReason"`
-	// The IDs of the VM clusters that are associated with the database server.
+	// IDs of the VM clusters that are associated with the database server.
 	VmClusterIds []string `pulumi:"vmClusterIds"`
 }
 
@@ -5317,45 +5329,45 @@ type GetDbServersDbServerInput interface {
 }
 
 type GetDbServersDbServerArgs struct {
-	// A list of unique identifiers for the Autonomous VMs.
+	// List of unique identifiers for the Autonomous VMs.
 	AutonomousVirtualMachineIds pulumi.StringArrayInput `pulumi:"autonomousVirtualMachineIds"`
-	// A list of identifiers for the Autonomous VM clusters.
+	// List of identifiers for the Autonomous VM clusters.
 	AutonomousVmClusterIds pulumi.StringArrayInput `pulumi:"autonomousVmClusterIds"`
-	// The OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
+	// OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
 	ComputeModel pulumi.StringInput `pulumi:"computeModel"`
-	// The number of CPU cores enabled on the database server.
+	// Number of CPU cores enabled on the database server.
 	CpuCoreCount pulumi.IntInput `pulumi:"cpuCoreCount"`
-	// The date and time when the database server was created.
+	// Date and time when the database server was created.
 	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
-	// The amount of local node storage, in gigabytes (GB), that's allocated on the database server.
+	// Amount of local node storage, in gigabytes (GB), that's allocated on the database server.
 	DbNodeStorageSizeInGbs pulumi.IntInput `pulumi:"dbNodeStorageSizeInGbs"`
-	// The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+	// Scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
 	DbServerPatchingDetails GetDbServersDbServerDbServerPatchingDetailArrayInput `pulumi:"dbServerPatchingDetails"`
-	// The user-friendly name of the database server. The name doesn't need to be unique.
+	// User-friendly name of the database server. The name doesn't need to be unique.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// The ID of the Exadata infrastructure that hosts the database server.
+	// ID of the Exadata infrastructure that hosts the database server.
 	ExadataInfrastructureId pulumi.StringInput `pulumi:"exadataInfrastructureId"`
-	// The unique identifier of the database server.
+	// Unique identifier of the database server.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The total number of CPU cores available on the database server.
+	// Total number of CPU cores available on the database server.
 	MaxCpuCount pulumi.IntInput `pulumi:"maxCpuCount"`
-	// The total amount of local node storage, in gigabytes (GB), that's available on the database server.
+	// Total amount of local node storage, in gigabytes (GB), that's available on the database server.
 	MaxDbNodeStorageInGbs pulumi.IntInput `pulumi:"maxDbNodeStorageInGbs"`
-	// The total amount of memory, in gigabytes (GB), that's available on the database server.
+	// Total amount of memory, in gigabytes (GB), that's available on the database server.
 	MaxMemoryInGbs pulumi.IntInput `pulumi:"maxMemoryInGbs"`
-	// The amount of memory, in gigabytes (GB), that's allocated on the database server.
+	// Amount of memory, in gigabytes (GB), that's allocated on the database server.
 	MemorySizeInGbs pulumi.IntInput `pulumi:"memorySizeInGbs"`
-	// The name of the OCI resource anchor for the database server.
+	// Name of the OCI resource anchor for the database server.
 	OciResourceAnchorName pulumi.StringInput `pulumi:"ociResourceAnchorName"`
-	// The OCID of the database server.
+	// OCID of the database server.
 	Ocid pulumi.StringInput `pulumi:"ocid"`
-	// The hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
+	// Hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
 	Shape pulumi.StringInput `pulumi:"shape"`
-	// The current status of the database server.
+	// Current status of the database server.
 	Status pulumi.StringInput `pulumi:"status"`
 	// Additional information about the status of the database server.
 	StatusReason pulumi.StringInput `pulumi:"statusReason"`
-	// The IDs of the VM clusters that are associated with the database server.
+	// IDs of the VM clusters that are associated with the database server.
 	VmClusterIds pulumi.StringArrayInput `pulumi:"vmClusterIds"`
 }
 
@@ -5410,94 +5422,94 @@ func (o GetDbServersDbServerOutput) ToGetDbServersDbServerOutputWithContext(ctx 
 	return o
 }
 
-// A list of unique identifiers for the Autonomous VMs.
+// List of unique identifiers for the Autonomous VMs.
 func (o GetDbServersDbServerOutput) AutonomousVirtualMachineIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) []string { return v.AutonomousVirtualMachineIds }).(pulumi.StringArrayOutput)
 }
 
-// A list of identifiers for the Autonomous VM clusters.
+// List of identifiers for the Autonomous VM clusters.
 func (o GetDbServersDbServerOutput) AutonomousVmClusterIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) []string { return v.AutonomousVmClusterIds }).(pulumi.StringArrayOutput)
 }
 
-// The OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
+// OCI compute model used when you create or clone an instance: **ECPU** or **OCPU**. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers, while OCPUs are based on the physical core of a processor with hyper-threading enabled.
 func (o GetDbServersDbServerOutput) ComputeModel() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.ComputeModel }).(pulumi.StringOutput)
 }
 
-// The number of CPU cores enabled on the database server.
+// Number of CPU cores enabled on the database server.
 func (o GetDbServersDbServerOutput) CpuCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) int { return v.CpuCoreCount }).(pulumi.IntOutput)
 }
 
-// The date and time when the database server was created.
+// Date and time when the database server was created.
 func (o GetDbServersDbServerOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The amount of local node storage, in gigabytes (GB), that's allocated on the database server.
+// Amount of local node storage, in gigabytes (GB), that's allocated on the database server.
 func (o GetDbServersDbServerOutput) DbNodeStorageSizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) int { return v.DbNodeStorageSizeInGbs }).(pulumi.IntOutput)
 }
 
-// The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+// Scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
 func (o GetDbServersDbServerOutput) DbServerPatchingDetails() GetDbServersDbServerDbServerPatchingDetailArrayOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) []GetDbServersDbServerDbServerPatchingDetail {
 		return v.DbServerPatchingDetails
 	}).(GetDbServersDbServerDbServerPatchingDetailArrayOutput)
 }
 
-// The user-friendly name of the database server. The name doesn't need to be unique.
+// User-friendly name of the database server. The name doesn't need to be unique.
 func (o GetDbServersDbServerOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The ID of the Exadata infrastructure that hosts the database server.
+// ID of the Exadata infrastructure that hosts the database server.
 func (o GetDbServersDbServerOutput) ExadataInfrastructureId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.ExadataInfrastructureId }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the database server.
+// Unique identifier of the database server.
 func (o GetDbServersDbServerOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The total number of CPU cores available on the database server.
+// Total number of CPU cores available on the database server.
 func (o GetDbServersDbServerOutput) MaxCpuCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) int { return v.MaxCpuCount }).(pulumi.IntOutput)
 }
 
-// The total amount of local node storage, in gigabytes (GB), that's available on the database server.
+// Total amount of local node storage, in gigabytes (GB), that's available on the database server.
 func (o GetDbServersDbServerOutput) MaxDbNodeStorageInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) int { return v.MaxDbNodeStorageInGbs }).(pulumi.IntOutput)
 }
 
-// The total amount of memory, in gigabytes (GB), that's available on the database server.
+// Total amount of memory, in gigabytes (GB), that's available on the database server.
 func (o GetDbServersDbServerOutput) MaxMemoryInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) int { return v.MaxMemoryInGbs }).(pulumi.IntOutput)
 }
 
-// The amount of memory, in gigabytes (GB), that's allocated on the database server.
+// Amount of memory, in gigabytes (GB), that's allocated on the database server.
 func (o GetDbServersDbServerOutput) MemorySizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) int { return v.MemorySizeInGbs }).(pulumi.IntOutput)
 }
 
-// The name of the OCI resource anchor for the database server.
+// Name of the OCI resource anchor for the database server.
 func (o GetDbServersDbServerOutput) OciResourceAnchorName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.OciResourceAnchorName }).(pulumi.StringOutput)
 }
 
-// The OCID of the database server.
+// OCID of the database server.
 func (o GetDbServersDbServerOutput) Ocid() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.Ocid }).(pulumi.StringOutput)
 }
 
-// The hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
+// Hardware system model of the Exadata infrastructure that the database server is hosted on. The shape determines the amount of CPU, storage, and memory resources available.
 func (o GetDbServersDbServerOutput) Shape() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.Shape }).(pulumi.StringOutput)
 }
 
-// The current status of the database server.
+// Current status of the database server.
 func (o GetDbServersDbServerOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -5507,7 +5519,7 @@ func (o GetDbServersDbServerOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// The IDs of the VM clusters that are associated with the database server.
+// IDs of the VM clusters that are associated with the database server.
 func (o GetDbServersDbServerOutput) VmClusterIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) []string { return v.VmClusterIds }).(pulumi.StringArrayOutput)
 }
@@ -5645,49 +5657,49 @@ func (o GetDbServersDbServerDbServerPatchingDetailArrayOutput) Index(i pulumi.In
 }
 
 type GetDbSystemShapesDbSystemShape struct {
-	// The maximum number of CPU cores that can be enabled for the shape.
+	// Maximum number of CPU cores that can be enabled for the shape.
 	AvailableCoreCount int `pulumi:"availableCoreCount"`
-	// The maximum number of CPU cores per DB node that can be enabled for the shape.
+	// Maximum number of CPU cores per DB node that can be enabled for the shape.
 	AvailableCoreCountPerNode int `pulumi:"availableCoreCountPerNode"`
-	// The maximum amount of data storage, in terabytes (TB), that can be enabled for the shape.
+	// Maximum amount of data storage, in terabytes (TB), that can be enabled for the shape.
 	AvailableDataStorageInTbs int `pulumi:"availableDataStorageInTbs"`
-	// The maximum amount of data storage, in terabytes (TB), that's available per storage server for the shape.
+	// Maximum amount of data storage, in terabytes (TB), that's available per storage server for the shape.
 	AvailableDataStoragePerServerInTbs int `pulumi:"availableDataStoragePerServerInTbs"`
-	// The maximum amount of DB node storage, in gigabytes (GB), that's available per DB node for the shape.
+	// Maximum amount of DB node storage, in gigabytes (GB), that's available per DB node for the shape.
 	AvailableDbNodePerNodeInGbs int `pulumi:"availableDbNodePerNodeInGbs"`
-	// The maximum amount of DB node storage, in gigabytes (GB), that can be enabled for the shape.
+	// Maximum amount of DB node storage, in gigabytes (GB), that can be enabled for the shape.
 	AvailableDbNodeStorageInGbs int `pulumi:"availableDbNodeStorageInGbs"`
-	// The maximum amount of memory, in gigabytes (GB), that can be enabled for the shape.
+	// Maximum amount of memory, in gigabytes (GB), that can be enabled for the shape.
 	AvailableMemoryInGbs int `pulumi:"availableMemoryInGbs"`
-	// The maximum amount of memory, in gigabytes (GB), that's available per DB node for the shape.
+	// Maximum amount of memory, in gigabytes (GB), that's available per DB node for the shape.
 	AvailableMemoryPerNodeInGbs int `pulumi:"availableMemoryPerNodeInGbs"`
-	// The discrete number by which the CPU core count for the shape can be increased or decreased.
+	// Discrete number by which the CPU core count for the shape can be increased or decreased.
 	CoreCountIncrement int `pulumi:"coreCountIncrement"`
-	// The maximum number of Exadata storage servers available for the shape.
+	// Maximum number of Exadata storage servers available for the shape.
 	MaxStorageCount int `pulumi:"maxStorageCount"`
-	// The maximum number of compute servers available for the shape.
+	// Maximum number of compute servers available for the shape.
 	MaximumNodeCount int `pulumi:"maximumNodeCount"`
-	// The minimum number of CPU cores that can be enabled per node for the shape.
+	// Minimum number of CPU cores that can be enabled per node for the shape.
 	MinCoreCountPerNode int `pulumi:"minCoreCountPerNode"`
-	// The minimum amount of data storage, in terabytes (TB), that must be allocated for the shape.
+	// Minimum amount of data storage, in terabytes (TB), that must be allocated for the shape.
 	MinDataStorageInTbs int `pulumi:"minDataStorageInTbs"`
-	// The minimum amount of DB node storage, in gigabytes (GB), that must be allocated per DB node for the shape.
+	// Minimum amount of DB node storage, in gigabytes (GB), that must be allocated per DB node for the shape.
 	MinDbNodeStoragePerNodeInGbs int `pulumi:"minDbNodeStoragePerNodeInGbs"`
-	// The minimum amount of memory, in gigabytes (GB), that must be allocated per DB node for the shape.
+	// Minimum amount of memory, in gigabytes (GB), that must be allocated per DB node for the shape.
 	MinMemoryPerNodeInGbs int `pulumi:"minMemoryPerNodeInGbs"`
-	// The minimum number of Exadata storage servers available for the shape.
+	// Minimum number of Exadata storage servers available for the shape.
 	MinStorageCount int `pulumi:"minStorageCount"`
-	// The minimum number of CPU cores that can be enabled for the shape.
+	// Minimum number of CPU cores that can be enabled for the shape.
 	MinimumCoreCount int `pulumi:"minimumCoreCount"`
-	// The minimum number of compute servers available for the shape.
+	// Minimum number of compute servers available for the shape.
 	MinimumNodeCount int `pulumi:"minimumNodeCount"`
-	// The name of the shape.
+	// Name of the shape.
 	Name string `pulumi:"name"`
-	// The runtime minimum number of CPU cores that can be enabled for the shape.
+	// Runtime minimum number of CPU cores that can be enabled for the shape.
 	RuntimeMinimumCoreCount int `pulumi:"runtimeMinimumCoreCount"`
-	// The family of the shape.
+	// Family of the shape.
 	ShapeFamily string `pulumi:"shapeFamily"`
-	// The shape type, determined by the CPU hardware.
+	// Shape type, determined by the CPU hardware.
 	ShapeType string `pulumi:"shapeType"`
 }
 
@@ -5703,49 +5715,49 @@ type GetDbSystemShapesDbSystemShapeInput interface {
 }
 
 type GetDbSystemShapesDbSystemShapeArgs struct {
-	// The maximum number of CPU cores that can be enabled for the shape.
+	// Maximum number of CPU cores that can be enabled for the shape.
 	AvailableCoreCount pulumi.IntInput `pulumi:"availableCoreCount"`
-	// The maximum number of CPU cores per DB node that can be enabled for the shape.
+	// Maximum number of CPU cores per DB node that can be enabled for the shape.
 	AvailableCoreCountPerNode pulumi.IntInput `pulumi:"availableCoreCountPerNode"`
-	// The maximum amount of data storage, in terabytes (TB), that can be enabled for the shape.
+	// Maximum amount of data storage, in terabytes (TB), that can be enabled for the shape.
 	AvailableDataStorageInTbs pulumi.IntInput `pulumi:"availableDataStorageInTbs"`
-	// The maximum amount of data storage, in terabytes (TB), that's available per storage server for the shape.
+	// Maximum amount of data storage, in terabytes (TB), that's available per storage server for the shape.
 	AvailableDataStoragePerServerInTbs pulumi.IntInput `pulumi:"availableDataStoragePerServerInTbs"`
-	// The maximum amount of DB node storage, in gigabytes (GB), that's available per DB node for the shape.
+	// Maximum amount of DB node storage, in gigabytes (GB), that's available per DB node for the shape.
 	AvailableDbNodePerNodeInGbs pulumi.IntInput `pulumi:"availableDbNodePerNodeInGbs"`
-	// The maximum amount of DB node storage, in gigabytes (GB), that can be enabled for the shape.
+	// Maximum amount of DB node storage, in gigabytes (GB), that can be enabled for the shape.
 	AvailableDbNodeStorageInGbs pulumi.IntInput `pulumi:"availableDbNodeStorageInGbs"`
-	// The maximum amount of memory, in gigabytes (GB), that can be enabled for the shape.
+	// Maximum amount of memory, in gigabytes (GB), that can be enabled for the shape.
 	AvailableMemoryInGbs pulumi.IntInput `pulumi:"availableMemoryInGbs"`
-	// The maximum amount of memory, in gigabytes (GB), that's available per DB node for the shape.
+	// Maximum amount of memory, in gigabytes (GB), that's available per DB node for the shape.
 	AvailableMemoryPerNodeInGbs pulumi.IntInput `pulumi:"availableMemoryPerNodeInGbs"`
-	// The discrete number by which the CPU core count for the shape can be increased or decreased.
+	// Discrete number by which the CPU core count for the shape can be increased or decreased.
 	CoreCountIncrement pulumi.IntInput `pulumi:"coreCountIncrement"`
-	// The maximum number of Exadata storage servers available for the shape.
+	// Maximum number of Exadata storage servers available for the shape.
 	MaxStorageCount pulumi.IntInput `pulumi:"maxStorageCount"`
-	// The maximum number of compute servers available for the shape.
+	// Maximum number of compute servers available for the shape.
 	MaximumNodeCount pulumi.IntInput `pulumi:"maximumNodeCount"`
-	// The minimum number of CPU cores that can be enabled per node for the shape.
+	// Minimum number of CPU cores that can be enabled per node for the shape.
 	MinCoreCountPerNode pulumi.IntInput `pulumi:"minCoreCountPerNode"`
-	// The minimum amount of data storage, in terabytes (TB), that must be allocated for the shape.
+	// Minimum amount of data storage, in terabytes (TB), that must be allocated for the shape.
 	MinDataStorageInTbs pulumi.IntInput `pulumi:"minDataStorageInTbs"`
-	// The minimum amount of DB node storage, in gigabytes (GB), that must be allocated per DB node for the shape.
+	// Minimum amount of DB node storage, in gigabytes (GB), that must be allocated per DB node for the shape.
 	MinDbNodeStoragePerNodeInGbs pulumi.IntInput `pulumi:"minDbNodeStoragePerNodeInGbs"`
-	// The minimum amount of memory, in gigabytes (GB), that must be allocated per DB node for the shape.
+	// Minimum amount of memory, in gigabytes (GB), that must be allocated per DB node for the shape.
 	MinMemoryPerNodeInGbs pulumi.IntInput `pulumi:"minMemoryPerNodeInGbs"`
-	// The minimum number of Exadata storage servers available for the shape.
+	// Minimum number of Exadata storage servers available for the shape.
 	MinStorageCount pulumi.IntInput `pulumi:"minStorageCount"`
-	// The minimum number of CPU cores that can be enabled for the shape.
+	// Minimum number of CPU cores that can be enabled for the shape.
 	MinimumCoreCount pulumi.IntInput `pulumi:"minimumCoreCount"`
-	// The minimum number of compute servers available for the shape.
+	// Minimum number of compute servers available for the shape.
 	MinimumNodeCount pulumi.IntInput `pulumi:"minimumNodeCount"`
-	// The name of the shape.
+	// Name of the shape.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The runtime minimum number of CPU cores that can be enabled for the shape.
+	// Runtime minimum number of CPU cores that can be enabled for the shape.
 	RuntimeMinimumCoreCount pulumi.IntInput `pulumi:"runtimeMinimumCoreCount"`
-	// The family of the shape.
+	// Family of the shape.
 	ShapeFamily pulumi.StringInput `pulumi:"shapeFamily"`
-	// The shape type, determined by the CPU hardware.
+	// Shape type, determined by the CPU hardware.
 	ShapeType pulumi.StringInput `pulumi:"shapeType"`
 }
 
@@ -5800,112 +5812,112 @@ func (o GetDbSystemShapesDbSystemShapeOutput) ToGetDbSystemShapesDbSystemShapeOu
 	return o
 }
 
-// The maximum number of CPU cores that can be enabled for the shape.
+// Maximum number of CPU cores that can be enabled for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableCoreCount }).(pulumi.IntOutput)
 }
 
-// The maximum number of CPU cores per DB node that can be enabled for the shape.
+// Maximum number of CPU cores per DB node that can be enabled for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableCoreCountPerNode() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableCoreCountPerNode }).(pulumi.IntOutput)
 }
 
-// The maximum amount of data storage, in terabytes (TB), that can be enabled for the shape.
+// Maximum amount of data storage, in terabytes (TB), that can be enabled for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDataStorageInTbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDataStorageInTbs }).(pulumi.IntOutput)
 }
 
-// The maximum amount of data storage, in terabytes (TB), that's available per storage server for the shape.
+// Maximum amount of data storage, in terabytes (TB), that's available per storage server for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDataStoragePerServerInTbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDataStoragePerServerInTbs }).(pulumi.IntOutput)
 }
 
-// The maximum amount of DB node storage, in gigabytes (GB), that's available per DB node for the shape.
+// Maximum amount of DB node storage, in gigabytes (GB), that's available per DB node for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDbNodePerNodeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDbNodePerNodeInGbs }).(pulumi.IntOutput)
 }
 
-// The maximum amount of DB node storage, in gigabytes (GB), that can be enabled for the shape.
+// Maximum amount of DB node storage, in gigabytes (GB), that can be enabled for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableDbNodeStorageInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableDbNodeStorageInGbs }).(pulumi.IntOutput)
 }
 
-// The maximum amount of memory, in gigabytes (GB), that can be enabled for the shape.
+// Maximum amount of memory, in gigabytes (GB), that can be enabled for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableMemoryInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableMemoryInGbs }).(pulumi.IntOutput)
 }
 
-// The maximum amount of memory, in gigabytes (GB), that's available per DB node for the shape.
+// Maximum amount of memory, in gigabytes (GB), that's available per DB node for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableMemoryPerNodeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableMemoryPerNodeInGbs }).(pulumi.IntOutput)
 }
 
-// The discrete number by which the CPU core count for the shape can be increased or decreased.
+// Discrete number by which the CPU core count for the shape can be increased or decreased.
 func (o GetDbSystemShapesDbSystemShapeOutput) CoreCountIncrement() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.CoreCountIncrement }).(pulumi.IntOutput)
 }
 
-// The maximum number of Exadata storage servers available for the shape.
+// Maximum number of Exadata storage servers available for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MaxStorageCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MaxStorageCount }).(pulumi.IntOutput)
 }
 
-// The maximum number of compute servers available for the shape.
+// Maximum number of compute servers available for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MaximumNodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MaximumNodeCount }).(pulumi.IntOutput)
 }
 
-// The minimum number of CPU cores that can be enabled per node for the shape.
+// Minimum number of CPU cores that can be enabled per node for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MinCoreCountPerNode() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinCoreCountPerNode }).(pulumi.IntOutput)
 }
 
-// The minimum amount of data storage, in terabytes (TB), that must be allocated for the shape.
+// Minimum amount of data storage, in terabytes (TB), that must be allocated for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MinDataStorageInTbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinDataStorageInTbs }).(pulumi.IntOutput)
 }
 
-// The minimum amount of DB node storage, in gigabytes (GB), that must be allocated per DB node for the shape.
+// Minimum amount of DB node storage, in gigabytes (GB), that must be allocated per DB node for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MinDbNodeStoragePerNodeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinDbNodeStoragePerNodeInGbs }).(pulumi.IntOutput)
 }
 
-// The minimum amount of memory, in gigabytes (GB), that must be allocated per DB node for the shape.
+// Minimum amount of memory, in gigabytes (GB), that must be allocated per DB node for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MinMemoryPerNodeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinMemoryPerNodeInGbs }).(pulumi.IntOutput)
 }
 
-// The minimum number of Exadata storage servers available for the shape.
+// Minimum number of Exadata storage servers available for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MinStorageCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinStorageCount }).(pulumi.IntOutput)
 }
 
-// The minimum number of CPU cores that can be enabled for the shape.
+// Minimum number of CPU cores that can be enabled for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MinimumCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinimumCoreCount }).(pulumi.IntOutput)
 }
 
-// The minimum number of compute servers available for the shape.
+// Minimum number of compute servers available for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) MinimumNodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.MinimumNodeCount }).(pulumi.IntOutput)
 }
 
-// The name of the shape.
+// Name of the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The runtime minimum number of CPU cores that can be enabled for the shape.
+// Runtime minimum number of CPU cores that can be enabled for the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) RuntimeMinimumCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.RuntimeMinimumCoreCount }).(pulumi.IntOutput)
 }
 
-// The family of the shape.
+// Family of the shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) ShapeFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) string { return v.ShapeFamily }).(pulumi.StringOutput)
 }
 
-// The shape type, determined by the CPU hardware.
+// Shape type, determined by the CPU hardware.
 func (o GetDbSystemShapesDbSystemShapeOutput) ShapeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) string { return v.ShapeType }).(pulumi.StringOutput)
 }
@@ -5931,7 +5943,7 @@ func (o GetDbSystemShapesDbSystemShapeArrayOutput) Index(i pulumi.IntInput) GetD
 }
 
 type GetGiVersionsGiVersion struct {
-	// The GI software version.
+	// GI software version.
 	Version string `pulumi:"version"`
 }
 
@@ -5947,7 +5959,7 @@ type GetGiVersionsGiVersionInput interface {
 }
 
 type GetGiVersionsGiVersionArgs struct {
-	// The GI software version.
+	// GI software version.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -6002,7 +6014,7 @@ func (o GetGiVersionsGiVersionOutput) ToGetGiVersionsGiVersionOutputWithContext(
 	return o
 }
 
-// The GI software version.
+// GI software version.
 func (o GetGiVersionsGiVersionOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGiVersionsGiVersion) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -6185,7 +6197,7 @@ type GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess struct {
 	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status string `pulumi:"status"`
 }
 
@@ -6204,7 +6216,7 @@ type GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs struct {
 	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -6268,7 +6280,7 @@ func (o GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) Region(
 	return o.ApplyT(func(v GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The status of the network resource.
+// Status of the network resource.
 func (o GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccessOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkManagedServiceCrossRegionS3RestoreSourcesAccess) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -6297,7 +6309,7 @@ type GetNetworkManagedServiceKmsAccess struct {
 	DomainName        string   `pulumi:"domainName"`
 	Ipv4Addresses     []string `pulumi:"ipv4Addresses"`
 	KmsPolicyDocument string   `pulumi:"kmsPolicyDocument"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status string `pulumi:"status"`
 }
 
@@ -6316,7 +6328,7 @@ type GetNetworkManagedServiceKmsAccessArgs struct {
 	DomainName        pulumi.StringInput      `pulumi:"domainName"`
 	Ipv4Addresses     pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
 	KmsPolicyDocument pulumi.StringInput      `pulumi:"kmsPolicyDocument"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -6383,7 +6395,7 @@ func (o GetNetworkManagedServiceKmsAccessOutput) KmsPolicyDocument() pulumi.Stri
 	return o.ApplyT(func(v GetNetworkManagedServiceKmsAccess) string { return v.KmsPolicyDocument }).(pulumi.StringOutput)
 }
 
-// The status of the network resource.
+// Status of the network resource.
 func (o GetNetworkManagedServiceKmsAccessOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkManagedServiceKmsAccess) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -6410,7 +6422,7 @@ func (o GetNetworkManagedServiceKmsAccessArrayOutput) Index(i pulumi.IntInput) G
 
 type GetNetworkManagedServiceManagedS3BackupAccess struct {
 	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status string `pulumi:"status"`
 }
 
@@ -6427,7 +6439,7 @@ type GetNetworkManagedServiceManagedS3BackupAccessInput interface {
 
 type GetNetworkManagedServiceManagedS3BackupAccessArgs struct {
 	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -6486,7 +6498,7 @@ func (o GetNetworkManagedServiceManagedS3BackupAccessOutput) Ipv4Addresses() pul
 	return o.ApplyT(func(v GetNetworkManagedServiceManagedS3BackupAccess) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
 }
 
-// The status of the network resource.
+// Status of the network resource.
 func (o GetNetworkManagedServiceManagedS3BackupAccessOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkManagedServiceManagedS3BackupAccess) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -6515,7 +6527,7 @@ type GetNetworkManagedServiceS3Access struct {
 	DomainName       string   `pulumi:"domainName"`
 	Ipv4Addresses    []string `pulumi:"ipv4Addresses"`
 	S3PolicyDocument string   `pulumi:"s3PolicyDocument"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status string `pulumi:"status"`
 }
 
@@ -6534,7 +6546,7 @@ type GetNetworkManagedServiceS3AccessArgs struct {
 	DomainName       pulumi.StringInput      `pulumi:"domainName"`
 	Ipv4Addresses    pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
 	S3PolicyDocument pulumi.StringInput      `pulumi:"s3PolicyDocument"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -6601,7 +6613,7 @@ func (o GetNetworkManagedServiceS3AccessOutput) S3PolicyDocument() pulumi.String
 	return o.ApplyT(func(v GetNetworkManagedServiceS3Access) string { return v.S3PolicyDocument }).(pulumi.StringOutput)
 }
 
-// The status of the network resource.
+// Status of the network resource.
 func (o GetNetworkManagedServiceS3AccessOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkManagedServiceS3Access) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -6729,7 +6741,7 @@ func (o GetNetworkManagedServiceServiceNetworkEndpointArrayOutput) Index(i pulum
 type GetNetworkManagedServiceStsAccess struct {
 	DomainName    string   `pulumi:"domainName"`
 	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status            string `pulumi:"status"`
 	StsPolicyDocument string `pulumi:"stsPolicyDocument"`
 }
@@ -6748,7 +6760,7 @@ type GetNetworkManagedServiceStsAccessInput interface {
 type GetNetworkManagedServiceStsAccessArgs struct {
 	DomainName    pulumi.StringInput      `pulumi:"domainName"`
 	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status            pulumi.StringInput `pulumi:"status"`
 	StsPolicyDocument pulumi.StringInput `pulumi:"stsPolicyDocument"`
 }
@@ -6812,7 +6824,7 @@ func (o GetNetworkManagedServiceStsAccessOutput) Ipv4Addresses() pulumi.StringAr
 	return o.ApplyT(func(v GetNetworkManagedServiceStsAccess) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
 }
 
-// The status of the network resource.
+// Status of the network resource.
 func (o GetNetworkManagedServiceStsAccessOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkManagedServiceStsAccess) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -6843,7 +6855,7 @@ func (o GetNetworkManagedServiceStsAccessArrayOutput) Index(i pulumi.IntInput) G
 
 type GetNetworkManagedServiceZeroTlAccess struct {
 	Cidr string `pulumi:"cidr"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status string `pulumi:"status"`
 }
 
@@ -6860,7 +6872,7 @@ type GetNetworkManagedServiceZeroTlAccessInput interface {
 
 type GetNetworkManagedServiceZeroTlAccessArgs struct {
 	Cidr pulumi.StringInput `pulumi:"cidr"`
-	// The status of the network resource.
+	// Status of the network resource.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -6919,7 +6931,7 @@ func (o GetNetworkManagedServiceZeroTlAccessOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkManagedServiceZeroTlAccess) string { return v.Cidr }).(pulumi.StringOutput)
 }
 
-// The status of the network resource.
+// Status of the network resource.
 func (o GetNetworkManagedServiceZeroTlAccessOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkManagedServiceZeroTlAccess) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -7045,11 +7057,11 @@ func (o GetNetworkOciDnsForwardingConfigArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetNetworkPeeringConnectionsOdbPeeringConnection struct {
-	// The Amazon Resource Name (ARN) for the  ODB network peering connection.
+	// Amazon Resource Name (ARN) for the ODB network peering connection.
 	Arn string `pulumi:"arn"`
 	// Display name of the ODB network peering connection.
 	DisplayName string `pulumi:"displayName"`
-	// The unique identifier of the  ODB network peering connection.
+	// Unique identifier of the ODB network peering connection.
 	Id string `pulumi:"id"`
 	// ARN of the ODB network peering connection.
 	OdbNetworkArn string `pulumi:"odbNetworkArn"`
@@ -7069,11 +7081,11 @@ type GetNetworkPeeringConnectionsOdbPeeringConnectionInput interface {
 }
 
 type GetNetworkPeeringConnectionsOdbPeeringConnectionArgs struct {
-	// The Amazon Resource Name (ARN) for the  ODB network peering connection.
+	// Amazon Resource Name (ARN) for the ODB network peering connection.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Display name of the ODB network peering connection.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// The unique identifier of the  ODB network peering connection.
+	// Unique identifier of the ODB network peering connection.
 	Id pulumi.StringInput `pulumi:"id"`
 	// ARN of the ODB network peering connection.
 	OdbNetworkArn pulumi.StringInput `pulumi:"odbNetworkArn"`
@@ -7132,7 +7144,7 @@ func (o GetNetworkPeeringConnectionsOdbPeeringConnectionOutput) ToGetNetworkPeer
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the  ODB network peering connection.
+// Amazon Resource Name (ARN) for the ODB network peering connection.
 func (o GetNetworkPeeringConnectionsOdbPeeringConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkPeeringConnectionsOdbPeeringConnection) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -7142,7 +7154,7 @@ func (o GetNetworkPeeringConnectionsOdbPeeringConnectionOutput) DisplayName() pu
 	return o.ApplyT(func(v GetNetworkPeeringConnectionsOdbPeeringConnection) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the  ODB network peering connection.
+// Unique identifier of the ODB network peering connection.
 func (o GetNetworkPeeringConnectionsOdbPeeringConnectionOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkPeeringConnectionsOdbPeeringConnection) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -7184,11 +7196,11 @@ type GetNetworksOdbNetwork struct {
 	DisplayName string `pulumi:"displayName"`
 	// Unique identifier of the odb network resource.
 	Id string `pulumi:"id"`
-	// The unique identifier of the OCI network anchor for the ODB network.
+	// Unique identifier of the OCI network anchor for the ODB network.
 	OciNetworkAnchorId string `pulumi:"ociNetworkAnchorId"`
-	// The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+	// Unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
 	OciVcnId string `pulumi:"ociVcnId"`
-	// The URL of the OCI VCN for the ODB network.
+	// URL of the OCI VCN for the ODB network.
 	OciVcnUrl string `pulumi:"ociVcnUrl"`
 }
 
@@ -7210,11 +7222,11 @@ type GetNetworksOdbNetworkArgs struct {
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// Unique identifier of the odb network resource.
 	Id pulumi.StringInput `pulumi:"id"`
-	// The unique identifier of the OCI network anchor for the ODB network.
+	// Unique identifier of the OCI network anchor for the ODB network.
 	OciNetworkAnchorId pulumi.StringInput `pulumi:"ociNetworkAnchorId"`
-	// The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+	// Unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
 	OciVcnId pulumi.StringInput `pulumi:"ociVcnId"`
-	// The URL of the OCI VCN for the ODB network.
+	// URL of the OCI VCN for the ODB network.
 	OciVcnUrl pulumi.StringInput `pulumi:"ociVcnUrl"`
 }
 
@@ -7284,17 +7296,17 @@ func (o GetNetworksOdbNetworkOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworksOdbNetwork) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the OCI network anchor for the ODB network.
+// Unique identifier of the OCI network anchor for the ODB network.
 func (o GetNetworksOdbNetworkOutput) OciNetworkAnchorId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworksOdbNetwork) string { return v.OciNetworkAnchorId }).(pulumi.StringOutput)
 }
 
-// The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+// Unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
 func (o GetNetworksOdbNetworkOutput) OciVcnId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworksOdbNetwork) string { return v.OciVcnId }).(pulumi.StringOutput)
 }
 
-// The URL of the OCI VCN for the ODB network.
+// URL of the OCI VCN for the ODB network.
 func (o GetNetworksOdbNetworkOutput) OciVcnUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworksOdbNetwork) string { return v.OciVcnUrl }).(pulumi.StringOutput)
 }

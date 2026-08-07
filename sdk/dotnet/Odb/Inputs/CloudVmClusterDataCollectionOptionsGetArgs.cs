@@ -12,12 +12,21 @@ namespace Pulumi.Aws.Odb.Inputs
 
     public sealed class CloudVmClusterDataCollectionOptionsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
+        /// </summary>
         [Input("isDiagnosticsEventsEnabled", required: true)]
         public Input<bool> IsDiagnosticsEventsEnabled { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
+        /// </summary>
         [Input("isHealthMonitoringEnabled", required: true)]
         public Input<bool> IsHealthMonitoringEnabled { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
+        /// </summary>
         [Input("isIncidentLogsEnabled", required: true)]
         public Input<bool> IsIncidentLogsEnabled { get; set; } = null!;
 

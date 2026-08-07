@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketLoggingTargetObjectKeyFormatPartitionedPrefix
     {
         /// <summary>
-        /// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+        /// Partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
         /// </summary>
         public readonly string PartitionDateSource;
 

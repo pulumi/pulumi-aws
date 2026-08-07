@@ -15,14 +15,14 @@ public final class ServiceVpcLatticeConfigurationArgs extends com.pulumi.resourc
     public static final ServiceVpcLatticeConfigurationArgs Empty = new ServiceVpcLatticeConfigurationArgs();
 
     /**
-     * The name of the port for a target group associated with the VPC Lattice configuration.
+     * Name of the port for a target group associated with the VPC Lattice configuration.
      * 
      */
     @Import(name="portName", required=true)
     private Output<String> portName;
 
     /**
-     * @return The name of the port for a target group associated with the VPC Lattice configuration.
+     * @return Name of the port for a target group associated with the VPC Lattice configuration.
      * 
      */
     public Output<String> portName() {
@@ -30,14 +30,14 @@ public final class ServiceVpcLatticeConfigurationArgs extends com.pulumi.resourc
     }
 
     /**
-     * The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+     * ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+     * @return ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
      * 
      */
     public Output<String> roleArn() {
@@ -45,14 +45,14 @@ public final class ServiceVpcLatticeConfigurationArgs extends com.pulumi.resourc
     }
 
     /**
-     * The full ARN of the target group or groups associated with the VPC Lattice configuration.
+     * Full ARN of the target group or groups associated with the VPC Lattice configuration.
      * 
      */
     @Import(name="targetGroupArn", required=true)
     private Output<String> targetGroupArn;
 
     /**
-     * @return The full ARN of the target group or groups associated with the VPC Lattice configuration.
+     * @return Full ARN of the target group or groups associated with the VPC Lattice configuration.
      * 
      */
     public Output<String> targetGroupArn() {
@@ -86,7 +86,7 @@ public final class ServiceVpcLatticeConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param portName The name of the port for a target group associated with the VPC Lattice configuration.
+         * @param portName Name of the port for a target group associated with the VPC Lattice configuration.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class ServiceVpcLatticeConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param portName The name of the port for a target group associated with the VPC Lattice configuration.
+         * @param portName Name of the port for a target group associated with the VPC Lattice configuration.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class ServiceVpcLatticeConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param roleArn The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+         * @param roleArn ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class ServiceVpcLatticeConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param roleArn The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+         * @param roleArn ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class ServiceVpcLatticeConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param targetGroupArn The full ARN of the target group or groups associated with the VPC Lattice configuration.
+         * @param targetGroupArn Full ARN of the target group or groups associated with the VPC Lattice configuration.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class ServiceVpcLatticeConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param targetGroupArn The full ARN of the target group or groups associated with the VPC Lattice configuration.
+         * @param targetGroupArn Full ARN of the target group or groups associated with the VPC Lattice configuration.
          * 
          * @return builder
          * 

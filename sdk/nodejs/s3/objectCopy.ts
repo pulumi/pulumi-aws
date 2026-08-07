@@ -89,41 +89,44 @@ export class ObjectCopy extends pulumi.CustomResource {
      * Name of the bucket to put the file in.
      */
     declare public readonly bucket: pulumi.Output<string>;
+    /**
+     * Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
+     */
     declare public readonly bucketKeyEnabled: pulumi.Output<boolean>;
     /**
-     * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+     * Caching behavior along the request/reply chain. Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
     declare public readonly cacheControl: pulumi.Output<string>;
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+     * Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
      */
     declare public readonly checksumAlgorithm: pulumi.Output<string | undefined>;
     /**
-     * The base64-encoded, 32-bit CRC32 checksum of the object.
+     * Base64-encoded, 32-bit CRC32 checksum of the object.
      */
     declare public /*out*/ readonly checksumCrc32: pulumi.Output<string>;
     /**
-     * The base64-encoded, 32-bit CRC32C checksum of the object.
+     * Base64-encoded, 32-bit CRC32C checksum of the object.
      */
     declare public /*out*/ readonly checksumCrc32c: pulumi.Output<string>;
     /**
-     * The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * Base64-encoded, 64-bit CRC64NVME checksum of the object.
      */
     declare public /*out*/ readonly checksumCrc64nvme: pulumi.Output<string>;
     /**
-     * The base64-encoded, 160-bit SHA-1 digest of the object.
+     * Base64-encoded, 160-bit SHA-1 digest of the object.
      */
     declare public /*out*/ readonly checksumSha1: pulumi.Output<string>;
     /**
-     * The base64-encoded, 256-bit SHA-256 digest of the object.
+     * Base64-encoded, 256-bit SHA-256 digest of the object.
      */
     declare public /*out*/ readonly checksumSha256: pulumi.Output<string>;
     /**
-     * Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+     * Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
     declare public readonly contentDisposition: pulumi.Output<string>;
     /**
-     * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+     * Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
     declare public readonly contentEncoding: pulumi.Output<string>;
     /**
@@ -151,15 +154,15 @@ export class ObjectCopy extends pulumi.CustomResource {
      */
     declare public readonly copyIfUnmodifiedSince: pulumi.Output<string | undefined>;
     /**
-     * Specifies the algorithm to use to when encrypting the object (for example, AES256).
+     * Algorithm to use when encrypting the object (for example, AES256).
      */
     declare public readonly customerAlgorithm: pulumi.Output<string>;
     /**
-     * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
+     * Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
      */
     declare public readonly customerKey: pulumi.Output<string | undefined>;
     /**
-     * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+     * 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      */
     declare public readonly customerKeyMd5: pulumi.Output<string>;
     /**
@@ -195,11 +198,11 @@ export class ObjectCopy extends pulumi.CustomResource {
      */
     declare public readonly key: pulumi.Output<string>;
     /**
-     * Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+     * AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
      */
     declare public readonly kmsEncryptionContext: pulumi.Output<string>;
     /**
-     * Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
+     * AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
      */
     declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
@@ -211,11 +214,11 @@ export class ObjectCopy extends pulumi.CustomResource {
      */
     declare public readonly metadata: pulumi.Output<{[key: string]: string}>;
     /**
-     * Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
+     * Whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
      */
     declare public readonly metadataDirective: pulumi.Output<string | undefined>;
     /**
-     * The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+     * [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status to apply to the specified object. Valid values are `ON` and `OFF`.
      */
     declare public readonly objectLockLegalHoldStatus: pulumi.Output<string>;
     /**
@@ -240,25 +243,25 @@ export class ObjectCopy extends pulumi.CustomResource {
      */
     declare public readonly requestPayer: pulumi.Output<string | undefined>;
     /**
-     * Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
+     * Server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
      */
     declare public readonly serverSideEncryption: pulumi.Output<string>;
     /**
-     * Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+     * Source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
      *
      * The following arguments are optional:
      */
     declare public readonly source: pulumi.Output<string>;
     /**
-     * Specifies the algorithm to use when decrypting the source object (for example, AES256).
+     * Algorithm to use when decrypting the source object (for example, AES256).
      */
     declare public readonly sourceCustomerAlgorithm: pulumi.Output<string | undefined>;
     /**
-     * Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+     * Customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
      */
     declare public readonly sourceCustomerKey: pulumi.Output<string | undefined>;
     /**
-     * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+     * 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      */
     declare public readonly sourceCustomerKeyMd5: pulumi.Output<string | undefined>;
     /**
@@ -266,11 +269,11 @@ export class ObjectCopy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly sourceVersionId: pulumi.Output<string>;
     /**
-     * Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
+     * Desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
      */
     declare public readonly storageClass: pulumi.Output<string>;
     /**
-     * Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
+     * Whether the object tag-set is copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
      */
     declare public readonly taggingDirective: pulumi.Output<string | undefined>;
     /**
@@ -286,7 +289,7 @@ export class ObjectCopy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly versionId: pulumi.Output<string>;
     /**
-     * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      */
     declare public readonly websiteRedirect: pulumi.Output<string>;
 
@@ -446,41 +449,44 @@ export interface ObjectCopyState {
      * Name of the bucket to put the file in.
      */
     bucket?: pulumi.Input<string | undefined>;
+    /**
+     * Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
+     */
     bucketKeyEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+     * Caching behavior along the request/reply chain. Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
     cacheControl?: pulumi.Input<string | undefined>;
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+     * Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
      */
     checksumAlgorithm?: pulumi.Input<string | undefined>;
     /**
-     * The base64-encoded, 32-bit CRC32 checksum of the object.
+     * Base64-encoded, 32-bit CRC32 checksum of the object.
      */
     checksumCrc32?: pulumi.Input<string | undefined>;
     /**
-     * The base64-encoded, 32-bit CRC32C checksum of the object.
+     * Base64-encoded, 32-bit CRC32C checksum of the object.
      */
     checksumCrc32c?: pulumi.Input<string | undefined>;
     /**
-     * The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * Base64-encoded, 64-bit CRC64NVME checksum of the object.
      */
     checksumCrc64nvme?: pulumi.Input<string | undefined>;
     /**
-     * The base64-encoded, 160-bit SHA-1 digest of the object.
+     * Base64-encoded, 160-bit SHA-1 digest of the object.
      */
     checksumSha1?: pulumi.Input<string | undefined>;
     /**
-     * The base64-encoded, 256-bit SHA-256 digest of the object.
+     * Base64-encoded, 256-bit SHA-256 digest of the object.
      */
     checksumSha256?: pulumi.Input<string | undefined>;
     /**
-     * Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+     * Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
     contentDisposition?: pulumi.Input<string | undefined>;
     /**
-     * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+     * Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
     contentEncoding?: pulumi.Input<string | undefined>;
     /**
@@ -508,15 +514,15 @@ export interface ObjectCopyState {
      */
     copyIfUnmodifiedSince?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the algorithm to use to when encrypting the object (for example, AES256).
+     * Algorithm to use when encrypting the object (for example, AES256).
      */
     customerAlgorithm?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
+     * Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
      */
     customerKey?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+     * 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      */
     customerKeyMd5?: pulumi.Input<string | undefined>;
     /**
@@ -552,11 +558,11 @@ export interface ObjectCopyState {
      */
     key?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+     * AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
      */
     kmsEncryptionContext?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
+     * AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -568,11 +574,11 @@ export interface ObjectCopyState {
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
+     * Whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
      */
     metadataDirective?: pulumi.Input<string | undefined>;
     /**
-     * The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+     * [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status to apply to the specified object. Valid values are `ON` and `OFF`.
      */
     objectLockLegalHoldStatus?: pulumi.Input<string | undefined>;
     /**
@@ -597,25 +603,25 @@ export interface ObjectCopyState {
      */
     requestPayer?: pulumi.Input<string | undefined>;
     /**
-     * Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
+     * Server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
      */
     serverSideEncryption?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+     * Source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
      *
      * The following arguments are optional:
      */
     source?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the algorithm to use when decrypting the source object (for example, AES256).
+     * Algorithm to use when decrypting the source object (for example, AES256).
      */
     sourceCustomerAlgorithm?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+     * Customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
      */
     sourceCustomerKey?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+     * 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      */
     sourceCustomerKeyMd5?: pulumi.Input<string | undefined>;
     /**
@@ -623,11 +629,11 @@ export interface ObjectCopyState {
      */
     sourceVersionId?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
+     * Desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
      */
     storageClass?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
+     * Whether the object tag-set is copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
      */
     taggingDirective?: pulumi.Input<string | undefined>;
     /**
@@ -643,7 +649,7 @@ export interface ObjectCopyState {
      */
     versionId?: pulumi.Input<string | undefined>;
     /**
-     * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      */
     websiteRedirect?: pulumi.Input<string | undefined>;
 }
@@ -660,21 +666,24 @@ export interface ObjectCopyArgs {
      * Name of the bucket to put the file in.
      */
     bucket: pulumi.Input<string>;
+    /**
+     * Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
+     */
     bucketKeyEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+     * Caching behavior along the request/reply chain. Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
     cacheControl?: pulumi.Input<string | undefined>;
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+     * Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
      */
     checksumAlgorithm?: pulumi.Input<string | undefined>;
     /**
-     * Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+     * Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
     contentDisposition?: pulumi.Input<string | undefined>;
     /**
-     * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+     * Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
     contentEncoding?: pulumi.Input<string | undefined>;
     /**
@@ -702,15 +711,15 @@ export interface ObjectCopyArgs {
      */
     copyIfUnmodifiedSince?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the algorithm to use to when encrypting the object (for example, AES256).
+     * Algorithm to use when encrypting the object (for example, AES256).
      */
     customerAlgorithm?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
+     * Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
      */
     customerKey?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+     * 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      */
     customerKeyMd5?: pulumi.Input<string | undefined>;
     /**
@@ -738,11 +747,11 @@ export interface ObjectCopyArgs {
      */
     key: pulumi.Input<string>;
     /**
-     * Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+     * AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
      */
     kmsEncryptionContext?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
+     * AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -750,11 +759,11 @@ export interface ObjectCopyArgs {
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
+     * Whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
      */
     metadataDirective?: pulumi.Input<string | undefined>;
     /**
-     * The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+     * [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status to apply to the specified object. Valid values are `ON` and `OFF`.
      */
     objectLockLegalHoldStatus?: pulumi.Input<string | undefined>;
     /**
@@ -775,33 +784,33 @@ export interface ObjectCopyArgs {
      */
     requestPayer?: pulumi.Input<string | undefined>;
     /**
-     * Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
+     * Server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
      */
     serverSideEncryption?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+     * Source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
      *
      * The following arguments are optional:
      */
     source: pulumi.Input<string>;
     /**
-     * Specifies the algorithm to use when decrypting the source object (for example, AES256).
+     * Algorithm to use when decrypting the source object (for example, AES256).
      */
     sourceCustomerAlgorithm?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+     * Customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
      */
     sourceCustomerKey?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+     * 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      */
     sourceCustomerKeyMd5?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
+     * Desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
      */
     storageClass?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
+     * Whether the object tag-set is copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
      */
     taggingDirective?: pulumi.Input<string | undefined>;
     /**
@@ -809,7 +818,7 @@ export interface ObjectCopyArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      */
     websiteRedirect?: pulumi.Input<string | undefined>;
 }

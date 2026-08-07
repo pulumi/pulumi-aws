@@ -108,8 +108,7 @@ namespace Pulumi.Aws.AppConfig
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-        /// or `ROLLED_BACK`.
+        /// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK` or `ROLLED_BACK`.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -277,8 +276,7 @@ namespace Pulumi.Aws.AppConfig
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-        /// or `ROLLED_BACK`.
+        /// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK` or `ROLLED_BACK`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

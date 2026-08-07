@@ -33,14 +33,14 @@ public final class GetTaskExecutionOverridesArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The CPU override for the task.
+     * CPU override for the task.
      * 
      */
     @Import(name="cpu")
     private @Nullable Output<String> cpu;
 
     /**
-     * @return The CPU override for the task.
+     * @return CPU override for the task.
      * 
      */
     public Optional<Output<String>> cpu() {
@@ -63,14 +63,14 @@ public final class GetTaskExecutionOverridesArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The memory override for the task.
+     * Memory override for the task.
      * 
      */
     @Import(name="memory")
     private @Nullable Output<String> memory;
 
     /**
-     * @return The memory override for the task.
+     * @return Memory override for the task.
      * 
      */
     public Optional<Output<String>> memory() {
@@ -152,7 +152,7 @@ public final class GetTaskExecutionOverridesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cpu The CPU override for the task.
+         * @param cpu CPU override for the task.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class GetTaskExecutionOverridesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cpu The CPU override for the task.
+         * @param cpu CPU override for the task.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class GetTaskExecutionOverridesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param memory The memory override for the task.
+         * @param memory Memory override for the task.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class GetTaskExecutionOverridesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param memory The memory override for the task.
+         * @param memory Memory override for the task.
          * 
          * @return builder
          * 

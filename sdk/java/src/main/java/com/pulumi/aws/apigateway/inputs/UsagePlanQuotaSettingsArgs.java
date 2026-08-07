@@ -48,14 +48,18 @@ public final class UsagePlanQuotaSettingsArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
+     * Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="period", required=true)
     private Output<String> period;
 
     /**
-     * @return Time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
+     * @return Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> period() {
@@ -131,7 +135,9 @@ public final class UsagePlanQuotaSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param period Time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
+         * @param period Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -142,7 +148,9 @@ public final class UsagePlanQuotaSettingsArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param period Time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
+         * @param period Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

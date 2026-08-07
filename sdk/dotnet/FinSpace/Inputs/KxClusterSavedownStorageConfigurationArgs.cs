@@ -19,14 +19,13 @@ namespace Pulumi.Aws.FinSpace.Inputs
         public Input<int>? Size { get; set; }
 
         /// <summary>
-        /// Type of writeable storage space for temporarily storing your savedown data. The valid values are:
-        /// * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
+        /// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+        /// Name of the kdb volume that you want to use as writeable save-down storage for clusters.
         /// </summary>
         [Input("volumeName")]
         public Input<string>? VolumeName { get; set; }

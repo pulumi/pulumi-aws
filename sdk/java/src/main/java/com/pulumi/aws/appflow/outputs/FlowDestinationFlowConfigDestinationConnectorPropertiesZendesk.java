@@ -14,21 +14,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk {
+    /**
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+     * 
+     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig errorHandlingConfig;
+    /**
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * 
+     */
     private @Nullable List<String> idFieldNames;
     private String object;
+    /**
+     * @return Type of write operation to be performed in Zendesk. When the value is `UPSERT`, `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+     * 
+     */
     private @Nullable String writeOperationType;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk() {}
+    /**
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+     * 
+     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
+    /**
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * 
+     */
     public List<String> idFieldNames() {
         return this.idFieldNames == null ? List.of() : this.idFieldNames;
     }
     public String object() {
         return this.object;
     }
+    /**
+     * @return Type of write operation to be performed in Zendesk. When the value is `UPSERT`, `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+     * 
+     */
     public Optional<String> writeOperationType() {
         return Optional.ofNullable(this.writeOperationType);
     }

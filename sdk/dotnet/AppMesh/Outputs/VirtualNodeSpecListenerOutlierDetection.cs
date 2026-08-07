@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecListenerOutlierDetection
     {
         /// <summary>
-        /// Base amount of time for which a host is ejected. See `BaseEjectionDuration` Block for details.
+        /// Base amount of time for which a host is ejected. See `spec.listener.outlier_detection.base_ejection_duration` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration BaseEjectionDuration;
         /// <summary>
-        /// Time interval between ejection sweep analysis. See `Interval` Block for details.
+        /// Time interval between ejection sweep analysis. See `spec.listener.outlier_detection.interval` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerOutlierDetectionInterval Interval;
         /// <summary>

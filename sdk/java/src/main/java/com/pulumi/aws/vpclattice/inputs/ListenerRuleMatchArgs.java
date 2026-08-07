@@ -15,16 +15,14 @@ public final class ListenerRuleMatchArgs extends com.pulumi.resources.ResourceAr
     public static final ListenerRuleMatchArgs Empty = new ListenerRuleMatchArgs();
 
     /**
-     * The HTTP criteria that a rule must match.
-     * See `httpMatch` Block for details.
+     * HTTP criteria that a rule must match. See `httpMatch` Block for details.
      * 
      */
     @Import(name="httpMatch", required=true)
     private Output<ListenerRuleMatchHttpMatchArgs> httpMatch;
 
     /**
-     * @return The HTTP criteria that a rule must match.
-     * See `httpMatch` Block for details.
+     * @return HTTP criteria that a rule must match. See `httpMatch` Block for details.
      * 
      */
     public Output<ListenerRuleMatchHttpMatchArgs> httpMatch() {
@@ -56,8 +54,7 @@ public final class ListenerRuleMatchArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param httpMatch The HTTP criteria that a rule must match.
-         * See `httpMatch` Block for details.
+         * @param httpMatch HTTP criteria that a rule must match. See `httpMatch` Block for details.
          * 
          * @return builder
          * 
@@ -68,8 +65,7 @@ public final class ListenerRuleMatchArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param httpMatch The HTTP criteria that a rule must match.
-         * See `httpMatch` Block for details.
+         * @param httpMatch HTTP criteria that a rule must match. See `httpMatch` Block for details.
          * 
          * @return builder
          * 

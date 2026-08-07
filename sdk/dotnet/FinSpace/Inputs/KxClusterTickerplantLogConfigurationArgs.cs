@@ -14,6 +14,10 @@ namespace Pulumi.Aws.FinSpace.Inputs
     {
         [Input("tickerplantLogVolumes", required: true)]
         private InputList<string>? _tickerplantLogVolumes;
+
+        /// <summary>
+        /// Names of the volumes for tickerplant logs.
+        /// </summary>
         public InputList<string> TickerplantLogVolumes
         {
             get => _tickerplantLogVolumes ?? (_tickerplantLogVolumes = new InputList<string>());

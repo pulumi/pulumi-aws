@@ -52,7 +52,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
      */
     private @Nullable String snapshotId;
     /**
-     * @return The tags to apply to the volume. See below.
+     * @return Tags to apply to the volume. See below.
      * 
      */
     private @Nullable List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecification> tagSpecifications;
@@ -123,7 +123,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
         return Optional.ofNullable(this.snapshotId);
     }
     /**
-     * @return The tags to apply to the volume. See below.
+     * @return Tags to apply to the volume. See below.
      * 
      */
     public List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecification> tagSpecifications() {

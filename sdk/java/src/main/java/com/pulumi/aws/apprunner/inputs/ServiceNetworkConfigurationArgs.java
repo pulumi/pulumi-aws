@@ -18,14 +18,14 @@ public final class ServiceNetworkConfigurationArgs extends com.pulumi.resources.
     public static final ServiceNetworkConfigurationArgs Empty = new ServiceNetworkConfigurationArgs();
 
     /**
-     * Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+     * Network configuration settings for outbound message traffic. See `egressConfiguration` below.
      * 
      */
     @Import(name="egressConfiguration")
     private @Nullable Output<ServiceNetworkConfigurationEgressConfigurationArgs> egressConfiguration;
 
     /**
-     * @return Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+     * @return Network configuration settings for outbound message traffic. See `egressConfiguration` below.
      * 
      */
     public Optional<Output<ServiceNetworkConfigurationEgressConfigurationArgs>> egressConfiguration() {
@@ -33,14 +33,14 @@ public final class ServiceNetworkConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+     * Network configuration settings for inbound network traffic. See `ingressConfiguration` below.
      * 
      */
     @Import(name="ingressConfiguration")
     private @Nullable Output<ServiceNetworkConfigurationIngressConfigurationArgs> ingressConfiguration;
 
     /**
-     * @return Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+     * @return Network configuration settings for inbound network traffic. See `ingressConfiguration` below.
      * 
      */
     public Optional<Output<ServiceNetworkConfigurationIngressConfigurationArgs>> ingressConfiguration() {
@@ -89,7 +89,7 @@ public final class ServiceNetworkConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param egressConfiguration Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+         * @param egressConfiguration Network configuration settings for outbound message traffic. See `egressConfiguration` below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ServiceNetworkConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param egressConfiguration Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+         * @param egressConfiguration Network configuration settings for outbound message traffic. See `egressConfiguration` below.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ServiceNetworkConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param ingressConfiguration Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+         * @param ingressConfiguration Network configuration settings for inbound network traffic. See `ingressConfiguration` below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ServiceNetworkConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param ingressConfiguration Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+         * @param ingressConfiguration Network configuration settings for inbound network traffic. See `ingressConfiguration` below.
          * 
          * @return builder
          * 

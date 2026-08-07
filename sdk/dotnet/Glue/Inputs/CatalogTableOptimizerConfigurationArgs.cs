@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableOptimizerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+        /// </summary>
+        [Input("compactionConfiguration")]
+        public Input<Inputs.CatalogTableOptimizerConfigurationCompactionConfigurationArgs>? CompactionConfiguration { get; set; }
+
+        /// <summary>
         /// Indicates whether the table optimizer is enabled.
         /// </summary>
         [Input("enabled", required: true)]

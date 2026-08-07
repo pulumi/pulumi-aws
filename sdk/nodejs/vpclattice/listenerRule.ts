@@ -121,31 +121,27 @@ export class ListenerRule extends pulumi.CustomResource {
     }
 
     /**
-     * The action for the listener rule.
-     * See `action` Block for details.
+     * Action for the listener rule. See `action` Block for details.
      */
     declare public readonly action: pulumi.Output<outputs.vpclattice.ListenerRuleAction>;
     /**
-     * The ARN for the listener rule.
+     * ARN for the listener rule.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the listener.
+     * ID or Amazon Resource Name (ARN) of the listener.
      */
     declare public readonly listenerIdentifier: pulumi.Output<string>;
     /**
-     * The rule match.
-     * See `match` Block
+     * Rule match. See `match` Block for details.
      */
     declare public readonly match: pulumi.Output<outputs.vpclattice.ListenerRuleMatch>;
     /**
-     * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+     * Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-     *
-     * The following arguments are optional:
+     * Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
      */
     declare public readonly priority: pulumi.Output<number>;
     /**
@@ -157,7 +153,9 @@ export class ListenerRule extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ruleId: pulumi.Output<string>;
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
+     * ID or Amazon Resource Name (ARN) of the service.
+     *
+     * The following arguments are optional:
      */
     declare public readonly serviceIdentifier: pulumi.Output<string>;
     /**
@@ -232,31 +230,27 @@ export class ListenerRule extends pulumi.CustomResource {
  */
 export interface ListenerRuleState {
     /**
-     * The action for the listener rule.
-     * See `action` Block for details.
+     * Action for the listener rule. See `action` Block for details.
      */
     action?: pulumi.Input<inputs.vpclattice.ListenerRuleAction | undefined>;
     /**
-     * The ARN for the listener rule.
+     * ARN for the listener rule.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the listener.
+     * ID or Amazon Resource Name (ARN) of the listener.
      */
     listenerIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The rule match.
-     * See `match` Block
+     * Rule match. See `match` Block for details.
      */
     match?: pulumi.Input<inputs.vpclattice.ListenerRuleMatch | undefined>;
     /**
-     * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+     * Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-     *
-     * The following arguments are optional:
+     * Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
      */
     priority?: pulumi.Input<number | undefined>;
     /**
@@ -268,7 +262,9 @@ export interface ListenerRuleState {
      */
     ruleId?: pulumi.Input<string | undefined>;
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
+     * ID or Amazon Resource Name (ARN) of the service.
+     *
+     * The following arguments are optional:
      */
     serviceIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -286,27 +282,23 @@ export interface ListenerRuleState {
  */
 export interface ListenerRuleArgs {
     /**
-     * The action for the listener rule.
-     * See `action` Block for details.
+     * Action for the listener rule. See `action` Block for details.
      */
     action: pulumi.Input<inputs.vpclattice.ListenerRuleAction>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the listener.
+     * ID or Amazon Resource Name (ARN) of the listener.
      */
     listenerIdentifier: pulumi.Input<string>;
     /**
-     * The rule match.
-     * See `match` Block
+     * Rule match. See `match` Block for details.
      */
     match: pulumi.Input<inputs.vpclattice.ListenerRuleMatch>;
     /**
-     * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+     * Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-     *
-     * The following arguments are optional:
+     * Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
      */
     priority: pulumi.Input<number>;
     /**
@@ -314,7 +306,9 @@ export interface ListenerRuleArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
+     * ID or Amazon Resource Name (ARN) of the service.
+     *
+     * The following arguments are optional:
      */
     serviceIdentifier: pulumi.Input<string>;
     /**

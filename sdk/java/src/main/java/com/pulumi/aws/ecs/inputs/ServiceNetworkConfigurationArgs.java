@@ -51,16 +51,12 @@ public final class ServiceNetworkConfigurationArgs extends com.pulumi.resources.
     /**
      * Subnets associated with the task or service.
      * 
-     * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
-     * 
      */
     @Import(name="subnets", required=true)
     private Output<List<String>> subnets;
 
     /**
      * @return Subnets associated with the task or service.
-     * 
-     * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
      * 
      */
     public Output<List<String>> subnets() {
@@ -148,8 +144,6 @@ public final class ServiceNetworkConfigurationArgs extends com.pulumi.resources.
         /**
          * @param subnets Subnets associated with the task or service.
          * 
-         * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
-         * 
          * @return builder
          * 
          */
@@ -161,8 +155,6 @@ public final class ServiceNetworkConfigurationArgs extends com.pulumi.resources.
         /**
          * @param subnets Subnets associated with the task or service.
          * 
-         * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
-         * 
          * @return builder
          * 
          */
@@ -172,8 +164,6 @@ public final class ServiceNetworkConfigurationArgs extends com.pulumi.resources.
 
         /**
          * @param subnets Subnets associated with the task or service.
-         * 
-         * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
          * 
          * @return builder
          * 

@@ -55,25 +55,25 @@ namespace Pulumi.Aws.AppIntegrations
     public partial class DataIntegration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Data Integration.
+        /// Amazon Resource Name (ARN) of the Data Integration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the description of the Data Integration.
+        /// Description of the Data Integration.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+        /// KMS key Amazon Resource Name (ARN) for the Data Integration.
         /// </summary>
         [Output("kmsKey")]
         public Output<string> KmsKey { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Data Integration.
+        /// Name of the Data Integration.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -85,13 +85,13 @@ namespace Pulumi.Aws.AppIntegrations
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+        /// Configuration block that defines the name of the data and how often it should be pulled from the source. See `ScheduleConfig` Block for details.
         /// </summary>
         [Output("scheduleConfig")]
         public Output<Outputs.DataIntegrationScheduleConfig> ScheduleConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `Example` is the name of the AppFlow Connector Profile.
+        /// URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `Example` is the name of the AppFlow Connector Profile.
         /// </summary>
         [Output("sourceUri")]
         public Output<string> SourceUri { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.AppIntegrations
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -155,19 +155,19 @@ namespace Pulumi.Aws.AppIntegrations
     public sealed class DataIntegrationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the description of the Data Integration.
+        /// Description of the Data Integration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+        /// KMS key Amazon Resource Name (ARN) for the Data Integration.
         /// </summary>
         [Input("kmsKey", required: true)]
         public Input<string> KmsKey { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Data Integration.
+        /// Name of the Data Integration.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -179,13 +179,13 @@ namespace Pulumi.Aws.AppIntegrations
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+        /// Configuration block that defines the name of the data and how often it should be pulled from the source. See `ScheduleConfig` Block for details.
         /// </summary>
         [Input("scheduleConfig", required: true)]
         public Input<Inputs.DataIntegrationScheduleConfigArgs> ScheduleConfig { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `Example` is the name of the AppFlow Connector Profile.
+        /// URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `Example` is the name of the AppFlow Connector Profile.
         /// </summary>
         [Input("sourceUri", required: true)]
         public Input<string> SourceUri { get; set; } = null!;
@@ -211,25 +211,25 @@ namespace Pulumi.Aws.AppIntegrations
     public sealed class DataIntegrationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Data Integration.
+        /// Amazon Resource Name (ARN) of the Data Integration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specifies the description of the Data Integration.
+        /// Description of the Data Integration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+        /// KMS key Amazon Resource Name (ARN) for the Data Integration.
         /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Data Integration.
+        /// Name of the Data Integration.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -241,13 +241,13 @@ namespace Pulumi.Aws.AppIntegrations
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+        /// Configuration block that defines the name of the data and how often it should be pulled from the source. See `ScheduleConfig` Block for details.
         /// </summary>
         [Input("scheduleConfig")]
         public Input<Inputs.DataIntegrationScheduleConfigGetArgs>? ScheduleConfig { get; set; }
 
         /// <summary>
-        /// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `Example` is the name of the AppFlow Connector Profile.
+        /// URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `Example` is the name of the AppFlow Connector Profile.
         /// </summary>
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.AppIntegrations
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

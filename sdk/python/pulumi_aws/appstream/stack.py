@@ -37,10 +37,8 @@ class StackArgs:
         """
         The set of arguments for constructing a Stack resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-               See `access_endpoints` below.
-        :param pulumi.Input['StackApplicationSettingsArgs'] application_settings: Settings for application settings persistence.
-               See `application_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `access_endpoints` below.
+        :param pulumi.Input['StackApplicationSettingsArgs'] application_settings: Settings for application settings persistence. See `application_settings` below.
         :param pulumi.Input[_builtins.str] description: Description for the AppStream stack.
         :param pulumi.Input[_builtins.str] display_name: Stack name to display.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] embed_host_domains: Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
@@ -50,13 +48,10 @@ class StackArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] redirect_url: URL that users are redirected to after their streaming session ends.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable.
-               See `storage_connectors` below.
-        :param pulumi.Input['StackStreamingExperienceSettingsArgs'] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-               See `streaming_experience_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable. See `storage_connectors` below.
+        :param pulumi.Input['StackStreamingExperienceSettingsArgs'] streaming_experience_settings: Streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client. See `streaming_experience_settings` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-               See `user_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action. See `user_settings` below.
         """
         if access_endpoints is not None:
             pulumi.set(__self__, "access_endpoints", access_endpoints)
@@ -89,8 +84,7 @@ class StackArgs:
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StackAccessEndpointArgs']]]]:
         """
-        Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-        See `access_endpoints` below.
+        Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `access_endpoints` below.
         """
         return pulumi.get(self, "access_endpoints")
 
@@ -102,8 +96,7 @@ class StackArgs:
     @pulumi.getter(name="applicationSettings")
     def application_settings(self) -> pulumi.Input[Optional['StackApplicationSettingsArgs']]:
         """
-        Settings for application settings persistence.
-        See `application_settings` below.
+        Settings for application settings persistence. See `application_settings` below.
         """
         return pulumi.get(self, "application_settings")
 
@@ -201,8 +194,7 @@ class StackArgs:
     @pulumi.getter(name="storageConnectors")
     def storage_connectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StackStorageConnectorArgs']]]]:
         """
-        Configuration block for the storage connectors to enable.
-        See `storage_connectors` below.
+        Configuration block for the storage connectors to enable. See `storage_connectors` below.
         """
         return pulumi.get(self, "storage_connectors")
 
@@ -214,8 +206,7 @@ class StackArgs:
     @pulumi.getter(name="streamingExperienceSettings")
     def streaming_experience_settings(self) -> pulumi.Input[Optional['StackStreamingExperienceSettingsArgs']]:
         """
-        The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-        See `streaming_experience_settings` below.
+        Streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client. See `streaming_experience_settings` below.
         """
         return pulumi.get(self, "streaming_experience_settings")
 
@@ -239,8 +230,7 @@ class StackArgs:
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StackUserSettingArgs']]]]:
         """
-        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-        See `user_settings` below.
+        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action. See `user_settings` below.
         """
         return pulumi.get(self, "user_settings")
 
@@ -271,10 +261,8 @@ class _StackState:
         """
         Input properties used for looking up and filtering Stack resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-               See `access_endpoints` below.
-        :param pulumi.Input['StackApplicationSettingsArgs'] application_settings: Settings for application settings persistence.
-               See `application_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `access_endpoints` below.
+        :param pulumi.Input['StackApplicationSettingsArgs'] application_settings: Settings for application settings persistence. See `application_settings` below.
         :param pulumi.Input[_builtins.str] arn: ARN of the appstream stack.
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the stack was created.
         :param pulumi.Input[_builtins.str] description: Description for the AppStream stack.
@@ -286,13 +274,10 @@ class _StackState:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] redirect_url: URL that users are redirected to after their streaming session ends.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable.
-               See `storage_connectors` below.
-        :param pulumi.Input['StackStreamingExperienceSettingsArgs'] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-               See `streaming_experience_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable. See `storage_connectors` below.
+        :param pulumi.Input['StackStreamingExperienceSettingsArgs'] streaming_experience_settings: Streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client. See `streaming_experience_settings` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-               See `user_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action. See `user_settings` below.
         """
         if access_endpoints is not None:
             pulumi.set(__self__, "access_endpoints", access_endpoints)
@@ -331,8 +316,7 @@ class _StackState:
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StackAccessEndpointArgs']]]]:
         """
-        Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-        See `access_endpoints` below.
+        Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `access_endpoints` below.
         """
         return pulumi.get(self, "access_endpoints")
 
@@ -344,8 +328,7 @@ class _StackState:
     @pulumi.getter(name="applicationSettings")
     def application_settings(self) -> pulumi.Input[Optional['StackApplicationSettingsArgs']]:
         """
-        Settings for application settings persistence.
-        See `application_settings` below.
+        Settings for application settings persistence. See `application_settings` below.
         """
         return pulumi.get(self, "application_settings")
 
@@ -467,8 +450,7 @@ class _StackState:
     @pulumi.getter(name="storageConnectors")
     def storage_connectors(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StackStorageConnectorArgs']]]]:
         """
-        Configuration block for the storage connectors to enable.
-        See `storage_connectors` below.
+        Configuration block for the storage connectors to enable. See `storage_connectors` below.
         """
         return pulumi.get(self, "storage_connectors")
 
@@ -480,8 +462,7 @@ class _StackState:
     @pulumi.getter(name="streamingExperienceSettings")
     def streaming_experience_settings(self) -> pulumi.Input[Optional['StackStreamingExperienceSettingsArgs']]:
         """
-        The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-        See `streaming_experience_settings` below.
+        Streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client. See `streaming_experience_settings` below.
         """
         return pulumi.get(self, "streaming_experience_settings")
 
@@ -514,8 +495,7 @@ class _StackState:
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StackUserSettingArgs']]]]:
         """
-        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-        See `user_settings` below.
+        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action. See `user_settings` below.
         """
         return pulumi.get(self, "user_settings")
 
@@ -616,10 +596,8 @@ class Stack(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict']]]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-               See `access_endpoints` below.
-        :param pulumi.Input[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict']] application_settings: Settings for application settings persistence.
-               See `application_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict']]]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `access_endpoints` below.
+        :param pulumi.Input[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict']] application_settings: Settings for application settings persistence. See `application_settings` below.
         :param pulumi.Input[_builtins.str] description: Description for the AppStream stack.
         :param pulumi.Input[_builtins.str] display_name: Stack name to display.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] embed_host_domains: Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
@@ -629,13 +607,10 @@ class Stack(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] redirect_url: URL that users are redirected to after their streaming session ends.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict']]]] storage_connectors: Configuration block for the storage connectors to enable.
-               See `storage_connectors` below.
-        :param pulumi.Input[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict']] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-               See `streaming_experience_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict']]]] storage_connectors: Configuration block for the storage connectors to enable. See `storage_connectors` below.
+        :param pulumi.Input[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict']] streaming_experience_settings: Streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client. See `streaming_experience_settings` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StackUserSettingArgs', 'StackUserSettingArgsDict']]]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-               See `user_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StackUserSettingArgs', 'StackUserSettingArgsDict']]]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action. See `user_settings` below.
         """
         ...
     @overload
@@ -799,10 +774,8 @@ class Stack(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict']]]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-               See `access_endpoints` below.
-        :param pulumi.Input[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict']] application_settings: Settings for application settings persistence.
-               See `application_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict']]]] access_endpoints: Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `access_endpoints` below.
+        :param pulumi.Input[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict']] application_settings: Settings for application settings persistence. See `application_settings` below.
         :param pulumi.Input[_builtins.str] arn: ARN of the appstream stack.
         :param pulumi.Input[_builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the stack was created.
         :param pulumi.Input[_builtins.str] description: Description for the AppStream stack.
@@ -814,13 +787,10 @@ class Stack(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] redirect_url: URL that users are redirected to after their streaming session ends.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict']]]] storage_connectors: Configuration block for the storage connectors to enable.
-               See `storage_connectors` below.
-        :param pulumi.Input[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict']] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-               See `streaming_experience_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StackStorageConnectorArgs', 'StackStorageConnectorArgsDict']]]] storage_connectors: Configuration block for the storage connectors to enable. See `storage_connectors` below.
+        :param pulumi.Input[Union['StackStreamingExperienceSettingsArgs', 'StackStreamingExperienceSettingsArgsDict']] streaming_experience_settings: Streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client. See `streaming_experience_settings` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StackUserSettingArgs', 'StackUserSettingArgsDict']]]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-               See `user_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StackUserSettingArgs', 'StackUserSettingArgsDict']]]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action. See `user_settings` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -848,8 +818,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> pulumi.Output[Sequence['outputs.StackAccessEndpoint']]:
         """
-        Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-        See `access_endpoints` below.
+        Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `access_endpoints` below.
         """
         return pulumi.get(self, "access_endpoints")
 
@@ -857,8 +826,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="applicationSettings")
     def application_settings(self) -> pulumi.Output['outputs.StackApplicationSettings']:
         """
-        Settings for application settings persistence.
-        See `application_settings` below.
+        Settings for application settings persistence. See `application_settings` below.
         """
         return pulumi.get(self, "application_settings")
 
@@ -940,8 +908,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="storageConnectors")
     def storage_connectors(self) -> pulumi.Output[Sequence['outputs.StackStorageConnector']]:
         """
-        Configuration block for the storage connectors to enable.
-        See `storage_connectors` below.
+        Configuration block for the storage connectors to enable. See `storage_connectors` below.
         """
         return pulumi.get(self, "storage_connectors")
 
@@ -949,8 +916,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="streamingExperienceSettings")
     def streaming_experience_settings(self) -> pulumi.Output['outputs.StackStreamingExperienceSettings']:
         """
-        The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-        See `streaming_experience_settings` below.
+        Streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client. See `streaming_experience_settings` below.
         """
         return pulumi.get(self, "streaming_experience_settings")
 
@@ -971,8 +937,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> pulumi.Output[Sequence['outputs.StackUserSetting']]:
         """
-        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-        See `user_settings` below.
+        Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action. See `user_settings` below.
         """
         return pulumi.get(self, "user_settings")
 

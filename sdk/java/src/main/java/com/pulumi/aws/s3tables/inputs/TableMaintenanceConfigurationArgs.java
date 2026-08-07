@@ -16,16 +16,14 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
     public static final TableMaintenanceConfigurationArgs Empty = new TableMaintenanceConfigurationArgs();
 
     /**
-     * A single Iceberg compaction settings object.
-     * See `icebergCompaction` below.
+     * Single Iceberg compaction settings object. See `icebergCompaction` below.
      * 
      */
     @Import(name="icebergCompaction", required=true)
     private Output<TableMaintenanceConfigurationIcebergCompactionArgs> icebergCompaction;
 
     /**
-     * @return A single Iceberg compaction settings object.
-     * See `icebergCompaction` below.
+     * @return Single Iceberg compaction settings object. See `icebergCompaction` below.
      * 
      */
     public Output<TableMaintenanceConfigurationIcebergCompactionArgs> icebergCompaction() {
@@ -33,16 +31,14 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
     }
 
     /**
-     * A single Iceberg snapshot management settings object.
-     * See `icebergSnapshotManagement` below.
+     * Single Iceberg snapshot management settings object. See `icebergSnapshotManagement` below.
      * 
      */
     @Import(name="icebergSnapshotManagement", required=true)
     private Output<TableMaintenanceConfigurationIcebergSnapshotManagementArgs> icebergSnapshotManagement;
 
     /**
-     * @return A single Iceberg snapshot management settings object.
-     * See `icebergSnapshotManagement` below.
+     * @return Single Iceberg snapshot management settings object. See `icebergSnapshotManagement` below.
      * 
      */
     public Output<TableMaintenanceConfigurationIcebergSnapshotManagementArgs> icebergSnapshotManagement() {
@@ -75,8 +71,7 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param icebergCompaction A single Iceberg compaction settings object.
-         * See `icebergCompaction` below.
+         * @param icebergCompaction Single Iceberg compaction settings object. See `icebergCompaction` below.
          * 
          * @return builder
          * 
@@ -87,8 +82,7 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param icebergCompaction A single Iceberg compaction settings object.
-         * See `icebergCompaction` below.
+         * @param icebergCompaction Single Iceberg compaction settings object. See `icebergCompaction` below.
          * 
          * @return builder
          * 
@@ -98,8 +92,7 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param icebergSnapshotManagement A single Iceberg snapshot management settings object.
-         * See `icebergSnapshotManagement` below.
+         * @param icebergSnapshotManagement Single Iceberg snapshot management settings object. See `icebergSnapshotManagement` below.
          * 
          * @return builder
          * 
@@ -110,8 +103,7 @@ public final class TableMaintenanceConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param icebergSnapshotManagement A single Iceberg snapshot management settings object.
-         * See `icebergSnapshotManagement` below.
+         * @param icebergSnapshotManagement Single Iceberg snapshot management settings object. See `icebergSnapshotManagement` below.
          * 
          * @return builder
          * 

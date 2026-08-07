@@ -13,10 +13,18 @@ namespace Pulumi.Aws.Amp.Inputs
     public sealed class ScraperDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for an Amazon Managed Prometheus workspace destination. See `Amp`.
+        /// Configuration block for an Amazon Managed Prometheus workspace destination. See `Amp` Block for details.
         /// </summary>
         [Input("amp")]
         public Input<Inputs.ScraperDestinationAmpGetArgs>? Amp { get; set; }
+
+        /// <summary>
+        /// Configuration block for a CloudWatch Metrics destination. See `Cloudwatch` Block for details.
+        /// 
+        /// &gt; **NOTE:** Either `Amp` or `Cloudwatch` must be specified, but not both.
+        /// </summary>
+        [Input("cloudwatch")]
+        public Input<Inputs.ScraperDestinationCloudwatchGetArgs>? Cloudwatch { get; set; }
 
         public ScraperDestinationGetArgs()
         {

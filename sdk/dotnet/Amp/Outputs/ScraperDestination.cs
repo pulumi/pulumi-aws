@@ -14,14 +14,24 @@ namespace Pulumi.Aws.Amp.Outputs
     public sealed class ScraperDestination
     {
         /// <summary>
-        /// Configuration block for an Amazon Managed Prometheus workspace destination. See `Amp`.
+        /// Configuration block for an Amazon Managed Prometheus workspace destination. See `Amp` Block for details.
         /// </summary>
         public readonly Outputs.ScraperDestinationAmp? Amp;
+        /// <summary>
+        /// Configuration block for a CloudWatch Metrics destination. See `Cloudwatch` Block for details.
+        /// 
+        /// &gt; **NOTE:** Either `Amp` or `Cloudwatch` must be specified, but not both.
+        /// </summary>
+        public readonly Outputs.ScraperDestinationCloudwatch? Cloudwatch;
 
         [OutputConstructor]
-        private ScraperDestination(Outputs.ScraperDestinationAmp? amp)
+        private ScraperDestination(
+            Outputs.ScraperDestinationAmp? amp,
+
+            Outputs.ScraperDestinationCloudwatch? cloudwatch)
         {
             Amp = amp;
+            Cloudwatch = cloudwatch;
         }
     }
 }

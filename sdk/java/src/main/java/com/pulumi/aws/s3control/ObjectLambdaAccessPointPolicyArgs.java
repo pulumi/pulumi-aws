@@ -17,14 +17,14 @@ public final class ObjectLambdaAccessPointPolicyArgs extends com.pulumi.resource
     public static final ObjectLambdaAccessPointPolicyArgs Empty = new ObjectLambdaAccessPointPolicyArgs();
 
     /**
-     * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -32,14 +32,14 @@ public final class ObjectLambdaAccessPointPolicyArgs extends com.pulumi.resource
     }
 
     /**
-     * The name of the Object Lambda Access Point.
+     * Name of the Object Lambda Access Point.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Object Lambda Access Point.
+     * @return Name of the Object Lambda Access Point.
      * 
      */
     public Optional<Output<String>> name() {
@@ -47,14 +47,14 @@ public final class ObjectLambdaAccessPointPolicyArgs extends com.pulumi.resource
     }
 
     /**
-     * The Object Lambda Access Point resource policy document.
+     * Object Lambda Access Point resource policy document.
      * 
      */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
     /**
-     * @return The Object Lambda Access Point resource policy document.
+     * @return Object Lambda Access Point resource policy document.
      * 
      */
     public Output<String> policy() {
@@ -104,7 +104,7 @@ public final class ObjectLambdaAccessPointPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param accountId The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ObjectLambdaAccessPointPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param accountId The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ObjectLambdaAccessPointPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The name of the Object Lambda Access Point.
+         * @param name Name of the Object Lambda Access Point.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ObjectLambdaAccessPointPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The name of the Object Lambda Access Point.
+         * @param name Name of the Object Lambda Access Point.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ObjectLambdaAccessPointPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param policy The Object Lambda Access Point resource policy document.
+         * @param policy Object Lambda Access Point resource policy document.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ObjectLambdaAccessPointPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param policy The Object Lambda Access Point resource policy document.
+         * @param policy Object Lambda Access Point resource policy document.
          * 
          * @return builder
          * 

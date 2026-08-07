@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OntapFileSystemEndpointManagement {
     /**
-     * @return The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+     * @return Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      * 
      */
     private @Nullable String dnsName;
@@ -25,7 +25,7 @@ public final class OntapFileSystemEndpointManagement {
 
     private OntapFileSystemEndpointManagement() {}
     /**
-     * @return The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+     * @return Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      * 
      */
     public Optional<String> dnsName() {

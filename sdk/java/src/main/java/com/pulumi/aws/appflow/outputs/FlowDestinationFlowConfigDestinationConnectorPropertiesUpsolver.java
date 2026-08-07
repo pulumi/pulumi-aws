@@ -15,6 +15,10 @@ import javax.annotation.Nullable;
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver {
     private String bucketName;
     private @Nullable String bucketPrefix;
+    /**
+     * @return Configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config` Block for details.
+     * 
+     */
     private FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig s3OutputFormatConfig;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver() {}
@@ -24,6 +28,10 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
+    /**
+     * @return Configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config` Block for details.
+     * 
+     */
     public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig s3OutputFormatConfig() {
         return this.s3OutputFormatConfig;
     }

@@ -19,13 +19,9 @@ public final class GatewayRouteSpecHttp2RouteMatchHeader {
      * 
      */
     private @Nullable Boolean invert;
-    /**
-     * @return Method and value to match the header value sent with a request. Specify one match method.
-     * 
-     */
     private @Nullable GatewayRouteSpecHttp2RouteMatchHeaderMatch match;
     /**
-     * @return Name for the HTTP header in the client request that will be matched on.
+     * @return Name to use for the gateway route. Must be between 1 and 255 characters in length.
      * 
      */
     private String name;
@@ -38,15 +34,11 @@ public final class GatewayRouteSpecHttp2RouteMatchHeader {
     public Optional<Boolean> invert() {
         return Optional.ofNullable(this.invert);
     }
-    /**
-     * @return Method and value to match the header value sent with a request. Specify one match method.
-     * 
-     */
     public Optional<GatewayRouteSpecHttp2RouteMatchHeaderMatch> match() {
         return Optional.ofNullable(this.match);
     }
     /**
-     * @return Name for the HTTP header in the client request that will be matched on.
+     * @return Name to use for the gateway route. Must be between 1 and 255 characters in length.
      * 
      */
     public String name() {

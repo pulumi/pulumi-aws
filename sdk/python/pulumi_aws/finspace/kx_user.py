@@ -29,9 +29,9 @@ class KxUserArgs:
 
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[_builtins.str] iam_role: IAM role ARN to be associated with the user.
+        :param pulumi.Input[_builtins.str] name: Unique identifier for the user.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: A unique identifier for the user.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -61,8 +61,6 @@ class KxUserArgs:
     def iam_role(self) -> pulumi.Input[_builtins.str]:
         """
         IAM role ARN to be associated with the user.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "iam_role")
 
@@ -74,7 +72,9 @@ class KxUserArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique identifier for the user.
+        Unique identifier for the user.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -123,9 +123,9 @@ class _KxUserState:
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX user.
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[_builtins.str] iam_role: IAM role ARN to be associated with the user.
+        :param pulumi.Input[_builtins.str] name: Unique identifier for the user.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: A unique identifier for the user.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -174,8 +174,6 @@ class _KxUserState:
     def iam_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IAM role ARN to be associated with the user.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "iam_role")
 
@@ -187,7 +185,9 @@ class _KxUserState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A unique identifier for the user.
+        Unique identifier for the user.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -294,9 +294,9 @@ class KxUser(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[_builtins.str] iam_role: IAM role ARN to be associated with the user.
+        :param pulumi.Input[_builtins.str] name: Unique identifier for the user.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: A unique identifier for the user.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -419,9 +419,9 @@ class KxUser(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX user.
         :param pulumi.Input[_builtins.str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[_builtins.str] iam_role: IAM role ARN to be associated with the user.
+        :param pulumi.Input[_builtins.str] name: Unique identifier for the user.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] name: A unique identifier for the user.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -460,8 +460,6 @@ class KxUser(pulumi.CustomResource):
     def iam_role(self) -> pulumi.Output[_builtins.str]:
         """
         IAM role ARN to be associated with the user.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "iam_role")
 
@@ -469,7 +467,9 @@ class KxUser(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        A unique identifier for the user.
+        Unique identifier for the user.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

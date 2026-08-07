@@ -14,40 +14,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric {
     /**
-     * @return Dimensions of the metric. See supported fields below.
+     * @return Dimensions of the metric. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query.metric_stat.metric.dimension` Block for details.
      * 
      */
     private @Nullable List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension> dimensions;
-    /**
-     * @return Name of the metric.
-     * 
-     */
     private @Nullable String metricName;
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     private @Nullable String namespace;
 
     private PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric() {}
     /**
-     * @return Dimensions of the metric. See supported fields below.
+     * @return Dimensions of the metric. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query.metric_stat.metric.dimension` Block for details.
      * 
      */
     public List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension> dimensions() {
         return this.dimensions == null ? List.of() : this.dimensions;
     }
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public Optional<String> metricName() {
         return Optional.ofNullable(this.metricName);
     }
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }

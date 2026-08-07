@@ -17,7 +17,7 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
     public static final BucketObjectLockConfigurationArgs Empty = new BucketObjectLockConfigurationArgs();
 
     /**
-     * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+     * Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
      * 
      * @deprecated
      * object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
@@ -28,7 +28,7 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
     private @Nullable Output<String> objectLockEnabled;
 
     /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+     * @return Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
      * 
      * @deprecated
      * object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
@@ -40,7 +40,7 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
     }
 
     /**
-     * Object Lock rule in place for this bucket (documented below).
+     * Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
      * 
      * @deprecated
      * rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
@@ -51,7 +51,7 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
     private @Nullable Output<BucketObjectLockConfigurationRuleArgs> rule;
 
     /**
-     * @return Object Lock rule in place for this bucket (documented below).
+     * @return Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
      * 
      * @deprecated
      * rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
@@ -88,7 +88,7 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param objectLockEnabled Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+         * @param objectLockEnabled Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param objectLockEnabled Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+         * @param objectLockEnabled Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param rule Object Lock rule in place for this bucket (documented below).
+         * @param rule Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param rule Object Lock rule in place for this bucket (documented below).
+         * @param rule Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
          * 
          * @return builder
          * 

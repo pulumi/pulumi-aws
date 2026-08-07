@@ -96,11 +96,11 @@ import (
 type PrincipalAssociation struct {
 	pulumi.CustomResourceState
 
-	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+	// Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the resource share.
+	// Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn pulumi.StringOutput `pulumi:"resourceShareArn"`
 }
 
@@ -140,20 +140,20 @@ func GetPrincipalAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrincipalAssociation resources.
 type principalAssociationState struct {
-	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+	// Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
 	Principal *string `pulumi:"principal"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the resource share.
+	// Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn *string `pulumi:"resourceShareArn"`
 }
 
 type PrincipalAssociationState struct {
-	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+	// Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
 	Principal pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the resource share.
+	// Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn pulumi.StringPtrInput
 }
 
@@ -162,21 +162,21 @@ func (PrincipalAssociationState) ElementType() reflect.Type {
 }
 
 type principalAssociationArgs struct {
-	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+	// Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
 	Principal string `pulumi:"principal"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the resource share.
+	// Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn string `pulumi:"resourceShareArn"`
 }
 
 // The set of arguments for constructing a PrincipalAssociation resource.
 type PrincipalAssociationArgs struct {
-	// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+	// Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
 	Principal pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the resource share.
+	// Amazon Resource Name (ARN) of the resource share.
 	ResourceShareArn pulumi.StringInput
 }
 
@@ -267,7 +267,7 @@ func (o PrincipalAssociationOutput) ToPrincipalAssociationOutputWithContext(ctx 
 	return o
 }
 
-// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+// Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
 func (o PrincipalAssociationOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalAssociation) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
@@ -277,7 +277,7 @@ func (o PrincipalAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the resource share.
+// Amazon Resource Name (ARN) of the resource share.
 func (o PrincipalAssociationOutput) ResourceShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalAssociation) pulumi.StringOutput { return v.ResourceShareArn }).(pulumi.StringOutput)
 }

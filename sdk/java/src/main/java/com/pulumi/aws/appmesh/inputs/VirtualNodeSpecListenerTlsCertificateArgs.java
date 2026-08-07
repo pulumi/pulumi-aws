@@ -18,14 +18,14 @@ public final class VirtualNodeSpecListenerTlsCertificateArgs extends com.pulumi.
     public static final VirtualNodeSpecListenerTlsCertificateArgs Empty = new VirtualNodeSpecListenerTlsCertificateArgs();
 
     /**
-     * An AWS Certificate Manager (ACM) certificate.
+     * AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
      * 
      */
     @Import(name="acm")
     private @Nullable Output<VirtualNodeSpecListenerTlsCertificateAcmArgs> acm;
 
     /**
-     * @return An AWS Certificate Manager (ACM) certificate.
+     * @return AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTlsCertificateAcmArgs>> acm() {
@@ -33,14 +33,14 @@ public final class VirtualNodeSpecListenerTlsCertificateArgs extends com.pulumi.
     }
 
     /**
-     * Local file certificate.
+     * File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
      * 
      */
     @Import(name="file")
     private @Nullable Output<VirtualNodeSpecListenerTlsCertificateFileArgs> file;
 
     /**
-     * @return Local file certificate.
+     * @return File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTlsCertificateFileArgs>> file() {
@@ -48,14 +48,14 @@ public final class VirtualNodeSpecListenerTlsCertificateArgs extends com.pulumi.
     }
 
     /**
-     * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
      * 
      */
     @Import(name="sds")
     private @Nullable Output<VirtualNodeSpecListenerTlsCertificateSdsArgs> sds;
 
     /**
-     * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTlsCertificateSdsArgs>> sds() {
@@ -89,7 +89,7 @@ public final class VirtualNodeSpecListenerTlsCertificateArgs extends com.pulumi.
         }
 
         /**
-         * @param acm An AWS Certificate Manager (ACM) certificate.
+         * @param acm AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class VirtualNodeSpecListenerTlsCertificateArgs extends com.pulumi.
         }
 
         /**
-         * @param acm An AWS Certificate Manager (ACM) certificate.
+         * @param acm AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class VirtualNodeSpecListenerTlsCertificateArgs extends com.pulumi.
         }
 
         /**
-         * @param file Local file certificate.
+         * @param file File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class VirtualNodeSpecListenerTlsCertificateArgs extends com.pulumi.
         }
 
         /**
-         * @param file Local file certificate.
+         * @param file File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class VirtualNodeSpecListenerTlsCertificateArgs extends com.pulumi.
         }
 
         /**
-         * @param sds A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * @param sds TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class VirtualNodeSpecListenerTlsCertificateArgs extends com.pulumi.
         }
 
         /**
-         * @param sds A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * @param sds TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
          * 
          * @return builder
          * 

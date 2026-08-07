@@ -17,14 +17,14 @@ public final class GetBucketReplicationConfigurationArgs extends com.pulumi.reso
     public static final GetBucketReplicationConfigurationArgs Empty = new GetBucketReplicationConfigurationArgs();
 
     /**
-     * The name of the bucket to get the replication configuration for.
+     * Name of the bucket to get the replication configuration for.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket to get the replication configuration for.
+     * @return Name of the bucket to get the replication configuration for.
      * 
      */
     public Output<String> bucket() {
@@ -72,7 +72,7 @@ public final class GetBucketReplicationConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param bucket The name of the bucket to get the replication configuration for.
+         * @param bucket Name of the bucket to get the replication configuration for.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetBucketReplicationConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param bucket The name of the bucket to get the replication configuration for.
+         * @param bucket Name of the bucket to get the replication configuration for.
          * 
          * @return builder
          * 

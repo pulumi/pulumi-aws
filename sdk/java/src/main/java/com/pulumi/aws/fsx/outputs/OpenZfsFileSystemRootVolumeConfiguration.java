@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OpenZfsFileSystemRootVolumeConfiguration {
     /**
-     * @return A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * @return Whether tags for the file system should be copied to snapshots. Default value is false.
      * 
      */
     private @Nullable Boolean copyTagsToSnapshots;
@@ -37,7 +37,7 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
      */
     private @Nullable Boolean readOnly;
     /**
-     * @return Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * @return Record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
      * 
      */
     private @Nullable Integer recordSizeKib;
@@ -49,7 +49,7 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
 
     private OpenZfsFileSystemRootVolumeConfiguration() {}
     /**
-     * @return A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * @return Whether tags for the file system should be copied to snapshots. Default value is false.
      * 
      */
     public Optional<Boolean> copyTagsToSnapshots() {
@@ -77,7 +77,7 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
         return Optional.ofNullable(this.readOnly);
     }
     /**
-     * @return Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * @return Record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
      * 
      */
     public Optional<Integer> recordSizeKib() {

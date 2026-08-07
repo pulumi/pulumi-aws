@@ -96,14 +96,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpclattice/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
     /**
-     * An IAM policy. The policy string in JSON must not contain newlines or blank lines.
+     * IAM policy. The policy string in JSON must not contain newlines or blank lines.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return An IAM policy. The policy string in JSON must not contain newlines or blank lines.
+     * @return IAM policy. The policy string in JSON must not contain newlines or blank lines.
      * 
      */
     public Output<String> policy() {
@@ -124,14 +124,14 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * @return ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      * 
      */
     public Output<String> resourceArn() {

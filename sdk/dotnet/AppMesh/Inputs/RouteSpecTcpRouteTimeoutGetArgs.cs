@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecTcpRouteTimeoutGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `Idle` Block for details.
+        /// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.tcp_route.timeout.idle` Block for details.
         /// </summary>
         [Input("idle")]
         public Input<Inputs.RouteSpecTcpRouteTimeoutIdleGetArgs>? Idle { get; set; }

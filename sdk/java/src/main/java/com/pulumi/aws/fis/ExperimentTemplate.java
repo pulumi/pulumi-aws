@@ -279,42 +279,42 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * The experiment options for the experiment template. See experimentOptions below for more details!
+     * Experiment options for the experiment template. See experimentOptions below for more details!
      * 
      */
     @Export(name="experimentOptions", refs={ExperimentTemplateExperimentOptions.class}, tree="[0]")
     private Output<ExperimentTemplateExperimentOptions> experimentOptions;
 
     /**
-     * @return The experiment options for the experiment template. See experimentOptions below for more details!
+     * @return Experiment options for the experiment template. See experimentOptions below for more details!
      * 
      */
     public Output<ExperimentTemplateExperimentOptions> experimentOptions() {
         return this.experimentOptions;
     }
     /**
-     * The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     * Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
      * 
      */
     @Export(name="experimentReportConfiguration", refs={ExperimentTemplateExperimentReportConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ExperimentTemplateExperimentReportConfiguration> experimentReportConfiguration;
 
     /**
-     * @return The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     * @return Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
      * 
      */
     public Output<Optional<ExperimentTemplateExperimentReportConfiguration>> experimentReportConfiguration() {
         return Codegen.optional(this.experimentReportConfiguration);
     }
     /**
-     * The configuration for experiment logging. See below.
+     * Configuration for experiment logging. See below.
      * 
      */
     @Export(name="logConfiguration", refs={ExperimentTemplateLogConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ExperimentTemplateLogConfiguration> logConfiguration;
 
     /**
-     * @return The configuration for experiment logging. See below.
+     * @return Configuration for experiment logging. See below.
      * 
      */
     public Output<Optional<ExperimentTemplateLogConfiguration>> logConfiguration() {

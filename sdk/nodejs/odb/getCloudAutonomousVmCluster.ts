@@ -38,7 +38,7 @@ export function getCloudAutonomousVmCluster(args: GetCloudAutonomousVmClusterArg
  */
 export interface GetCloudAutonomousVmClusterArgs {
     /**
-     * The unique identifier of the cloud autonomous vm cluster.
+     * Unique identifier of the cloud autonomous vm cluster.
      */
     id: string;
     /**
@@ -52,27 +52,27 @@ export interface GetCloudAutonomousVmClusterArgs {
  */
 export interface GetCloudAutonomousVmClusterResult {
     /**
-     * The Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * Amazon Resource Name (ARN) for the Exadata infrastructure.
      */
     readonly arn: string;
     /**
-     * The percentage of data storage currently in use for Autonomous Databases in the Autonomous VM cluster.
+     * Percentage of data storage currently in use for Autonomous Databases in the Autonomous VM cluster.
      */
     readonly autonomousDataStoragePercentage: number;
     /**
-     * The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB.
+     * Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB.
      */
     readonly autonomousDataStorageSizeInTbs: number;
     /**
-     * The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
+     * Available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
      */
     readonly availableAutonomousDataStorageSizeInTbs: number;
     /**
-     * The number of Autonomous CDBs that you can create with the currently available storage.
+     * Number of Autonomous CDBs that you can create with the currently available storage.
      */
     readonly availableContainerDatabases: number;
     /**
-     * The number of CPU cores available for allocation to Autonomous Databases.
+     * Number of CPU cores available for allocation to Autonomous Databases.
      */
     readonly availableCpus: number;
     /**
@@ -84,153 +84,153 @@ export interface GetCloudAutonomousVmClusterResult {
      */
     readonly cloudExadataInfrastructureId: string;
     /**
-     * The compute model of the Autonomous VM cluster: ECPU or OCPU.
+     * Compute model of the Autonomous VM cluster: ECPU or OCPU.
      */
     readonly computeModel: string;
     /**
-     * The total number of CPU cores in the Autonomous VM cluster.
+     * Total number of CPU cores in the Autonomous VM cluster.
      */
     readonly cpuCoreCount: number;
     /**
-     * The number of CPU cores enabled per node in the Autonomous VM cluster.
+     * Number of CPU cores enabled per node in the Autonomous VM cluster.
      */
     readonly cpuCoreCountPerNode: number;
     /**
-     * he percentage of total CPU cores currently in use in the Autonomous VM cluster.
+     * Percentage of total CPU cores currently in use in the Autonomous VM cluster.
      */
     readonly cpuPercentage: number;
     /**
-     * The date and time when the Autonomous VM cluster was created.
+     * Date and time when the Autonomous VM cluster was created.
      */
     readonly createdAt: string;
     /**
-     * The total data storage allocated to the Autonomous VM cluster, in GB.
+     * Total data storage allocated to the Autonomous VM cluster, in GB.
      */
     readonly dataStorageSizeInGbs: number;
     /**
-     * The total data storage allocated to the Autonomous VM cluster, in TB.
+     * Total data storage allocated to the Autonomous VM cluster, in TB.
      */
     readonly dataStorageSizeInTbs: number;
     /**
-     * The list of database servers associated with the Autonomous VM cluster.
+     * List of database servers associated with the Autonomous VM cluster.
      */
     readonly dbServers: string[];
     /**
-     * The user-provided description of the Autonomous VM cluster.
+     * User-provided description of the Autonomous VM cluster.
      */
     readonly description: string;
     /**
-     * The display name of the Autonomous VM cluster.
+     * Display name of the Autonomous VM cluster.
      */
     readonly displayName: string;
     /**
-     * The domain name of the Autonomous VM cluster.
+     * Domain name of the Autonomous VM cluster.
      */
     readonly domain: string;
     /**
-     * The minimum value to which you can scale down the Exadata storage, in TB.
+     * Minimum value to which you can scale down the Exadata storage, in TB.
      */
     readonly exadataStorageInTbsLowestScaledValue: number;
     /**
-     * The hostname of the Autonomous VM cluster.
+     * Hostname of the Autonomous VM cluster.
      */
     readonly hostname: string;
     readonly id: string;
     /**
-     * Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
+     * Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
      */
     readonly isMtlsEnabledVmCluster: boolean;
     /**
-     * The Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
+     * Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
      */
     readonly licenseModel: string;
     /**
-     * The maintenance window for the Autonomous VM cluster.
+     * Maintenance window for the Autonomous VM cluster.
      */
     readonly maintenanceWindows: outputs.odb.GetCloudAutonomousVmClusterMaintenanceWindow[];
     /**
-     * The minimum value to which you can scale down the maximum number of Autonomous CDBs.
+     * Minimum value to which you can scale down the maximum number of Autonomous CDBs.
      */
     readonly maxAcdsLowestScaledValue: number;
     /**
-     * The amount of memory allocated per Oracle Compute Unit, in GB.
+     * Amount of memory allocated per Oracle Compute Unit, in GB.
      */
     readonly memoryPerOracleComputeUnitInGbs: number;
     /**
-     * The total amount of memory allocated to the Autonomous VM cluster, in gigabytes (GB).
+     * Total amount of memory allocated to the Autonomous VM cluster, in gigabytes (GB).
      */
     readonly memorySizeInGbs: number;
     /**
-     * The number of database server nodes in the Autonomous VM cluster.
+     * Number of database server nodes in the Autonomous VM cluster.
      */
     readonly nodeCount: number;
     /**
-     * The number of Autonomous CDBs that can't be provisioned because of resource  constraints.
+     * Number of Autonomous CDBs that can't be provisioned because of resource constraints.
      */
     readonly nonProvisionableAutonomousContainerDatabases: number;
     /**
-     * The name of the OCI resource anchor associated with this Autonomous VM cluster.
+     * Name of the OCI resource anchor associated with this Autonomous VM cluster.
      */
     readonly ociResourceAnchorName: string;
     /**
-     * The URL for accessing the OCI console page for this Autonomous VM cluster.
+     * URL for accessing the OCI console page for this Autonomous VM cluster.
      */
     readonly ociUrl: string;
     /**
-     * The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+     * Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
      */
     readonly ocid: string;
     /**
-     * The arn of the ODB network associated with this Autonomous VM cluster.
+     * ARN of the ODB network associated with this Autonomous VM cluster.
      */
     readonly odbNetworkArn: string;
     /**
-     * The unique identifier of the ODB network associated with this Autonomous VM cluster.
+     * Unique identifier of the ODB network associated with this Autonomous VM cluster.
      */
     readonly odbNetworkId: string;
     /**
-     * The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+     * Local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
      */
     readonly odbNodeStorageSizeInGbs: number;
     /**
-     * The progress of the current operation on the Autonomous VM cluster, as a percentage.
+     * Progress of the current operation on the Autonomous VM cluster, as a percentage.
      */
     readonly percentProgress: number;
     /**
-     * The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
+     * Number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
      */
     readonly provisionableAutonomousContainerDatabases: number;
     /**
-     * The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
+     * Number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
      */
     readonly provisionedAutonomousContainerDatabases: number;
     /**
-     * The number of CPU cores currently provisioned in the Autonomous VM cluster.
+     * Number of CPU cores currently provisioned in the Autonomous VM cluster.
      */
     readonly provisionedCpus: number;
     /**
-     * The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
+     * Number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
      */
     readonly reclaimableCpus: number;
     readonly region: string;
     /**
-     * The number of CPU cores reserved for system operations and redundancy.
+     * Number of CPU cores reserved for system operations and redundancy.
      */
     readonly reservedCpus: number;
     /**
-     * The SCAN listener port for non-TLS (TCP) protocol. The default is 1521.
+     * SCAN listener port for non-TLS (TCP) protocol. The default is 1521.
      */
     readonly scanListenerPortNonTls: number;
     /**
-     * The SCAN listener port for TLS (TCP) protocol. The default is 2484.
+     * SCAN listener port for TLS (TCP) protocol. The default is 2484.
      */
     readonly scanListenerPortTls: number;
     /**
-     * The shape of the Exadata infrastructure for the Autonomous VM cluster.
+     * Shape of the Exadata infrastructure for the Autonomous VM cluster.
      */
     readonly shape: string;
     /**
-     * The status of the Autonomous VM cluster.
+     * Status of the Autonomous VM cluster.
      */
     readonly status: string;
     /**
@@ -238,23 +238,23 @@ export interface GetCloudAutonomousVmClusterResult {
      */
     readonly statusReason: string;
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The expiration date and time of the database SSL certificate.
+     * Expiration date and time of the database SSL certificate.
      */
     readonly timeDatabaseSslCertificateExpires: string;
     /**
-     * The expiration date and time of the Oracle REST Data Services (ORDS)certificate.
+     * Expiration date and time of the Oracle REST Data Services (ORDS) certificate.
      */
     readonly timeOrdsCertificateExpires: string;
     /**
-     * The time zone of the Autonomous VM cluster.
+     * Time zone of the Autonomous VM cluster.
      */
     readonly timeZone: string;
     /**
-     * The total number of Autonomous Container Databases that can be created with the allocated local storage.
+     * Total number of Autonomous Container Databases that can be created with the allocated local storage.
      */
     readonly totalContainerDatabases: number;
 }
@@ -289,7 +289,7 @@ export function getCloudAutonomousVmClusterOutput(args: GetCloudAutonomousVmClus
  */
 export interface GetCloudAutonomousVmClusterOutputArgs {
     /**
-     * The unique identifier of the cloud autonomous vm cluster.
+     * Unique identifier of the cloud autonomous vm cluster.
      */
     id: pulumi.Input<string>;
     /**

@@ -55,14 +55,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apprunner/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
     /**
-     * The unique ID of the operation associated with deployment.
+     * Unique ID of the operation associated with deployment.
      * 
      */
     @Export(name="operationId", refs={String.class}, tree="[0]")
     private Output<String> operationId;
 
     /**
-     * @return The unique ID of the operation associated with deployment.
+     * @return Unique ID of the operation associated with deployment.
      * 
      */
     public Output<String> operationId() {
@@ -83,28 +83,28 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+     * Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      * 
      */
     @Export(name="serviceArn", refs={String.class}, tree="[0]")
     private Output<String> serviceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+     * @return Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      * 
      */
     public Output<String> serviceArn() {
         return this.serviceArn;
     }
     /**
-     * The current status of the App Runner service deployment.
+     * Current status of the App Runner service deployment.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The current status of the App Runner service deployment.
+     * @return Current status of the App Runner service deployment.
      * 
      */
     public Output<String> status() {

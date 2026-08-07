@@ -105,14 +105,11 @@ export class Stage extends pulumi.CustomResource {
      */
     declare public readonly documentationVersion: pulumi.Output<string | undefined>;
     /**
-     * Execution ARN to be used in `lambdaPermission`'s `sourceArn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+     * Execution ARN to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
     declare public /*out*/ readonly executionArn: pulumi.Output<string>;
     /**
-     * URL to invoke the API pointing to the stage,
-     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+     * URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      */
     declare public /*out*/ readonly invokeUrl: pulumi.Output<string>;
     /**
@@ -257,14 +254,11 @@ export interface StageState {
      */
     documentationVersion?: pulumi.Input<string | undefined>;
     /**
-     * Execution ARN to be used in `lambdaPermission`'s `sourceArn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+     * Execution ARN to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
     executionArn?: pulumi.Input<string | undefined>;
     /**
-     * URL to invoke the API pointing to the stage,
-     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+     * URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      */
     invokeUrl?: pulumi.Input<string | undefined>;
     /**

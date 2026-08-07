@@ -259,11 +259,11 @@ type ExperimentTemplate struct {
 	Actions ExperimentTemplateActionArrayOutput `pulumi:"actions"`
 	// Description for the experiment template.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The experiment options for the experiment template. See experimentOptions below for more details!
+	// Experiment options for the experiment template. See experimentOptions below for more details!
 	ExperimentOptions ExperimentTemplateExperimentOptionsOutput `pulumi:"experimentOptions"`
-	// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+	// Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
 	ExperimentReportConfiguration ExperimentTemplateExperimentReportConfigurationPtrOutput `pulumi:"experimentReportConfiguration"`
-	// The configuration for experiment logging. See below.
+	// Configuration for experiment logging. See below.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrOutput `pulumi:"logConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -326,11 +326,11 @@ type experimentTemplateState struct {
 	Actions []ExperimentTemplateAction `pulumi:"actions"`
 	// Description for the experiment template.
 	Description *string `pulumi:"description"`
-	// The experiment options for the experiment template. See experimentOptions below for more details!
+	// Experiment options for the experiment template. See experimentOptions below for more details!
 	ExperimentOptions *ExperimentTemplateExperimentOptions `pulumi:"experimentOptions"`
-	// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+	// Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
 	ExperimentReportConfiguration *ExperimentTemplateExperimentReportConfiguration `pulumi:"experimentReportConfiguration"`
-	// The configuration for experiment logging. See below.
+	// Configuration for experiment logging. See below.
 	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -352,11 +352,11 @@ type ExperimentTemplateState struct {
 	Actions ExperimentTemplateActionArrayInput
 	// Description for the experiment template.
 	Description pulumi.StringPtrInput
-	// The experiment options for the experiment template. See experimentOptions below for more details!
+	// Experiment options for the experiment template. See experimentOptions below for more details!
 	ExperimentOptions ExperimentTemplateExperimentOptionsPtrInput
-	// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+	// Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
 	ExperimentReportConfiguration ExperimentTemplateExperimentReportConfigurationPtrInput
-	// The configuration for experiment logging. See below.
+	// Configuration for experiment logging. See below.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -382,11 +382,11 @@ type experimentTemplateArgs struct {
 	Actions []ExperimentTemplateAction `pulumi:"actions"`
 	// Description for the experiment template.
 	Description string `pulumi:"description"`
-	// The experiment options for the experiment template. See experimentOptions below for more details!
+	// Experiment options for the experiment template. See experimentOptions below for more details!
 	ExperimentOptions *ExperimentTemplateExperimentOptions `pulumi:"experimentOptions"`
-	// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+	// Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
 	ExperimentReportConfiguration *ExperimentTemplateExperimentReportConfiguration `pulumi:"experimentReportConfiguration"`
-	// The configuration for experiment logging. See below.
+	// Configuration for experiment logging. See below.
 	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -408,11 +408,11 @@ type ExperimentTemplateArgs struct {
 	Actions ExperimentTemplateActionArrayInput
 	// Description for the experiment template.
 	Description pulumi.StringInput
-	// The experiment options for the experiment template. See experimentOptions below for more details!
+	// Experiment options for the experiment template. See experimentOptions below for more details!
 	ExperimentOptions ExperimentTemplateExperimentOptionsPtrInput
-	// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+	// Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
 	ExperimentReportConfiguration ExperimentTemplateExperimentReportConfigurationPtrInput
-	// The configuration for experiment logging. See below.
+	// Configuration for experiment logging. See below.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -525,19 +525,19 @@ func (o ExperimentTemplateOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The experiment options for the experiment template. See experimentOptions below for more details!
+// Experiment options for the experiment template. See experimentOptions below for more details!
 func (o ExperimentTemplateOutput) ExperimentOptions() ExperimentTemplateExperimentOptionsOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateExperimentOptionsOutput { return v.ExperimentOptions }).(ExperimentTemplateExperimentOptionsOutput)
 }
 
-// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+// Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
 func (o ExperimentTemplateOutput) ExperimentReportConfiguration() ExperimentTemplateExperimentReportConfigurationPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateExperimentReportConfigurationPtrOutput {
 		return v.ExperimentReportConfiguration
 	}).(ExperimentTemplateExperimentReportConfigurationPtrOutput)
 }
 
-// The configuration for experiment logging. See below.
+// Configuration for experiment logging. See below.
 func (o ExperimentTemplateOutput) LogConfiguration() ExperimentTemplateLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateLogConfigurationPtrOutput { return v.LogConfiguration }).(ExperimentTemplateLogConfigurationPtrOutput)
 }

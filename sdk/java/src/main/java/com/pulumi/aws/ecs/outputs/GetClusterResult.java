@@ -33,7 +33,7 @@ public final class GetClusterResult {
     private Integer pendingTasksCount;
     private String region;
     /**
-     * @return The number of registered container instances for the ECS Cluster
+     * @return Number of registered container instances for the ECS Cluster
      * 
      */
     private Integer registeredContainerInstancesCount;
@@ -43,7 +43,7 @@ public final class GetClusterResult {
      */
     private Integer runningTasksCount;
     /**
-     * @return The default Service Connect namespace
+     * @return Default Service Connect namespace
      * 
      */
     private List<GetClusterServiceConnectDefault> serviceConnectDefaults;
@@ -92,7 +92,7 @@ public final class GetClusterResult {
         return this.region;
     }
     /**
-     * @return The number of registered container instances for the ECS Cluster
+     * @return Number of registered container instances for the ECS Cluster
      * 
      */
     public Integer registeredContainerInstancesCount() {
@@ -106,7 +106,7 @@ public final class GetClusterResult {
         return this.runningTasksCount;
     }
     /**
-     * @return The default Service Connect namespace
+     * @return Default Service Connect namespace
      * 
      */
     public List<GetClusterServiceConnectDefault> serviceConnectDefaults() {

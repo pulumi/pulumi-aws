@@ -46,9 +46,17 @@ public final class GetServiceNetworkPlainArgs extends com.pulumi.resources.Invok
         return this.serviceNetworkIdentifier;
     }
 
+    /**
+     * Map of tags assigned to the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -101,6 +109,12 @@ public final class GetServiceNetworkPlainArgs extends com.pulumi.resources.Invok
             return this;
         }
 
+        /**
+         * @param tags Map of tags assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

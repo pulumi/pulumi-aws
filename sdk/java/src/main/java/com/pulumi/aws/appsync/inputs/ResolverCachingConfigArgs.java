@@ -18,14 +18,14 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
     public static final ResolverCachingConfigArgs Empty = new ResolverCachingConfigArgs();
 
     /**
-     * The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+     * Caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
      * 
      */
     @Import(name="cachingKeys")
     private @Nullable Output<List<String>> cachingKeys;
 
     /**
-     * @return The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+     * @return Caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
      * 
      */
     public Optional<Output<List<String>>> cachingKeys() {
@@ -33,14 +33,14 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+     * TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
      * 
      */
     @Import(name="ttl")
     private @Nullable Output<Integer> ttl;
 
     /**
-     * @return The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+     * @return TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
      * 
      */
     public Optional<Output<Integer>> ttl() {
@@ -73,7 +73,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cachingKeys The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+         * @param cachingKeys Caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cachingKeys The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+         * @param cachingKeys Caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param cachingKeys The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+         * @param cachingKeys Caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ttl The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+         * @param ttl TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ttl The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+         * @param ttl TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
          * 
          * @return builder
          * 

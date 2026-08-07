@@ -13,8 +13,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
     public sealed class StageRouteSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        /// Defaults to `False`. Supported only for WebSocket APIs.
+        /// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `False`. Supported only for WebSocket APIs.
         /// </summary>
         [Input("dataTraceEnabled")]
         public Input<bool>? DataTraceEnabled { get; set; }
@@ -26,8 +25,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         public Input<bool>? DetailedMetricsEnabled { get; set; }
 
         /// <summary>
-        /// Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        /// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+        /// Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Input("loggingLevel")]
         public Input<string>? LoggingLevel { get; set; }

@@ -14,23 +14,23 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpec
     {
         /// <summary>
-        /// Defaults for backends. See `BackendDefaults` Block for details.
+        /// Defaults for backends. See `spec.backend_defaults` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecBackendDefaults? BackendDefaults;
         /// <summary>
-        /// Backends to which the virtual node is expected to send outbound traffic. See `Backend` Block for details.
+        /// Backends to which the virtual node is expected to send outbound traffic. See `spec.backend` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNodeSpecBackend> Backends;
         /// <summary>
-        /// Listeners from which the virtual node is expected to receive inbound traffic. See `Listener` Block for details.
+        /// Listeners from which the virtual node is expected to receive inbound traffic. See `spec.listener` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNodeSpecListener> Listeners;
         /// <summary>
-        /// Inbound and outbound access logging information for the virtual node. See `Logging` Block for details.
+        /// Inbound and outbound access logging information for the virtual node. See `spec.logging` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecLogging? Logging;
         /// <summary>
-        /// Service discovery information for the virtual node. See `ServiceDiscovery` Block for details.
+        /// Service discovery information for the virtual node. See `spec.service_discovery` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecServiceDiscovery? ServiceDiscovery;
 

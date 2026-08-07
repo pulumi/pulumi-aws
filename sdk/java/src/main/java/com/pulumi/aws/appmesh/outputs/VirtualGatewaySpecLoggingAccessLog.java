@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualGatewaySpecLoggingAccessLog {
     /**
-     * @return File object to send virtual gateway access logs to. See `file` Block for details.
+     * @return File object to send virtual gateway access logs to. See `spec.logging.access_log.file` Block for details.
      * 
      */
     private @Nullable VirtualGatewaySpecLoggingAccessLogFile file;
 
     private VirtualGatewaySpecLoggingAccessLog() {}
     /**
-     * @return File object to send virtual gateway access logs to. See `file` Block for details.
+     * @return File object to send virtual gateway access logs to. See `spec.logging.access_log.file` Block for details.
      * 
      */
     public Optional<VirtualGatewaySpecLoggingAccessLogFile> file() {

@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport {
     /**
-     * @return The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
+     * @return Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `s3BucketDestination` below for more details.
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestination s3BucketDestination;
     /**
-     * @return S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
+     * @return S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `storageLensTableDestination` below for more details.
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestination storageLensTableDestination;
 
     private StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport() {}
     /**
-     * @return The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
+     * @return Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `s3BucketDestination` below for more details.
      * 
      */
     public Optional<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestination> s3BucketDestination() {
         return Optional.ofNullable(this.s3BucketDestination);
     }
     /**
-     * @return S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
+     * @return S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `storageLensTableDestination` below for more details.
      * 
      */
     public Optional<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestination> storageLensTableDestination() {

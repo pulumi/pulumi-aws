@@ -98,11 +98,14 @@ namespace Pulumi.Aws.Fsx
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Time that the snapshot was created.
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+        /// Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -114,19 +117,19 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the volume to snapshot. This can be the root volume or a child volume.
+        /// ID of the volume to snapshot. This can be the root volume or a child volume.
         /// </summary>
         [Output("volumeId")]
         public Output<string> VolumeId { get; private set; } = null!;
@@ -178,7 +181,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class OpenZfsSnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+        /// Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -193,7 +196,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -202,7 +205,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The ID of the volume to snapshot. This can be the root volume or a child volume.
+        /// ID of the volume to snapshot. This can be the root volume or a child volume.
         /// </summary>
         [Input("volumeId", required: true)]
         public Input<string> VolumeId { get; set; } = null!;
@@ -221,11 +224,14 @@ namespace Pulumi.Aws.Fsx
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Time that the snapshot was created.
+        /// </summary>
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
 
         /// <summary>
-        /// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+        /// Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -240,7 +246,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -252,7 +258,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -261,7 +267,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The ID of the volume to snapshot. This can be the root volume or a child volume.
+        /// ID of the volume to snapshot. This can be the root volume or a child volume.
         /// </summary>
         [Input("volumeId")]
         public Input<string>? VolumeId { get; set; }

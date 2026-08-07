@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleDeleteMarkerReplication? DeleteMarkerReplication;
         /// <summary>
-        /// Specifies the destination for the rule. See below.
+        /// Destination for the rule. See below.
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleDestination Destination;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly int? Priority;
         /// <summary>
-        /// Specifies special object selection criteria. See below.
+        /// Special object selection criteria. See below.
         /// </summary>
         public readonly Outputs.BucketReplicationConfigRuleSourceSelectionCriteria? SourceSelectionCriteria;
         /// <summary>

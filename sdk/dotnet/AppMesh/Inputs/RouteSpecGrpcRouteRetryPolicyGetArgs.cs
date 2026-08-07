@@ -43,7 +43,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<int> MaxRetries { get; set; } = null!;
 
         /// <summary>
-        /// Per-retry timeout.
+        /// Per-retry timeout. See `spec.http_route.retry_policy.per_retry_timeout` Block for details.
         /// </summary>
         [Input("perRetryTimeout", required: true)]
         public Input<Inputs.RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutGetArgs> PerRetryTimeout { get; set; } = null!;

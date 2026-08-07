@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Fms.Inputs
         private InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs>? _firstEntries;
 
         /// <summary>
-        /// The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `FirstEntry` block.
+        /// Rules to run first in the Firewall Manager managed network ACLs. Firewall Manager creates entries with ID value between 1 and 5000. See the `FirstEntry` block.
         /// </summary>
         public InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs> FirstEntries
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Fms.Inputs
         }
 
         /// <summary>
-        /// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+        /// Whether Firewall Manager applies this setting to first-entry policy violations that involve conflicts between the custom entries and the policy entries. If `False`, Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
         /// </summary>
         [Input("forceRemediateForFirstEntries", required: true)]
         public Input<bool> ForceRemediateForFirstEntries { get; set; } = null!;
 
         /// <summary>
-        /// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+        /// Whether Firewall Manager applies this setting to last-entry policy violations that involve conflicts between the custom entries and the policy entries. If `False`, Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
         /// </summary>
         [Input("forceRemediateForLastEntries", required: true)]
         public Input<bool> ForceRemediateForLastEntries { get; set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Fms.Inputs
         private InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs>? _lastEntries;
 
         /// <summary>
-        /// The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `LastEntry` block.
+        /// Rules to run last in the Firewall Manager managed network ACLs. Firewall Manager creates entries with ID value between 32000 and 32766. See the `LastEntry` block.
         /// </summary>
         public InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs> LastEntries
         {

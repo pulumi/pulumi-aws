@@ -30,7 +30,7 @@ public final class RouteSpecGrpcRouteRetryPolicy {
      */
     private Integer maxRetries;
     /**
-     * @return Per-retry timeout.
+     * @return Per-retry timeout. See `spec.http_route.retry_policy.per_retry_timeout` Block for details.
      * 
      */
     private RouteSpecGrpcRouteRetryPolicyPerRetryTimeout perRetryTimeout;
@@ -63,7 +63,7 @@ public final class RouteSpecGrpcRouteRetryPolicy {
         return this.maxRetries;
     }
     /**
-     * @return Per-retry timeout.
+     * @return Per-retry timeout. See `spec.http_route.retry_policy.per_retry_timeout` Block for details.
      * 
      */
     public RouteSpecGrpcRouteRetryPolicyPerRetryTimeout perRetryTimeout() {

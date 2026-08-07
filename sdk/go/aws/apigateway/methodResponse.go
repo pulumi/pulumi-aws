@@ -197,21 +197,19 @@ import (
 type MethodResponse struct {
 	pulumi.CustomResourceState
 
-	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+	// HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod pulumi.StringOutput `pulumi:"httpMethod"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Resource identifier for the method resource.
+	// Resource identifier for the method resource.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+	// Map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
 	ResponseModels pulumi.StringMapOutput `pulumi:"responseModels"`
-	// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
-	//
-	// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+	// Map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters pulumi.BoolMapOutput `pulumi:"responseParameters"`
-	// The string identifier of the associated REST API.
+	// String identifier of the associated REST API.
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
-	// The method response's status code.
+	// Method response's status code.
 	StatusCode pulumi.StringOutput `pulumi:"statusCode"`
 }
 
@@ -257,40 +255,36 @@ func GetMethodResponse(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MethodResponse resources.
 type methodResponseState struct {
-	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+	// HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod *string `pulumi:"httpMethod"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Resource identifier for the method resource.
+	// Resource identifier for the method resource.
 	ResourceId *string `pulumi:"resourceId"`
-	// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+	// Map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
 	ResponseModels map[string]string `pulumi:"responseModels"`
-	// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
-	//
-	// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+	// Map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters map[string]bool `pulumi:"responseParameters"`
-	// The string identifier of the associated REST API.
+	// String identifier of the associated REST API.
 	RestApi interface{} `pulumi:"restApi"`
-	// The method response's status code.
+	// Method response's status code.
 	StatusCode *string `pulumi:"statusCode"`
 }
 
 type MethodResponseState struct {
-	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+	// HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Resource identifier for the method resource.
+	// Resource identifier for the method resource.
 	ResourceId pulumi.StringPtrInput
-	// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+	// Map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
 	ResponseModels pulumi.StringMapInput
-	// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
-	//
-	// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+	// Map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters pulumi.BoolMapInput
-	// The string identifier of the associated REST API.
+	// String identifier of the associated REST API.
 	RestApi pulumi.Input
-	// The method response's status code.
+	// Method response's status code.
 	StatusCode pulumi.StringPtrInput
 }
 
@@ -299,41 +293,37 @@ func (MethodResponseState) ElementType() reflect.Type {
 }
 
 type methodResponseArgs struct {
-	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+	// HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod string `pulumi:"httpMethod"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Resource identifier for the method resource.
+	// Resource identifier for the method resource.
 	ResourceId string `pulumi:"resourceId"`
-	// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+	// Map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
 	ResponseModels map[string]string `pulumi:"responseModels"`
-	// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
-	//
-	// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+	// Map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters map[string]bool `pulumi:"responseParameters"`
-	// The string identifier of the associated REST API.
+	// String identifier of the associated REST API.
 	RestApi interface{} `pulumi:"restApi"`
-	// The method response's status code.
+	// Method response's status code.
 	StatusCode string `pulumi:"statusCode"`
 }
 
 // The set of arguments for constructing a MethodResponse resource.
 type MethodResponseArgs struct {
-	// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+	// HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 	HttpMethod pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Resource identifier for the method resource.
+	// Resource identifier for the method resource.
 	ResourceId pulumi.StringInput
-	// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+	// Map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
 	ResponseModels pulumi.StringMapInput
-	// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
-	//
-	// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+	// Map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 	ResponseParameters pulumi.BoolMapInput
-	// The string identifier of the associated REST API.
+	// String identifier of the associated REST API.
 	RestApi pulumi.Input
-	// The method response's status code.
+	// Method response's status code.
 	StatusCode pulumi.StringInput
 }
 
@@ -424,7 +414,7 @@ func (o MethodResponseOutput) ToMethodResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+// HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
 func (o MethodResponseOutput) HttpMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.StringOutput { return v.HttpMethod }).(pulumi.StringOutput)
 }
@@ -434,29 +424,27 @@ func (o MethodResponseOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Resource identifier for the method resource.
+// Resource identifier for the method resource.
 func (o MethodResponseOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+// Map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
 func (o MethodResponseOutput) ResponseModels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.StringMapOutput { return v.ResponseModels }).(pulumi.StringMapOutput)
 }
 
-// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
-//
-// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+// Map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
 func (o MethodResponseOutput) ResponseParameters() pulumi.BoolMapOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.BoolMapOutput { return v.ResponseParameters }).(pulumi.BoolMapOutput)
 }
 
-// The string identifier of the associated REST API.
+// String identifier of the associated REST API.
 func (o MethodResponseOutput) RestApi() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.StringOutput { return v.RestApi }).(pulumi.StringOutput)
 }
 
-// The method response's status code.
+// Method response's status code.
 func (o MethodResponseOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *MethodResponse) pulumi.StringOutput { return v.StatusCode }).(pulumi.StringOutput)
 }

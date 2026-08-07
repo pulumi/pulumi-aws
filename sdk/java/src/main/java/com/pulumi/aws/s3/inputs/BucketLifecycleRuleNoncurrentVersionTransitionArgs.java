@@ -18,14 +18,14 @@ public final class BucketLifecycleRuleNoncurrentVersionTransitionArgs extends co
     public static final BucketLifecycleRuleNoncurrentVersionTransitionArgs Empty = new BucketLifecycleRuleNoncurrentVersionTransitionArgs();
 
     /**
-     * Specifies the number of days noncurrent object versions transition.
+     * Number of days noncurrent object versions transition.
      * 
      */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
     /**
-     * @return Specifies the number of days noncurrent object versions transition.
+     * @return Number of days noncurrent object versions transition.
      * 
      */
     public Optional<Output<Integer>> days() {
@@ -33,14 +33,14 @@ public final class BucketLifecycleRuleNoncurrentVersionTransitionArgs extends co
     }
 
     /**
-     * Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+     * Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
      * 
      */
     @Import(name="storageClass", required=true)
     private Output<String> storageClass;
 
     /**
-     * @return Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+     * @return Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
      * 
      */
     public Output<String> storageClass() {
@@ -73,7 +73,7 @@ public final class BucketLifecycleRuleNoncurrentVersionTransitionArgs extends co
         }
 
         /**
-         * @param days Specifies the number of days noncurrent object versions transition.
+         * @param days Number of days noncurrent object versions transition.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class BucketLifecycleRuleNoncurrentVersionTransitionArgs extends co
         }
 
         /**
-         * @param days Specifies the number of days noncurrent object versions transition.
+         * @param days Number of days noncurrent object versions transition.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class BucketLifecycleRuleNoncurrentVersionTransitionArgs extends co
         }
 
         /**
-         * @param storageClass Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+         * @param storageClass Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class BucketLifecycleRuleNoncurrentVersionTransitionArgs extends co
         }
 
         /**
-         * @param storageClass Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+         * @param storageClass Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
          * 
          * @return builder
          * 

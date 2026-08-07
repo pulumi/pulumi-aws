@@ -31,11 +31,11 @@ class DataIntegrationArgs:
         """
         The set of arguments for constructing a DataIntegration resource.
 
-        :param pulumi.Input[_builtins.str] kms_key: Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
-        :param pulumi.Input['DataIntegrationScheduleConfigArgs'] schedule_config: A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
-        :param pulumi.Input[_builtins.str] source_uri: Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the Data Integration.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Integration.
+        :param pulumi.Input[_builtins.str] kms_key: KMS key Amazon Resource Name (ARN) for the Data Integration.
+        :param pulumi.Input['DataIntegrationScheduleConfigArgs'] schedule_config: Configuration block that defines the name of the data and how often it should be pulled from the source. See `schedule_config` Block for details.
+        :param pulumi.Input[_builtins.str] source_uri: URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+        :param pulumi.Input[_builtins.str] description: Description of the Data Integration.
+        :param pulumi.Input[_builtins.str] name: Name of the Data Integration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -55,7 +55,7 @@ class DataIntegrationArgs:
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+        KMS key Amazon Resource Name (ARN) for the Data Integration.
         """
         return pulumi.get(self, "kms_key")
 
@@ -67,7 +67,7 @@ class DataIntegrationArgs:
     @pulumi.getter(name="scheduleConfig")
     def schedule_config(self) -> pulumi.Input['DataIntegrationScheduleConfigArgs']:
         """
-        A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+        Configuration block that defines the name of the data and how often it should be pulled from the source. See `schedule_config` Block for details.
         """
         return pulumi.get(self, "schedule_config")
 
@@ -79,7 +79,7 @@ class DataIntegrationArgs:
     @pulumi.getter(name="sourceUri")
     def source_uri(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+        URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
         """
         return pulumi.get(self, "source_uri")
 
@@ -91,7 +91,7 @@ class DataIntegrationArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the description of the Data Integration.
+        Description of the Data Integration.
         """
         return pulumi.get(self, "description")
 
@@ -103,7 +103,7 @@ class DataIntegrationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the Data Integration.
+        Name of the Data Integration.
         """
         return pulumi.get(self, "name")
 
@@ -151,15 +151,15 @@ class _DataIntegrationState:
         """
         Input properties used for looking up and filtering DataIntegration resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Data Integration.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the Data Integration.
-        :param pulumi.Input[_builtins.str] kms_key: Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Integration.
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Data Integration.
+        :param pulumi.Input[_builtins.str] description: Description of the Data Integration.
+        :param pulumi.Input[_builtins.str] kms_key: KMS key Amazon Resource Name (ARN) for the Data Integration.
+        :param pulumi.Input[_builtins.str] name: Name of the Data Integration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DataIntegrationScheduleConfigArgs'] schedule_config: A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
-        :param pulumi.Input[_builtins.str] source_uri: Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+        :param pulumi.Input['DataIntegrationScheduleConfigArgs'] schedule_config: Configuration block that defines the name of the data and how often it should be pulled from the source. See `schedule_config` Block for details.
+        :param pulumi.Input[_builtins.str] source_uri: URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -184,7 +184,7 @@ class _DataIntegrationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Data Integration.
+        Amazon Resource Name (ARN) of the Data Integration.
         """
         return pulumi.get(self, "arn")
 
@@ -196,7 +196,7 @@ class _DataIntegrationState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the description of the Data Integration.
+        Description of the Data Integration.
         """
         return pulumi.get(self, "description")
 
@@ -208,7 +208,7 @@ class _DataIntegrationState:
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+        KMS key Amazon Resource Name (ARN) for the Data Integration.
         """
         return pulumi.get(self, "kms_key")
 
@@ -220,7 +220,7 @@ class _DataIntegrationState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the Data Integration.
+        Name of the Data Integration.
         """
         return pulumi.get(self, "name")
 
@@ -244,7 +244,7 @@ class _DataIntegrationState:
     @pulumi.getter(name="scheduleConfig")
     def schedule_config(self) -> pulumi.Input[Optional['DataIntegrationScheduleConfigArgs']]:
         """
-        A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+        Configuration block that defines the name of the data and how often it should be pulled from the source. See `schedule_config` Block for details.
         """
         return pulumi.get(self, "schedule_config")
 
@@ -256,7 +256,7 @@ class _DataIntegrationState:
     @pulumi.getter(name="sourceUri")
     def source_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+        URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
         """
         return pulumi.get(self, "source_uri")
 
@@ -280,7 +280,7 @@ class _DataIntegrationState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -338,12 +338,12 @@ class DataIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the Data Integration.
-        :param pulumi.Input[_builtins.str] kms_key: Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Integration.
+        :param pulumi.Input[_builtins.str] description: Description of the Data Integration.
+        :param pulumi.Input[_builtins.str] kms_key: KMS key Amazon Resource Name (ARN) for the Data Integration.
+        :param pulumi.Input[_builtins.str] name: Name of the Data Integration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataIntegrationScheduleConfigArgs', 'DataIntegrationScheduleConfigArgsDict']] schedule_config: A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
-        :param pulumi.Input[_builtins.str] source_uri: Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+        :param pulumi.Input[Union['DataIntegrationScheduleConfigArgs', 'DataIntegrationScheduleConfigArgsDict']] schedule_config: Configuration block that defines the name of the data and how often it should be pulled from the source. See `schedule_config` Block for details.
+        :param pulumi.Input[_builtins.str] source_uri: URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -457,15 +457,15 @@ class DataIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Data Integration.
-        :param pulumi.Input[_builtins.str] description: Specifies the description of the Data Integration.
-        :param pulumi.Input[_builtins.str] kms_key: Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Integration.
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Data Integration.
+        :param pulumi.Input[_builtins.str] description: Description of the Data Integration.
+        :param pulumi.Input[_builtins.str] kms_key: KMS key Amazon Resource Name (ARN) for the Data Integration.
+        :param pulumi.Input[_builtins.str] name: Name of the Data Integration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DataIntegrationScheduleConfigArgs', 'DataIntegrationScheduleConfigArgsDict']] schedule_config: A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
-        :param pulumi.Input[_builtins.str] source_uri: Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+        :param pulumi.Input[Union['DataIntegrationScheduleConfigArgs', 'DataIntegrationScheduleConfigArgsDict']] schedule_config: Configuration block that defines the name of the data and how often it should be pulled from the source. See `schedule_config` Block for details.
+        :param pulumi.Input[_builtins.str] source_uri: URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -486,7 +486,7 @@ class DataIntegration(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Data Integration.
+        Amazon Resource Name (ARN) of the Data Integration.
         """
         return pulumi.get(self, "arn")
 
@@ -494,7 +494,7 @@ class DataIntegration(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the description of the Data Integration.
+        Description of the Data Integration.
         """
         return pulumi.get(self, "description")
 
@@ -502,7 +502,7 @@ class DataIntegration(pulumi.CustomResource):
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+        KMS key Amazon Resource Name (ARN) for the Data Integration.
         """
         return pulumi.get(self, "kms_key")
 
@@ -510,7 +510,7 @@ class DataIntegration(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the name of the Data Integration.
+        Name of the Data Integration.
         """
         return pulumi.get(self, "name")
 
@@ -526,7 +526,7 @@ class DataIntegration(pulumi.CustomResource):
     @pulumi.getter(name="scheduleConfig")
     def schedule_config(self) -> pulumi.Output['outputs.DataIntegrationScheduleConfig']:
         """
-        A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+        Configuration block that defines the name of the data and how often it should be pulled from the source. See `schedule_config` Block for details.
         """
         return pulumi.get(self, "schedule_config")
 
@@ -534,7 +534,7 @@ class DataIntegration(pulumi.CustomResource):
     @pulumi.getter(name="sourceUri")
     def source_uri(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+        URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
         """
         return pulumi.get(self, "source_uri")
 
@@ -550,7 +550,7 @@ class DataIntegration(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

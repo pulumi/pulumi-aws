@@ -14,12 +14,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust
     {
         /// <summary>
-        /// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+        /// AWS Certificate Manager (ACM) certificate.
         /// </summary>
         public readonly Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm? Acm;
-        /// <summary>
-        /// TLS validation context trust for a local file certificate.
-        /// </summary>
         public readonly Outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile? File;
         /// <summary>
         /// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.

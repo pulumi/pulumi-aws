@@ -15,14 +15,14 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjec
     public static final VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs Empty = new VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs();
 
     /**
-     * Criteria for determining a SAN&#39;s match.
+     * Criteria for determining a SAN&#39;s match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
      * 
      */
     @Import(name="match", required=true)
     private Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs> match;
 
     /**
-     * @return Criteria for determining a SAN&#39;s match.
+     * @return Criteria for determining a SAN&#39;s match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
      * 
      */
     public Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs> match() {
@@ -54,7 +54,7 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjec
         }
 
         /**
-         * @param match Criteria for determining a SAN&#39;s match.
+         * @param match Criteria for determining a SAN&#39;s match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjec
         }
 
         /**
-         * @param match Criteria for determining a SAN&#39;s match.
+         * @param match Criteria for determining a SAN&#39;s match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
          * 
          * @return builder
          * 

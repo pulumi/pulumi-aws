@@ -20,14 +20,14 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
     public static final GetTaskExecutionOverridesContainerOverride Empty = new GetTaskExecutionOverridesContainerOverride();
 
     /**
-     * The command to send to the container that overrides the default command from the Docker image or the task definition.
+     * Command to send to the container that overrides the default command from the Docker image or the task definition.
      * 
      */
     @Import(name="commands")
     private @Nullable List<String> commands;
 
     /**
-     * @return The command to send to the container that overrides the default command from the Docker image or the task definition.
+     * @return Command to send to the container that overrides the default command from the Docker image or the task definition.
      * 
      */
     public Optional<List<String>> commands() {
@@ -35,14 +35,14 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
     }
 
     /**
-     * The number of cpu units reserved for the container, instead of the default value from the task definition.
+     * Number of cpu units reserved for the container, instead of the default value from the task definition.
      * 
      */
     @Import(name="cpu")
     private @Nullable Integer cpu;
 
     /**
-     * @return The number of cpu units reserved for the container, instead of the default value from the task definition.
+     * @return Number of cpu units reserved for the container, instead of the default value from the task definition.
      * 
      */
     public Optional<Integer> cpu() {
@@ -50,14 +50,14 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
     }
 
     /**
-     * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+     * Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
      * 
      */
     @Import(name="environments")
     private @Nullable List<GetTaskExecutionOverridesContainerOverrideEnvironment> environments;
 
     /**
-     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+     * @return Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
      * 
      */
     public Optional<List<GetTaskExecutionOverridesContainerOverrideEnvironment>> environments() {
@@ -65,14 +65,14 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
     }
 
     /**
-     * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+     * Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
      * 
      */
     @Import(name="memory")
     private @Nullable Integer memory;
 
     /**
-     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+     * @return Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
      * 
      */
     public Optional<Integer> memory() {
@@ -80,14 +80,14 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
     }
 
     /**
-     * The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+     * Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
      * 
      */
     @Import(name="memoryReservation")
     private @Nullable Integer memoryReservation;
 
     /**
-     * @return The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+     * @return Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
      * 
      */
     public Optional<Integer> memoryReservation() {
@@ -95,14 +95,14 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
     }
 
     /**
-     * The name of the container that receives the override. This parameter is required if any override is specified.
+     * Name of the container that receives the override. This parameter is required if any override is specified.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the container that receives the override. This parameter is required if any override is specified.
+     * @return Name of the container that receives the override. This parameter is required if any override is specified.
      * 
      */
     public String name() {
@@ -110,14 +110,14 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
     }
 
     /**
-     * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+     * Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
      * 
      */
     @Import(name="resourceRequirements")
     private @Nullable List<GetTaskExecutionOverridesContainerOverrideResourceRequirement> resourceRequirements;
 
     /**
-     * @return The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+     * @return Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
      * 
      */
     public Optional<List<GetTaskExecutionOverridesContainerOverrideResourceRequirement>> resourceRequirements() {
@@ -155,7 +155,7 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
         }
 
         /**
-         * @param commands The command to send to the container that overrides the default command from the Docker image or the task definition.
+         * @param commands Command to send to the container that overrides the default command from the Docker image or the task definition.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
         }
 
         /**
-         * @param commands The command to send to the container that overrides the default command from the Docker image or the task definition.
+         * @param commands Command to send to the container that overrides the default command from the Docker image or the task definition.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
         }
 
         /**
-         * @param cpu The number of cpu units reserved for the container, instead of the default value from the task definition.
+         * @param cpu Number of cpu units reserved for the container, instead of the default value from the task definition.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
         }
 
         /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+         * @param environments Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
         }
 
         /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+         * @param environments Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
         }
 
         /**
-         * @param memory The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+         * @param memory Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
         }
 
         /**
-         * @param memoryReservation The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+         * @param memoryReservation Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
         }
 
         /**
-         * @param name The name of the container that receives the override. This parameter is required if any override is specified.
+         * @param name Name of the container that receives the override. This parameter is required if any override is specified.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
         }
 
         /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+         * @param resourceRequirements Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class GetTaskExecutionOverridesContainerOverride extends com.pulumi
         }
 
         /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+         * @param resourceRequirements Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
          * 
          * @return builder
          * 

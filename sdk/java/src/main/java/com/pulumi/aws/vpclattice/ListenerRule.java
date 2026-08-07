@@ -165,92 +165,84 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpclattice/listenerRule:ListenerRule")
 public class ListenerRule extends com.pulumi.resources.CustomResource {
     /**
-     * The action for the listener rule.
-     * See `action` Block for details.
+     * Action for the listener rule. See `action` Block for details.
      * 
      */
     @Export(name="action", refs={ListenerRuleAction.class}, tree="[0]")
     private Output<ListenerRuleAction> action;
 
     /**
-     * @return The action for the listener rule.
-     * See `action` Block for details.
+     * @return Action for the listener rule. See `action` Block for details.
      * 
      */
     public Output<ListenerRuleAction> action() {
         return this.action;
     }
     /**
-     * The ARN for the listener rule.
+     * ARN for the listener rule.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN for the listener rule.
+     * @return ARN for the listener rule.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The ID or Amazon Resource Name (ARN) of the listener.
+     * ID or Amazon Resource Name (ARN) of the listener.
      * 
      */
     @Export(name="listenerIdentifier", refs={String.class}, tree="[0]")
     private Output<String> listenerIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Name (ARN) of the listener.
+     * @return ID or Amazon Resource Name (ARN) of the listener.
      * 
      */
     public Output<String> listenerIdentifier() {
         return this.listenerIdentifier;
     }
     /**
-     * The rule match.
-     * See `match` Block
+     * Rule match. See `match` Block for details.
      * 
      */
     @Export(name="match", refs={ListenerRuleMatch.class}, tree="[0]")
     private Output<ListenerRuleMatch> match;
 
     /**
-     * @return The rule match.
-     * See `match` Block
+     * @return Rule match. See `match` Block for details.
      * 
      */
     public Output<ListenerRuleMatch> match() {
         return this.match;
     }
     /**
-     * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
+     * Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
+     * @return Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-     * 
-     * The following arguments are optional:
+     * Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
-     * @return The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-     * 
-     * The following arguments are optional:
+     * @return Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
      * 
      */
     public Output<Integer> priority() {
@@ -285,14 +277,18 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
         return this.ruleId;
     }
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
+     * ID or Amazon Resource Name (ARN) of the service.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="serviceIdentifier", refs={String.class}, tree="[0]")
     private Output<String> serviceIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service.
+     * @return ID or Amazon Resource Name (ARN) of the service.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> serviceIdentifier() {

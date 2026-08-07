@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketReplicationConfigurationRuleGetArgs>? _rules;
 
         /// <summary>
-        /// Specifies the rules managing the replication (documented below).
+        /// Rules managing the replication. See `Rules` Block below for details.
         /// </summary>
         public InputList<Inputs.BucketReplicationConfigurationRuleGetArgs> Rules
         {

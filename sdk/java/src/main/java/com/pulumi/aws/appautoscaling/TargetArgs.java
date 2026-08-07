@@ -125,14 +125,14 @@ public final class TargetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the scaling activities for a scalable target are in a suspended state.
+     * Whether the scaling activities for a scalable target are in a suspended state.
      * 
      */
     @Import(name="suspendedState")
     private @Nullable Output<TargetSuspendedStateArgs> suspendedState;
 
     /**
-     * @return Specifies whether the scaling activities for a scalable target are in a suspended state.
+     * @return Whether the scaling activities for a scalable target are in a suspended state.
      * 
      */
     public Optional<Output<TargetSuspendedStateArgs>> suspendedState() {
@@ -334,7 +334,7 @@ public final class TargetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendedState Specifies whether the scaling activities for a scalable target are in a suspended state.
+         * @param suspendedState Whether the scaling activities for a scalable target are in a suspended state.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class TargetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendedState Specifies whether the scaling activities for a scalable target are in a suspended state.
+         * @param suspendedState Whether the scaling activities for a scalable target are in a suspended state.
          * 
          * @return builder
          * 

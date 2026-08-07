@@ -158,13 +158,7 @@ export class ResourceShareAssociationsExclusive extends pulumi.CustomResource {
     }
 
     /**
-     * A set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include:
-     * * AWS account ID (exactly 12 digits, e.g., `123456789012`)
-     * * AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`)
-     * * AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`)
-     * * IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`)
-     * * IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`)
-     * * Service principal (e.g., `ec2.amazonaws.com`)
+     * Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
      */
     declare public readonly principals: pulumi.Output<string[] | undefined>;
     /**
@@ -172,15 +166,15 @@ export class ResourceShareAssociationsExclusive extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+     * Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
      */
     declare public readonly resourceArns: pulumi.Output<string[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+     * Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
      */
     declare public readonly resourceShareArn: pulumi.Output<string>;
     /**
-     * A set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
+     * Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
      */
     declare public readonly sources: pulumi.Output<string[] | undefined>;
 
@@ -223,13 +217,7 @@ export class ResourceShareAssociationsExclusive extends pulumi.CustomResource {
  */
 export interface ResourceShareAssociationsExclusiveState {
     /**
-     * A set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include:
-     * * AWS account ID (exactly 12 digits, e.g., `123456789012`)
-     * * AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`)
-     * * AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`)
-     * * IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`)
-     * * IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`)
-     * * Service principal (e.g., `ec2.amazonaws.com`)
+     * Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
      */
     principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -237,15 +225,15 @@ export interface ResourceShareAssociationsExclusiveState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+     * Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
      */
     resourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+     * Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
      */
     resourceShareArn?: pulumi.Input<string | undefined>;
     /**
-     * A set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
+     * Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
      */
     sources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
@@ -255,13 +243,7 @@ export interface ResourceShareAssociationsExclusiveState {
  */
 export interface ResourceShareAssociationsExclusiveArgs {
     /**
-     * A set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include:
-     * * AWS account ID (exactly 12 digits, e.g., `123456789012`)
-     * * AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`)
-     * * AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`)
-     * * IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`)
-     * * IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`)
-     * * Service principal (e.g., `ec2.amazonaws.com`)
+     * Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
      */
     principals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -269,15 +251,15 @@ export interface ResourceShareAssociationsExclusiveArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+     * Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
      */
     resourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+     * Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
      */
     resourceShareArn: pulumi.Input<string>;
     /**
-     * A set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
+     * Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
      */
     sources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -14,13 +14,11 @@ namespace Pulumi.Aws.Fms.Outputs
     public sealed class PolicyExcludeMap
     {
         /// <summary>
-        /// A list of AWS Organization member Accounts that you want to exclude from this AWS FMS Policy.
+        /// List of AWS Organization member accounts to exclude from this AWS FMS Policy.
         /// </summary>
         public readonly ImmutableArray<string> Accounts;
         /// <summary>
-        /// A list of IDs of the AWS Organizational Units that you want to exclude from this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-        /// 
-        /// You can specify inclusions or exclusions, but not both. If you specify an `IncludeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `IncludeMap`, and does not evaluate any `ExcludeMap` specifications. If you do not specify an `IncludeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `ExcludeMap`.
+        /// List of IDs of the AWS Organizational Units to exclude from this AWS FMS Policy. Specifying an OU is equivalent to specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
         /// </summary>
         public readonly ImmutableArray<string> Orgunits;
 

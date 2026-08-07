@@ -138,84 +138,84 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster")
 public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * Amazon Resource Name (ARN) for the Exadata infrastructure.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return Amazon Resource Name (ARN) for the Exadata infrastructure.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The progress of the current operation on the Autonomous VM cluster, as a percentage.
+     * Progress of the current operation on the Autonomous VM cluster, as a percentage.
      * 
      */
     @Export(name="autonomousDataStoragePercentage", refs={Double.class}, tree="[0]")
     private Output<Double> autonomousDataStoragePercentage;
 
     /**
-     * @return The progress of the current operation on the Autonomous VM cluster, as a percentage.
+     * @return Progress of the current operation on the Autonomous VM cluster, as a percentage.
      * 
      */
     public Output<Double> autonomousDataStoragePercentage() {
         return this.autonomousDataStoragePercentage;
     }
     /**
-     * The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
+     * Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="autonomousDataStorageSizeInTbs", refs={Double.class}, tree="[0]")
     private Output<Double> autonomousDataStorageSizeInTbs;
 
     /**
-     * @return The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
+     * @return Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Double> autonomousDataStorageSizeInTbs() {
         return this.autonomousDataStorageSizeInTbs;
     }
     /**
-     * The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
+     * Available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
      * 
      */
     @Export(name="availableAutonomousDataStorageSizeInTbs", refs={Double.class}, tree="[0]")
     private Output<Double> availableAutonomousDataStorageSizeInTbs;
 
     /**
-     * @return The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
+     * @return Available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
      * 
      */
     public Output<Double> availableAutonomousDataStorageSizeInTbs() {
         return this.availableAutonomousDataStorageSizeInTbs;
     }
     /**
-     * The number of Autonomous CDBs that you can create with the currently available storage.
+     * Number of Autonomous CDBs that you can create with the currently available storage.
      * 
      */
     @Export(name="availableContainerDatabases", refs={Integer.class}, tree="[0]")
     private Output<Integer> availableContainerDatabases;
 
     /**
-     * @return The number of Autonomous CDBs that you can create with the currently available storage.
+     * @return Number of Autonomous CDBs that you can create with the currently available storage.
      * 
      */
     public Output<Integer> availableContainerDatabases() {
         return this.availableContainerDatabases;
     }
     /**
-     * The number of CPU cores available for allocation to Autonomous Databases.
+     * Number of CPU cores available for allocation to Autonomous Databases.
      * 
      */
     @Export(name="availableCpus", refs={Double.class}, tree="[0]")
     private Output<Double> availableCpus;
 
     /**
-     * @return The number of CPU cores available for allocation to Autonomous Databases.
+     * @return Number of CPU cores available for allocation to Autonomous Databases.
      * 
      */
     public Output<Double> availableCpus() {
@@ -250,340 +250,336 @@ public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResourc
         return this.cloudExadataInfrastructureId;
     }
     /**
-     * The compute model of the Autonomous VM cluster: ECPU or OCPU.
+     * Compute model of the Autonomous VM cluster: ECPU or OCPU.
      * 
      */
     @Export(name="computeModel", refs={String.class}, tree="[0]")
     private Output<String> computeModel;
 
     /**
-     * @return The compute model of the Autonomous VM cluster: ECPU or OCPU.
+     * @return Compute model of the Autonomous VM cluster: ECPU or OCPU.
      * 
      */
     public Output<String> computeModel() {
         return this.computeModel;
     }
     /**
-     * The total number of CPU cores in the Autonomous VM cluster.
+     * Total number of CPU cores in the Autonomous VM cluster.
      * 
      */
     @Export(name="cpuCoreCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuCoreCount;
 
     /**
-     * @return The total number of CPU cores in the Autonomous VM cluster.
+     * @return Total number of CPU cores in the Autonomous VM cluster.
      * 
      */
     public Output<Integer> cpuCoreCount() {
         return this.cpuCoreCount;
     }
     /**
-     * The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="cpuCoreCountPerNode", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuCoreCountPerNode;
 
     /**
-     * @return The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Integer> cpuCoreCountPerNode() {
         return this.cpuCoreCountPerNode;
     }
     /**
-     * The percentage of total CPU cores currently in use in the Autonomous VM cluster.
+     * Percentage of total CPU cores currently in use in the Autonomous VM cluster.
      * 
      */
     @Export(name="cpuPercentage", refs={Double.class}, tree="[0]")
     private Output<Double> cpuPercentage;
 
     /**
-     * @return The percentage of total CPU cores currently in use in the Autonomous VM cluster.
+     * @return Percentage of total CPU cores currently in use in the Autonomous VM cluster.
      * 
      */
     public Output<Double> cpuPercentage() {
         return this.cpuPercentage;
     }
     /**
-     * The date and time when the Autonomous VM cluster was created.
+     * Date and time when the Autonomous VM cluster was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The date and time when the Autonomous VM cluster was created.
+     * @return Date and time when the Autonomous VM cluster was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * The total data storage allocated to the Autonomous VM cluster, in GB.
+     * Total data storage allocated to the Autonomous VM cluster, in GB.
      * 
      */
     @Export(name="dataStorageSizeInGbs", refs={Double.class}, tree="[0]")
     private Output<Double> dataStorageSizeInGbs;
 
     /**
-     * @return The total data storage allocated to the Autonomous VM cluster, in GB.
+     * @return Total data storage allocated to the Autonomous VM cluster, in GB.
      * 
      */
     public Output<Double> dataStorageSizeInGbs() {
         return this.dataStorageSizeInGbs;
     }
     /**
-     * The total data storage allocated to the Autonomous VM cluster, in TB.
+     * Total data storage allocated to the Autonomous VM cluster, in TB.
      * 
      */
     @Export(name="dataStorageSizeInTbs", refs={Double.class}, tree="[0]")
     private Output<Double> dataStorageSizeInTbs;
 
     /**
-     * @return The total data storage allocated to the Autonomous VM cluster, in TB.
+     * @return Total data storage allocated to the Autonomous VM cluster, in TB.
      * 
      */
     public Output<Double> dataStorageSizeInTbs() {
         return this.dataStorageSizeInTbs;
     }
     /**
-     * The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="dbServers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> dbServers;
 
     /**
-     * @return The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Output<List<String>> dbServers() {
         return this.dbServers;
     }
     /**
-     * The description of the Autonomous VM cluster.
+     * Description of the Autonomous VM cluster.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the Autonomous VM cluster.
+     * @return Description of the Autonomous VM cluster.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Output<String> displayName() {
         return this.displayName;
     }
     /**
-     * The domain name of the Autonomous VM cluster.
+     * Domain name of the Autonomous VM cluster.
      * 
      */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
-     * @return The domain name of the Autonomous VM cluster.
+     * @return Domain name of the Autonomous VM cluster.
      * 
      */
     public Output<String> domain() {
         return this.domain;
     }
     /**
-     * The minimum value to which you can scale down the Exadata storage, in TB.
+     * Minimum value to which you can scale down the Exadata storage, in TB.
      * 
      */
     @Export(name="exadataStorageInTbsLowestScaledValue", refs={Double.class}, tree="[0]")
     private Output<Double> exadataStorageInTbsLowestScaledValue;
 
     /**
-     * @return The minimum value to which you can scale down the Exadata storage, in TB.
+     * @return Minimum value to which you can scale down the Exadata storage, in TB.
      * 
      */
     public Output<Double> exadataStorageInTbsLowestScaledValue() {
         return this.exadataStorageInTbsLowestScaledValue;
     }
     /**
-     * The hostname of the Autonomous VM cluster.
+     * Hostname of the Autonomous VM cluster.
      * 
      */
     @Export(name="hostname", refs={String.class}, tree="[0]")
     private Output<String> hostname;
 
     /**
-     * @return The hostname of the Autonomous VM cluster.
+     * @return Hostname of the Autonomous VM cluster.
      * 
      */
     public Output<String> hostname() {
         return this.hostname;
     }
     /**
-     * Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="isMtlsEnabledVmCluster", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isMtlsEnabledVmCluster;
 
     /**
-     * @return Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Boolean> isMtlsEnabledVmCluster() {
         return this.isMtlsEnabledVmCluster;
     }
     /**
-     * The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
+     * License model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="licenseModel", refs={String.class}, tree="[0]")
     private Output<String> licenseModel;
 
     /**
-     * @return The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
+     * @return License model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
      * 
      */
     public Output<String> licenseModel() {
         return this.licenseModel;
     }
     /**
-     * The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
-     * 
-     * The following arguments are optional:
+     * Maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="maintenanceWindow", refs={CloudAutonomousVmClusterMaintenanceWindow.class}, tree="[0]")
     private Output<CloudAutonomousVmClusterMaintenanceWindow> maintenanceWindow;
 
     /**
-     * @return The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
-     * 
-     * The following arguments are optional:
+     * @return Maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Output<CloudAutonomousVmClusterMaintenanceWindow> maintenanceWindow() {
         return this.maintenanceWindow;
     }
     /**
-     * The minimum value to which you can scale down the maximum number of Autonomous CDBs.
+     * Minimum value to which you can scale down the maximum number of Autonomous CDBs.
      * 
      */
     @Export(name="maxAcdsLowestScaledValue", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxAcdsLowestScaledValue;
 
     /**
-     * @return The minimum value to which you can scale down the maximum number of Autonomous CDBs.
+     * @return Minimum value to which you can scale down the maximum number of Autonomous CDBs.
      * 
      */
     public Output<Integer> maxAcdsLowestScaledValue() {
         return this.maxAcdsLowestScaledValue;
     }
     /**
-     * The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
+     * Amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="memoryPerOracleComputeUnitInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> memoryPerOracleComputeUnitInGbs;
 
     /**
-     * @return The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
+     * @return Amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Integer> memoryPerOracleComputeUnitInGbs() {
         return this.memoryPerOracleComputeUnitInGbs;
     }
     /**
-     * The total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
+     * Total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
      * 
      */
     @Export(name="memorySizeInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> memorySizeInGbs;
 
     /**
-     * @return The total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
+     * @return Total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
      * 
      */
     public Output<Integer> memorySizeInGbs() {
         return this.memorySizeInGbs;
     }
     /**
-     * The number of database server nodes in the Autonomous VM cluster.
+     * Number of database server nodes in the Autonomous VM cluster.
      * 
      */
     @Export(name="nodeCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> nodeCount;
 
     /**
-     * @return The number of database server nodes in the Autonomous VM cluster.
+     * @return Number of database server nodes in the Autonomous VM cluster.
      * 
      */
     public Output<Integer> nodeCount() {
         return this.nodeCount;
     }
     /**
-     * The number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
+     * Number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
      * 
      */
     @Export(name="nonProvisionableAutonomousContainerDatabases", refs={Integer.class}, tree="[0]")
     private Output<Integer> nonProvisionableAutonomousContainerDatabases;
 
     /**
-     * @return The number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
+     * @return Number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
      * 
      */
     public Output<Integer> nonProvisionableAutonomousContainerDatabases() {
         return this.nonProvisionableAutonomousContainerDatabases;
     }
     /**
-     * The name of the OCI resource anchor associated with this Autonomous VM cluster.
+     * Name of the OCI resource anchor associated with this Autonomous VM cluster.
      * 
      */
     @Export(name="ociResourceAnchorName", refs={String.class}, tree="[0]")
     private Output<String> ociResourceAnchorName;
 
     /**
-     * @return The name of the OCI resource anchor associated with this Autonomous VM cluster.
+     * @return Name of the OCI resource anchor associated with this Autonomous VM cluster.
      * 
      */
     public Output<String> ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
     /**
-     * The URL for accessing the OCI console page for this Autonomous VM cluster.
+     * URL for accessing the OCI console page for this Autonomous VM cluster.
      * 
      */
     @Export(name="ociUrl", refs={String.class}, tree="[0]")
     private Output<String> ociUrl;
 
     /**
-     * @return The URL for accessing the OCI console page for this Autonomous VM cluster.
+     * @return URL for accessing the OCI console page for this Autonomous VM cluster.
      * 
      */
     public Output<String> ociUrl() {
         return this.ociUrl;
     }
     /**
-     * The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+     * Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
      * 
      */
     @Export(name="ocid", refs={String.class}, tree="[0]")
     private Output<String> ocid;
 
     /**
-     * @return The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+     * @return Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
      * 
      */
     public Output<String> ocid() {
@@ -618,84 +614,84 @@ public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResourc
         return this.odbNetworkId;
     }
     /**
-     * The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+     * Local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
      * 
      */
     @Export(name="odbNodeStorageSizeInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> odbNodeStorageSizeInGbs;
 
     /**
-     * @return The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+     * @return Local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
      * 
      */
     public Output<Integer> odbNodeStorageSizeInGbs() {
         return this.odbNodeStorageSizeInGbs;
     }
     /**
-     * The progress of the current operation on the Autonomous VM cluster, as a percentage.
+     * Progress of the current operation on the Autonomous VM cluster, as a percentage.
      * 
      */
     @Export(name="percentProgress", refs={Double.class}, tree="[0]")
     private Output<Double> percentProgress;
 
     /**
-     * @return The progress of the current operation on the Autonomous VM cluster, as a percentage.
+     * @return Progress of the current operation on the Autonomous VM cluster, as a percentage.
      * 
      */
     public Output<Double> percentProgress() {
         return this.percentProgress;
     }
     /**
-     * The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
+     * Number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
      * 
      */
     @Export(name="provisionableAutonomousContainerDatabases", refs={Integer.class}, tree="[0]")
     private Output<Integer> provisionableAutonomousContainerDatabases;
 
     /**
-     * @return The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
+     * @return Number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
      * 
      */
     public Output<Integer> provisionableAutonomousContainerDatabases() {
         return this.provisionableAutonomousContainerDatabases;
     }
     /**
-     * The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
+     * Number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
      * 
      */
     @Export(name="provisionedAutonomousContainerDatabases", refs={Integer.class}, tree="[0]")
     private Output<Integer> provisionedAutonomousContainerDatabases;
 
     /**
-     * @return The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
+     * @return Number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
      * 
      */
     public Output<Integer> provisionedAutonomousContainerDatabases() {
         return this.provisionedAutonomousContainerDatabases;
     }
     /**
-     * The number of CPUs provisioned in the Autonomous VM cluster.
+     * Number of CPUs provisioned in the Autonomous VM cluster.
      * 
      */
     @Export(name="provisionedCpus", refs={Double.class}, tree="[0]")
     private Output<Double> provisionedCpus;
 
     /**
-     * @return The number of CPUs provisioned in the Autonomous VM cluster.
+     * @return Number of CPUs provisioned in the Autonomous VM cluster.
      * 
      */
     public Output<Double> provisionedCpus() {
         return this.provisionedCpus;
     }
     /**
-     * The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
+     * Number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
      * 
      */
     @Export(name="reclaimableCpus", refs={Double.class}, tree="[0]")
     private Output<Double> reclaimableCpus;
 
     /**
-     * @return The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
+     * @return Number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
      * 
      */
     public Output<Double> reclaimableCpus() {
@@ -716,70 +712,70 @@ public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResourc
         return this.region;
     }
     /**
-     * The number of CPU cores reserved for system operations and redundancy.
+     * Number of CPU cores reserved for system operations and redundancy.
      * 
      */
     @Export(name="reservedCpus", refs={Double.class}, tree="[0]")
     private Output<Double> reservedCpus;
 
     /**
-     * @return The number of CPU cores reserved for system operations and redundancy.
+     * @return Number of CPU cores reserved for system operations and redundancy.
      * 
      */
     public Output<Double> reservedCpus() {
         return this.reservedCpus;
     }
     /**
-     * The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
+     * SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="scanListenerPortNonTls", refs={Integer.class}, tree="[0]")
     private Output<Integer> scanListenerPortNonTls;
 
     /**
-     * @return The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
+     * @return SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Integer> scanListenerPortNonTls() {
         return this.scanListenerPortNonTls;
     }
     /**
-     * The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
+     * SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="scanListenerPortTls", refs={Integer.class}, tree="[0]")
     private Output<Integer> scanListenerPortTls;
 
     /**
-     * @return The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
+     * @return SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Integer> scanListenerPortTls() {
         return this.scanListenerPortTls;
     }
     /**
-     * The shape of the Exadata infrastructure for the Autonomous VM cluster.
+     * Shape of the Exadata infrastructure for the Autonomous VM cluster.
      * 
      */
     @Export(name="shape", refs={String.class}, tree="[0]")
     private Output<String> shape;
 
     /**
-     * @return The shape of the Exadata infrastructure for the Autonomous VM cluster.
+     * @return Shape of the Exadata infrastructure for the Autonomous VM cluster.
      * 
      */
     public Output<String> shape() {
         return this.shape;
     }
     /**
-     * The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+     * Status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+     * @return Status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
      * 
      */
     public Output<String> status() {
@@ -800,70 +796,70 @@ public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResourc
         return this.statusReason;
     }
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * The combined set of user-defined and provider-defined tags.
+     * Combined set of user-defined and provider-defined tags.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return The combined set of user-defined and provider-defined tags.
+     * @return Combined set of user-defined and provider-defined tags.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The expiration date and time of the database SSL certificate.
+     * Expiration date and time of the database SSL certificate.
      * 
      */
     @Export(name="timeDatabaseSslCertificateExpires", refs={String.class}, tree="[0]")
     private Output<String> timeDatabaseSslCertificateExpires;
 
     /**
-     * @return The expiration date and time of the database SSL certificate.
+     * @return Expiration date and time of the database SSL certificate.
      * 
      */
     public Output<String> timeDatabaseSslCertificateExpires() {
         return this.timeDatabaseSslCertificateExpires;
     }
     /**
-     * The expiration date and time of the ORDS certificate.
+     * Expiration date and time of the ORDS certificate.
      * 
      */
     @Export(name="timeOrdsCertificateExpires", refs={String.class}, tree="[0]")
     private Output<String> timeOrdsCertificateExpires;
 
     /**
-     * @return The expiration date and time of the ORDS certificate.
+     * @return Expiration date and time of the ORDS certificate.
      * 
      */
     public Output<String> timeOrdsCertificateExpires() {
         return this.timeOrdsCertificateExpires;
     }
     /**
-     * The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="timeZone", refs={String.class}, tree="[0]")
     private Output<String> timeZone;
 
     /**
-     * @return The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Output<String> timeZone() {
@@ -876,14 +872,18 @@ public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+     * Total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="totalContainerDatabases", refs={Integer.class}, tree="[0]")
     private Output<Integer> totalContainerDatabases;
 
     /**
-     * @return The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+     * @return Total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> totalContainerDatabases() {

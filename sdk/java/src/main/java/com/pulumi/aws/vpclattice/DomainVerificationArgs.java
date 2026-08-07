@@ -18,7 +18,7 @@ public final class DomainVerificationArgs extends com.pulumi.resources.ResourceA
     public static final DomainVerificationArgs Empty = new DomainVerificationArgs();
 
     /**
-     * The domain name to verify ownership for.
+     * Domain name to verify ownership for.
      * 
      * The following arguments are optional:
      * 
@@ -27,7 +27,7 @@ public final class DomainVerificationArgs extends com.pulumi.resources.ResourceA
     private Output<String> domainName;
 
     /**
-     * @return The domain name to verify ownership for.
+     * @return Domain name to verify ownership for.
      * 
      * The following arguments are optional:
      * 
@@ -93,7 +93,7 @@ public final class DomainVerificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param domainName The domain name to verify ownership for.
+         * @param domainName Domain name to verify ownership for.
          * 
          * The following arguments are optional:
          * 
@@ -106,7 +106,7 @@ public final class DomainVerificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param domainName The domain name to verify ownership for.
+         * @param domainName Domain name to verify ownership for.
          * 
          * The following arguments are optional:
          * 

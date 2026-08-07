@@ -45,13 +45,15 @@ import (
 type AppAuthorizationConnection struct {
 	pulumi.CustomResourceState
 
-	// The name of the application.
+	// Name of the application.
 	App pulumi.StringOutput `pulumi:"app"`
-	// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+	// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 	AppAuthorizationArn pulumi.StringOutput `pulumi:"appAuthorizationArn"`
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	//
+	// The following arguments are optional:
 	AppBundleArn pulumi.StringOutput `pulumi:"appBundleArn"`
-	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+	// OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `authRequest` Block for details.
 	AuthRequest AppAuthorizationConnectionAuthRequestPtrOutput `pulumi:"authRequest"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -96,13 +98,15 @@ func GetAppAuthorizationConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppAuthorizationConnection resources.
 type appAuthorizationConnectionState struct {
-	// The name of the application.
+	// Name of the application.
 	App *string `pulumi:"app"`
-	// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+	// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 	AppAuthorizationArn *string `pulumi:"appAuthorizationArn"`
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	//
+	// The following arguments are optional:
 	AppBundleArn *string `pulumi:"appBundleArn"`
-	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+	// OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `authRequest` Block for details.
 	AuthRequest *AppAuthorizationConnectionAuthRequest `pulumi:"authRequest"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -112,13 +116,15 @@ type appAuthorizationConnectionState struct {
 }
 
 type AppAuthorizationConnectionState struct {
-	// The name of the application.
+	// Name of the application.
 	App pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+	// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 	AppAuthorizationArn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	//
+	// The following arguments are optional:
 	AppBundleArn pulumi.StringPtrInput
-	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+	// OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `authRequest` Block for details.
 	AuthRequest AppAuthorizationConnectionAuthRequestPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -132,11 +138,13 @@ func (AppAuthorizationConnectionState) ElementType() reflect.Type {
 }
 
 type appAuthorizationConnectionArgs struct {
-	// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+	// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 	AppAuthorizationArn string `pulumi:"appAuthorizationArn"`
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	//
+	// The following arguments are optional:
 	AppBundleArn string `pulumi:"appBundleArn"`
-	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+	// OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `authRequest` Block for details.
 	AuthRequest *AppAuthorizationConnectionAuthRequest `pulumi:"authRequest"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                             `pulumi:"region"`
@@ -145,11 +153,13 @@ type appAuthorizationConnectionArgs struct {
 
 // The set of arguments for constructing a AppAuthorizationConnection resource.
 type AppAuthorizationConnectionArgs struct {
-	// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+	// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 	AppAuthorizationArn pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	//
+	// The following arguments are optional:
 	AppBundleArn pulumi.StringInput
-	// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+	// OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `authRequest` Block for details.
 	AuthRequest AppAuthorizationConnectionAuthRequestPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
@@ -243,22 +253,24 @@ func (o AppAuthorizationConnectionOutput) ToAppAuthorizationConnectionOutputWith
 	return o
 }
 
-// The name of the application.
+// Name of the application.
 func (o AppAuthorizationConnectionOutput) App() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) pulumi.StringOutput { return v.App }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
 func (o AppAuthorizationConnectionOutput) AppAuthorizationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) pulumi.StringOutput { return v.AppAuthorizationArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+// Amazon Resource Name (ARN) of the app bundle to use for the request.
+//
+// The following arguments are optional:
 func (o AppAuthorizationConnectionOutput) AppBundleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) pulumi.StringOutput { return v.AppBundleArn }).(pulumi.StringOutput)
 }
 
-// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+// OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `authRequest` Block for details.
 func (o AppAuthorizationConnectionOutput) AuthRequest() AppAuthorizationConnectionAuthRequestPtrOutput {
 	return o.ApplyT(func(v *AppAuthorizationConnection) AppAuthorizationConnectionAuthRequestPtrOutput {
 		return v.AuthRequest

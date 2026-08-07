@@ -154,7 +154,7 @@ namespace Pulumi.Aws.S3
         public readonly string Bucket;
         public readonly string? ExpectedBucketOwner;
         /// <summary>
-        /// Indicates whether this bucket has an Object Lock configuration enabled.
+        /// Whether this bucket has an Object Lock configuration enabled.
         /// </summary>
         public readonly string ObjectLockEnabled;
         public readonly string Region;

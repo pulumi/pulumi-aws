@@ -19,13 +19,13 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? DeleteMarkerReplicationStatus { get; set; }
 
         /// <summary>
-        /// Specifies the destination for the rule (documented below).
+        /// Destination for the rule. See `Destination` Block below for details.
         /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.BucketReplicationConfigurationRuleDestinationGetArgs> Destination { get; set; } = null!;
 
         /// <summary>
-        /// Filter that identifies subset of objects to which the replication rule applies (documented below).
+        /// Filter that identifies subset of objects to which the replication rule applies. See `Filter` Block below for details.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketReplicationConfigurationRuleFilterGetArgs>? Filter { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Specifies special object selection criteria (documented below).
+        /// Special object selection criteria. See `SourceSelectionCriteria` Block below for details.
         /// </summary>
         [Input("sourceSelectionCriteria")]
         public Input<Inputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaGetArgs>? SourceSelectionCriteria { get; set; }

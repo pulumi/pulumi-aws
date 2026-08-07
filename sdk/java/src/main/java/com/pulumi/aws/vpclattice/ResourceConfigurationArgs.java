@@ -51,14 +51,14 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
+     * Domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
      * 
      */
     @Import(name="domainVerificationId")
     private @Nullable Output<String> domainVerificationId;
 
     /**
-     * @return The domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
+     * @return Domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
      * 
      */
     public Optional<Output<String>> domainVerificationId() {
@@ -290,7 +290,7 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param domainVerificationId The domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
+         * @param domainVerificationId Domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param domainVerificationId The domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
+         * @param domainVerificationId Domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
          * 
          * @return builder
          * 

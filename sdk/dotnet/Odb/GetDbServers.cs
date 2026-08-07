@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetDbServersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the cloud vm cluster.
+        /// Unique identifier of the cloud vm cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetDbServersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the cloud vm cluster.
+        /// Unique identifier of the cloud vm cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>

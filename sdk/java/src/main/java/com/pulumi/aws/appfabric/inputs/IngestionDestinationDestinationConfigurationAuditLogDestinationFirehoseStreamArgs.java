@@ -14,9 +14,17 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
 
     public static final IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs Empty = new IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs();
 
+    /**
+     * Name of the Amazon Data Firehose delivery stream.
+     * 
+     */
     @Import(name="streamName", required=true)
     private Output<String> streamName;
 
+    /**
+     * @return Name of the Amazon Data Firehose delivery stream.
+     * 
+     */
     public Output<String> streamName() {
         return this.streamName;
     }
@@ -45,11 +53,23 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
             $ = new IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param streamName Name of the Amazon Data Firehose delivery stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder streamName(Output<String> streamName) {
             $.streamName = streamName;
             return this;
         }
 
+        /**
+         * @param streamName Name of the Amazon Data Firehose delivery stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder streamName(String streamName) {
             return streamName(Output.of(streamName));
         }

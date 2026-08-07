@@ -64,14 +64,14 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration for the Event API. See Event Config below.
+     * Configuration for the Event API. See `eventConfig` Block below.
      * 
      */
     @Import(name="eventConfig")
     private @Nullable Output<ApiEventConfigArgs> eventConfig;
 
     /**
-     * @return Configuration for the Event API. See Event Config below.
+     * @return Configuration for the Event API. See `eventConfig` Block below.
      * 
      */
     public Optional<Output<ApiEventConfigArgs>> eventConfig() {
@@ -172,9 +172,17 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.wafWebAclArn);
     }
 
+    /**
+     * Whether X-Ray tracing is enabled for the Event API.
+     * 
+     */
     @Import(name="xrayEnabled")
     private @Nullable Output<Boolean> xrayEnabled;
 
+    /**
+     * @return Whether X-Ray tracing is enabled for the Event API.
+     * 
+     */
     public Optional<Output<Boolean>> xrayEnabled() {
         return Optional.ofNullable(this.xrayEnabled);
     }
@@ -277,7 +285,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventConfig Configuration for the Event API. See Event Config below.
+         * @param eventConfig Configuration for the Event API. See `eventConfig` Block below.
          * 
          * @return builder
          * 
@@ -288,7 +296,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventConfig Configuration for the Event API. See Event Config below.
+         * @param eventConfig Configuration for the Event API. See `eventConfig` Block below.
          * 
          * @return builder
          * 
@@ -427,11 +435,23 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
             return wafWebAclArn(Output.of(wafWebAclArn));
         }
 
+        /**
+         * @param xrayEnabled Whether X-Ray tracing is enabled for the Event API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder xrayEnabled(@Nullable Output<Boolean> xrayEnabled) {
             $.xrayEnabled = xrayEnabled;
             return this;
         }
 
+        /**
+         * @param xrayEnabled Whether X-Ray tracing is enabled for the Event API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder xrayEnabled(Boolean xrayEnabled) {
             return xrayEnabled(Output.of(xrayEnabled));
         }

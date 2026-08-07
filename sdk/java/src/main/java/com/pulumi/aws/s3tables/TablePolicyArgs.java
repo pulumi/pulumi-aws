@@ -17,18 +17,14 @@ public final class TablePolicyArgs extends com.pulumi.resources.ResourceArgs {
     public static final TablePolicyArgs Empty = new TablePolicyArgs();
 
     /**
-     * Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * @return Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
     public Optional<Output<String>> name() {
@@ -36,18 +32,14 @@ public final class TablePolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
     /**
-     * @return Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * @return Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
     public Output<String> namespace() {
@@ -128,9 +120,7 @@ public final class TablePolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the table.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+         * @param name Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
          * 
          * @return builder
          * 
@@ -141,9 +131,7 @@ public final class TablePolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the table.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+         * @param name Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
          * 
          * @return builder
          * 
@@ -153,9 +141,7 @@ public final class TablePolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespace Name of the namespace for this table.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+         * @param namespace Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
          * 
          * @return builder
          * 
@@ -166,9 +152,7 @@ public final class TablePolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespace Name of the namespace for this table.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+         * @param namespace Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
          * 
          * @return builder
          * 

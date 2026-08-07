@@ -33,14 +33,14 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArg
     }
 
     /**
-     * The type of volume resource. Valid values, `volume`.
+     * Type of volume resource. Valid values, `volume`.
      * 
      */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
     /**
-     * @return The type of volume resource. Valid values, `volume`.
+     * @return Type of volume resource. Valid values, `volume`.
      * 
      */
     public Output<String> resourceType() {
@@ -48,14 +48,14 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArg
     }
 
     /**
-     * The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
+     * Tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
+     * @return Tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -110,7 +110,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArg
         }
 
         /**
-         * @param resourceType The type of volume resource. Valid values, `volume`.
+         * @param resourceType Type of volume resource. Valid values, `volume`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArg
         }
 
         /**
-         * @param resourceType The type of volume resource. Valid values, `volume`.
+         * @param resourceType Type of volume resource. Valid values, `volume`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArg
         }
 
         /**
-         * @param tags The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
+         * @param tags Tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArg
         }
 
         /**
-         * @param tags The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
+         * @param tags Tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
          * 
          * @return builder
          * 

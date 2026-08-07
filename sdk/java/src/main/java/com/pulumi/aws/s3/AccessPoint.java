@@ -261,16 +261,14 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
         return this.bucketAccountId;
     }
     /**
-     * DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
-     * Note: S3 access points only support secure access by HTTPS. HTTP isn&#39;t supported.
+     * DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com. S3 access points only support secure access by HTTPS. HTTP isn&#39;t supported.
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
-     * @return DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
-     * Note: S3 access points only support secure access by HTTPS. HTTP isn&#39;t supported.
+     * @return DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com. S3 access points only support secure access by HTTPS. HTTP isn&#39;t supported.
      * 
      */
     public Output<String> domainName() {
@@ -291,14 +289,14 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
         return this.endpoints;
     }
     /**
-     * Indicates whether this access point currently has a policy that allows public access.
+     * Whether this access point currently has a policy that allows public access.
      * 
      */
     @Export(name="hasPublicAccessPolicy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hasPublicAccessPolicy;
 
     /**
-     * @return Indicates whether this access point currently has a policy that allows public access.
+     * @return Whether this access point currently has a policy that allows public access.
      * 
      */
     public Output<Boolean> hasPublicAccessPolicy() {
@@ -323,14 +321,14 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn&#39;t allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
+     * Whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn&#39;t allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
      * 
      */
     @Export(name="networkOrigin", refs={String.class}, tree="[0]")
     private Output<String> networkOrigin;
 
     /**
-     * @return Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn&#39;t allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
+     * @return Whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn&#39;t allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
      * 
      */
     public Output<String> networkOrigin() {

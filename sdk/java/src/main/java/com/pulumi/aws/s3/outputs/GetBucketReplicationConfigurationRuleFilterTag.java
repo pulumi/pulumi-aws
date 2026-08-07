@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBucketReplicationConfigurationRuleFilterTag {
-    /**
-     * @return The key of the tag.
-     * 
-     */
     private String key;
-    /**
-     * @return The value of the tag.
-     * 
-     */
     private String value;
 
     private GetBucketReplicationConfigurationRuleFilterTag() {}
-    /**
-     * @return The key of the tag.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return The value of the tag.
-     * 
-     */
     public String value() {
         return this.value;
     }

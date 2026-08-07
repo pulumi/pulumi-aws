@@ -956,9 +956,9 @@ func (o ServiceInstanceConfigurationPtrOutput) Memory() pulumi.StringPtrOutput {
 }
 
 type ServiceNetworkConfiguration struct {
-	// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+	// Network configuration settings for outbound message traffic. See `egressConfiguration` below.
 	EgressConfiguration *ServiceNetworkConfigurationEgressConfiguration `pulumi:"egressConfiguration"`
-	// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+	// Network configuration settings for inbound network traffic. See `ingressConfiguration` below.
 	IngressConfiguration *ServiceNetworkConfigurationIngressConfiguration `pulumi:"ingressConfiguration"`
 	// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
 	IpAddressType *string `pulumi:"ipAddressType"`
@@ -976,9 +976,9 @@ type ServiceNetworkConfigurationInput interface {
 }
 
 type ServiceNetworkConfigurationArgs struct {
-	// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+	// Network configuration settings for outbound message traffic. See `egressConfiguration` below.
 	EgressConfiguration ServiceNetworkConfigurationEgressConfigurationPtrInput `pulumi:"egressConfiguration"`
-	// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+	// Network configuration settings for inbound network traffic. See `ingressConfiguration` below.
 	IngressConfiguration ServiceNetworkConfigurationIngressConfigurationPtrInput `pulumi:"ingressConfiguration"`
 	// App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
 	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
@@ -1061,14 +1061,14 @@ func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationPtrOutpu
 	}).(ServiceNetworkConfigurationPtrOutput)
 }
 
-// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+// Network configuration settings for outbound message traffic. See `egressConfiguration` below.
 func (o ServiceNetworkConfigurationOutput) EgressConfiguration() ServiceNetworkConfigurationEgressConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *ServiceNetworkConfigurationEgressConfiguration {
 		return v.EgressConfiguration
 	}).(ServiceNetworkConfigurationEgressConfigurationPtrOutput)
 }
 
-// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+// Network configuration settings for inbound network traffic. See `ingressConfiguration` below.
 func (o ServiceNetworkConfigurationOutput) IngressConfiguration() ServiceNetworkConfigurationIngressConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *ServiceNetworkConfigurationIngressConfiguration {
 		return v.IngressConfiguration
@@ -1104,7 +1104,7 @@ func (o ServiceNetworkConfigurationPtrOutput) Elem() ServiceNetworkConfiguration
 	}).(ServiceNetworkConfigurationOutput)
 }
 
-// Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+// Network configuration settings for outbound message traffic. See `egressConfiguration` below.
 func (o ServiceNetworkConfigurationPtrOutput) EgressConfiguration() ServiceNetworkConfigurationEgressConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) *ServiceNetworkConfigurationEgressConfiguration {
 		if v == nil {
@@ -1114,7 +1114,7 @@ func (o ServiceNetworkConfigurationPtrOutput) EgressConfiguration() ServiceNetwo
 	}).(ServiceNetworkConfigurationEgressConfigurationPtrOutput)
 }
 
-// Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+// Network configuration settings for inbound network traffic. See `ingressConfiguration` below.
 func (o ServiceNetworkConfigurationPtrOutput) IngressConfiguration() ServiceNetworkConfigurationIngressConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) *ServiceNetworkConfigurationIngressConfiguration {
 		if v == nil {
@@ -1135,9 +1135,9 @@ func (o ServiceNetworkConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOu
 }
 
 type ServiceNetworkConfigurationEgressConfiguration struct {
-	// The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
+	// Type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
 	EgressType *string `pulumi:"egressType"`
-	// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+	// Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
 	VpcConnectorArn *string `pulumi:"vpcConnectorArn"`
 }
 
@@ -1153,9 +1153,9 @@ type ServiceNetworkConfigurationEgressConfigurationInput interface {
 }
 
 type ServiceNetworkConfigurationEgressConfigurationArgs struct {
-	// The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
+	// Type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
 	EgressType pulumi.StringPtrInput `pulumi:"egressType"`
-	// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+	// Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
 	VpcConnectorArn pulumi.StringPtrInput `pulumi:"vpcConnectorArn"`
 }
 
@@ -1236,12 +1236,12 @@ func (o ServiceNetworkConfigurationEgressConfigurationOutput) ToServiceNetworkCo
 	}).(ServiceNetworkConfigurationEgressConfigurationPtrOutput)
 }
 
-// The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
+// Type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
 func (o ServiceNetworkConfigurationEgressConfigurationOutput) EgressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfigurationEgressConfiguration) *string { return v.EgressType }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+// Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
 func (o ServiceNetworkConfigurationEgressConfigurationOutput) VpcConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfigurationEgressConfiguration) *string { return v.VpcConnectorArn }).(pulumi.StringPtrOutput)
 }
@@ -1270,7 +1270,7 @@ func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) Elem() ServiceN
 	}).(ServiceNetworkConfigurationEgressConfigurationOutput)
 }
 
-// The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
+// Type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
 func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) EgressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfigurationEgressConfiguration) *string {
 		if v == nil {
@@ -1280,7 +1280,7 @@ func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) EgressType() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+// Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
 func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) VpcConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfigurationEgressConfiguration) *string {
 		if v == nil {
@@ -1291,7 +1291,7 @@ func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) VpcConnectorArn
 }
 
 type ServiceNetworkConfigurationIngressConfiguration struct {
-	// Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+	// Whether your App Runner service is publicly accessible. To make the service publicly accessible set it to `true`. To make the service privately accessible, from only within an Amazon VPC, set it to `false`.
 	IsPubliclyAccessible *bool `pulumi:"isPubliclyAccessible"`
 }
 
@@ -1307,7 +1307,7 @@ type ServiceNetworkConfigurationIngressConfigurationInput interface {
 }
 
 type ServiceNetworkConfigurationIngressConfigurationArgs struct {
-	// Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+	// Whether your App Runner service is publicly accessible. To make the service publicly accessible set it to `true`. To make the service privately accessible, from only within an Amazon VPC, set it to `false`.
 	IsPubliclyAccessible pulumi.BoolPtrInput `pulumi:"isPubliclyAccessible"`
 }
 
@@ -1388,7 +1388,7 @@ func (o ServiceNetworkConfigurationIngressConfigurationOutput) ToServiceNetworkC
 	}).(ServiceNetworkConfigurationIngressConfigurationPtrOutput)
 }
 
-// Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+// Whether your App Runner service is publicly accessible. To make the service publicly accessible set it to `true`. To make the service privately accessible, from only within an Amazon VPC, set it to `false`.
 func (o ServiceNetworkConfigurationIngressConfigurationOutput) IsPubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfigurationIngressConfiguration) *bool { return v.IsPubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
@@ -1417,7 +1417,7 @@ func (o ServiceNetworkConfigurationIngressConfigurationPtrOutput) Elem() Service
 	}).(ServiceNetworkConfigurationIngressConfigurationOutput)
 }
 
-// Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+// Whether your App Runner service is publicly accessible. To make the service publicly accessible set it to `true`. To make the service privately accessible, from only within an Amazon VPC, set it to `false`.
 func (o ServiceNetworkConfigurationIngressConfigurationPtrOutput) IsPubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfigurationIngressConfiguration) *bool {
 		if v == nil {
@@ -1584,13 +1584,13 @@ func (o ServiceObservabilityConfigurationPtrOutput) ObservabilityEnabled() pulum
 }
 
 type ServiceSourceConfiguration struct {
-	// Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+	// Configuration for resources needed to authenticate access to some source repositories. See `authenticationConfiguration` below.
 	AuthenticationConfiguration *ServiceSourceConfigurationAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
 	// Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
 	AutoDeploymentsEnabled *bool `pulumi:"autoDeploymentsEnabled"`
-	// Description of a source code repository. See Code Repository below for more details.
+	// Description of a source code repository. See `codeRepository` below.
 	CodeRepository *ServiceSourceConfigurationCodeRepository `pulumi:"codeRepository"`
-	// Description of a source image repository. See Image Repository below for more details.
+	// Description of a source image repository. See `imageRepository` below.
 	ImageRepository *ServiceSourceConfigurationImageRepository `pulumi:"imageRepository"`
 }
 
@@ -1606,13 +1606,13 @@ type ServiceSourceConfigurationInput interface {
 }
 
 type ServiceSourceConfigurationArgs struct {
-	// Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+	// Configuration for resources needed to authenticate access to some source repositories. See `authenticationConfiguration` below.
 	AuthenticationConfiguration ServiceSourceConfigurationAuthenticationConfigurationPtrInput `pulumi:"authenticationConfiguration"`
 	// Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
 	AutoDeploymentsEnabled pulumi.BoolPtrInput `pulumi:"autoDeploymentsEnabled"`
-	// Description of a source code repository. See Code Repository below for more details.
+	// Description of a source code repository. See `codeRepository` below.
 	CodeRepository ServiceSourceConfigurationCodeRepositoryPtrInput `pulumi:"codeRepository"`
-	// Description of a source image repository. See Image Repository below for more details.
+	// Description of a source image repository. See `imageRepository` below.
 	ImageRepository ServiceSourceConfigurationImageRepositoryPtrInput `pulumi:"imageRepository"`
 }
 
@@ -1693,7 +1693,7 @@ func (o ServiceSourceConfigurationOutput) ToServiceSourceConfigurationPtrOutputW
 	}).(ServiceSourceConfigurationPtrOutput)
 }
 
-// Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+// Configuration for resources needed to authenticate access to some source repositories. See `authenticationConfiguration` below.
 func (o ServiceSourceConfigurationOutput) AuthenticationConfiguration() ServiceSourceConfigurationAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceSourceConfigurationAuthenticationConfiguration {
 		return v.AuthenticationConfiguration
@@ -1705,12 +1705,12 @@ func (o ServiceSourceConfigurationOutput) AutoDeploymentsEnabled() pulumi.BoolPt
 	return o.ApplyT(func(v ServiceSourceConfiguration) *bool { return v.AutoDeploymentsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Description of a source code repository. See Code Repository below for more details.
+// Description of a source code repository. See `codeRepository` below.
 func (o ServiceSourceConfigurationOutput) CodeRepository() ServiceSourceConfigurationCodeRepositoryPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceSourceConfigurationCodeRepository { return v.CodeRepository }).(ServiceSourceConfigurationCodeRepositoryPtrOutput)
 }
 
-// Description of a source image repository. See Image Repository below for more details.
+// Description of a source image repository. See `imageRepository` below.
 func (o ServiceSourceConfigurationOutput) ImageRepository() ServiceSourceConfigurationImageRepositoryPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceSourceConfigurationImageRepository {
 		return v.ImageRepository
@@ -1741,7 +1741,7 @@ func (o ServiceSourceConfigurationPtrOutput) Elem() ServiceSourceConfigurationOu
 	}).(ServiceSourceConfigurationOutput)
 }
 
-// Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+// Configuration for resources needed to authenticate access to some source repositories. See `authenticationConfiguration` below.
 func (o ServiceSourceConfigurationPtrOutput) AuthenticationConfiguration() ServiceSourceConfigurationAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceSourceConfigurationAuthenticationConfiguration {
 		if v == nil {
@@ -1761,7 +1761,7 @@ func (o ServiceSourceConfigurationPtrOutput) AutoDeploymentsEnabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Description of a source code repository. See Code Repository below for more details.
+// Description of a source code repository. See `codeRepository` below.
 func (o ServiceSourceConfigurationPtrOutput) CodeRepository() ServiceSourceConfigurationCodeRepositoryPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceSourceConfigurationCodeRepository {
 		if v == nil {
@@ -1771,7 +1771,7 @@ func (o ServiceSourceConfigurationPtrOutput) CodeRepository() ServiceSourceConfi
 	}).(ServiceSourceConfigurationCodeRepositoryPtrOutput)
 }
 
-// Description of a source image repository. See Image Repository below for more details.
+// Description of a source image repository. See `imageRepository` below.
 func (o ServiceSourceConfigurationPtrOutput) ImageRepository() ServiceSourceConfigurationImageRepositoryPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceSourceConfigurationImageRepository {
 		if v == nil {
@@ -1938,13 +1938,13 @@ func (o ServiceSourceConfigurationAuthenticationConfigurationPtrOutput) Connecti
 }
 
 type ServiceSourceConfigurationCodeRepository struct {
-	// Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+	// Configuration for building and running the service from a source code repository. See `codeConfiguration` below.
 	CodeConfiguration *ServiceSourceConfigurationCodeRepositoryCodeConfiguration `pulumi:"codeConfiguration"`
 	// Location of the repository that contains the source code.
 	RepositoryUrl string `pulumi:"repositoryUrl"`
-	// Version that should be used within the source code repository. See Source Code Version below for more details.
+	// Version that should be used within the source code repository. See `sourceCodeVersion` below.
 	SourceCodeVersion ServiceSourceConfigurationCodeRepositorySourceCodeVersion `pulumi:"sourceCodeVersion"`
-	// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+	// Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
 	SourceDirectory *string `pulumi:"sourceDirectory"`
 }
 
@@ -1960,13 +1960,13 @@ type ServiceSourceConfigurationCodeRepositoryInput interface {
 }
 
 type ServiceSourceConfigurationCodeRepositoryArgs struct {
-	// Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+	// Configuration for building and running the service from a source code repository. See `codeConfiguration` below.
 	CodeConfiguration ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrInput `pulumi:"codeConfiguration"`
 	// Location of the repository that contains the source code.
 	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
-	// Version that should be used within the source code repository. See Source Code Version below for more details.
+	// Version that should be used within the source code repository. See `sourceCodeVersion` below.
 	SourceCodeVersion ServiceSourceConfigurationCodeRepositorySourceCodeVersionInput `pulumi:"sourceCodeVersion"`
-	// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+	// Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
 	SourceDirectory pulumi.StringPtrInput `pulumi:"sourceDirectory"`
 }
 
@@ -2047,7 +2047,7 @@ func (o ServiceSourceConfigurationCodeRepositoryOutput) ToServiceSourceConfigura
 	}).(ServiceSourceConfigurationCodeRepositoryPtrOutput)
 }
 
-// Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+// Configuration for building and running the service from a source code repository. See `codeConfiguration` below.
 func (o ServiceSourceConfigurationCodeRepositoryOutput) CodeConfiguration() ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepository) *ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
 		return v.CodeConfiguration
@@ -2059,14 +2059,14 @@ func (o ServiceSourceConfigurationCodeRepositoryOutput) RepositoryUrl() pulumi.S
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepository) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
-// Version that should be used within the source code repository. See Source Code Version below for more details.
+// Version that should be used within the source code repository. See `sourceCodeVersion` below.
 func (o ServiceSourceConfigurationCodeRepositoryOutput) SourceCodeVersion() ServiceSourceConfigurationCodeRepositorySourceCodeVersionOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepository) ServiceSourceConfigurationCodeRepositorySourceCodeVersion {
 		return v.SourceCodeVersion
 	}).(ServiceSourceConfigurationCodeRepositorySourceCodeVersionOutput)
 }
 
-// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+// Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
 func (o ServiceSourceConfigurationCodeRepositoryOutput) SourceDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepository) *string { return v.SourceDirectory }).(pulumi.StringPtrOutput)
 }
@@ -2095,7 +2095,7 @@ func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) Elem() ServiceSourceC
 	}).(ServiceSourceConfigurationCodeRepositoryOutput)
 }
 
-// Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+// Configuration for building and running the service from a source code repository. See `codeConfiguration` below.
 func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) CodeConfiguration() ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepository) *ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
 		if v == nil {
@@ -2115,7 +2115,7 @@ func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) RepositoryUrl() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version that should be used within the source code repository. See Source Code Version below for more details.
+// Version that should be used within the source code repository. See `sourceCodeVersion` below.
 func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) SourceCodeVersion() ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepository) *ServiceSourceConfigurationCodeRepositorySourceCodeVersion {
 		if v == nil {
@@ -2125,7 +2125,7 @@ func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) SourceCodeVersion() S
 	}).(ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput)
 }
 
-// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+// Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
 func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) SourceDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepository) *string {
 		if v == nil {
@@ -2136,13 +2136,9 @@ func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) SourceDirectory() pul
 }
 
 type ServiceSourceConfigurationCodeRepositoryCodeConfiguration struct {
-	// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+	// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See `codeConfigurationValues` below.
 	CodeConfigurationValues *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues `pulumi:"codeConfigurationValues"`
-	// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-	// * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-	//   source code repository and ignores the CodeConfigurationValues parameter.
-	// * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-	//   parameter and ignores the apprunner.yaml file in the source code repository.
+	// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Use `REPOSITORY` to have App Runner read configuration values from the `apprunner.yaml` file in the source code repository and ignore `codeConfigurationValues`. Use `API` to have App Runner use the configuration values provided in `codeConfigurationValues` and ignore the `apprunner.yaml` file in the source code repository.
 	ConfigurationSource string `pulumi:"configurationSource"`
 }
 
@@ -2158,13 +2154,9 @@ type ServiceSourceConfigurationCodeRepositoryCodeConfigurationInput interface {
 }
 
 type ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs struct {
-	// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+	// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See `codeConfigurationValues` below.
 	CodeConfigurationValues ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrInput `pulumi:"codeConfigurationValues"`
-	// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-	// * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-	//   source code repository and ignores the CodeConfigurationValues parameter.
-	// * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-	//   parameter and ignores the apprunner.yaml file in the source code repository.
+	// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Use `REPOSITORY` to have App Runner read configuration values from the `apprunner.yaml` file in the source code repository and ignore `codeConfigurationValues`. Use `API` to have App Runner use the configuration values provided in `codeConfigurationValues` and ignore the `apprunner.yaml` file in the source code repository.
 	ConfigurationSource pulumi.StringInput `pulumi:"configurationSource"`
 }
 
@@ -2245,18 +2237,14 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationOutput) ToServi
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput)
 }
 
-// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See `codeConfigurationValues` below.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationOutput) CodeConfigurationValues() ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfiguration) *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues {
 		return v.CodeConfigurationValues
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput)
 }
 
-// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-//   - `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-//     source code repository and ignores the CodeConfigurationValues parameter.
-//   - `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-//     parameter and ignores the apprunner.yaml file in the source code repository.
+// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Use `REPOSITORY` to have App Runner read configuration values from the `apprunner.yaml` file in the source code repository and ignore `codeConfigurationValues`. Use `API` to have App Runner use the configuration values provided in `codeConfigurationValues` and ignore the `apprunner.yaml` file in the source code repository.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationOutput) ConfigurationSource() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfiguration) string { return v.ConfigurationSource }).(pulumi.StringOutput)
 }
@@ -2285,7 +2273,7 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput) Elem
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationOutput)
 }
 
-// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See `codeConfigurationValues` below.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput) CodeConfigurationValues() ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfiguration) *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues {
 		if v == nil {
@@ -2295,11 +2283,7 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput) Code
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput)
 }
 
-// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-//   - `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-//     source code repository and ignores the CodeConfigurationValues parameter.
-//   - `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-//     parameter and ignores the apprunner.yaml file in the source code repository.
+// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Use `REPOSITORY` to have App Runner read configuration values from the `apprunner.yaml` file in the source code repository and ignore `codeConfigurationValues`. Use `API` to have App Runner use the configuration values provided in `codeConfigurationValues` and ignore the `apprunner.yaml` file in the source code repository.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput) ConfigurationSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfiguration) *string {
 		if v == nil {
@@ -2710,12 +2694,11 @@ func (o ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput) Valu
 }
 
 type ServiceSourceConfigurationImageRepository struct {
-	// Configuration for running the identified image. See Image Configuration below for more details.
+	// Configuration for running the identified image. See `imageConfiguration` below.
 	ImageConfiguration *ServiceSourceConfigurationImageRepositoryImageConfiguration `pulumi:"imageConfiguration"`
-	// Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-	// image name format, see Pulling an image in the Amazon ECR User Guide.
+	// Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see Pulling an image in the Amazon ECR User Guide.
 	ImageIdentifier string `pulumi:"imageIdentifier"`
-	// Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+	// Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR`, `ECR_PUBLIC`.
 	ImageRepositoryType string `pulumi:"imageRepositoryType"`
 }
 
@@ -2731,12 +2714,11 @@ type ServiceSourceConfigurationImageRepositoryInput interface {
 }
 
 type ServiceSourceConfigurationImageRepositoryArgs struct {
-	// Configuration for running the identified image. See Image Configuration below for more details.
+	// Configuration for running the identified image. See `imageConfiguration` below.
 	ImageConfiguration ServiceSourceConfigurationImageRepositoryImageConfigurationPtrInput `pulumi:"imageConfiguration"`
-	// Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-	// image name format, see Pulling an image in the Amazon ECR User Guide.
+	// Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see Pulling an image in the Amazon ECR User Guide.
 	ImageIdentifier pulumi.StringInput `pulumi:"imageIdentifier"`
-	// Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+	// Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR`, `ECR_PUBLIC`.
 	ImageRepositoryType pulumi.StringInput `pulumi:"imageRepositoryType"`
 }
 
@@ -2817,20 +2799,19 @@ func (o ServiceSourceConfigurationImageRepositoryOutput) ToServiceSourceConfigur
 	}).(ServiceSourceConfigurationImageRepositoryPtrOutput)
 }
 
-// Configuration for running the identified image. See Image Configuration below for more details.
+// Configuration for running the identified image. See `imageConfiguration` below.
 func (o ServiceSourceConfigurationImageRepositoryOutput) ImageConfiguration() ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationImageRepository) *ServiceSourceConfigurationImageRepositoryImageConfiguration {
 		return v.ImageConfiguration
 	}).(ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput)
 }
 
-// Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-// image name format, see Pulling an image in the Amazon ECR User Guide.
+// Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see Pulling an image in the Amazon ECR User Guide.
 func (o ServiceSourceConfigurationImageRepositoryOutput) ImageIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationImageRepository) string { return v.ImageIdentifier }).(pulumi.StringOutput)
 }
 
-// Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+// Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR`, `ECR_PUBLIC`.
 func (o ServiceSourceConfigurationImageRepositoryOutput) ImageRepositoryType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationImageRepository) string { return v.ImageRepositoryType }).(pulumi.StringOutput)
 }
@@ -2859,7 +2840,7 @@ func (o ServiceSourceConfigurationImageRepositoryPtrOutput) Elem() ServiceSource
 	}).(ServiceSourceConfigurationImageRepositoryOutput)
 }
 
-// Configuration for running the identified image. See Image Configuration below for more details.
+// Configuration for running the identified image. See `imageConfiguration` below.
 func (o ServiceSourceConfigurationImageRepositoryPtrOutput) ImageConfiguration() ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationImageRepository) *ServiceSourceConfigurationImageRepositoryImageConfiguration {
 		if v == nil {
@@ -2869,8 +2850,7 @@ func (o ServiceSourceConfigurationImageRepositoryPtrOutput) ImageConfiguration()
 	}).(ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput)
 }
 
-// Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-// image name format, see Pulling an image in the Amazon ECR User Guide.
+// Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see Pulling an image in the Amazon ECR User Guide.
 func (o ServiceSourceConfigurationImageRepositoryPtrOutput) ImageIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationImageRepository) *string {
 		if v == nil {
@@ -2880,7 +2860,7 @@ func (o ServiceSourceConfigurationImageRepositoryPtrOutput) ImageIdentifier() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+// Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR`, `ECR_PUBLIC`.
 func (o ServiceSourceConfigurationImageRepositoryPtrOutput) ImageRepositoryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationImageRepository) *string {
 		if v == nil {
@@ -3089,9 +3069,9 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) St
 }
 
 type VpcIngressConnectionIngressVpcConfiguration struct {
-	// The ID of the VPC endpoint that your App Runner service connects to.
+	// ID of the VPC endpoint that your App Runner service connects to.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
-	// The ID of the VPC that is used for the VPC endpoint.
+	// ID of the VPC that is used for the VPC endpoint.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -3107,9 +3087,9 @@ type VpcIngressConnectionIngressVpcConfigurationInput interface {
 }
 
 type VpcIngressConnectionIngressVpcConfigurationArgs struct {
-	// The ID of the VPC endpoint that your App Runner service connects to.
+	// ID of the VPC endpoint that your App Runner service connects to.
 	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
-	// The ID of the VPC that is used for the VPC endpoint.
+	// ID of the VPC that is used for the VPC endpoint.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
@@ -3190,12 +3170,12 @@ func (o VpcIngressConnectionIngressVpcConfigurationOutput) ToVpcIngressConnectio
 	}).(VpcIngressConnectionIngressVpcConfigurationPtrOutput)
 }
 
-// The ID of the VPC endpoint that your App Runner service connects to.
+// ID of the VPC endpoint that your App Runner service connects to.
 func (o VpcIngressConnectionIngressVpcConfigurationOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcIngressConnectionIngressVpcConfiguration) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the VPC that is used for the VPC endpoint.
+// ID of the VPC that is used for the VPC endpoint.
 func (o VpcIngressConnectionIngressVpcConfigurationOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcIngressConnectionIngressVpcConfiguration) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -3224,7 +3204,7 @@ func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) Elem() VpcIngressC
 	}).(VpcIngressConnectionIngressVpcConfigurationOutput)
 }
 
-// The ID of the VPC endpoint that your App Runner service connects to.
+// ID of the VPC endpoint that your App Runner service connects to.
 func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIngressConnectionIngressVpcConfiguration) *string {
 		if v == nil {
@@ -3234,7 +3214,7 @@ func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) VpcEndpointId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the VPC that is used for the VPC endpoint.
+// ID of the VPC that is used for the VPC endpoint.
 func (o VpcIngressConnectionIngressVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIngressConnectionIngressVpcConfiguration) *string {
 		if v == nil {

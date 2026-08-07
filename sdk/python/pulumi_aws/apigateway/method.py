@@ -43,11 +43,8 @@ class MethodArgs:
         :param pulumi.Input[_builtins.str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[_builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_models: Map of the API models used for the request's content type
-               where key is the content type (e.g., `application/json`)
-               and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.bool]]] request_parameters: Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-               For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_models: Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.bool]]] request_parameters: Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         :param pulumi.Input[_builtins.str] request_validator_id: ID of a `apigateway.RequestValidator`
         """
         pulumi.set(__self__, "authorization", authorization)
@@ -183,9 +180,7 @@ class MethodArgs:
     @pulumi.getter(name="requestModels")
     def request_models(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of the API models used for the request's content type
-        where key is the content type (e.g., `application/json`)
-        and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
+        Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
         """
         return pulumi.get(self, "request_models")
 
@@ -197,8 +192,7 @@ class MethodArgs:
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.bool]]]]:
         """
-        Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-        For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+        Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         """
         return pulumi.get(self, "request_parameters")
 
@@ -244,11 +238,8 @@ class _MethodState:
         :param pulumi.Input[_builtins.str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[_builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_models: Map of the API models used for the request's content type
-               where key is the content type (e.g., `application/json`)
-               and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.bool]]] request_parameters: Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-               For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_models: Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.bool]]] request_parameters: Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         :param pulumi.Input[_builtins.str] request_validator_id: ID of a `apigateway.RequestValidator`
         :param pulumi.Input[_builtins.str] resource_id: API resource ID
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
@@ -366,9 +357,7 @@ class _MethodState:
     @pulumi.getter(name="requestModels")
     def request_models(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of the API models used for the request's content type
-        where key is the content type (e.g., `application/json`)
-        and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
+        Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
         """
         return pulumi.get(self, "request_models")
 
@@ -380,8 +369,7 @@ class _MethodState:
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.bool]]]]:
         """
-        Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-        For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+        Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         """
         return pulumi.get(self, "request_parameters")
 
@@ -529,11 +517,8 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[_builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_models: Map of the API models used for the request's content type
-               where key is the content type (e.g., `application/json`)
-               and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.bool]]] request_parameters: Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-               For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_models: Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.bool]]] request_parameters: Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         :param pulumi.Input[_builtins.str] request_validator_id: ID of a `apigateway.RequestValidator`
         :param pulumi.Input[_builtins.str] resource_id: API resource ID
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
@@ -711,11 +696,8 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[_builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_models: Map of the API models used for the request's content type
-               where key is the content type (e.g., `application/json`)
-               and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.bool]]] request_parameters: Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-               For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_models: Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.bool]]] request_parameters: Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         :param pulumi.Input[_builtins.str] request_validator_id: ID of a `apigateway.RequestValidator`
         :param pulumi.Input[_builtins.str] resource_id: API resource ID
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
@@ -798,9 +780,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="requestModels")
     def request_models(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Map of the API models used for the request's content type
-        where key is the content type (e.g., `application/json`)
-        and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
+        Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
         """
         return pulumi.get(self, "request_models")
 
@@ -808,8 +788,7 @@ class Method(pulumi.CustomResource):
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> pulumi.Output[Optional[Mapping[str, _builtins.bool]]]:
         """
-        Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-        For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+        Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         """
         return pulumi.get(self, "request_parameters")
 

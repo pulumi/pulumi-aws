@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount
     {
+        /// <summary>
+        /// Maximum number of vCPUs.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// Minimum number of vCPUs.
+        /// </summary>
         public readonly int Min;
 
         [OutputConstructor]

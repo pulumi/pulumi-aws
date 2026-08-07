@@ -13,19 +13,19 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecGrpcRouteMatchMetadataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If `True`, the match is on the opposite of the `Match` criteria. Default is `False`.
+        /// Whether to match on the opposite of the `Match` method and value. Default is `False`.
         /// </summary>
         [Input("invert")]
         public Input<bool>? Invert { get; set; }
 
         /// <summary>
-        /// Data to match from the request.
+        /// Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
         /// </summary>
         [Input("match")]
         public Input<Inputs.RouteSpecGrpcRouteMatchMetadataMatchArgs>? Match { get; set; }
 
         /// <summary>
-        /// Name of the route. Must be between 1 and 50 characters in length.
+        /// Name to use for the route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

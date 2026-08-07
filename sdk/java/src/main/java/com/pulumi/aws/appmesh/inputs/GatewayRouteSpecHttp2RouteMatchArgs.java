@@ -22,14 +22,14 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
     public static final GatewayRouteSpecHttp2RouteMatchArgs Empty = new GatewayRouteSpecHttp2RouteMatchArgs();
 
     /**
-     * Client request headers to match on. See `header` Block for details.
+     * Client request headers to match on. See `spec.http2_route.match.header` Block for details.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<List<GatewayRouteSpecHttp2RouteMatchHeaderArgs>> headers;
 
     /**
-     * @return Client request headers to match on. See `header` Block for details.
+     * @return Client request headers to match on. See `spec.http2_route.match.header` Block for details.
      * 
      */
     public Optional<Output<List<GatewayRouteSpecHttp2RouteMatchHeaderArgs>>> headers() {
@@ -37,14 +37,14 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
     }
 
     /**
-     * Host name to match on. See `hostname` Block for details.
+     * Host name to match on. See `spec.http2_route.match.hostname` Block for details.
      * 
      */
     @Import(name="hostname")
     private @Nullable Output<GatewayRouteSpecHttp2RouteMatchHostnameArgs> hostname;
 
     /**
-     * @return Host name to match on. See `hostname` Block for details.
+     * @return Host name to match on. See `spec.http2_route.match.hostname` Block for details.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttp2RouteMatchHostnameArgs>> hostname() {
@@ -52,14 +52,14 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
     }
 
     /**
-     * Client request path to match on. See `path` Block for details.
+     * Client request path to match on. See `spec.http2_route.match.path` Block for details.
      * 
      */
     @Import(name="path")
     private @Nullable Output<GatewayRouteSpecHttp2RouteMatchPathArgs> path;
 
     /**
-     * @return Client request path to match on. See `path` Block for details.
+     * @return Client request path to match on. See `spec.http2_route.match.path` Block for details.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttp2RouteMatchPathArgs>> path() {
@@ -67,14 +67,14 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
     }
 
     /**
-     * The port number to match from the request.
+     * Port number to match from the request.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port number to match from the request.
+     * @return Port number to match from the request.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -97,14 +97,14 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
     }
 
     /**
-     * Client request query parameters to match on. See `queryParameter` Block for details.
+     * Client request query parameters to match on. See `spec.http2_route.match.query_parameter` Block for details.
      * 
      */
     @Import(name="queryParameters")
     private @Nullable Output<List<GatewayRouteSpecHttp2RouteMatchQueryParameterArgs>> queryParameters;
 
     /**
-     * @return Client request query parameters to match on. See `queryParameter` Block for details.
+     * @return Client request query parameters to match on. See `spec.http2_route.match.query_parameter` Block for details.
      * 
      */
     public Optional<Output<List<GatewayRouteSpecHttp2RouteMatchQueryParameterArgs>>> queryParameters() {
@@ -141,7 +141,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param headers Client request headers to match on. See `header` Block for details.
+         * @param headers Client request headers to match on. See `spec.http2_route.match.header` Block for details.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param headers Client request headers to match on. See `header` Block for details.
+         * @param headers Client request headers to match on. See `spec.http2_route.match.header` Block for details.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param headers Client request headers to match on. See `header` Block for details.
+         * @param headers Client request headers to match on. See `spec.http2_route.match.header` Block for details.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param hostname Host name to match on. See `hostname` Block for details.
+         * @param hostname Host name to match on. See `spec.http2_route.match.hostname` Block for details.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param hostname Host name to match on. See `hostname` Block for details.
+         * @param hostname Host name to match on. See `spec.http2_route.match.hostname` Block for details.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param path Client request path to match on. See `path` Block for details.
+         * @param path Client request path to match on. See `spec.http2_route.match.path` Block for details.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param path Client request path to match on. See `path` Block for details.
+         * @param path Client request path to match on. See `spec.http2_route.match.path` Block for details.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param port The port number to match from the request.
+         * @param port Port number to match from the request.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param port The port number to match from the request.
+         * @param port Port number to match from the request.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param queryParameters Client request query parameters to match on. See `queryParameter` Block for details.
+         * @param queryParameters Client request query parameters to match on. See `spec.http2_route.match.query_parameter` Block for details.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param queryParameters Client request query parameters to match on. See `queryParameter` Block for details.
+         * @param queryParameters Client request query parameters to match on. See `spec.http2_route.match.query_parameter` Block for details.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
         }
 
         /**
-         * @param queryParameters Client request query parameters to match on. See `queryParameter` Block for details.
+         * @param queryParameters Client request query parameters to match on. See `spec.http2_route.match.query_parameter` Block for details.
          * 
          * @return builder
          * 

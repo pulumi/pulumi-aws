@@ -15,18 +15,14 @@ public final class BucketAbacAbacStatusArgs extends com.pulumi.resources.Resourc
     public static final BucketAbacAbacStatusArgs Empty = new BucketAbacAbacStatusArgs();
 
     /**
-     * ABAC status of the general purpose bucket.
-     * Valid values are `Enabled` and `Disabled`.
-     * By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+     * ABAC status of the general purpose bucket. Valid values are `Enabled` and `Disabled`. By default, ABAC is disabled for all Amazon S3 general purpose buckets.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return ABAC status of the general purpose bucket.
-     * Valid values are `Enabled` and `Disabled`.
-     * By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+     * @return ABAC status of the general purpose bucket. Valid values are `Enabled` and `Disabled`. By default, ABAC is disabled for all Amazon S3 general purpose buckets.
      * 
      */
     public Output<String> status() {
@@ -58,9 +54,7 @@ public final class BucketAbacAbacStatusArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param status ABAC status of the general purpose bucket.
-         * Valid values are `Enabled` and `Disabled`.
-         * By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+         * @param status ABAC status of the general purpose bucket. Valid values are `Enabled` and `Disabled`. By default, ABAC is disabled for all Amazon S3 general purpose buckets.
          * 
          * @return builder
          * 
@@ -71,9 +65,7 @@ public final class BucketAbacAbacStatusArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param status ABAC status of the general purpose bucket.
-         * Valid values are `Enabled` and `Disabled`.
-         * By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+         * @param status ABAC status of the general purpose bucket. Valid values are `Enabled` and `Disabled`. By default, ABAC is disabled for all Amazon S3 general purpose buckets.
          * 
          * @return builder
          * 

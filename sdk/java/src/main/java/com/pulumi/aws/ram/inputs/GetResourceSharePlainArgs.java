@@ -19,14 +19,14 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
     public static final GetResourceSharePlainArgs Empty = new GetResourceSharePlainArgs();
 
     /**
-     * Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * Filter used to scope the list e.g., by tags. See `filter` Block below.
      * 
      */
     @Import(name="filters")
     private @Nullable List<GetResourceShareFilter> filters;
 
     /**
-     * @return Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * @return Filter used to scope the list e.g., by tags. See `filter` Block below.
      * 
      */
     public Optional<List<GetResourceShareFilter>> filters() {
@@ -79,14 +79,14 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+     * Status of resource shares to retrieve. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
      * 
      */
     @Import(name="resourceShareStatus")
     private @Nullable String resourceShareStatus;
 
     /**
-     * @return Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+     * @return Status of resource shares to retrieve. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
      * 
      */
     public Optional<String> resourceShareStatus() {
@@ -138,7 +138,7 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param filters Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+         * @param filters Filter used to scope the list e.g., by tags. See `filter` Block below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param filters Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+         * @param filters Filter used to scope the list e.g., by tags. See `filter` Block below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class GetResourceSharePlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param resourceShareStatus Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+         * @param resourceShareStatus Status of resource shares to retrieve. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
          * 
          * @return builder
          * 

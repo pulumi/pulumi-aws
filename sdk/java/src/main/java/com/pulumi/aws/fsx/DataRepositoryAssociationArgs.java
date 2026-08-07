@@ -36,14 +36,14 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
+     * Path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
      * 
      */
     @Import(name="dataRepositoryPath", required=true)
     private Output<String> dataRepositoryPath;
 
     /**
-     * @return The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
+     * @return Path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
      * 
      */
     public Output<String> dataRepositoryPath() {
@@ -66,14 +66,14 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the Amazon FSx file system to on which to create a data repository association.
+     * ID of the Amazon FSx file system to on which to create a data repository association.
      * 
      */
     @Import(name="fileSystemId", required=true)
     private Output<String> fileSystemId;
 
     /**
-     * @return The ID of the Amazon FSx file system to on which to create a data repository association.
+     * @return ID of the Amazon FSx file system to on which to create a data repository association.
      * 
      */
     public Output<String> fileSystemId() {
@@ -81,14 +81,14 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+     * Path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
      * 
      */
     @Import(name="fileSystemPath", required=true)
     private Output<String> fileSystemPath;
 
     /**
-     * @return A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+     * @return Path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
      * 
      */
     public Output<String> fileSystemPath() {
@@ -126,16 +126,14 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * See the `s3` configuration block. Max of 1.
-     * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+     * Configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. This configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository. See the `s3` Block below. Max of 1.
      * 
      */
     @Import(name="s3")
     private @Nullable Output<DataRepositoryAssociationS3Args> s3;
 
     /**
-     * @return See the `s3` configuration block. Max of 1.
-     * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+     * @return Configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. This configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository. See the `s3` Block below. Max of 1.
      * 
      */
     public Optional<Output<DataRepositoryAssociationS3Args>> s3() {
@@ -143,14 +141,14 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -211,7 +209,7 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dataRepositoryPath The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
+         * @param dataRepositoryPath Path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
          * 
          * @return builder
          * 
@@ -222,7 +220,7 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dataRepositoryPath The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
+         * @param dataRepositoryPath Path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
          * 
          * @return builder
          * 
@@ -253,7 +251,7 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fileSystemId The ID of the Amazon FSx file system to on which to create a data repository association.
+         * @param fileSystemId ID of the Amazon FSx file system to on which to create a data repository association.
          * 
          * @return builder
          * 
@@ -264,7 +262,7 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fileSystemId The ID of the Amazon FSx file system to on which to create a data repository association.
+         * @param fileSystemId ID of the Amazon FSx file system to on which to create a data repository association.
          * 
          * @return builder
          * 
@@ -274,7 +272,7 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fileSystemPath A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+         * @param fileSystemPath Path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
          * 
          * @return builder
          * 
@@ -285,7 +283,7 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fileSystemPath A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+         * @param fileSystemPath Path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
          * 
          * @return builder
          * 
@@ -337,8 +335,7 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param s3 See the `s3` configuration block. Max of 1.
-         * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+         * @param s3 Configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. This configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository. See the `s3` Block below. Max of 1.
          * 
          * @return builder
          * 
@@ -349,8 +346,7 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param s3 See the `s3` configuration block. Max of 1.
-         * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+         * @param s3 Configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. This configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository. See the `s3` Block below. Max of 1.
          * 
          * @return builder
          * 
@@ -360,7 +356,7 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tags A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -371,7 +367,7 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tags A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

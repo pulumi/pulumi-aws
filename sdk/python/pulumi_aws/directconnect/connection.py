@@ -190,6 +190,7 @@ class _ConnectionState:
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  request_macsec: pulumi.Input[Optional[_builtins.bool]] = None,
                  skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vlan_id: pulumi.Input[Optional[_builtins.int]] = None):
@@ -214,6 +215,7 @@ class _ConnectionState:
                
                > **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[_builtins.bool] skip_destroy: Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
+        :param pulumi.Input[_builtins.str] state: State of the connection. See [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html#API_CreateConnection_ResponseSyntax) for list of possible state values.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] vlan_id: The VLAN ID.
@@ -250,6 +252,8 @@ class _ConnectionState:
             pulumi.set(__self__, "request_macsec", request_macsec)
         if skip_destroy is not None:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -450,6 +454,18 @@ class _ConnectionState:
     @skip_destroy.setter
     def skip_destroy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_destroy", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        State of the connection. See [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html#API_CreateConnection_ResponseSyntax) for list of possible state values.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
@@ -688,6 +704,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["owner_account_id"] = None
             __props__.__dict__["partner_name"] = None
             __props__.__dict__["port_encryption_status"] = None
+            __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["vlan_id"] = None
         super(Connection, __self__).__init__(
@@ -716,6 +733,7 @@ class Connection(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             request_macsec: pulumi.Input[Optional[_builtins.bool]] = None,
             skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
+            state: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             vlan_id: pulumi.Input[Optional[_builtins.int]] = None) -> 'Connection':
@@ -744,6 +762,7 @@ class Connection(pulumi.CustomResource):
                
                > **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[_builtins.bool] skip_destroy: Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
+        :param pulumi.Input[_builtins.str] state: State of the connection. See [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html#API_CreateConnection_ResponseSyntax) for list of possible state values.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] vlan_id: The VLAN ID.
@@ -768,6 +787,7 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         __props__.__dict__["request_macsec"] = request_macsec
         __props__.__dict__["skip_destroy"] = skip_destroy
+        __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["vlan_id"] = vlan_id
@@ -902,6 +922,14 @@ class Connection(pulumi.CustomResource):
         Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
         """
         return pulumi.get(self, "skip_destroy")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[_builtins.str]:
+        """
+        State of the connection. See [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html#API_CreateConnection_ResponseSyntax) for list of possible state values.
+        """
+        return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter

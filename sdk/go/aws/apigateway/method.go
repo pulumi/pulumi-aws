@@ -170,12 +170,9 @@ type Method struct {
 	OperationName pulumi.StringPtrOutput `pulumi:"operationName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Map of the API models used for the request's content type
-	// where key is the content type (e.g., `application/json`)
-	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
+	// Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
 	RequestModels pulumi.StringMapOutput `pulumi:"requestModels"`
-	// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-	// For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+	// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
 	RequestParameters pulumi.BoolMapOutput `pulumi:"requestParameters"`
 	// ID of a `apigateway.RequestValidator`
 	RequestValidatorId pulumi.StringPtrOutput `pulumi:"requestValidatorId"`
@@ -241,12 +238,9 @@ type methodState struct {
 	OperationName *string `pulumi:"operationName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Map of the API models used for the request's content type
-	// where key is the content type (e.g., `application/json`)
-	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
+	// Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
 	RequestModels map[string]string `pulumi:"requestModels"`
-	// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-	// For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+	// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
 	RequestParameters map[string]bool `pulumi:"requestParameters"`
 	// ID of a `apigateway.RequestValidator`
 	RequestValidatorId *string `pulumi:"requestValidatorId"`
@@ -271,12 +265,9 @@ type MethodState struct {
 	OperationName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Map of the API models used for the request's content type
-	// where key is the content type (e.g., `application/json`)
-	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
+	// Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
 	RequestModels pulumi.StringMapInput
-	// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-	// For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+	// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
 	RequestParameters pulumi.BoolMapInput
 	// ID of a `apigateway.RequestValidator`
 	RequestValidatorId pulumi.StringPtrInput
@@ -305,12 +296,9 @@ type methodArgs struct {
 	OperationName *string `pulumi:"operationName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Map of the API models used for the request's content type
-	// where key is the content type (e.g., `application/json`)
-	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
+	// Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
 	RequestModels map[string]string `pulumi:"requestModels"`
-	// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-	// For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+	// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
 	RequestParameters map[string]bool `pulumi:"requestParameters"`
 	// ID of a `apigateway.RequestValidator`
 	RequestValidatorId *string `pulumi:"requestValidatorId"`
@@ -336,12 +324,9 @@ type MethodArgs struct {
 	OperationName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Map of the API models used for the request's content type
-	// where key is the content type (e.g., `application/json`)
-	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
+	// Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
 	RequestModels pulumi.StringMapInput
-	// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-	// For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+	// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
 	RequestParameters pulumi.BoolMapInput
 	// ID of a `apigateway.RequestValidator`
 	RequestValidatorId pulumi.StringPtrInput
@@ -473,15 +458,12 @@ func (o MethodOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Method) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Map of the API models used for the request's content type
-// where key is the content type (e.g., `application/json`)
-// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
+// Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
 func (o MethodOutput) RequestModels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Method) pulumi.StringMapOutput { return v.RequestModels }).(pulumi.StringMapOutput)
 }
 
-// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-// For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
 func (o MethodOutput) RequestParameters() pulumi.BoolMapOutput {
 	return o.ApplyT(func(v *Method) pulumi.BoolMapOutput { return v.RequestParameters }).(pulumi.BoolMapOutput)
 }

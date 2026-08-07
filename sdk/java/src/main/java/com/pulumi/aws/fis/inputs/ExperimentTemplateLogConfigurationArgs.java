@@ -19,14 +19,14 @@ public final class ExperimentTemplateLogConfigurationArgs extends com.pulumi.res
     public static final ExperimentTemplateLogConfigurationArgs Empty = new ExperimentTemplateLogConfigurationArgs();
 
     /**
-     * The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+     * Configuration for experiment logging to Amazon CloudWatch Logs. See below.
      * 
      */
     @Import(name="cloudwatchLogsConfiguration")
     private @Nullable Output<ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs> cloudwatchLogsConfiguration;
 
     /**
-     * @return The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+     * @return Configuration for experiment logging to Amazon CloudWatch Logs. See below.
      * 
      */
     public Optional<Output<ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs>> cloudwatchLogsConfiguration() {
@@ -34,14 +34,14 @@ public final class ExperimentTemplateLogConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
+     * Schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
      * 
      */
     @Import(name="logSchemaVersion", required=true)
     private Output<Integer> logSchemaVersion;
 
     /**
-     * @return The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
+     * @return Schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
      * 
      */
     public Output<Integer> logSchemaVersion() {
@@ -49,14 +49,14 @@ public final class ExperimentTemplateLogConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The configuration for experiment logging to Amazon S3. See below.
+     * Configuration for experiment logging to Amazon S3. See below.
      * 
      */
     @Import(name="s3Configuration")
     private @Nullable Output<ExperimentTemplateLogConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The configuration for experiment logging to Amazon S3. See below.
+     * @return Configuration for experiment logging to Amazon S3. See below.
      * 
      */
     public Optional<Output<ExperimentTemplateLogConfigurationS3ConfigurationArgs>> s3Configuration() {
@@ -90,7 +90,7 @@ public final class ExperimentTemplateLogConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param cloudwatchLogsConfiguration The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+         * @param cloudwatchLogsConfiguration Configuration for experiment logging to Amazon CloudWatch Logs. See below.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ExperimentTemplateLogConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param cloudwatchLogsConfiguration The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+         * @param cloudwatchLogsConfiguration Configuration for experiment logging to Amazon CloudWatch Logs. See below.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class ExperimentTemplateLogConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param logSchemaVersion The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
+         * @param logSchemaVersion Schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class ExperimentTemplateLogConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param logSchemaVersion The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
+         * @param logSchemaVersion Schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ExperimentTemplateLogConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param s3Configuration The configuration for experiment logging to Amazon S3. See below.
+         * @param s3Configuration Configuration for experiment logging to Amazon S3. See below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class ExperimentTemplateLogConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param s3Configuration The configuration for experiment logging to Amazon S3. See below.
+         * @param s3Configuration Configuration for experiment logging to Amazon S3. See below.
          * 
          * @return builder
          * 

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification {
-    /**
-     * @return Predefined scaling metric type. See the [`PredictiveScalingPredefinedScalingMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedScalingMetricSpecification.html) AWS API reference for valid values.
-     * 
-     */
     private String predefinedMetricType;
-    /**
-     * @return Label that uniquely identifies a specific target group from which to determine the average request count. Required when `predefinedMetricType` is an ALB-based value.
-     * 
-     */
     private @Nullable String resourceLabel;
 
     private PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification() {}
-    /**
-     * @return Predefined scaling metric type. See the [`PredictiveScalingPredefinedScalingMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedScalingMetricSpecification.html) AWS API reference for valid values.
-     * 
-     */
     public String predefinedMetricType() {
         return this.predefinedMetricType;
     }
-    /**
-     * @return Label that uniquely identifies a specific target group from which to determine the average request count. Required when `predefinedMetricType` is an ALB-based value.
-     * 
-     */
     public Optional<String> resourceLabel() {
         return Optional.ofNullable(this.resourceLabel);
     }

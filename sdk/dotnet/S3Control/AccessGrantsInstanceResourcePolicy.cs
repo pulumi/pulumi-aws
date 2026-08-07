@@ -62,13 +62,13 @@ namespace Pulumi.Aws.S3Control
     public partial class AccessGrantsInstanceResourcePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The policy document.
+        /// Policy document.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -126,13 +126,13 @@ namespace Pulumi.Aws.S3Control
     public sealed class AccessGrantsInstanceResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The policy document.
+        /// Policy document.
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -152,13 +152,13 @@ namespace Pulumi.Aws.S3Control
     public sealed class AccessGrantsInstanceResourcePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The policy document.
+        /// Policy document.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

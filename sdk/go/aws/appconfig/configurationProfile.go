@@ -66,11 +66,11 @@ type ConfigurationProfile struct {
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// ARN of the AppConfig Configuration Profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The configuration profile ID.
+	// Configuration profile ID.
 	ConfigurationProfileId pulumi.StringOutput `pulumi:"configurationProfileId"`
 	// Description of the configuration profile. Can be at most 1024 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+	// Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
 	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
@@ -86,7 +86,7 @@ type ConfigurationProfile struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+	// Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
 	Validators ConfigurationProfileValidatorArrayOutput `pulumi:"validators"`
 }
 
@@ -130,11 +130,11 @@ type configurationProfileState struct {
 	ApplicationId *string `pulumi:"applicationId"`
 	// ARN of the AppConfig Configuration Profile.
 	Arn *string `pulumi:"arn"`
-	// The configuration profile ID.
+	// Configuration profile ID.
 	ConfigurationProfileId *string `pulumi:"configurationProfileId"`
 	// Description of the configuration profile. Can be at most 1024 characters.
 	Description *string `pulumi:"description"`
-	// The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+	// Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
 	LocationUri *string `pulumi:"locationUri"`
@@ -150,7 +150,7 @@ type configurationProfileState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
 	Type *string `pulumi:"type"`
-	// Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+	// Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
 	Validators []ConfigurationProfileValidator `pulumi:"validators"`
 }
 
@@ -159,11 +159,11 @@ type ConfigurationProfileState struct {
 	ApplicationId pulumi.StringPtrInput
 	// ARN of the AppConfig Configuration Profile.
 	Arn pulumi.StringPtrInput
-	// The configuration profile ID.
+	// Configuration profile ID.
 	ConfigurationProfileId pulumi.StringPtrInput
 	// Description of the configuration profile. Can be at most 1024 characters.
 	Description pulumi.StringPtrInput
-	// The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+	// Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
 	LocationUri pulumi.StringPtrInput
@@ -179,7 +179,7 @@ type ConfigurationProfileState struct {
 	TagsAll pulumi.StringMapInput
 	// Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
 	Type pulumi.StringPtrInput
-	// Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+	// Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
 	Validators ConfigurationProfileValidatorArrayInput
 }
 
@@ -192,7 +192,7 @@ type configurationProfileArgs struct {
 	ApplicationId string `pulumi:"applicationId"`
 	// Description of the configuration profile. Can be at most 1024 characters.
 	Description *string `pulumi:"description"`
-	// The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+	// Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
 	LocationUri string `pulumi:"locationUri"`
@@ -206,7 +206,7 @@ type configurationProfileArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
 	Type *string `pulumi:"type"`
-	// Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+	// Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
 	Validators []ConfigurationProfileValidator `pulumi:"validators"`
 }
 
@@ -216,7 +216,7 @@ type ConfigurationProfileArgs struct {
 	ApplicationId pulumi.StringInput
 	// Description of the configuration profile. Can be at most 1024 characters.
 	Description pulumi.StringPtrInput
-	// The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+	// Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
 	LocationUri pulumi.StringInput
@@ -230,7 +230,7 @@ type ConfigurationProfileArgs struct {
 	Tags pulumi.StringMapInput
 	// Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
 	Type pulumi.StringPtrInput
-	// Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+	// Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
 	Validators ConfigurationProfileValidatorArrayInput
 }
 
@@ -331,7 +331,7 @@ func (o ConfigurationProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The configuration profile ID.
+// Configuration profile ID.
 func (o ConfigurationProfileOutput) ConfigurationProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.ConfigurationProfileId }).(pulumi.StringOutput)
 }
@@ -341,7 +341,7 @@ func (o ConfigurationProfileOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+// Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
 func (o ConfigurationProfileOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -381,7 +381,7 @@ func (o ConfigurationProfileOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+// Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
 func (o ConfigurationProfileOutput) Validators() ConfigurationProfileValidatorArrayOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) ConfigurationProfileValidatorArrayOutput { return v.Validators }).(ConfigurationProfileValidatorArrayOutput)
 }

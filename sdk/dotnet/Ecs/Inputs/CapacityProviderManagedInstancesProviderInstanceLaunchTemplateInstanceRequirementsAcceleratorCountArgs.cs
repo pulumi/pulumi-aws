@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum number of accelerators.
+        /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
+        /// <summary>
+        /// Minimum number of accelerators.
+        /// </summary>
         [Input("min")]
         public Input<int>? Min { get; set; }
 

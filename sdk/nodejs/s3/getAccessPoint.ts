@@ -83,7 +83,7 @@ export interface GetAccessPointResult {
     readonly endpoints: {[key: string]: string};
     readonly name: string;
     /**
-     * Indicates whether the access point allows access from the public Internet.
+     * Whether the access point allows access from the public Internet.
      */
     readonly networkOrigin: string;
     /**

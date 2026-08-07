@@ -80,37 +80,37 @@ namespace Pulumi.Aws.S3Control
         public Output<string> AccessGrantId { get; private set; } = null!;
 
         /// <summary>
-        /// See Location Configuration below for more details.
+        /// See `AccessGrantsLocationConfiguration` Block below for more details.
         /// </summary>
         [Output("accessGrantsLocationConfiguration")]
         public Output<Outputs.AccessGrantAccessGrantsLocationConfiguration?> AccessGrantsLocationConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the S3 Access Grants location to with the access grant is giving access.
+        /// ID of the S3 Access Grants location to with the access grant is giving access.
         /// </summary>
         [Output("accessGrantsLocationId")]
         public Output<string> AccessGrantsLocationId { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The access grant's scope.
+        /// Access grant's scope.
         /// </summary>
         [Output("grantScope")]
         public Output<string> GrantScope { get; private set; } = null!;
 
         /// <summary>
-        /// See Grantee below for more details.
+        /// See `Grantee` Block below for more details.
         /// </summary>
         [Output("grantee")]
         public Output<Outputs.AccessGrantGrantee> Grantee { get; private set; } = null!;
 
         /// <summary>
-        /// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+        /// Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         /// </summary>
         [Output("permission")]
         public Output<string> Permission { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.S3Control
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -186,31 +186,31 @@ namespace Pulumi.Aws.S3Control
     public sealed class AccessGrantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// See Location Configuration below for more details.
+        /// See `AccessGrantsLocationConfiguration` Block below for more details.
         /// </summary>
         [Input("accessGrantsLocationConfiguration")]
         public Input<Inputs.AccessGrantAccessGrantsLocationConfigurationArgs>? AccessGrantsLocationConfiguration { get; set; }
 
         /// <summary>
-        /// The ID of the S3 Access Grants location to with the access grant is giving access.
+        /// ID of the S3 Access Grants location to with the access grant is giving access.
         /// </summary>
         [Input("accessGrantsLocationId", required: true)]
         public Input<string> AccessGrantsLocationId { get; set; } = null!;
 
         /// <summary>
-        /// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// See Grantee below for more details.
+        /// See `Grantee` Block below for more details.
         /// </summary>
         [Input("grantee", required: true)]
         public Input<Inputs.AccessGrantGranteeArgs> Grantee { get; set; } = null!;
 
         /// <summary>
-        /// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+        /// Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         /// </summary>
         [Input("permission", required: true)]
         public Input<string> Permission { get; set; } = null!;
@@ -260,37 +260,37 @@ namespace Pulumi.Aws.S3Control
         public Input<string>? AccessGrantId { get; set; }
 
         /// <summary>
-        /// See Location Configuration below for more details.
+        /// See `AccessGrantsLocationConfiguration` Block below for more details.
         /// </summary>
         [Input("accessGrantsLocationConfiguration")]
         public Input<Inputs.AccessGrantAccessGrantsLocationConfigurationGetArgs>? AccessGrantsLocationConfiguration { get; set; }
 
         /// <summary>
-        /// The ID of the S3 Access Grants location to with the access grant is giving access.
+        /// ID of the S3 Access Grants location to with the access grant is giving access.
         /// </summary>
         [Input("accessGrantsLocationId")]
         public Input<string>? AccessGrantsLocationId { get; set; }
 
         /// <summary>
-        /// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The access grant's scope.
+        /// Access grant's scope.
         /// </summary>
         [Input("grantScope")]
         public Input<string>? GrantScope { get; set; }
 
         /// <summary>
-        /// See Grantee below for more details.
+        /// See `Grantee` Block below for more details.
         /// </summary>
         [Input("grantee")]
         public Input<Inputs.AccessGrantGranteeGetArgs>? Grantee { get; set; }
 
         /// <summary>
-        /// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+        /// Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.S3Control
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

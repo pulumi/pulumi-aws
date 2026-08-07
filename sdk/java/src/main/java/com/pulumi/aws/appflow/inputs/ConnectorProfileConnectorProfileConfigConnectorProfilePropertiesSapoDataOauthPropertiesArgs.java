@@ -16,14 +16,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs();
 
     /**
-     * The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
+     * Authorization code URL required to redirect to the SAP Login Page to fetch the authorization code for OAuth type authentication.
      * 
      */
     @Import(name="authCodeUrl", required=true)
     private Output<String> authCodeUrl;
 
     /**
-     * @return The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
+     * @return Authorization code URL required to redirect to the SAP Login Page to fetch the authorization code for OAuth type authentication.
      * 
      */
     public Output<String> authCodeUrl() {
@@ -31,23 +31,31 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The OAuth scopes required for OAuth type authentication.
+     * OAuth scopes required for OAuth type authentication.
      * 
      */
     @Import(name="oauthScopes", required=true)
     private Output<List<String>> oauthScopes;
 
     /**
-     * @return The OAuth scopes required for OAuth type authentication.
+     * @return OAuth scopes required for OAuth type authentication.
      * 
      */
     public Output<List<String>> oauthScopes() {
         return this.oauthScopes;
     }
 
+    /**
+     * Token URL required to fetch access and refresh tokens using the authorization code, and to refresh an expired access token using the refresh token.
+     * 
+     */
     @Import(name="tokenUrl", required=true)
     private Output<String> tokenUrl;
 
+    /**
+     * @return Token URL required to fetch access and refresh tokens using the authorization code, and to refresh an expired access token using the refresh token.
+     * 
+     */
     public Output<String> tokenUrl() {
         return this.tokenUrl;
     }
@@ -79,7 +87,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param authCodeUrl The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
+         * @param authCodeUrl Authorization code URL required to redirect to the SAP Login Page to fetch the authorization code for OAuth type authentication.
          * 
          * @return builder
          * 
@@ -90,7 +98,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param authCodeUrl The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
+         * @param authCodeUrl Authorization code URL required to redirect to the SAP Login Page to fetch the authorization code for OAuth type authentication.
          * 
          * @return builder
          * 
@@ -100,7 +108,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param oauthScopes The OAuth scopes required for OAuth type authentication.
+         * @param oauthScopes OAuth scopes required for OAuth type authentication.
          * 
          * @return builder
          * 
@@ -111,7 +119,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param oauthScopes The OAuth scopes required for OAuth type authentication.
+         * @param oauthScopes OAuth scopes required for OAuth type authentication.
          * 
          * @return builder
          * 
@@ -121,7 +129,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param oauthScopes The OAuth scopes required for OAuth type authentication.
+         * @param oauthScopes OAuth scopes required for OAuth type authentication.
          * 
          * @return builder
          * 
@@ -130,11 +138,23 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return oauthScopes(List.of(oauthScopes));
         }
 
+        /**
+         * @param tokenUrl Token URL required to fetch access and refresh tokens using the authorization code, and to refresh an expired access token using the refresh token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tokenUrl(Output<String> tokenUrl) {
             $.tokenUrl = tokenUrl;
             return this;
         }
 
+        /**
+         * @param tokenUrl Token URL required to fetch access and refresh tokens using the authorization code, and to refresh an expired access token using the refresh token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tokenUrl(String tokenUrl) {
             return tokenUrl(Output.of(tokenUrl));
         }

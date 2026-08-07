@@ -103,7 +103,7 @@ export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource
      */
     declare public readonly bucket: pulumi.Output<string>;
     /**
-     * Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+     * Bucket filter. The configuration only includes objects that meet the filter's criteria. See `filter` Block below.
      */
     declare public readonly filter: pulumi.Output<outputs.s3.BucketIntelligentTieringConfigurationFilter | undefined>;
     /**
@@ -115,11 +115,11 @@ export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+     * Status of the configuration. Valid values: `Enabled`, `Disabled`.
      */
     declare public readonly status: pulumi.Output<string | undefined>;
     /**
-     * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+     * S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
      */
     declare public readonly tierings: pulumi.Output<outputs.s3.BucketIntelligentTieringConfigurationTiering[]>;
 
@@ -171,7 +171,7 @@ export interface BucketIntelligentTieringConfigurationState {
      */
     bucket?: pulumi.Input<string | undefined>;
     /**
-     * Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+     * Bucket filter. The configuration only includes objects that meet the filter's criteria. See `filter` Block below.
      */
     filter?: pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationFilter | undefined>;
     /**
@@ -183,11 +183,11 @@ export interface BucketIntelligentTieringConfigurationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+     * Status of the configuration. Valid values: `Enabled`, `Disabled`.
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+     * S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
      */
     tierings?: pulumi.Input<pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationTiering>[] | undefined>;
 }
@@ -201,7 +201,7 @@ export interface BucketIntelligentTieringConfigurationArgs {
      */
     bucket: pulumi.Input<string>;
     /**
-     * Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+     * Bucket filter. The configuration only includes objects that meet the filter's criteria. See `filter` Block below.
      */
     filter?: pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationFilter | undefined>;
     /**
@@ -213,11 +213,11 @@ export interface BucketIntelligentTieringConfigurationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+     * Status of the configuration. Valid values: `Enabled`, `Disabled`.
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+     * S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
      */
     tierings: pulumi.Input<pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationTiering>[]>;
 }

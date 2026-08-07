@@ -189,14 +189,14 @@ public class VpcConnector extends com.pulumi.resources.CustomResource {
         return this.vpcConnectorName;
     }
     /**
-     * The revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
+     * Revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
      * 
      */
     @Export(name="vpcConnectorRevision", refs={Integer.class}, tree="[0]")
     private Output<Integer> vpcConnectorRevision;
 
     /**
-     * @return The revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
+     * @return Revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
      * 
      */
     public Output<Integer> vpcConnectorRevision() {

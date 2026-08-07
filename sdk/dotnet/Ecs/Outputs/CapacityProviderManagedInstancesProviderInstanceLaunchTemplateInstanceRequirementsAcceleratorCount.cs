@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount
     {
+        /// <summary>
+        /// Maximum number of accelerators.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// Minimum number of accelerators.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

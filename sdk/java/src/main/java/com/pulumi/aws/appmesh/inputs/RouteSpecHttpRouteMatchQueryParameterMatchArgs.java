@@ -16,14 +16,14 @@ public final class RouteSpecHttpRouteMatchQueryParameterMatchArgs extends com.pu
     public static final RouteSpecHttpRouteMatchQueryParameterMatchArgs Empty = new RouteSpecHttpRouteMatchQueryParameterMatchArgs();
 
     /**
-     * Header value sent by the client must match the specified value exactly.
+     * Exact query parameter to match on.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return Header value sent by the client must match the specified value exactly.
+     * @return Exact query parameter to match on.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -55,7 +55,7 @@ public final class RouteSpecHttpRouteMatchQueryParameterMatchArgs extends com.pu
         }
 
         /**
-         * @param exact Header value sent by the client must match the specified value exactly.
+         * @param exact Exact query parameter to match on.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class RouteSpecHttpRouteMatchQueryParameterMatchArgs extends com.pu
         }
 
         /**
-         * @param exact Header value sent by the client must match the specified value exactly.
+         * @param exact Exact query parameter to match on.
          * 
          * @return builder
          * 

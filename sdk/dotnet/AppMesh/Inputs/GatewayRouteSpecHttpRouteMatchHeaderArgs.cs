@@ -18,14 +18,11 @@ namespace Pulumi.Aws.AppMesh.Inputs
         [Input("invert")]
         public Input<bool>? Invert { get; set; }
 
-        /// <summary>
-        /// Method and value to match the header value sent with a request. Specify one match method.
-        /// </summary>
         [Input("match")]
         public Input<Inputs.GatewayRouteSpecHttpRouteMatchHeaderMatchArgs>? Match { get; set; }
 
         /// <summary>
-        /// Name for the HTTP header in the client request that will be matched on.
+        /// Name to use for the gateway route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

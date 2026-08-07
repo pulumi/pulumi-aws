@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class KxVolumeNas1Configuration {
     /**
-     * @return The size of the network attached storage.
+     * @return Size of the network attached storage.
      * 
      */
     private Integer size;
     /**
-     * @return The type of the network attached storage.
+     * @return Type of the network attached storage.
      * 
      */
     private String type;
 
     private KxVolumeNas1Configuration() {}
     /**
-     * @return The size of the network attached storage.
+     * @return Size of the network attached storage.
      * 
      */
     public Integer size() {
         return this.size;
     }
     /**
-     * @return The type of the network attached storage.
+     * @return Type of the network attached storage.
      * 
      */
     public String type() {

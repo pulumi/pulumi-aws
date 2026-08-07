@@ -22,6 +22,10 @@ __all__ = [
     'ResiliencyPolicyPolicyRegion',
     'ResiliencyPolicyPolicySoftware',
     'ResiliencyPolicyTimeouts',
+    'V2PolicyAvailabilitySlo',
+    'V2PolicyDataRecovery',
+    'V2PolicyMultiAz',
+    'V2PolicyMultiRegion',
 ]
 
 @pulumi.output_type
@@ -242,5 +246,184 @@ class ResiliencyPolicyTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class V2PolicyAvailabilitySlo(dict):
+    def __init__(__self__, *,
+                 target: _builtins.float):
+        """
+        :param _builtins.float target: Availability target as a percentage (e.g., `99.9`).
+        """
+        pulumi.set(__self__, "target", target)
+
+    @_builtins.property
+    @pulumi.getter
+    def target(self) -> _builtins.float:
+        """
+        Availability target as a percentage (e.g., `99.9`).
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class V2PolicyDataRecovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeBetweenBackupsInMinutes":
+            suggest = "time_between_backups_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2PolicyDataRecovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2PolicyDataRecovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2PolicyDataRecovery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 time_between_backups_in_minutes: _builtins.int):
+        """
+        :param _builtins.int time_between_backups_in_minutes: Maximum time between backups in minutes.
+        """
+        pulumi.set(__self__, "time_between_backups_in_minutes", time_between_backups_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="timeBetweenBackupsInMinutes")
+    def time_between_backups_in_minutes(self) -> _builtins.int:
+        """
+        Maximum time between backups in minutes.
+        """
+        return pulumi.get(self, "time_between_backups_in_minutes")
+
+
+@pulumi.output_type
+class V2PolicyMultiAz(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disasterRecoveryApproach":
+            suggest = "disaster_recovery_approach"
+        elif key == "rpoInMinutes":
+            suggest = "rpo_in_minutes"
+        elif key == "rtoInMinutes":
+            suggest = "rto_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2PolicyMultiAz. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2PolicyMultiAz.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2PolicyMultiAz.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disaster_recovery_approach: _builtins.str,
+                 rpo_in_minutes: Optional[_builtins.int] = None,
+                 rto_in_minutes: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str disaster_recovery_approach: Multi-AZ disaster recovery approach. Valid values: `ACTIVE_ACTIVE`, `HOT_STANDBY`, `WARM_STANDBY`, `PILOT_LIGHT`, `BACKUP_AND_RESTORE`.
+        :param _builtins.int rpo_in_minutes: Recovery point objective in minutes.
+        :param _builtins.int rto_in_minutes: Recovery time objective in minutes.
+        """
+        pulumi.set(__self__, "disaster_recovery_approach", disaster_recovery_approach)
+        if rpo_in_minutes is not None:
+            pulumi.set(__self__, "rpo_in_minutes", rpo_in_minutes)
+        if rto_in_minutes is not None:
+            pulumi.set(__self__, "rto_in_minutes", rto_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="disasterRecoveryApproach")
+    def disaster_recovery_approach(self) -> _builtins.str:
+        """
+        Multi-AZ disaster recovery approach. Valid values: `ACTIVE_ACTIVE`, `HOT_STANDBY`, `WARM_STANDBY`, `PILOT_LIGHT`, `BACKUP_AND_RESTORE`.
+        """
+        return pulumi.get(self, "disaster_recovery_approach")
+
+    @_builtins.property
+    @pulumi.getter(name="rpoInMinutes")
+    def rpo_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        Recovery point objective in minutes.
+        """
+        return pulumi.get(self, "rpo_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="rtoInMinutes")
+    def rto_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        Recovery time objective in minutes.
+        """
+        return pulumi.get(self, "rto_in_minutes")
+
+
+@pulumi.output_type
+class V2PolicyMultiRegion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disasterRecoveryApproach":
+            suggest = "disaster_recovery_approach"
+        elif key == "rpoInMinutes":
+            suggest = "rpo_in_minutes"
+        elif key == "rtoInMinutes":
+            suggest = "rto_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2PolicyMultiRegion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2PolicyMultiRegion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2PolicyMultiRegion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disaster_recovery_approach: _builtins.str,
+                 rpo_in_minutes: Optional[_builtins.int] = None,
+                 rto_in_minutes: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str disaster_recovery_approach: Multi-region disaster recovery approach. Valid values: `ACTIVE_ACTIVE`, `HOT_STANDBY`, `WARM_STANDBY`, `PILOT_LIGHT`, `BACKUP_AND_RESTORE`.
+        :param _builtins.int rpo_in_minutes: Recovery point objective in minutes.
+        :param _builtins.int rto_in_minutes: Recovery time objective in minutes.
+        """
+        pulumi.set(__self__, "disaster_recovery_approach", disaster_recovery_approach)
+        if rpo_in_minutes is not None:
+            pulumi.set(__self__, "rpo_in_minutes", rpo_in_minutes)
+        if rto_in_minutes is not None:
+            pulumi.set(__self__, "rto_in_minutes", rto_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="disasterRecoveryApproach")
+    def disaster_recovery_approach(self) -> _builtins.str:
+        """
+        Multi-region disaster recovery approach. Valid values: `ACTIVE_ACTIVE`, `HOT_STANDBY`, `WARM_STANDBY`, `PILOT_LIGHT`, `BACKUP_AND_RESTORE`.
+        """
+        return pulumi.get(self, "disaster_recovery_approach")
+
+    @_builtins.property
+    @pulumi.getter(name="rpoInMinutes")
+    def rpo_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        Recovery point objective in minutes.
+        """
+        return pulumi.get(self, "rpo_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="rtoInMinutes")
+    def rto_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        Recovery time objective in minutes.
+        """
+        return pulumi.get(self, "rto_in_minutes")
 
 

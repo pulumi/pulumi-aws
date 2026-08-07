@@ -16,42 +16,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class MultiRegionAccessPointDetails {
     /**
-     * @return The name of the Multi-Region Access Point.
+     * @return Name of the Multi-Region Access Point.
      * 
      */
     private String name;
     /**
-     * @return Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+     * @return Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See `publicAccessBlock` Block below.
      * 
      */
     private @Nullable MultiRegionAccessPointDetailsPublicAccessBlock publicAccessBlock;
     /**
-     * @return The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-     * 
-     * For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
+     * @return Region configuration block to specify the bucket associated with the Multi-Region Access Point. See `region` Block below.
      * 
      */
     private List<MultiRegionAccessPointDetailsRegion> regions;
 
     private MultiRegionAccessPointDetails() {}
     /**
-     * @return The name of the Multi-Region Access Point.
+     * @return Name of the Multi-Region Access Point.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+     * @return Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See `publicAccessBlock` Block below.
      * 
      */
     public Optional<MultiRegionAccessPointDetailsPublicAccessBlock> publicAccessBlock() {
         return Optional.ofNullable(this.publicAccessBlock);
     }
     /**
-     * @return The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-     * 
-     * For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
+     * @return Region configuration block to specify the bucket associated with the Multi-Region Access Point. See `region` Block below.
      * 
      */
     public List<MultiRegionAccessPointDetailsRegion> regions() {

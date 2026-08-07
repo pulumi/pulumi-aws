@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps
     {
+        /// <summary>
+        /// Maximum baseline Amazon EBS bandwidth, in Mbps.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// Minimum baseline Amazon EBS bandwidth, in Mbps.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

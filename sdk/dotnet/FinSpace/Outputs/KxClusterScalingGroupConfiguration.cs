@@ -14,23 +14,23 @@ namespace Pulumi.Aws.FinSpace.Outputs
     public sealed class KxClusterScalingGroupConfiguration
     {
         /// <summary>
-        /// The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+        /// Number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
         /// </summary>
         public readonly double? Cpu;
         /// <summary>
-        /// An optional hard limit on the amount of memory a kdb cluster can use.
+        /// Hard limit on the amount of memory a kdb cluster can use.
         /// </summary>
         public readonly int? MemoryLimit;
         /// <summary>
-        /// A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+        /// Reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
         /// </summary>
         public readonly int MemoryReservation;
         /// <summary>
-        /// The number of kdb cluster nodes.
+        /// Number of kdb cluster nodes.
         /// </summary>
         public readonly int NodeCount;
         /// <summary>
-        /// A unique identifier for the kdb scaling group.
+        /// Unique identifier for the kdb scaling group.
         /// </summary>
         public readonly string ScalingGroupName;
 

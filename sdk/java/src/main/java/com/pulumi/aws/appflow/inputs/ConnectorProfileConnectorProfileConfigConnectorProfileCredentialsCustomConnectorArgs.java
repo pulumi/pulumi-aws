@@ -20,22 +20,30 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs();
 
+    /**
+     * Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * 
+     */
     @Import(name="apiKey")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs> apiKey;
 
+    /**
+     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * 
+     */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs>> apiKey() {
         return Optional.ofNullable(this.apiKey);
     }
 
     /**
-     * The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+     * Authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
      * 
      */
     @Import(name="authenticationType", required=true)
     private Output<String> authenticationType;
 
     /**
-     * @return The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+     * @return Authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
      * 
      */
     public Output<String> authenticationType() {
@@ -43,14 +51,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Basic credentials that are required for the authentication of the user.
+     * Basic credentials that are required for the authentication of the user. See `connector_profile_config.connector_profile_credentials.custom_connector.basic` Block for details.
      * 
      */
     @Import(name="basic")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs> basic;
 
     /**
-     * @return Basic credentials that are required for the authentication of the user.
+     * @return Basic credentials that are required for the authentication of the user. See `connector_profile_config.connector_profile_credentials.custom_connector.basic` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs>> basic() {
@@ -58,14 +66,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * If the connector uses the custom authentication mechanism, this holds the required credentials.
+     * Credentials required when the connector uses the custom authentication mechanism. See `connector_profile_config.connector_profile_credentials.custom_connector.custom` Block for details.
      * 
      */
     @Import(name="custom")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs> custom;
 
     /**
-     * @return If the connector uses the custom authentication mechanism, this holds the required credentials.
+     * @return Credentials required when the connector uses the custom authentication mechanism. See `connector_profile_config.connector_profile_credentials.custom_connector.custom` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs>> custom() {
@@ -73,14 +81,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * OAuth 2.0 credentials required for the authentication of the user.
+     * OAuth 2.0 credentials required for the authentication of the user. See `connector_profile_config.connector_profile_credentials.custom_connector.oauth2` Block for details.
      * 
      */
     @Import(name="oauth2")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args> oauth2;
 
     /**
-     * @return OAuth 2.0 credentials required for the authentication of the user.
+     * @return OAuth 2.0 credentials required for the authentication of the user. See `connector_profile_config.connector_profile_credentials.custom_connector.oauth2` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args>> oauth2() {
@@ -115,17 +123,29 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param apiKey Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiKey(@Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs> apiKey) {
             $.apiKey = apiKey;
             return this;
         }
 
+        /**
+         * @param apiKey Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiKey(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs apiKey) {
             return apiKey(Output.of(apiKey));
         }
 
         /**
-         * @param authenticationType The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+         * @param authenticationType Authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
          * 
          * @return builder
          * 
@@ -136,7 +156,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param authenticationType The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+         * @param authenticationType Authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
          * 
          * @return builder
          * 
@@ -146,7 +166,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param basic Basic credentials that are required for the authentication of the user.
+         * @param basic Basic credentials that are required for the authentication of the user. See `connector_profile_config.connector_profile_credentials.custom_connector.basic` Block for details.
          * 
          * @return builder
          * 
@@ -157,7 +177,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param basic Basic credentials that are required for the authentication of the user.
+         * @param basic Basic credentials that are required for the authentication of the user. See `connector_profile_config.connector_profile_credentials.custom_connector.basic` Block for details.
          * 
          * @return builder
          * 
@@ -167,7 +187,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param custom If the connector uses the custom authentication mechanism, this holds the required credentials.
+         * @param custom Credentials required when the connector uses the custom authentication mechanism. See `connector_profile_config.connector_profile_credentials.custom_connector.custom` Block for details.
          * 
          * @return builder
          * 
@@ -178,7 +198,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param custom If the connector uses the custom authentication mechanism, this holds the required credentials.
+         * @param custom Credentials required when the connector uses the custom authentication mechanism. See `connector_profile_config.connector_profile_credentials.custom_connector.custom` Block for details.
          * 
          * @return builder
          * 
@@ -188,7 +208,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param oauth2 OAuth 2.0 credentials required for the authentication of the user.
+         * @param oauth2 OAuth 2.0 credentials required for the authentication of the user. See `connector_profile_config.connector_profile_credentials.custom_connector.oauth2` Block for details.
          * 
          * @return builder
          * 
@@ -199,7 +219,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param oauth2 OAuth 2.0 credentials required for the authentication of the user.
+         * @param oauth2 OAuth 2.0 credentials required for the authentication of the user. See `connector_profile_config.connector_profile_credentials.custom_connector.oauth2` Block for details.
          * 
          * @return builder
          * 

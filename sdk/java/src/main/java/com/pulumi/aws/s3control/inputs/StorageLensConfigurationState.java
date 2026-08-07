@@ -18,14 +18,14 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
     public static final StorageLensConfigurationState Empty = new StorageLensConfigurationState();
 
     /**
-     * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -48,14 +48,14 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the S3 Storage Lens configuration.
+     * ID of the S3 Storage Lens configuration.
      * 
      */
     @Import(name="configId")
     private @Nullable Output<String> configId;
 
     /**
-     * @return The ID of the S3 Storage Lens configuration.
+     * @return ID of the S3 Storage Lens configuration.
      * 
      */
     public Optional<Output<String>> configId() {
@@ -78,14 +78,14 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
     }
 
     /**
-     * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+     * S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
      * 
      */
     @Import(name="storageLensConfiguration")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationArgs> storageLensConfiguration;
 
     /**
-     * @return The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+     * @return S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationArgs>> storageLensConfiguration() {
@@ -108,14 +108,14 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -153,7 +153,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param configId The ID of the S3 Storage Lens configuration.
+         * @param configId ID of the S3 Storage Lens configuration.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param configId The ID of the S3 Storage Lens configuration.
+         * @param configId ID of the S3 Storage Lens configuration.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param storageLensConfiguration The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+         * @param storageLensConfiguration S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param storageLensConfiguration The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+         * @param storageLensConfiguration S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

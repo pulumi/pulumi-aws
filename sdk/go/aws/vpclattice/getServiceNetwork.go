@@ -55,8 +55,9 @@ type LookupServiceNetworkArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Identifier of the service network.
-	ServiceNetworkIdentifier string            `pulumi:"serviceNetworkIdentifier"`
-	Tags                     map[string]string `pulumi:"tags"`
+	ServiceNetworkIdentifier string `pulumi:"serviceNetworkIdentifier"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getServiceNetwork.
@@ -76,10 +77,11 @@ type LookupServiceNetworkResult struct {
 	// Number of services associated with this service network.
 	NumberOfAssociatedServices int `pulumi:"numberOfAssociatedServices"`
 	// Number of VPCs associated with this service network.
-	NumberOfAssociatedVpcs   int               `pulumi:"numberOfAssociatedVpcs"`
-	Region                   string            `pulumi:"region"`
-	ServiceNetworkIdentifier string            `pulumi:"serviceNetworkIdentifier"`
-	Tags                     map[string]string `pulumi:"tags"`
+	NumberOfAssociatedVpcs   int    `pulumi:"numberOfAssociatedVpcs"`
+	Region                   string `pulumi:"region"`
+	ServiceNetworkIdentifier string `pulumi:"serviceNetworkIdentifier"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupServiceNetworkOutput(ctx *pulumi.Context, args LookupServiceNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupServiceNetworkResultOutput {
@@ -96,8 +98,9 @@ type LookupServiceNetworkOutputArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Identifier of the service network.
-	ServiceNetworkIdentifier pulumi.StringInput    `pulumi:"serviceNetworkIdentifier"`
-	Tags                     pulumi.StringMapInput `pulumi:"tags"`
+	ServiceNetworkIdentifier pulumi.StringInput `pulumi:"serviceNetworkIdentifier"`
+	// Map of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupServiceNetworkOutputArgs) ElementType() reflect.Type {
@@ -167,6 +170,7 @@ func (o LookupServiceNetworkResultOutput) ServiceNetworkIdentifier() pulumi.Stri
 	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.ServiceNetworkIdentifier }).(pulumi.StringOutput)
 }
 
+// Map of tags assigned to the resource.
 func (o LookupServiceNetworkResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

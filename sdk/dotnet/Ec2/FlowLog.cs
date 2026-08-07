@@ -400,7 +400,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> DeliverCrossAccountRole { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the destination options for a flow log. More details below.
+        /// Destination options for a flow log. More details below.
         /// </summary>
         [Output("destinationOptions")]
         public Output<Outputs.FlowLogDestinationOptions?> DestinationOptions { get; private set; } = null!;
@@ -430,15 +430,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> LogDestinationType { get; private set; } = null!;
 
         /// <summary>
-        /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
+        /// Fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         /// </summary>
         [Output("logFormat")]
         public Output<string> LogFormat { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-        /// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-        /// When `TransitGatewayId` or `TransitGatewayAttachmentId` is specified, `MaxAggregationInterval` *must* be 60 seconds (1 minute).
+        /// Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `TransitGatewayId` or `TransitGatewayAttachmentId` is specified, `MaxAggregationInterval` *must* be 60 seconds (1 minute).
         /// </summary>
         [Output("maxAggregationInterval")]
         public Output<int?> MaxAggregationInterval { get; private set; } = null!;
@@ -474,13 +472,13 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `EniId`, `RegionalNatGatewayId`, `SubnetId`, or `VpcId` is specified.
+        /// Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `EniId`, `RegionalNatGatewayId`, `SubnetId`, or `VpcId` is specified.
         /// </summary>
         [Output("trafficType")]
         public Output<string?> TrafficType { get; private set; } = null!;
@@ -558,7 +556,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? DeliverCrossAccountRole { get; set; }
 
         /// <summary>
-        /// Describes the destination options for a flow log. More details below.
+        /// Destination options for a flow log. More details below.
         /// </summary>
         [Input("destinationOptions")]
         public Input<Inputs.FlowLogDestinationOptionsArgs>? DestinationOptions { get; set; }
@@ -588,15 +586,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogDestinationType { get; set; }
 
         /// <summary>
-        /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
+        /// Fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         /// </summary>
         [Input("logFormat")]
         public Input<string>? LogFormat { get; set; }
 
         /// <summary>
-        /// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-        /// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-        /// When `TransitGatewayId` or `TransitGatewayAttachmentId` is specified, `MaxAggregationInterval` *must* be 60 seconds (1 minute).
+        /// Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `TransitGatewayId` or `TransitGatewayAttachmentId` is specified, `MaxAggregationInterval` *must* be 60 seconds (1 minute).
         /// </summary>
         [Input("maxAggregationInterval")]
         public Input<int>? MaxAggregationInterval { get; set; }
@@ -644,7 +640,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `EniId`, `RegionalNatGatewayId`, `SubnetId`, or `VpcId` is specified.
+        /// Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `EniId`, `RegionalNatGatewayId`, `SubnetId`, or `VpcId` is specified.
         /// </summary>
         [Input("trafficType")]
         public Input<string>? TrafficType { get; set; }
@@ -690,7 +686,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? DeliverCrossAccountRole { get; set; }
 
         /// <summary>
-        /// Describes the destination options for a flow log. More details below.
+        /// Destination options for a flow log. More details below.
         /// </summary>
         [Input("destinationOptions")]
         public Input<Inputs.FlowLogDestinationOptionsGetArgs>? DestinationOptions { get; set; }
@@ -720,15 +716,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogDestinationType { get; set; }
 
         /// <summary>
-        /// The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
+        /// Fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         /// </summary>
         [Input("logFormat")]
         public Input<string>? LogFormat { get; set; }
 
         /// <summary>
-        /// The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-        /// Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-        /// When `TransitGatewayId` or `TransitGatewayAttachmentId` is specified, `MaxAggregationInterval` *must* be 60 seconds (1 minute).
+        /// Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `TransitGatewayId` or `TransitGatewayAttachmentId` is specified, `MaxAggregationInterval` *must* be 60 seconds (1 minute).
         /// </summary>
         [Input("maxAggregationInterval")]
         public Input<int>? MaxAggregationInterval { get; set; }
@@ -779,7 +773,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -788,7 +782,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `EniId`, `RegionalNatGatewayId`, `SubnetId`, or `VpcId` is specified.
+        /// Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `EniId`, `RegionalNatGatewayId`, `SubnetId`, or `VpcId` is specified.
         /// </summary>
         [Input("trafficType")]
         public Input<string>? TrafficType { get; set; }

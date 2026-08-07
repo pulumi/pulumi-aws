@@ -29,9 +29,9 @@ class BucketAbacArgs:
         The set of arguments for constructing a BucketAbac resource.
 
         :param pulumi.Input['BucketAbacAbacStatusArgs'] abac_status: ABAC status configuration. See `abac_status` Block for details.
+        :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -50,8 +50,6 @@ class BucketAbacArgs:
     def abac_status(self) -> pulumi.Input['BucketAbacAbacStatusArgs']:
         """
         ABAC status configuration. See `abac_status` Block for details.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "abac_status")
 
@@ -64,6 +62,8 @@ class BucketAbacArgs:
     def bucket(self) -> pulumi.Input[_builtins.str]:
         """
         General purpose bucket that you want to create the metadata configuration for.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "bucket")
 
@@ -108,9 +108,9 @@ class _BucketAbacState:
         Input properties used for looking up and filtering BucketAbac resources.
 
         :param pulumi.Input['BucketAbacAbacStatusArgs'] abac_status: ABAC status configuration. See `abac_status` Block for details.
+        :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -131,8 +131,6 @@ class _BucketAbacState:
     def abac_status(self) -> pulumi.Input[Optional['BucketAbacAbacStatusArgs']]:
         """
         ABAC status configuration. See `abac_status` Block for details.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "abac_status")
 
@@ -145,6 +143,8 @@ class _BucketAbacState:
     def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         General purpose bucket that you want to create the metadata configuration for.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "bucket")
 
@@ -231,9 +231,9 @@ class BucketAbac(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BucketAbacAbacStatusArgs', 'BucketAbacAbacStatusArgsDict']] abac_status: ABAC status configuration. See `abac_status` Block for details.
+        :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -340,9 +340,9 @@ class BucketAbac(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BucketAbacAbacStatusArgs', 'BucketAbacAbacStatusArgsDict']] abac_status: ABAC status configuration. See `abac_status` Block for details.
+        :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -361,8 +361,6 @@ class BucketAbac(pulumi.CustomResource):
     def abac_status(self) -> pulumi.Output['outputs.BucketAbacAbacStatus']:
         """
         ABAC status configuration. See `abac_status` Block for details.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "abac_status")
 
@@ -371,6 +369,8 @@ class BucketAbac(pulumi.CustomResource):
     def bucket(self) -> pulumi.Output[_builtins.str]:
         """
         General purpose bucket that you want to create the metadata configuration for.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "bucket")
 

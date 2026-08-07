@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<string>? PropagateTags { get; set; }
 
         /// <summary>
-        /// The type of volume resource. Valid values, `Volume`.
+        /// Type of volume resource. Valid values, `Volume`.
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
+        /// Tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
         /// </summary>
         public InputMap<string> Tags
         {

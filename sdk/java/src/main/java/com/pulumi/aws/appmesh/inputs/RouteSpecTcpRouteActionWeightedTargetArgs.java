@@ -18,14 +18,14 @@ public final class RouteSpecTcpRouteActionWeightedTargetArgs extends com.pulumi.
     public static final RouteSpecTcpRouteActionWeightedTargetArgs Empty = new RouteSpecTcpRouteActionWeightedTargetArgs();
 
     /**
-     * The targeted port of the weighted object.
+     * Port number to match from the request.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The targeted port of the weighted object.
+     * @return Port number to match from the request.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -89,7 +89,7 @@ public final class RouteSpecTcpRouteActionWeightedTargetArgs extends com.pulumi.
         }
 
         /**
-         * @param port The targeted port of the weighted object.
+         * @param port Port number to match from the request.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class RouteSpecTcpRouteActionWeightedTargetArgs extends com.pulumi.
         }
 
         /**
-         * @param port The targeted port of the weighted object.
+         * @param port Port number to match from the request.
          * 
          * @return builder
          * 

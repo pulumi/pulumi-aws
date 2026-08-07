@@ -113,7 +113,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+        /// Bucket filter. The configuration only includes objects that meet the filter's criteria. See `Filter` Block below.
         /// </summary>
         [Output("filter")]
         public Output<Outputs.BucketIntelligentTieringConfigurationFilter?> Filter { get; private set; } = null!;
@@ -131,13 +131,13 @@ namespace Pulumi.Aws.S3
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+        /// Status of the configuration. Valid values: `Enabled`, `Disabled`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+        /// S3 Intelligent-Tiering storage class tiers of the configuration. See `Tiering` Block below.
         /// </summary>
         [Output("tierings")]
         public Output<ImmutableArray<Outputs.BucketIntelligentTieringConfigurationTiering>> Tierings { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.S3
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+        /// Bucket filter. The configuration only includes objects that meet the filter's criteria. See `Filter` Block below.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketIntelligentTieringConfigurationFilterArgs>? Filter { get; set; }
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+        /// Status of the configuration. Valid values: `Enabled`, `Disabled`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketIntelligentTieringConfigurationTieringArgs>? _tierings;
 
         /// <summary>
-        /// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+        /// S3 Intelligent-Tiering storage class tiers of the configuration. See `Tiering` Block below.
         /// </summary>
         public InputList<Inputs.BucketIntelligentTieringConfigurationTieringArgs> Tierings
         {
@@ -245,7 +245,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+        /// Bucket filter. The configuration only includes objects that meet the filter's criteria. See `Filter` Block below.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketIntelligentTieringConfigurationFilterGetArgs>? Filter { get; set; }
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+        /// Status of the configuration. Valid values: `Enabled`, `Disabled`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketIntelligentTieringConfigurationTieringGetArgs>? _tierings;
 
         /// <summary>
-        /// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+        /// S3 Intelligent-Tiering storage class tiers of the configuration. See `Tiering` Block below.
         /// </summary>
         public InputList<Inputs.BucketIntelligentTieringConfigurationTieringGetArgs> Tierings
         {

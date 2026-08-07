@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyPredictiveScalingPolicyConfiguration {
     /**
-     * @return The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
+     * @return Behavior applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
      * 
      */
     private @Nullable String maxCapacityBreachBehavior;
@@ -26,7 +26,7 @@ public final class PolicyPredictiveScalingPolicyConfiguration {
      */
     private @Nullable Integer maxCapacityBuffer;
     /**
-     * @return Metrics and target utilization to use for predictive scaling. See supported fields below.
+     * @return Metrics and target utilization to use for predictive scaling. See `predictive_scaling_policy_configuration.metric_specification` Block for details.
      * 
      */
     private List<PolicyPredictiveScalingPolicyConfigurationMetricSpecification> metricSpecifications;
@@ -43,7 +43,7 @@ public final class PolicyPredictiveScalingPolicyConfiguration {
 
     private PolicyPredictiveScalingPolicyConfiguration() {}
     /**
-     * @return The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
+     * @return Behavior applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
      * 
      */
     public Optional<String> maxCapacityBreachBehavior() {
@@ -57,7 +57,7 @@ public final class PolicyPredictiveScalingPolicyConfiguration {
         return Optional.ofNullable(this.maxCapacityBuffer);
     }
     /**
-     * @return Metrics and target utilization to use for predictive scaling. See supported fields below.
+     * @return Metrics and target utilization to use for predictive scaling. See `predictive_scaling_policy_configuration.metric_specification` Block for details.
      * 
      */
     public List<PolicyPredictiveScalingPolicyConfigurationMetricSpecification> metricSpecifications() {

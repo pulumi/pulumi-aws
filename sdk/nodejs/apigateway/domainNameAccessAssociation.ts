@@ -63,11 +63,11 @@ export class DomainNameAccessAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+     * Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
      */
     declare public readonly accessAssociationSource: pulumi.Output<string>;
     /**
-     * The type of the domain name access association source. Valid values are `VPCE`.
+     * Type of the domain name access association source. Valid values are `VPCE`.
      */
     declare public readonly accessAssociationSourceType: pulumi.Output<string>;
     /**
@@ -75,7 +75,7 @@ export class DomainNameAccessAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The ARN of the domain name.
+     * ARN of the domain name.
      */
     declare public readonly domainNameArn: pulumi.Output<string>;
     /**
@@ -140,11 +140,11 @@ export class DomainNameAccessAssociation extends pulumi.CustomResource {
  */
 export interface DomainNameAccessAssociationState {
     /**
-     * The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+     * Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
      */
     accessAssociationSource?: pulumi.Input<string | undefined>;
     /**
-     * The type of the domain name access association source. Valid values are `VPCE`.
+     * Type of the domain name access association source. Valid values are `VPCE`.
      */
     accessAssociationSourceType?: pulumi.Input<string | undefined>;
     /**
@@ -152,7 +152,7 @@ export interface DomainNameAccessAssociationState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the domain name.
+     * ARN of the domain name.
      */
     domainNameArn?: pulumi.Input<string | undefined>;
     /**
@@ -174,15 +174,15 @@ export interface DomainNameAccessAssociationState {
  */
 export interface DomainNameAccessAssociationArgs {
     /**
-     * The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+     * Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
      */
     accessAssociationSource: pulumi.Input<string>;
     /**
-     * The type of the domain name access association source. Valid values are `VPCE`.
+     * Type of the domain name access association source. Valid values are `VPCE`.
      */
     accessAssociationSourceType: pulumi.Input<string>;
     /**
-     * The ARN of the domain name.
+     * ARN of the domain name.
      */
     domainNameArn: pulumi.Input<string>;
     /**

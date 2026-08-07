@@ -14,19 +14,19 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GatewayRouteSpecHttpRouteMatch
     {
         /// <summary>
-        /// Client request headers to match on. See `Header` Block for details.
+        /// Client request headers to match on. See `spec.http2_route.match.header` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GatewayRouteSpecHttpRouteMatchHeader> Headers;
         /// <summary>
-        /// Host name to match on. See `Hostname` Block for details.
+        /// Host name to match on. See `spec.http2_route.match.hostname` Block for details.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteMatchHostname? Hostname;
         /// <summary>
-        /// Client request path to match on. See `Path` Block for details.
+        /// Client request path to match on. See `spec.http2_route.match.path` Block for details.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteMatchPath? Path;
         /// <summary>
-        /// The port number to match from the request.
+        /// Port number to match from the request.
         /// </summary>
         public readonly int? Port;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// Client request query parameters to match on. See `QueryParameter` Block for details.
+        /// Client request query parameters to match on. See `spec.http2_route.match.query_parameter` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GatewayRouteSpecHttpRouteMatchQueryParameter> QueryParameters;
 

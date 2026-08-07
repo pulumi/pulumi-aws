@@ -13,8 +13,17 @@ namespace Pulumi.Aws.FinSpace.Outputs
     [OutputType]
     public sealed class KxVolumeAttachedCluster
     {
+        /// <summary>
+        /// Name of the KX cluster.
+        /// </summary>
         public readonly string ClusterName;
+        /// <summary>
+        /// Status of the KX cluster.
+        /// </summary>
         public readonly string ClusterStatus;
+        /// <summary>
+        /// Type of the KX cluster.
+        /// </summary>
         public readonly string ClusterType;
 
         [OutputConstructor]

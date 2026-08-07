@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private InputList<string>? _aggregates;
 
         /// <summary>
-        /// Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+        /// Names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
         /// </summary>
         public InputList<string> Aggregates
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Fsx.Inputs
         }
 
         /// <summary>
-        /// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+        /// Number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
         /// </summary>
         [Input("constituentsPerAggregate")]
         public Input<int>? ConstituentsPerAggregate { get; set; }
 
         /// <summary>
-        /// The total amount of constituents for a `FLEXGROUP` volume. This would equal ConstituentsPerAggregate x aggregates.
+        /// Total amount of constituents for a `FLEXGROUP` volume. This would equal ConstituentsPerAggregate x aggregates.
         /// </summary>
         [Input("totalConstituents")]
         public Input<int>? TotalConstituents { get; set; }

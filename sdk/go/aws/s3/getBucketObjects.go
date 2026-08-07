@@ -28,7 +28,7 @@ func GetBucketObjects(ctx *pulumi.Context, args *GetBucketObjectsArgs, opts ...p
 
 // A collection of arguments for invoking getBucketObjects.
 type GetBucketObjectsArgs struct {
-	// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+	// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.getObjects` data source instead.
 	//
 	// Deprecated: bucket is deprecated. Use the s3.getObjects data source instead.
 	Bucket string `pulumi:"bucket"`
@@ -80,7 +80,7 @@ func GetBucketObjectsOutput(ctx *pulumi.Context, args GetBucketObjectsOutputArgs
 
 // A collection of arguments for invoking getBucketObjects.
 type GetBucketObjectsOutputArgs struct {
-	// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+	// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.getObjects` data source instead.
 	//
 	// Deprecated: bucket is deprecated. Use the s3.getObjects data source instead.
 	Bucket pulumi.StringInput `pulumi:"bucket"`

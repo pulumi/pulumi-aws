@@ -216,28 +216,28 @@ public class Backup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+     * ID of the file system to back up. Required if backing up Lustre or Windows file systems.
      * 
      */
     @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileSystemId;
 
     /**
-     * @return The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+     * @return ID of the file system to back up. Required if backing up Lustre or Windows file systems.
      * 
      */
     public Output<Optional<String>> fileSystemId() {
         return Codegen.optional(this.fileSystemId);
     }
     /**
-     * The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system&#39;s data at rest.
+     * ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system&#39;s data at rest.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system&#39;s data at rest.
+     * @return ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system&#39;s data at rest.
      * 
      */
     public Output<String> kmsKeyId() {
@@ -272,60 +272,56 @@ public class Backup extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * @return Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The type of the file system backup.
+     * Type of the file system backup.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of the file system backup.
+     * @return Type of the file system backup.
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * The ID of the volume to back up. Required if backing up a ONTAP Volume.
-     * 
-     * Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
+     * ID of the volume to back up. Required if backing up a ONTAP Volume.
      * 
      */
     @Export(name="volumeId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> volumeId;
 
     /**
-     * @return The ID of the volume to back up. Required if backing up a ONTAP Volume.
-     * 
-     * Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
+     * @return ID of the volume to back up. Required if backing up a ONTAP Volume.
      * 
      */
     public Output<Optional<String>> volumeId() {

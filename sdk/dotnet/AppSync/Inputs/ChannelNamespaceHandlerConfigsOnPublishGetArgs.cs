@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         public Input<string> Behavior { get; set; } = null!;
 
         /// <summary>
-        /// Integration data source configuration for the handler. See Integration below.
+        /// Integration data source configuration for the handler. See `Integration` below.
         /// </summary>
         [Input("integration", required: true)]
         public Input<Inputs.ChannelNamespaceHandlerConfigsOnPublishIntegrationGetArgs> Integration { get; set; } = null!;

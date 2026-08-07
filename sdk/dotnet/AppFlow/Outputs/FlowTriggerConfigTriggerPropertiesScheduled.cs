@@ -26,11 +26,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string? ScheduleEndTime;
         /// <summary>
-        /// Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+        /// Scheduling expression that determines the rate at which the schedule runs, for example `rate(5minutes)`.
         /// </summary>
         public readonly string ScheduleExpression;
         /// <summary>
-        /// Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+        /// Offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
         /// </summary>
         public readonly int? ScheduleOffset;
         /// <summary>
@@ -39,31 +39,6 @@ namespace Pulumi.Aws.AppFlow.Outputs
         public readonly string? ScheduleStartTime;
         /// <summary>
         /// Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = new Aws.AppFlow.Flow("example", new()
-        ///     {
-        ///         TriggerConfig = new Aws.AppFlow.Inputs.FlowTriggerConfigArgs
-        ///         {
-        ///             Scheduled = new[]
-        ///             {
-        ///                 
-        ///                 {
-        ///                     { "scheduleExpression", "rate(1minutes)" },
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
         /// </summary>
         public readonly string? Timezone;
 

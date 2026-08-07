@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum amount of memory per vCPU, in GiB.
+        /// </summary>
         [Input("max")]
         public Input<double>? Max { get; set; }
 
+        /// <summary>
+        /// Minimum amount of memory per vCPU, in GiB.
+        /// </summary>
         [Input("min")]
         public Input<double>? Min { get; set; }
 

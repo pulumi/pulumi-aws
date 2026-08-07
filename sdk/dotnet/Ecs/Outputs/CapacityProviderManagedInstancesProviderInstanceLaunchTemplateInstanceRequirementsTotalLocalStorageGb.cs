@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb
     {
+        /// <summary>
+        /// Maximum total local storage, in GB.
+        /// </summary>
         public readonly double? Max;
+        /// <summary>
+        /// Minimum total local storage, in GB.
+        /// </summary>
         public readonly double? Min;
 
         [OutputConstructor]

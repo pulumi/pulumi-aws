@@ -28,14 +28,14 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     public static final KxClusterArgs Empty = new KxClusterArgs();
 
     /**
-     * Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
+     * Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `autoScalingConfiguration` Block.
      * 
      */
     @Import(name="autoScalingConfiguration")
     private @Nullable Output<KxClusterAutoScalingConfigurationArgs> autoScalingConfiguration;
 
     /**
-     * @return Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
+     * @return Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `autoScalingConfiguration` Block.
      * 
      */
     public Optional<Output<KxClusterAutoScalingConfigurationArgs>> autoScalingConfiguration() {
@@ -43,14 +43,14 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
+     * Availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
      * 
      */
     @Import(name="availabilityZoneId")
     private @Nullable Output<String> availabilityZoneId;
 
     /**
-     * @return The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
+     * @return Availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
      * 
      */
     public Optional<Output<String>> availabilityZoneId() {
@@ -58,18 +58,14 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of availability zones you want to assign per cluster. This can be one of the following:
-     * * SINGLE - Assigns one availability zone per cluster.
-     * * MULTI - Assigns all the availability zones per cluster.
+     * Number of availability zones to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
      * 
      */
     @Import(name="azMode", required=true)
     private Output<String> azMode;
 
     /**
-     * @return The number of availability zones you want to assign per cluster. This can be one of the following:
-     * * SINGLE - Assigns one availability zone per cluster.
-     * * MULTI - Assigns all the availability zones per cluster.
+     * @return Number of availability zones to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
      * 
      */
     public Output<String> azMode() {
@@ -77,14 +73,14 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
+     * Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See `cacheStorageConfigurations` Block.
      * 
      */
     @Import(name="cacheStorageConfigurations")
     private @Nullable Output<List<KxClusterCacheStorageConfigurationArgs>> cacheStorageConfigurations;
 
     /**
-     * @return Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
+     * @return Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See `cacheStorageConfigurations` Block.
      * 
      */
     public Optional<Output<List<KxClusterCacheStorageConfigurationArgs>>> cacheStorageConfigurations() {
@@ -92,14 +88,14 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
+     * Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See `capacityConfiguration` Block.
      * 
      */
     @Import(name="capacityConfiguration")
     private @Nullable Output<KxClusterCapacityConfigurationArgs> capacityConfiguration;
 
     /**
-     * @return Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
+     * @return Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See `capacityConfiguration` Block.
      * 
      */
     public Optional<Output<KxClusterCapacityConfigurationArgs>> capacityConfiguration() {
@@ -107,14 +103,14 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
+     * Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See `code` Block.
      * 
      */
     @Import(name="code")
     private @Nullable Output<KxClusterCodeArgs> code;
 
     /**
-     * @return Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
+     * @return Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See `code` Block.
      * 
      */
     public Optional<Output<KxClusterCodeArgs>> code() {
@@ -137,14 +133,14 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * KX database that will be available for querying. Defined below.
+     * KX database that will be available for querying. See `database` Block.
      * 
      */
     @Import(name="databases")
     private @Nullable Output<List<KxClusterDatabaseArgs>> databases;
 
     /**
-     * @return KX database that will be available for querying. Defined below.
+     * @return KX database that will be available for querying. See `database` Block.
      * 
      */
     public Optional<Output<List<KxClusterDatabaseArgs>>> databases() {
@@ -182,14 +178,14 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
+     * IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
      * 
      */
     @Import(name="executionRole")
     private @Nullable Output<String> executionRole;
 
     /**
-     * @return An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
+     * @return IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
      * 
      */
     public Optional<Output<String>> executionRole() {
@@ -257,14 +253,14 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+     * Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See `savedownStorageConfiguration` Block.
      * 
      */
     @Import(name="savedownStorageConfiguration")
     private @Nullable Output<KxClusterSavedownStorageConfigurationArgs> savedownStorageConfiguration;
 
     /**
-     * @return Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+     * @return Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See `savedownStorageConfiguration` Block.
      * 
      */
     public Optional<Output<KxClusterSavedownStorageConfigurationArgs>> savedownStorageConfiguration() {
@@ -272,14 +268,14 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The structure that stores the configuration details of a scaling group.
+     * Structure that stores the configuration details of a scaling group. See `scalingGroupConfiguration` Block.
      * 
      */
     @Import(name="scalingGroupConfiguration")
     private @Nullable Output<KxClusterScalingGroupConfigurationArgs> scalingGroupConfiguration;
 
     /**
-     * @return The structure that stores the configuration details of a scaling group.
+     * @return Structure that stores the configuration details of a scaling group. See `scalingGroupConfiguration` Block.
      * 
      */
     public Optional<Output<KxClusterScalingGroupConfigurationArgs>> scalingGroupConfiguration() {
@@ -302,14 +298,14 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+     * Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `tickerplantLogConfiguration` Block.
      * 
      */
     @Import(name="tickerplantLogConfigurations")
     private @Nullable Output<List<KxClusterTickerplantLogConfigurationArgs>> tickerplantLogConfigurations;
 
     /**
-     * @return A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+     * @return Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `tickerplantLogConfiguration` Block.
      * 
      */
     public Optional<Output<List<KxClusterTickerplantLogConfigurationArgs>>> tickerplantLogConfigurations() {
@@ -317,24 +313,14 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of KDB database. The following types are available:
-     * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-     * * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-     * * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-     * * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-     * * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
+     * Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of KDB database. The following types are available:
-     * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-     * * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-     * * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-     * * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-     * * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
+     * @return Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
      * 
      */
     public Output<String> type() {
@@ -342,7 +328,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
+     * Configuration details about the network where the Privatelink endpoint of the cluster resides. See `vpcConfiguration` Block.
      * 
      * The following arguments are optional:
      * 
@@ -351,7 +337,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
     private Output<KxClusterVpcConfigurationArgs> vpcConfiguration;
 
     /**
-     * @return Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
+     * @return Configuration details about the network where the Privatelink endpoint of the cluster resides. See `vpcConfiguration` Block.
      * 
      * The following arguments are optional:
      * 
@@ -405,7 +391,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoScalingConfiguration Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
+         * @param autoScalingConfiguration Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `autoScalingConfiguration` Block.
          * 
          * @return builder
          * 
@@ -416,7 +402,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoScalingConfiguration Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
+         * @param autoScalingConfiguration Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `autoScalingConfiguration` Block.
          * 
          * @return builder
          * 
@@ -426,7 +412,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZoneId The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
+         * @param availabilityZoneId Availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
          * 
          * @return builder
          * 
@@ -437,7 +423,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZoneId The availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
+         * @param availabilityZoneId Availability zone identifiers for the requested regions. Required when `azMode` is set to SINGLE.
          * 
          * @return builder
          * 
@@ -447,9 +433,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azMode The number of availability zones you want to assign per cluster. This can be one of the following:
-         * * SINGLE - Assigns one availability zone per cluster.
-         * * MULTI - Assigns all the availability zones per cluster.
+         * @param azMode Number of availability zones to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
          * 
          * @return builder
          * 
@@ -460,9 +444,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azMode The number of availability zones you want to assign per cluster. This can be one of the following:
-         * * SINGLE - Assigns one availability zone per cluster.
-         * * MULTI - Assigns all the availability zones per cluster.
+         * @param azMode Number of availability zones to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
          * 
          * @return builder
          * 
@@ -472,7 +454,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheStorageConfigurations Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
+         * @param cacheStorageConfigurations Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See `cacheStorageConfigurations` Block.
          * 
          * @return builder
          * 
@@ -483,7 +465,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheStorageConfigurations Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
+         * @param cacheStorageConfigurations Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See `cacheStorageConfigurations` Block.
          * 
          * @return builder
          * 
@@ -493,7 +475,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheStorageConfigurations Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
+         * @param cacheStorageConfigurations Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See `cacheStorageConfigurations` Block.
          * 
          * @return builder
          * 
@@ -503,7 +485,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityConfiguration Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
+         * @param capacityConfiguration Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See `capacityConfiguration` Block.
          * 
          * @return builder
          * 
@@ -514,7 +496,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityConfiguration Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
+         * @param capacityConfiguration Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See `capacityConfiguration` Block.
          * 
          * @return builder
          * 
@@ -524,7 +506,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
+         * @param code Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See `code` Block.
          * 
          * @return builder
          * 
@@ -535,7 +517,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
+         * @param code Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See `code` Block.
          * 
          * @return builder
          * 
@@ -566,7 +548,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param databases KX database that will be available for querying. Defined below.
+         * @param databases KX database that will be available for querying. See `database` Block.
          * 
          * @return builder
          * 
@@ -577,7 +559,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param databases KX database that will be available for querying. Defined below.
+         * @param databases KX database that will be available for querying. See `database` Block.
          * 
          * @return builder
          * 
@@ -587,7 +569,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param databases KX database that will be available for querying. Defined below.
+         * @param databases KX database that will be available for querying. See `database` Block.
          * 
          * @return builder
          * 
@@ -639,7 +621,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionRole An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
+         * @param executionRole IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
          * 
          * @return builder
          * 
@@ -650,7 +632,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionRole An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
+         * @param executionRole IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
          * 
          * @return builder
          * 
@@ -744,7 +726,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param savedownStorageConfiguration Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+         * @param savedownStorageConfiguration Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See `savedownStorageConfiguration` Block.
          * 
          * @return builder
          * 
@@ -755,7 +737,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param savedownStorageConfiguration Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+         * @param savedownStorageConfiguration Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See `savedownStorageConfiguration` Block.
          * 
          * @return builder
          * 
@@ -765,7 +747,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingGroupConfiguration The structure that stores the configuration details of a scaling group.
+         * @param scalingGroupConfiguration Structure that stores the configuration details of a scaling group. See `scalingGroupConfiguration` Block.
          * 
          * @return builder
          * 
@@ -776,7 +758,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingGroupConfiguration The structure that stores the configuration details of a scaling group.
+         * @param scalingGroupConfiguration Structure that stores the configuration details of a scaling group. See `scalingGroupConfiguration` Block.
          * 
          * @return builder
          * 
@@ -807,7 +789,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tickerplantLogConfigurations A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+         * @param tickerplantLogConfigurations Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `tickerplantLogConfiguration` Block.
          * 
          * @return builder
          * 
@@ -818,7 +800,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tickerplantLogConfigurations A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+         * @param tickerplantLogConfigurations Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `tickerplantLogConfiguration` Block.
          * 
          * @return builder
          * 
@@ -828,7 +810,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tickerplantLogConfigurations A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+         * @param tickerplantLogConfigurations Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `tickerplantLogConfiguration` Block.
          * 
          * @return builder
          * 
@@ -838,12 +820,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of KDB database. The following types are available:
-         * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-         * * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-         * * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-         * * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-         * * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
+         * @param type Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
          * 
          * @return builder
          * 
@@ -854,12 +831,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of KDB database. The following types are available:
-         * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-         * * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-         * * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-         * * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-         * * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
+         * @param type Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `savedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
          * 
          * @return builder
          * 
@@ -869,7 +841,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfiguration Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
+         * @param vpcConfiguration Configuration details about the network where the Privatelink endpoint of the cluster resides. See `vpcConfiguration` Block.
          * 
          * The following arguments are optional:
          * 
@@ -882,7 +854,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfiguration Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
+         * @param vpcConfiguration Configuration details about the network where the Privatelink endpoint of the cluster resides. See `vpcConfiguration` Block.
          * 
          * The following arguments are optional:
          * 

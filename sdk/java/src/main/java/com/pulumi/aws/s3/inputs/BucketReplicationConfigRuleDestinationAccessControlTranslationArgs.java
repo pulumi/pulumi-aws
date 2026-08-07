@@ -15,14 +15,14 @@ public final class BucketReplicationConfigRuleDestinationAccessControlTranslatio
     public static final BucketReplicationConfigRuleDestinationAccessControlTranslationArgs Empty = new BucketReplicationConfigRuleDestinationAccessControlTranslationArgs();
 
     /**
-     * Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
+     * Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
      * 
      */
     @Import(name="owner", required=true)
     private Output<String> owner;
 
     /**
-     * @return Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
+     * @return Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
      * 
      */
     public Output<String> owner() {
@@ -54,7 +54,7 @@ public final class BucketReplicationConfigRuleDestinationAccessControlTranslatio
         }
 
         /**
-         * @param owner Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
+         * @param owner Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class BucketReplicationConfigRuleDestinationAccessControlTranslatio
         }
 
         /**
-         * @param owner Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
+         * @param owner Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
          * 
          * @return builder
          * 

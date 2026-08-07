@@ -3,7 +3,9 @@
 
 package com.pulumi.aws.ecs.outputs;
 
+import com.pulumi.aws.ecs.outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations;
 import com.pulumi.aws.ecs.outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements;
+import com.pulumi.aws.ecs.outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration;
 import com.pulumi.aws.ecs.outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration;
 import com.pulumi.aws.ecs.outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration;
 import com.pulumi.core.annotations.CustomType;
@@ -16,57 +18,81 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplate {
     /**
-     * @return The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+     * @return Purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand, Spot, or Capacity Reservation instances. Valid values are `ON_DEMAND`, `SPOT`, and `RESERVED`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
      * 
      */
     private @Nullable String capacityOptionType;
     /**
-     * @return The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
+     * @return Capacity Reservation configuration used to launch instances. Required when `capacityOptionType` is `RESERVED`. Detailed below.
+     * 
+     */
+    private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations capacityReservations;
+    /**
+     * @return ARN of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
      * 
      */
     private String ec2InstanceProfileArn;
     /**
-     * @return The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
+     * @return Instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
      * 
      */
     private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements instanceRequirements;
+    /**
+     * @return Configuration block for the local storage settings applied to Amazon ECS Managed Instances. Detailed below.
+     * 
+     */
+    private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration localStorageConfiguration;
     /**
      * @return CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html) in the Amazon ECS Developer Guide. Valid values are `BASIC` and `DETAILED`.
      * 
      */
     private @Nullable String monitoring;
     /**
-     * @return The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
+     * @return Network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
      * 
      */
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration networkConfiguration;
     /**
-     * @return The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
+     * @return Storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
      * 
      */
     private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration storageConfiguration;
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplate() {}
     /**
-     * @return The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+     * @return Purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand, Spot, or Capacity Reservation instances. Valid values are `ON_DEMAND`, `SPOT`, and `RESERVED`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
      * 
      */
     public Optional<String> capacityOptionType() {
         return Optional.ofNullable(this.capacityOptionType);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
+     * @return Capacity Reservation configuration used to launch instances. Required when `capacityOptionType` is `RESERVED`. Detailed below.
+     * 
+     */
+    public Optional<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations> capacityReservations() {
+        return Optional.ofNullable(this.capacityReservations);
+    }
+    /**
+     * @return ARN of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
      * 
      */
     public String ec2InstanceProfileArn() {
         return this.ec2InstanceProfileArn;
     }
     /**
-     * @return The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
+     * @return Instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
      * 
      */
     public Optional<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements> instanceRequirements() {
         return Optional.ofNullable(this.instanceRequirements);
+    }
+    /**
+     * @return Configuration block for the local storage settings applied to Amazon ECS Managed Instances. Detailed below.
+     * 
+     */
+    public Optional<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration> localStorageConfiguration() {
+        return Optional.ofNullable(this.localStorageConfiguration);
     }
     /**
      * @return CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html) in the Amazon ECS Developer Guide. Valid values are `BASIC` and `DETAILED`.
@@ -76,14 +102,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         return Optional.ofNullable(this.monitoring);
     }
     /**
-     * @return The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
+     * @return Network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
      * 
      */
     public CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration networkConfiguration() {
         return this.networkConfiguration;
     }
     /**
-     * @return The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
+     * @return Storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
      * 
      */
     public Optional<CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration> storageConfiguration() {
@@ -100,8 +126,10 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String capacityOptionType;
+        private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations capacityReservations;
         private String ec2InstanceProfileArn;
         private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements instanceRequirements;
+        private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration localStorageConfiguration;
         private @Nullable String monitoring;
         private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration networkConfiguration;
         private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration storageConfiguration;
@@ -109,8 +137,10 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         public Builder(CapacityProviderManagedInstancesProviderInstanceLaunchTemplate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityOptionType = defaults.capacityOptionType;
+    	      this.capacityReservations = defaults.capacityReservations;
     	      this.ec2InstanceProfileArn = defaults.ec2InstanceProfileArn;
     	      this.instanceRequirements = defaults.instanceRequirements;
+    	      this.localStorageConfiguration = defaults.localStorageConfiguration;
     	      this.monitoring = defaults.monitoring;
     	      this.networkConfiguration = defaults.networkConfiguration;
     	      this.storageConfiguration = defaults.storageConfiguration;
@@ -120,6 +150,12 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         public Builder capacityOptionType(@Nullable String capacityOptionType) {
 
             this.capacityOptionType = capacityOptionType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder capacityReservations(@Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations capacityReservations) {
+
+            this.capacityReservations = capacityReservations;
             return this;
         }
         @CustomType.Setter
@@ -134,6 +170,12 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         public Builder instanceRequirements(@Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements instanceRequirements) {
 
             this.instanceRequirements = instanceRequirements;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder localStorageConfiguration(@Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration localStorageConfiguration) {
+
+            this.localStorageConfiguration = localStorageConfiguration;
             return this;
         }
         @CustomType.Setter
@@ -159,8 +201,10 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         public CapacityProviderManagedInstancesProviderInstanceLaunchTemplate build() {
             final var _resultValue = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplate();
             _resultValue.capacityOptionType = capacityOptionType;
+            _resultValue.capacityReservations = capacityReservations;
             _resultValue.ec2InstanceProfileArn = ec2InstanceProfileArn;
             _resultValue.instanceRequirements = instanceRequirements;
+            _resultValue.localStorageConfiguration = localStorageConfiguration;
             _resultValue.monitoring = monitoring;
             _resultValue.networkConfiguration = networkConfiguration;
             _resultValue.storageConfiguration = storageConfiguration;

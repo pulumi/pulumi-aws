@@ -94,7 +94,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class GetAuthPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The auth policy. The policy string in JSON must not contain newlines or blank lines.
+        /// Auth policy. The policy string in JSON must not contain newlines or blank lines.
         /// </summary>
         [Input("policy")]
         public string? Policy { get; set; }
@@ -106,13 +106,13 @@ namespace Pulumi.Aws.VpcLattice
         public string? Region { get; set; }
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         /// </summary>
         [Input("resourceIdentifier", required: true)]
         public string ResourceIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        /// State of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
         /// </summary>
         [Input("state")]
         public string? State { get; set; }
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class GetAuthPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The auth policy. The policy string in JSON must not contain newlines or blank lines.
+        /// Auth policy. The policy string in JSON must not contain newlines or blank lines.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -138,13 +138,13 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         /// </summary>
         [Input("resourceIdentifier", required: true)]
         public Input<string> ResourceIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        /// State of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -164,13 +164,13 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The auth policy. The policy string in JSON must not contain newlines or blank lines.
+        /// Auth policy. The policy string in JSON must not contain newlines or blank lines.
         /// </summary>
         public readonly string? Policy;
         public readonly string Region;
         public readonly string ResourceIdentifier;
         /// <summary>
-        /// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+        /// State of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
         /// </summary>
         public readonly string? State;
 

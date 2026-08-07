@@ -13,7 +13,7 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     public sealed class ResourceConfigurationResourceConfigurationDefinitionArnResourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Resource for this configuration.
+        /// ARN of the Resource for this configuration.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;

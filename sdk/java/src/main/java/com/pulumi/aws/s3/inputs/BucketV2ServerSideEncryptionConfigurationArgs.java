@@ -16,14 +16,14 @@ public final class BucketV2ServerSideEncryptionConfigurationArgs extends com.pul
     public static final BucketV2ServerSideEncryptionConfigurationArgs Empty = new BucketV2ServerSideEncryptionConfigurationArgs();
 
     /**
-     * Single object for server-side encryption by default configuration. (documented below)
+     * Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
      * 
      */
     @Import(name="rules", required=true)
     private Output<List<BucketV2ServerSideEncryptionConfigurationRuleArgs>> rules;
 
     /**
-     * @return Single object for server-side encryption by default configuration. (documented below)
+     * @return Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
      * 
      */
     public Output<List<BucketV2ServerSideEncryptionConfigurationRuleArgs>> rules() {
@@ -55,7 +55,7 @@ public final class BucketV2ServerSideEncryptionConfigurationArgs extends com.pul
         }
 
         /**
-         * @param rules Single object for server-side encryption by default configuration. (documented below)
+         * @param rules Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class BucketV2ServerSideEncryptionConfigurationArgs extends com.pul
         }
 
         /**
-         * @param rules Single object for server-side encryption by default configuration. (documented below)
+         * @param rules Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class BucketV2ServerSideEncryptionConfigurationArgs extends com.pul
         }
 
         /**
-         * @param rules Single object for server-side encryption by default configuration. (documented below)
+         * @param rules Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
          * 
          * @return builder
          * 

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.MeshSpecEgressFilter? EgressFilter;
         /// <summary>
-        /// The service discovery information for the service mesh. See `ServiceDiscovery` Block for details.
+        /// Service discovery information for the service mesh. See `ServiceDiscovery` Block for details.
         /// </summary>
         public readonly Outputs.MeshSpecServiceDiscovery? ServiceDiscovery;
 

@@ -15,15 +15,15 @@ namespace Pulumi.Aws.Fsx.Outputs
     {
         public readonly ImmutableArray<Outputs.GetOntapStorageVirtualMachineEndpointIscsiResult> Iscsis;
         /// <summary>
-        /// An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
+        /// Endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapStorageVirtualMachineEndpointManagementResult> Managements;
         /// <summary>
-        /// An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
+        /// Endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapStorageVirtualMachineEndpointNfResult> Nfs;
         /// <summary>
-        /// An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
+        /// Endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapStorageVirtualMachineEndpointSmbResult> Smbs;
 

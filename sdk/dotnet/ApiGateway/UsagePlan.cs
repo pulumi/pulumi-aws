@@ -24,13 +24,13 @@ namespace Pulumi.Aws.ApiGateway
     public partial class UsagePlan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Associated API stages of the usage plan.
+        /// Associated API stages of the usage plan. See `ApiStages` Block below.
         /// </summary>
         [Output("apiStages")]
         public Output<ImmutableArray<Outputs.UsagePlanApiStage>> ApiStages { get; private set; } = null!;
 
         /// <summary>
-        /// ARN
+        /// ARN of the usage plan.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> ProductCode { get; private set; } = null!;
 
         /// <summary>
-        /// The quota settings of the usage plan.
+        /// Quota settings of the usage plan. See `QuotaSettings` Block below.
         /// </summary>
         [Output("quotaSettings")]
         public Output<Outputs.UsagePlanQuotaSettings?> QuotaSettings { get; private set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The throttling limits of the usage plan.
+        /// Throttling limits of the usage plan. See `ThrottleSettings` Block below.
         /// </summary>
         [Output("throttleSettings")]
         public Output<Outputs.UsagePlanThrottleSettings?> ThrottleSettings { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputList<Inputs.UsagePlanApiStageArgs>? _apiStages;
 
         /// <summary>
-        /// Associated API stages of the usage plan.
+        /// Associated API stages of the usage plan. See `ApiStages` Block below.
         /// </summary>
         public InputList<Inputs.UsagePlanApiStageArgs> ApiStages
         {
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? ProductCode { get; set; }
 
         /// <summary>
-        /// The quota settings of the usage plan.
+        /// Quota settings of the usage plan. See `QuotaSettings` Block below.
         /// </summary>
         [Input("quotaSettings")]
         public Input<Inputs.UsagePlanQuotaSettingsArgs>? QuotaSettings { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The throttling limits of the usage plan.
+        /// Throttling limits of the usage plan. See `ThrottleSettings` Block below.
         /// </summary>
         [Input("throttleSettings")]
         public Input<Inputs.UsagePlanThrottleSettingsArgs>? ThrottleSettings { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputList<Inputs.UsagePlanApiStageGetArgs>? _apiStages;
 
         /// <summary>
-        /// Associated API stages of the usage plan.
+        /// Associated API stages of the usage plan. See `ApiStages` Block below.
         /// </summary>
         public InputList<Inputs.UsagePlanApiStageGetArgs> ApiStages
         {
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// ARN
+        /// ARN of the usage plan.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? ProductCode { get; set; }
 
         /// <summary>
-        /// The quota settings of the usage plan.
+        /// Quota settings of the usage plan. See `QuotaSettings` Block below.
         /// </summary>
         [Input("quotaSettings")]
         public Input<Inputs.UsagePlanQuotaSettingsGetArgs>? QuotaSettings { get; set; }
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// The throttling limits of the usage plan.
+        /// Throttling limits of the usage plan. See `ThrottleSettings` Block below.
         /// </summary>
         [Input("throttleSettings")]
         public Input<Inputs.UsagePlanThrottleSettingsGetArgs>? ThrottleSettings { get; set; }

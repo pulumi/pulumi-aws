@@ -16,14 +16,14 @@ public final class VpcIngressConnectionIngressVpcConfigurationArgs extends com.p
     public static final VpcIngressConnectionIngressVpcConfigurationArgs Empty = new VpcIngressConnectionIngressVpcConfigurationArgs();
 
     /**
-     * The ID of the VPC endpoint that your App Runner service connects to.
+     * ID of the VPC endpoint that your App Runner service connects to.
      * 
      */
     @Import(name="vpcEndpointId")
     private @Nullable Output<String> vpcEndpointId;
 
     /**
-     * @return The ID of the VPC endpoint that your App Runner service connects to.
+     * @return ID of the VPC endpoint that your App Runner service connects to.
      * 
      */
     public Optional<Output<String>> vpcEndpointId() {
@@ -31,14 +31,14 @@ public final class VpcIngressConnectionIngressVpcConfigurationArgs extends com.p
     }
 
     /**
-     * The ID of the VPC that is used for the VPC endpoint.
+     * ID of the VPC that is used for the VPC endpoint.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC that is used for the VPC endpoint.
+     * @return ID of the VPC that is used for the VPC endpoint.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -71,7 +71,7 @@ public final class VpcIngressConnectionIngressVpcConfigurationArgs extends com.p
         }
 
         /**
-         * @param vpcEndpointId The ID of the VPC endpoint that your App Runner service connects to.
+         * @param vpcEndpointId ID of the VPC endpoint that your App Runner service connects to.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class VpcIngressConnectionIngressVpcConfigurationArgs extends com.p
         }
 
         /**
-         * @param vpcEndpointId The ID of the VPC endpoint that your App Runner service connects to.
+         * @param vpcEndpointId ID of the VPC endpoint that your App Runner service connects to.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class VpcIngressConnectionIngressVpcConfigurationArgs extends com.p
         }
 
         /**
-         * @param vpcId The ID of the VPC that is used for the VPC endpoint.
+         * @param vpcId ID of the VPC that is used for the VPC endpoint.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class VpcIngressConnectionIngressVpcConfigurationArgs extends com.p
         }
 
         /**
-         * @param vpcId The ID of the VPC that is used for the VPC endpoint.
+         * @param vpcId ID of the VPC that is used for the VPC endpoint.
          * 
          * @return builder
          * 

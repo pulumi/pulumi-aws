@@ -86,28 +86,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ram/resourceShareAccepter:ResourceShareAccepter")
 public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the resource share invitation.
+     * ARN of the resource share invitation.
      * 
      */
     @Export(name="invitationArn", refs={String.class}, tree="[0]")
     private Output<String> invitationArn;
 
     /**
-     * @return The ARN of the resource share invitation.
+     * @return ARN of the resource share invitation.
      * 
      */
     public Output<String> invitationArn() {
         return this.invitationArn;
     }
     /**
-     * The account ID of the receiver account which accepts the invitation.
+     * Account ID of the receiver account which accepts the invitation.
      * 
      */
     @Export(name="receiverAccountId", refs={String.class}, tree="[0]")
     private Output<String> receiverAccountId;
 
     /**
-     * @return The account ID of the receiver account which accepts the invitation.
+     * @return Account ID of the receiver account which accepts the invitation.
      * 
      */
     public Output<String> receiverAccountId() {
@@ -128,84 +128,84 @@ public class ResourceShareAccepter extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A list of the resource ARNs shared via the resource share.
+     * List of the resource ARNs shared via the resource share.
      * 
      */
     @Export(name="resources", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> resources;
 
     /**
-     * @return A list of the resource ARNs shared via the resource share.
+     * @return List of the resource ARNs shared via the resource share.
      * 
      */
     public Output<List<String>> resources() {
         return this.resources;
     }
     /**
-     * The account ID of the sender account which submits the invitation.
+     * Account ID of the sender account which submits the invitation.
      * 
      */
     @Export(name="senderAccountId", refs={String.class}, tree="[0]")
     private Output<String> senderAccountId;
 
     /**
-     * @return The account ID of the sender account which submits the invitation.
+     * @return Account ID of the sender account which submits the invitation.
      * 
      */
     public Output<String> senderAccountId() {
         return this.senderAccountId;
     }
     /**
-     * The ARN of the resource share.
+     * ARN of the resource share.
      * 
      */
     @Export(name="shareArn", refs={String.class}, tree="[0]")
     private Output<String> shareArn;
 
     /**
-     * @return The ARN of the resource share.
+     * @return ARN of the resource share.
      * 
      */
     public Output<String> shareArn() {
         return this.shareArn;
     }
     /**
-     * The ID of the resource share as displayed in the console.
+     * ID of the resource share as displayed in the console.
      * 
      */
     @Export(name="shareId", refs={String.class}, tree="[0]")
     private Output<String> shareId;
 
     /**
-     * @return The ID of the resource share as displayed in the console.
+     * @return ID of the resource share as displayed in the console.
      * 
      */
     public Output<String> shareId() {
         return this.shareId;
     }
     /**
-     * The name of the resource share.
+     * Name of the resource share.
      * 
      */
     @Export(name="shareName", refs={String.class}, tree="[0]")
     private Output<String> shareName;
 
     /**
-     * @return The name of the resource share.
+     * @return Name of the resource share.
      * 
      */
     public Output<String> shareName() {
         return this.shareName;
     }
     /**
-     * The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+     * Status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+     * @return Status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      * 
      */
     public Output<String> status() {

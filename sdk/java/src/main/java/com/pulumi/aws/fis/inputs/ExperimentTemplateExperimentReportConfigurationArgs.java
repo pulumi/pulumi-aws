@@ -18,14 +18,14 @@ public final class ExperimentTemplateExperimentReportConfigurationArgs extends c
     public static final ExperimentTemplateExperimentReportConfigurationArgs Empty = new ExperimentTemplateExperimentReportConfigurationArgs();
 
     /**
-     * The data sources for the experiment report. See below.
+     * Data sources for the experiment report. See below.
      * 
      */
     @Import(name="dataSources")
     private @Nullable Output<ExperimentTemplateExperimentReportConfigurationDataSourcesArgs> dataSources;
 
     /**
-     * @return The data sources for the experiment report. See below.
+     * @return Data sources for the experiment report. See below.
      * 
      */
     public Optional<Output<ExperimentTemplateExperimentReportConfigurationDataSourcesArgs>> dataSources() {
@@ -33,14 +33,14 @@ public final class ExperimentTemplateExperimentReportConfigurationArgs extends c
     }
 
     /**
-     * The outputs for the experiment report. See below.
+     * Outputs for the experiment report. See below.
      * 
      */
     @Import(name="outputs")
     private @Nullable Output<ExperimentTemplateExperimentReportConfigurationOutputsArgs> outputs;
 
     /**
-     * @return The outputs for the experiment report. See below.
+     * @return Outputs for the experiment report. See below.
      * 
      */
     public Optional<Output<ExperimentTemplateExperimentReportConfigurationOutputsArgs>> outputs() {
@@ -48,14 +48,14 @@ public final class ExperimentTemplateExperimentReportConfigurationArgs extends c
     }
 
     /**
-     * The duration of the post-experiment period. Defaults to `PT20M`.
+     * Duration of the post-experiment period. Defaults to `PT20M`.
      * 
      */
     @Import(name="postExperimentDuration")
     private @Nullable Output<String> postExperimentDuration;
 
     /**
-     * @return The duration of the post-experiment period. Defaults to `PT20M`.
+     * @return Duration of the post-experiment period. Defaults to `PT20M`.
      * 
      */
     public Optional<Output<String>> postExperimentDuration() {
@@ -63,14 +63,14 @@ public final class ExperimentTemplateExperimentReportConfigurationArgs extends c
     }
 
     /**
-     * The duration of the pre-experiment period. Defaults to `PT20M`.
+     * Duration of the pre-experiment period. Defaults to `PT20M`.
      * 
      */
     @Import(name="preExperimentDuration")
     private @Nullable Output<String> preExperimentDuration;
 
     /**
-     * @return The duration of the pre-experiment period. Defaults to `PT20M`.
+     * @return Duration of the pre-experiment period. Defaults to `PT20M`.
      * 
      */
     public Optional<Output<String>> preExperimentDuration() {
@@ -105,7 +105,7 @@ public final class ExperimentTemplateExperimentReportConfigurationArgs extends c
         }
 
         /**
-         * @param dataSources The data sources for the experiment report. See below.
+         * @param dataSources Data sources for the experiment report. See below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class ExperimentTemplateExperimentReportConfigurationArgs extends c
         }
 
         /**
-         * @param dataSources The data sources for the experiment report. See below.
+         * @param dataSources Data sources for the experiment report. See below.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class ExperimentTemplateExperimentReportConfigurationArgs extends c
         }
 
         /**
-         * @param outputs The outputs for the experiment report. See below.
+         * @param outputs Outputs for the experiment report. See below.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ExperimentTemplateExperimentReportConfigurationArgs extends c
         }
 
         /**
-         * @param outputs The outputs for the experiment report. See below.
+         * @param outputs Outputs for the experiment report. See below.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ExperimentTemplateExperimentReportConfigurationArgs extends c
         }
 
         /**
-         * @param postExperimentDuration The duration of the post-experiment period. Defaults to `PT20M`.
+         * @param postExperimentDuration Duration of the post-experiment period. Defaults to `PT20M`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ExperimentTemplateExperimentReportConfigurationArgs extends c
         }
 
         /**
-         * @param postExperimentDuration The duration of the post-experiment period. Defaults to `PT20M`.
+         * @param postExperimentDuration Duration of the post-experiment period. Defaults to `PT20M`.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ExperimentTemplateExperimentReportConfigurationArgs extends c
         }
 
         /**
-         * @param preExperimentDuration The duration of the pre-experiment period. Defaults to `PT20M`.
+         * @param preExperimentDuration Duration of the pre-experiment period. Defaults to `PT20M`.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ExperimentTemplateExperimentReportConfigurationArgs extends c
         }
 
         /**
-         * @param preExperimentDuration The duration of the pre-experiment period. Defaults to `PT20M`.
+         * @param preExperimentDuration Duration of the pre-experiment period. Defaults to `PT20M`.
          * 
          * @return builder
          * 

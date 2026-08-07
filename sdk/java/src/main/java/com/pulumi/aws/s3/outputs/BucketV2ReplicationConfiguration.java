@@ -18,7 +18,7 @@ public final class BucketV2ReplicationConfiguration {
      */
     private String role;
     /**
-     * @return Specifies the rules managing the replication (documented below).
+     * @return Rules managing the replication. See `rules` Block below for details.
      * 
      */
     private List<BucketV2ReplicationConfigurationRule> rules;
@@ -32,7 +32,7 @@ public final class BucketV2ReplicationConfiguration {
         return this.role;
     }
     /**
-     * @return Specifies the rules managing the replication (documented below).
+     * @return Rules managing the replication. See `rules` Block below for details.
      * 
      */
     public List<BucketV2ReplicationConfigurationRule> rules() {

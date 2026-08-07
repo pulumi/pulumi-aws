@@ -14,11 +14,11 @@ namespace Pulumi.Aws.S3Control.Outputs
     public sealed class GetMultiRegionAccessPointRegionResult
     {
         /// <summary>
-        /// The name of the bucket.
+        /// Name of the bucket.
         /// </summary>
         public readonly string Bucket;
         /// <summary>
-        /// The AWS account ID that owns the bucket.
+        /// AWS account ID that owns the bucket.
         /// </summary>
         public readonly string BucketAccountId;
         /// <summary>

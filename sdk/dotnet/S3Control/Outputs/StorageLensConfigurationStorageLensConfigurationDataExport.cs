@@ -14,15 +14,15 @@ namespace Pulumi.Aws.S3Control.Outputs
     public sealed class StorageLensConfigurationStorageLensConfigurationDataExport
     {
         /// <summary>
-        /// Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+        /// Amazon CloudWatch publishing for S3 Storage Lens metrics. See `CloudWatchMetrics` below for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics? CloudWatchMetrics;
         /// <summary>
-        /// The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+        /// Bucket where the S3 Storage Lens metrics export will be located. See `S3BucketDestination` below for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination? S3BucketDestination;
         /// <summary>
-        /// S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+        /// S3 table bucket where the S3 Storage Lens metrics export will be located. See `StorageLensTableDestination` below for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestination? StorageLensTableDestination;
 

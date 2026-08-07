@@ -86,7 +86,7 @@ class GetSecretRotationResult:
     @pulumi.getter(name="rotationEnabled")
     def rotation_enabled(self) -> _builtins.bool:
         """
-        Specifies whether automatic rotation is enabled for this secret.
+        Whether automatic rotation is enabled for this secret.
         """
         return pulumi.get(self, "rotation_enabled")
 
@@ -147,7 +147,7 @@ def get_secret_rotation(region: Optional[_builtins.str] = None,
 
 
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+    :param _builtins.str secret_id: Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -183,7 +183,7 @@ def get_secret_rotation_output(region: pulumi.Input[Optional[Optional[_builtins.
 
 
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+    :param _builtins.str secret_id: Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     """
     __args__ = dict()
     __args__['region'] = region

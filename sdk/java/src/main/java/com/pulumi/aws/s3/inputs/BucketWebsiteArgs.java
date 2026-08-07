@@ -61,16 +61,14 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-     * describing redirect behavior and when redirects are applied.
+     * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
      * 
      */
     @Import(name="routingRules")
     private @Nullable Output<String> routingRules;
 
     /**
-     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-     * describing redirect behavior and when redirects are applied.
+     * @return JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
      * 
      */
     public Optional<Output<String>> routingRules() {
@@ -168,8 +166,7 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingRules JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-         * describing redirect behavior and when redirects are applied.
+         * @param routingRules JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
          * 
          * @return builder
          * 
@@ -180,8 +177,7 @@ public final class BucketWebsiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingRules JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-         * describing redirect behavior and when redirects are applied.
+         * @param routingRules JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
          * 
          * @return builder
          * 

@@ -17,12 +17,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// If `True`, the match is on the opposite of the `Match` method and value. Default is `False`.
         /// </summary>
         public readonly bool? Invert;
-        /// <summary>
-        /// Method and value to match the header value sent with a request. Specify one match method.
-        /// </summary>
         public readonly Outputs.GatewayRouteSpecHttp2RouteMatchHeaderMatch? Match;
         /// <summary>
-        /// Name for the HTTP header in the client request that will be matched on.
+        /// Name to use for the gateway route. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string Name;
 

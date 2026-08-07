@@ -172,9 +172,9 @@ type TargetGroup struct {
 
 	// ARN of the target group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The target group configuration.
+	// Target group configuration. See `config` Block below.
 	Config TargetGroupConfigPtrOutput `pulumi:"config"`
-	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	// Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -184,7 +184,7 @@ type TargetGroup struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	// Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -225,9 +225,9 @@ func GetTargetGroup(ctx *pulumi.Context,
 type targetGroupState struct {
 	// ARN of the target group.
 	Arn *string `pulumi:"arn"`
-	// The target group configuration.
+	// Target group configuration. See `config` Block below.
 	Config *TargetGroupConfig `pulumi:"config"`
-	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	// Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -237,7 +237,7 @@ type targetGroupState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	// Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
 	//
 	// The following arguments are optional:
 	Type *string `pulumi:"type"`
@@ -246,9 +246,9 @@ type targetGroupState struct {
 type TargetGroupState struct {
 	// ARN of the target group.
 	Arn pulumi.StringPtrInput
-	// The target group configuration.
+	// Target group configuration. See `config` Block below.
 	Config TargetGroupConfigPtrInput
-	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	// Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -258,7 +258,7 @@ type TargetGroupState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	// Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringPtrInput
@@ -269,15 +269,15 @@ func (TargetGroupState) ElementType() reflect.Type {
 }
 
 type targetGroupArgs struct {
-	// The target group configuration.
+	// Target group configuration. See `config` Block below.
 	Config *TargetGroupConfig `pulumi:"config"`
-	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	// Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	// Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
 	//
 	// The following arguments are optional:
 	Type string `pulumi:"type"`
@@ -285,15 +285,15 @@ type targetGroupArgs struct {
 
 // The set of arguments for constructing a TargetGroup resource.
 type TargetGroupArgs struct {
-	// The target group configuration.
+	// Target group configuration. See `config` Block below.
 	Config TargetGroupConfigPtrInput
-	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+	// Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	// Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringInput
@@ -391,12 +391,12 @@ func (o TargetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The target group configuration.
+// Target group configuration. See `config` Block below.
 func (o TargetGroupOutput) Config() TargetGroupConfigPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupConfigPtrOutput { return v.Config }).(TargetGroupConfigPtrOutput)
 }
 
-// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+// Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 func (o TargetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -421,7 +421,7 @@ func (o TargetGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+// Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
 //
 // The following arguments are optional:
 func (o TargetGroupOutput) Type() pulumi.StringOutput {

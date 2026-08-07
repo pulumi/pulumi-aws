@@ -59,7 +59,8 @@ type ApiKey struct {
 	pulumi.CustomResourceState
 
 	// ID of the associated AppSync API
-	ApiId    pulumi.StringOutput `pulumi:"apiId"`
+	ApiId pulumi.StringOutput `pulumi:"apiId"`
+	// ID of the API key.
 	ApiKeyId pulumi.StringOutput `pulumi:"apiKeyId"`
 	// API key description. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -112,7 +113,8 @@ func GetApiKey(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ApiKey resources.
 type apiKeyState struct {
 	// ID of the associated AppSync API
-	ApiId    *string `pulumi:"apiId"`
+	ApiId *string `pulumi:"apiId"`
+	// ID of the API key.
 	ApiKeyId *string `pulumi:"apiKeyId"`
 	// API key description. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
@@ -126,7 +128,8 @@ type apiKeyState struct {
 
 type ApiKeyState struct {
 	// ID of the associated AppSync API
-	ApiId    pulumi.StringPtrInput
+	ApiId pulumi.StringPtrInput
+	// ID of the API key.
 	ApiKeyId pulumi.StringPtrInput
 	// API key description. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
@@ -257,6 +260,7 @@ func (o ApiKeyOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
+// ID of the API key.
 func (o ApiKeyOutput) ApiKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ApiKeyId }).(pulumi.StringOutput)
 }

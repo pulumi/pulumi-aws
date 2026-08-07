@@ -13,14 +13,11 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+        /// AWS Certificate Manager (ACM) certificate.
         /// </summary>
         [Input("acm")]
         public Input<Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs>? Acm { get; set; }
 
-        /// <summary>
-        /// TLS validation context trust for a local file certificate.
-        /// </summary>
         [Input("file")]
         public Input<Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs>? File { get; set; }
 

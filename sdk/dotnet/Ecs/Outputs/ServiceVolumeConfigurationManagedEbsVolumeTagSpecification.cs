@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? PropagateTags;
         /// <summary>
-        /// The type of volume resource. Valid values, `Volume`.
+        /// Type of volume resource. Valid values, `Volume`.
         /// </summary>
         public readonly string ResourceType;
         /// <summary>
-        /// The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
+        /// Tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 

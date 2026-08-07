@@ -10,19 +10,27 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude {
+    /**
+     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * 
+     */
     private String apiKey;
     /**
-     * @return The Secret Access Key portion of the credentials.
+     * @return Secret Access Key portion of the credentials.
      * 
      */
     private String secretKey;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude() {}
+    /**
+     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * 
+     */
     public String apiKey() {
         return this.apiKey;
     }
     /**
-     * @return The Secret Access Key portion of the credentials.
+     * @return Secret Access Key portion of the credentials.
      * 
      */
     public String secretKey() {

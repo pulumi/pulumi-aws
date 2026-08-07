@@ -94,7 +94,7 @@ namespace Pulumi.Aws.S3
     public sealed class GetBucketReplicationConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the bucket to get the replication configuration for.
+        /// Name of the bucket to get the replication configuration for.
         /// </summary>
         [Input("bucket", required: true)]
         public string Bucket { get; set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.S3
     public sealed class GetBucketReplicationConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the bucket to get the replication configuration for.
+        /// Name of the bucket to get the replication configuration for.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -138,11 +138,11 @@ namespace Pulumi.Aws.S3
         public readonly string Bucket;
         public readonly string Region;
         /// <summary>
-        /// The ARN of the IAM role that Amazon S3 assumes when replicating objects.
+        /// ARN of the IAM role that Amazon S3 assumes when replicating objects.
         /// </summary>
         public readonly string Role;
         /// <summary>
-        /// An unordered list of configuration blocks that define the rules managing replication.
+        /// Unordered list of configuration blocks that define the rules managing replication. See the `AwsS3ReplicationConfiguration` resource documentation for details about the `Rule` block (excluding the `And` block within the `Filter` block).
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleResult> Rules;
 

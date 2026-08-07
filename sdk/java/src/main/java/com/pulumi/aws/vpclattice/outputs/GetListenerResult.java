@@ -20,12 +20,12 @@ public final class GetListenerResult {
      */
     private String arn;
     /**
-     * @return The date and time that the listener was created.
+     * @return Date and time that the listener was created.
      * 
      */
     private String createdAt;
     /**
-     * @return The actions for the default listener rule.
+     * @return Actions for the default listener rule.
      * 
      */
     private List<GetListenerDefaultAction> defaultActions;
@@ -35,39 +35,39 @@ public final class GetListenerResult {
      */
     private String id;
     /**
-     * @return The date and time the listener was last updated.
+     * @return Date and time the listener was last updated.
      * 
      */
     private String lastUpdatedAt;
     /**
-     * @return The ID of the listener.
+     * @return ID of the listener.
      * 
      */
     private String listenerId;
     private String listenerIdentifier;
     /**
-     * @return The name of the listener.
+     * @return Name of the listener.
      * 
      */
     private String name;
     /**
-     * @return The listener port.
+     * @return Listener port.
      * 
      */
     private Integer port;
     /**
-     * @return The listener protocol. Either `HTTPS` or `HTTP`.
+     * @return Listener protocol. Either `HTTPS` or `HTTP`.
      * 
      */
     private String protocol;
     private String region;
     /**
-     * @return The ARN of the service.
+     * @return ARN of the service.
      * 
      */
     private String serviceArn;
     /**
-     * @return The ID of the service.
+     * @return ID of the service.
      * 
      */
     private String serviceId;
@@ -87,14 +87,14 @@ public final class GetListenerResult {
         return this.arn;
     }
     /**
-     * @return The date and time that the listener was created.
+     * @return Date and time that the listener was created.
      * 
      */
     public String createdAt() {
         return this.createdAt;
     }
     /**
-     * @return The actions for the default listener rule.
+     * @return Actions for the default listener rule.
      * 
      */
     public List<GetListenerDefaultAction> defaultActions() {
@@ -108,14 +108,14 @@ public final class GetListenerResult {
         return this.id;
     }
     /**
-     * @return The date and time the listener was last updated.
+     * @return Date and time the listener was last updated.
      * 
      */
     public String lastUpdatedAt() {
         return this.lastUpdatedAt;
     }
     /**
-     * @return The ID of the listener.
+     * @return ID of the listener.
      * 
      */
     public String listenerId() {
@@ -125,21 +125,21 @@ public final class GetListenerResult {
         return this.listenerIdentifier;
     }
     /**
-     * @return The name of the listener.
+     * @return Name of the listener.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The listener port.
+     * @return Listener port.
      * 
      */
     public Integer port() {
         return this.port;
     }
     /**
-     * @return The listener protocol. Either `HTTPS` or `HTTP`.
+     * @return Listener protocol. Either `HTTPS` or `HTTP`.
      * 
      */
     public String protocol() {
@@ -149,14 +149,14 @@ public final class GetListenerResult {
         return this.region;
     }
     /**
-     * @return The ARN of the service.
+     * @return ARN of the service.
      * 
      */
     public String serviceArn() {
         return this.serviceArn;
     }
     /**
-     * @return The ID of the service.
+     * @return ID of the service.
      * 
      */
     public String serviceId() {

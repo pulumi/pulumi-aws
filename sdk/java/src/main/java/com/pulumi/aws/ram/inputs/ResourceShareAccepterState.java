@@ -17,14 +17,14 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
     public static final ResourceShareAccepterState Empty = new ResourceShareAccepterState();
 
     /**
-     * The ARN of the resource share invitation.
+     * ARN of the resource share invitation.
      * 
      */
     @Import(name="invitationArn")
     private @Nullable Output<String> invitationArn;
 
     /**
-     * @return The ARN of the resource share invitation.
+     * @return ARN of the resource share invitation.
      * 
      */
     public Optional<Output<String>> invitationArn() {
@@ -32,14 +32,14 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The account ID of the receiver account which accepts the invitation.
+     * Account ID of the receiver account which accepts the invitation.
      * 
      */
     @Import(name="receiverAccountId")
     private @Nullable Output<String> receiverAccountId;
 
     /**
-     * @return The account ID of the receiver account which accepts the invitation.
+     * @return Account ID of the receiver account which accepts the invitation.
      * 
      */
     public Optional<Output<String>> receiverAccountId() {
@@ -62,14 +62,14 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A list of the resource ARNs shared via the resource share.
+     * List of the resource ARNs shared via the resource share.
      * 
      */
     @Import(name="resources")
     private @Nullable Output<List<String>> resources;
 
     /**
-     * @return A list of the resource ARNs shared via the resource share.
+     * @return List of the resource ARNs shared via the resource share.
      * 
      */
     public Optional<Output<List<String>>> resources() {
@@ -77,14 +77,14 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The account ID of the sender account which submits the invitation.
+     * Account ID of the sender account which submits the invitation.
      * 
      */
     @Import(name="senderAccountId")
     private @Nullable Output<String> senderAccountId;
 
     /**
-     * @return The account ID of the sender account which submits the invitation.
+     * @return Account ID of the sender account which submits the invitation.
      * 
      */
     public Optional<Output<String>> senderAccountId() {
@@ -92,14 +92,14 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ARN of the resource share.
+     * ARN of the resource share.
      * 
      */
     @Import(name="shareArn")
     private @Nullable Output<String> shareArn;
 
     /**
-     * @return The ARN of the resource share.
+     * @return ARN of the resource share.
      * 
      */
     public Optional<Output<String>> shareArn() {
@@ -107,14 +107,14 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the resource share as displayed in the console.
+     * ID of the resource share as displayed in the console.
      * 
      */
     @Import(name="shareId")
     private @Nullable Output<String> shareId;
 
     /**
-     * @return The ID of the resource share as displayed in the console.
+     * @return ID of the resource share as displayed in the console.
      * 
      */
     public Optional<Output<String>> shareId() {
@@ -122,14 +122,14 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The name of the resource share.
+     * Name of the resource share.
      * 
      */
     @Import(name="shareName")
     private @Nullable Output<String> shareName;
 
     /**
-     * @return The name of the resource share.
+     * @return Name of the resource share.
      * 
      */
     public Optional<Output<String>> shareName() {
@@ -137,14 +137,14 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+     * Status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+     * @return Status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      * 
      */
     public Optional<Output<String>> status() {
@@ -184,7 +184,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param invitationArn The ARN of the resource share invitation.
+         * @param invitationArn ARN of the resource share invitation.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param invitationArn The ARN of the resource share invitation.
+         * @param invitationArn ARN of the resource share invitation.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param receiverAccountId The account ID of the receiver account which accepts the invitation.
+         * @param receiverAccountId Account ID of the receiver account which accepts the invitation.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param receiverAccountId The account ID of the receiver account which accepts the invitation.
+         * @param receiverAccountId Account ID of the receiver account which accepts the invitation.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resources A list of the resource ARNs shared via the resource share.
+         * @param resources List of the resource ARNs shared via the resource share.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resources A list of the resource ARNs shared via the resource share.
+         * @param resources List of the resource ARNs shared via the resource share.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resources A list of the resource ARNs shared via the resource share.
+         * @param resources List of the resource ARNs shared via the resource share.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param senderAccountId The account ID of the sender account which submits the invitation.
+         * @param senderAccountId Account ID of the sender account which submits the invitation.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param senderAccountId The account ID of the sender account which submits the invitation.
+         * @param senderAccountId Account ID of the sender account which submits the invitation.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param shareArn The ARN of the resource share.
+         * @param shareArn ARN of the resource share.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param shareArn The ARN of the resource share.
+         * @param shareArn ARN of the resource share.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param shareId The ID of the resource share as displayed in the console.
+         * @param shareId ID of the resource share as displayed in the console.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param shareId The ID of the resource share as displayed in the console.
+         * @param shareId ID of the resource share as displayed in the console.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param shareName The name of the resource share.
+         * @param shareName Name of the resource share.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param shareName The name of the resource share.
+         * @param shareName Name of the resource share.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param status The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+         * @param status Status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class ResourceShareAccepterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param status The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+         * @param status Status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
          * 
          * @return builder
          * 

@@ -69,7 +69,7 @@ export class ClientCertificate extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly expirationDate: pulumi.Output<string>;
     /**
-     * The PEM-encoded public key of the client certificate.
+     * PEM-encoded public key of the client certificate.
      */
     declare public /*out*/ readonly pemEncodedCertificate: pulumi.Output<string>;
     /**
@@ -143,7 +143,7 @@ export interface ClientCertificateState {
      */
     expirationDate?: pulumi.Input<string | undefined>;
     /**
-     * The PEM-encoded public key of the client certificate.
+     * PEM-encoded public key of the client certificate.
      */
     pemEncodedCertificate?: pulumi.Input<string | undefined>;
     /**

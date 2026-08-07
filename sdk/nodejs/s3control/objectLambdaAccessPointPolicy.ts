@@ -85,19 +85,19 @@ export class ObjectLambdaAccessPointPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * Indicates whether this access point currently has a policy that allows public access.
+     * Whether this access point currently has a policy that allows public access.
      */
     declare public /*out*/ readonly hasPublicAccessPolicy: pulumi.Output<boolean>;
     /**
-     * The name of the Object Lambda Access Point.
+     * Name of the Object Lambda Access Point.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The Object Lambda Access Point resource policy document.
+     * Object Lambda Access Point resource policy document.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
@@ -144,19 +144,19 @@ export class ObjectLambdaAccessPointPolicy extends pulumi.CustomResource {
  */
 export interface ObjectLambdaAccessPointPolicyState {
     /**
-     * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether this access point currently has a policy that allows public access.
+     * Whether this access point currently has a policy that allows public access.
      */
     hasPublicAccessPolicy?: pulumi.Input<boolean | undefined>;
     /**
-     * The name of the Object Lambda Access Point.
+     * Name of the Object Lambda Access Point.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The Object Lambda Access Point resource policy document.
+     * Object Lambda Access Point resource policy document.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
@@ -170,15 +170,15 @@ export interface ObjectLambdaAccessPointPolicyState {
  */
 export interface ObjectLambdaAccessPointPolicyArgs {
     /**
-     * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Object Lambda Access Point.
+     * Name of the Object Lambda Access Point.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The Object Lambda Access Point resource policy document.
+     * Object Lambda Access Point resource policy document.
      */
     policy: pulumi.Input<string>;
     /**

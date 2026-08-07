@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Amp.Inputs
     public sealed class ScraperSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for an EKS cluster source. See `Eks`.
+        /// Configuration block for an EKS cluster source. See `Eks` Block for details.
         /// </summary>
         [Input("eks")]
         public Input<Inputs.ScraperSourceEksArgs>? Eks { get; set; }
 
         /// <summary>
-        /// Configuration block for a VPC source. See `Vpc`.
+        /// Configuration block for a VPC source. See `Vpc` Block for details.
         /// 
         /// &gt; **NOTE:** Either `Eks` or `Vpc` must be specified, but not both.
         /// </summary>

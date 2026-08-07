@@ -14,7 +14,13 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake
     {
         public readonly string? BucketPrefix;
+        /// <summary>
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+        /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig? ErrorHandlingConfig;
+        /// <summary>
+        /// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+        /// </summary>
         public readonly string IntermediateBucketName;
         public readonly string Object;
 

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu
     {
+        /// <summary>
+        /// Maximum amount of memory per vCPU, in GiB.
+        /// </summary>
         public readonly double? Max;
+        /// <summary>
+        /// Minimum amount of memory per vCPU, in GiB.
+        /// </summary>
         public readonly double? Min;
 
         [OutputConstructor]

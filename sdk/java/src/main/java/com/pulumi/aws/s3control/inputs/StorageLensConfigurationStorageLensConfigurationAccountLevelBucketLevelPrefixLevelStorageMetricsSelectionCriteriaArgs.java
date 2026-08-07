@@ -18,14 +18,14 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
     public static final StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs Empty = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs();
 
     /**
-     * The delimiter of the selection criteria being used.
+     * Delimiter of the selection criteria being used.
      * 
      */
     @Import(name="delimiter")
     private @Nullable Output<String> delimiter;
 
     /**
-     * @return The delimiter of the selection criteria being used.
+     * @return Delimiter of the selection criteria being used.
      * 
      */
     public Optional<Output<String>> delimiter() {
@@ -33,14 +33,14 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
     }
 
     /**
-     * The max depth of the selection criteria.
+     * Max depth of the selection criteria.
      * 
      */
     @Import(name="maxDepth")
     private @Nullable Output<Integer> maxDepth;
 
     /**
-     * @return The max depth of the selection criteria.
+     * @return Max depth of the selection criteria.
      * 
      */
     public Optional<Output<Integer>> maxDepth() {
@@ -48,14 +48,14 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
     }
 
     /**
-     * The minimum number of storage bytes percentage whose metrics will be selected.
+     * Minimum number of storage bytes percentage whose metrics will be selected.
      * 
      */
     @Import(name="minStorageBytesPercentage")
     private @Nullable Output<Double> minStorageBytesPercentage;
 
     /**
-     * @return The minimum number of storage bytes percentage whose metrics will be selected.
+     * @return Minimum number of storage bytes percentage whose metrics will be selected.
      * 
      */
     public Optional<Output<Double>> minStorageBytesPercentage() {
@@ -89,7 +89,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
         }
 
         /**
-         * @param delimiter The delimiter of the selection criteria being used.
+         * @param delimiter Delimiter of the selection criteria being used.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
         }
 
         /**
-         * @param delimiter The delimiter of the selection criteria being used.
+         * @param delimiter Delimiter of the selection criteria being used.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
         }
 
         /**
-         * @param maxDepth The max depth of the selection criteria.
+         * @param maxDepth Max depth of the selection criteria.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
         }
 
         /**
-         * @param maxDepth The max depth of the selection criteria.
+         * @param maxDepth Max depth of the selection criteria.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
         }
 
         /**
-         * @param minStorageBytesPercentage The minimum number of storage bytes percentage whose metrics will be selected.
+         * @param minStorageBytesPercentage Minimum number of storage bytes percentage whose metrics will be selected.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
         }
 
         /**
-         * @param minStorageBytesPercentage The minimum number of storage bytes percentage whose metrics will be selected.
+         * @param minStorageBytesPercentage Minimum number of storage bytes percentage whose metrics will be selected.
          * 
          * @return builder
          * 

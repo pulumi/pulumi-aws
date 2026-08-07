@@ -26,7 +26,7 @@ namespace Pulumi.Aws.S3Control.Outputs
         /// </summary>
         public readonly string SupportingAccessPoint;
         /// <summary>
-        /// List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+        /// List of transformation configurations for the Object Lambda Access Point. See `TransformationConfiguration` Block below for more details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObjectLambdaAccessPointConfigurationTransformationConfiguration> TransformationConfigurations;
 

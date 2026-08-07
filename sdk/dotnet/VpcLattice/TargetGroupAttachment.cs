@@ -47,13 +47,13 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The target.
+        /// Target to register with the target group. See `Target` Block for details.
         /// </summary>
         [Output("target")]
         public Output<Outputs.TargetGroupAttachmentTarget> Target { get; private set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the target group.
+        /// ID or Amazon Resource Name (ARN) of the target group.
         /// </summary>
         [Output("targetGroupIdentifier")]
         public Output<string> TargetGroupIdentifier { get; private set; } = null!;
@@ -111,13 +111,13 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The target.
+        /// Target to register with the target group. See `Target` Block for details.
         /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.TargetGroupAttachmentTargetArgs> Target { get; set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the target group.
+        /// ID or Amazon Resource Name (ARN) of the target group.
         /// </summary>
         [Input("targetGroupIdentifier", required: true)]
         public Input<string> TargetGroupIdentifier { get; set; } = null!;
@@ -137,13 +137,13 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The target.
+        /// Target to register with the target group. See `Target` Block for details.
         /// </summary>
         [Input("target")]
         public Input<Inputs.TargetGroupAttachmentTargetGetArgs>? Target { get; set; }
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the target group.
+        /// ID or Amazon Resource Name (ARN) of the target group.
         /// </summary>
         [Input("targetGroupIdentifier")]
         public Input<string>? TargetGroupIdentifier { get; set; }

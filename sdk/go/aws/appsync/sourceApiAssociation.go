@@ -66,7 +66,8 @@ type SourceApiAssociation struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-	SourceApiArn                pulumi.StringOutput                                       `pulumi:"sourceApiArn"`
+	SourceApiArn pulumi.StringOutput `pulumi:"sourceApiArn"`
+	// Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
 	SourceApiAssociationConfigs SourceApiAssociationSourceApiAssociationConfigArrayOutput `pulumi:"sourceApiAssociationConfigs"`
 	// ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
 	SourceApiId pulumi.StringOutput                   `pulumi:"sourceApiId"`
@@ -116,7 +117,8 @@ type sourceApiAssociationState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-	SourceApiArn                *string                                          `pulumi:"sourceApiArn"`
+	SourceApiArn *string `pulumi:"sourceApiArn"`
+	// Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
 	SourceApiAssociationConfigs []SourceApiAssociationSourceApiAssociationConfig `pulumi:"sourceApiAssociationConfigs"`
 	// ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
 	SourceApiId *string                       `pulumi:"sourceApiId"`
@@ -137,7 +139,8 @@ type SourceApiAssociationState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-	SourceApiArn                pulumi.StringPtrInput
+	SourceApiArn pulumi.StringPtrInput
+	// Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
 	SourceApiAssociationConfigs SourceApiAssociationSourceApiAssociationConfigArrayInput
 	// ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
 	SourceApiId pulumi.StringPtrInput
@@ -158,7 +161,8 @@ type sourceApiAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-	SourceApiArn                *string                                          `pulumi:"sourceApiArn"`
+	SourceApiArn *string `pulumi:"sourceApiArn"`
+	// Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
 	SourceApiAssociationConfigs []SourceApiAssociationSourceApiAssociationConfig `pulumi:"sourceApiAssociationConfigs"`
 	// ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
 	SourceApiId *string                       `pulumi:"sourceApiId"`
@@ -176,7 +180,8 @@ type SourceApiAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
-	SourceApiArn                pulumi.StringPtrInput
+	SourceApiArn pulumi.StringPtrInput
+	// Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
 	SourceApiAssociationConfigs SourceApiAssociationSourceApiAssociationConfigArrayInput
 	// ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
 	SourceApiId pulumi.StringPtrInput
@@ -305,6 +310,7 @@ func (o SourceApiAssociationOutput) SourceApiArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceApiAssociation) pulumi.StringOutput { return v.SourceApiArn }).(pulumi.StringOutput)
 }
 
+// Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
 func (o SourceApiAssociationOutput) SourceApiAssociationConfigs() SourceApiAssociationSourceApiAssociationConfigArrayOutput {
 	return o.ApplyT(func(v *SourceApiAssociation) SourceApiAssociationSourceApiAssociationConfigArrayOutput {
 		return v.SourceApiAssociationConfigs

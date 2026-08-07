@@ -31,7 +31,7 @@ class BucketAclV2Args:
 
         :param pulumi.Input[_builtins.str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input['BucketAclV2AccessControlPolicyArgs'] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
-        :param pulumi.Input[_builtins.str] acl: Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        :param pulumi.Input[_builtins.str] acl: Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -76,7 +76,7 @@ class BucketAclV2Args:
     @pulumi.getter
     def acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
         return pulumi.get(self, "acl")
 
@@ -122,7 +122,7 @@ class _BucketAclV2State:
         Input properties used for looking up and filtering BucketAclV2 resources.
 
         :param pulumi.Input['BucketAclV2AccessControlPolicyArgs'] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
-        :param pulumi.Input[_builtins.str] acl: Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        :param pulumi.Input[_builtins.str] acl: Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         :param pulumi.Input[_builtins.str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -157,7 +157,7 @@ class _BucketAclV2State:
     @pulumi.getter
     def acl(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
         return pulumi.get(self, "acl")
 
@@ -368,7 +368,7 @@ class BucketAclV2(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BucketAclV2AccessControlPolicyArgs', 'BucketAclV2AccessControlPolicyArgsDict']] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
-        :param pulumi.Input[_builtins.str] acl: Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        :param pulumi.Input[_builtins.str] acl: Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         :param pulumi.Input[_builtins.str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -586,7 +586,7 @@ class BucketAclV2(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BucketAclV2AccessControlPolicyArgs', 'BucketAclV2AccessControlPolicyArgsDict']] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
-        :param pulumi.Input[_builtins.str] acl: Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        :param pulumi.Input[_builtins.str] acl: Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         :param pulumi.Input[_builtins.str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -614,7 +614,7 @@ class BucketAclV2(pulumi.CustomResource):
     @pulumi.getter
     def acl(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
         return pulumi.get(self, "acl")
 

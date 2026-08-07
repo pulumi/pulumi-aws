@@ -17,14 +17,14 @@ public final class DefaultAutoScalingConfigurationVersionArgs extends com.pulumi
     public static final DefaultAutoScalingConfigurationVersionArgs Empty = new DefaultAutoScalingConfigurationVersionArgs();
 
     /**
-     * The ARN of the App Runner auto scaling configuration that you want to set as the default.
+     * ARN of the App Runner auto scaling configuration that you want to set as the default.
      * 
      */
     @Import(name="autoScalingConfigurationArn", required=true)
     private Output<String> autoScalingConfigurationArn;
 
     /**
-     * @return The ARN of the App Runner auto scaling configuration that you want to set as the default.
+     * @return ARN of the App Runner auto scaling configuration that you want to set as the default.
      * 
      */
     public Output<String> autoScalingConfigurationArn() {
@@ -72,7 +72,7 @@ public final class DefaultAutoScalingConfigurationVersionArgs extends com.pulumi
         }
 
         /**
-         * @param autoScalingConfigurationArn The ARN of the App Runner auto scaling configuration that you want to set as the default.
+         * @param autoScalingConfigurationArn ARN of the App Runner auto scaling configuration that you want to set as the default.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DefaultAutoScalingConfigurationVersionArgs extends com.pulumi
         }
 
         /**
-         * @param autoScalingConfigurationArn The ARN of the App Runner auto scaling configuration that you want to set as the default.
+         * @param autoScalingConfigurationArn ARN of the App Runner auto scaling configuration that you want to set as the default.
          * 
          * @return builder
          * 

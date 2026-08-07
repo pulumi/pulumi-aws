@@ -31,13 +31,12 @@ class ServiceNetworkVpcAssociationArgs:
         """
         The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
 
-        :param pulumi.Input[_builtins.str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] vpc_identifier: The ID of the VPC.
+        :param pulumi.Input[_builtins.str] service_network_identifier: ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+        :param pulumi.Input[_builtins.str] vpc_identifier: ID of the VPC.
         :param pulumi.Input['ServiceNetworkVpcAssociationDnsOptionsArgs'] dns_options: Configuration block for DNS option. See `dns_options` block below for details.
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of the security groups.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "service_network_identifier", service_network_identifier)
@@ -57,8 +56,7 @@ class ServiceNetworkVpcAssociationArgs:
     @pulumi.getter(name="serviceNetworkIdentifier")
     def service_network_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        The following arguments are optional:
+        ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
         """
         return pulumi.get(self, "service_network_identifier")
 
@@ -70,7 +68,7 @@ class ServiceNetworkVpcAssociationArgs:
     @pulumi.getter(name="vpcIdentifier")
     def vpc_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the VPC.
+        ID of the VPC.
         """
         return pulumi.get(self, "vpc_identifier")
 
@@ -118,7 +116,7 @@ class ServiceNetworkVpcAssociationArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The IDs of the security groups.
+        IDs of the security groups.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -156,18 +154,17 @@ class _ServiceNetworkVpcAssociationState:
         """
         Input properties used for looking up and filtering ServiceNetworkVpcAssociation resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Association.
-        :param pulumi.Input[_builtins.str] created_by: The account that created the association.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Association.
+        :param pulumi.Input[_builtins.str] created_by: Account that created the association.
         :param pulumi.Input['ServiceNetworkVpcAssociationDnsOptionsArgs'] dns_options: Configuration block for DNS option. See `dns_options` block below for details.
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the security groups.
-        :param pulumi.Input[_builtins.str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] status: The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of the security groups.
+        :param pulumi.Input[_builtins.str] service_network_identifier: ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+        :param pulumi.Input[_builtins.str] status: Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_identifier: The ID of the VPC.
+        :param pulumi.Input[_builtins.str] vpc_identifier: ID of the VPC.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -196,7 +193,7 @@ class _ServiceNetworkVpcAssociationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Association.
+        ARN of the Association.
         """
         return pulumi.get(self, "arn")
 
@@ -208,7 +205,7 @@ class _ServiceNetworkVpcAssociationState:
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The account that created the association.
+        Account that created the association.
         """
         return pulumi.get(self, "created_by")
 
@@ -256,7 +253,7 @@ class _ServiceNetworkVpcAssociationState:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The IDs of the security groups.
+        IDs of the security groups.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -268,8 +265,7 @@ class _ServiceNetworkVpcAssociationState:
     @pulumi.getter(name="serviceNetworkIdentifier")
     def service_network_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        The following arguments are optional:
+        ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
         """
         return pulumi.get(self, "service_network_identifier")
 
@@ -281,7 +277,7 @@ class _ServiceNetworkVpcAssociationState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+        Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
         """
         return pulumi.get(self, "status")
 
@@ -317,7 +313,7 @@ class _ServiceNetworkVpcAssociationState:
     @pulumi.getter(name="vpcIdentifier")
     def vpc_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the VPC.
+        ID of the VPC.
         """
         return pulumi.get(self, "vpc_identifier")
 
@@ -371,11 +367,10 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceNetworkVpcAssociationDnsOptionsArgs', 'ServiceNetworkVpcAssociationDnsOptionsArgsDict']] dns_options: Configuration block for DNS option. See `dns_options` block below for details.
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the security groups.
-        :param pulumi.Input[_builtins.str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-               The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of the security groups.
+        :param pulumi.Input[_builtins.str] service_network_identifier: ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_identifier: The ID of the VPC.
+        :param pulumi.Input[_builtins.str] vpc_identifier: ID of the VPC.
         """
         ...
     @overload
@@ -483,18 +478,17 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Association.
-        :param pulumi.Input[_builtins.str] created_by: The account that created the association.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Association.
+        :param pulumi.Input[_builtins.str] created_by: Account that created the association.
         :param pulumi.Input[Union['ServiceNetworkVpcAssociationDnsOptionsArgs', 'ServiceNetworkVpcAssociationDnsOptionsArgsDict']] dns_options: Configuration block for DNS option. See `dns_options` block below for details.
         :param pulumi.Input[_builtins.bool] private_dns_enabled: Boolean to indicate whether to enable private DNS for the VPC association. Defaults to `false`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the security groups.
-        :param pulumi.Input[_builtins.str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-               The following arguments are optional:
-        :param pulumi.Input[_builtins.str] status: The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: IDs of the security groups.
+        :param pulumi.Input[_builtins.str] service_network_identifier: ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+        :param pulumi.Input[_builtins.str] status: Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_identifier: The ID of the VPC.
+        :param pulumi.Input[_builtins.str] vpc_identifier: ID of the VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -517,7 +511,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the Association.
+        ARN of the Association.
         """
         return pulumi.get(self, "arn")
 
@@ -525,7 +519,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
     @pulumi.getter(name="createdBy")
     def created_by(self) -> pulumi.Output[_builtins.str]:
         """
-        The account that created the association.
+        Account that created the association.
         """
         return pulumi.get(self, "created_by")
 
@@ -557,7 +551,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The IDs of the security groups.
+        IDs of the security groups.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -565,8 +559,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
     @pulumi.getter(name="serviceNetworkIdentifier")
     def service_network_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        The following arguments are optional:
+        ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
         """
         return pulumi.get(self, "service_network_identifier")
 
@@ -574,7 +567,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+        Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
         """
         return pulumi.get(self, "status")
 
@@ -598,7 +591,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
     @pulumi.getter(name="vpcIdentifier")
     def vpc_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the VPC.
+        ID of the VPC.
         """
         return pulumi.get(self, "vpc_identifier")
 

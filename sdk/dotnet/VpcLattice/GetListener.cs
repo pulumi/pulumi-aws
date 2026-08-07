@@ -167,11 +167,11 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The date and time that the listener was created.
+        /// Date and time that the listener was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The actions for the default listener rule.
+        /// Actions for the default listener rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerDefaultActionResult> DefaultActions;
         /// <summary>
@@ -179,33 +179,33 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The date and time the listener was last updated.
+        /// Date and time the listener was last updated.
         /// </summary>
         public readonly string LastUpdatedAt;
         /// <summary>
-        /// The ID of the listener.
+        /// ID of the listener.
         /// </summary>
         public readonly string ListenerId;
         public readonly string ListenerIdentifier;
         /// <summary>
-        /// The name of the listener.
+        /// Name of the listener.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The listener port.
+        /// Listener port.
         /// </summary>
         public readonly int Port;
         /// <summary>
-        /// The listener protocol. Either `HTTPS` or `HTTP`.
+        /// Listener protocol. Either `HTTPS` or `HTTP`.
         /// </summary>
         public readonly string Protocol;
         public readonly string Region;
         /// <summary>
-        /// The ARN of the service.
+        /// ARN of the service.
         /// </summary>
         public readonly string ServiceArn;
         /// <summary>
-        /// The ID of the service.
+        /// ID of the service.
         /// </summary>
         public readonly string ServiceId;
         public readonly string ServiceIdentifier;

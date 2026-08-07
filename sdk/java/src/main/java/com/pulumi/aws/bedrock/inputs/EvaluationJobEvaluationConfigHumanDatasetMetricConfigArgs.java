@@ -47,14 +47,14 @@ public final class EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs ext
     }
 
     /**
-     * Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+     * Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
      * 
      */
     @Import(name="taskType", required=true)
     private Output<String> taskType;
 
     /**
-     * @return Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+     * @return Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
      * 
      */
     public Output<String> taskType() {
@@ -140,7 +140,7 @@ public final class EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs ext
         }
 
         /**
-         * @param taskType Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+         * @param taskType Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs ext
         }
 
         /**
-         * @param taskType Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+         * @param taskType Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
          * 
          * @return builder
          * 

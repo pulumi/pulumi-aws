@@ -63,8 +63,7 @@ export class Ingestion extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the application.
-     * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
+     * Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
      */
     declare public readonly app: pulumi.Output<string>;
     /**
@@ -150,8 +149,7 @@ export class Ingestion extends pulumi.CustomResource {
  */
 export interface IngestionState {
     /**
-     * Name of the application.
-     * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
+     * Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
      */
     app?: pulumi.Input<string | undefined>;
     /**
@@ -189,8 +187,7 @@ export interface IngestionState {
  */
 export interface IngestionArgs {
     /**
-     * Name of the application.
-     * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
+     * Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
      */
     app: pulumi.Input<string>;
     /**

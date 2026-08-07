@@ -21,14 +21,14 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
     public static final GetTaskExecutionOverridesContainerOverrideArgs Empty = new GetTaskExecutionOverridesContainerOverrideArgs();
 
     /**
-     * The command to send to the container that overrides the default command from the Docker image or the task definition.
+     * Command to send to the container that overrides the default command from the Docker image or the task definition.
      * 
      */
     @Import(name="commands")
     private @Nullable Output<List<String>> commands;
 
     /**
-     * @return The command to send to the container that overrides the default command from the Docker image or the task definition.
+     * @return Command to send to the container that overrides the default command from the Docker image or the task definition.
      * 
      */
     public Optional<Output<List<String>>> commands() {
@@ -36,14 +36,14 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
     }
 
     /**
-     * The number of cpu units reserved for the container, instead of the default value from the task definition.
+     * Number of cpu units reserved for the container, instead of the default value from the task definition.
      * 
      */
     @Import(name="cpu")
     private @Nullable Output<Integer> cpu;
 
     /**
-     * @return The number of cpu units reserved for the container, instead of the default value from the task definition.
+     * @return Number of cpu units reserved for the container, instead of the default value from the task definition.
      * 
      */
     public Optional<Output<Integer>> cpu() {
@@ -51,14 +51,14 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
     }
 
     /**
-     * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+     * Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
      * 
      */
     @Import(name="environments")
     private @Nullable Output<List<GetTaskExecutionOverridesContainerOverrideEnvironmentArgs>> environments;
 
     /**
-     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+     * @return Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
      * 
      */
     public Optional<Output<List<GetTaskExecutionOverridesContainerOverrideEnvironmentArgs>>> environments() {
@@ -66,14 +66,14 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
     }
 
     /**
-     * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+     * Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
      * 
      */
     @Import(name="memory")
     private @Nullable Output<Integer> memory;
 
     /**
-     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+     * @return Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
      * 
      */
     public Optional<Output<Integer>> memory() {
@@ -81,14 +81,14 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
     }
 
     /**
-     * The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+     * Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
      * 
      */
     @Import(name="memoryReservation")
     private @Nullable Output<Integer> memoryReservation;
 
     /**
-     * @return The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+     * @return Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
      * 
      */
     public Optional<Output<Integer>> memoryReservation() {
@@ -96,14 +96,14 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
     }
 
     /**
-     * The name of the container that receives the override. This parameter is required if any override is specified.
+     * Name of the container that receives the override. This parameter is required if any override is specified.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the container that receives the override. This parameter is required if any override is specified.
+     * @return Name of the container that receives the override. This parameter is required if any override is specified.
      * 
      */
     public Output<String> name() {
@@ -111,14 +111,14 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
     }
 
     /**
-     * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+     * Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
      * 
      */
     @Import(name="resourceRequirements")
     private @Nullable Output<List<GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs>> resourceRequirements;
 
     /**
-     * @return The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+     * @return Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
      * 
      */
     public Optional<Output<List<GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs>>> resourceRequirements() {
@@ -156,7 +156,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param commands The command to send to the container that overrides the default command from the Docker image or the task definition.
+         * @param commands Command to send to the container that overrides the default command from the Docker image or the task definition.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param commands The command to send to the container that overrides the default command from the Docker image or the task definition.
+         * @param commands Command to send to the container that overrides the default command from the Docker image or the task definition.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param commands The command to send to the container that overrides the default command from the Docker image or the task definition.
+         * @param commands Command to send to the container that overrides the default command from the Docker image or the task definition.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param cpu The number of cpu units reserved for the container, instead of the default value from the task definition.
+         * @param cpu Number of cpu units reserved for the container, instead of the default value from the task definition.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param cpu The number of cpu units reserved for the container, instead of the default value from the task definition.
+         * @param cpu Number of cpu units reserved for the container, instead of the default value from the task definition.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+         * @param environments Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+         * @param environments Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+         * @param environments Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param memory The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+         * @param memory Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param memory The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+         * @param memory Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param memoryReservation The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+         * @param memoryReservation Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param memoryReservation The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+         * @param memoryReservation Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param name The name of the container that receives the override. This parameter is required if any override is specified.
+         * @param name Name of the container that receives the override. This parameter is required if any override is specified.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param name The name of the container that receives the override. This parameter is required if any override is specified.
+         * @param name Name of the container that receives the override. This parameter is required if any override is specified.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+         * @param resourceRequirements Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+         * @param resourceRequirements Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class GetTaskExecutionOverridesContainerOverrideArgs extends com.pu
         }
 
         /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+         * @param resourceRequirements Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
          * 
          * @return builder
          * 

@@ -22,8 +22,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags that identifies subset of objects to which the rule applies.
-        /// The rule applies only to objects having all the tags in its tagset.
+        /// Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
         /// </summary>
         public InputMap<string> Tags
         {

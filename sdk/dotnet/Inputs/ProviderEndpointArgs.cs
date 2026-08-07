@@ -1485,6 +1485,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("resiliencehubv2")]
+        public Input<string>? Resiliencehubv2 { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("resourceexplorer2")]
         public Input<string>? Resourceexplorer2 { get; set; }
 

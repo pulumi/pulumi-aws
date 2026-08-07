@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.glue.outputs;
 
+import com.pulumi.aws.glue.outputs.CatalogTableOptimizerConfigurationCompactionConfiguration;
 import com.pulumi.aws.glue.outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration;
 import com.pulumi.aws.glue.outputs.CatalogTableOptimizerConfigurationRetentionConfiguration;
 import com.pulumi.core.annotations.CustomType;
@@ -15,6 +16,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogTableOptimizerConfiguration {
+    /**
+     * @return The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+     * 
+     */
+    private @Nullable CatalogTableOptimizerConfigurationCompactionConfiguration compactionConfiguration;
     /**
      * @return Indicates whether the table optimizer is enabled.
      * 
@@ -37,6 +43,13 @@ public final class CatalogTableOptimizerConfiguration {
     private String roleArn;
 
     private CatalogTableOptimizerConfiguration() {}
+    /**
+     * @return The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+     * 
+     */
+    public Optional<CatalogTableOptimizerConfigurationCompactionConfiguration> compactionConfiguration() {
+        return Optional.ofNullable(this.compactionConfiguration);
+    }
     /**
      * @return Indicates whether the table optimizer is enabled.
      * 
@@ -75,6 +88,7 @@ public final class CatalogTableOptimizerConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable CatalogTableOptimizerConfigurationCompactionConfiguration compactionConfiguration;
         private Boolean enabled;
         private @Nullable CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration orphanFileDeletionConfiguration;
         private @Nullable CatalogTableOptimizerConfigurationRetentionConfiguration retentionConfiguration;
@@ -82,12 +96,19 @@ public final class CatalogTableOptimizerConfiguration {
         public Builder() {}
         public Builder(CatalogTableOptimizerConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.compactionConfiguration = defaults.compactionConfiguration;
     	      this.enabled = defaults.enabled;
     	      this.orphanFileDeletionConfiguration = defaults.orphanFileDeletionConfiguration;
     	      this.retentionConfiguration = defaults.retentionConfiguration;
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
+        public Builder compactionConfiguration(@Nullable CatalogTableOptimizerConfigurationCompactionConfiguration compactionConfiguration) {
+
+            this.compactionConfiguration = compactionConfiguration;
+            return this;
+        }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             if (enabled == null) {
@@ -118,6 +139,7 @@ public final class CatalogTableOptimizerConfiguration {
         }
         public CatalogTableOptimizerConfiguration build() {
             final var _resultValue = new CatalogTableOptimizerConfiguration();
+            _resultValue.compactionConfiguration = compactionConfiguration;
             _resultValue.enabled = enabled;
             _resultValue.orphanFileDeletionConfiguration = orphanFileDeletionConfiguration;
             _resultValue.retentionConfiguration = retentionConfiguration;

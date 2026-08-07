@@ -20,14 +20,14 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
     public static final MultiRegionAccessPointDetailsArgs Empty = new MultiRegionAccessPointDetailsArgs();
 
     /**
-     * The name of the Multi-Region Access Point.
+     * Name of the Multi-Region Access Point.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Multi-Region Access Point.
+     * @return Name of the Multi-Region Access Point.
      * 
      */
     public Output<String> name() {
@@ -35,14 +35,14 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
     }
 
     /**
-     * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+     * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See `publicAccessBlock` Block below.
      * 
      */
     @Import(name="publicAccessBlock")
     private @Nullable Output<MultiRegionAccessPointDetailsPublicAccessBlockArgs> publicAccessBlock;
 
     /**
-     * @return Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+     * @return Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See `publicAccessBlock` Block below.
      * 
      */
     public Optional<Output<MultiRegionAccessPointDetailsPublicAccessBlockArgs>> publicAccessBlock() {
@@ -50,18 +50,14 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
     }
 
     /**
-     * The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-     * 
-     * For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
+     * Region configuration block to specify the bucket associated with the Multi-Region Access Point. See `region` Block below.
      * 
      */
     @Import(name="regions", required=true)
     private Output<List<MultiRegionAccessPointDetailsRegionArgs>> regions;
 
     /**
-     * @return The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-     * 
-     * For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
+     * @return Region configuration block to specify the bucket associated with the Multi-Region Access Point. See `region` Block below.
      * 
      */
     public Output<List<MultiRegionAccessPointDetailsRegionArgs>> regions() {
@@ -95,7 +91,7 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The name of the Multi-Region Access Point.
+         * @param name Name of the Multi-Region Access Point.
          * 
          * @return builder
          * 
@@ -106,7 +102,7 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The name of the Multi-Region Access Point.
+         * @param name Name of the Multi-Region Access Point.
          * 
          * @return builder
          * 
@@ -116,7 +112,7 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param publicAccessBlock Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+         * @param publicAccessBlock Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See `publicAccessBlock` Block below.
          * 
          * @return builder
          * 
@@ -127,7 +123,7 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param publicAccessBlock Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+         * @param publicAccessBlock Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See `publicAccessBlock` Block below.
          * 
          * @return builder
          * 
@@ -137,9 +133,7 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param regions The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-         * 
-         * For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
+         * @param regions Region configuration block to specify the bucket associated with the Multi-Region Access Point. See `region` Block below.
          * 
          * @return builder
          * 
@@ -150,9 +144,7 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param regions The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-         * 
-         * For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
+         * @param regions Region configuration block to specify the bucket associated with the Multi-Region Access Point. See `region` Block below.
          * 
          * @return builder
          * 
@@ -162,9 +154,7 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param regions The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-         * 
-         * For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
+         * @param regions Region configuration block to specify the bucket associated with the Multi-Region Access Point. See `region` Block below.
          * 
          * @return builder
          * 

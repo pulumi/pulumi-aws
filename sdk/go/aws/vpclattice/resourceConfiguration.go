@@ -193,7 +193,7 @@ type ResourceConfiguration struct {
 	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
 	// ARN of the domain verification.
 	DomainVerificationArn pulumi.StringOutput `pulumi:"domainVerificationArn"`
-	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+	// Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
 	DomainVerificationId pulumi.StringOutput `pulumi:"domainVerificationId"`
 	// Domain verification status.
 	DomainVerificationStatus pulumi.StringOutput `pulumi:"domainVerificationStatus"`
@@ -260,7 +260,7 @@ type resourceConfigurationState struct {
 	CustomDomainName *string `pulumi:"customDomainName"`
 	// ARN of the domain verification.
 	DomainVerificationArn *string `pulumi:"domainVerificationArn"`
-	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+	// Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
 	DomainVerificationId *string `pulumi:"domainVerificationId"`
 	// Domain verification status.
 	DomainVerificationStatus *string `pulumi:"domainVerificationStatus"`
@@ -298,7 +298,7 @@ type ResourceConfigurationState struct {
 	CustomDomainName pulumi.StringPtrInput
 	// ARN of the domain verification.
 	DomainVerificationArn pulumi.StringPtrInput
-	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+	// Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
 	DomainVerificationId pulumi.StringPtrInput
 	// Domain verification status.
 	DomainVerificationStatus pulumi.StringPtrInput
@@ -336,7 +336,7 @@ type resourceConfigurationArgs struct {
 	AllowAssociationToShareableServiceNetwork *bool `pulumi:"allowAssociationToShareableServiceNetwork"`
 	// Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
 	CustomDomainName *string `pulumi:"customDomainName"`
-	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+	// Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
 	DomainVerificationId *string `pulumi:"domainVerificationId"`
 	// Name for the Resource Configuration.
 	Name *string `pulumi:"name"`
@@ -367,7 +367,7 @@ type ResourceConfigurationArgs struct {
 	AllowAssociationToShareableServiceNetwork pulumi.BoolPtrInput
 	// Custom domain name for your resource configuration. Additionally, provide a `domainVerificationId` to prove your ownership of a domain.
 	CustomDomainName pulumi.StringPtrInput
-	// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+	// Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
 	DomainVerificationId pulumi.StringPtrInput
 	// Name for the Resource Configuration.
 	Name pulumi.StringPtrInput
@@ -499,7 +499,7 @@ func (o ResourceConfigurationOutput) DomainVerificationArn() pulumi.StringOutput
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.DomainVerificationArn }).(pulumi.StringOutput)
 }
 
-// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+// Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
 func (o ResourceConfigurationOutput) DomainVerificationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.DomainVerificationId }).(pulumi.StringOutput)
 }

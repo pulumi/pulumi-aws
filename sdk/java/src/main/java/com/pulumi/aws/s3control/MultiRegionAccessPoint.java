@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; This resource cannot be used with S3 directory buckets.
  * 
+ * For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
+ * 
  * ## Example Usage
  * 
  * ### Multiple AWS Buckets in Different Regions
@@ -98,14 +100,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint")
 public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource {
     /**
-     * The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     public Output<String> accountId() {
@@ -140,14 +142,14 @@ public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource 
         return this.arn;
     }
     /**
-     * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+     * Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
      * 
      */
     @Export(name="details", refs={MultiRegionAccessPointDetails.class}, tree="[0]")
     private Output<MultiRegionAccessPointDetails> details;
 
     /**
-     * @return A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+     * @return Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
      * 
      */
     public Output<MultiRegionAccessPointDetails> details() {

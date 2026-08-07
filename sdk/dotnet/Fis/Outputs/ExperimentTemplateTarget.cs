@@ -22,9 +22,7 @@ namespace Pulumi.Aws.Fis.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource type parameters.
-        /// 
-        /// &gt; **NOTE:** The `Target` configuration block requires either `ResourceArns` or `ResourceTag`.
+        /// Resource type parameters.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
@@ -41,6 +39,8 @@ namespace Pulumi.Aws.Fis.Outputs
         public readonly string ResourceType;
         /// <summary>
         /// Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `N` of the identified resources), `PERCENT(n)` (randomly select `N` percent of the identified resources).
+        /// 
+        /// &gt; **NOTE:** The `Target` configuration block requires either `ResourceArns` or `ResourceTag`.
         /// </summary>
         public readonly string SelectionMode;
 

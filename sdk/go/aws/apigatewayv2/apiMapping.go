@@ -57,7 +57,7 @@ type ApiMapping struct {
 
 	// API identifier.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
+	// API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
 	ApiMappingKey pulumi.StringPtrOutput `pulumi:"apiMappingKey"`
 	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
@@ -108,7 +108,7 @@ func GetApiMapping(ctx *pulumi.Context,
 type apiMappingState struct {
 	// API identifier.
 	ApiId *string `pulumi:"apiId"`
-	// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
+	// API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
 	ApiMappingKey *string `pulumi:"apiMappingKey"`
 	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName *string `pulumi:"domainName"`
@@ -121,7 +121,7 @@ type apiMappingState struct {
 type ApiMappingState struct {
 	// API identifier.
 	ApiId pulumi.StringPtrInput
-	// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
+	// API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
 	ApiMappingKey pulumi.StringPtrInput
 	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName pulumi.StringPtrInput
@@ -138,7 +138,7 @@ func (ApiMappingState) ElementType() reflect.Type {
 type apiMappingArgs struct {
 	// API identifier.
 	ApiId string `pulumi:"apiId"`
-	// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
+	// API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
 	ApiMappingKey *string `pulumi:"apiMappingKey"`
 	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName string `pulumi:"domainName"`
@@ -152,7 +152,7 @@ type apiMappingArgs struct {
 type ApiMappingArgs struct {
 	// API identifier.
 	ApiId pulumi.StringInput
-	// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
+	// API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
 	ApiMappingKey pulumi.StringPtrInput
 	// Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
 	DomainName pulumi.StringInput
@@ -254,7 +254,7 @@ func (o ApiMappingOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
+// API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
 func (o ApiMappingOutput) ApiMappingKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiMapping) pulumi.StringPtrOutput { return v.ApiMappingKey }).(pulumi.StringPtrOutput)
 }

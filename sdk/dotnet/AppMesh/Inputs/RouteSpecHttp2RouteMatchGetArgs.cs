@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<Inputs.RouteSpecHttp2RouteMatchHeaderGetArgs>? _headers;
 
         /// <summary>
-        /// Client request headers to match on. See `Header` Block for details.
+        /// Client request headers to match on. See `spec.http_route.match.header` Block for details.
         /// </summary>
         public InputList<Inputs.RouteSpecHttp2RouteMatchHeaderGetArgs> Headers
         {
@@ -31,13 +31,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<string>? Method { get; set; }
 
         /// <summary>
-        /// Client request path to match on. See `Path` Block for details.
+        /// Client request path to match on. See `spec.http_route.match.path` Block for details.
         /// </summary>
         [Input("path")]
         public Input<Inputs.RouteSpecHttp2RouteMatchPathGetArgs>? Path { get; set; }
 
         /// <summary>
-        /// The port number to match from the request.
+        /// Port number to match from the request.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<Inputs.RouteSpecHttp2RouteMatchQueryParameterGetArgs>? _queryParameters;
 
         /// <summary>
-        /// Client request query parameters to match on. See `QueryParameter` Block for details.
+        /// Client request query parameters to match on. See `spec.http_route.match.query_parameter` Block for details.
         /// </summary>
         public InputList<Inputs.RouteSpecHttp2RouteMatchQueryParameterGetArgs> QueryParameters
         {

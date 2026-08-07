@@ -19,14 +19,14 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
     public static final KxClusterScalingGroupConfigurationArgs Empty = new KxClusterScalingGroupConfigurationArgs();
 
     /**
-     * The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+     * Number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
      * 
      */
     @Import(name="cpu")
     private @Nullable Output<Double> cpu;
 
     /**
-     * @return The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+     * @return Number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
      * 
      */
     public Optional<Output<Double>> cpu() {
@@ -34,14 +34,14 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * An optional hard limit on the amount of memory a kdb cluster can use.
+     * Hard limit on the amount of memory a kdb cluster can use.
      * 
      */
     @Import(name="memoryLimit")
     private @Nullable Output<Integer> memoryLimit;
 
     /**
-     * @return An optional hard limit on the amount of memory a kdb cluster can use.
+     * @return Hard limit on the amount of memory a kdb cluster can use.
      * 
      */
     public Optional<Output<Integer>> memoryLimit() {
@@ -49,14 +49,14 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+     * Reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
      * 
      */
     @Import(name="memoryReservation", required=true)
     private Output<Integer> memoryReservation;
 
     /**
-     * @return A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+     * @return Reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
      * 
      */
     public Output<Integer> memoryReservation() {
@@ -64,14 +64,14 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The number of kdb cluster nodes.
+     * Number of kdb cluster nodes.
      * 
      */
     @Import(name="nodeCount", required=true)
     private Output<Integer> nodeCount;
 
     /**
-     * @return The number of kdb cluster nodes.
+     * @return Number of kdb cluster nodes.
      * 
      */
     public Output<Integer> nodeCount() {
@@ -79,14 +79,14 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * A unique identifier for the kdb scaling group.
+     * Unique identifier for the kdb scaling group.
      * 
      */
     @Import(name="scalingGroupName", required=true)
     private Output<String> scalingGroupName;
 
     /**
-     * @return A unique identifier for the kdb scaling group.
+     * @return Unique identifier for the kdb scaling group.
      * 
      */
     public Output<String> scalingGroupName() {
@@ -122,7 +122,7 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param cpu The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+         * @param cpu Number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param cpu The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+         * @param cpu Number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param memoryLimit An optional hard limit on the amount of memory a kdb cluster can use.
+         * @param memoryLimit Hard limit on the amount of memory a kdb cluster can use.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param memoryLimit An optional hard limit on the amount of memory a kdb cluster can use.
+         * @param memoryLimit Hard limit on the amount of memory a kdb cluster can use.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param memoryReservation A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+         * @param memoryReservation Reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param memoryReservation A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+         * @param memoryReservation Reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param nodeCount The number of kdb cluster nodes.
+         * @param nodeCount Number of kdb cluster nodes.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param nodeCount The number of kdb cluster nodes.
+         * @param nodeCount Number of kdb cluster nodes.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param scalingGroupName A unique identifier for the kdb scaling group.
+         * @param scalingGroupName Unique identifier for the kdb scaling group.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class KxClusterScalingGroupConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param scalingGroupName A unique identifier for the kdb scaling group.
+         * @param scalingGroupName Unique identifier for the kdb scaling group.
          * 
          * @return builder
          * 

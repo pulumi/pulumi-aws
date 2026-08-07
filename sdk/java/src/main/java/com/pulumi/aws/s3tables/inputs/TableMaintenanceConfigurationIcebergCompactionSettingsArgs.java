@@ -15,16 +15,14 @@ public final class TableMaintenanceConfigurationIcebergCompactionSettingsArgs ex
     public static final TableMaintenanceConfigurationIcebergCompactionSettingsArgs Empty = new TableMaintenanceConfigurationIcebergCompactionSettingsArgs();
 
     /**
-     * Data objects smaller than this size may be combined with others to improve query performance.
-     * Must be between `64` and `512`.
+     * Data objects smaller than this size may be combined with others to improve query performance. Must be between `64` and `512`.
      * 
      */
     @Import(name="targetFileSizeMb", required=true)
     private Output<Integer> targetFileSizeMb;
 
     /**
-     * @return Data objects smaller than this size may be combined with others to improve query performance.
-     * Must be between `64` and `512`.
+     * @return Data objects smaller than this size may be combined with others to improve query performance. Must be between `64` and `512`.
      * 
      */
     public Output<Integer> targetFileSizeMb() {
@@ -56,8 +54,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionSettingsArgs ex
         }
 
         /**
-         * @param targetFileSizeMb Data objects smaller than this size may be combined with others to improve query performance.
-         * Must be between `64` and `512`.
+         * @param targetFileSizeMb Data objects smaller than this size may be combined with others to improve query performance. Must be between `64` and `512`.
          * 
          * @return builder
          * 
@@ -68,8 +65,7 @@ public final class TableMaintenanceConfigurationIcebergCompactionSettingsArgs ex
         }
 
         /**
-         * @param targetFileSizeMb Data objects smaller than this size may be combined with others to improve query performance.
-         * Must be between `64` and `512`.
+         * @param targetFileSizeMb Data objects smaller than this size may be combined with others to improve query performance. Must be between `64` and `512`.
          * 
          * @return builder
          * 

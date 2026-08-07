@@ -17,14 +17,14 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
     public static final ScraperSourceArgs Empty = new ScraperSourceArgs();
 
     /**
-     * Configuration block for an EKS cluster source. See `eks`.
+     * Configuration block for an EKS cluster source. See `eks` Block for details.
      * 
      */
     @Import(name="eks")
     private @Nullable Output<ScraperSourceEksArgs> eks;
 
     /**
-     * @return Configuration block for an EKS cluster source. See `eks`.
+     * @return Configuration block for an EKS cluster source. See `eks` Block for details.
      * 
      */
     public Optional<Output<ScraperSourceEksArgs>> eks() {
@@ -32,7 +32,7 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for a VPC source. See `vpc`.
+     * Configuration block for a VPC source. See `vpc` Block for details.
      * 
      * &gt; **NOTE:** Either `eks` or `vpc` must be specified, but not both.
      * 
@@ -41,7 +41,7 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<ScraperSourceVpcArgs> vpc;
 
     /**
-     * @return Configuration block for a VPC source. See `vpc`.
+     * @return Configuration block for a VPC source. See `vpc` Block for details.
      * 
      * &gt; **NOTE:** Either `eks` or `vpc` must be specified, but not both.
      * 
@@ -76,7 +76,7 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eks Configuration block for an EKS cluster source. See `eks`.
+         * @param eks Configuration block for an EKS cluster source. See `eks` Block for details.
          * 
          * @return builder
          * 
@@ -87,7 +87,7 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eks Configuration block for an EKS cluster source. See `eks`.
+         * @param eks Configuration block for an EKS cluster source. See `eks` Block for details.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpc Configuration block for a VPC source. See `vpc`.
+         * @param vpc Configuration block for a VPC source. See `vpc` Block for details.
          * 
          * &gt; **NOTE:** Either `eks` or `vpc` must be specified, but not both.
          * 
@@ -110,7 +110,7 @@ public final class ScraperSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpc Configuration block for a VPC source. See `vpc`.
+         * @param vpc Configuration block for a VPC source. See `vpc` Block for details.
          * 
          * &gt; **NOTE:** Either `eks` or `vpc` must be specified, but not both.
          * 

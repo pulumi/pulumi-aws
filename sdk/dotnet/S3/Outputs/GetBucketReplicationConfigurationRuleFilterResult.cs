@@ -15,11 +15,11 @@ namespace Pulumi.Aws.S3.Outputs
     {
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleFilterAndResult> Ands;
         /// <summary>
-        /// The object key name prefix that identifies the subset of objects to which the rule applies.
+        /// Object key name prefix that identifies the subset of objects to which the rule applies.
         /// </summary>
         public readonly string Prefix;
         /// <summary>
-        /// An unordered list of tags that identify a subset of objects to which the rule applies.
+        /// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `Key` and a `Value`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleFilterTagResult> Tags;
 

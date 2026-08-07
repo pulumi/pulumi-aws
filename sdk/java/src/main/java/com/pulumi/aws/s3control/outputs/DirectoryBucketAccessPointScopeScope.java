@@ -19,8 +19,6 @@ public final class DirectoryBucketAccessPointScopeScope {
     /**
      * @return You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
      * 
-     * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-     * 
      */
     private @Nullable List<String> prefixes;
 
@@ -34,8 +32,6 @@ public final class DirectoryBucketAccessPointScopeScope {
     }
     /**
      * @return You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-     * 
-     * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
      * 
      */
     public List<String> prefixes() {

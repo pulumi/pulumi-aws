@@ -104,6 +104,7 @@ class _TableBucketReplicationState:
         :param pulumi.Input[_builtins.str] role: ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
         :param pulumi.Input['TableBucketReplicationRuleArgs'] rule: Replication rules. See Rule below for more details.
         :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this replication configuration.
+        :param pulumi.Input[_builtins.str] version_token: Version token of the replication configuration.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -167,6 +168,9 @@ class _TableBucketReplicationState:
     @_builtins.property
     @pulumi.getter(name="versionToken")
     def version_token(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Version token of the replication configuration.
+        """
         return pulumi.get(self, "version_token")
 
     @version_token.setter
@@ -333,6 +337,7 @@ class TableBucketReplication(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] role: ARN referencing the IAM role assumed by S3 when replicating tables in this bucket.
         :param pulumi.Input[Union['TableBucketReplicationRuleArgs', 'TableBucketReplicationRuleArgsDict']] rule: Replication rules. See Rule below for more details.
         :param pulumi.Input[_builtins.str] table_bucket_arn: ARN referencing the Table Bucket that owns this replication configuration.
+        :param pulumi.Input[_builtins.str] version_token: Version token of the replication configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -380,5 +385,8 @@ class TableBucketReplication(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="versionToken")
     def version_token(self) -> pulumi.Output[_builtins.str]:
+        """
+        Version token of the replication configuration.
+        """
         return pulumi.get(self, "version_token")
 

@@ -75,28 +75,28 @@ public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The target.
+     * Target to register with the target group. See `target` Block for details.
      * 
      */
     @Export(name="target", refs={TargetGroupAttachmentTarget.class}, tree="[0]")
     private Output<TargetGroupAttachmentTarget> target;
 
     /**
-     * @return The target.
+     * @return Target to register with the target group. See `target` Block for details.
      * 
      */
     public Output<TargetGroupAttachmentTarget> target() {
         return this.target;
     }
     /**
-     * The ID or Amazon Resource Name (ARN) of the target group.
+     * ID or Amazon Resource Name (ARN) of the target group.
      * 
      */
     @Export(name="targetGroupIdentifier", refs={String.class}, tree="[0]")
     private Output<String> targetGroupIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Name (ARN) of the target group.
+     * @return ID or Amazon Resource Name (ARN) of the target group.
      * 
      */
     public Output<String> targetGroupIdentifier() {

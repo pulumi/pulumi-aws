@@ -73,7 +73,7 @@ type Model struct {
 
 	// API identifier.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+	// Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
 	// Description of the model. Must be between 1 and 128 characters in length.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -126,7 +126,7 @@ func GetModel(ctx *pulumi.Context,
 type modelState struct {
 	// API identifier.
 	ApiId *string `pulumi:"apiId"`
-	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+	// Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
 	ContentType *string `pulumi:"contentType"`
 	// Description of the model. Must be between 1 and 128 characters in length.
 	Description *string `pulumi:"description"`
@@ -141,7 +141,7 @@ type modelState struct {
 type ModelState struct {
 	// API identifier.
 	ApiId pulumi.StringPtrInput
-	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+	// Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
 	ContentType pulumi.StringPtrInput
 	// Description of the model. Must be between 1 and 128 characters in length.
 	Description pulumi.StringPtrInput
@@ -160,7 +160,7 @@ func (ModelState) ElementType() reflect.Type {
 type modelArgs struct {
 	// API identifier.
 	ApiId string `pulumi:"apiId"`
-	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+	// Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
 	ContentType string `pulumi:"contentType"`
 	// Description of the model. Must be between 1 and 128 characters in length.
 	Description *string `pulumi:"description"`
@@ -176,7 +176,7 @@ type modelArgs struct {
 type ModelArgs struct {
 	// API identifier.
 	ApiId pulumi.StringInput
-	// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+	// Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
 	ContentType pulumi.StringInput
 	// Description of the model. Must be between 1 and 128 characters in length.
 	Description pulumi.StringPtrInput
@@ -280,7 +280,7 @@ func (o ModelOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+// Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
 func (o ModelOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
 }

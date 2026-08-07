@@ -40,11 +40,11 @@ export function getDbServer(args: GetDbServerArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetDbServerArgs {
     /**
-     * The unique identifier of the cloud vm cluster.
+     * Unique identifier of the cloud vm cluster.
      */
     cloudExadataInfrastructureId: string;
     /**
-     * The unique identifier of db node associated with vm cluster.
+     * Unique identifier of db node associated with vm cluster.
      *
      * The following arguments are optional:
      */
@@ -60,74 +60,74 @@ export interface GetDbServerArgs {
  */
 export interface GetDbServerResult {
     /**
-     * The list of unique identifiers for the Autonomous VMs associated with this database server.
+     * List of unique identifiers for the Autonomous VMs associated with this database server.
      */
     readonly autonomousVirtualMachineIds: string[];
     /**
-     * The OCID of the autonomous VM clusters that are associated with the database server.
+     * OCID of the autonomous VM clusters that are associated with the database server.
      */
     readonly autonomousVmClusterIds: string[];
     readonly cloudExadataInfrastructureId: string;
     /**
-     * The compute model of the database server.
+     * Compute model of the database server.
      */
     readonly computeModel: string;
     /**
-     * The number of CPU cores enabled on the database server.
+     * Number of CPU cores enabled on the database server.
      */
     readonly cpuCoreCount: number;
     /**
-     * The date and time when the database server was created.
+     * Date and time when the database server was created.
      */
     readonly createdAt: string;
     /**
-     * The allocated local node storage in GBs on the database server.
+     * Allocated local node storage in GBs on the database server.
      */
     readonly dbNodeStorageSizeInGbs: number;
     /**
-     * The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+     * Scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
      */
     readonly dbServerPatchingDetails: outputs.odb.GetDbServerDbServerPatchingDetail[];
     /**
-     * The display name of the database server.
+     * Display name of the database server.
      */
     readonly displayName: string;
     /**
-     * The exadata infrastructure ID of the database server.
+     * Exadata infrastructure ID of the database server.
      */
     readonly exadataInfrastructureId: string;
     readonly id: string;
     /**
-     * The total number of CPU cores available.
+     * Total number of CPU cores available.
      */
     readonly maxCpuCount: number;
     /**
-     * The total local node storage available in GBs.
+     * Total local node storage available in GBs.
      */
     readonly maxDbNodeStorageInGbs: number;
     /**
-     * The total memory available in GBs.
+     * Total memory available in GBs.
      */
     readonly maxMemoryInGbs: number;
     /**
-     * The allocated memory in GBs on the database server.
+     * Allocated memory in GBs on the database server.
      */
     readonly memorySizeInGbs: number;
     /**
-     * The name of the OCI resource anchor.
+     * Name of the OCI resource anchor.
      */
     readonly ociResourceAnchorName: string;
     /**
-     * The OCID of the database server to retrieve information about.
+     * OCID of the database server to retrieve information about.
      */
     readonly ocid: string;
     readonly region: string;
     /**
-     * The shape of the database server. The shape determines the amount of CPU, storage, and memory resources available.
+     * Shape of the database server. The shape determines the amount of CPU, storage, and memory resources available.
      */
     readonly shape: string;
     /**
-     * The status of the database server.
+     * Status of the database server.
      */
     readonly status: string;
     /**
@@ -135,7 +135,7 @@ export interface GetDbServerResult {
      */
     readonly statusReason: string;
     /**
-     * The OCID of the VM clusters that are associated with the database server.
+     * OCID of the VM clusters that are associated with the database server.
      */
     readonly vmClusterIds: string[];
 }
@@ -172,11 +172,11 @@ export function getDbServerOutput(args: GetDbServerOutputArgs, opts?: pulumi.Inv
  */
 export interface GetDbServerOutputArgs {
     /**
-     * The unique identifier of the cloud vm cluster.
+     * Unique identifier of the cloud vm cluster.
      */
     cloudExadataInfrastructureId: pulumi.Input<string>;
     /**
-     * The unique identifier of db node associated with vm cluster.
+     * Unique identifier of db node associated with vm cluster.
      *
      * The following arguments are optional:
      */

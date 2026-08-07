@@ -19,14 +19,14 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
     public static final RouteSpecGrpcRouteMatchMetadataArgs Empty = new RouteSpecGrpcRouteMatchMetadataArgs();
 
     /**
-     * If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+     * Whether to match on the opposite of the `match` method and value. Default is `false`.
      * 
      */
     @Import(name="invert")
     private @Nullable Output<Boolean> invert;
 
     /**
-     * @return If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+     * @return Whether to match on the opposite of the `match` method and value. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> invert() {
@@ -34,14 +34,14 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
     }
 
     /**
-     * Data to match from the request.
+     * Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
      * 
      */
     @Import(name="match")
     private @Nullable Output<RouteSpecGrpcRouteMatchMetadataMatchArgs> match;
 
     /**
-     * @return Data to match from the request.
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
      * 
      */
     public Optional<Output<RouteSpecGrpcRouteMatchMetadataMatchArgs>> match() {
@@ -49,14 +49,14 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
     }
 
     /**
-     * Name of the route. Must be between 1 and 50 characters in length.
+     * Name to use for the route. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the route. Must be between 1 and 50 characters in length.
+     * @return Name to use for the route. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> name() {
@@ -90,7 +90,7 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param invert If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+         * @param invert Whether to match on the opposite of the `match` method and value. Default is `false`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param invert If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+         * @param invert Whether to match on the opposite of the `match` method and value. Default is `false`.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param match Data to match from the request.
+         * @param match Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param match Data to match from the request.
+         * @param match Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name Name of the route. Must be between 1 and 50 characters in length.
+         * @param name Name to use for the route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name Name of the route. Must be between 1 and 50 characters in length.
+         * @param name Name to use for the route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 

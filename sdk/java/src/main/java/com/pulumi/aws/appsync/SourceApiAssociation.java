@@ -166,9 +166,17 @@ public class SourceApiAssociation extends com.pulumi.resources.CustomResource {
     public Output<String> sourceApiArn() {
         return this.sourceApiArn;
     }
+    /**
+     * Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
+     * 
+     */
     @Export(name="sourceApiAssociationConfigs", refs={List.class,SourceApiAssociationSourceApiAssociationConfig.class}, tree="[0,1]")
     private Output<List<SourceApiAssociationSourceApiAssociationConfig>> sourceApiAssociationConfigs;
 
+    /**
+     * @return Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
+     * 
+     */
     public Output<List<SourceApiAssociationSourceApiAssociationConfig>> sourceApiAssociationConfigs() {
         return this.sourceApiAssociationConfigs;
     }

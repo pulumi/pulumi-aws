@@ -31,14 +31,14 @@ public final class GetSecretRotationPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+     * Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      * 
      */
     @Import(name="secretId", required=true)
     private String secretId;
 
     /**
-     * @return Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+     * @return Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      * 
      */
     public String secretId() {
@@ -82,7 +82,7 @@ public final class GetSecretRotationPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param secretId Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+         * @param secretId Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
          * 
          * @return builder
          * 

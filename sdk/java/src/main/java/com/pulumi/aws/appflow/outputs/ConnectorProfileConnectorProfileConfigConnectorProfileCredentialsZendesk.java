@@ -13,21 +13,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk {
+    /**
+     * @return Credentials used to access protected Zendesk resources.
+     * 
+     */
     private @Nullable String accessToken;
+    /**
+     * @return Identifier for the desired client.
+     * 
+     */
     private String clientId;
+    /**
+     * @return Client secret used by the OAuth client to authenticate to the authorization server.
+     * 
+     */
     private String clientSecret;
+    /**
+     * @return OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+     * 
+     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest oauthRequest;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk() {}
+    /**
+     * @return Credentials used to access protected Zendesk resources.
+     * 
+     */
     public Optional<String> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
+    /**
+     * @return Identifier for the desired client.
+     * 
+     */
     public String clientId() {
         return this.clientId;
     }
+    /**
+     * @return Client secret used by the OAuth client to authenticate to the authorization server.
+     * 
+     */
     public String clientSecret() {
         return this.clientSecret;
     }
+    /**
+     * @return OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+     * 
+     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }

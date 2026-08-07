@@ -70,28 +70,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation")
 public class ServiceNetworkVpcAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Association.
+     * ARN of the Association.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Association.
+     * @return ARN of the Association.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The account that created the association.
+     * Account that created the association.
      * 
      */
     @Export(name="createdBy", refs={String.class}, tree="[0]")
     private Output<String> createdBy;
 
     /**
-     * @return The account that created the association.
+     * @return Account that created the association.
      * 
      */
     public Output<String> createdBy() {
@@ -140,44 +140,42 @@ public class ServiceNetworkVpcAssociation extends com.pulumi.resources.CustomRes
         return this.region;
     }
     /**
-     * The IDs of the security groups.
+     * IDs of the security groups.
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
-     * @return The IDs of the security groups.
+     * @return IDs of the security groups.
      * 
      */
     public Output<Optional<List<String>>> securityGroupIds() {
         return Codegen.optional(this.securityGroupIds);
     }
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
+     * ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      */
     @Export(name="serviceNetworkIdentifier", refs={String.class}, tree="[0]")
     private Output<String> serviceNetworkIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
+     * @return ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      */
     public Output<String> serviceNetworkIdentifier() {
         return this.serviceNetworkIdentifier;
     }
     /**
-     * The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+     * Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+     * @return Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      * 
      */
     public Output<String> status() {
@@ -212,14 +210,14 @@ public class ServiceNetworkVpcAssociation extends com.pulumi.resources.CustomRes
         return this.tagsAll;
     }
     /**
-     * The ID of the VPC.
+     * ID of the VPC.
      * 
      */
     @Export(name="vpcIdentifier", refs={String.class}, tree="[0]")
     private Output<String> vpcIdentifier;
 
     /**
-     * @return The ID of the VPC.
+     * @return ID of the VPC.
      * 
      */
     public Output<String> vpcIdentifier() {

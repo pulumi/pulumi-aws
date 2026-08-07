@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type TableBucketEncryptionConfiguration struct {
-	// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+	// ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// One of `aws:kms` or `AES256`
 	SseAlgorithm string `pulumi:"sseAlgorithm"`
@@ -32,7 +32,7 @@ type TableBucketEncryptionConfigurationInput interface {
 }
 
 type TableBucketEncryptionConfigurationArgs struct {
-	// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+	// ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
 	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// One of `aws:kms` or `AES256`
 	SseAlgorithm pulumi.StringInput `pulumi:"sseAlgorithm"`
@@ -115,7 +115,7 @@ func (o TableBucketEncryptionConfigurationOutput) ToTableBucketEncryptionConfigu
 	}).(TableBucketEncryptionConfigurationPtrOutput)
 }
 
-// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+// ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
 func (o TableBucketEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TableBucketEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -149,7 +149,7 @@ func (o TableBucketEncryptionConfigurationPtrOutput) Elem() TableBucketEncryptio
 	}).(TableBucketEncryptionConfigurationOutput)
 }
 
-// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+// ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
 func (o TableBucketEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableBucketEncryptionConfiguration) *string {
 		if v == nil {
@@ -170,8 +170,7 @@ func (o TableBucketEncryptionConfigurationPtrOutput) SseAlgorithm() pulumi.Strin
 }
 
 type TableBucketMaintenanceConfiguration struct {
-	// A single Iceberg unreferenced file removal settings object.
-	// See `icebergUnreferencedFileRemoval` below.
+	// Iceberg unreferenced file removal settings for the table bucket. See `icebergUnreferencedFileRemoval` below.
 	IcebergUnreferencedFileRemoval TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval `pulumi:"icebergUnreferencedFileRemoval"`
 }
 
@@ -187,8 +186,7 @@ type TableBucketMaintenanceConfigurationInput interface {
 }
 
 type TableBucketMaintenanceConfigurationArgs struct {
-	// A single Iceberg unreferenced file removal settings object.
-	// See `icebergUnreferencedFileRemoval` below.
+	// Iceberg unreferenced file removal settings for the table bucket. See `icebergUnreferencedFileRemoval` below.
 	IcebergUnreferencedFileRemoval TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalInput `pulumi:"icebergUnreferencedFileRemoval"`
 }
 
@@ -269,8 +267,7 @@ func (o TableBucketMaintenanceConfigurationOutput) ToTableBucketMaintenanceConfi
 	}).(TableBucketMaintenanceConfigurationPtrOutput)
 }
 
-// A single Iceberg unreferenced file removal settings object.
-// See `icebergUnreferencedFileRemoval` below.
+// Iceberg unreferenced file removal settings for the table bucket. See `icebergUnreferencedFileRemoval` below.
 func (o TableBucketMaintenanceConfigurationOutput) IcebergUnreferencedFileRemoval() TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput {
 	return o.ApplyT(func(v TableBucketMaintenanceConfiguration) TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval {
 		return v.IcebergUnreferencedFileRemoval
@@ -301,8 +298,7 @@ func (o TableBucketMaintenanceConfigurationPtrOutput) Elem() TableBucketMaintena
 	}).(TableBucketMaintenanceConfigurationOutput)
 }
 
-// A single Iceberg unreferenced file removal settings object.
-// See `icebergUnreferencedFileRemoval` below.
+// Iceberg unreferenced file removal settings for the table bucket. See `icebergUnreferencedFileRemoval` below.
 func (o TableBucketMaintenanceConfigurationPtrOutput) IcebergUnreferencedFileRemoval() TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput {
 	return o.ApplyT(func(v *TableBucketMaintenanceConfiguration) *TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval {
 		if v == nil {
@@ -313,11 +309,9 @@ func (o TableBucketMaintenanceConfigurationPtrOutput) IcebergUnreferencedFileRem
 }
 
 type TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval struct {
-	// Settings object for unreferenced file removal.
-	// See `iceberg_unreferenced_file_removal.settings` below.
+	// Settings object for unreferenced file removal. See `iceberg_unreferenced_file_removal.settings` below.
 	Settings TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings `pulumi:"settings"`
-	// Whether the configuration is enabled.
-	// Valid values are `enabled` and `disabled`.
+	// Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
 	Status string `pulumi:"status"`
 }
 
@@ -333,11 +327,9 @@ type TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalInput inte
 }
 
 type TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs struct {
-	// Settings object for unreferenced file removal.
-	// See `iceberg_unreferenced_file_removal.settings` below.
+	// Settings object for unreferenced file removal. See `iceberg_unreferenced_file_removal.settings` below.
 	Settings TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsInput `pulumi:"settings"`
-	// Whether the configuration is enabled.
-	// Valid values are `enabled` and `disabled`.
+	// Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -418,16 +410,14 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput)
 	}).(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput)
 }
 
-// Settings object for unreferenced file removal.
-// See `iceberg_unreferenced_file_removal.settings` below.
+// Settings object for unreferenced file removal. See `iceberg_unreferenced_file_removal.settings` below.
 func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput) Settings() TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput {
 	return o.ApplyT(func(v TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval) TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings {
 		return v.Settings
 	}).(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput)
 }
 
-// Whether the configuration is enabled.
-// Valid values are `enabled` and `disabled`.
+// Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
 func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -456,8 +446,7 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutp
 	}).(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalOutput)
 }
 
-// Settings object for unreferenced file removal.
-// See `iceberg_unreferenced_file_removal.settings` below.
+// Settings object for unreferenced file removal. See `iceberg_unreferenced_file_removal.settings` below.
 func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput) Settings() TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput {
 	return o.ApplyT(func(v *TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval) *TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings {
 		if v == nil {
@@ -467,8 +456,7 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutp
 	}).(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput)
 }
 
-// Whether the configuration is enabled.
-// Valid values are `enabled` and `disabled`.
+// Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
 func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval) *string {
 		if v == nil {
@@ -479,11 +467,9 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalPtrOutp
 }
 
 type TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings struct {
-	// Data objects marked for deletion are deleted after this many days.
-	// Must be at least `1`.
+	// Data objects marked for deletion are deleted after this many days. Must be at least `1`.
 	NonCurrentDays int `pulumi:"nonCurrentDays"`
-	// Unreferenced data objects are marked for deletion after this many days.
-	// Must be at least `1`.
+	// Unreferenced data objects are marked for deletion after this many days. Must be at least `1`.
 	UnreferencedDays int `pulumi:"unreferencedDays"`
 }
 
@@ -499,11 +485,9 @@ type TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsIn
 }
 
 type TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs struct {
-	// Data objects marked for deletion are deleted after this many days.
-	// Must be at least `1`.
+	// Data objects marked for deletion are deleted after this many days. Must be at least `1`.
 	NonCurrentDays pulumi.IntInput `pulumi:"nonCurrentDays"`
-	// Unreferenced data objects are marked for deletion after this many days.
-	// Must be at least `1`.
+	// Unreferenced data objects are marked for deletion after this many days. Must be at least `1`.
 	UnreferencedDays pulumi.IntInput `pulumi:"unreferencedDays"`
 }
 
@@ -584,16 +568,14 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSetting
 	}).(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput)
 }
 
-// Data objects marked for deletion are deleted after this many days.
-// Must be at least `1`.
+// Data objects marked for deletion are deleted after this many days. Must be at least `1`.
 func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput) NonCurrentDays() pulumi.IntOutput {
 	return o.ApplyT(func(v TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) int {
 		return v.NonCurrentDays
 	}).(pulumi.IntOutput)
 }
 
-// Unreferenced data objects are marked for deletion after this many days.
-// Must be at least `1`.
+// Unreferenced data objects are marked for deletion after this many days. Must be at least `1`.
 func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput) UnreferencedDays() pulumi.IntOutput {
 	return o.ApplyT(func(v TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) int {
 		return v.UnreferencedDays
@@ -624,8 +606,7 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSetting
 	}).(TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsOutput)
 }
 
-// Data objects marked for deletion are deleted after this many days.
-// Must be at least `1`.
+// Data objects marked for deletion are deleted after this many days. Must be at least `1`.
 func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput) NonCurrentDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) *int {
 		if v == nil {
@@ -635,8 +616,7 @@ func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSetting
 	}).(pulumi.IntPtrOutput)
 }
 
-// Unreferenced data objects are marked for deletion after this many days.
-// Must be at least `1`.
+// Unreferenced data objects are marked for deletion after this many days. Must be at least `1`.
 func (o TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsPtrOutput) UnreferencedDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings) *int {
 		if v == nil {
@@ -881,7 +861,7 @@ func (o TableBucketReplicationRuleDestinationArrayOutput) Index(i pulumi.IntInpu
 }
 
 type TableEncryptionConfiguration struct {
-	// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+	// ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// One of `aws:kms` or `AES256`
 	SseAlgorithm string `pulumi:"sseAlgorithm"`
@@ -899,7 +879,7 @@ type TableEncryptionConfigurationInput interface {
 }
 
 type TableEncryptionConfigurationArgs struct {
-	// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+	// ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
 	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// One of `aws:kms` or `AES256`
 	SseAlgorithm pulumi.StringInput `pulumi:"sseAlgorithm"`
@@ -982,7 +962,7 @@ func (o TableEncryptionConfigurationOutput) ToTableEncryptionConfigurationPtrOut
 	}).(TableEncryptionConfigurationPtrOutput)
 }
 
-// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+// ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
 func (o TableEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TableEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -1016,7 +996,7 @@ func (o TableEncryptionConfigurationPtrOutput) Elem() TableEncryptionConfigurati
 	}).(TableEncryptionConfigurationOutput)
 }
 
-// The ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
+// ARN of a KMS Key to be used with `aws:kms` `sseAlgorithm`
 func (o TableEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableEncryptionConfiguration) *string {
 		if v == nil {
@@ -1037,11 +1017,9 @@ func (o TableEncryptionConfigurationPtrOutput) SseAlgorithm() pulumi.StringPtrOu
 }
 
 type TableMaintenanceConfiguration struct {
-	// A single Iceberg compaction settings object.
-	// See `icebergCompaction` below.
+	// Single Iceberg compaction settings object. See `icebergCompaction` below.
 	IcebergCompaction TableMaintenanceConfigurationIcebergCompaction `pulumi:"icebergCompaction"`
-	// A single Iceberg snapshot management settings object.
-	// See `icebergSnapshotManagement` below.
+	// Single Iceberg snapshot management settings object. See `icebergSnapshotManagement` below.
 	IcebergSnapshotManagement TableMaintenanceConfigurationIcebergSnapshotManagement `pulumi:"icebergSnapshotManagement"`
 }
 
@@ -1057,11 +1035,9 @@ type TableMaintenanceConfigurationInput interface {
 }
 
 type TableMaintenanceConfigurationArgs struct {
-	// A single Iceberg compaction settings object.
-	// See `icebergCompaction` below.
+	// Single Iceberg compaction settings object. See `icebergCompaction` below.
 	IcebergCompaction TableMaintenanceConfigurationIcebergCompactionInput `pulumi:"icebergCompaction"`
-	// A single Iceberg snapshot management settings object.
-	// See `icebergSnapshotManagement` below.
+	// Single Iceberg snapshot management settings object. See `icebergSnapshotManagement` below.
 	IcebergSnapshotManagement TableMaintenanceConfigurationIcebergSnapshotManagementInput `pulumi:"icebergSnapshotManagement"`
 }
 
@@ -1142,16 +1118,14 @@ func (o TableMaintenanceConfigurationOutput) ToTableMaintenanceConfigurationPtrO
 	}).(TableMaintenanceConfigurationPtrOutput)
 }
 
-// A single Iceberg compaction settings object.
-// See `icebergCompaction` below.
+// Single Iceberg compaction settings object. See `icebergCompaction` below.
 func (o TableMaintenanceConfigurationOutput) IcebergCompaction() TableMaintenanceConfigurationIcebergCompactionOutput {
 	return o.ApplyT(func(v TableMaintenanceConfiguration) TableMaintenanceConfigurationIcebergCompaction {
 		return v.IcebergCompaction
 	}).(TableMaintenanceConfigurationIcebergCompactionOutput)
 }
 
-// A single Iceberg snapshot management settings object.
-// See `icebergSnapshotManagement` below.
+// Single Iceberg snapshot management settings object. See `icebergSnapshotManagement` below.
 func (o TableMaintenanceConfigurationOutput) IcebergSnapshotManagement() TableMaintenanceConfigurationIcebergSnapshotManagementOutput {
 	return o.ApplyT(func(v TableMaintenanceConfiguration) TableMaintenanceConfigurationIcebergSnapshotManagement {
 		return v.IcebergSnapshotManagement
@@ -1182,8 +1156,7 @@ func (o TableMaintenanceConfigurationPtrOutput) Elem() TableMaintenanceConfigura
 	}).(TableMaintenanceConfigurationOutput)
 }
 
-// A single Iceberg compaction settings object.
-// See `icebergCompaction` below.
+// Single Iceberg compaction settings object. See `icebergCompaction` below.
 func (o TableMaintenanceConfigurationPtrOutput) IcebergCompaction() TableMaintenanceConfigurationIcebergCompactionPtrOutput {
 	return o.ApplyT(func(v *TableMaintenanceConfiguration) *TableMaintenanceConfigurationIcebergCompaction {
 		if v == nil {
@@ -1193,8 +1166,7 @@ func (o TableMaintenanceConfigurationPtrOutput) IcebergCompaction() TableMainten
 	}).(TableMaintenanceConfigurationIcebergCompactionPtrOutput)
 }
 
-// A single Iceberg snapshot management settings object.
-// See `icebergSnapshotManagement` below.
+// Single Iceberg snapshot management settings object. See `icebergSnapshotManagement` below.
 func (o TableMaintenanceConfigurationPtrOutput) IcebergSnapshotManagement() TableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput {
 	return o.ApplyT(func(v *TableMaintenanceConfiguration) *TableMaintenanceConfigurationIcebergSnapshotManagement {
 		if v == nil {
@@ -1205,11 +1177,9 @@ func (o TableMaintenanceConfigurationPtrOutput) IcebergSnapshotManagement() Tabl
 }
 
 type TableMaintenanceConfigurationIcebergCompaction struct {
-	// Settings object for compaction.
-	// See `iceberg_compaction.settings` below.
+	// Settings object for compaction. See `iceberg_compaction.settings` below.
 	Settings TableMaintenanceConfigurationIcebergCompactionSettings `pulumi:"settings"`
-	// Whether the configuration is enabled.
-	// Valid values are `enabled` and `disabled`.
+	// Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
 	Status string `pulumi:"status"`
 }
 
@@ -1225,11 +1195,9 @@ type TableMaintenanceConfigurationIcebergCompactionInput interface {
 }
 
 type TableMaintenanceConfigurationIcebergCompactionArgs struct {
-	// Settings object for compaction.
-	// See `iceberg_compaction.settings` below.
+	// Settings object for compaction. See `iceberg_compaction.settings` below.
 	Settings TableMaintenanceConfigurationIcebergCompactionSettingsInput `pulumi:"settings"`
-	// Whether the configuration is enabled.
-	// Valid values are `enabled` and `disabled`.
+	// Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -1310,16 +1278,14 @@ func (o TableMaintenanceConfigurationIcebergCompactionOutput) ToTableMaintenance
 	}).(TableMaintenanceConfigurationIcebergCompactionPtrOutput)
 }
 
-// Settings object for compaction.
-// See `iceberg_compaction.settings` below.
+// Settings object for compaction. See `iceberg_compaction.settings` below.
 func (o TableMaintenanceConfigurationIcebergCompactionOutput) Settings() TableMaintenanceConfigurationIcebergCompactionSettingsOutput {
 	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergCompaction) TableMaintenanceConfigurationIcebergCompactionSettings {
 		return v.Settings
 	}).(TableMaintenanceConfigurationIcebergCompactionSettingsOutput)
 }
 
-// Whether the configuration is enabled.
-// Valid values are `enabled` and `disabled`.
+// Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
 func (o TableMaintenanceConfigurationIcebergCompactionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergCompaction) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1348,8 +1314,7 @@ func (o TableMaintenanceConfigurationIcebergCompactionPtrOutput) Elem() TableMai
 	}).(TableMaintenanceConfigurationIcebergCompactionOutput)
 }
 
-// Settings object for compaction.
-// See `iceberg_compaction.settings` below.
+// Settings object for compaction. See `iceberg_compaction.settings` below.
 func (o TableMaintenanceConfigurationIcebergCompactionPtrOutput) Settings() TableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput {
 	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergCompaction) *TableMaintenanceConfigurationIcebergCompactionSettings {
 		if v == nil {
@@ -1359,8 +1324,7 @@ func (o TableMaintenanceConfigurationIcebergCompactionPtrOutput) Settings() Tabl
 	}).(TableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput)
 }
 
-// Whether the configuration is enabled.
-// Valid values are `enabled` and `disabled`.
+// Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
 func (o TableMaintenanceConfigurationIcebergCompactionPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergCompaction) *string {
 		if v == nil {
@@ -1371,8 +1335,7 @@ func (o TableMaintenanceConfigurationIcebergCompactionPtrOutput) Status() pulumi
 }
 
 type TableMaintenanceConfigurationIcebergCompactionSettings struct {
-	// Data objects smaller than this size may be combined with others to improve query performance.
-	// Must be between `64` and `512`.
+	// Data objects smaller than this size may be combined with others to improve query performance. Must be between `64` and `512`.
 	TargetFileSizeMb int `pulumi:"targetFileSizeMb"`
 }
 
@@ -1388,8 +1351,7 @@ type TableMaintenanceConfigurationIcebergCompactionSettingsInput interface {
 }
 
 type TableMaintenanceConfigurationIcebergCompactionSettingsArgs struct {
-	// Data objects smaller than this size may be combined with others to improve query performance.
-	// Must be between `64` and `512`.
+	// Data objects smaller than this size may be combined with others to improve query performance. Must be between `64` and `512`.
 	TargetFileSizeMb pulumi.IntInput `pulumi:"targetFileSizeMb"`
 }
 
@@ -1470,8 +1432,7 @@ func (o TableMaintenanceConfigurationIcebergCompactionSettingsOutput) ToTableMai
 	}).(TableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput)
 }
 
-// Data objects smaller than this size may be combined with others to improve query performance.
-// Must be between `64` and `512`.
+// Data objects smaller than this size may be combined with others to improve query performance. Must be between `64` and `512`.
 func (o TableMaintenanceConfigurationIcebergCompactionSettingsOutput) TargetFileSizeMb() pulumi.IntOutput {
 	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergCompactionSettings) int { return v.TargetFileSizeMb }).(pulumi.IntOutput)
 }
@@ -1500,8 +1461,7 @@ func (o TableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput) Elem() 
 	}).(TableMaintenanceConfigurationIcebergCompactionSettingsOutput)
 }
 
-// Data objects smaller than this size may be combined with others to improve query performance.
-// Must be between `64` and `512`.
+// Data objects smaller than this size may be combined with others to improve query performance. Must be between `64` and `512`.
 func (o TableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput) TargetFileSizeMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergCompactionSettings) *int {
 		if v == nil {
@@ -1512,11 +1472,9 @@ func (o TableMaintenanceConfigurationIcebergCompactionSettingsPtrOutput) TargetF
 }
 
 type TableMaintenanceConfigurationIcebergSnapshotManagement struct {
-	// Settings object for snapshot management.
-	// See `iceberg_snapshot_management.settings` below.
+	// Settings object for snapshot management. See `iceberg_snapshot_management.settings` below.
 	Settings TableMaintenanceConfigurationIcebergSnapshotManagementSettings `pulumi:"settings"`
-	// Whether the configuration is enabled.
-	// Valid values are `enabled` and `disabled`.
+	// Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
 	Status string `pulumi:"status"`
 }
 
@@ -1532,11 +1490,9 @@ type TableMaintenanceConfigurationIcebergSnapshotManagementInput interface {
 }
 
 type TableMaintenanceConfigurationIcebergSnapshotManagementArgs struct {
-	// Settings object for snapshot management.
-	// See `iceberg_snapshot_management.settings` below.
+	// Settings object for snapshot management. See `iceberg_snapshot_management.settings` below.
 	Settings TableMaintenanceConfigurationIcebergSnapshotManagementSettingsInput `pulumi:"settings"`
-	// Whether the configuration is enabled.
-	// Valid values are `enabled` and `disabled`.
+	// Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -1617,16 +1573,14 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementOutput) ToTableMai
 	}).(TableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput)
 }
 
-// Settings object for snapshot management.
-// See `iceberg_snapshot_management.settings` below.
+// Settings object for snapshot management. See `iceberg_snapshot_management.settings` below.
 func (o TableMaintenanceConfigurationIcebergSnapshotManagementOutput) Settings() TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput {
 	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergSnapshotManagement) TableMaintenanceConfigurationIcebergSnapshotManagementSettings {
 		return v.Settings
 	}).(TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput)
 }
 
-// Whether the configuration is enabled.
-// Valid values are `enabled` and `disabled`.
+// Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
 func (o TableMaintenanceConfigurationIcebergSnapshotManagementOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergSnapshotManagement) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1655,8 +1609,7 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) Elem() 
 	}).(TableMaintenanceConfigurationIcebergSnapshotManagementOutput)
 }
 
-// Settings object for snapshot management.
-// See `iceberg_snapshot_management.settings` below.
+// Settings object for snapshot management. See `iceberg_snapshot_management.settings` below.
 func (o TableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) Settings() TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput {
 	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergSnapshotManagement) *TableMaintenanceConfigurationIcebergSnapshotManagementSettings {
 		if v == nil {
@@ -1666,8 +1619,7 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) Setting
 	}).(TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput)
 }
 
-// Whether the configuration is enabled.
-// Valid values are `enabled` and `disabled`.
+// Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
 func (o TableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergSnapshotManagement) *string {
 		if v == nil {
@@ -1678,11 +1630,9 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput) Status(
 }
 
 type TableMaintenanceConfigurationIcebergSnapshotManagementSettings struct {
-	// Snapshots older than this will be marked for deletion.
-	// Must be at least `1`.
+	// Snapshots older than this will be marked for deletion. Must be at least `1`.
 	MaxSnapshotAgeHours int `pulumi:"maxSnapshotAgeHours"`
-	// Minimum number of snapshots to keep.
-	// Must be at least `1`.
+	// Minimum number of snapshots to keep. Must be at least `1`.
 	MinSnapshotsToKeep int `pulumi:"minSnapshotsToKeep"`
 }
 
@@ -1698,11 +1648,9 @@ type TableMaintenanceConfigurationIcebergSnapshotManagementSettingsInput interfa
 }
 
 type TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs struct {
-	// Snapshots older than this will be marked for deletion.
-	// Must be at least `1`.
+	// Snapshots older than this will be marked for deletion. Must be at least `1`.
 	MaxSnapshotAgeHours pulumi.IntInput `pulumi:"maxSnapshotAgeHours"`
-	// Minimum number of snapshots to keep.
-	// Must be at least `1`.
+	// Minimum number of snapshots to keep. Must be at least `1`.
 	MinSnapshotsToKeep pulumi.IntInput `pulumi:"minSnapshotsToKeep"`
 }
 
@@ -1783,16 +1731,14 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) To
 	}).(TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput)
 }
 
-// Snapshots older than this will be marked for deletion.
-// Must be at least `1`.
+// Snapshots older than this will be marked for deletion. Must be at least `1`.
 func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) MaxSnapshotAgeHours() pulumi.IntOutput {
 	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergSnapshotManagementSettings) int {
 		return v.MaxSnapshotAgeHours
 	}).(pulumi.IntOutput)
 }
 
-// Minimum number of snapshots to keep.
-// Must be at least `1`.
+// Minimum number of snapshots to keep. Must be at least `1`.
 func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput) MinSnapshotsToKeep() pulumi.IntOutput {
 	return o.ApplyT(func(v TableMaintenanceConfigurationIcebergSnapshotManagementSettings) int {
 		return v.MinSnapshotsToKeep
@@ -1823,8 +1769,7 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput)
 	}).(TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput)
 }
 
-// Snapshots older than this will be marked for deletion.
-// Must be at least `1`.
+// Snapshots older than this will be marked for deletion. Must be at least `1`.
 func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput) MaxSnapshotAgeHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergSnapshotManagementSettings) *int {
 		if v == nil {
@@ -1834,8 +1779,7 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput)
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum number of snapshots to keep.
-// Must be at least `1`.
+// Minimum number of snapshots to keep. Must be at least `1`.
 func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput) MinSnapshotsToKeep() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableMaintenanceConfigurationIcebergSnapshotManagementSettings) *int {
 		if v == nil {
@@ -1846,8 +1790,7 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput)
 }
 
 type TableMetadata struct {
-	// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-	// See `iceberg` below.
+	// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
 	Iceberg TableMetadataIceberg `pulumi:"iceberg"`
 }
 
@@ -1863,8 +1806,7 @@ type TableMetadataInput interface {
 }
 
 type TableMetadataArgs struct {
-	// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-	// See `iceberg` below.
+	// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
 	Iceberg TableMetadataIcebergInput `pulumi:"iceberg"`
 }
 
@@ -1945,8 +1887,7 @@ func (o TableMetadataOutput) ToTableMetadataPtrOutputWithContext(ctx context.Con
 	}).(TableMetadataPtrOutput)
 }
 
-// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-// See `iceberg` below.
+// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
 func (o TableMetadataOutput) Iceberg() TableMetadataIcebergOutput {
 	return o.ApplyT(func(v TableMetadata) TableMetadataIceberg { return v.Iceberg }).(TableMetadataIcebergOutput)
 }
@@ -1975,8 +1916,7 @@ func (o TableMetadataPtrOutput) Elem() TableMetadataOutput {
 	}).(TableMetadataOutput)
 }
 
-// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-// See `iceberg` below.
+// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
 func (o TableMetadataPtrOutput) Iceberg() TableMetadataIcebergPtrOutput {
 	return o.ApplyT(func(v *TableMetadata) *TableMetadataIceberg {
 		if v == nil {
@@ -1989,8 +1929,7 @@ func (o TableMetadataPtrOutput) Iceberg() TableMetadataIcebergPtrOutput {
 type TableMetadataIceberg struct {
 	// Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
 	Properties map[string]string `pulumi:"properties"`
-	// Schema configuration for the Iceberg table.
-	// See `schema` below.
+	// Schema configuration for the Iceberg table. See `schema` below.
 	Schema TableMetadataIcebergSchema `pulumi:"schema"`
 }
 
@@ -2008,8 +1947,7 @@ type TableMetadataIcebergInput interface {
 type TableMetadataIcebergArgs struct {
 	// Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// Schema configuration for the Iceberg table.
-	// See `schema` below.
+	// Schema configuration for the Iceberg table. See `schema` below.
 	Schema TableMetadataIcebergSchemaInput `pulumi:"schema"`
 }
 
@@ -2095,8 +2033,7 @@ func (o TableMetadataIcebergOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TableMetadataIceberg) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// Schema configuration for the Iceberg table.
-// See `schema` below.
+// Schema configuration for the Iceberg table. See `schema` below.
 func (o TableMetadataIcebergOutput) Schema() TableMetadataIcebergSchemaOutput {
 	return o.ApplyT(func(v TableMetadataIceberg) TableMetadataIcebergSchema { return v.Schema }).(TableMetadataIcebergSchemaOutput)
 }
@@ -2135,8 +2072,7 @@ func (o TableMetadataIcebergPtrOutput) Properties() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Schema configuration for the Iceberg table.
-// See `schema` below.
+// Schema configuration for the Iceberg table. See `schema` below.
 func (o TableMetadataIcebergPtrOutput) Schema() TableMetadataIcebergSchemaPtrOutput {
 	return o.ApplyT(func(v *TableMetadataIceberg) *TableMetadataIcebergSchema {
 		if v == nil {
@@ -2147,8 +2083,7 @@ func (o TableMetadataIcebergPtrOutput) Schema() TableMetadataIcebergSchemaPtrOut
 }
 
 type TableMetadataIcebergSchema struct {
-	// List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-	// See `field` below.
+	// List of schema fields for the Iceberg table. Each field defines a column in the table schema. See `field` below.
 	Fields []TableMetadataIcebergSchemaField `pulumi:"fields"`
 }
 
@@ -2164,8 +2099,7 @@ type TableMetadataIcebergSchemaInput interface {
 }
 
 type TableMetadataIcebergSchemaArgs struct {
-	// List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-	// See `field` below.
+	// List of schema fields for the Iceberg table. Each field defines a column in the table schema. See `field` below.
 	Fields TableMetadataIcebergSchemaFieldArrayInput `pulumi:"fields"`
 }
 
@@ -2246,8 +2180,7 @@ func (o TableMetadataIcebergSchemaOutput) ToTableMetadataIcebergSchemaPtrOutputW
 	}).(TableMetadataIcebergSchemaPtrOutput)
 }
 
-// List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-// See `field` below.
+// List of schema fields for the Iceberg table. Each field defines a column in the table schema. See `field` below.
 func (o TableMetadataIcebergSchemaOutput) Fields() TableMetadataIcebergSchemaFieldArrayOutput {
 	return o.ApplyT(func(v TableMetadataIcebergSchema) []TableMetadataIcebergSchemaField { return v.Fields }).(TableMetadataIcebergSchemaFieldArrayOutput)
 }
@@ -2276,8 +2209,7 @@ func (o TableMetadataIcebergSchemaPtrOutput) Elem() TableMetadataIcebergSchemaOu
 	}).(TableMetadataIcebergSchemaOutput)
 }
 
-// List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-// See `field` below.
+// List of schema fields for the Iceberg table. Each field defines a column in the table schema. See `field` below.
 func (o TableMetadataIcebergSchemaPtrOutput) Fields() TableMetadataIcebergSchemaFieldArrayOutput {
 	return o.ApplyT(func(v *TableMetadataIcebergSchema) []TableMetadataIcebergSchemaField {
 		if v == nil {
@@ -2288,11 +2220,11 @@ func (o TableMetadataIcebergSchemaPtrOutput) Fields() TableMetadataIcebergSchema
 }
 
 type TableMetadataIcebergSchemaField struct {
-	// The name of the field.
+	// Name of the field.
 	Name string `pulumi:"name"`
-	// A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+	// Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
 	Required *bool `pulumi:"required"`
-	// The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+	// Field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
 	Type string `pulumi:"type"`
 }
 
@@ -2308,11 +2240,11 @@ type TableMetadataIcebergSchemaFieldInput interface {
 }
 
 type TableMetadataIcebergSchemaFieldArgs struct {
-	// The name of the field.
+	// Name of the field.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+	// Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
-	// The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+	// Field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2367,17 +2299,17 @@ func (o TableMetadataIcebergSchemaFieldOutput) ToTableMetadataIcebergSchemaField
 	return o
 }
 
-// The name of the field.
+// Name of the field.
 func (o TableMetadataIcebergSchemaFieldOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableMetadataIcebergSchemaField) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+// Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
 func (o TableMetadataIcebergSchemaFieldOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableMetadataIcebergSchemaField) *bool { return v.Required }).(pulumi.BoolPtrOutput)
 }
 
-// The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+// Field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
 func (o TableMetadataIcebergSchemaFieldOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TableMetadataIcebergSchemaField) string { return v.Type }).(pulumi.StringOutput)
 }

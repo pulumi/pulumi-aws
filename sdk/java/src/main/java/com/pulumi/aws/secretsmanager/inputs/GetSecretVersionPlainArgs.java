@@ -31,14 +31,14 @@ public final class GetSecretVersionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+     * Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      * 
      */
     @Import(name="secretId", required=true)
     private String secretId;
 
     /**
-     * @return Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+     * @return Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      * 
      */
     public String secretId() {
@@ -46,14 +46,14 @@ public final class GetSecretVersionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
+     * Unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
      * 
      */
     @Import(name="versionId")
     private @Nullable String versionId;
 
     /**
-     * @return Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
+     * @return Unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
      * 
      */
     public Optional<String> versionId() {
@@ -61,14 +61,14 @@ public final class GetSecretVersionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+     * Secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
      * 
      */
     @Import(name="versionStage")
     private @Nullable String versionStage;
 
     /**
-     * @return Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+     * @return Secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
      * 
      */
     public Optional<String> versionStage() {
@@ -114,7 +114,7 @@ public final class GetSecretVersionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param secretId Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+         * @param secretId Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class GetSecretVersionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param versionId Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
+         * @param versionId Unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class GetSecretVersionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param versionStage Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+         * @param versionStage Secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
          * 
          * @return builder
          * 

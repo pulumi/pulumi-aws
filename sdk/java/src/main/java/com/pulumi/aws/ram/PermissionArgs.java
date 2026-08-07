@@ -19,14 +19,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     public static final PermissionArgs Empty = new PermissionArgs();
 
     /**
-     * Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+     * Name of the customer managed permission. The name must be unique within the AWS Region.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+     * @return Name of the customer managed permission. The name must be unique within the AWS Region.
      * 
      */
     public Optional<Output<String>> name() {
@@ -34,14 +34,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+     * String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
      * 
      */
     @Import(name="policyTemplate", required=true)
     private Output<String> policyTemplate;
 
     /**
-     * @return A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+     * @return String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
      * 
      */
     public Output<String> policyTemplate() {
@@ -64,14 +64,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
+     * Name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
      * 
      */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
     /**
-     * @return Specifies the name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
+     * @return Name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
      * 
      */
     public Output<String> resourceType() {
@@ -79,14 +79,14 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -130,7 +130,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+         * @param name Name of the customer managed permission. The name must be unique within the AWS Region.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+         * @param name Name of the customer managed permission. The name must be unique within the AWS Region.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyTemplate A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+         * @param policyTemplate String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyTemplate A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+         * @param policyTemplate String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceType Specifies the name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
+         * @param resourceType Name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceType Specifies the name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
+         * @param resourceType Name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class PermissionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

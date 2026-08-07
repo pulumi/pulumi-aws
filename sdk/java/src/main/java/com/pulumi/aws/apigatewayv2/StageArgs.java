@@ -23,16 +23,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     public static final StageArgs Empty = new StageArgs();
 
     /**
-     * Settings for logging access in this stage.
-     * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+     * Settings for logging access in this stage. Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
      * 
      */
     @Import(name="accessLogSettings")
     private @Nullable Output<StageAccessLogSettingsArgs> accessLogSettings;
 
     /**
-     * @return Settings for logging access in this stage.
-     * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+     * @return Settings for logging access in this stage. Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
      * 
      */
     public Optional<Output<StageAccessLogSettingsArgs>> accessLogSettings() {
@@ -70,16 +68,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
-     * Supported only for WebSocket APIs.
+     * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
      * 
      */
     @Import(name="clientCertificateId")
     private @Nullable Output<String> clientCertificateId;
 
     /**
-     * @return Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
-     * Supported only for WebSocket APIs.
+     * @return Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
      * 
      */
     public Optional<Output<String>> clientCertificateId() {
@@ -246,8 +242,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessLogSettings Settings for logging access in this stage.
-         * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+         * @param accessLogSettings Settings for logging access in this stage. Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
          * 
          * @return builder
          * 
@@ -258,8 +253,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessLogSettings Settings for logging access in this stage.
-         * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+         * @param accessLogSettings Settings for logging access in this stage. Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
          * 
          * @return builder
          * 
@@ -311,8 +305,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateId Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
-         * Supported only for WebSocket APIs.
+         * @param clientCertificateId Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
          * 
          * @return builder
          * 
@@ -323,8 +316,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateId Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
-         * Supported only for WebSocket APIs.
+         * @param clientCertificateId Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
          * 
          * @return builder
          * 

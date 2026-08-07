@@ -80,17 +80,17 @@ type AccessGrantsInstance struct {
 	AccessGrantsInstanceArn pulumi.StringOutput `pulumi:"accessGrantsInstanceArn"`
 	// Unique ID of the S3 Access Grants instance.
 	AccessGrantsInstanceId pulumi.StringOutput `pulumi:"accessGrantsInstanceId"`
-	// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
+	// ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
 	IdentityCenterApplicationArn pulumi.StringOutput `pulumi:"identityCenterApplicationArn"`
-	// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+	// ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
 	IdentityCenterArn pulumi.StringPtrOutput `pulumi:"identityCenterArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -128,17 +128,17 @@ type accessGrantsInstanceState struct {
 	AccessGrantsInstanceArn *string `pulumi:"accessGrantsInstanceArn"`
 	// Unique ID of the S3 Access Grants instance.
 	AccessGrantsInstanceId *string `pulumi:"accessGrantsInstanceId"`
-	// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
+	// ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
 	IdentityCenterApplicationArn *string `pulumi:"identityCenterApplicationArn"`
-	// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+	// ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
 	IdentityCenterArn *string `pulumi:"identityCenterArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -147,17 +147,17 @@ type AccessGrantsInstanceState struct {
 	AccessGrantsInstanceArn pulumi.StringPtrInput
 	// Unique ID of the S3 Access Grants instance.
 	AccessGrantsInstanceId pulumi.StringPtrInput
-	// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
-	// The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
+	// ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
 	IdentityCenterApplicationArn pulumi.StringPtrInput
-	// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+	// ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
 	IdentityCenterArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -166,9 +166,9 @@ func (AccessGrantsInstanceState) ElementType() reflect.Type {
 }
 
 type accessGrantsInstanceArgs struct {
-	// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+	// ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
 	IdentityCenterArn *string `pulumi:"identityCenterArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -178,9 +178,9 @@ type accessGrantsInstanceArgs struct {
 
 // The set of arguments for constructing a AccessGrantsInstance resource.
 type AccessGrantsInstanceArgs struct {
-	// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
-	// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+	// ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
 	IdentityCenterArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -285,17 +285,17 @@ func (o AccessGrantsInstanceOutput) AccessGrantsInstanceId() pulumi.StringOutput
 	return o.ApplyT(func(v *AccessGrantsInstance) pulumi.StringOutput { return v.AccessGrantsInstanceId }).(pulumi.StringOutput)
 }
 
-// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o AccessGrantsInstanceOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsInstance) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
+// ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
 func (o AccessGrantsInstanceOutput) IdentityCenterApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsInstance) pulumi.StringOutput { return v.IdentityCenterApplicationArn }).(pulumi.StringOutput)
 }
 
-// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+// ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
 func (o AccessGrantsInstanceOutput) IdentityCenterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessGrantsInstance) pulumi.StringPtrOutput { return v.IdentityCenterArn }).(pulumi.StringPtrOutput)
 }
@@ -310,7 +310,7 @@ func (o AccessGrantsInstanceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessGrantsInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AccessGrantsInstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessGrantsInstance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

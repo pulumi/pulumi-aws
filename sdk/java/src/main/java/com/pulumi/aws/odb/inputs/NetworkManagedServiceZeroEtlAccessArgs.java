@@ -22,14 +22,14 @@ public final class NetworkManagedServiceZeroEtlAccessArgs extends com.pulumi.res
     }
 
     /**
-     * The status of the network resource.
+     * Status of the network resource.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     public Output<String> status() {
@@ -71,7 +71,7 @@ public final class NetworkManagedServiceZeroEtlAccessArgs extends com.pulumi.res
         }
 
         /**
-         * @param status The status of the network resource.
+         * @param status Status of the network resource.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class NetworkManagedServiceZeroEtlAccessArgs extends com.pulumi.res
         }
 
         /**
-         * @param status The status of the network resource.
+         * @param status Status of the network resource.
          * 
          * @return builder
          * 

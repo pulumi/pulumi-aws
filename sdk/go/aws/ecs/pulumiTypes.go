@@ -431,13 +431,13 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) TargetC
 }
 
 type CapacityProviderManagedInstancesProvider struct {
-	// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+	// Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
 	InfrastructureOptimization *CapacityProviderManagedInstancesProviderInfrastructureOptimization `pulumi:"infrastructureOptimization"`
-	// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
+	// ARN of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
 	InfrastructureRoleArn string `pulumi:"infrastructureRoleArn"`
-	// The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
+	// Launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
 	InstanceLaunchTemplate CapacityProviderManagedInstancesProviderInstanceLaunchTemplate `pulumi:"instanceLaunchTemplate"`
-	// Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
+	// Whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
 	PropagateTags *string `pulumi:"propagateTags"`
 }
 
@@ -453,13 +453,13 @@ type CapacityProviderManagedInstancesProviderInput interface {
 }
 
 type CapacityProviderManagedInstancesProviderArgs struct {
-	// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+	// Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
 	InfrastructureOptimization CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrInput `pulumi:"infrastructureOptimization"`
-	// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
+	// ARN of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
 	InfrastructureRoleArn pulumi.StringInput `pulumi:"infrastructureRoleArn"`
-	// The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
+	// Launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
 	InstanceLaunchTemplate CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInput `pulumi:"instanceLaunchTemplate"`
-	// Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
+	// Whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
 	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
 }
 
@@ -540,26 +540,26 @@ func (o CapacityProviderManagedInstancesProviderOutput) ToCapacityProviderManage
 	}).(CapacityProviderManagedInstancesProviderPtrOutput)
 }
 
-// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+// Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
 func (o CapacityProviderManagedInstancesProviderOutput) InfrastructureOptimization() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderInfrastructureOptimization {
 		return v.InfrastructureOptimization
 	}).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
+// ARN of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
 func (o CapacityProviderManagedInstancesProviderOutput) InfrastructureRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) string { return v.InfrastructureRoleArn }).(pulumi.StringOutput)
 }
 
-// The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
+// Launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
 func (o CapacityProviderManagedInstancesProviderOutput) InstanceLaunchTemplate() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) CapacityProviderManagedInstancesProviderInstanceLaunchTemplate {
 		return v.InstanceLaunchTemplate
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput)
 }
 
-// Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
+// Whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
 func (o CapacityProviderManagedInstancesProviderOutput) PropagateTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) *string { return v.PropagateTags }).(pulumi.StringPtrOutput)
 }
@@ -588,7 +588,7 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) Elem() CapacityProvid
 	}).(CapacityProviderManagedInstancesProviderOutput)
 }
 
-// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+// Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
 func (o CapacityProviderManagedInstancesProviderPtrOutput) InfrastructureOptimization() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderInfrastructureOptimization {
 		if v == nil {
@@ -598,7 +598,7 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) InfrastructureOptimiz
 	}).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
+// ARN of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other AWS services required for Amazon ECS Managed Instances functionality. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the Amazon ECS Developer Guide.
 func (o CapacityProviderManagedInstancesProviderPtrOutput) InfrastructureRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *string {
 		if v == nil {
@@ -608,7 +608,7 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) InfrastructureRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
+// Launch template configuration that specifies how Amazon ECS should launch Amazon EC2 instances. This includes the instance profile, network configuration, storage settings, and instance requirements for attribute-based instance type selection. For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the Amazon EC2 User Guide. Detailed below.
 func (o CapacityProviderManagedInstancesProviderPtrOutput) InstanceLaunchTemplate() CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate {
 		if v == nil {
@@ -618,7 +618,7 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) InstanceLaunchTemplat
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput)
 }
 
-// Specifies whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
+// Whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
 func (o CapacityProviderManagedInstancesProviderPtrOutput) PropagateTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *string {
 		if v == nil {
@@ -629,9 +629,7 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) PropagateTags() pulum
 }
 
 type CapacityProviderManagedInstancesProviderInfrastructureOptimization struct {
-	// This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
-	// * Not set (null) - Uses the default optimization behavior.
-	// * `-1` - Disables automatic infrastructure optimization.
+	// Number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are `-1` to disable automatic infrastructure optimization, `0` to `3600` (inclusive) to specify the number of seconds to wait before optimizing instances, or leave unset (null) to use the default optimization behavior.
 	ScaleInAfter *int `pulumi:"scaleInAfter"`
 }
 
@@ -647,9 +645,7 @@ type CapacityProviderManagedInstancesProviderInfrastructureOptimizationInput int
 }
 
 type CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs struct {
-	// This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
-	// * Not set (null) - Uses the default optimization behavior.
-	// * `-1` - Disables automatic infrastructure optimization.
+	// Number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are `-1` to disable automatic infrastructure optimization, `0` to `3600` (inclusive) to specify the number of seconds to wait before optimizing instances, or leave unset (null) to use the default optimization behavior.
 	ScaleInAfter pulumi.IntPtrInput `pulumi:"scaleInAfter"`
 }
 
@@ -730,9 +726,7 @@ func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput
 	}).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput)
 }
 
-// This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
-// * Not set (null) - Uses the default optimization behavior.
-// * `-1` - Disables automatic infrastructure optimization.
+// Number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are `-1` to disable automatic infrastructure optimization, `0` to `3600` (inclusive) to specify the number of seconds to wait before optimizing instances, or leave unset (null) to use the default optimization behavior.
 func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput) ScaleInAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInfrastructureOptimization) *int { return v.ScaleInAfter }).(pulumi.IntPtrOutput)
 }
@@ -761,9 +755,7 @@ func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOut
 	}).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationOutput)
 }
 
-// This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
-// * Not set (null) - Uses the default optimization behavior.
-// * `-1` - Disables automatic infrastructure optimization.
+// Number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are `-1` to disable automatic infrastructure optimization, `0` to `3600` (inclusive) to specify the number of seconds to wait before optimizing instances, or leave unset (null) to use the default optimization behavior.
 func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput) ScaleInAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInfrastructureOptimization) *int {
 		if v == nil {
@@ -774,17 +766,21 @@ func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOut
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplate struct {
-	// The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+	// Purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand, Spot, or Capacity Reservation instances. Valid values are `ON_DEMAND`, `SPOT`, and `RESERVED`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
 	CapacityOptionType *string `pulumi:"capacityOptionType"`
-	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
+	// Capacity Reservation configuration used to launch instances. Required when `capacityOptionType` is `RESERVED`. Detailed below.
+	CapacityReservations *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations `pulumi:"capacityReservations"`
+	// ARN of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
 	Ec2InstanceProfileArn string `pulumi:"ec2InstanceProfileArn"`
-	// The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
+	// Instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
 	InstanceRequirements *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements `pulumi:"instanceRequirements"`
+	// Configuration block for the local storage settings applied to Amazon ECS Managed Instances. Detailed below.
+	LocalStorageConfiguration *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration `pulumi:"localStorageConfiguration"`
 	// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html) in the Amazon ECS Developer Guide. Valid values are `BASIC` and `DETAILED`.
 	Monitoring *string `pulumi:"monitoring"`
-	// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
+	// Network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
 	NetworkConfiguration CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration `pulumi:"networkConfiguration"`
-	// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
+	// Storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
 	StorageConfiguration *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration `pulumi:"storageConfiguration"`
 }
 
@@ -800,17 +796,21 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInput interfa
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs struct {
-	// The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+	// Purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand, Spot, or Capacity Reservation instances. Valid values are `ON_DEMAND`, `SPOT`, and `RESERVED`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
 	CapacityOptionType pulumi.StringPtrInput `pulumi:"capacityOptionType"`
-	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
+	// Capacity Reservation configuration used to launch instances. Required when `capacityOptionType` is `RESERVED`. Detailed below.
+	CapacityReservations CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrInput `pulumi:"capacityReservations"`
+	// ARN of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
 	Ec2InstanceProfileArn pulumi.StringInput `pulumi:"ec2InstanceProfileArn"`
-	// The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
+	// Instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
 	InstanceRequirements CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrInput `pulumi:"instanceRequirements"`
+	// Configuration block for the local storage settings applied to Amazon ECS Managed Instances. Detailed below.
+	LocalStorageConfiguration CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrInput `pulumi:"localStorageConfiguration"`
 	// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html) in the Amazon ECS Developer Guide. Valid values are `BASIC` and `DETAILED`.
 	Monitoring pulumi.StringPtrInput `pulumi:"monitoring"`
-	// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
+	// Network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
 	NetworkConfiguration CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationInput `pulumi:"networkConfiguration"`
-	// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
+	// Storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
 	StorageConfiguration CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrInput `pulumi:"storageConfiguration"`
 }
 
@@ -891,25 +891,39 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) To
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput)
 }
 
-// The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+// Purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand, Spot, or Capacity Reservation instances. Valid values are `ON_DEMAND`, `SPOT`, and `RESERVED`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) CapacityOptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *string {
 		return v.CapacityOptionType
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
+// Capacity Reservation configuration used to launch instances. Required when `capacityOptionType` is `RESERVED`. Detailed below.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) CapacityReservations() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations {
+		return v.CapacityReservations
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput)
+}
+
+// ARN of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) Ec2InstanceProfileArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) string {
 		return v.Ec2InstanceProfileArn
 	}).(pulumi.StringOutput)
 }
 
-// The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
+// Instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) InstanceRequirements() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements {
 		return v.InstanceRequirements
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput)
+}
+
+// Configuration block for the local storage settings applied to Amazon ECS Managed Instances. Detailed below.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) LocalStorageConfiguration() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration {
+		return v.LocalStorageConfiguration
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput)
 }
 
 // CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html) in the Amazon ECS Developer Guide. Valid values are `BASIC` and `DETAILED`.
@@ -917,14 +931,14 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) Mo
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *string { return v.Monitoring }).(pulumi.StringPtrOutput)
 }
 
-// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
+// Network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) NetworkConfiguration() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration {
 		return v.NetworkConfiguration
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput)
 }
 
-// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
+// Storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput) StorageConfiguration() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration {
 		return v.StorageConfiguration
@@ -955,7 +969,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput)
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput)
 }
 
-// The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+// Purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand, Spot, or Capacity Reservation instances. Valid values are `ON_DEMAND`, `SPOT`, and `RESERVED`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) CapacityOptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *string {
 		if v == nil {
@@ -965,7 +979,17 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
+// Capacity Reservation configuration used to launch instances. Required when `capacityOptionType` is `RESERVED`. Detailed below.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) CapacityReservations() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservations
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput)
+}
+
+// ARN of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) Ec2InstanceProfileArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *string {
 		if v == nil {
@@ -975,7 +999,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
+// Instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) InstanceRequirements() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements {
 		if v == nil {
@@ -983,6 +1007,16 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput)
 		}
 		return v.InstanceRequirements
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput)
+}
+
+// Configuration block for the local storage settings applied to Amazon ECS Managed Instances. Detailed below.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) LocalStorageConfiguration() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorageConfiguration
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput)
 }
 
 // CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html) in the Amazon ECS Developer Guide. Valid values are `BASIC` and `DETAILED`.
@@ -995,7 +1029,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
+// Network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) NetworkConfiguration() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration {
 		if v == nil {
@@ -1005,7 +1039,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput)
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput)
 }
 
-// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
+// Storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput) StorageConfiguration() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplate) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration {
 		if v == nil {
@@ -1015,54 +1049,214 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput)
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput)
 }
 
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations struct {
+	// ARN of the Capacity Reservation resource group in which to run instances. Can only be set when `reservationPreference` is `RESERVATIONS_ONLY`.
+	ReservationGroupArn *string `pulumi:"reservationGroupArn"`
+	// Preference for when Capacity Reservations should be used. Valid values are `RESERVATIONS_ONLY`, `RESERVATIONS_FIRST`, and `RESERVATIONS_EXCLUDED`. `instanceRequirements` must be provided when set to `RESERVATIONS_ONLY` or `RESERVATIONS_FIRST`.
+	ReservationPreference *string `pulumi:"reservationPreference"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsArgs struct {
+	// ARN of the Capacity Reservation resource group in which to run instances. Can only be set when `reservationPreference` is `RESERVATIONS_ONLY`.
+	ReservationGroupArn pulumi.StringPtrInput `pulumi:"reservationGroupArn"`
+	// Preference for when Capacity Reservations should be used. Valid values are `RESERVATIONS_ONLY`, `RESERVATIONS_FIRST`, and `RESERVATIONS_EXCLUDED`. `instanceRequirements` must be provided when set to `RESERVATIONS_ONLY` or `RESERVATIONS_FIRST`.
+	ReservationPreference pulumi.StringPtrInput `pulumi:"reservationPreference"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput)
+}
+
+// ARN of the Capacity Reservation resource group in which to run instances. Can only be set when `reservationPreference` is `RESERVATIONS_ONLY`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput) ReservationGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations) *string {
+		return v.ReservationGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Preference for when Capacity Reservations should be used. Valid values are `RESERVATIONS_ONLY`, `RESERVATIONS_FIRST`, and `RESERVATIONS_EXCLUDED`. `instanceRequirements` must be provided when set to `RESERVATIONS_ONLY` or `RESERVATIONS_FIRST`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput) ReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations) *string {
+		return v.ReservationPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput)
+}
+
+// ARN of the Capacity Reservation resource group in which to run instances. Can only be set when `reservationPreference` is `RESERVATIONS_ONLY`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput) ReservationGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReservationGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Preference for when Capacity Reservations should be used. Valid values are `RESERVATIONS_ONLY`, `RESERVATIONS_FIRST`, and `RESERVATIONS_EXCLUDED`. `instanceRequirements` must be provided when set to `RESERVATIONS_ONLY` or `RESERVATIONS_FIRST`.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput) ReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReservationPreference
+	}).(pulumi.StringPtrOutput)
+}
+
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements struct {
-	// The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+	// Minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators. Detailed below.
 	AcceleratorCount *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
-	// The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+	// Accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
-	// The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+	// Specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
 	AcceleratorNames []string `pulumi:"acceleratorNames"`
-	// The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+	// Minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory. Detailed below.
 	AcceleratorTotalMemoryMib *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
-	// The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+	// Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
-	// The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
+	// Instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
 	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
-	// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
+	// Whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
 	BareMetal *string `pulumi:"bareMetal"`
-	// The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+	// Minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements. Detailed below.
 	BaselineEbsBandwidthMbps *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
-	// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
+	// Whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
 	BurstablePerformance *string `pulumi:"burstablePerformance"`
-	// The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+	// CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
 	CpuManufacturers []string `pulumi:"cpuManufacturers"`
-	// The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
+	// Instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
-	// The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+	// Instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
 	InstanceGenerations []string `pulumi:"instanceGenerations"`
-	// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
+	// Whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
 	LocalStorage *string `pulumi:"localStorage"`
-	// The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+	// Local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
-	// The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+	// Maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
 	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
-	// The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+	// Minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads. Detailed below.
 	MemoryGibPerVcpu *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
-	// The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+	// Minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range. Detailed below.
 	MemoryMib CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib `pulumi:"memoryMib"`
-	// The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+	// Minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput. Detailed below.
 	NetworkBandwidthGbps *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps `pulumi:"networkBandwidthGbps"`
-	// The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+	// Minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces. Detailed below.
 	NetworkInterfaceCount *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
-	// The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	// Price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	// Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
+	// Whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
 	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
-	// The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+	// Maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
 	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	// The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+	// Minimum and maximum total local storage in gigabytes (GB) for instance types with local storage. Detailed below.
 	TotalLocalStorageGb *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb `pulumi:"totalLocalStorageGb"`
-	// The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+	// Minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range. Detailed below.
 	VcpuCount CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount `pulumi:"vcpuCount"`
 }
 
@@ -1078,53 +1272,53 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequi
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs struct {
-	// The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+	// Minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators. Detailed below.
 	AcceleratorCount CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
-	// The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+	// Accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
-	// The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+	// Specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
 	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
-	// The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+	// Minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory. Detailed below.
 	AcceleratorTotalMemoryMib CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
-	// The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+	// Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
-	// The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
+	// Instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
 	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
-	// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
+	// Whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
 	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
-	// The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+	// Minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements. Detailed below.
 	BaselineEbsBandwidthMbps CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
-	// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
+	// Whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
 	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
-	// The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+	// CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
 	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
-	// The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
+	// Instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
-	// The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+	// Instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
 	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
-	// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
+	// Whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
 	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
-	// The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+	// Local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
-	// The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+	// Maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
 	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
-	// The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+	// Minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads. Detailed below.
 	MemoryGibPerVcpu CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
-	// The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+	// Minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range. Detailed below.
 	MemoryMib CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibInput `pulumi:"memoryMib"`
-	// The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+	// Minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput. Detailed below.
 	NetworkBandwidthGbps CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrInput `pulumi:"networkBandwidthGbps"`
-	// The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+	// Minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces. Detailed below.
 	NetworkInterfaceCount CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
-	// The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+	// Price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	// Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
+	// Whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
 	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
-	// The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+	// Maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
 	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	// The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+	// Minimum and maximum total local storage in gigabytes (GB) for instance types with local storage. Detailed below.
 	TotalLocalStorageGb CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrInput `pulumi:"totalLocalStorageGb"`
-	// The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+	// Minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range. Detailed below.
 	VcpuCount CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountInput `pulumi:"vcpuCount"`
 }
 
@@ -1205,168 +1399,168 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput)
 }
 
-// The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+// Minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) AcceleratorCount() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount {
 		return v.AcceleratorCount
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput)
 }
 
-// The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+// Accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		return v.AcceleratorManufacturers
 	}).(pulumi.StringArrayOutput)
 }
 
-// The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+// Specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		return v.AcceleratorNames
 	}).(pulumi.StringArrayOutput)
 }
 
-// The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+// Minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) AcceleratorTotalMemoryMib() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
 		return v.AcceleratorTotalMemoryMib
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
 }
 
-// The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+// Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		return v.AcceleratorTypes
 	}).(pulumi.StringArrayOutput)
 }
 
-// The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
+// Instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		return v.AllowedInstanceTypes
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
+// Whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *string {
 		return v.BareMetal
 	}).(pulumi.StringPtrOutput)
 }
 
-// The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+// Minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) BaselineEbsBandwidthMbps() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
 		return v.BaselineEbsBandwidthMbps
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
 }
 
-// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
+// Whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) BurstablePerformance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *string {
 		return v.BurstablePerformance
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+// CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		return v.CpuManufacturers
 	}).(pulumi.StringArrayOutput)
 }
 
-// The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
+// Instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		return v.ExcludedInstanceTypes
 	}).(pulumi.StringArrayOutput)
 }
 
-// The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+// Instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		return v.InstanceGenerations
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
+// Whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) LocalStorage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *string {
 		return v.LocalStorage
 	}).(pulumi.StringPtrOutput)
 }
 
-// The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+// Local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		return v.LocalStorageTypes
 	}).(pulumi.StringArrayOutput)
 }
 
-// The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+// Maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *int {
 		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+// Minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) MemoryGibPerVcpu() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
 		return v.MemoryGibPerVcpu
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput)
 }
 
-// The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+// Minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) MemoryMib() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib {
 		return v.MemoryMib
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput)
 }
 
-// The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+// Minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) NetworkBandwidthGbps() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
 		return v.NetworkBandwidthGbps
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
 }
 
-// The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+// Minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) NetworkInterfaceCount() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount {
 		return v.NetworkInterfaceCount
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput)
 }
 
-// The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+// Price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *int {
 		return v.OnDemandMaxPricePercentageOverLowestPrice
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
+// Whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *bool {
 		return v.RequireHibernateSupport
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+// Maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *int {
 		return v.SpotMaxPricePercentageOverLowestPrice
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+// Minimum and maximum total local storage in gigabytes (GB) for instance types with local storage. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) TotalLocalStorageGb() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb {
 		return v.TotalLocalStorageGb
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput)
 }
 
-// The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+// Minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput) VcpuCount() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount {
 		return v.VcpuCount
@@ -1397,7 +1591,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput)
 }
 
-// The minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators.
+// Minimum and maximum number of accelerators for the instance types. This is used when you need instances with specific numbers of GPUs or other accelerators. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) AcceleratorCount() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount {
 		if v == nil {
@@ -1407,7 +1601,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput)
 }
 
-// The accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
+// Accelerator manufacturers to include. You can specify `nvidia`, `amd`, `amazon-web-services`, `xilinx`, or `habana` depending on your accelerator requirements. Valid values are `amazon-web-services`, `amd`, `nvidia`, `xilinx`, `habana`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -1417,7 +1611,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.StringArrayOutput)
 }
 
-// The specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
+// Specific accelerator names to include. For example, you can specify `a100`, `v100`, `k80`, or other specific accelerator models. Valid values are `a100`, `inferentia`, `k520`, `k80`, `m60`, `radeon-pro-v520`, `t4`, `vu9p`, `v100`, `a10g`, `h100`, `t4g`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -1427,7 +1621,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.StringArrayOutput)
 }
 
-// The minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory.
+// Minimum and maximum total accelerator memory in mebibytes (MiB). This is important for GPU workloads that require specific amounts of video memory. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMib() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
 		if v == nil {
@@ -1437,7 +1631,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
 }
 
-// The accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+// Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -1447,7 +1641,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.StringArrayOutput)
 }
 
-// The instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
+// Instance types to include in the selection. When specified, Amazon ECS only considers these instance types, subject to the other requirements specified. Maximum of 400 instance types. You can specify instance type patterns using wildcards (e.g., `m5.*`).
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -1457,7 +1651,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
+// Whether to include bare metal instance types. Set to `included` to allow bare metal instances, `excluded` to exclude them, or `required` to use only bare metal instances. Valid values are `included`, `excluded`, `required`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *string {
 		if v == nil {
@@ -1467,7 +1661,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements.
+// Minimum and maximum baseline Amazon EBS bandwidth in megabits per second (Mbps). This is important for workloads with high storage I/O requirements. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) BaselineEbsBandwidthMbps() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
 		if v == nil {
@@ -1477,7 +1671,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
 }
 
-// Indicates whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
+// Whether to include burstable performance instance types (T2, T3, T3a, T4g). Set to `included` to allow burstable instances, `excluded` to exclude them, or `required` to use only burstable instances. Valid values are `included`, `excluded`, `required`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) BurstablePerformance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *string {
 		if v == nil {
@@ -1487,7 +1681,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
+// CPU manufacturers to include or exclude. You can specify `intel`, `amd`, or `amazon-web-services` to control which CPU types are used for your workloads. Valid values are `intel`, `amd`, `amazon-web-services`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -1497,7 +1691,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.StringArrayOutput)
 }
 
-// The instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
+// Instance types to exclude from selection. Use this to prevent Amazon ECS from selecting specific instance types that may not be suitable for your workloads. Maximum of 400 instance types.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -1507,7 +1701,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.StringArrayOutput)
 }
 
-// The instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
+// Instance generations to include. You can specify `current` to use the latest generation instances, or `previous` to include previous generation instances for cost optimization. Valid values are `current`, `previous`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -1517,7 +1711,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicates whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
+// Whether to include instance types with local storage. Set to `included` to allow local storage, `excluded` to exclude it, or `required` to use only instances with local storage. Valid values are `included`, `excluded`, `required`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) LocalStorage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *string {
 		if v == nil {
@@ -1527,7 +1721,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.StringPtrOutput)
 }
 
-// The local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
+// Local storage types to include. You can specify `hdd` for hard disk drives, `ssd` for solid state drives, or both. Valid values are `hdd`, `ssd`.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -1537,7 +1731,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.StringArrayOutput)
 }
 
-// The maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
+// Maximum price for Spot instances as a percentage of the optimal On-Demand price. This provides more precise cost control for Spot instance selection.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *int {
 		if v == nil {
@@ -1547,7 +1741,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads.
+// Minimum and maximum amount of memory per vCPU in gibibytes (GiB). This helps ensure that instance types have the appropriate memory-to-CPU ratio for your workloads. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) MemoryGibPerVcpu() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
 		if v == nil {
@@ -1557,7 +1751,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput)
 }
 
-// The minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range.
+// Minimum and maximum amount of memory in mebibytes (MiB) for the instance types. Amazon ECS selects instance types that have memory within this range. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) MemoryMib() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib {
 		if v == nil {
@@ -1567,7 +1761,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput)
 }
 
-// The minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput.
+// Minimum and maximum network bandwidth in gigabits per second (Gbps). This is crucial for network-intensive workloads that require high throughput. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) NetworkBandwidthGbps() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
 		if v == nil {
@@ -1577,7 +1771,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
 }
 
-// The minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces.
+// Minimum and maximum number of network interfaces for the instance types. This is useful for workloads that require multiple network interfaces. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) NetworkInterfaceCount() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount {
 		if v == nil {
@@ -1587,7 +1781,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput)
 }
 
-// The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
+// Price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon ECS selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *int {
 		if v == nil {
@@ -1597,7 +1791,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
+// Whether the instance types must support hibernation. When set to `true`, only instance types that support hibernation are selected.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *bool {
 		if v == nil {
@@ -1607,7 +1801,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
+// Maximum price for Spot instances as a percentage over the lowest priced On-Demand instance. This helps control Spot instance costs while maintaining access to capacity.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *int {
 		if v == nil {
@@ -1617,7 +1811,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum and maximum total local storage in gigabytes (GB) for instance types with local storage.
+// Minimum and maximum total local storage in gigabytes (GB) for instance types with local storage. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) TotalLocalStorageGb() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb {
 		if v == nil {
@@ -1627,7 +1821,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput)
 }
 
-// The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.
+// Minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range. Detailed below.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput) VcpuCount() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount {
 		if v == nil {
@@ -1638,7 +1832,9 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount struct {
+	// Maximum number of accelerators.
 	Max *int `pulumi:"max"`
+	// Minimum number of accelerators.
 	Min *int `pulumi:"min"`
 }
 
@@ -1654,7 +1850,9 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequi
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs struct {
+	// Maximum number of accelerators.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum number of accelerators.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -1735,12 +1933,14 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput)
 }
 
+// Maximum number of accelerators.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount) *int {
 		return v.Max
 	}).(pulumi.IntPtrOutput)
 }
 
+// Minimum number of accelerators.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount) *int {
 		return v.Min
@@ -1771,6 +1971,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput)
 }
 
+// Maximum number of accelerators.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount) *int {
 		if v == nil {
@@ -1780,6 +1981,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.IntPtrOutput)
 }
 
+// Minimum number of accelerators.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount) *int {
 		if v == nil {
@@ -1790,7 +1992,9 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib struct {
+	// Maximum total accelerator memory, in MiB.
 	Max *int `pulumi:"max"`
+	// Minimum total accelerator memory, in MiB.
 	Min *int `pulumi:"min"`
 }
 
@@ -1806,7 +2010,9 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequi
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs struct {
+	// Maximum total accelerator memory, in MiB.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum total accelerator memory, in MiB.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -1887,12 +2093,14 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
 }
 
+// Maximum total accelerator memory, in MiB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		return v.Max
 	}).(pulumi.IntPtrOutput)
 }
 
+// Minimum total accelerator memory, in MiB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		return v.Min
@@ -1923,6 +2131,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput)
 }
 
+// Maximum total accelerator memory, in MiB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		if v == nil {
@@ -1932,6 +2141,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.IntPtrOutput)
 }
 
+// Minimum total accelerator memory, in MiB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *int {
 		if v == nil {
@@ -1942,7 +2152,9 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps struct {
+	// Maximum baseline Amazon EBS bandwidth, in Mbps.
 	Max *int `pulumi:"max"`
+	// Minimum baseline Amazon EBS bandwidth, in Mbps.
 	Min *int `pulumi:"min"`
 }
 
@@ -1958,7 +2170,9 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequi
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs struct {
+	// Maximum baseline Amazon EBS bandwidth, in Mbps.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum baseline Amazon EBS bandwidth, in Mbps.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -2039,12 +2253,14 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
 }
 
+// Maximum baseline Amazon EBS bandwidth, in Mbps.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		return v.Max
 	}).(pulumi.IntPtrOutput)
 }
 
+// Minimum baseline Amazon EBS bandwidth, in Mbps.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		return v.Min
@@ -2075,6 +2291,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
 }
 
+// Maximum baseline Amazon EBS bandwidth, in Mbps.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		if v == nil {
@@ -2084,6 +2301,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.IntPtrOutput)
 }
 
+// Minimum baseline Amazon EBS bandwidth, in Mbps.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *int {
 		if v == nil {
@@ -2094,7 +2312,9 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu struct {
+	// Maximum amount of memory per vCPU, in GiB.
 	Max *float64 `pulumi:"max"`
+	// Minimum amount of memory per vCPU, in GiB.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -2110,7 +2330,9 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequi
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs struct {
+	// Maximum amount of memory per vCPU, in GiB.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// Minimum amount of memory per vCPU, in GiB.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -2191,12 +2413,14 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput)
 }
 
+// Maximum amount of memory per vCPU, in GiB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		return v.Max
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Minimum amount of memory per vCPU, in GiB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		return v.Min
@@ -2227,6 +2451,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput)
 }
 
+// Maximum amount of memory per vCPU, in GiB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -2236,6 +2461,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Minimum amount of memory per vCPU, in GiB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 {
 		if v == nil {
@@ -2246,8 +2472,10 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib struct {
+	// Maximum amount of memory, in MiB.
 	Max *int `pulumi:"max"`
-	Min int  `pulumi:"min"`
+	// Minimum amount of memory, in MiB.
+	Min int `pulumi:"min"`
 }
 
 // CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput values.
@@ -2262,8 +2490,10 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequi
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs struct {
+	// Maximum amount of memory, in MiB.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	Min pulumi.IntInput    `pulumi:"min"`
+	// Minimum amount of memory, in MiB.
+	Min pulumi.IntInput `pulumi:"min"`
 }
 
 func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs) ElementType() reflect.Type {
@@ -2343,12 +2573,14 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput)
 }
 
+// Maximum amount of memory, in MiB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib) *int {
 		return v.Max
 	}).(pulumi.IntPtrOutput)
 }
 
+// Minimum amount of memory, in MiB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput) Min() pulumi.IntOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib) int {
 		return v.Min
@@ -2379,6 +2611,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibOutput)
 }
 
+// Maximum amount of memory, in MiB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib) *int {
 		if v == nil {
@@ -2388,6 +2621,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.IntPtrOutput)
 }
 
+// Minimum amount of memory, in MiB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib) *int {
 		if v == nil {
@@ -2398,7 +2632,9 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps struct {
+	// Maximum network bandwidth, in Gbps.
 	Max *float64 `pulumi:"max"`
+	// Minimum network bandwidth, in Gbps.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -2414,7 +2650,9 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequi
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs struct {
+	// Maximum network bandwidth, in Gbps.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// Minimum network bandwidth, in Gbps.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -2495,12 +2733,14 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
 }
 
+// Maximum network bandwidth, in Gbps.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		return v.Max
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Minimum network bandwidth, in Gbps.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		return v.Min
@@ -2531,6 +2771,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsOutput)
 }
 
+// Maximum network bandwidth, in Gbps.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		if v == nil {
@@ -2540,6 +2781,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Minimum network bandwidth, in Gbps.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps) *float64 {
 		if v == nil {
@@ -2550,7 +2792,9 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount struct {
+	// Maximum number of network interfaces.
 	Max *int `pulumi:"max"`
+	// Minimum number of network interfaces.
 	Min *int `pulumi:"min"`
 }
 
@@ -2566,7 +2810,9 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequi
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs struct {
+	// Maximum number of network interfaces.
 	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum number of network interfaces.
 	Min pulumi.IntPtrInput `pulumi:"min"`
 }
 
@@ -2647,12 +2893,14 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput)
 }
 
+// Maximum number of network interfaces.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount) *int {
 		return v.Max
 	}).(pulumi.IntPtrOutput)
 }
 
+// Minimum number of network interfaces.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount) *int {
 		return v.Min
@@ -2683,6 +2931,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput)
 }
 
+// Maximum number of network interfaces.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount) *int {
 		if v == nil {
@@ -2692,6 +2941,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.IntPtrOutput)
 }
 
+// Minimum number of network interfaces.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount) *int {
 		if v == nil {
@@ -2702,7 +2952,9 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb struct {
+	// Maximum total local storage, in GB.
 	Max *float64 `pulumi:"max"`
+	// Minimum total local storage, in GB.
 	Min *float64 `pulumi:"min"`
 }
 
@@ -2718,7 +2970,9 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequi
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs struct {
+	// Maximum total local storage, in GB.
 	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// Minimum total local storage, in GB.
 	Min pulumi.Float64PtrInput `pulumi:"min"`
 }
 
@@ -2799,12 +3053,14 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput)
 }
 
+// Maximum total local storage, in GB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 {
 		return v.Max
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Minimum total local storage, in GB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 {
 		return v.Min
@@ -2835,6 +3091,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput)
 }
 
+// Maximum total local storage, in GB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -2844,6 +3101,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Minimum total local storage, in GB.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Min() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 {
 		if v == nil {
@@ -2854,8 +3112,10 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount struct {
+	// Maximum number of vCPUs.
 	Max *int `pulumi:"max"`
-	Min int  `pulumi:"min"`
+	// Minimum number of vCPUs.
+	Min int `pulumi:"min"`
 }
 
 // CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput values.
@@ -2870,8 +3130,10 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequi
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs struct {
+	// Maximum number of vCPUs.
 	Max pulumi.IntPtrInput `pulumi:"max"`
-	Min pulumi.IntInput    `pulumi:"min"`
+	// Minimum number of vCPUs.
+	Min pulumi.IntInput `pulumi:"min"`
 }
 
 func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs) ElementType() reflect.Type {
@@ -2951,12 +3213,14 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput)
 }
 
+// Maximum number of vCPUs.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount) *int {
 		return v.Max
 	}).(pulumi.IntPtrOutput)
 }
 
+// Minimum number of vCPUs.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput) Min() pulumi.IntOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount) int {
 		return v.Min
@@ -2987,6 +3251,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput)
 }
 
+// Maximum number of vCPUs.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput) Max() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount) *int {
 		if v == nil {
@@ -2996,6 +3261,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.IntPtrOutput)
 }
 
+// Minimum number of vCPUs.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput) Min() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount) *int {
 		if v == nil {
@@ -3005,10 +3271,149 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRe
 	}).(pulumi.IntPtrOutput)
 }
 
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration struct {
+	// Whether to use the local storage of the instance for Amazon ECS Managed Instances.
+	UseLocalStorage *bool `pulumi:"useLocalStorage"`
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationArgs and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationArgs{...}
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationArgs struct {
+	// Whether to use the local storage of the instance for Amazon ECS Managed Instances.
+	UseLocalStorage pulumi.BoolPtrInput `pulumi:"useLocalStorage"`
+}
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationArgs) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput).ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationArgs, CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtr and CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput
+	ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrType CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationArgs
+
+func CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtr(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationArgs) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrInput {
+	return (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrType) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration) *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput)
+}
+
+// Whether to use the local storage of the instance for Amazon ECS Managed Instances.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput) UseLocalStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration) *bool {
+		return v.UseLocalStorage
+	}).(pulumi.BoolPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput) ToCapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput) Elem() CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration) CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput)
+}
+
+// Whether to use the local storage of the instance for Amazon ECS Managed Instances.
+func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput) UseLocalStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLocalStorage
+	}).(pulumi.BoolPtrOutput)
+}
+
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration struct {
-	// The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+	// List of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+	// List of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
 	Subnets []string `pulumi:"subnets"`
 }
 
@@ -3024,9 +3429,9 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfig
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs struct {
-	// The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+	// List of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+	// List of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
@@ -3107,14 +3512,14 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkCon
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput)
 }
 
-// The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+// List of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration) []string {
 		return v.SecurityGroups
 	}).(pulumi.StringArrayOutput)
 }
 
-// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+// List of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration) []string {
 		return v.Subnets
@@ -3145,7 +3550,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkCon
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput)
 }
 
-// The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+// List of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration) []string {
 		if v == nil {
@@ -3155,7 +3560,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkCon
 	}).(pulumi.StringArrayOutput)
 }
 
-// The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+// List of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration) []string {
 		if v == nil {
@@ -3166,7 +3571,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkCon
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration struct {
-	// The size of the tasks volume in GiB. Must be at least 1.
+	// Size of the tasks volume in GiB. Must be at least 1.
 	StorageSizeGib int `pulumi:"storageSizeGib"`
 }
 
@@ -3182,7 +3587,7 @@ type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfig
 }
 
 type CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs struct {
-	// The size of the tasks volume in GiB. Must be at least 1.
+	// Size of the tasks volume in GiB. Must be at least 1.
 	StorageSizeGib pulumi.IntInput `pulumi:"storageSizeGib"`
 }
 
@@ -3263,7 +3668,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageCon
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput)
 }
 
-// The size of the tasks volume in GiB. Must be at least 1.
+// Size of the tasks volume in GiB. Must be at least 1.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput) StorageSizeGib() pulumi.IntOutput {
 	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration) int {
 		return v.StorageSizeGib
@@ -3294,7 +3699,7 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageCon
 	}).(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput)
 }
 
-// The size of the tasks volume in GiB. Must be at least 1.
+// Size of the tasks volume in GiB. Must be at least 1.
 func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationPtrOutput) StorageSizeGib() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration) *int {
 		if v == nil {
@@ -3305,11 +3710,11 @@ func (o CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageCon
 }
 
 type ClusterCapacityProvidersDefaultCapacityProviderStrategy struct {
-	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+	// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
 	Base *int `pulumi:"base"`
 	// Name of the capacity provider.
 	CapacityProvider string `pulumi:"capacityProvider"`
-	// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+	// Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -3325,11 +3730,11 @@ type ClusterCapacityProvidersDefaultCapacityProviderStrategyInput interface {
 }
 
 type ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs struct {
-	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+	// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
 	Base pulumi.IntPtrInput `pulumi:"base"`
 	// Name of the capacity provider.
 	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
-	// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+	// Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
@@ -3384,7 +3789,7 @@ func (o ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput) ToCluster
 	return o
 }
 
-// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
 func (o ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCapacityProvidersDefaultCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
@@ -3394,7 +3799,7 @@ func (o ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput) CapacityP
 	return o.ApplyT(func(v ClusterCapacityProvidersDefaultCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
 }
 
-// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+// Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
 func (o ClusterCapacityProvidersDefaultCapacityProviderStrategyOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCapacityProvidersDefaultCapacityProviderStrategy) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -3759,7 +4164,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) Logging() pulu
 type ClusterConfigurationExecuteCommandConfigurationLogConfiguration struct {
 	// Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
 	CloudWatchEncryptionEnabled *bool `pulumi:"cloudWatchEncryptionEnabled"`
-	// The name of the CloudWatch log group to send logs to.
+	// Name of the CloudWatch log group to send logs to.
 	CloudWatchLogGroupName *string `pulumi:"cloudWatchLogGroupName"`
 	// Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
 	S3BucketEncryptionEnabled *bool `pulumi:"s3BucketEncryptionEnabled"`
@@ -3783,7 +4188,7 @@ type ClusterConfigurationExecuteCommandConfigurationLogConfigurationInput interf
 type ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs struct {
 	// Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
 	CloudWatchEncryptionEnabled pulumi.BoolPtrInput `pulumi:"cloudWatchEncryptionEnabled"`
-	// The name of the CloudWatch log group to send logs to.
+	// Name of the CloudWatch log group to send logs to.
 	CloudWatchLogGroupName pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupName"`
 	// Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
 	S3BucketEncryptionEnabled pulumi.BoolPtrInput `pulumi:"s3BucketEncryptionEnabled"`
@@ -3877,7 +4282,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) C
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the CloudWatch log group to send logs to.
+// Name of the CloudWatch log group to send logs to.
 func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *string {
 		return v.CloudWatchLogGroupName
@@ -3935,7 +4340,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The name of the CloudWatch log group to send logs to.
+// Name of the CloudWatch log group to send logs to.
 func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *string {
 		if v == nil {
@@ -7981,6 +8386,7 @@ func (o ExpressGatewayServiceNetworkConfigurationArrayOutput) Index(i pulumi.Int
 }
 
 type ExpressGatewayServicePrimaryContainer struct {
+	// CloudWatch Logs configuration for the container. See `awsLogsConfiguration` Block below.
 	AwsLogsConfigurations []ExpressGatewayServicePrimaryContainerAwsLogsConfiguration `pulumi:"awsLogsConfigurations"`
 	// Command to run in the container. Overrides the default command from the Docker image.
 	Commands []string `pulumi:"commands"`
@@ -8005,6 +8411,7 @@ type ExpressGatewayServicePrimaryContainerInput interface {
 }
 
 type ExpressGatewayServicePrimaryContainerArgs struct {
+	// CloudWatch Logs configuration for the container. See `awsLogsConfiguration` Block below.
 	AwsLogsConfigurations ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayInput `pulumi:"awsLogsConfigurations"`
 	// Command to run in the container. Overrides the default command from the Docker image.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
@@ -8094,6 +8501,7 @@ func (o ExpressGatewayServicePrimaryContainerOutput) ToExpressGatewayServicePrim
 	}).(ExpressGatewayServicePrimaryContainerPtrOutput)
 }
 
+// CloudWatch Logs configuration for the container. See `awsLogsConfiguration` Block below.
 func (o ExpressGatewayServicePrimaryContainerOutput) AwsLogsConfigurations() ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput {
 	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainer) []ExpressGatewayServicePrimaryContainerAwsLogsConfiguration {
 		return v.AwsLogsConfigurations
@@ -8157,6 +8565,7 @@ func (o ExpressGatewayServicePrimaryContainerPtrOutput) Elem() ExpressGatewaySer
 	}).(ExpressGatewayServicePrimaryContainerOutput)
 }
 
+// CloudWatch Logs configuration for the container. See `awsLogsConfiguration` Block below.
 func (o ExpressGatewayServicePrimaryContainerPtrOutput) AwsLogsConfigurations() ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayOutput {
 	return o.ApplyT(func(v *ExpressGatewayServicePrimaryContainer) []ExpressGatewayServicePrimaryContainerAwsLogsConfiguration {
 		if v == nil {
@@ -8575,6 +8984,7 @@ func (o ExpressGatewayServicePrimaryContainerRepositoryCredentialsPtrOutput) Cre
 }
 
 type ExpressGatewayServicePrimaryContainerSecret struct {
+	// Name of the secret.
 	Name string `pulumi:"name"`
 	// ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
 	ValueFrom string `pulumi:"valueFrom"`
@@ -8592,6 +9002,7 @@ type ExpressGatewayServicePrimaryContainerSecretInput interface {
 }
 
 type ExpressGatewayServicePrimaryContainerSecretArgs struct {
+	// Name of the secret.
 	Name pulumi.StringInput `pulumi:"name"`
 	// ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
 	ValueFrom pulumi.StringInput `pulumi:"valueFrom"`
@@ -8648,6 +9059,7 @@ func (o ExpressGatewayServicePrimaryContainerSecretOutput) ToExpressGatewayServi
 	return o
 }
 
+// Name of the secret.
 func (o ExpressGatewayServicePrimaryContainerSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainerSecret) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -10221,9 +10633,9 @@ type ServiceLoadBalancer struct {
 	ContainerName string `pulumi:"containerName"`
 	// Port on the container to associate with the load balancer.
 	ContainerPort int `pulumi:"containerPort"`
-	// Name of the ELB (Classic) to associate with the service.
+	// Name of the ELB (Classic) to associate with the service. Required for ELB Classic.
 	ElbName *string `pulumi:"elbName"`
-	// ARN of the Load Balancer target group to associate with the service.
+	// ARN of the Load Balancer target group to associate with the service. Required for ALB/NLB.
 	//
 	// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
@@ -10247,9 +10659,9 @@ type ServiceLoadBalancerArgs struct {
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
 	// Port on the container to associate with the load balancer.
 	ContainerPort pulumi.IntInput `pulumi:"containerPort"`
-	// Name of the ELB (Classic) to associate with the service.
+	// Name of the ELB (Classic) to associate with the service. Required for ELB Classic.
 	ElbName pulumi.StringPtrInput `pulumi:"elbName"`
-	// ARN of the Load Balancer target group to associate with the service.
+	// ARN of the Load Balancer target group to associate with the service. Required for ALB/NLB.
 	//
 	// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
@@ -10321,12 +10733,12 @@ func (o ServiceLoadBalancerOutput) ContainerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) int { return v.ContainerPort }).(pulumi.IntOutput)
 }
 
-// Name of the ELB (Classic) to associate with the service.
+// Name of the ELB (Classic) to associate with the service. Required for ELB Classic.
 func (o ServiceLoadBalancerOutput) ElbName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *string { return v.ElbName }).(pulumi.StringPtrOutput)
 }
 
-// ARN of the Load Balancer target group to associate with the service.
+// ARN of the Load Balancer target group to associate with the service. Required for ALB/NLB.
 //
 // > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 func (o ServiceLoadBalancerOutput) TargetGroupArn() pulumi.StringPtrOutput {
@@ -10553,8 +10965,6 @@ type ServiceNetworkConfiguration struct {
 	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Subnets associated with the task or service.
-	//
-	// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 	Subnets []string `pulumi:"subnets"`
 }
 
@@ -10575,8 +10985,6 @@ type ServiceNetworkConfigurationArgs struct {
 	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// Subnets associated with the task or service.
-	//
-	// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
@@ -10668,8 +11076,6 @@ func (o ServiceNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOu
 }
 
 // Subnets associated with the task or service.
-//
-// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 func (o ServiceNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -10719,8 +11125,6 @@ func (o ServiceNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArra
 }
 
 // Subnets associated with the task or service.
-//
-// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 func (o ServiceNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) []string {
 		if v == nil {
@@ -11168,9 +11572,9 @@ func (o ServiceServiceConnectConfigurationPtrOutput) Services() ServiceServiceCo
 }
 
 type ServiceServiceConnectConfigurationAccessLogConfiguration struct {
-	// The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+	// Format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
 	Format string `pulumi:"format"`
-	// Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+	// Whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
 	//
 	// > **NOTE:** Access logs are delivered to the destination log group specified in the `logConfiguration` block. You must configure `logConfiguration` to enable access logs.
 	//
@@ -11190,9 +11594,9 @@ type ServiceServiceConnectConfigurationAccessLogConfigurationInput interface {
 }
 
 type ServiceServiceConnectConfigurationAccessLogConfigurationArgs struct {
-	// The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+	// Format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
 	Format pulumi.StringInput `pulumi:"format"`
-	// Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+	// Whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
 	//
 	// > **NOTE:** Access logs are delivered to the destination log group specified in the `logConfiguration` block. You must configure `logConfiguration` to enable access logs.
 	//
@@ -11277,12 +11681,12 @@ func (o ServiceServiceConnectConfigurationAccessLogConfigurationOutput) ToServic
 	}).(ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput)
 }
 
-// The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+// Format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
 func (o ServiceServiceConnectConfigurationAccessLogConfigurationOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationAccessLogConfiguration) string { return v.Format }).(pulumi.StringOutput)
 }
 
-// Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+// Whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
 //
 // > **NOTE:** Access logs are delivered to the destination log group specified in the `logConfiguration` block. You must configure `logConfiguration` to enable access logs.
 //
@@ -11317,7 +11721,7 @@ func (o ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput) Elem(
 	}).(ServiceServiceConnectConfigurationAccessLogConfigurationOutput)
 }
 
-// The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+// Format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
 func (o ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceServiceConnectConfigurationAccessLogConfiguration) *string {
 		if v == nil {
@@ -11327,7 +11731,7 @@ func (o ServiceServiceConnectConfigurationAccessLogConfigurationPtrOutput) Forma
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+// Whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
 //
 // > **NOTE:** Access logs are delivered to the destination log group specified in the `logConfiguration` block. You must configure `logConfiguration` to enable access logs.
 //
@@ -13126,7 +13530,7 @@ type ServiceVolumeConfigurationManagedEbsVolume struct {
 	SizeInGb *int `pulumi:"sizeInGb"`
 	// Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// The tags to apply to the volume. See below.
+	// Tags to apply to the volume. See below.
 	TagSpecifications []ServiceVolumeConfigurationManagedEbsVolumeTagSpecification `pulumi:"tagSpecifications"`
 	// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
 	Throughput *int `pulumi:"throughput"`
@@ -13162,7 +13566,7 @@ type ServiceVolumeConfigurationManagedEbsVolumeArgs struct {
 	SizeInGb pulumi.IntPtrInput `pulumi:"sizeInGb"`
 	// Snapshot that Amazon ECS uses to create the volume. You must specify either a `sizeInGb` or a `snapshotId`.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// The tags to apply to the volume. See below.
+	// Tags to apply to the volume. See below.
 	TagSpecifications ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayInput `pulumi:"tagSpecifications"`
 	// Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
@@ -13284,7 +13688,7 @@ func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) SnapshotId() pulumi.St
 	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// The tags to apply to the volume. See below.
+// Tags to apply to the volume. See below.
 func (o ServiceVolumeConfigurationManagedEbsVolumeOutput) TagSpecifications() ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput {
 	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolume) []ServiceVolumeConfigurationManagedEbsVolumeTagSpecification {
 		return v.TagSpecifications
@@ -13400,7 +13804,7 @@ func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) SnapshotId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The tags to apply to the volume. See below.
+// Tags to apply to the volume. See below.
 func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) TagSpecifications() ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput {
 	return o.ApplyT(func(v *ServiceVolumeConfigurationManagedEbsVolume) []ServiceVolumeConfigurationManagedEbsVolumeTagSpecification {
 		if v == nil {
@@ -13443,9 +13847,9 @@ func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) VolumeType() pulumi
 type ServiceVolumeConfigurationManagedEbsVolumeTagSpecification struct {
 	// Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
 	PropagateTags *string `pulumi:"propagateTags"`
-	// The type of volume resource. Valid values, `volume`.
+	// Type of volume resource. Valid values, `volume`.
 	ResourceType string `pulumi:"resourceType"`
-	// The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
+	// Tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -13463,9 +13867,9 @@ type ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationInput interface {
 type ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs struct {
 	// Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
 	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
-	// The type of volume resource. Valid values, `volume`.
+	// Type of volume resource. Valid values, `volume`.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
+	// Tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -13525,12 +13929,12 @@ func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput) Propag
 	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolumeTagSpecification) *string { return v.PropagateTags }).(pulumi.StringPtrOutput)
 }
 
-// The type of volume resource. Valid values, `volume`.
+// Type of volume resource. Valid values, `volume`.
 func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolumeTagSpecification) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
+// Tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
 func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolumeTagSpecification) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -13556,11 +13960,11 @@ func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArrayOutput) I
 }
 
 type ServiceVpcLatticeConfiguration struct {
-	// The name of the port for a target group associated with the VPC Lattice configuration.
+	// Name of the port for a target group associated with the VPC Lattice configuration.
 	PortName string `pulumi:"portName"`
-	// The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+	// ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
 	RoleArn string `pulumi:"roleArn"`
-	// The full ARN of the target group or groups associated with the VPC Lattice configuration.
+	// Full ARN of the target group or groups associated with the VPC Lattice configuration.
 	TargetGroupArn string `pulumi:"targetGroupArn"`
 }
 
@@ -13576,11 +13980,11 @@ type ServiceVpcLatticeConfigurationInput interface {
 }
 
 type ServiceVpcLatticeConfigurationArgs struct {
-	// The name of the port for a target group associated with the VPC Lattice configuration.
+	// Name of the port for a target group associated with the VPC Lattice configuration.
 	PortName pulumi.StringInput `pulumi:"portName"`
-	// The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+	// ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// The full ARN of the target group or groups associated with the VPC Lattice configuration.
+	// Full ARN of the target group or groups associated with the VPC Lattice configuration.
 	TargetGroupArn pulumi.StringInput `pulumi:"targetGroupArn"`
 }
 
@@ -13635,17 +14039,17 @@ func (o ServiceVpcLatticeConfigurationOutput) ToServiceVpcLatticeConfigurationOu
 	return o
 }
 
-// The name of the port for a target group associated with the VPC Lattice configuration.
+// Name of the port for a target group associated with the VPC Lattice configuration.
 func (o ServiceVpcLatticeConfigurationOutput) PortName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceVpcLatticeConfiguration) string { return v.PortName }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
+// ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
 func (o ServiceVpcLatticeConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceVpcLatticeConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The full ARN of the target group or groups associated with the VPC Lattice configuration.
+// Full ARN of the target group or groups associated with the VPC Lattice configuration.
 func (o ServiceVpcLatticeConfigurationOutput) TargetGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceVpcLatticeConfiguration) string { return v.TargetGroupArn }).(pulumi.StringOutput)
 }
@@ -13671,7 +14075,7 @@ func (o ServiceVpcLatticeConfigurationArrayOutput) Index(i pulumi.IntInput) Serv
 }
 
 type TaskDefinitionEphemeralStorage struct {
-	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+	// Total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
 	SizeInGib int `pulumi:"sizeInGib"`
 }
 
@@ -13687,7 +14091,7 @@ type TaskDefinitionEphemeralStorageInput interface {
 }
 
 type TaskDefinitionEphemeralStorageArgs struct {
-	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+	// Total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
 	SizeInGib pulumi.IntInput `pulumi:"sizeInGib"`
 }
 
@@ -13768,7 +14172,7 @@ func (o TaskDefinitionEphemeralStorageOutput) ToTaskDefinitionEphemeralStoragePt
 	}).(TaskDefinitionEphemeralStoragePtrOutput)
 }
 
-// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+// Total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
 func (o TaskDefinitionEphemeralStorageOutput) SizeInGib() pulumi.IntOutput {
 	return o.ApplyT(func(v TaskDefinitionEphemeralStorage) int { return v.SizeInGib }).(pulumi.IntOutput)
 }
@@ -13797,7 +14201,7 @@ func (o TaskDefinitionEphemeralStoragePtrOutput) Elem() TaskDefinitionEphemeralS
 	}).(TaskDefinitionEphemeralStorageOutput)
 }
 
-// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+// Total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
 func (o TaskDefinitionEphemeralStoragePtrOutput) SizeInGib() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionEphemeralStorage) *int {
 		if v == nil {
@@ -14255,8 +14659,7 @@ type TaskDefinitionVolume struct {
 	FsxWindowsFileServerVolumeConfiguration *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration `pulumi:"fsxWindowsFileServerVolumeConfiguration"`
 	// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
 	HostPath *string `pulumi:"hostPath"`
-	// Name of the volume. This name is referenced in the `sourceVolume`
-	// parameter of container definition in the `mountPoints` section.
+	// Name of the volume. This name is referenced in the `sourceVolume` parameter of container definition in the `mountPoints` section.
 	Name string `pulumi:"name"`
 	// Configuration block for an S3 Files volume. Detailed below.
 	S3filesVolumeConfiguration *TaskDefinitionVolumeS3filesVolumeConfiguration `pulumi:"s3filesVolumeConfiguration"`
@@ -14284,8 +14687,7 @@ type TaskDefinitionVolumeArgs struct {
 	FsxWindowsFileServerVolumeConfiguration TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrInput `pulumi:"fsxWindowsFileServerVolumeConfiguration"`
 	// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
 	HostPath pulumi.StringPtrInput `pulumi:"hostPath"`
-	// Name of the volume. This name is referenced in the `sourceVolume`
-	// parameter of container definition in the `mountPoints` section.
+	// Name of the volume. This name is referenced in the `sourceVolume` parameter of container definition in the `mountPoints` section.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Configuration block for an S3 Files volume. Detailed below.
 	S3filesVolumeConfiguration TaskDefinitionVolumeS3filesVolumeConfigurationPtrInput `pulumi:"s3filesVolumeConfiguration"`
@@ -14373,8 +14775,7 @@ func (o TaskDefinitionVolumeOutput) HostPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *string { return v.HostPath }).(pulumi.StringPtrOutput)
 }
 
-// Name of the volume. This name is referenced in the `sourceVolume`
-// parameter of container definition in the `mountPoints` section.
+// Name of the volume. This name is referenced in the `sourceVolume` parameter of container definition in the `mountPoints` section.
 func (o TaskDefinitionVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -14993,9 +15394,9 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) 
 type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration struct {
 	// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
 	AuthorizationConfig TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig `pulumi:"authorizationConfig"`
-	// The Amazon FSx for Windows File Server file system ID to use.
+	// Amazon FSx for Windows File Server file system ID to use.
 	FileSystemId string `pulumi:"fileSystemId"`
-	// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+	// Directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
 	RootDirectory string `pulumi:"rootDirectory"`
 }
 
@@ -15013,9 +15414,9 @@ type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationInput interface 
 type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs struct {
 	// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
 	AuthorizationConfig TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigInput `pulumi:"authorizationConfig"`
-	// The Amazon FSx for Windows File Server file system ID to use.
+	// Amazon FSx for Windows File Server file system ID to use.
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+	// Directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
 	RootDirectory pulumi.StringInput `pulumi:"rootDirectory"`
 }
 
@@ -15103,12 +15504,12 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) Autho
 	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput)
 }
 
-// The Amazon FSx for Windows File Server file system ID to use.
+// Amazon FSx for Windows File Server file system ID to use.
 func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+// Directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
 func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) RootDirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) string { return v.RootDirectory }).(pulumi.StringOutput)
 }
@@ -15147,7 +15548,7 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) Au
 	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput)
 }
 
-// The Amazon FSx for Windows File Server file system ID to use.
+// Amazon FSx for Windows File Server file system ID to use.
 func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) *string {
 		if v == nil {
@@ -15157,7 +15558,7 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) Fi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+// Directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
 func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) RootDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) *string {
 		if v == nil {
@@ -15168,9 +15569,9 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) Ro
 }
 
 type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig struct {
-	// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+	// Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
 	CredentialsParameter string `pulumi:"credentialsParameter"`
-	// A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+	// Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
 	Domain string `pulumi:"domain"`
 }
 
@@ -15186,9 +15587,9 @@ type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationCon
 }
 
 type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs struct {
-	// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+	// Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
 	CredentialsParameter pulumi.StringInput `pulumi:"credentialsParameter"`
-	// A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+	// Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
 	Domain pulumi.StringInput `pulumi:"domain"`
 }
 
@@ -15269,14 +15670,14 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorization
 	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput)
 }
 
-// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+// Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
 func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) CredentialsParameter() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) string {
 		return v.CredentialsParameter
 	}).(pulumi.StringOutput)
 }
 
-// A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+// Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
 func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) string {
 		return v.Domain
@@ -15307,7 +15708,7 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorization
 	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput)
 }
 
-// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+// Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
 func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput) CredentialsParameter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) *string {
 		if v == nil {
@@ -15317,7 +15718,7 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorization
 	}).(pulumi.StringPtrOutput)
 }
 
-// A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+// Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
 func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) *string {
 		if v == nil {
@@ -15522,11 +15923,11 @@ func (o TaskDefinitionVolumeS3filesVolumeConfigurationPtrOutput) TransitEncrypti
 }
 
 type TaskSetCapacityProviderStrategy struct {
-	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+	// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 	Base *int `pulumi:"base"`
-	// The short name or full Amazon Resource Name (ARN) of the capacity provider.
+	// Short name or full Amazon Resource Name (ARN) of the capacity provider.
 	CapacityProvider string `pulumi:"capacityProvider"`
-	// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+	// Relative percentage of the total number of launched tasks that should use the specified capacity provider.
 	Weight int `pulumi:"weight"`
 }
 
@@ -15542,11 +15943,11 @@ type TaskSetCapacityProviderStrategyInput interface {
 }
 
 type TaskSetCapacityProviderStrategyArgs struct {
-	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+	// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 	Base pulumi.IntPtrInput `pulumi:"base"`
-	// The short name or full Amazon Resource Name (ARN) of the capacity provider.
+	// Short name or full Amazon Resource Name (ARN) of the capacity provider.
 	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
-	// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+	// Relative percentage of the total number of launched tasks that should use the specified capacity provider.
 	Weight pulumi.IntInput `pulumi:"weight"`
 }
 
@@ -15601,17 +16002,17 @@ func (o TaskSetCapacityProviderStrategyOutput) ToTaskSetCapacityProviderStrategy
 	return o
 }
 
-// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 func (o TaskSetCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskSetCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
-// The short name or full Amazon Resource Name (ARN) of the capacity provider.
+// Short name or full Amazon Resource Name (ARN) of the capacity provider.
 func (o TaskSetCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskSetCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
 }
 
-// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+// Relative percentage of the total number of launched tasks that should use the specified capacity provider.
 func (o TaskSetCapacityProviderStrategyOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v TaskSetCapacityProviderStrategy) int { return v.Weight }).(pulumi.IntOutput)
 }
@@ -15637,15 +16038,15 @@ func (o TaskSetCapacityProviderStrategyArrayOutput) Index(i pulumi.IntInput) Tas
 }
 
 type TaskSetLoadBalancer struct {
-	// The name of the container to associate with the load balancer (as it appears in a container definition).
+	// Name of the container to associate with the load balancer (as it appears in a container definition).
 	ContainerName string `pulumi:"containerName"`
-	// The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+	// Port on the container to associate with the load balancer. Defaults to `0` if not specified.
+	ContainerPort *int `pulumi:"containerPort"`
+	// Name of the ELB (Classic) to associate with the service.
+	LoadBalancerName *string `pulumi:"loadBalancerName"`
+	// ARN of the Load Balancer target group to associate with the service.
 	//
 	// > **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
-	ContainerPort *int `pulumi:"containerPort"`
-	// The name of the ELB (Classic) to associate with the service.
-	LoadBalancerName *string `pulumi:"loadBalancerName"`
-	// The ARN of the Load Balancer target group to associate with the service.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 }
 
@@ -15661,15 +16062,15 @@ type TaskSetLoadBalancerInput interface {
 }
 
 type TaskSetLoadBalancerArgs struct {
-	// The name of the container to associate with the load balancer (as it appears in a container definition).
+	// Name of the container to associate with the load balancer (as it appears in a container definition).
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+	// Port on the container to associate with the load balancer. Defaults to `0` if not specified.
+	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
+	// Name of the ELB (Classic) to associate with the service.
+	LoadBalancerName pulumi.StringPtrInput `pulumi:"loadBalancerName"`
+	// ARN of the Load Balancer target group to associate with the service.
 	//
 	// > **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
-	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
-	// The name of the ELB (Classic) to associate with the service.
-	LoadBalancerName pulumi.StringPtrInput `pulumi:"loadBalancerName"`
-	// The ARN of the Load Balancer target group to associate with the service.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 }
 
@@ -15724,24 +16125,24 @@ func (o TaskSetLoadBalancerOutput) ToTaskSetLoadBalancerOutputWithContext(ctx co
 	return o
 }
 
-// The name of the container to associate with the load balancer (as it appears in a container definition).
+// Name of the container to associate with the load balancer (as it appears in a container definition).
 func (o TaskSetLoadBalancerOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskSetLoadBalancer) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// The port on the container to associate with the load balancer. Defaults to `0` if not specified.
-//
-// > **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
+// Port on the container to associate with the load balancer. Defaults to `0` if not specified.
 func (o TaskSetLoadBalancerOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskSetLoadBalancer) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
-// The name of the ELB (Classic) to associate with the service.
+// Name of the ELB (Classic) to associate with the service.
 func (o TaskSetLoadBalancerOutput) LoadBalancerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskSetLoadBalancer) *string { return v.LoadBalancerName }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the Load Balancer target group to associate with the service.
+// ARN of the Load Balancer target group to associate with the service.
+//
+// > **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
 func (o TaskSetLoadBalancerOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskSetLoadBalancer) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -15768,12 +16169,10 @@ func (o TaskSetLoadBalancerArrayOutput) Index(i pulumi.IntInput) TaskSetLoadBala
 
 type TaskSetNetworkConfiguration struct {
 	// Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
-	//
-	// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
 	AssignPublicIp *bool `pulumi:"assignPublicIp"`
-	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// The subnets associated with the task or service. Maximum of 16.
+	// Subnets associated with the task or service. Maximum of 16.
 	Subnets []string `pulumi:"subnets"`
 }
 
@@ -15790,12 +16189,10 @@ type TaskSetNetworkConfigurationInput interface {
 
 type TaskSetNetworkConfigurationArgs struct {
 	// Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
-	//
-	// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
 	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
-	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// The subnets associated with the task or service. Maximum of 16.
+	// Subnets associated with the task or service. Maximum of 16.
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
@@ -15877,18 +16274,16 @@ func (o TaskSetNetworkConfigurationOutput) ToTaskSetNetworkConfigurationPtrOutpu
 }
 
 // Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
-//
-// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
 func (o TaskSetNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskSetNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
 }
 
-// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
 func (o TaskSetNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskSetNetworkConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// The subnets associated with the task or service. Maximum of 16.
+// Subnets associated with the task or service. Maximum of 16.
 func (o TaskSetNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskSetNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -15918,8 +16313,6 @@ func (o TaskSetNetworkConfigurationPtrOutput) Elem() TaskSetNetworkConfiguration
 }
 
 // Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
-//
-// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
 func (o TaskSetNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskSetNetworkConfiguration) *bool {
 		if v == nil {
@@ -15929,7 +16322,7 @@ func (o TaskSetNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
 func (o TaskSetNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TaskSetNetworkConfiguration) []string {
 		if v == nil {
@@ -15939,7 +16332,7 @@ func (o TaskSetNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// The subnets associated with the task or service. Maximum of 16.
+// Subnets associated with the task or service. Maximum of 16.
 func (o TaskSetNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TaskSetNetworkConfiguration) []string {
 		if v == nil {
@@ -15950,9 +16343,9 @@ func (o TaskSetNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput
 }
 
 type TaskSetScale struct {
-	// The unit of measure for the scale value. Default: `PERCENT`.
+	// Unit of measure for the scale value. Default: `PERCENT`.
 	Unit *string `pulumi:"unit"`
-	// The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+	// Value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
 	Value *float64 `pulumi:"value"`
 }
 
@@ -15968,9 +16361,9 @@ type TaskSetScaleInput interface {
 }
 
 type TaskSetScaleArgs struct {
-	// The unit of measure for the scale value. Default: `PERCENT`.
+	// Unit of measure for the scale value. Default: `PERCENT`.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
-	// The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+	// Value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
 	Value pulumi.Float64PtrInput `pulumi:"value"`
 }
 
@@ -16051,12 +16444,12 @@ func (o TaskSetScaleOutput) ToTaskSetScalePtrOutputWithContext(ctx context.Conte
 	}).(TaskSetScalePtrOutput)
 }
 
-// The unit of measure for the scale value. Default: `PERCENT`.
+// Unit of measure for the scale value. Default: `PERCENT`.
 func (o TaskSetScaleOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskSetScale) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-// The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+// Value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
 func (o TaskSetScaleOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TaskSetScale) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
@@ -16085,7 +16478,7 @@ func (o TaskSetScalePtrOutput) Elem() TaskSetScaleOutput {
 	}).(TaskSetScaleOutput)
 }
 
-// The unit of measure for the scale value. Default: `PERCENT`.
+// Unit of measure for the scale value. Default: `PERCENT`.
 func (o TaskSetScalePtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskSetScale) *string {
 		if v == nil {
@@ -16095,7 +16488,7 @@ func (o TaskSetScalePtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+// Value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
 func (o TaskSetScalePtrOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TaskSetScale) *float64 {
 		if v == nil {
@@ -16106,13 +16499,13 @@ func (o TaskSetScalePtrOutput) Value() pulumi.Float64PtrOutput {
 }
 
 type TaskSetServiceRegistries struct {
-	// The container name value, already specified in the task definition, to be used for your service discovery service.
+	// Container name value, already specified in the task definition, to be used for your service discovery service.
 	ContainerName *string `pulumi:"containerName"`
-	// The port value, already specified in the task definition, to be used for your service discovery service.
+	// Port value, already specified in the task definition, to be used for your service discovery service.
 	ContainerPort *int `pulumi:"containerPort"`
-	// The port value used if your Service Discovery service specified an SRV record.
+	// Port value used if your Service Discovery service specified an SRV record.
 	Port *int `pulumi:"port"`
-	// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+	// ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service (`servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
 	RegistryArn string `pulumi:"registryArn"`
 }
 
@@ -16128,13 +16521,13 @@ type TaskSetServiceRegistriesInput interface {
 }
 
 type TaskSetServiceRegistriesArgs struct {
-	// The container name value, already specified in the task definition, to be used for your service discovery service.
+	// Container name value, already specified in the task definition, to be used for your service discovery service.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// The port value, already specified in the task definition, to be used for your service discovery service.
+	// Port value, already specified in the task definition, to be used for your service discovery service.
 	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
-	// The port value used if your Service Discovery service specified an SRV record.
+	// Port value used if your Service Discovery service specified an SRV record.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+	// ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service (`servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
 	RegistryArn pulumi.StringInput `pulumi:"registryArn"`
 }
 
@@ -16215,22 +16608,22 @@ func (o TaskSetServiceRegistriesOutput) ToTaskSetServiceRegistriesPtrOutputWithC
 	}).(TaskSetServiceRegistriesPtrOutput)
 }
 
-// The container name value, already specified in the task definition, to be used for your service discovery service.
+// Container name value, already specified in the task definition, to be used for your service discovery service.
 func (o TaskSetServiceRegistriesOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskSetServiceRegistries) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// The port value, already specified in the task definition, to be used for your service discovery service.
+// Port value, already specified in the task definition, to be used for your service discovery service.
 func (o TaskSetServiceRegistriesOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskSetServiceRegistries) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
-// The port value used if your Service Discovery service specified an SRV record.
+// Port value used if your Service Discovery service specified an SRV record.
 func (o TaskSetServiceRegistriesOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskSetServiceRegistries) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+// ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service (`servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
 func (o TaskSetServiceRegistriesOutput) RegistryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskSetServiceRegistries) string { return v.RegistryArn }).(pulumi.StringOutput)
 }
@@ -16259,7 +16652,7 @@ func (o TaskSetServiceRegistriesPtrOutput) Elem() TaskSetServiceRegistriesOutput
 	}).(TaskSetServiceRegistriesOutput)
 }
 
-// The container name value, already specified in the task definition, to be used for your service discovery service.
+// Container name value, already specified in the task definition, to be used for your service discovery service.
 func (o TaskSetServiceRegistriesPtrOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskSetServiceRegistries) *string {
 		if v == nil {
@@ -16269,7 +16662,7 @@ func (o TaskSetServiceRegistriesPtrOutput) ContainerName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port value, already specified in the task definition, to be used for your service discovery service.
+// Port value, already specified in the task definition, to be used for your service discovery service.
 func (o TaskSetServiceRegistriesPtrOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskSetServiceRegistries) *int {
 		if v == nil {
@@ -16279,7 +16672,7 @@ func (o TaskSetServiceRegistriesPtrOutput) ContainerPort() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The port value used if your Service Discovery service specified an SRV record.
+// Port value used if your Service Discovery service specified an SRV record.
 func (o TaskSetServiceRegistriesPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskSetServiceRegistries) *int {
 		if v == nil {
@@ -16289,7 +16682,7 @@ func (o TaskSetServiceRegistriesPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+// ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service (`servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
 func (o TaskSetServiceRegistriesPtrOutput) RegistryArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskSetServiceRegistries) *string {
 		if v == nil {
@@ -18594,7 +18987,7 @@ func (o GetServiceTaskSetArrayOutput) Index(i pulumi.IntInput) GetServiceTaskSet
 }
 
 type GetTaskDefinitionEphemeralStorage struct {
-	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+	// Total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
 	SizeInGib int `pulumi:"sizeInGib"`
 }
 
@@ -18610,7 +19003,7 @@ type GetTaskDefinitionEphemeralStorageInput interface {
 }
 
 type GetTaskDefinitionEphemeralStorageArgs struct {
-	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+	// Total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
 	SizeInGib pulumi.IntInput `pulumi:"sizeInGib"`
 }
 
@@ -18665,7 +19058,7 @@ func (o GetTaskDefinitionEphemeralStorageOutput) ToGetTaskDefinitionEphemeralSto
 	return o
 }
 
-// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+// Total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
 func (o GetTaskDefinitionEphemeralStorageOutput) SizeInGib() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTaskDefinitionEphemeralStorage) int { return v.SizeInGib }).(pulumi.IntOutput)
 }
@@ -19820,11 +20213,11 @@ func (o GetTaskDefinitionVolumeS3filesVolumeConfigurationArrayOutput) Index(i pu
 }
 
 type GetTaskExecutionCapacityProviderStrategy struct {
-	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+	// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
 	Base *int `pulumi:"base"`
 	// Name of the capacity provider.
 	CapacityProvider string `pulumi:"capacityProvider"`
-	// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+	// Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -19840,11 +20233,11 @@ type GetTaskExecutionCapacityProviderStrategyInput interface {
 }
 
 type GetTaskExecutionCapacityProviderStrategyArgs struct {
-	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+	// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
 	Base pulumi.IntPtrInput `pulumi:"base"`
 	// Name of the capacity provider.
 	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
-	// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+	// Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
@@ -19899,7 +20292,7 @@ func (o GetTaskExecutionCapacityProviderStrategyOutput) ToGetTaskExecutionCapaci
 	return o
 }
 
-// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
 func (o GetTaskExecutionCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
@@ -19909,7 +20302,7 @@ func (o GetTaskExecutionCapacityProviderStrategyOutput) CapacityProvider() pulum
 	return o.ApplyT(func(v GetTaskExecutionCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
 }
 
-// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+// Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
 func (o GetTaskExecutionCapacityProviderStrategyOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionCapacityProviderStrategy) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -19936,8 +20329,6 @@ func (o GetTaskExecutionCapacityProviderStrategyArrayOutput) Index(i pulumi.IntI
 
 type GetTaskExecutionNetworkConfiguration struct {
 	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-	//
-	// For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
 	AssignPublicIp *bool `pulumi:"assignPublicIp"`
 	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -19958,8 +20349,6 @@ type GetTaskExecutionNetworkConfigurationInput interface {
 
 type GetTaskExecutionNetworkConfigurationArgs struct {
 	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-	//
-	// For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
 	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
 	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -20045,8 +20434,6 @@ func (o GetTaskExecutionNetworkConfigurationOutput) ToGetTaskExecutionNetworkCon
 }
 
 // Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-//
-// For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
 func (o GetTaskExecutionNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
 }
@@ -20086,8 +20473,6 @@ func (o GetTaskExecutionNetworkConfigurationPtrOutput) Elem() GetTaskExecutionNe
 }
 
 // Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
-//
-// For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
 func (o GetTaskExecutionNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetTaskExecutionNetworkConfiguration) *bool {
 		if v == nil {
@@ -20120,11 +20505,11 @@ func (o GetTaskExecutionNetworkConfigurationPtrOutput) Subnets() pulumi.StringAr
 type GetTaskExecutionOverrides struct {
 	// One or more container overrides that are sent to a task. See below.
 	ContainerOverrides []GetTaskExecutionOverridesContainerOverride `pulumi:"containerOverrides"`
-	// The CPU override for the task.
+	// CPU override for the task.
 	Cpu *string `pulumi:"cpu"`
 	// Amazon Resource Name (ARN) of the task execution role override for the task.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// The memory override for the task.
+	// Memory override for the task.
 	Memory *string `pulumi:"memory"`
 	// Amazon Resource Name (ARN) of the role that containers in this task can assume.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
@@ -20144,11 +20529,11 @@ type GetTaskExecutionOverridesInput interface {
 type GetTaskExecutionOverridesArgs struct {
 	// One or more container overrides that are sent to a task. See below.
 	ContainerOverrides GetTaskExecutionOverridesContainerOverrideArrayInput `pulumi:"containerOverrides"`
-	// The CPU override for the task.
+	// CPU override for the task.
 	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
 	// Amazon Resource Name (ARN) of the task execution role override for the task.
 	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
-	// The memory override for the task.
+	// Memory override for the task.
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 	// Amazon Resource Name (ARN) of the role that containers in this task can assume.
 	TaskRoleArn pulumi.StringPtrInput `pulumi:"taskRoleArn"`
@@ -20238,7 +20623,7 @@ func (o GetTaskExecutionOverridesOutput) ContainerOverrides() GetTaskExecutionOv
 	}).(GetTaskExecutionOverridesContainerOverrideArrayOutput)
 }
 
-// The CPU override for the task.
+// CPU override for the task.
 func (o GetTaskExecutionOverridesOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverrides) *string { return v.Cpu }).(pulumi.StringPtrOutput)
 }
@@ -20248,7 +20633,7 @@ func (o GetTaskExecutionOverridesOutput) ExecutionRoleArn() pulumi.StringPtrOutp
 	return o.ApplyT(func(v GetTaskExecutionOverrides) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The memory override for the task.
+// Memory override for the task.
 func (o GetTaskExecutionOverridesOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverrides) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
@@ -20292,7 +20677,7 @@ func (o GetTaskExecutionOverridesPtrOutput) ContainerOverrides() GetTaskExecutio
 	}).(GetTaskExecutionOverridesContainerOverrideArrayOutput)
 }
 
-// The CPU override for the task.
+// CPU override for the task.
 func (o GetTaskExecutionOverridesPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTaskExecutionOverrides) *string {
 		if v == nil {
@@ -20312,7 +20697,7 @@ func (o GetTaskExecutionOverridesPtrOutput) ExecutionRoleArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The memory override for the task.
+// Memory override for the task.
 func (o GetTaskExecutionOverridesPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetTaskExecutionOverrides) *string {
 		if v == nil {
@@ -20333,19 +20718,19 @@ func (o GetTaskExecutionOverridesPtrOutput) TaskRoleArn() pulumi.StringPtrOutput
 }
 
 type GetTaskExecutionOverridesContainerOverride struct {
-	// The command to send to the container that overrides the default command from the Docker image or the task definition.
+	// Command to send to the container that overrides the default command from the Docker image or the task definition.
 	Commands []string `pulumi:"commands"`
-	// The number of cpu units reserved for the container, instead of the default value from the task definition.
+	// Number of cpu units reserved for the container, instead of the default value from the task definition.
 	Cpu *int `pulumi:"cpu"`
-	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+	// Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
 	Environments []GetTaskExecutionOverridesContainerOverrideEnvironment `pulumi:"environments"`
-	// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+	// Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
 	Memory *int `pulumi:"memory"`
-	// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+	// Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
 	MemoryReservation *int `pulumi:"memoryReservation"`
-	// The name of the container that receives the override. This parameter is required if any override is specified.
+	// Name of the container that receives the override. This parameter is required if any override is specified.
 	Name string `pulumi:"name"`
-	// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+	// Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
 	ResourceRequirements []GetTaskExecutionOverridesContainerOverrideResourceRequirement `pulumi:"resourceRequirements"`
 }
 
@@ -20361,19 +20746,19 @@ type GetTaskExecutionOverridesContainerOverrideInput interface {
 }
 
 type GetTaskExecutionOverridesContainerOverrideArgs struct {
-	// The command to send to the container that overrides the default command from the Docker image or the task definition.
+	// Command to send to the container that overrides the default command from the Docker image or the task definition.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The number of cpu units reserved for the container, instead of the default value from the task definition.
+	// Number of cpu units reserved for the container, instead of the default value from the task definition.
 	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
-	// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+	// Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
 	Environments GetTaskExecutionOverridesContainerOverrideEnvironmentArrayInput `pulumi:"environments"`
-	// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+	// Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
 	Memory pulumi.IntPtrInput `pulumi:"memory"`
-	// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+	// Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
 	MemoryReservation pulumi.IntPtrInput `pulumi:"memoryReservation"`
-	// The name of the container that receives the override. This parameter is required if any override is specified.
+	// Name of the container that receives the override. This parameter is required if any override is specified.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+	// Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
 	ResourceRequirements GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayInput `pulumi:"resourceRequirements"`
 }
 
@@ -20428,39 +20813,39 @@ func (o GetTaskExecutionOverridesContainerOverrideOutput) ToGetTaskExecutionOver
 	return o
 }
 
-// The command to send to the container that overrides the default command from the Docker image or the task definition.
+// Command to send to the container that overrides the default command from the Docker image or the task definition.
 func (o GetTaskExecutionOverridesContainerOverrideOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The number of cpu units reserved for the container, instead of the default value from the task definition.
+// Number of cpu units reserved for the container, instead of the default value from the task definition.
 func (o GetTaskExecutionOverridesContainerOverrideOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
 
-// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+// Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
 func (o GetTaskExecutionOverridesContainerOverrideOutput) Environments() GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) []GetTaskExecutionOverridesContainerOverrideEnvironment {
 		return v.Environments
 	}).(GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput)
 }
 
-// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+// Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
 func (o GetTaskExecutionOverridesContainerOverrideOutput) Memory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) *int { return v.Memory }).(pulumi.IntPtrOutput)
 }
 
-// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+// Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
 func (o GetTaskExecutionOverridesContainerOverrideOutput) MemoryReservation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) *int { return v.MemoryReservation }).(pulumi.IntPtrOutput)
 }
 
-// The name of the container that receives the override. This parameter is required if any override is specified.
+// Name of the container that receives the override. This parameter is required if any override is specified.
 func (o GetTaskExecutionOverridesContainerOverrideOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+// Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
 func (o GetTaskExecutionOverridesContainerOverrideOutput) ResourceRequirements() GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverride) []GetTaskExecutionOverridesContainerOverrideResourceRequirement {
 		return v.ResourceRequirements
@@ -20488,9 +20873,9 @@ func (o GetTaskExecutionOverridesContainerOverrideArrayOutput) Index(i pulumi.In
 }
 
 type GetTaskExecutionOverridesContainerOverrideEnvironment struct {
-	// The name of the key-value pair. For environment variables, this is the name of the environment variable.
+	// Name of the key-value pair. For environment variables, this is the name of the environment variable.
 	Key string `pulumi:"key"`
-	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	// Value of the key-value pair. For environment variables, this is the value of the environment variable.
 	Value string `pulumi:"value"`
 }
 
@@ -20506,9 +20891,9 @@ type GetTaskExecutionOverridesContainerOverrideEnvironmentInput interface {
 }
 
 type GetTaskExecutionOverridesContainerOverrideEnvironmentArgs struct {
-	// The name of the key-value pair. For environment variables, this is the name of the environment variable.
+	// Name of the key-value pair. For environment variables, this is the name of the environment variable.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	// Value of the key-value pair. For environment variables, this is the value of the environment variable.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -20563,12 +20948,12 @@ func (o GetTaskExecutionOverridesContainerOverrideEnvironmentOutput) ToGetTaskEx
 	return o
 }
 
-// The name of the key-value pair. For environment variables, this is the name of the environment variable.
+// Name of the key-value pair. For environment variables, this is the name of the environment variable.
 func (o GetTaskExecutionOverridesContainerOverrideEnvironmentOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverrideEnvironment) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+// Value of the key-value pair. For environment variables, this is the value of the environment variable.
 func (o GetTaskExecutionOverridesContainerOverrideEnvironmentOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverrideEnvironment) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -20594,9 +20979,9 @@ func (o GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput) Index(
 }
 
 type GetTaskExecutionOverridesContainerOverrideResourceRequirement struct {
-	// The type of resource to assign to a container. Valid values are `GPU`.
+	// Type of resource to assign to a container. Valid values are `GPU`.
 	Type string `pulumi:"type"`
-	// The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
+	// Value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
 	Value string `pulumi:"value"`
 }
 
@@ -20612,9 +20997,9 @@ type GetTaskExecutionOverridesContainerOverrideResourceRequirementInput interfac
 }
 
 type GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs struct {
-	// The type of resource to assign to a container. Valid values are `GPU`.
+	// Type of resource to assign to a container. Valid values are `GPU`.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
+	// Value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -20669,12 +21054,12 @@ func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput) ToG
 	return o
 }
 
-// The type of resource to assign to a container. Valid values are `GPU`.
+// Type of resource to assign to a container. Valid values are `GPU`.
 func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverrideResourceRequirement) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
+// Value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
 func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverrideResourceRequirement) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -20700,9 +21085,9 @@ func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput
 }
 
 type GetTaskExecutionPlacementConstraint struct {
-	// A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
+	// Cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
 	Expression *string `pulumi:"expression"`
-	// The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+	// Type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
 	Type string `pulumi:"type"`
 }
 
@@ -20718,9 +21103,9 @@ type GetTaskExecutionPlacementConstraintInput interface {
 }
 
 type GetTaskExecutionPlacementConstraintArgs struct {
-	// A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
+	// Cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+	// Type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -20775,12 +21160,12 @@ func (o GetTaskExecutionPlacementConstraintOutput) ToGetTaskExecutionPlacementCo
 	return o
 }
 
-// A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
+// Cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can't specify an expression if the constraint type is `distinctInstance`.
 func (o GetTaskExecutionPlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionPlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+// Type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
 func (o GetTaskExecutionPlacementConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskExecutionPlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -20806,11 +21191,9 @@ func (o GetTaskExecutionPlacementConstraintArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetTaskExecutionPlacementStrategy struct {
-	// The field to apply the placement strategy against.
+	// Field to apply the placement strategy against.
 	Field *string `pulumi:"field"`
-	// The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-	//
-	// For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+	// Type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
 	Type string `pulumi:"type"`
 }
 
@@ -20826,11 +21209,9 @@ type GetTaskExecutionPlacementStrategyInput interface {
 }
 
 type GetTaskExecutionPlacementStrategyArgs struct {
-	// The field to apply the placement strategy against.
+	// Field to apply the placement strategy against.
 	Field pulumi.StringPtrInput `pulumi:"field"`
-	// The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-	//
-	// For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+	// Type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -20885,14 +21266,12 @@ func (o GetTaskExecutionPlacementStrategyOutput) ToGetTaskExecutionPlacementStra
 	return o
 }
 
-// The field to apply the placement strategy against.
+// Field to apply the placement strategy against.
 func (o GetTaskExecutionPlacementStrategyOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionPlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
-// The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-//
-// For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+// Type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
 func (o GetTaskExecutionPlacementStrategyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskExecutionPlacementStrategy) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -20928,6 +21307,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountArgs{})
@@ -20948,6 +21329,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs{})
@@ -21208,6 +21591,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplatePtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservationsPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCountOutput{})
@@ -21228,6 +21613,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationOutput{})

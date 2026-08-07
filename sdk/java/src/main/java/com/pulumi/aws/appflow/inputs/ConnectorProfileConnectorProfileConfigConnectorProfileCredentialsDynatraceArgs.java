@@ -15,14 +15,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs();
 
     /**
-     * The API tokens used by Dynatrace API to authenticate various API calls.
+     * API token used by the Dynatrace API to authenticate various API calls.
      * 
      */
     @Import(name="apiToken", required=true)
     private Output<String> apiToken;
 
     /**
-     * @return The API tokens used by Dynatrace API to authenticate various API calls.
+     * @return API token used by the Dynatrace API to authenticate various API calls.
      * 
      */
     public Output<String> apiToken() {
@@ -54,7 +54,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param apiToken The API tokens used by Dynatrace API to authenticate various API calls.
+         * @param apiToken API token used by the Dynatrace API to authenticate various API calls.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param apiToken The API tokens used by Dynatrace API to authenticate various API calls.
+         * @param apiToken API token used by the Dynatrace API to authenticate various API calls.
          * 
          * @return builder
          * 

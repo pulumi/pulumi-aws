@@ -14,15 +14,15 @@ namespace Pulumi.Aws.S3Control.Outputs
     public sealed class BucketLifecycleConfigurationRule
     {
         /// <summary>
-        /// Configuration block containing settings for abort incomplete multipart upload.
+        /// Configuration block containing settings for abort incomplete multipart upload. See `AbortIncompleteMultipartUpload` below.
         /// </summary>
         public readonly Outputs.BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload? AbortIncompleteMultipartUpload;
         /// <summary>
-        /// Configuration block containing settings for expiration of objects.
+        /// Configuration block containing settings for expiration of objects. See `Expiration` below.
         /// </summary>
         public readonly Outputs.BucketLifecycleConfigurationRuleExpiration? Expiration;
         /// <summary>
-        /// Configuration block containing settings for filtering.
+        /// Configuration block containing settings for filtering. See `Filter` below.
         /// </summary>
         public readonly Outputs.BucketLifecycleConfigurationRuleFilter? Filter;
         /// <summary>

@@ -400,7 +400,7 @@ export class BucketLifecycleConfigurationV2 extends pulumi.CustomResource {
     declare public readonly rules: pulumi.Output<outputs.s3.BucketLifecycleConfigurationV2Rule[] | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.s3.BucketLifecycleConfigurationV2Timeouts | undefined>;
     /**
-     * The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
+     * Default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
      */
     declare public readonly transitionDefaultMinimumObjectSize: pulumi.Output<string>;
 
@@ -469,7 +469,7 @@ export interface BucketLifecycleConfigurationV2State {
     rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleConfigurationV2Rule>[] | undefined>;
     timeouts?: pulumi.Input<inputs.s3.BucketLifecycleConfigurationV2Timeouts | undefined>;
     /**
-     * The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
+     * Default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
      */
     transitionDefaultMinimumObjectSize?: pulumi.Input<string | undefined>;
 }
@@ -498,7 +498,7 @@ export interface BucketLifecycleConfigurationV2Args {
     rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleConfigurationV2Rule>[] | undefined>;
     timeouts?: pulumi.Input<inputs.s3.BucketLifecycleConfigurationV2Timeouts | undefined>;
     /**
-     * The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
+     * Default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
      */
     transitionDefaultMinimumObjectSize?: pulumi.Input<string | undefined>;
 }

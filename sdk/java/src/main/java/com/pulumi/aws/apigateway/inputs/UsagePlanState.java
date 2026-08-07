@@ -21,14 +21,14 @@ public final class UsagePlanState extends com.pulumi.resources.ResourceArgs {
     public static final UsagePlanState Empty = new UsagePlanState();
 
     /**
-     * Associated API stages of the usage plan.
+     * Associated API stages of the usage plan. See `apiStages` Block below.
      * 
      */
     @Import(name="apiStages")
     private @Nullable Output<List<UsagePlanApiStageArgs>> apiStages;
 
     /**
-     * @return Associated API stages of the usage plan.
+     * @return Associated API stages of the usage plan. See `apiStages` Block below.
      * 
      */
     public Optional<Output<List<UsagePlanApiStageArgs>>> apiStages() {
@@ -36,14 +36,14 @@ public final class UsagePlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN
+     * ARN of the usage plan.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN
+     * @return ARN of the usage plan.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -96,14 +96,14 @@ public final class UsagePlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The quota settings of the usage plan.
+     * Quota settings of the usage plan. See `quotaSettings` Block below.
      * 
      */
     @Import(name="quotaSettings")
     private @Nullable Output<UsagePlanQuotaSettingsArgs> quotaSettings;
 
     /**
-     * @return The quota settings of the usage plan.
+     * @return Quota settings of the usage plan. See `quotaSettings` Block below.
      * 
      */
     public Optional<Output<UsagePlanQuotaSettingsArgs>> quotaSettings() {
@@ -156,14 +156,14 @@ public final class UsagePlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The throttling limits of the usage plan.
+     * Throttling limits of the usage plan. See `throttleSettings` Block below.
      * 
      */
     @Import(name="throttleSettings")
     private @Nullable Output<UsagePlanThrottleSettingsArgs> throttleSettings;
 
     /**
-     * @return The throttling limits of the usage plan.
+     * @return Throttling limits of the usage plan. See `throttleSettings` Block below.
      * 
      */
     public Optional<Output<UsagePlanThrottleSettingsArgs>> throttleSettings() {
@@ -204,7 +204,7 @@ public final class UsagePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiStages Associated API stages of the usage plan.
+         * @param apiStages Associated API stages of the usage plan. See `apiStages` Block below.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class UsagePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiStages Associated API stages of the usage plan.
+         * @param apiStages Associated API stages of the usage plan. See `apiStages` Block below.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class UsagePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiStages Associated API stages of the usage plan.
+         * @param apiStages Associated API stages of the usage plan. See `apiStages` Block below.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class UsagePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN
+         * @param arn ARN of the usage plan.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class UsagePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN
+         * @param arn ARN of the usage plan.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class UsagePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quotaSettings The quota settings of the usage plan.
+         * @param quotaSettings Quota settings of the usage plan. See `quotaSettings` Block below.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class UsagePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quotaSettings The quota settings of the usage plan.
+         * @param quotaSettings Quota settings of the usage plan. See `quotaSettings` Block below.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class UsagePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param throttleSettings The throttling limits of the usage plan.
+         * @param throttleSettings Throttling limits of the usage plan. See `throttleSettings` Block below.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class UsagePlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param throttleSettings The throttling limits of the usage plan.
+         * @param throttleSettings Throttling limits of the usage plan. See `throttleSettings` Block below.
          * 
          * @return builder
          * 

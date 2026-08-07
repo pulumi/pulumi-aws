@@ -17,14 +17,14 @@ public final class GetTaskExecutionCapacityProviderStrategy extends com.pulumi.r
     public static final GetTaskExecutionCapacityProviderStrategy Empty = new GetTaskExecutionCapacityProviderStrategy();
 
     /**
-     * The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+     * Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
      * 
      */
     @Import(name="base")
     private @Nullable Integer base;
 
     /**
-     * @return The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+     * @return Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
      * 
      */
     public Optional<Integer> base() {
@@ -47,14 +47,14 @@ public final class GetTaskExecutionCapacityProviderStrategy extends com.pulumi.r
     }
 
     /**
-     * The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+     * Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
      * 
      */
     @Import(name="weight")
     private @Nullable Integer weight;
 
     /**
-     * @return The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+     * @return Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
      * 
      */
     public Optional<Integer> weight() {
@@ -88,7 +88,7 @@ public final class GetTaskExecutionCapacityProviderStrategy extends com.pulumi.r
         }
 
         /**
-         * @param base The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+         * @param base Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class GetTaskExecutionCapacityProviderStrategy extends com.pulumi.r
         }
 
         /**
-         * @param weight The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+         * @param weight Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
          * 
          * @return builder
          * 

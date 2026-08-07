@@ -126,18 +126,15 @@ type Route struct {
 
 	// API identifier.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
+	// Whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
 	ApiKeyRequired pulumi.BoolPtrOutput `pulumi:"apiKeyRequired"`
 	// Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
 	AuthorizationScopes pulumi.StringArrayOutput `pulumi:"authorizationScopes"`
-	// Authorization type for the route.
-	// For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-	// For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-	// Defaults to `NONE`.
+	// Authorization type for the route. For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. Defaults to `NONE`.
 	AuthorizationType pulumi.StringPtrOutput `pulumi:"authorizationType"`
 	// Identifier of the `apigatewayv2.Authorizer` resource to be associated with this route.
 	AuthorizerId pulumi.StringPtrOutput `pulumi:"authorizerId"`
-	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
+	// [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
 	ModelSelectionExpression pulumi.StringPtrOutput `pulumi:"modelSelectionExpression"`
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName pulumi.StringPtrOutput `pulumi:"operationName"`
@@ -145,11 +142,11 @@ type Route struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels pulumi.StringMapOutput `pulumi:"requestModels"`
-	// Request parameters for the route. Supported only for WebSocket APIs.
+	// Request parameters for the route. Supported only for WebSocket APIs. See `requestParameter` Block below.
 	RequestParameters RouteRequestParameterArrayOutput `pulumi:"requestParameters"`
 	// Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey pulumi.StringOutput `pulumi:"routeKey"`
-	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
+	// [Route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
 	RouteResponseSelectionExpression pulumi.StringPtrOutput `pulumi:"routeResponseSelectionExpression"`
 	// Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `apigatewayv2.Integration` resource.
 	Target pulumi.StringPtrOutput `pulumi:"target"`
@@ -193,18 +190,15 @@ func GetRoute(ctx *pulumi.Context,
 type routeState struct {
 	// API identifier.
 	ApiId *string `pulumi:"apiId"`
-	// Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
+	// Whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
 	ApiKeyRequired *bool `pulumi:"apiKeyRequired"`
 	// Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
 	AuthorizationScopes []string `pulumi:"authorizationScopes"`
-	// Authorization type for the route.
-	// For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-	// For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-	// Defaults to `NONE`.
+	// Authorization type for the route. For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. Defaults to `NONE`.
 	AuthorizationType *string `pulumi:"authorizationType"`
 	// Identifier of the `apigatewayv2.Authorizer` resource to be associated with this route.
 	AuthorizerId *string `pulumi:"authorizerId"`
-	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
+	// [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName *string `pulumi:"operationName"`
@@ -212,11 +206,11 @@ type routeState struct {
 	Region *string `pulumi:"region"`
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels map[string]string `pulumi:"requestModels"`
-	// Request parameters for the route. Supported only for WebSocket APIs.
+	// Request parameters for the route. Supported only for WebSocket APIs. See `requestParameter` Block below.
 	RequestParameters []RouteRequestParameter `pulumi:"requestParameters"`
 	// Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey *string `pulumi:"routeKey"`
-	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
+	// [Route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
 	RouteResponseSelectionExpression *string `pulumi:"routeResponseSelectionExpression"`
 	// Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `apigatewayv2.Integration` resource.
 	Target *string `pulumi:"target"`
@@ -225,18 +219,15 @@ type routeState struct {
 type RouteState struct {
 	// API identifier.
 	ApiId pulumi.StringPtrInput
-	// Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
+	// Whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
 	ApiKeyRequired pulumi.BoolPtrInput
 	// Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
 	AuthorizationScopes pulumi.StringArrayInput
-	// Authorization type for the route.
-	// For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-	// For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-	// Defaults to `NONE`.
+	// Authorization type for the route. For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. Defaults to `NONE`.
 	AuthorizationType pulumi.StringPtrInput
 	// Identifier of the `apigatewayv2.Authorizer` resource to be associated with this route.
 	AuthorizerId pulumi.StringPtrInput
-	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
+	// [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
 	ModelSelectionExpression pulumi.StringPtrInput
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName pulumi.StringPtrInput
@@ -244,11 +235,11 @@ type RouteState struct {
 	Region pulumi.StringPtrInput
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels pulumi.StringMapInput
-	// Request parameters for the route. Supported only for WebSocket APIs.
+	// Request parameters for the route. Supported only for WebSocket APIs. See `requestParameter` Block below.
 	RequestParameters RouteRequestParameterArrayInput
 	// Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey pulumi.StringPtrInput
-	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
+	// [Route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
 	RouteResponseSelectionExpression pulumi.StringPtrInput
 	// Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `apigatewayv2.Integration` resource.
 	Target pulumi.StringPtrInput
@@ -261,18 +252,15 @@ func (RouteState) ElementType() reflect.Type {
 type routeArgs struct {
 	// API identifier.
 	ApiId string `pulumi:"apiId"`
-	// Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
+	// Whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
 	ApiKeyRequired *bool `pulumi:"apiKeyRequired"`
 	// Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
 	AuthorizationScopes []string `pulumi:"authorizationScopes"`
-	// Authorization type for the route.
-	// For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-	// For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-	// Defaults to `NONE`.
+	// Authorization type for the route. For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. Defaults to `NONE`.
 	AuthorizationType *string `pulumi:"authorizationType"`
 	// Identifier of the `apigatewayv2.Authorizer` resource to be associated with this route.
 	AuthorizerId *string `pulumi:"authorizerId"`
-	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
+	// [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName *string `pulumi:"operationName"`
@@ -280,11 +268,11 @@ type routeArgs struct {
 	Region *string `pulumi:"region"`
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels map[string]string `pulumi:"requestModels"`
-	// Request parameters for the route. Supported only for WebSocket APIs.
+	// Request parameters for the route. Supported only for WebSocket APIs. See `requestParameter` Block below.
 	RequestParameters []RouteRequestParameter `pulumi:"requestParameters"`
 	// Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey string `pulumi:"routeKey"`
-	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
+	// [Route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
 	RouteResponseSelectionExpression *string `pulumi:"routeResponseSelectionExpression"`
 	// Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `apigatewayv2.Integration` resource.
 	Target *string `pulumi:"target"`
@@ -294,18 +282,15 @@ type routeArgs struct {
 type RouteArgs struct {
 	// API identifier.
 	ApiId pulumi.StringInput
-	// Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
+	// Whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
 	ApiKeyRequired pulumi.BoolPtrInput
 	// Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
 	AuthorizationScopes pulumi.StringArrayInput
-	// Authorization type for the route.
-	// For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-	// For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-	// Defaults to `NONE`.
+	// Authorization type for the route. For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. Defaults to `NONE`.
 	AuthorizationType pulumi.StringPtrInput
 	// Identifier of the `apigatewayv2.Authorizer` resource to be associated with this route.
 	AuthorizerId pulumi.StringPtrInput
-	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
+	// [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
 	ModelSelectionExpression pulumi.StringPtrInput
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName pulumi.StringPtrInput
@@ -313,11 +298,11 @@ type RouteArgs struct {
 	Region pulumi.StringPtrInput
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels pulumi.StringMapInput
-	// Request parameters for the route. Supported only for WebSocket APIs.
+	// Request parameters for the route. Supported only for WebSocket APIs. See `requestParameter` Block below.
 	RequestParameters RouteRequestParameterArrayInput
 	// Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
 	RouteKey pulumi.StringInput
-	// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
+	// [Route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
 	RouteResponseSelectionExpression pulumi.StringPtrInput
 	// Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `apigatewayv2.Integration` resource.
 	Target pulumi.StringPtrInput
@@ -415,7 +400,7 @@ func (o RouteOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
+// Whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
 func (o RouteOutput) ApiKeyRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.BoolPtrOutput { return v.ApiKeyRequired }).(pulumi.BoolPtrOutput)
 }
@@ -425,10 +410,7 @@ func (o RouteOutput) AuthorizationScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringArrayOutput { return v.AuthorizationScopes }).(pulumi.StringArrayOutput)
 }
 
-// Authorization type for the route.
-// For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-// For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-// Defaults to `NONE`.
+// Authorization type for the route. For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. Defaults to `NONE`.
 func (o RouteOutput) AuthorizationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.AuthorizationType }).(pulumi.StringPtrOutput)
 }
@@ -438,7 +420,7 @@ func (o RouteOutput) AuthorizerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.AuthorizerId }).(pulumi.StringPtrOutput)
 }
 
-// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
+// [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
 func (o RouteOutput) ModelSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.ModelSelectionExpression }).(pulumi.StringPtrOutput)
 }
@@ -458,7 +440,7 @@ func (o RouteOutput) RequestModels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringMapOutput { return v.RequestModels }).(pulumi.StringMapOutput)
 }
 
-// Request parameters for the route. Supported only for WebSocket APIs.
+// Request parameters for the route. Supported only for WebSocket APIs. See `requestParameter` Block below.
 func (o RouteOutput) RequestParameters() RouteRequestParameterArrayOutput {
 	return o.ApplyT(func(v *Route) RouteRequestParameterArrayOutput { return v.RequestParameters }).(RouteRequestParameterArrayOutput)
 }
@@ -468,7 +450,7 @@ func (o RouteOutput) RouteKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.RouteKey }).(pulumi.StringOutput)
 }
 
-// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
+// [Route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
 func (o RouteOutput) RouteResponseSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.RouteResponseSelectionExpression }).(pulumi.StringPtrOutput)
 }

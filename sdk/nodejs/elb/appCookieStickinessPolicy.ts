@@ -72,14 +72,11 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
      */
     declare public readonly cookieName: pulumi.Output<string>;
     /**
-     * Load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
+     * Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
      */
     declare public readonly lbPort: pulumi.Output<number>;
     /**
-     * Name of load balancer to which the policy
-     * should be attached.
+     * Name of load balancer to which the policy should be attached.
      */
     declare public readonly loadBalancer: pulumi.Output<string>;
     /**
@@ -142,14 +139,11 @@ export interface AppCookieStickinessPolicyState {
      */
     cookieName?: pulumi.Input<string | undefined>;
     /**
-     * Load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
+     * Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
      */
     lbPort?: pulumi.Input<number | undefined>;
     /**
-     * Name of load balancer to which the policy
-     * should be attached.
+     * Name of load balancer to which the policy should be attached.
      */
     loadBalancer?: pulumi.Input<string | undefined>;
     /**
@@ -171,14 +165,11 @@ export interface AppCookieStickinessPolicyArgs {
      */
     cookieName: pulumi.Input<string>;
     /**
-     * Load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
+     * Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
      */
     lbPort: pulumi.Input<number>;
     /**
-     * Name of load balancer to which the policy
-     * should be attached.
+     * Name of load balancer to which the policy should be attached.
      */
     loadBalancer: pulumi.Input<string>;
     /**

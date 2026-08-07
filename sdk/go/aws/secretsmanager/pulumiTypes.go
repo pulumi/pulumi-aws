@@ -147,9 +147,9 @@ func (o SecretReplicaArrayOutput) Index(i pulumi.IntInput) SecretReplicaOutput {
 }
 
 type SecretRotationExternalSecretRotationMetadata struct {
-	// The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+	// Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
 	Key string `pulumi:"key"`
-	// The metadata value for the specified key.
+	// Metadata value for the specified key.
 	Value string `pulumi:"value"`
 }
 
@@ -165,9 +165,9 @@ type SecretRotationExternalSecretRotationMetadataInput interface {
 }
 
 type SecretRotationExternalSecretRotationMetadataArgs struct {
-	// The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+	// Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The metadata value for the specified key.
+	// Metadata value for the specified key.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -222,12 +222,12 @@ func (o SecretRotationExternalSecretRotationMetadataOutput) ToSecretRotationExte
 	return o
 }
 
-// The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+// Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
 func (o SecretRotationExternalSecretRotationMetadataOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretRotationExternalSecretRotationMetadata) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The metadata value for the specified key.
+// Metadata value for the specified key.
 func (o SecretRotationExternalSecretRotationMetadataOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v SecretRotationExternalSecretRotationMetadata) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -253,11 +253,11 @@ func (o SecretRotationExternalSecretRotationMetadataArrayOutput) Index(i pulumi.
 }
 
 type SecretRotationRotationRules struct {
-	// Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+	// Number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
 	AutomaticallyAfterDays *int `pulumi:"automaticallyAfterDays"`
 	// The length of the rotation window in hours. For example, `3h` for a three hour window.
 	Duration *string `pulumi:"duration"`
-	// A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+	// `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 }
 
@@ -273,11 +273,11 @@ type SecretRotationRotationRulesInput interface {
 }
 
 type SecretRotationRotationRulesArgs struct {
-	// Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+	// Number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
 	AutomaticallyAfterDays pulumi.IntPtrInput `pulumi:"automaticallyAfterDays"`
 	// The length of the rotation window in hours. For example, `3h` for a three hour window.
 	Duration pulumi.StringPtrInput `pulumi:"duration"`
-	// A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+	// `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
 	ScheduleExpression pulumi.StringPtrInput `pulumi:"scheduleExpression"`
 }
 
@@ -358,7 +358,7 @@ func (o SecretRotationRotationRulesOutput) ToSecretRotationRotationRulesPtrOutpu
 	}).(SecretRotationRotationRulesPtrOutput)
 }
 
-// Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+// Number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
 func (o SecretRotationRotationRulesOutput) AutomaticallyAfterDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecretRotationRotationRules) *int { return v.AutomaticallyAfterDays }).(pulumi.IntPtrOutput)
 }
@@ -368,7 +368,7 @@ func (o SecretRotationRotationRulesOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretRotationRotationRules) *string { return v.Duration }).(pulumi.StringPtrOutput)
 }
 
-// A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+// `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
 func (o SecretRotationRotationRulesOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretRotationRotationRules) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
@@ -397,7 +397,7 @@ func (o SecretRotationRotationRulesPtrOutput) Elem() SecretRotationRotationRules
 	}).(SecretRotationRotationRulesOutput)
 }
 
-// Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+// Number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
 func (o SecretRotationRotationRulesPtrOutput) AutomaticallyAfterDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecretRotationRotationRules) *int {
 		if v == nil {
@@ -417,7 +417,7 @@ func (o SecretRotationRotationRulesPtrOutput) Duration() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
+// `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
 func (o SecretRotationRotationRulesPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretRotationRotationRules) *string {
 		if v == nil {
@@ -538,7 +538,7 @@ type GetSecretRotationRotationRule struct {
 	AutomaticallyAfterDays int `pulumi:"automaticallyAfterDays"`
 	// Length of the rotation window in hours.
 	Duration string `pulumi:"duration"`
-	// A `cron()` or `rate()` expression that defines the schedule for rotating the secret.
+	// `cron()` or `rate()` expression that defines the schedule for rotating the secret.
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 }
 
@@ -558,7 +558,7 @@ type GetSecretRotationRotationRuleArgs struct {
 	AutomaticallyAfterDays pulumi.IntInput `pulumi:"automaticallyAfterDays"`
 	// Length of the rotation window in hours.
 	Duration pulumi.StringInput `pulumi:"duration"`
-	// A `cron()` or `rate()` expression that defines the schedule for rotating the secret.
+	// `cron()` or `rate()` expression that defines the schedule for rotating the secret.
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
 }
 
@@ -623,7 +623,7 @@ func (o GetSecretRotationRotationRuleOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretRotationRotationRule) string { return v.Duration }).(pulumi.StringOutput)
 }
 
-// A `cron()` or `rate()` expression that defines the schedule for rotating the secret.
+// `cron()` or `rate()` expression that defines the schedule for rotating the secret.
 func (o GetSecretRotationRotationRuleOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretRotationRotationRule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }

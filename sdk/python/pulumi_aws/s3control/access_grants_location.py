@@ -27,10 +27,9 @@ class AccessGrantsLocationArgs:
         """
         The set of arguments for constructing a AccessGrantsLocation resource.
 
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-               requests to the location.
-        :param pulumi.Input[_builtins.str] location_scope: The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
+        :param pulumi.Input[_builtins.str] location_scope: Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -47,8 +46,7 @@ class AccessGrantsLocationArgs:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-        requests to the location.
+        ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -60,7 +58,7 @@ class AccessGrantsLocationArgs:
     @pulumi.getter(name="locationScope")
     def location_scope(self) -> pulumi.Input[_builtins.str]:
         """
-        The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
         """
         return pulumi.get(self, "location_scope")
 
@@ -72,7 +70,7 @@ class AccessGrantsLocationArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         """
         return pulumi.get(self, "account_id")
 
@@ -121,13 +119,12 @@ class _AccessGrantsLocationState:
 
         :param pulumi.Input[_builtins.str] access_grants_location_arn: Amazon Resource Name (ARN) of the S3 Access Grants location.
         :param pulumi.Input[_builtins.str] access_grants_location_id: Unique ID of the S3 Access Grants location.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-               requests to the location.
-        :param pulumi.Input[_builtins.str] location_scope: The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
+        :param pulumi.Input[_builtins.str] location_scope: Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if access_grants_location_arn is not None:
             pulumi.set(__self__, "access_grants_location_arn", access_grants_location_arn)
@@ -174,7 +171,7 @@ class _AccessGrantsLocationState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         """
         return pulumi.get(self, "account_id")
 
@@ -186,8 +183,7 @@ class _AccessGrantsLocationState:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-        requests to the location.
+        ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -199,7 +195,7 @@ class _AccessGrantsLocationState:
     @pulumi.getter(name="locationScope")
     def location_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
         """
         return pulumi.get(self, "location_scope")
 
@@ -235,7 +231,7 @@ class _AccessGrantsLocationState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -286,10 +282,9 @@ class AccessGrantsLocation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-               requests to the location.
-        :param pulumi.Input[_builtins.str] location_scope: The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
+        :param pulumi.Input[_builtins.str] location_scope: Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -395,13 +390,12 @@ class AccessGrantsLocation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_grants_location_arn: Amazon Resource Name (ARN) of the S3 Access Grants location.
         :param pulumi.Input[_builtins.str] access_grants_location_id: Unique ID of the S3 Access Grants location.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-               requests to the location.
-        :param pulumi.Input[_builtins.str] location_scope: The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
+        :param pulumi.Input[_builtins.str] location_scope: Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -437,7 +431,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         """
         return pulumi.get(self, "account_id")
 
@@ -445,8 +439,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-        requests to the location.
+        ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -454,7 +447,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
     @pulumi.getter(name="locationScope")
     def location_scope(self) -> pulumi.Output[_builtins.str]:
         """
-        The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+        Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
         """
         return pulumi.get(self, "location_scope")
 
@@ -478,7 +471,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

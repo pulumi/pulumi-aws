@@ -31,7 +31,7 @@ class BasePathMappingArgs:
         :param pulumi.Input[_builtins.str] domain_name: Already-registered domain name to connect the API to.
         :param pulumi.Input[_builtins.str] rest_api: ID of the API to connect.
         :param pulumi.Input[_builtins.str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        :param pulumi.Input[_builtins.str] domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
+        :param pulumi.Input[_builtins.str] domain_name_id: Identifier for the domain name resource. Supported only for private custom domain names.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
@@ -86,7 +86,7 @@ class BasePathMappingArgs:
     @pulumi.getter(name="domainNameId")
     def domain_name_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier for the domain name resource. Supported only for private custom domain names.
+        Identifier for the domain name resource. Supported only for private custom domain names.
         """
         return pulumi.get(self, "domain_name_id")
 
@@ -133,7 +133,7 @@ class _BasePathMappingState:
 
         :param pulumi.Input[_builtins.str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         :param pulumi.Input[_builtins.str] domain_name: Already-registered domain name to connect the API to.
-        :param pulumi.Input[_builtins.str] domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
+        :param pulumi.Input[_builtins.str] domain_name_id: Identifier for the domain name resource. Supported only for private custom domain names.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rest_api: ID of the API to connect.
         :param pulumi.Input[_builtins.str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
@@ -179,7 +179,7 @@ class _BasePathMappingState:
     @pulumi.getter(name="domainNameId")
     def domain_name_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier for the domain name resource. Supported only for private custom domain names.
+        Identifier for the domain name resource. Supported only for private custom domain names.
         """
         return pulumi.get(self, "domain_name_id")
 
@@ -273,7 +273,7 @@ class BasePathMapping(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         :param pulumi.Input[_builtins.str] domain_name: Already-registered domain name to connect the API to.
-        :param pulumi.Input[_builtins.str] domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
+        :param pulumi.Input[_builtins.str] domain_name_id: Identifier for the domain name resource. Supported only for private custom domain names.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rest_api: ID of the API to connect.
         :param pulumi.Input[_builtins.str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
@@ -381,7 +381,7 @@ class BasePathMapping(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         :param pulumi.Input[_builtins.str] domain_name: Already-registered domain name to connect the API to.
-        :param pulumi.Input[_builtins.str] domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
+        :param pulumi.Input[_builtins.str] domain_name_id: Identifier for the domain name resource. Supported only for private custom domain names.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rest_api: ID of the API to connect.
         :param pulumi.Input[_builtins.str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
@@ -418,7 +418,7 @@ class BasePathMapping(pulumi.CustomResource):
     @pulumi.getter(name="domainNameId")
     def domain_name_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The identifier for the domain name resource. Supported only for private custom domain names.
+        Identifier for the domain name resource. Supported only for private custom domain names.
         """
         return pulumi.get(self, "domain_name_id")
 

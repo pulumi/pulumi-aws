@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appfabric/ingestionDestination:IngestionDestination")
 public class IngestionDestination extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
     @Export(name="appBundleArn", refs={String.class}, tree="[0]")
     private Output<String> appBundleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
     public Output<String> appBundleArn() {
@@ -110,42 +110,46 @@ public class IngestionDestination extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Contains information about the destination of ingested data.
+     * Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
      * 
      */
     @Export(name="destinationConfiguration", refs={IngestionDestinationDestinationConfiguration.class}, tree="[0]")
     private Output<IngestionDestinationDestinationConfiguration> destinationConfiguration;
 
     /**
-     * @return Contains information about the destination of ingested data.
+     * @return Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
      * 
      */
     public Output<IngestionDestinationDestinationConfiguration> destinationConfiguration() {
         return this.destinationConfiguration;
     }
     /**
-     * The Amazon Resource Name (ARN) of the ingestion to use for the request.
+     * Amazon Resource Name (ARN) of the ingestion to use for the request.
      * 
      */
     @Export(name="ingestionArn", refs={String.class}, tree="[0]")
     private Output<String> ingestionArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the ingestion to use for the request.
+     * @return Amazon Resource Name (ARN) of the ingestion to use for the request.
      * 
      */
     public Output<String> ingestionArn() {
         return this.ingestionArn;
     }
     /**
-     * Contains information about how ingested data is processed.
+     * Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="processingConfiguration", refs={IngestionDestinationProcessingConfiguration.class}, tree="[0]")
     private Output<IngestionDestinationProcessingConfiguration> processingConfiguration;
 
     /**
-     * @return Contains information about how ingested data is processed.
+     * @return Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<IngestionDestinationProcessingConfiguration> processingConfiguration() {

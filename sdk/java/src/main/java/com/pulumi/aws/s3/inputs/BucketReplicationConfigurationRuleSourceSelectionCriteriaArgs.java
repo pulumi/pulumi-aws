@@ -16,16 +16,14 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs
     public static final BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs Empty = new BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs();
 
     /**
-     * Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
-     * in `destination` must be specified as well.
+     * Match SSE-KMS encrypted objects. See `sseKmsEncryptedObjects` Block below for details. If specified, `replicaKmsKeyId` in `destination` must be specified as well.
      * 
      */
     @Import(name="sseKmsEncryptedObjects")
     private @Nullable Output<BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs> sseKmsEncryptedObjects;
 
     /**
-     * @return Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
-     * in `destination` must be specified as well.
+     * @return Match SSE-KMS encrypted objects. See `sseKmsEncryptedObjects` Block below for details. If specified, `replicaKmsKeyId` in `destination` must be specified as well.
      * 
      */
     public Optional<Output<BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs>> sseKmsEncryptedObjects() {
@@ -57,8 +55,7 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs
         }
 
         /**
-         * @param sseKmsEncryptedObjects Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
-         * in `destination` must be specified as well.
+         * @param sseKmsEncryptedObjects Match SSE-KMS encrypted objects. See `sseKmsEncryptedObjects` Block below for details. If specified, `replicaKmsKeyId` in `destination` must be specified as well.
          * 
          * @return builder
          * 
@@ -69,8 +66,7 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs
         }
 
         /**
-         * @param sseKmsEncryptedObjects Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
-         * in `destination` must be specified as well.
+         * @param sseKmsEncryptedObjects Match SSE-KMS encrypted objects. See `sseKmsEncryptedObjects` Block below for details. If specified, `replicaKmsKeyId` in `destination` must be specified as well.
          * 
          * @return builder
          * 

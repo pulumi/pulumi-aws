@@ -20,14 +20,14 @@ public final class PolicyPredictiveScalingPolicyConfigurationArgs extends com.pu
     public static final PolicyPredictiveScalingPolicyConfigurationArgs Empty = new PolicyPredictiveScalingPolicyConfigurationArgs();
 
     /**
-     * The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
+     * Behavior applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
      * 
      */
     @Import(name="maxCapacityBreachBehavior")
     private @Nullable Output<String> maxCapacityBreachBehavior;
 
     /**
-     * @return The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
+     * @return Behavior applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
      * 
      */
     public Optional<Output<String>> maxCapacityBreachBehavior() {
@@ -50,14 +50,14 @@ public final class PolicyPredictiveScalingPolicyConfigurationArgs extends com.pu
     }
 
     /**
-     * Metrics and target utilization to use for predictive scaling. See supported fields below.
+     * Metrics and target utilization to use for predictive scaling. See `predictive_scaling_policy_configuration.metric_specification` Block for details.
      * 
      */
     @Import(name="metricSpecifications", required=true)
     private Output<List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs>> metricSpecifications;
 
     /**
-     * @return Metrics and target utilization to use for predictive scaling. See supported fields below.
+     * @return Metrics and target utilization to use for predictive scaling. See `predictive_scaling_policy_configuration.metric_specification` Block for details.
      * 
      */
     public Output<List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs>> metricSpecifications() {
@@ -123,7 +123,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationArgs extends com.pu
         }
 
         /**
-         * @param maxCapacityBreachBehavior The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
+         * @param maxCapacityBreachBehavior Behavior applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationArgs extends com.pu
         }
 
         /**
-         * @param maxCapacityBreachBehavior The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
+         * @param maxCapacityBreachBehavior Behavior applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationArgs extends com.pu
         }
 
         /**
-         * @param metricSpecifications Metrics and target utilization to use for predictive scaling. See supported fields below.
+         * @param metricSpecifications Metrics and target utilization to use for predictive scaling. See `predictive_scaling_policy_configuration.metric_specification` Block for details.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationArgs extends com.pu
         }
 
         /**
-         * @param metricSpecifications Metrics and target utilization to use for predictive scaling. See supported fields below.
+         * @param metricSpecifications Metrics and target utilization to use for predictive scaling. See `predictive_scaling_policy_configuration.metric_specification` Block for details.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationArgs extends com.pu
         }
 
         /**
-         * @param metricSpecifications Metrics and target utilization to use for predictive scaling. See supported fields below.
+         * @param metricSpecifications Metrics and target utilization to use for predictive scaling. See `predictive_scaling_policy_configuration.metric_specification` Block for details.
          * 
          * @return builder
          * 

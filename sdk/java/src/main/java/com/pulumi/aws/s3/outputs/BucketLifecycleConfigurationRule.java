@@ -30,8 +30,7 @@ public final class BucketLifecycleConfigurationRule {
      */
     private @Nullable BucketLifecycleConfigurationRuleExpiration expiration;
     /**
-     * @return Configuration block used to identify objects that a Lifecycle Rule applies to.
-     * See below.
+     * @return Configuration block used to identify objects that a Lifecycle Rule applies to. See below.
      * 
      */
     private @Nullable BucketLifecycleConfigurationRuleFilter filter;
@@ -51,9 +50,7 @@ public final class BucketLifecycleConfigurationRule {
      */
     private @Nullable List<BucketLifecycleConfigurationRuleNoncurrentVersionTransition> noncurrentVersionTransitions;
     /**
-     * @return **DEPRECATED** Use `filter` instead.
-     * This has been deprecated by Amazon S3.
-     * Prefix identifying one or more objects to which the rule applies.
+     * @return Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
      * 
      * @deprecated
      * Specify a prefix using &#39;filter&#39; instead
@@ -88,8 +85,7 @@ public final class BucketLifecycleConfigurationRule {
         return Optional.ofNullable(this.expiration);
     }
     /**
-     * @return Configuration block used to identify objects that a Lifecycle Rule applies to.
-     * See below.
+     * @return Configuration block used to identify objects that a Lifecycle Rule applies to. See below.
      * 
      */
     public Optional<BucketLifecycleConfigurationRuleFilter> filter() {
@@ -117,9 +113,7 @@ public final class BucketLifecycleConfigurationRule {
         return this.noncurrentVersionTransitions == null ? List.of() : this.noncurrentVersionTransitions;
     }
     /**
-     * @return **DEPRECATED** Use `filter` instead.
-     * This has been deprecated by Amazon S3.
-     * Prefix identifying one or more objects to which the rule applies.
+     * @return Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
      * 
      * @deprecated
      * Specify a prefix using &#39;filter&#39; instead

@@ -34,14 +34,14 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+     * Whether this is the default version of the managed permission.
      * 
      */
     @Import(name="defaultVersion")
     private @Nullable Output<Boolean> defaultVersion;
 
     /**
-     * @return Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+     * @return Whether this is the default version of the managed permission.
      * 
      */
     public Optional<Output<Boolean>> defaultVersion() {
@@ -49,14 +49,14 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+     * Name of the customer managed permission. The name must be unique within the AWS Region.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+     * @return Name of the customer managed permission. The name must be unique within the AWS Region.
      * 
      */
     public Optional<Output<String>> name() {
@@ -64,14 +64,14 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+     * String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
      * 
      */
     @Import(name="policyTemplate")
     private @Nullable Output<String> policyTemplate;
 
     /**
-     * @return A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+     * @return String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
      * 
      */
     public Optional<Output<String>> policyTemplate() {
@@ -94,14 +94,14 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
+     * Name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
      * 
      */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
     /**
-     * @return Specifies the name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
+     * @return Name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
      * 
      */
     public Optional<Output<String>> resourceType() {
@@ -109,14 +109,14 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current status of the permission.
+     * Current status of the permission.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current status of the permission.
+     * @return Current status of the permission.
      * 
      */
     public Optional<Output<String>> status() {
@@ -124,14 +124,14 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -139,14 +139,14 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -161,14 +161,14 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version of the permission associated with this resource share.
+     * Version of the permission associated with this resource share.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The version of the permission associated with this resource share.
+     * @return Version of the permission associated with this resource share.
      * 
      */
     public Optional<Output<String>> version() {
@@ -231,7 +231,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultVersion Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+         * @param defaultVersion Whether this is the default version of the managed permission.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultVersion Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+         * @param defaultVersion Whether this is the default version of the managed permission.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+         * @param name Name of the customer managed permission. The name must be unique within the AWS Region.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+         * @param name Name of the customer managed permission. The name must be unique within the AWS Region.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyTemplate A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+         * @param policyTemplate String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyTemplate A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+         * @param policyTemplate String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceType Specifies the name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
+         * @param resourceType Name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceType Specifies the name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
+         * @param resourceType Name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current status of the permission.
+         * @param status Current status of the permission.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current status of the permission.
+         * @param status Current status of the permission.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version of the permission associated with this resource share.
+         * @param version Version of the permission associated with this resource share.
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class PermissionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version of the permission associated with this resource share.
+         * @param version Version of the permission associated with this resource share.
          * 
          * @return builder
          * 

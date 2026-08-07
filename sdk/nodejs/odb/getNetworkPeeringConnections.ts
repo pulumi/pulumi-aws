@@ -46,7 +46,7 @@ export interface GetNetworkPeeringConnectionsArgs {
  */
 export interface GetNetworkPeeringConnectionsResult {
     /**
-     * The list of ODB peering connections. A summary of an ODB peering connection.
+     * List of ODB peering connections. A summary of an ODB peering connection.
      */
     readonly odbPeeringConnections: outputs.odb.GetNetworkPeeringConnectionsOdbPeeringConnection[];
     readonly region: string;

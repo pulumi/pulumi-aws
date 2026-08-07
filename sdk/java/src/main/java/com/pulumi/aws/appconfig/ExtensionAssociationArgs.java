@@ -18,14 +18,14 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.Resourc
     public static final ExtensionAssociationArgs Empty = new ExtensionAssociationArgs();
 
     /**
-     * The ARN of the extension defined in the association.
+     * ARN of the extension defined in the association.
      * 
      */
     @Import(name="extensionArn", required=true)
     private Output<String> extensionArn;
 
     /**
-     * @return The ARN of the extension defined in the association.
+     * @return ARN of the extension defined in the association.
      * 
      */
     public Output<String> extensionArn() {
@@ -33,14 +33,14 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameter names and values defined for the association.
+     * Parameter names and values defined for the association.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
-     * @return The parameter names and values defined for the association.
+     * @return Parameter names and values defined for the association.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -63,14 +63,14 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The ARN of the application, configuration profile, or environment to associate with the extension.
+     * ARN of the application, configuration profile, or environment to associate with the extension.
      * 
      */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
     /**
-     * @return The ARN of the application, configuration profile, or environment to associate with the extension.
+     * @return ARN of the application, configuration profile, or environment to associate with the extension.
      * 
      */
     public Output<String> resourceArn() {
@@ -105,7 +105,7 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param extensionArn The ARN of the extension defined in the association.
+         * @param extensionArn ARN of the extension defined in the association.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param extensionArn The ARN of the extension defined in the association.
+         * @param extensionArn ARN of the extension defined in the association.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param parameters The parameter names and values defined for the association.
+         * @param parameters Parameter names and values defined for the association.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param parameters The parameter names and values defined for the association.
+         * @param parameters Parameter names and values defined for the association.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceArn The ARN of the application, configuration profile, or environment to associate with the extension.
+         * @param resourceArn ARN of the application, configuration profile, or environment to associate with the extension.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceArn The ARN of the application, configuration profile, or environment to associate with the extension.
+         * @param resourceArn ARN of the application, configuration profile, or environment to associate with the extension.
          * 
          * @return builder
          * 

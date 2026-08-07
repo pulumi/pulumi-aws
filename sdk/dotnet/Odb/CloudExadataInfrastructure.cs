@@ -26,13 +26,13 @@ namespace Pulumi.Aws.Odb
     public partial class CloudExadataInfrastructure : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The number of storage servers requested for the Exadata infrastructure.
+        /// Number of storage servers requested for the Exadata infrastructure.
         /// </summary>
         [Output("activatedStorageCount")]
         public Output<int> ActivatedStorageCount { get; private set; } = null!;
 
         /// <summary>
-        /// The number of storage servers requested for the Exadata infrastructure.
+        /// Number of storage servers requested for the Exadata infrastructure.
         /// </summary>
         [Output("additionalStorageCount")]
         public Output<int> AdditionalStorageCount { get; private set; } = null!;
@@ -44,87 +44,85 @@ namespace Pulumi.Aws.Odb
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        /// Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
-        /// 
-        /// The following arguments are optional:
+        /// AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         /// </summary>
         [Output("availabilityZoneId")]
         public Output<string> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+        /// Amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
         /// </summary>
         [Output("availableStorageSizeInGbs")]
         public Output<int> AvailableStorageSizeInGbs { get; private set; } = null!;
 
         /// <summary>
-        /// The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        /// Number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         /// </summary>
         [Output("computeCount")]
         public Output<int> ComputeCount { get; private set; } = null!;
 
         /// <summary>
-        /// The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
+        /// OCI model compute model used when you create or clone an instance: ECPU or OCPU.
         /// </summary>
         [Output("computeModel")]
         public Output<string> ComputeModel { get; private set; } = null!;
 
         /// <summary>
-        /// The total number of CPU cores that are allocated to the Exadata infrastructure.
+        /// Total number of CPU cores that are allocated to the Exadata infrastructure.
         /// </summary>
         [Output("cpuCount")]
         public Output<int> CpuCount { get; private set; } = null!;
 
         /// <summary>
-        /// The time when the Exadata infrastructure was created.
+        /// Time when the Exadata infrastructure was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
         /// </summary>
         [Output("customerContactsToSendToOcis")]
         public Output<ImmutableArray<Outputs.CloudExadataInfrastructureCustomerContactsToSendToOci>> CustomerContactsToSendToOcis { get; private set; } = null!;
 
         /// <summary>
-        /// The size of the Exadata infrastructure's data disk group, in terabytes (TB).
+        /// Size of the Exadata infrastructure's data disk group, in terabytes (TB).
         /// </summary>
         [Output("dataStorageSizeInTbs")]
         public Output<double> DataStorageSizeInTbs { get; private set; } = null!;
 
         /// <summary>
-        /// The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
+        /// Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         /// </summary>
         [Output("databaseServerType")]
         public Output<string?> DatabaseServerType { get; private set; } = null!;
 
         /// <summary>
-        /// The size of the Exadata infrastructure's local node storage, in gigabytes (GB).
+        /// Size of the Exadata infrastructure's local node storage, in gigabytes (GB).
         /// </summary>
         [Output("dbNodeStorageSizeInGbs")]
         public Output<int> DbNodeStorageSizeInGbs { get; private set; } = null!;
 
         /// <summary>
-        /// The software version of the database servers (dom0) in the Exadata infrastructure.
+        /// Software version of the database servers (dom0) in the Exadata infrastructure.
         /// </summary>
         [Output("dbServerVersion")]
         public Output<string> DbServerVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+        /// User-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+        /// Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
         /// </summary>
         [Output("lastMaintenanceRunId")]
         public Output<string> LastMaintenanceRunId { get; private set; } = null!;
@@ -136,73 +134,73 @@ namespace Pulumi.Aws.Odb
         public Output<Outputs.CloudExadataInfrastructureMaintenanceWindow> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The total number of CPU cores available on the Exadata infrastructure.
+        /// Total number of CPU cores available on the Exadata infrastructure.
         /// </summary>
         [Output("maxCpuCount")]
         public Output<int> MaxCpuCount { get; private set; } = null!;
 
         /// <summary>
-        /// The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
+        /// Total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
         /// </summary>
         [Output("maxDataStorageInTbs")]
         public Output<double> MaxDataStorageInTbs { get; private set; } = null!;
 
         /// <summary>
-        /// The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
+        /// Total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
         /// </summary>
         [Output("maxDbNodeStorageSizeInGbs")]
         public Output<int> MaxDbNodeStorageSizeInGbs { get; private set; } = null!;
 
         /// <summary>
-        /// The total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
+        /// Total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
         /// </summary>
         [Output("maxMemoryInGbs")]
         public Output<int> MaxMemoryInGbs { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure
+        /// Amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure.
         /// </summary>
         [Output("memorySizeInGbs")]
         public Output<int> MemorySizeInGbs { get; private set; } = null!;
 
         /// <summary>
-        /// The monthly software version of the database servers in the Exadata infrastructure.
+        /// Monthly software version of the database servers in the Exadata infrastructure.
         /// </summary>
         [Output("monthlyDbServerVersion")]
         public Output<string> MonthlyDbServerVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The monthly software version of the storage servers installed on the Exadata infrastructure.
+        /// Monthly software version of the storage servers installed on the Exadata infrastructure.
         /// </summary>
         [Output("monthlyStorageServerVersion")]
         public Output<string> MonthlyStorageServerVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The OCID of the next maintenance run for the Exadata infrastructure.
+        /// OCID of the next maintenance run for the Exadata infrastructure.
         /// </summary>
         [Output("nextMaintenanceRunId")]
         public Output<string> NextMaintenanceRunId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the OCI resource anchor for the Exadata infrastructure.
+        /// Name of the OCI resource anchor for the Exadata infrastructure.
         /// </summary>
         [Output("ociResourceAnchorName")]
         public Output<string> OciResourceAnchorName { get; private set; } = null!;
 
         /// <summary>
-        /// The HTTPS link to the Exadata infrastructure in OCI
+        /// HTTPS link to the Exadata infrastructure in OCI.
         /// </summary>
         [Output("ociUrl")]
         public Output<string> OciUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The OCID of the Exadata infrastructure.
+        /// OCID of the Exadata infrastructure.
         /// </summary>
         [Output("ocid")]
         public Output<string> Ocid { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
+        /// Amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
         /// </summary>
         [Output("percentProgress")]
         public Output<double> PercentProgress { get; private set; } = null!;
@@ -214,13 +212,13 @@ namespace Pulumi.Aws.Odb
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
         /// </summary>
         [Output("shape")]
         public Output<string> Shape { get; private set; } = null!;
 
         /// <summary>
-        /// The current status of the Exadata infrastructure.
+        /// Current status of the Exadata infrastructure.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -232,25 +230,27 @@ namespace Pulumi.Aws.Odb
         public Output<string> StatusReason { get; private set; } = null!;
 
         /// <summary>
-        /// The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("storageCount")]
         public Output<int> StorageCount { get; private set; } = null!;
 
         /// <summary>
-        /// The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
+        /// Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         /// </summary>
         [Output("storageServerType")]
         public Output<string?> StorageServerType { get; private set; } = null!;
 
         /// <summary>
-        /// The software version of the storage servers on the Exadata infrastructure.
+        /// Software version of the storage servers on the Exadata infrastructure.
         /// </summary>
         [Output("storageServerVersion")]
         public Output<string> StorageServerVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Odb
         public Output<Outputs.CloudExadataInfrastructureTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
+        /// Total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
         /// </summary>
         [Output("totalStorageSizeInGbs")]
         public Output<int> TotalStorageSizeInGbs { get; private set; } = null!;
@@ -314,21 +314,19 @@ namespace Pulumi.Aws.Odb
     public sealed class CloudExadataInfrastructureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        /// Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
-        /// 
-        /// The following arguments are optional:
+        /// AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("availabilityZoneId", required: true)]
         public Input<string> AvailabilityZoneId { get; set; } = null!;
 
         /// <summary>
-        /// The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        /// Number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("computeCount")]
         public Input<int>? ComputeCount { get; set; }
@@ -337,7 +335,7 @@ namespace Pulumi.Aws.Odb
         private InputList<Inputs.CloudExadataInfrastructureCustomerContactsToSendToOciArgs>? _customerContactsToSendToOcis;
 
         /// <summary>
-        /// The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
         /// </summary>
         public InputList<Inputs.CloudExadataInfrastructureCustomerContactsToSendToOciArgs> CustomerContactsToSendToOcis
         {
@@ -346,13 +344,13 @@ namespace Pulumi.Aws.Odb
         }
 
         /// <summary>
-        /// The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
+        /// Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("databaseServerType")]
         public Input<string>? DatabaseServerType { get; set; }
 
         /// <summary>
-        /// The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+        /// User-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
@@ -370,19 +368,21 @@ namespace Pulumi.Aws.Odb
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("shape", required: true)]
         public Input<string> Shape { get; set; } = null!;
 
         /// <summary>
-        /// The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("storageCount")]
         public Input<int>? StorageCount { get; set; }
 
         /// <summary>
-        /// The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
+        /// Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("storageServerType")]
         public Input<string>? StorageServerType { get; set; }
@@ -391,7 +391,7 @@ namespace Pulumi.Aws.Odb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -411,13 +411,13 @@ namespace Pulumi.Aws.Odb
     public sealed class CloudExadataInfrastructureState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of storage servers requested for the Exadata infrastructure.
+        /// Number of storage servers requested for the Exadata infrastructure.
         /// </summary>
         [Input("activatedStorageCount")]
         public Input<int>? ActivatedStorageCount { get; set; }
 
         /// <summary>
-        /// The number of storage servers requested for the Exadata infrastructure.
+        /// Number of storage servers requested for the Exadata infrastructure.
         /// </summary>
         [Input("additionalStorageCount")]
         public Input<int>? AdditionalStorageCount { get; set; }
@@ -429,45 +429,43 @@ namespace Pulumi.Aws.Odb
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        /// Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
-        /// 
-        /// The following arguments are optional:
+        /// AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
 
         /// <summary>
-        /// The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+        /// Amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
         /// </summary>
         [Input("availableStorageSizeInGbs")]
         public Input<int>? AvailableStorageSizeInGbs { get; set; }
 
         /// <summary>
-        /// The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        /// Number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("computeCount")]
         public Input<int>? ComputeCount { get; set; }
 
         /// <summary>
-        /// The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
+        /// OCI model compute model used when you create or clone an instance: ECPU or OCPU.
         /// </summary>
         [Input("computeModel")]
         public Input<string>? ComputeModel { get; set; }
 
         /// <summary>
-        /// The total number of CPU cores that are allocated to the Exadata infrastructure.
+        /// Total number of CPU cores that are allocated to the Exadata infrastructure.
         /// </summary>
         [Input("cpuCount")]
         public Input<int>? CpuCount { get; set; }
 
         /// <summary>
-        /// The time when the Exadata infrastructure was created.
+        /// Time when the Exadata infrastructure was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
@@ -476,7 +474,7 @@ namespace Pulumi.Aws.Odb
         private InputList<Inputs.CloudExadataInfrastructureCustomerContactsToSendToOciGetArgs>? _customerContactsToSendToOcis;
 
         /// <summary>
-        /// The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
         /// </summary>
         public InputList<Inputs.CloudExadataInfrastructureCustomerContactsToSendToOciGetArgs> CustomerContactsToSendToOcis
         {
@@ -485,37 +483,37 @@ namespace Pulumi.Aws.Odb
         }
 
         /// <summary>
-        /// The size of the Exadata infrastructure's data disk group, in terabytes (TB).
+        /// Size of the Exadata infrastructure's data disk group, in terabytes (TB).
         /// </summary>
         [Input("dataStorageSizeInTbs")]
         public Input<double>? DataStorageSizeInTbs { get; set; }
 
         /// <summary>
-        /// The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
+        /// Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("databaseServerType")]
         public Input<string>? DatabaseServerType { get; set; }
 
         /// <summary>
-        /// The size of the Exadata infrastructure's local node storage, in gigabytes (GB).
+        /// Size of the Exadata infrastructure's local node storage, in gigabytes (GB).
         /// </summary>
         [Input("dbNodeStorageSizeInGbs")]
         public Input<int>? DbNodeStorageSizeInGbs { get; set; }
 
         /// <summary>
-        /// The software version of the database servers (dom0) in the Exadata infrastructure.
+        /// Software version of the database servers (dom0) in the Exadata infrastructure.
         /// </summary>
         [Input("dbServerVersion")]
         public Input<string>? DbServerVersion { get; set; }
 
         /// <summary>
-        /// The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+        /// User-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+        /// Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
         /// </summary>
         [Input("lastMaintenanceRunId")]
         public Input<string>? LastMaintenanceRunId { get; set; }
@@ -527,73 +525,73 @@ namespace Pulumi.Aws.Odb
         public Input<Inputs.CloudExadataInfrastructureMaintenanceWindowGetArgs>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// The total number of CPU cores available on the Exadata infrastructure.
+        /// Total number of CPU cores available on the Exadata infrastructure.
         /// </summary>
         [Input("maxCpuCount")]
         public Input<int>? MaxCpuCount { get; set; }
 
         /// <summary>
-        /// The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
+        /// Total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
         /// </summary>
         [Input("maxDataStorageInTbs")]
         public Input<double>? MaxDataStorageInTbs { get; set; }
 
         /// <summary>
-        /// The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
+        /// Total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
         /// </summary>
         [Input("maxDbNodeStorageSizeInGbs")]
         public Input<int>? MaxDbNodeStorageSizeInGbs { get; set; }
 
         /// <summary>
-        /// The total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
+        /// Total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
         /// </summary>
         [Input("maxMemoryInGbs")]
         public Input<int>? MaxMemoryInGbs { get; set; }
 
         /// <summary>
-        /// The amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure
+        /// Amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure.
         /// </summary>
         [Input("memorySizeInGbs")]
         public Input<int>? MemorySizeInGbs { get; set; }
 
         /// <summary>
-        /// The monthly software version of the database servers in the Exadata infrastructure.
+        /// Monthly software version of the database servers in the Exadata infrastructure.
         /// </summary>
         [Input("monthlyDbServerVersion")]
         public Input<string>? MonthlyDbServerVersion { get; set; }
 
         /// <summary>
-        /// The monthly software version of the storage servers installed on the Exadata infrastructure.
+        /// Monthly software version of the storage servers installed on the Exadata infrastructure.
         /// </summary>
         [Input("monthlyStorageServerVersion")]
         public Input<string>? MonthlyStorageServerVersion { get; set; }
 
         /// <summary>
-        /// The OCID of the next maintenance run for the Exadata infrastructure.
+        /// OCID of the next maintenance run for the Exadata infrastructure.
         /// </summary>
         [Input("nextMaintenanceRunId")]
         public Input<string>? NextMaintenanceRunId { get; set; }
 
         /// <summary>
-        /// The name of the OCI resource anchor for the Exadata infrastructure.
+        /// Name of the OCI resource anchor for the Exadata infrastructure.
         /// </summary>
         [Input("ociResourceAnchorName")]
         public Input<string>? OciResourceAnchorName { get; set; }
 
         /// <summary>
-        /// The HTTPS link to the Exadata infrastructure in OCI
+        /// HTTPS link to the Exadata infrastructure in OCI.
         /// </summary>
         [Input("ociUrl")]
         public Input<string>? OciUrl { get; set; }
 
         /// <summary>
-        /// The OCID of the Exadata infrastructure.
+        /// OCID of the Exadata infrastructure.
         /// </summary>
         [Input("ocid")]
         public Input<string>? Ocid { get; set; }
 
         /// <summary>
-        /// The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
+        /// Amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
         /// </summary>
         [Input("percentProgress")]
         public Input<double>? PercentProgress { get; set; }
@@ -605,13 +603,13 @@ namespace Pulumi.Aws.Odb
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("shape")]
         public Input<string>? Shape { get; set; }
 
         /// <summary>
-        /// The current status of the Exadata infrastructure.
+        /// Current status of the Exadata infrastructure.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -623,19 +621,21 @@ namespace Pulumi.Aws.Odb
         public Input<string>? StatusReason { get; set; }
 
         /// <summary>
-        /// The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("storageCount")]
         public Input<int>? StorageCount { get; set; }
 
         /// <summary>
-        /// The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
+        /// Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("storageServerType")]
         public Input<string>? StorageServerType { get; set; }
 
         /// <summary>
-        /// The software version of the storage servers on the Exadata infrastructure.
+        /// Software version of the storage servers on the Exadata infrastructure.
         /// </summary>
         [Input("storageServerVersion")]
         public Input<string>? StorageServerVersion { get; set; }
@@ -644,7 +644,7 @@ namespace Pulumi.Aws.Odb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -664,7 +664,7 @@ namespace Pulumi.Aws.Odb
         public Input<Inputs.CloudExadataInfrastructureTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
+        /// Total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
         /// </summary>
         [Input("totalStorageSizeInGbs")]
         public Input<int>? TotalStorageSizeInGbs { get; set; }

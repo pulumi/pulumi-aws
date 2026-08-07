@@ -13,20 +13,28 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OntapStorageVirtualMachineActiveDirectoryConfiguration {
     /**
-     * @return The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+     * @return NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
      * 
      */
     private @Nullable String netbiosName;
+    /**
+     * @return Configuration block that Amazon FSx uses to join the SVM to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Detailed below.
+     * 
+     */
     private @Nullable OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration selfManagedActiveDirectoryConfiguration;
 
     private OntapStorageVirtualMachineActiveDirectoryConfiguration() {}
     /**
-     * @return The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+     * @return NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
      * 
      */
     public Optional<String> netbiosName() {
         return Optional.ofNullable(this.netbiosName);
     }
+    /**
+     * @return Configuration block that Amazon FSx uses to join the SVM to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Detailed below.
+     * 
+     */
     public Optional<OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration> selfManagedActiveDirectoryConfiguration() {
         return Optional.ofNullable(this.selfManagedActiveDirectoryConfiguration);
     }

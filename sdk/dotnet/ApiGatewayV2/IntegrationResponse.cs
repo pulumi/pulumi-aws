@@ -83,7 +83,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<ImmutableDictionary<string, string>?> ResponseTemplates { get; private set; } = null!;
 
         /// <summary>
-        /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        /// [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         /// </summary>
         [Output("templateSelectionExpression")]
         public Output<string?> TemplateSelectionExpression { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         /// <summary>
-        /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        /// [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         /// </summary>
         [Input("templateSelectionExpression")]
         public Input<string>? TemplateSelectionExpression { get; set; }
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         /// <summary>
-        /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        /// [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         /// </summary>
         [Input("templateSelectionExpression")]
         public Input<string>? TemplateSelectionExpression { get; set; }

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppFabric.Outputs
     [OutputType]
     public sealed class IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream
     {
+        /// <summary>
+        /// Name of the Amazon Data Firehose delivery stream.
+        /// </summary>
         public readonly string StreamName;
 
         [OutputConstructor]

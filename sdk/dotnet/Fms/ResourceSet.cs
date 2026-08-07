@@ -66,11 +66,14 @@ namespace Pulumi.Aws.Fms
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the resource set to be created or updated. See `ResourceSet` Attribute Reference below.
+        /// Details about the resource set to be created or updated. See `ResourceSet` Block below.
         /// </summary>
         [Output("resourceSets")]
         public Output<ImmutableArray<Outputs.ResourceSetResourceSet>> ResourceSets { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -136,7 +139,7 @@ namespace Pulumi.Aws.Fms
         private InputList<Inputs.ResourceSetResourceSetArgs>? _resourceSets;
 
         /// <summary>
-        /// Details about the resource set to be created or updated. See `ResourceSet` Attribute Reference below.
+        /// Details about the resource set to be created or updated. See `ResourceSet` Block below.
         /// </summary>
         public InputList<Inputs.ResourceSetResourceSetArgs> ResourceSets
         {
@@ -146,6 +149,10 @@ namespace Pulumi.Aws.Fms
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -179,7 +186,7 @@ namespace Pulumi.Aws.Fms
         private InputList<Inputs.ResourceSetResourceSetGetArgs>? _resourceSets;
 
         /// <summary>
-        /// Details about the resource set to be created or updated. See `ResourceSet` Attribute Reference below.
+        /// Details about the resource set to be created or updated. See `ResourceSet` Block below.
         /// </summary>
         public InputList<Inputs.ResourceSetResourceSetGetArgs> ResourceSets
         {
@@ -189,6 +196,10 @@ namespace Pulumi.Aws.Fms
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

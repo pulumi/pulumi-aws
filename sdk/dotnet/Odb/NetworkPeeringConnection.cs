@@ -51,6 +51,9 @@ namespace Pulumi.Aws.Odb
     [AwsResourceType("aws:odb/networkPeeringConnection:NetworkPeeringConnection")]
     public partial class NetworkPeeringConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the ODB network peering connection.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -62,8 +65,6 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -75,7 +76,7 @@ namespace Pulumi.Aws.Odb
         public Output<string> OdbNetworkArn { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+        /// Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
         /// </summary>
         [Output("odbNetworkId")]
         public Output<string> OdbNetworkId { get; private set; } = null!;
@@ -99,7 +100,9 @@ namespace Pulumi.Aws.Odb
         public Output<ImmutableArray<string>> PeerNetworkCidrs { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.
+        /// Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("peerNetworkId")]
         public Output<string> PeerNetworkId { get; private set; } = null!;
@@ -123,19 +126,19 @@ namespace Pulumi.Aws.Odb
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The reason for the current status of the ODB peering connection.
+        /// Reason for the current status of the ODB peering connection.
         /// </summary>
         [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including inherited tags.
+        /// Map of tags assigned to the resource, including inherited tags.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -191,8 +194,6 @@ namespace Pulumi.Aws.Odb
     {
         /// <summary>
         /// Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
@@ -204,7 +205,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? OdbNetworkArn { get; set; }
 
         /// <summary>
-        /// The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+        /// Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
         /// </summary>
         [Input("odbNetworkId")]
         public Input<string>? OdbNetworkId { get; set; }
@@ -222,7 +223,9 @@ namespace Pulumi.Aws.Odb
         }
 
         /// <summary>
-        /// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.
+        /// Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("peerNetworkId", required: true)]
         public Input<string> PeerNetworkId { get; set; } = null!;
@@ -237,7 +240,7 @@ namespace Pulumi.Aws.Odb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -256,6 +259,9 @@ namespace Pulumi.Aws.Odb
 
     public sealed class NetworkPeeringConnectionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the ODB network peering connection.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -267,8 +273,6 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -280,7 +284,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? OdbNetworkArn { get; set; }
 
         /// <summary>
-        /// The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+        /// Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
         /// </summary>
         [Input("odbNetworkId")]
         public Input<string>? OdbNetworkId { get; set; }
@@ -310,7 +314,9 @@ namespace Pulumi.Aws.Odb
         }
 
         /// <summary>
-        /// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.
+        /// Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("peerNetworkId")]
         public Input<string>? PeerNetworkId { get; set; }
@@ -334,7 +340,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The reason for the current status of the ODB peering connection.
+        /// Reason for the current status of the ODB peering connection.
         /// </summary>
         [Input("statusReason")]
         public Input<string>? StatusReason { get; set; }
@@ -343,7 +349,7 @@ namespace Pulumi.Aws.Odb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -355,7 +361,7 @@ namespace Pulumi.Aws.Odb
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including inherited tags.
+        /// Map of tags assigned to the resource, including inherited tags.
         /// </summary>
         public InputMap<string> TagsAll
         {

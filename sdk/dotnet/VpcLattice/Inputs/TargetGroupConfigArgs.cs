@@ -13,43 +13,43 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     public sealed class TargetGroupConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The health check configuration.
+        /// Health check configuration. See `HealthCheck` Block below.
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.TargetGroupConfigHealthCheckArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
+        /// Type of IP address used for the target group. Valid values: `IPV4` or `IPV6`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
-        /// The version of the event structure that the Lambda function receives. Supported only if `Type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+        /// Version of the event structure that the Lambda function receives. Supported only if `Type` is `LAMBDA`. Valid values are `V1` or `V2`.
         /// </summary>
         [Input("lambdaEventStructureVersion")]
         public Input<string>? LambdaEventStructureVersion { get; set; }
 
         /// <summary>
-        /// The port on which the targets are listening.
+        /// Port on which the targets are listening.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
+        /// Protocol to use for routing traffic to the targets. Valid values are `HTTP` or `HTTPS`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+        /// Protocol version. Valid values are `HTTP1`, `HTTP2`, or `GRPC`. Default value is `HTTP1`.
         /// </summary>
         [Input("protocolVersion")]
         public Input<string>? ProtocolVersion { get; set; }
 
         /// <summary>
-        /// The ID of the VPC.
+        /// ID of the VPC.
         /// </summary>
         [Input("vpcIdentifier")]
         public Input<string>? VpcIdentifier { get; set; }

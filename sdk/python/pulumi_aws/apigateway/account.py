@@ -70,11 +70,11 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
 
-        :param pulumi.Input[_builtins.str] api_key_version: The version of the API keys used for the account.
+        :param pulumi.Input[_builtins.str] api_key_version: Version of the API keys used for the account.
         :param pulumi.Input[_builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] features: A list of features supported for the account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] features: List of features supported for the account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]] throttle_settings: Account-Level throttle settings. See exported fields below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]] throttle_settings: Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
         """
         if api_key_version is not None:
             pulumi.set(__self__, "api_key_version", api_key_version)
@@ -91,7 +91,7 @@ class _AccountState:
     @pulumi.getter(name="apiKeyVersion")
     def api_key_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of the API keys used for the account.
+        Version of the API keys used for the account.
         """
         return pulumi.get(self, "api_key_version")
 
@@ -115,7 +115,7 @@ class _AccountState:
     @pulumi.getter
     def features(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of features supported for the account.
+        List of features supported for the account.
         """
         return pulumi.get(self, "features")
 
@@ -139,7 +139,7 @@ class _AccountState:
     @pulumi.getter(name="throttleSettings")
     def throttle_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]]:
         """
-        Account-Level throttle settings. See exported fields below.
+        Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
         """
         return pulumi.get(self, "throttle_settings")
 
@@ -319,11 +319,11 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_key_version: The version of the API keys used for the account.
+        :param pulumi.Input[_builtins.str] api_key_version: Version of the API keys used for the account.
         :param pulumi.Input[_builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] features: A list of features supported for the account.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] features: List of features supported for the account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountThrottleSettingArgs', 'AccountThrottleSettingArgsDict']]]] throttle_settings: Account-Level throttle settings. See exported fields below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountThrottleSettingArgs', 'AccountThrottleSettingArgsDict']]]] throttle_settings: Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -340,7 +340,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="apiKeyVersion")
     def api_key_version(self) -> pulumi.Output[_builtins.str]:
         """
-        The version of the API keys used for the account.
+        Version of the API keys used for the account.
         """
         return pulumi.get(self, "api_key_version")
 
@@ -356,7 +356,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def features(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of features supported for the account.
+        List of features supported for the account.
         """
         return pulumi.get(self, "features")
 
@@ -372,7 +372,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="throttleSettings")
     def throttle_settings(self) -> pulumi.Output[Sequence['outputs.AccountThrottleSetting']]:
         """
-        Account-Level throttle settings. See exported fields below.
+        Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
         """
         return pulumi.get(self, "throttle_settings")
 

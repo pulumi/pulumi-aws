@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<Inputs.VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs>? _jsons;
 
         /// <summary>
-        /// The logging format for JSON. See `Json` Block for details.
+        /// Logging format for JSON. See `spec.logging.access_log.file.format.json` Block for details.
         /// </summary>
         public InputList<Inputs.VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs> Jsons
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         }
 
         /// <summary>
-        /// The logging format for text. Must be between 1 and 1000 characters in length.
+        /// Logging format for text. Must be between 1 and 1000 characters in length.
         /// </summary>
         [Input("text")]
         public Input<string>? Text { get; set; }

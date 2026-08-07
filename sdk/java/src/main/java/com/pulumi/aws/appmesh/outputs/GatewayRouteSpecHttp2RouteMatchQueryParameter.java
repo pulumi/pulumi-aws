@@ -13,27 +13,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GatewayRouteSpecHttp2RouteMatchQueryParameter {
-    /**
-     * @return The query parameter to match on.
-     * 
-     */
     private @Nullable GatewayRouteSpecHttp2RouteMatchQueryParameterMatch match;
     /**
-     * @return Name for the query parameter that will be matched on.
+     * @return Name to use for the gateway route. Must be between 1 and 255 characters in length.
      * 
      */
     private String name;
 
     private GatewayRouteSpecHttp2RouteMatchQueryParameter() {}
-    /**
-     * @return The query parameter to match on.
-     * 
-     */
     public Optional<GatewayRouteSpecHttp2RouteMatchQueryParameterMatch> match() {
         return Optional.ofNullable(this.match);
     }
     /**
-     * @return Name for the query parameter that will be matched on.
+     * @return Name to use for the gateway route. Must be between 1 and 255 characters in length.
      * 
      */
     public String name() {

@@ -88,7 +88,7 @@ namespace Pulumi.Aws.AppIntegrations
     public sealed class GetEventIntegrationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The AppIntegrations Event Integration name.
+        /// AppIntegrations Event Integration name.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.AppIntegrations
     public sealed class GetEventIntegrationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The AppIntegrations Event Integration name.
+        /// AppIntegrations Event Integration name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -154,19 +154,19 @@ namespace Pulumi.Aws.AppIntegrations
     public sealed class GetEventIntegrationResult
     {
         /// <summary>
-        /// The ARN of the AppIntegrations Event Integration.
+        /// ARN of the AppIntegrations Event Integration.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The description of the Event Integration.
+        /// Description of the Event Integration.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        /// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEventIntegrationEventFilterResult> EventFilters;
         /// <summary>
-        /// The EventBridge bus.
+        /// EventBridge bus.
         /// </summary>
         public readonly string EventbridgeBus;
         /// <summary>

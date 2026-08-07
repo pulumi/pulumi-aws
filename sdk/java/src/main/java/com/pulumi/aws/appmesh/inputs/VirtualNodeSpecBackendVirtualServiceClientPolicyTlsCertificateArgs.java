@@ -17,14 +17,14 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificat
     public static final VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs Empty = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs();
 
     /**
-     * Local file certificate.
+     * File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
      * 
      */
     @Import(name="file")
     private @Nullable Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs> file;
 
     /**
-     * @return Local file certificate.
+     * @return File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs>> file() {
@@ -32,14 +32,14 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificat
     }
 
     /**
-     * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
      * 
      */
     @Import(name="sds")
     private @Nullable Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs> sds;
 
     /**
-     * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs>> sds() {
@@ -72,7 +72,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificat
         }
 
         /**
-         * @param file Local file certificate.
+         * @param file File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificat
         }
 
         /**
-         * @param file Local file certificate.
+         * @param file File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificat
         }
 
         /**
-         * @param sds A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * @param sds TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificat
         }
 
         /**
-         * @param sds A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * @param sds TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
          * 
          * @return builder
          * 

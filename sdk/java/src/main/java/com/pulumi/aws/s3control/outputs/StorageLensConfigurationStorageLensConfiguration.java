@@ -20,17 +20,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StorageLensConfigurationStorageLensConfiguration {
     /**
-     * @return The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+     * @return Account-level configurations of the S3 Storage Lens configuration. See `accountLevel` below for more details.
      * 
      */
     private StorageLensConfigurationStorageLensConfigurationAccountLevel accountLevel;
     /**
-     * @return The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+     * @return Amazon Web Services organization for the S3 Storage Lens configuration. See `awsOrg` below for more details.
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationAwsOrg awsOrg;
     /**
-     * @return Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+     * @return Properties of S3 Storage Lens metrics export including the destination, schema and format. See `dataExport` below for more details.
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationDataExport dataExport;
@@ -40,17 +40,17 @@ public final class StorageLensConfigurationStorageLensConfiguration {
      */
     private Boolean enabled;
     /**
-     * @return What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+     * @return What is excluded in this configuration. Conflicts with `include`. See `exclude` below for more details.
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationExclude exclude;
     /**
-     * @return Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+     * @return Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See `expandedPrefixesDataExport` below for more details.
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport expandedPrefixesDataExport;
     /**
-     * @return What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+     * @return What is included in this configuration. Conflicts with `exclude`. See `include` below for more details.
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationInclude include;
@@ -62,21 +62,21 @@ public final class StorageLensConfigurationStorageLensConfiguration {
 
     private StorageLensConfigurationStorageLensConfiguration() {}
     /**
-     * @return The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+     * @return Account-level configurations of the S3 Storage Lens configuration. See `accountLevel` below for more details.
      * 
      */
     public StorageLensConfigurationStorageLensConfigurationAccountLevel accountLevel() {
         return this.accountLevel;
     }
     /**
-     * @return The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+     * @return Amazon Web Services organization for the S3 Storage Lens configuration. See `awsOrg` below for more details.
      * 
      */
     public Optional<StorageLensConfigurationStorageLensConfigurationAwsOrg> awsOrg() {
         return Optional.ofNullable(this.awsOrg);
     }
     /**
-     * @return Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+     * @return Properties of S3 Storage Lens metrics export including the destination, schema and format. See `dataExport` below for more details.
      * 
      */
     public Optional<StorageLensConfigurationStorageLensConfigurationDataExport> dataExport() {
@@ -90,21 +90,21 @@ public final class StorageLensConfigurationStorageLensConfiguration {
         return this.enabled;
     }
     /**
-     * @return What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+     * @return What is excluded in this configuration. Conflicts with `include`. See `exclude` below for more details.
      * 
      */
     public Optional<StorageLensConfigurationStorageLensConfigurationExclude> exclude() {
         return Optional.ofNullable(this.exclude);
     }
     /**
-     * @return Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+     * @return Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See `expandedPrefixesDataExport` below for more details.
      * 
      */
     public Optional<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport> expandedPrefixesDataExport() {
         return Optional.ofNullable(this.expandedPrefixesDataExport);
     }
     /**
-     * @return What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+     * @return What is included in this configuration. Conflicts with `exclude`. See `include` below for more details.
      * 
      */
     public Optional<StorageLensConfigurationStorageLensConfigurationInclude> include() {

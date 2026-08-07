@@ -58,7 +58,7 @@ namespace Pulumi.Aws.AppFabric
     public partial class IngestionDestination : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
         [Output("appBundleArn")]
         public Output<string> AppBundleArn { get; private set; } = null!;
@@ -70,19 +70,21 @@ namespace Pulumi.Aws.AppFabric
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Contains information about the destination of ingested data.
+        /// Configuration for the destination of ingested data. See `DestinationConfiguration` Block below.
         /// </summary>
         [Output("destinationConfiguration")]
         public Output<Outputs.IngestionDestinationDestinationConfiguration> DestinationConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the ingestion to use for the request.
+        /// Amazon Resource Name (ARN) of the ingestion to use for the request.
         /// </summary>
         [Output("ingestionArn")]
         public Output<string> IngestionArn { get; private set; } = null!;
 
         /// <summary>
-        /// Contains information about how ingested data is processed.
+        /// Configuration for how ingested data is processed. See `ProcessingConfiguration` Block below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("processingConfiguration")]
         public Output<Outputs.IngestionDestinationProcessingConfiguration> ProcessingConfiguration { get; private set; } = null!;
@@ -155,25 +157,27 @@ namespace Pulumi.Aws.AppFabric
     public sealed class IngestionDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
         [Input("appBundleArn", required: true)]
         public Input<string> AppBundleArn { get; set; } = null!;
 
         /// <summary>
-        /// Contains information about the destination of ingested data.
+        /// Configuration for the destination of ingested data. See `DestinationConfiguration` Block below.
         /// </summary>
         [Input("destinationConfiguration", required: true)]
         public Input<Inputs.IngestionDestinationDestinationConfigurationArgs> DestinationConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the ingestion to use for the request.
+        /// Amazon Resource Name (ARN) of the ingestion to use for the request.
         /// </summary>
         [Input("ingestionArn", required: true)]
         public Input<string> IngestionArn { get; set; } = null!;
 
         /// <summary>
-        /// Contains information about how ingested data is processed.
+        /// Configuration for how ingested data is processed. See `ProcessingConfiguration` Block below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("processingConfiguration", required: true)]
         public Input<Inputs.IngestionDestinationProcessingConfigurationArgs> ProcessingConfiguration { get; set; } = null!;
@@ -208,7 +212,7 @@ namespace Pulumi.Aws.AppFabric
     public sealed class IngestionDestinationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
         [Input("appBundleArn")]
         public Input<string>? AppBundleArn { get; set; }
@@ -220,19 +224,21 @@ namespace Pulumi.Aws.AppFabric
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Contains information about the destination of ingested data.
+        /// Configuration for the destination of ingested data. See `DestinationConfiguration` Block below.
         /// </summary>
         [Input("destinationConfiguration")]
         public Input<Inputs.IngestionDestinationDestinationConfigurationGetArgs>? DestinationConfiguration { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the ingestion to use for the request.
+        /// Amazon Resource Name (ARN) of the ingestion to use for the request.
         /// </summary>
         [Input("ingestionArn")]
         public Input<string>? IngestionArn { get; set; }
 
         /// <summary>
-        /// Contains information about how ingested data is processed.
+        /// Configuration for how ingested data is processed. See `ProcessingConfiguration` Block below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.IngestionDestinationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }

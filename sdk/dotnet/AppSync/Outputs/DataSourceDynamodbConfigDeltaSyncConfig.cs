@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppSync.Outputs
     public sealed class DataSourceDynamodbConfigDeltaSyncConfig
     {
         /// <summary>
-        /// The number of minutes that an Item is stored in the data source.
+        /// Number of minutes that an Item is stored in the data source.
         /// </summary>
         public readonly int? BaseTableTtl;
         /// <summary>
-        /// The table name.
+        /// Table name.
         /// </summary>
         public readonly string DeltaSyncTableName;
         /// <summary>
-        /// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+        /// Number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
         /// </summary>
         public readonly int? DeltaSyncTableTtl;
 

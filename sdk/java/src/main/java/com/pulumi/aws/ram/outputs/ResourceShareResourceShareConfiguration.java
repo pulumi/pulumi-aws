@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResourceShareResourceShareConfiguration {
     /**
-     * @return Specifies whether consumer account retains access to resource share after leaving AWS organization.
+     * @return Whether consumer account retains access to resource share after leaving AWS organization.
      * 
      */
     private @Nullable Boolean retainSharingOnAccountLeaveOrganization;
 
     private ResourceShareResourceShareConfiguration() {}
     /**
-     * @return Specifies whether consumer account retains access to resource share after leaving AWS organization.
+     * @return Whether consumer account retains access to resource share after leaving AWS organization.
      * 
      */
     public Optional<Boolean> retainSharingOnAccountLeaveOrganization() {

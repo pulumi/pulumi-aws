@@ -105,25 +105,25 @@ namespace Pulumi.Aws.S3Control
     public partial class MultiRegionAccessPointPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+        /// Configuration block containing details about the policy for the Multi-Region Access Point. See `Details` Block below for more details
         /// </summary>
         [Output("details")]
         public Output<Outputs.MultiRegionAccessPointPolicyDetails> Details { get; private set; } = null!;
 
         /// <summary>
-        /// The last established policy for the Multi-Region Access Point.
+        /// Last established policy for the Multi-Region Access Point.
         /// </summary>
         [Output("established")]
         public Output<string> Established { get; private set; } = null!;
 
         /// <summary>
-        /// The proposed policy for the Multi-Region Access Point.
+        /// Proposed policy for the Multi-Region Access Point.
         /// </summary>
         [Output("proposed")]
         public Output<string> Proposed { get; private set; } = null!;
@@ -181,13 +181,13 @@ namespace Pulumi.Aws.S3Control
     public sealed class MultiRegionAccessPointPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+        /// Configuration block containing details about the policy for the Multi-Region Access Point. See `Details` Block below for more details
         /// </summary>
         [Input("details", required: true)]
         public Input<Inputs.MultiRegionAccessPointPolicyDetailsArgs> Details { get; set; } = null!;
@@ -207,25 +207,25 @@ namespace Pulumi.Aws.S3Control
     public sealed class MultiRegionAccessPointPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+        /// Configuration block containing details about the policy for the Multi-Region Access Point. See `Details` Block below for more details
         /// </summary>
         [Input("details")]
         public Input<Inputs.MultiRegionAccessPointPolicyDetailsGetArgs>? Details { get; set; }
 
         /// <summary>
-        /// The last established policy for the Multi-Region Access Point.
+        /// Last established policy for the Multi-Region Access Point.
         /// </summary>
         [Input("established")]
         public Input<string>? Established { get; set; }
 
         /// <summary>
-        /// The proposed policy for the Multi-Region Access Point.
+        /// Proposed policy for the Multi-Region Access Point.
         /// </summary>
         [Input("proposed")]
         public Input<string>? Proposed { get; set; }

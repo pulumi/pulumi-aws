@@ -24,14 +24,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     public static final OpenZfsFileSystemArgs Empty = new OpenZfsFileSystemArgs();
 
     /**
-     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+     * Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      * 
      */
     @Import(name="automaticBackupRetentionDays")
     private @Nullable Output<Integer> automaticBackupRetentionDays;
 
     /**
-     * @return The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+     * @return Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      * 
      */
     public Optional<Output<Integer>> automaticBackupRetentionDays() {
@@ -39,14 +39,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The ID of the source backup to create the filesystem from.
+     * ID of the source backup to create the filesystem from.
      * 
      */
     @Import(name="backupId")
     private @Nullable Output<String> backupId;
 
     /**
-     * @return The ID of the source backup to create the filesystem from.
+     * @return ID of the source backup to create the filesystem from.
      * 
      */
     public Optional<Output<String>> backupId() {
@@ -54,14 +54,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+     * Whether tags for the file system should be copied to backups. Default value is false.
      * 
      */
     @Import(name="copyTagsToBackups")
     private @Nullable Output<Boolean> copyTagsToBackups;
 
     /**
-     * @return A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+     * @return Whether tags for the file system should be copied to backups. Default value is false.
      * 
      */
     public Optional<Output<Boolean>> copyTagsToBackups() {
@@ -69,14 +69,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * Whether tags for the file system should be copied to snapshots. Default value is false.
      * 
      */
     @Import(name="copyTagsToVolumes")
     private @Nullable Output<Boolean> copyTagsToVolumes;
 
     /**
-     * @return A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * @return Whether tags for the file system should be copied to snapshots. Default value is false.
      * 
      */
     public Optional<Output<Boolean>> copyTagsToVolumes() {
@@ -84,14 +84,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+     * Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      * 
      */
     @Import(name="dailyAutomaticBackupStartTime")
     private @Nullable Output<String> dailyAutomaticBackupStartTime;
 
     /**
-     * @return A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+     * @return Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      * 
      */
     public Optional<Output<String>> dailyAutomaticBackupStartTime() {
@@ -129,14 +129,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
+     * SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
      * 
      */
     @Import(name="diskIopsConfiguration")
     private @Nullable Output<OpenZfsFileSystemDiskIopsConfigurationArgs> diskIopsConfiguration;
 
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
+     * @return SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
      * 
      */
     public Optional<Output<OpenZfsFileSystemDiskIopsConfigurationArgs>> diskIopsConfiguration() {
@@ -159,14 +159,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags to apply to the file system&#39;s final backup.
+     * Map of tags to apply to the file system&#39;s final backup.
      * 
      */
     @Import(name="finalBackupTags")
     private @Nullable Output<Map<String,String>> finalBackupTags;
 
     /**
-     * @return A map of tags to apply to the file system&#39;s final backup.
+     * @return Map of tags to apply to the file system&#39;s final backup.
      * 
      */
     public Optional<Output<Map<String,String>>> finalBackupTags() {
@@ -234,14 +234,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
+     * Configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
      * 
      */
     @Import(name="rootVolumeConfiguration")
     private @Nullable Output<OpenZfsFileSystemRootVolumeConfigurationArgs> rootVolumeConfiguration;
 
     /**
-     * @return The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
+     * @return Configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
      * 
      */
     public Optional<Output<OpenZfsFileSystemRootVolumeConfigurationArgs>> rootVolumeConfiguration() {
@@ -264,14 +264,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * @return List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -294,14 +294,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
+     * Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
      * 
      */
     @Import(name="storageCapacity")
     private @Nullable Output<Integer> storageCapacity;
 
     /**
-     * @return The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
+     * @return Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
      * 
      */
     public Optional<Output<Integer>> storageCapacity() {
@@ -309,14 +309,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
+     * Filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
+     * @return Filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -324,14 +324,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of IDs for the subnets that the file system will be accessible from.
+     * List of IDs for the subnets that the file system will be accessible from.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return A list of IDs for the subnets that the file system will be accessible from.
+     * @return List of IDs for the subnets that the file system will be accessible from.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -339,14 +339,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -373,14 +373,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     @Import(name="weeklyMaintenanceStartTime")
     private @Nullable Output<String> weeklyMaintenanceStartTime;
 
     /**
-     * @return The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * @return Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     public Optional<Output<String>> weeklyMaintenanceStartTime() {
@@ -435,7 +435,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param automaticBackupRetentionDays The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+         * @param automaticBackupRetentionDays Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param automaticBackupRetentionDays The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+         * @param automaticBackupRetentionDays Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param backupId The ID of the source backup to create the filesystem from.
+         * @param backupId ID of the source backup to create the filesystem from.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param backupId The ID of the source backup to create the filesystem from.
+         * @param backupId ID of the source backup to create the filesystem from.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param copyTagsToBackups A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+         * @param copyTagsToBackups Whether tags for the file system should be copied to backups. Default value is false.
          * 
          * @return builder
          * 
@@ -488,7 +488,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param copyTagsToBackups A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+         * @param copyTagsToBackups Whether tags for the file system should be copied to backups. Default value is false.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param copyTagsToVolumes A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+         * @param copyTagsToVolumes Whether tags for the file system should be copied to snapshots. Default value is false.
          * 
          * @return builder
          * 
@@ -509,7 +509,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param copyTagsToVolumes A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+         * @param copyTagsToVolumes Whether tags for the file system should be copied to snapshots. Default value is false.
          * 
          * @return builder
          * 
@@ -519,7 +519,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dailyAutomaticBackupStartTime A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+         * @param dailyAutomaticBackupStartTime Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dailyAutomaticBackupStartTime A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+         * @param dailyAutomaticBackupStartTime Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
+         * @param diskIopsConfiguration SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
+         * @param diskIopsConfiguration SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -634,7 +634,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param finalBackupTags A map of tags to apply to the file system&#39;s final backup.
+         * @param finalBackupTags Map of tags to apply to the file system&#39;s final backup.
          * 
          * @return builder
          * 
@@ -645,7 +645,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param finalBackupTags A map of tags to apply to the file system&#39;s final backup.
+         * @param finalBackupTags Map of tags to apply to the file system&#39;s final backup.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param rootVolumeConfiguration The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
+         * @param rootVolumeConfiguration Configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -750,7 +750,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param rootVolumeConfiguration The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
+         * @param rootVolumeConfiguration Configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -791,7 +791,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param securityGroupIds A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+         * @param securityGroupIds List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
          * 
          * @return builder
          * 
@@ -802,7 +802,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param securityGroupIds A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+         * @param securityGroupIds List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
          * 
          * @return builder
          * 
@@ -812,7 +812,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param securityGroupIds A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+         * @param securityGroupIds List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
          * 
          * @return builder
          * 
@@ -843,7 +843,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageCapacity The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
+         * @param storageCapacity Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
          * 
          * @return builder
          * 
@@ -854,7 +854,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageCapacity The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
+         * @param storageCapacity Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
          * 
          * @return builder
          * 
@@ -864,7 +864,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageType The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
+         * @param storageType Filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
          * 
          * @return builder
          * 
@@ -875,7 +875,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageType The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
+         * @param storageType Filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
          * 
          * @return builder
          * 
@@ -885,7 +885,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from.
+         * @param subnetIds List of IDs for the subnets that the file system will be accessible from.
          * 
          * @return builder
          * 
@@ -896,7 +896,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from.
+         * @param subnetIds List of IDs for the subnets that the file system will be accessible from.
          * 
          * @return builder
          * 
@@ -906,7 +906,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from.
+         * @param subnetIds List of IDs for the subnets that the file system will be accessible from.
          * 
          * @return builder
          * 
@@ -916,7 +916,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -927,7 +927,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -962,7 +962,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param weeklyMaintenanceStartTime The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+         * @param weeklyMaintenanceStartTime Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
          * 
          * @return builder
          * 
@@ -973,7 +973,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param weeklyMaintenanceStartTime The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+         * @param weeklyMaintenanceStartTime Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
          * 
          * @return builder
          * 

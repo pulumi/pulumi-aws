@@ -18,22 +18,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecHttp2RouteMatch {
     /**
-     * @return Client request headers to match on. See `header` Block for details.
+     * @return Client request headers to match on. See `spec.http2_route.match.header` Block for details.
      * 
      */
     private @Nullable List<GatewayRouteSpecHttp2RouteMatchHeader> headers;
     /**
-     * @return Host name to match on. See `hostname` Block for details.
+     * @return Host name to match on. See `spec.http2_route.match.hostname` Block for details.
      * 
      */
     private @Nullable GatewayRouteSpecHttp2RouteMatchHostname hostname;
     /**
-     * @return Client request path to match on. See `path` Block for details.
+     * @return Client request path to match on. See `spec.http2_route.match.path` Block for details.
      * 
      */
     private @Nullable GatewayRouteSpecHttp2RouteMatchPath path;
     /**
-     * @return The port number to match from the request.
+     * @return Port number to match from the request.
      * 
      */
     private @Nullable Integer port;
@@ -43,35 +43,35 @@ public final class GatewayRouteSpecHttp2RouteMatch {
      */
     private @Nullable String prefix;
     /**
-     * @return Client request query parameters to match on. See `queryParameter` Block for details.
+     * @return Client request query parameters to match on. See `spec.http2_route.match.query_parameter` Block for details.
      * 
      */
     private @Nullable List<GatewayRouteSpecHttp2RouteMatchQueryParameter> queryParameters;
 
     private GatewayRouteSpecHttp2RouteMatch() {}
     /**
-     * @return Client request headers to match on. See `header` Block for details.
+     * @return Client request headers to match on. See `spec.http2_route.match.header` Block for details.
      * 
      */
     public List<GatewayRouteSpecHttp2RouteMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return Host name to match on. See `hostname` Block for details.
+     * @return Host name to match on. See `spec.http2_route.match.hostname` Block for details.
      * 
      */
     public Optional<GatewayRouteSpecHttp2RouteMatchHostname> hostname() {
         return Optional.ofNullable(this.hostname);
     }
     /**
-     * @return Client request path to match on. See `path` Block for details.
+     * @return Client request path to match on. See `spec.http2_route.match.path` Block for details.
      * 
      */
     public Optional<GatewayRouteSpecHttp2RouteMatchPath> path() {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return The port number to match from the request.
+     * @return Port number to match from the request.
      * 
      */
     public Optional<Integer> port() {
@@ -85,7 +85,7 @@ public final class GatewayRouteSpecHttp2RouteMatch {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return Client request query parameters to match on. See `queryParameter` Block for details.
+     * @return Client request query parameters to match on. See `spec.http2_route.match.query_parameter` Block for details.
      * 
      */
     public List<GatewayRouteSpecHttp2RouteMatchQueryParameter> queryParameters() {

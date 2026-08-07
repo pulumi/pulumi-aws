@@ -28,6 +28,7 @@ public final class GetClusterResult {
     private String dbClusterParameterGroupName;
     private String dbSubnetGroupName;
     private String dbSystemId;
+    private Boolean deletionProtection;
     private List<String> enabledCloudwatchLogsExports;
     private String endpoint;
     private String engine;
@@ -102,6 +103,9 @@ public final class GetClusterResult {
     }
     public String dbSystemId() {
         return this.dbSystemId;
+    }
+    public Boolean deletionProtection() {
+        return this.deletionProtection;
     }
     public List<String> enabledCloudwatchLogsExports() {
         return this.enabledCloudwatchLogsExports;
@@ -212,6 +216,7 @@ public final class GetClusterResult {
         private String dbClusterParameterGroupName;
         private String dbSubnetGroupName;
         private String dbSystemId;
+        private Boolean deletionProtection;
         private List<String> enabledCloudwatchLogsExports;
         private String endpoint;
         private String engine;
@@ -254,6 +259,7 @@ public final class GetClusterResult {
     	      this.dbClusterParameterGroupName = defaults.dbClusterParameterGroupName;
     	      this.dbSubnetGroupName = defaults.dbSubnetGroupName;
     	      this.dbSystemId = defaults.dbSystemId;
+    	      this.deletionProtection = defaults.deletionProtection;
     	      this.enabledCloudwatchLogsExports = defaults.enabledCloudwatchLogsExports;
     	      this.endpoint = defaults.endpoint;
     	      this.engine = defaults.engine;
@@ -390,6 +396,14 @@ public final class GetClusterResult {
               throw new MissingRequiredPropertyException("GetClusterResult", "dbSystemId");
             }
             this.dbSystemId = dbSystemId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder deletionProtection(Boolean deletionProtection) {
+            if (deletionProtection == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "deletionProtection");
+            }
+            this.deletionProtection = deletionProtection;
             return this;
         }
         @CustomType.Setter
@@ -627,6 +641,7 @@ public final class GetClusterResult {
             _resultValue.dbClusterParameterGroupName = dbClusterParameterGroupName;
             _resultValue.dbSubnetGroupName = dbSubnetGroupName;
             _resultValue.dbSystemId = dbSystemId;
+            _resultValue.deletionProtection = deletionProtection;
             _resultValue.enabledCloudwatchLogsExports = enabledCloudwatchLogsExports;
             _resultValue.endpoint = endpoint;
             _resultValue.engine = engine;

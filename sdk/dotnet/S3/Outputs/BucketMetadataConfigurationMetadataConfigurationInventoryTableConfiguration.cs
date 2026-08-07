@@ -22,11 +22,11 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfiguration? EncryptionConfiguration;
         /// <summary>
-        /// Inventory table ARN.
+        /// Journal table ARN.
         /// </summary>
         public readonly string? TableArn;
         /// <summary>
-        /// Inventory table name.
+        /// Journal table name.
         /// </summary>
         public readonly string? TableName;
 

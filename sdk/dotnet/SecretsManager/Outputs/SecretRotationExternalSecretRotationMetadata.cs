@@ -14,11 +14,11 @@ namespace Pulumi.Aws.SecretsManager.Outputs
     public sealed class SecretRotationExternalSecretRotationMetadata
     {
         /// <summary>
-        /// The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+        /// Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The metadata value for the specified key.
+        /// Metadata value for the specified key.
         /// </summary>
         public readonly string Value;
 

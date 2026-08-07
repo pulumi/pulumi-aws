@@ -38,14 +38,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * Whether tags for the file system should be copied to snapshots. Default is false.
      * 
      */
     @Import(name="copyTagsToSnapshots")
     private @Nullable Output<Boolean> copyTagsToSnapshots;
 
     /**
-     * @return A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * @return Whether tags for the file system should be copied to snapshots. Default is false.
      * 
      */
     public Optional<Output<Boolean>> copyTagsToSnapshots() {
@@ -83,14 +83,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     * Name of the volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     * @return Name of the volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
     public Optional<Output<String>> name() {
@@ -113,14 +113,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
+     * Configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
      * 
      */
     @Import(name="originSnapshot")
     private @Nullable Output<OpenZfsVolumeOriginSnapshotArgs> originSnapshot;
 
     /**
-     * @return Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
+     * @return Configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
      * 
      */
     public Optional<Output<OpenZfsVolumeOriginSnapshotArgs>> originSnapshot() {
@@ -128,14 +128,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
+     * Volume ID of the volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
      * 
      */
     @Import(name="parentVolumeId")
     private @Nullable Output<String> parentVolumeId;
 
     /**
-     * @return The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
+     * @return Volume ID of the volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
      * 
      */
     public Optional<Output<String>> parentVolumeId() {
@@ -143,14 +143,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * specifies whether the volume is read-only. Default is false.
+     * Whether the volume is read-only. Default is false.
      * 
      */
     @Import(name="readOnly")
     private @Nullable Output<Boolean> readOnly;
 
     /**
-     * @return specifies whether the volume is read-only. Default is false.
+     * @return Whether the volume is read-only. Default is false.
      * 
      */
     public Optional<Output<Boolean>> readOnly() {
@@ -158,14 +158,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * Record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
      * 
      */
     @Import(name="recordSizeKib")
     private @Nullable Output<Integer> recordSizeKib;
 
     /**
-     * @return The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * @return Record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
      * 
      */
     public Optional<Output<Integer>> recordSizeKib() {
@@ -188,14 +188,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+     * Maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      * 
      */
     @Import(name="storageCapacityQuotaGib")
     private @Nullable Output<Integer> storageCapacityQuotaGib;
 
     /**
-     * @return The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+     * @return Maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      * 
      */
     public Optional<Output<Integer>> storageCapacityQuotaGib() {
@@ -203,14 +203,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+     * Amount of storage in gibibytes (GiB) to reserve from the parent volume.
      * 
      */
     @Import(name="storageCapacityReservationGib")
     private @Nullable Output<Integer> storageCapacityReservationGib;
 
     /**
-     * @return The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+     * @return Amount of storage in gibibytes (GiB) to reserve from the parent volume.
      * 
      */
     public Optional<Output<Integer>> storageCapacityReservationGib() {
@@ -218,14 +218,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -233,14 +233,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -262,9 +262,17 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.userAndGroupQuotas);
     }
 
+    /**
+     * Volume type. Default is `OPENZFS`.
+     * 
+     */
     @Import(name="volumeType")
     private @Nullable Output<String> volumeType;
 
+    /**
+     * @return Volume type. Default is `OPENZFS`.
+     * 
+     */
     public Optional<Output<String>> volumeType() {
         return Optional.ofNullable(this.volumeType);
     }
@@ -331,7 +339,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param copyTagsToSnapshots A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+         * @param copyTagsToSnapshots Whether tags for the file system should be copied to snapshots. Default is false.
          * 
          * @return builder
          * 
@@ -342,7 +350,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param copyTagsToSnapshots A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+         * @param copyTagsToSnapshots Whether tags for the file system should be copied to snapshots. Default is false.
          * 
          * @return builder
          * 
@@ -394,7 +402,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+         * @param name Name of the volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
          * 
          * @return builder
          * 
@@ -405,7 +413,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+         * @param name Name of the volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
          * 
          * @return builder
          * 
@@ -436,7 +444,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param originSnapshot Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
+         * @param originSnapshot Configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
          * 
          * @return builder
          * 
@@ -447,7 +455,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param originSnapshot Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
+         * @param originSnapshot Configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
          * 
          * @return builder
          * 
@@ -457,7 +465,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param parentVolumeId The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
+         * @param parentVolumeId Volume ID of the volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
          * 
          * @return builder
          * 
@@ -468,7 +476,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param parentVolumeId The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
+         * @param parentVolumeId Volume ID of the volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
          * 
          * @return builder
          * 
@@ -478,7 +486,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param readOnly specifies whether the volume is read-only. Default is false.
+         * @param readOnly Whether the volume is read-only. Default is false.
          * 
          * @return builder
          * 
@@ -489,7 +497,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param readOnly specifies whether the volume is read-only. Default is false.
+         * @param readOnly Whether the volume is read-only. Default is false.
          * 
          * @return builder
          * 
@@ -499,7 +507,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param recordSizeKib The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+         * @param recordSizeKib Record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
          * 
          * @return builder
          * 
@@ -510,7 +518,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param recordSizeKib The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+         * @param recordSizeKib Record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
          * 
          * @return builder
          * 
@@ -541,7 +549,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageCapacityQuotaGib The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+         * @param storageCapacityQuotaGib Maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
          * 
          * @return builder
          * 
@@ -552,7 +560,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageCapacityQuotaGib The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+         * @param storageCapacityQuotaGib Maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
          * 
          * @return builder
          * 
@@ -562,7 +570,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageCapacityReservationGib The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+         * @param storageCapacityReservationGib Amount of storage in gibibytes (GiB) to reserve from the parent volume.
          * 
          * @return builder
          * 
@@ -573,7 +581,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageCapacityReservationGib The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+         * @param storageCapacityReservationGib Amount of storage in gibibytes (GiB) to reserve from the parent volume.
          * 
          * @return builder
          * 
@@ -583,7 +591,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -594,7 +602,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -604,7 +612,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -615,7 +623,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -655,11 +663,23 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
             return userAndGroupQuotas(List.of(userAndGroupQuotas));
         }
 
+        /**
+         * @param volumeType Volume type. Default is `OPENZFS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder volumeType(@Nullable Output<String> volumeType) {
             $.volumeType = volumeType;
             return this;
         }
 
+        /**
+         * @param volumeType Volume type. Default is `OPENZFS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder volumeType(String volumeType) {
             return volumeType(Output.of(volumeType));
         }

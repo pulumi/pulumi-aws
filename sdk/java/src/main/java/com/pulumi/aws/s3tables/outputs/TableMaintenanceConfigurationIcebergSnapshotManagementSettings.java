@@ -11,30 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class TableMaintenanceConfigurationIcebergSnapshotManagementSettings {
     /**
-     * @return Snapshots older than this will be marked for deletion.
-     * Must be at least `1`.
+     * @return Snapshots older than this will be marked for deletion. Must be at least `1`.
      * 
      */
     private Integer maxSnapshotAgeHours;
     /**
-     * @return Minimum number of snapshots to keep.
-     * Must be at least `1`.
+     * @return Minimum number of snapshots to keep. Must be at least `1`.
      * 
      */
     private Integer minSnapshotsToKeep;
 
     private TableMaintenanceConfigurationIcebergSnapshotManagementSettings() {}
     /**
-     * @return Snapshots older than this will be marked for deletion.
-     * Must be at least `1`.
+     * @return Snapshots older than this will be marked for deletion. Must be at least `1`.
      * 
      */
     public Integer maxSnapshotAgeHours() {
         return this.maxSnapshotAgeHours;
     }
     /**
-     * @return Minimum number of snapshots to keep.
-     * Must be at least `1`.
+     * @return Minimum number of snapshots to keep. Must be at least `1`.
      * 
      */
     public Integer minSnapshotsToKeep() {

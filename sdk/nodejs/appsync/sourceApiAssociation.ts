@@ -89,6 +89,9 @@ export class SourceApiAssociation extends pulumi.CustomResource {
      * ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      */
     declare public readonly sourceApiArn: pulumi.Output<string>;
+    /**
+     * Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
+     */
     declare public readonly sourceApiAssociationConfigs: pulumi.Output<outputs.appsync.SourceApiAssociationSourceApiAssociationConfig[]>;
     /**
      * ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
@@ -169,6 +172,9 @@ export interface SourceApiAssociationState {
      * ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      */
     sourceApiArn?: pulumi.Input<string | undefined>;
+    /**
+     * Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
+     */
     sourceApiAssociationConfigs?: pulumi.Input<pulumi.Input<inputs.appsync.SourceApiAssociationSourceApiAssociationConfig>[] | undefined>;
     /**
      * ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
@@ -201,6 +207,9 @@ export interface SourceApiAssociationArgs {
      * ARN of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.
      */
     sourceApiArn?: pulumi.Input<string | undefined>;
+    /**
+     * Source API Association configuration. See `sourceApiAssociationConfig` Block for details.
+     */
     sourceApiAssociationConfigs?: pulumi.Input<pulumi.Input<inputs.appsync.SourceApiAssociationSourceApiAssociationConfig>[] | undefined>;
     /**
      * ID of the source API. One of `sourceApiArn` or `sourceApiId` must be specified.

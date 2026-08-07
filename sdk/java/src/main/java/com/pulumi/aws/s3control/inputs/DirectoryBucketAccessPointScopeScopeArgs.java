@@ -34,16 +34,12 @@ public final class DirectoryBucketAccessPointScopeScopeArgs extends com.pulumi.r
     /**
      * You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
      * 
-     * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-     * 
      */
     @Import(name="prefixes")
     private @Nullable Output<List<String>> prefixes;
 
     /**
      * @return You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-     * 
-     * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
      * 
      */
     public Optional<Output<List<String>>> prefixes() {
@@ -109,8 +105,6 @@ public final class DirectoryBucketAccessPointScopeScopeArgs extends com.pulumi.r
         /**
          * @param prefixes You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
          * 
-         * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-         * 
          * @return builder
          * 
          */
@@ -122,8 +116,6 @@ public final class DirectoryBucketAccessPointScopeScopeArgs extends com.pulumi.r
         /**
          * @param prefixes You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
          * 
-         * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-         * 
          * @return builder
          * 
          */
@@ -133,8 +125,6 @@ public final class DirectoryBucketAccessPointScopeScopeArgs extends com.pulumi.r
 
         /**
          * @param prefixes You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-         * 
-         * * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
          * 
          * @return builder
          * 

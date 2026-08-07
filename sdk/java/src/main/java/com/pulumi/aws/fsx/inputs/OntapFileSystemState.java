@@ -36,14 +36,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+     * Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      * 
      */
     @Import(name="automaticBackupRetentionDays")
     private @Nullable Output<Integer> automaticBackupRetentionDays;
 
     /**
-     * @return The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+     * @return Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      * 
      */
     public Optional<Output<Integer>> automaticBackupRetentionDays() {
@@ -51,14 +51,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+     * Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      * 
      */
     @Import(name="dailyAutomaticBackupStartTime")
     private @Nullable Output<String> dailyAutomaticBackupStartTime;
 
     /**
-     * @return A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+     * @return Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      * 
      */
     public Optional<Output<String>> dailyAutomaticBackupStartTime() {
@@ -66,14 +66,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+     * Filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
      * 
      */
     @Import(name="deploymentType")
     private @Nullable Output<String> deploymentType;
 
     /**
-     * @return The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+     * @return Filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
      * 
      */
     public Optional<Output<String>> deploymentType() {
@@ -81,14 +81,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
+     * SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See `diskIopsConfiguration` below.
      * 
      */
     @Import(name="diskIopsConfiguration")
     private @Nullable Output<OntapFileSystemDiskIopsConfigurationArgs> diskIopsConfiguration;
 
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
+     * @return SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See `diskIopsConfiguration` below.
      * 
      */
     public Optional<Output<OntapFileSystemDiskIopsConfigurationArgs>> diskIopsConfiguration() {
@@ -96,14 +96,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+     * Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      * 
      */
     @Import(name="dnsName")
     private @Nullable Output<String> dnsName;
 
     /**
-     * @return The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+     * @return Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      * 
      */
     public Optional<Output<String>> dnsName() {
@@ -111,18 +111,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
-     * 
-     * &gt;  **Note:** The 198.19.* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
+     * IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\* range. Note that the 198.19.\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
      * 
      */
     @Import(name="endpointIpAddressRange")
     private @Nullable Output<String> endpointIpAddressRange;
 
     /**
-     * @return Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
-     * 
-     * &gt;  **Note:** The 198.19.* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
+     * @return IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\* range. Note that the 198.19.\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
      * 
      */
     public Optional<Output<String>> endpointIpAddressRange() {
@@ -130,14 +126,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      * 
      */
     @Import(name="endpoints")
     private @Nullable Output<List<OntapFileSystemEndpointArgs>> endpoints;
 
     /**
-     * @return The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * @return Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      * 
      */
     public Optional<Output<List<OntapFileSystemEndpointArgs>>> endpoints() {
@@ -145,14 +141,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
+     * ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
      * 
      */
     @Import(name="fsxAdminPassword")
     private @Nullable Output<String> fsxAdminPassword;
 
     /**
-     * @return The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
+     * @return ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
      * 
      */
     public Optional<Output<String>> fsxAdminPassword() {
@@ -160,14 +156,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The number of haPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
+     * Number of haPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
      * 
      */
     @Import(name="haPairs")
     private @Nullable Output<Integer> haPairs;
 
     /**
-     * @return The number of haPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
+     * @return Number of haPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
      * 
      */
     public Optional<Output<Integer>> haPairs() {
@@ -220,14 +216,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+     * ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
      * 
      */
     @Import(name="preferredSubnetId")
     private @Nullable Output<String> preferredSubnetId;
 
     /**
-     * @return The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+     * @return ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
      * 
      */
     public Optional<Output<String>> preferredSubnetId() {
@@ -250,14 +246,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+     * VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
      * 
      */
     @Import(name="routeTableIds")
     private @Nullable Output<List<String>> routeTableIds;
 
     /**
-     * @return Specifies the VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+     * @return VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
      * 
      */
     public Optional<Output<List<String>>> routeTableIds() {
@@ -265,14 +261,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * @return List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -280,14 +276,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
+     * Storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
      * 
      */
     @Import(name="storageCapacity")
     private @Nullable Output<Integer> storageCapacity;
 
     /**
-     * @return The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
+     * @return Storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
      * 
      */
     public Optional<Output<Integer>> storageCapacity() {
@@ -295,14 +291,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The filesystem storage type. defaults to `SSD`.
+     * Filesystem storage type. Defaults to `SSD`.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return The filesystem storage type. defaults to `SSD`.
+     * @return Filesystem storage type. Defaults to `SSD`.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -310,14 +306,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
+     * List of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
      * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
     /**
-     * @return A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
+     * @return List of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
      * 
      */
     public Optional<Output<List<String>>> subnetIds() {
@@ -325,14 +321,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -340,14 +336,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -400,14 +396,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     @Import(name="weeklyMaintenanceStartTime")
     private @Nullable Output<String> weeklyMaintenanceStartTime;
 
     /**
-     * @return The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * @return Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     public Optional<Output<String>> weeklyMaintenanceStartTime() {
@@ -485,7 +481,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param automaticBackupRetentionDays The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+         * @param automaticBackupRetentionDays Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
          * 
          * @return builder
          * 
@@ -496,7 +492,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param automaticBackupRetentionDays The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+         * @param automaticBackupRetentionDays Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
          * 
          * @return builder
          * 
@@ -506,7 +502,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dailyAutomaticBackupStartTime A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+         * @param dailyAutomaticBackupStartTime Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
          * 
          * @return builder
          * 
@@ -517,7 +513,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dailyAutomaticBackupStartTime A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+         * @param dailyAutomaticBackupStartTime Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
          * 
          * @return builder
          * 
@@ -527,7 +523,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param deploymentType The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+         * @param deploymentType Filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
          * 
          * @return builder
          * 
@@ -538,7 +534,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param deploymentType The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+         * @param deploymentType Filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
          * 
          * @return builder
          * 
@@ -548,7 +544,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
+         * @param diskIopsConfiguration SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See `diskIopsConfiguration` below.
          * 
          * @return builder
          * 
@@ -559,7 +555,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
+         * @param diskIopsConfiguration SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See `diskIopsConfiguration` below.
          * 
          * @return builder
          * 
@@ -569,7 +565,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dnsName The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+         * @param dnsName Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
          * 
          * @return builder
          * 
@@ -580,7 +576,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dnsName The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+         * @param dnsName Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
          * 
          * @return builder
          * 
@@ -590,9 +586,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpointIpAddressRange Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
-         * 
-         * &gt;  **Note:** The 198.19.* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
+         * @param endpointIpAddressRange IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\* range. Note that the 198.19.\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
          * 
          * @return builder
          * 
@@ -603,9 +597,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpointIpAddressRange Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
-         * 
-         * &gt;  **Note:** The 198.19.* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
+         * @param endpointIpAddressRange IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\* range. Note that the 198.19.\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
          * 
          * @return builder
          * 
@@ -615,7 +607,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpoints The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+         * @param endpoints Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
          * 
          * @return builder
          * 
@@ -626,7 +618,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpoints The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+         * @param endpoints Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
          * 
          * @return builder
          * 
@@ -636,7 +628,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpoints The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+         * @param endpoints Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
          * 
          * @return builder
          * 
@@ -646,7 +638,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param fsxAdminPassword The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
+         * @param fsxAdminPassword ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
          * 
          * @return builder
          * 
@@ -657,7 +649,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param fsxAdminPassword The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
+         * @param fsxAdminPassword ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
          * 
          * @return builder
          * 
@@ -667,7 +659,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param haPairs The number of haPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
+         * @param haPairs Number of haPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
          * 
          * @return builder
          * 
@@ -678,7 +670,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param haPairs The number of haPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
+         * @param haPairs Number of haPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
          * 
          * @return builder
          * 
@@ -761,7 +753,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param preferredSubnetId The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+         * @param preferredSubnetId ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
          * 
          * @return builder
          * 
@@ -772,7 +764,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param preferredSubnetId The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+         * @param preferredSubnetId ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
          * 
          * @return builder
          * 
@@ -803,7 +795,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param routeTableIds Specifies the VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+         * @param routeTableIds VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
          * 
          * @return builder
          * 
@@ -814,7 +806,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param routeTableIds Specifies the VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+         * @param routeTableIds VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
          * 
          * @return builder
          * 
@@ -824,7 +816,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param routeTableIds Specifies the VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+         * @param routeTableIds VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
          * 
          * @return builder
          * 
@@ -834,7 +826,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param securityGroupIds A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+         * @param securityGroupIds List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
          * 
          * @return builder
          * 
@@ -845,7 +837,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param securityGroupIds A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+         * @param securityGroupIds List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
          * 
          * @return builder
          * 
@@ -855,7 +847,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param securityGroupIds A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+         * @param securityGroupIds List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
          * 
          * @return builder
          * 
@@ -865,7 +857,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageCapacity The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
+         * @param storageCapacity Storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
          * 
          * @return builder
          * 
@@ -876,7 +868,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageCapacity The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
+         * @param storageCapacity Storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
          * 
          * @return builder
          * 
@@ -886,7 +878,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageType The filesystem storage type. defaults to `SSD`.
+         * @param storageType Filesystem storage type. Defaults to `SSD`.
          * 
          * @return builder
          * 
@@ -897,7 +889,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageType The filesystem storage type. defaults to `SSD`.
+         * @param storageType Filesystem storage type. Defaults to `SSD`.
          * 
          * @return builder
          * 
@@ -907,7 +899,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
+         * @param subnetIds List of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
          * 
          * @return builder
          * 
@@ -918,7 +910,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
+         * @param subnetIds List of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
          * 
          * @return builder
          * 
@@ -928,7 +920,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
+         * @param subnetIds List of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
          * 
          * @return builder
          * 
@@ -938,7 +930,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -949,7 +941,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -959,7 +951,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -970,7 +962,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1043,7 +1035,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param weeklyMaintenanceStartTime The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+         * @param weeklyMaintenanceStartTime Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
          * 
          * @return builder
          * 
@@ -1054,7 +1046,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param weeklyMaintenanceStartTime The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+         * @param weeklyMaintenanceStartTime Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
          * 
          * @return builder
          * 

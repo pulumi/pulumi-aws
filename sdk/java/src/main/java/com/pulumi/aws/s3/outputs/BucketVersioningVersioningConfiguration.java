@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketVersioningVersioningConfiguration {
     /**
-     * @return Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+     * @return Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
      * 
      */
     private @Nullable String mfaDelete;
@@ -25,7 +25,7 @@ public final class BucketVersioningVersioningConfiguration {
 
     private BucketVersioningVersioningConfiguration() {}
     /**
-     * @return Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+     * @return Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
      * 
      */
     public Optional<String> mfaDelete() {

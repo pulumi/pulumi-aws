@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecHttp2RouteMatchPath {
     /**
-     * @return The exact path to match on.
+     * @return Exact query parameter to match on.
      * 
      */
     private @Nullable String exact;
     /**
-     * @return The regex used to match the path.
+     * @return Regex used to match the path.
      * 
      */
     private @Nullable String regex;
 
     private GatewayRouteSpecHttp2RouteMatchPath() {}
     /**
-     * @return The exact path to match on.
+     * @return Exact query parameter to match on.
      * 
      */
     public Optional<String> exact() {
         return Optional.ofNullable(this.exact);
     }
     /**
-     * @return The regex used to match the path.
+     * @return Regex used to match the path.
      * 
      */
     public Optional<String> regex() {

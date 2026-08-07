@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketVersioningV2VersioningConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+        /// Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
         /// </summary>
         [Input("mfaDelete")]
         public Input<string>? MfaDelete { get; set; }

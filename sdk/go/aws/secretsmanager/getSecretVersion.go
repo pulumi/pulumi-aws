@@ -108,18 +108,17 @@ func LookupSecretVersion(ctx *pulumi.Context, args *LookupSecretVersionArgs, opt
 type LookupSecretVersionArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+	// Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
 	SecretId string `pulumi:"secretId"`
-	// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
+	// Unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
 	VersionId *string `pulumi:"versionId"`
-	// Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+	// Secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
 	VersionStage *string `pulumi:"versionStage"`
 }
 
 // A collection of values returned by getSecretVersion.
 type LookupSecretVersionResult struct {
-	// (**Deprecated**) The ARN of the secret.
-	// Use `secretArn` instead.
+	// (**Deprecated**) ARN of the secret. Use `secretArn` instead.
 	//
 	// Deprecated: arn is deprecated. Use secretArn instead.
 	Arn string `pulumi:"arn"`
@@ -128,7 +127,7 @@ type LookupSecretVersionResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
-	// The ARN of the secret.
+	// ARN of the secret.
 	SecretArn string `pulumi:"secretArn"`
 	// Decrypted part of the protected secret information that was originally provided as a binary.
 	SecretBinary string `pulumi:"secretBinary"`
@@ -136,8 +135,9 @@ type LookupSecretVersionResult struct {
 	// Decrypted part of the protected secret information that was originally provided as a string.
 	SecretString string `pulumi:"secretString"`
 	// Unique identifier of this version of the secret.
-	VersionId     string   `pulumi:"versionId"`
-	VersionStage  *string  `pulumi:"versionStage"`
+	VersionId    string  `pulumi:"versionId"`
+	VersionStage *string `pulumi:"versionStage"`
+	// List of staging labels attached to this version of the secret.
 	VersionStages []string `pulumi:"versionStages"`
 }
 
@@ -154,11 +154,11 @@ func LookupSecretVersionOutput(ctx *pulumi.Context, args LookupSecretVersionOutp
 type LookupSecretVersionOutputArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+	// Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
-	// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
+	// Unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
 	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
-	// Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+	// Secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
 	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
 }
 
@@ -181,8 +181,7 @@ func (o LookupSecretVersionResultOutput) ToLookupSecretVersionResultOutputWithCo
 	return o
 }
 
-// (**Deprecated**) The ARN of the secret.
-// Use `secretArn` instead.
+// (**Deprecated**) ARN of the secret. Use `secretArn` instead.
 //
 // Deprecated: arn is deprecated. Use secretArn instead.
 func (o LookupSecretVersionResultOutput) Arn() pulumi.StringOutput {
@@ -203,7 +202,7 @@ func (o LookupSecretVersionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ARN of the secret.
+// ARN of the secret.
 func (o LookupSecretVersionResultOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.SecretArn }).(pulumi.StringOutput)
 }
@@ -231,6 +230,7 @@ func (o LookupSecretVersionResultOutput) VersionStage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
 }
 
+// List of staging labels attached to this version of the secret.
 func (o LookupSecretVersionResultOutput) VersionStages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) []string { return v.VersionStages }).(pulumi.StringArrayOutput)
 }

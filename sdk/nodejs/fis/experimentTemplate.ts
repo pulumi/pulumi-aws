@@ -195,15 +195,15 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string>;
     /**
-     * The experiment options for the experiment template. See experimentOptions below for more details!
+     * Experiment options for the experiment template. See experimentOptions below for more details!
      */
     declare public readonly experimentOptions: pulumi.Output<outputs.fis.ExperimentTemplateExperimentOptions>;
     /**
-     * The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     * Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
      */
     declare public readonly experimentReportConfiguration: pulumi.Output<outputs.fis.ExperimentTemplateExperimentReportConfiguration | undefined>;
     /**
-     * The configuration for experiment logging. See below.
+     * Configuration for experiment logging. See below.
      */
     declare public readonly logConfiguration: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
     /**
@@ -298,15 +298,15 @@ export interface ExperimentTemplateState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The experiment options for the experiment template. See experimentOptions below for more details!
+     * Experiment options for the experiment template. See experimentOptions below for more details!
      */
     experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptions | undefined>;
     /**
-     * The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     * Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
      */
     experimentReportConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentReportConfiguration | undefined>;
     /**
-     * The configuration for experiment logging. See below.
+     * Configuration for experiment logging. See below.
      */
     logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration | undefined>;
     /**
@@ -347,15 +347,15 @@ export interface ExperimentTemplateArgs {
      */
     description: pulumi.Input<string>;
     /**
-     * The experiment options for the experiment template. See experimentOptions below for more details!
+     * Experiment options for the experiment template. See experimentOptions below for more details!
      */
     experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptions | undefined>;
     /**
-     * The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     * Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
      */
     experimentReportConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentReportConfiguration | undefined>;
     /**
-     * The configuration for experiment logging. See below.
+     * Configuration for experiment logging. See below.
      */
     logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration | undefined>;
     /**

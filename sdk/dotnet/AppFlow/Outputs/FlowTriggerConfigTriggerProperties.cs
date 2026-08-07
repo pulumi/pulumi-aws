@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowTriggerConfigTriggerProperties
     {
+        /// <summary>
+        /// Configuration details of a schedule-triggered flow. See the `trigger_config.trigger_properties.scheduled` Block for details.
+        /// </summary>
         public readonly Outputs.FlowTriggerConfigTriggerPropertiesScheduled? Scheduled;
 
         [OutputConstructor]

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.EvaluationJobEvaluationConfigAutomatedCustomMetricConfig? CustomMetricConfig;
         /// <summary>
-        /// One or more configurations for the prompt datasets and metrics to use. See `DatasetMetricConfig` Block below.
+        /// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig> DatasetMetricConfigs;
         /// <summary>

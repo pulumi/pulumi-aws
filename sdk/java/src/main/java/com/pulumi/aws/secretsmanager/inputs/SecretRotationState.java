@@ -65,14 +65,14 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+     * Whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
      * 
      */
     @Import(name="rotateImmediately")
     private @Nullable Output<Boolean> rotateImmediately;
 
     /**
-     * @return Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+     * @return Whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> rotateImmediately() {
@@ -80,14 +80,14 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies whether automatic rotation is enabled for this secret.
+     * Whether automatic rotation is enabled for this secret.
      * 
      */
     @Import(name="rotationEnabled")
     private @Nullable Output<Boolean> rotationEnabled;
 
     /**
-     * @return Specifies whether automatic rotation is enabled for this secret.
+     * @return Whether automatic rotation is enabled for this secret.
      * 
      */
     public Optional<Output<Boolean>> rotationEnabled() {
@@ -95,14 +95,14 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+     * ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      * 
      */
     @Import(name="rotationLambdaArn")
     private @Nullable Output<String> rotationLambdaArn;
 
     /**
-     * @return Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+     * @return ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      * 
      */
     public Optional<Output<String>> rotationLambdaArn() {
@@ -110,14 +110,14 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A structure that defines the rotation configuration for this secret. Defined below.
+     * Structure that defines the rotation configuration for this secret. Defined below.
      * 
      */
     @Import(name="rotationRules")
     private @Nullable Output<SecretRotationRotationRulesArgs> rotationRules;
 
     /**
-     * @return A structure that defines the rotation configuration for this secret. Defined below.
+     * @return Structure that defines the rotation configuration for this secret. Defined below.
      * 
      */
     public Optional<Output<SecretRotationRotationRulesArgs>> rotationRules() {
@@ -125,14 +125,14 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      * 
      */
     @Import(name="secretId")
     private @Nullable Output<String> secretId;
 
     /**
-     * @return Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * @return Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      * 
      */
     public Optional<Output<String>> secretId() {
@@ -244,7 +244,7 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param rotateImmediately Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+         * @param rotateImmediately Whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param rotateImmediately Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+         * @param rotateImmediately Whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param rotationEnabled Specifies whether automatic rotation is enabled for this secret.
+         * @param rotationEnabled Whether automatic rotation is enabled for this secret.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param rotationEnabled Specifies whether automatic rotation is enabled for this secret.
+         * @param rotationEnabled Whether automatic rotation is enabled for this secret.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param rotationLambdaArn Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+         * @param rotationLambdaArn ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param rotationLambdaArn Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+         * @param rotationLambdaArn ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param rotationRules A structure that defines the rotation configuration for this secret. Defined below.
+         * @param rotationRules Structure that defines the rotation configuration for this secret. Defined below.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param rotationRules A structure that defines the rotation configuration for this secret. Defined below.
+         * @param rotationRules Structure that defines the rotation configuration for this secret. Defined below.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param secretId Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+         * @param secretId Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param secretId Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+         * @param secretId Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
          * 
          * @return builder
          * 

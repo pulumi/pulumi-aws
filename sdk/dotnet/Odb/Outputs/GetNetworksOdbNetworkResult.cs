@@ -26,15 +26,15 @@ namespace Pulumi.Aws.Odb.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The unique identifier of the OCI network anchor for the ODB network.
+        /// Unique identifier of the OCI network anchor for the ODB network.
         /// </summary>
         public readonly string OciNetworkAnchorId;
         /// <summary>
-        /// The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+        /// Unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
         /// </summary>
         public readonly string OciVcnId;
         /// <summary>
-        /// The URL of the OCI VCN for the ODB network.
+        /// URL of the OCI VCN for the ODB network.
         /// </summary>
         public readonly string OciVcnUrl;
 

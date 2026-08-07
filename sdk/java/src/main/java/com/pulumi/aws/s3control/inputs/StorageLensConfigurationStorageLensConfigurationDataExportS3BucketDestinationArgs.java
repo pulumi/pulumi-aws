@@ -18,14 +18,14 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
     public static final StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs Empty = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs();
 
     /**
-     * The account ID of the owner of the S3 Storage Lens metrics export bucket.
+     * Account ID of the owner of the S3 Storage Lens metrics export bucket.
      * 
      */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
     /**
-     * @return The account ID of the owner of the S3 Storage Lens metrics export bucket.
+     * @return Account ID of the owner of the S3 Storage Lens metrics export bucket.
      * 
      */
     public Output<String> accountId() {
@@ -33,14 +33,14 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the bucket.
+     * Amazon Resource Name (ARN) of the bucket.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the bucket.
+     * @return Amazon Resource Name (ARN) of the bucket.
      * 
      */
     public Output<String> arn() {
@@ -48,14 +48,14 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
     }
 
     /**
-     * Encryption of the metrics exports in this bucket. See Encryption below for more details.
+     * Encryption of the metrics exports in this bucket. See `encryption` below for more details.
      * 
      */
     @Import(name="encryption")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs> encryption;
 
     /**
-     * @return Encryption of the metrics exports in this bucket. See Encryption below for more details.
+     * @return Encryption of the metrics exports in this bucket. See `encryption` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs>> encryption() {
@@ -63,14 +63,14 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
     }
 
     /**
-     * The export format. Valid values: `CSV`, `Parquet`.
+     * Export format. Valid values: `CSV`, `Parquet`.
      * 
      */
     @Import(name="format", required=true)
     private Output<String> format;
 
     /**
-     * @return The export format. Valid values: `CSV`, `Parquet`.
+     * @return Export format. Valid values: `CSV`, `Parquet`.
      * 
      */
     public Output<String> format() {
@@ -78,14 +78,14 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
     }
 
     /**
-     * The schema version of the export file. Valid values: `V_1`.
+     * Schema version of the export file. Valid values: `V_1`.
      * 
      */
     @Import(name="outputSchemaVersion", required=true)
     private Output<String> outputSchemaVersion;
 
     /**
-     * @return The schema version of the export file. Valid values: `V_1`.
+     * @return Schema version of the export file. Valid values: `V_1`.
      * 
      */
     public Output<String> outputSchemaVersion() {
@@ -93,14 +93,14 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
     }
 
     /**
-     * The prefix of the destination bucket where the metrics export will be delivered.
+     * Prefix of the destination bucket where the metrics export will be delivered.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The prefix of the destination bucket where the metrics export will be delivered.
+     * @return Prefix of the destination bucket where the metrics export will be delivered.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -137,7 +137,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param accountId The account ID of the owner of the S3 Storage Lens metrics export bucket.
+         * @param accountId Account ID of the owner of the S3 Storage Lens metrics export bucket.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param accountId The account ID of the owner of the S3 Storage Lens metrics export bucket.
+         * @param accountId Account ID of the owner of the S3 Storage Lens metrics export bucket.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the bucket.
+         * @param arn Amazon Resource Name (ARN) of the bucket.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the bucket.
+         * @param arn Amazon Resource Name (ARN) of the bucket.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param encryption Encryption of the metrics exports in this bucket. See Encryption below for more details.
+         * @param encryption Encryption of the metrics exports in this bucket. See `encryption` below for more details.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param encryption Encryption of the metrics exports in this bucket. See Encryption below for more details.
+         * @param encryption Encryption of the metrics exports in this bucket. See `encryption` below for more details.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param format The export format. Valid values: `CSV`, `Parquet`.
+         * @param format Export format. Valid values: `CSV`, `Parquet`.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param format The export format. Valid values: `CSV`, `Parquet`.
+         * @param format Export format. Valid values: `CSV`, `Parquet`.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param outputSchemaVersion The schema version of the export file. Valid values: `V_1`.
+         * @param outputSchemaVersion Schema version of the export file. Valid values: `V_1`.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param outputSchemaVersion The schema version of the export file. Valid values: `V_1`.
+         * @param outputSchemaVersion Schema version of the export file. Valid values: `V_1`.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param prefix The prefix of the destination bucket where the metrics export will be delivered.
+         * @param prefix Prefix of the destination bucket where the metrics export will be delivered.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         }
 
         /**
-         * @param prefix The prefix of the destination bucket where the metrics export will be delivered.
+         * @param prefix Prefix of the destination bucket where the metrics export will be delivered.
          * 
          * @return builder
          * 

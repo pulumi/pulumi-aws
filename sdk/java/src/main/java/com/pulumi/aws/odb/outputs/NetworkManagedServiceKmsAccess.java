@@ -14,12 +14,12 @@ public final class NetworkManagedServiceKmsAccess {
     private String domainName;
     private List<String> ipv4Addresses;
     /**
-     * @return Specifies the endpoint policy for KMS access from the ODB network.
+     * @return Endpoint policy for KMS access from the ODB network.
      * 
      */
     private String kmsPolicyDocument;
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     private String status;
@@ -32,14 +32,14 @@ public final class NetworkManagedServiceKmsAccess {
         return this.ipv4Addresses;
     }
     /**
-     * @return Specifies the endpoint policy for KMS access from the ODB network.
+     * @return Endpoint policy for KMS access from the ODB network.
      * 
      */
     public String kmsPolicyDocument() {
         return this.kmsPolicyDocument;
     }
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     public String status() {

@@ -55,7 +55,7 @@ type DomainName struct {
 	AppsyncDomainName pulumi.StringOutput `pulumi:"appsyncDomainName"`
 	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
-	// A description of the Domain Name.
+	// Description of the Domain Name.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Domain name.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
@@ -105,7 +105,7 @@ type domainNameState struct {
 	AppsyncDomainName *string `pulumi:"appsyncDomainName"`
 	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 	CertificateArn *string `pulumi:"certificateArn"`
-	// A description of the Domain Name.
+	// Description of the Domain Name.
 	Description *string `pulumi:"description"`
 	// Domain name.
 	DomainName *string `pulumi:"domainName"`
@@ -120,7 +120,7 @@ type DomainNameState struct {
 	AppsyncDomainName pulumi.StringPtrInput
 	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 	CertificateArn pulumi.StringPtrInput
-	// A description of the Domain Name.
+	// Description of the Domain Name.
 	Description pulumi.StringPtrInput
 	// Domain name.
 	DomainName pulumi.StringPtrInput
@@ -137,7 +137,7 @@ func (DomainNameState) ElementType() reflect.Type {
 type domainNameArgs struct {
 	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 	CertificateArn string `pulumi:"certificateArn"`
-	// A description of the Domain Name.
+	// Description of the Domain Name.
 	Description *string `pulumi:"description"`
 	// Domain name.
 	DomainName string `pulumi:"domainName"`
@@ -149,7 +149,7 @@ type domainNameArgs struct {
 type DomainNameArgs struct {
 	// ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
 	CertificateArn pulumi.StringInput
-	// A description of the Domain Name.
+	// Description of the Domain Name.
 	Description pulumi.StringPtrInput
 	// Domain name.
 	DomainName pulumi.StringInput
@@ -254,7 +254,7 @@ func (o DomainNameOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.CertificateArn }).(pulumi.StringOutput)
 }
 
-// A description of the Domain Name.
+// Description of the Domain Name.
 func (o DomainNameOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

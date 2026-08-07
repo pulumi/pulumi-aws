@@ -410,14 +410,14 @@ public class VirtualNode extends com.pulumi.resources.CustomResource {
         return this.resourceOwner;
     }
     /**
-     * Virtual node specification to apply.
+     * Virtual node specification to apply. See `spec` Block for details.
      * 
      */
     @Export(name="spec", refs={VirtualNodeSpec.class}, tree="[0]")
     private Output<VirtualNodeSpec> spec;
 
     /**
-     * @return Virtual node specification to apply.
+     * @return Virtual node specification to apply. See `spec` Block for details.
      * 
      */
     public Output<VirtualNodeSpec> spec() {

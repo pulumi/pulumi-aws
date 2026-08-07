@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Fsx.Outputs
     public sealed class DataRepositoryAssociationS3
     {
         /// <summary>
-        /// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `Events` configuration block.
+        /// Type of updated objects that are automatically exported from your file system to the linked S3 bucket. See the `AutoExportPolicy` Block below.
         /// </summary>
         public readonly Outputs.DataRepositoryAssociationS3AutoExportPolicy? AutoExportPolicy;
         /// <summary>
-        /// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `Events` configuration block.
+        /// Type of updated objects that are automatically imported from the linked S3 bucket to your file system. See the `AutoImportPolicy` Block below.
         /// </summary>
         public readonly Outputs.DataRepositoryAssociationS3AutoImportPolicy? AutoImportPolicy;
 

@@ -18,7 +18,7 @@ public final class GetBucketObjectsPlainArgs extends com.pulumi.resources.Invoke
     public static final GetBucketObjectsPlainArgs Empty = new GetBucketObjectsPlainArgs();
 
     /**
-     * Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     * Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.getObjects` data source instead.
      * 
      * @deprecated
      * bucket is deprecated. Use the aws.s3.getObjects data source instead.
@@ -29,7 +29,7 @@ public final class GetBucketObjectsPlainArgs extends com.pulumi.resources.Invoke
     private String bucket;
 
     /**
-     * @return Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     * @return Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.getObjects` data source instead.
      * 
      * @deprecated
      * bucket is deprecated. Use the aws.s3.getObjects data source instead.
@@ -177,7 +177,7 @@ public final class GetBucketObjectsPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param bucket Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+         * @param bucket Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.getObjects` data source instead.
          * 
          * @return builder
          * 

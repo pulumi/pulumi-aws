@@ -13,44 +13,41 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
     public sealed class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Customized capacity metric specification. See supported fields below.
+        /// Customized capacity metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_capacity_metric_specification` Block for details.
         /// </summary>
         [Input("customizedCapacityMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs>? CustomizedCapacityMetricSpecification { get; set; }
 
         /// <summary>
-        /// Customized load metric specification. See supported fields below.
+        /// Customized load metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_load_metric_specification` Block for details.
         /// </summary>
         [Input("customizedLoadMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs>? CustomizedLoadMetricSpecification { get; set; }
 
         /// <summary>
-        /// Customized scaling metric specification. See supported fields below.
+        /// Customized scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification` Block for details.
         /// </summary>
         [Input("customizedScalingMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs>? CustomizedScalingMetricSpecification { get; set; }
 
         /// <summary>
-        /// Predefined load metric specification. See supported fields below.
+        /// Predefined load metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_load_metric_specification` Block for details.
         /// </summary>
         [Input("predefinedLoadMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs>? PredefinedLoadMetricSpecification { get; set; }
 
         /// <summary>
-        /// Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
+        /// Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See `predictive_scaling_policy_configuration.metric_specification.predefined_metric_pair_specification` Block for details.
         /// </summary>
         [Input("predefinedMetricPairSpecification")]
         public Input<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs>? PredefinedMetricPairSpecification { get; set; }
 
         /// <summary>
-        /// Predefined scaling metric specification. See supported fields below.
+        /// Predefined scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_scaling_metric_specification` Block for details.
         /// </summary>
         [Input("predefinedScalingMetricSpecification")]
         public Input<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs>? PredefinedScalingMetricSpecification { get; set; }
 
-        /// <summary>
-        /// Target utilization.
-        /// </summary>
         [Input("targetValue", required: true)]
         public Input<string> TargetValue { get; set; } = null!;
 

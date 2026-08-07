@@ -138,6 +138,9 @@ class GetServiceNetworkResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -181,6 +184,7 @@ def get_service_network(region: Optional[_builtins.str] = None,
 
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str service_network_identifier: Identifier of the service network.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -222,6 +226,7 @@ def get_service_network_output(region: pulumi.Input[Optional[Optional[_builtins.
 
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str service_network_identifier: Identifier of the service network.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['region'] = region

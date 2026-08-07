@@ -227,7 +227,7 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
     /**
      * ARN of the IAM role that the memory service assumes to perform operations.
      *
-     * @deprecated memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+     * @deprecated memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
      */
     declare public readonly memoryExecutionRoleArn: pulumi.Output<string | undefined>;
     /**
@@ -334,7 +334,7 @@ export interface AgentcoreMemoryStrategyState {
     /**
      * ARN of the IAM role that the memory service assumes to perform operations.
      *
-     * @deprecated memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+     * @deprecated memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
      */
     memoryExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
@@ -391,7 +391,7 @@ export interface AgentcoreMemoryStrategyArgs {
     /**
      * ARN of the IAM role that the memory service assumes to perform operations.
      *
-     * @deprecated memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+     * @deprecated memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
      */
     memoryExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**

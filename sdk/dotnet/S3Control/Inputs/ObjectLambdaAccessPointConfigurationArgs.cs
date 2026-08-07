@@ -40,7 +40,7 @@ namespace Pulumi.Aws.S3Control.Inputs
         private InputList<Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs>? _transformationConfigurations;
 
         /// <summary>
-        /// List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+        /// List of transformation configurations for the Object Lambda Access Point. See `TransformationConfiguration` Block below for more details.
         /// </summary>
         public InputList<Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs> TransformationConfigurations
         {

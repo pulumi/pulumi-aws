@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetNetworkPeeringConnectionsResult
     {
         /// <summary>
-        /// The list of ODB peering connections. A summary of an ODB peering connection.
+        /// List of ODB peering connections. A summary of an ODB peering connection.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkPeeringConnectionsOdbPeeringConnectionResult> OdbPeeringConnections;
         public readonly string Region;

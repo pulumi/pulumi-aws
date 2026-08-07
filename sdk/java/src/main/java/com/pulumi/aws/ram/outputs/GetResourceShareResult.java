@@ -34,7 +34,7 @@ public final class GetResourceShareResult {
     private String owningAccountId;
     private String region;
     /**
-     * @return A list of resource ARNs associated with the resource share.
+     * @return List of resource ARNs associated with the resource share.
      * 
      */
     private List<String> resourceArns;
@@ -83,7 +83,7 @@ public final class GetResourceShareResult {
         return this.region;
     }
     /**
-     * @return A list of resource ARNs associated with the resource share.
+     * @return List of resource ARNs associated with the resource share.
      * 
      */
     public List<String> resourceArns() {

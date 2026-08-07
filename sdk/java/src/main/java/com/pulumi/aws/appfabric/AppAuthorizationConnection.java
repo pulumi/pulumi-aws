@@ -61,56 +61,60 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection")
 public class AppAuthorizationConnection extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the application.
+     * Name of the application.
      * 
      */
     @Export(name="app", refs={String.class}, tree="[0]")
     private Output<String> app;
 
     /**
-     * @return The name of the application.
+     * @return Name of the application.
      * 
      */
     public Output<String> app() {
         return this.app;
     }
     /**
-     * The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+     * Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      * 
      */
     @Export(name="appAuthorizationArn", refs={String.class}, tree="[0]")
     private Output<String> appAuthorizationArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+     * @return Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      * 
      */
     public Output<String> appAuthorizationArn() {
         return this.appAuthorizationArn;
     }
     /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="appBundleArn", refs={String.class}, tree="[0]")
     private Output<String> appBundleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> appBundleArn() {
         return this.appBundleArn;
     }
     /**
-     * Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+     * OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `authRequest` Block for details.
      * 
      */
     @Export(name="authRequest", refs={AppAuthorizationConnectionAuthRequest.class}, tree="[0]")
     private Output</* @Nullable */ AppAuthorizationConnectionAuthRequest> authRequest;
 
     /**
-     * @return Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+     * @return OAuth2 authorization information. Required if the app authorization for the request is configured with an OAuth2 (`oauth2`) authorization type. See `authRequest` Block for details.
      * 
      */
     public Output<Optional<AppAuthorizationConnectionAuthRequest>> authRequest() {

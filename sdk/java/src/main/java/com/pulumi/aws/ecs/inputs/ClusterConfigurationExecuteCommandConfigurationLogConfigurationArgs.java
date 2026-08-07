@@ -32,14 +32,14 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
     }
 
     /**
-     * The name of the CloudWatch log group to send logs to.
+     * Name of the CloudWatch log group to send logs to.
      * 
      */
     @Import(name="cloudWatchLogGroupName")
     private @Nullable Output<String> cloudWatchLogGroupName;
 
     /**
-     * @return The name of the CloudWatch log group to send logs to.
+     * @return Name of the CloudWatch log group to send logs to.
      * 
      */
     public Optional<Output<String>> cloudWatchLogGroupName() {
@@ -141,7 +141,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
         }
 
         /**
-         * @param cloudWatchLogGroupName The name of the CloudWatch log group to send logs to.
+         * @param cloudWatchLogGroupName Name of the CloudWatch log group to send logs to.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
         }
 
         /**
-         * @param cloudWatchLogGroupName The name of the CloudWatch log group to send logs to.
+         * @param cloudWatchLogGroupName Name of the CloudWatch log group to send logs to.
          * 
          * @return builder
          * 

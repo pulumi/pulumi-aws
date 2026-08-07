@@ -35,8 +35,6 @@ namespace Pulumi.Aws.Ecs.Inputs
 
         /// <summary>
         /// Subnets associated with the task or service.
-        /// 
-        /// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         /// </summary>
         public InputList<string> Subnets
         {

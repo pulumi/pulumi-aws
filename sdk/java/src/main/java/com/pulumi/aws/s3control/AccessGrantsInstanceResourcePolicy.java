@@ -83,28 +83,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy")
 public class AccessGrantsInstanceResourcePolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * @return AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * The policy document.
+     * Policy document.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return The policy document.
+     * @return Policy document.
      * 
      */
     public Output<String> policy() {

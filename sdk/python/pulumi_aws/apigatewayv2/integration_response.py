@@ -35,7 +35,7 @@ class IntegrationResponseArgs:
         :param pulumi.Input[_builtins.str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-        :param pulumi.Input[_builtins.str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        :param pulumi.Input[_builtins.str] template_selection_expression: [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "integration_id", integration_id)
@@ -125,7 +125,7 @@ class IntegrationResponseArgs:
     @pulumi.getter(name="templateSelectionExpression")
     def template_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
         return pulumi.get(self, "template_selection_expression")
 
@@ -153,7 +153,7 @@ class _IntegrationResponseState:
         :param pulumi.Input[_builtins.str] integration_response_key: Integration response key.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-        :param pulumi.Input[_builtins.str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        :param pulumi.Input[_builtins.str] template_selection_expression: [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -246,7 +246,7 @@ class _IntegrationResponseState:
     @pulumi.getter(name="templateSelectionExpression")
     def template_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
         return pulumi.get(self, "template_selection_expression")
 
@@ -304,7 +304,7 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] integration_response_key: Integration response key.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-        :param pulumi.Input[_builtins.str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        :param pulumi.Input[_builtins.str] template_selection_expression: [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
         ...
     @overload
@@ -413,7 +413,7 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] integration_response_key: Integration response key.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-        :param pulumi.Input[_builtins.str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        :param pulumi.Input[_builtins.str] template_selection_expression: [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -480,7 +480,7 @@ class IntegrationResponse(pulumi.CustomResource):
     @pulumi.getter(name="templateSelectionExpression")
     def template_selection_expression(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+        [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
         return pulumi.get(self, "template_selection_expression")
 

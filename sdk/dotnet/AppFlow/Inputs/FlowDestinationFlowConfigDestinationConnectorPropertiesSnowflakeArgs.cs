@@ -15,9 +15,15 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
+        /// <summary>
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+        /// </summary>
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs>? ErrorHandlingConfig { get; set; }
 
+        /// <summary>
+        /// Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+        /// </summary>
         [Input("intermediateBucketName", required: true)]
         public Input<string> IntermediateBucketName { get; set; } = null!;
 

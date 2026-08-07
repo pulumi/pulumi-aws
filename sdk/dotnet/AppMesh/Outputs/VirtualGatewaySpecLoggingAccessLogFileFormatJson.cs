@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualGatewaySpecLoggingAccessLogFileFormatJson
     {
         /// <summary>
-        /// The specified key for the JSON. Must be between 1 and 100 characters in length.
+        /// Specified key for the JSON. Must be between 1 and 100 characters in length.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The specified value for the JSON. Must be between 1 and 100 characters in length.
+        /// Specified value for the JSON. Must be between 1 and 100 characters in length.
         /// </summary>
         public readonly string Value;
 

@@ -14,8 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSecretVersionResult {
     /**
-     * @return (**Deprecated**) The ARN of the secret.
-     * Use `secretArn` instead.
+     * @return (**Deprecated**) ARN of the secret. Use `secretArn` instead.
      * 
      * @deprecated
      * arn is deprecated. Use secretArn instead.
@@ -35,7 +34,7 @@ public final class GetSecretVersionResult {
     private String id;
     private String region;
     /**
-     * @return The ARN of the secret.
+     * @return ARN of the secret.
      * 
      */
     private String secretArn;
@@ -56,12 +55,15 @@ public final class GetSecretVersionResult {
      */
     private String versionId;
     private @Nullable String versionStage;
+    /**
+     * @return List of staging labels attached to this version of the secret.
+     * 
+     */
     private List<String> versionStages;
 
     private GetSecretVersionResult() {}
     /**
-     * @return (**Deprecated**) The ARN of the secret.
-     * Use `secretArn` instead.
+     * @return (**Deprecated**) ARN of the secret. Use `secretArn` instead.
      * 
      * @deprecated
      * arn is deprecated. Use secretArn instead.
@@ -89,7 +91,7 @@ public final class GetSecretVersionResult {
         return this.region;
     }
     /**
-     * @return The ARN of the secret.
+     * @return ARN of the secret.
      * 
      */
     public String secretArn() {
@@ -122,6 +124,10 @@ public final class GetSecretVersionResult {
     public Optional<String> versionStage() {
         return Optional.ofNullable(this.versionStage);
     }
+    /**
+     * @return List of staging labels attached to this version of the secret.
+     * 
+     */
     public List<String> versionStages() {
         return this.versionStages;
     }

@@ -10,6 +10,11 @@ export type ResiliencyPolicy = import("./resiliencyPolicy").ResiliencyPolicy;
 export const ResiliencyPolicy: typeof import("./resiliencyPolicy").ResiliencyPolicy = null as any;
 utilities.lazyLoad(exports, ["ResiliencyPolicy"], () => require("./resiliencyPolicy"));
 
+export { V2PolicyArgs, V2PolicyState } from "./v2policy";
+export type V2Policy = import("./v2policy").V2Policy;
+export const V2Policy: typeof import("./v2policy").V2Policy = null as any;
+utilities.lazyLoad(exports, ["V2Policy"], () => require("./v2policy"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy":
                 return new ResiliencyPolicy(name, <any>undefined, { urn })
+            case "aws:resiliencehub/v2Policy:V2Policy":
+                return new V2Policy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "resiliencehub/resiliencyPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "resiliencehub/v2Policy", _module)

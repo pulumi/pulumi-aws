@@ -120,15 +120,15 @@ type BucketIntelligentTieringConfiguration struct {
 
 	// Name of the bucket this intelligent tiering configuration is associated with.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+	// Bucket filter. The configuration only includes objects that meet the filter's criteria. See `filter` Block below.
 	Filter BucketIntelligentTieringConfigurationFilterPtrOutput `pulumi:"filter"`
 	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+	// Status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+	// S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
 	Tierings BucketIntelligentTieringConfigurationTieringArrayOutput `pulumi:"tierings"`
 }
 
@@ -170,30 +170,30 @@ func GetBucketIntelligentTieringConfiguration(ctx *pulumi.Context,
 type bucketIntelligentTieringConfigurationState struct {
 	// Name of the bucket this intelligent tiering configuration is associated with.
 	Bucket *string `pulumi:"bucket"`
-	// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+	// Bucket filter. The configuration only includes objects that meet the filter's criteria. See `filter` Block below.
 	Filter *BucketIntelligentTieringConfigurationFilter `pulumi:"filter"`
 	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+	// Status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status *string `pulumi:"status"`
-	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+	// S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
 	Tierings []BucketIntelligentTieringConfigurationTiering `pulumi:"tierings"`
 }
 
 type BucketIntelligentTieringConfigurationState struct {
 	// Name of the bucket this intelligent tiering configuration is associated with.
 	Bucket pulumi.StringPtrInput
-	// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+	// Bucket filter. The configuration only includes objects that meet the filter's criteria. See `filter` Block below.
 	Filter BucketIntelligentTieringConfigurationFilterPtrInput
 	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+	// Status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status pulumi.StringPtrInput
-	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+	// S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
 	Tierings BucketIntelligentTieringConfigurationTieringArrayInput
 }
 
@@ -204,15 +204,15 @@ func (BucketIntelligentTieringConfigurationState) ElementType() reflect.Type {
 type bucketIntelligentTieringConfigurationArgs struct {
 	// Name of the bucket this intelligent tiering configuration is associated with.
 	Bucket string `pulumi:"bucket"`
-	// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+	// Bucket filter. The configuration only includes objects that meet the filter's criteria. See `filter` Block below.
 	Filter *BucketIntelligentTieringConfigurationFilter `pulumi:"filter"`
 	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+	// Status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status *string `pulumi:"status"`
-	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+	// S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
 	Tierings []BucketIntelligentTieringConfigurationTiering `pulumi:"tierings"`
 }
 
@@ -220,15 +220,15 @@ type bucketIntelligentTieringConfigurationArgs struct {
 type BucketIntelligentTieringConfigurationArgs struct {
 	// Name of the bucket this intelligent tiering configuration is associated with.
 	Bucket pulumi.StringInput
-	// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+	// Bucket filter. The configuration only includes objects that meet the filter's criteria. See `filter` Block below.
 	Filter BucketIntelligentTieringConfigurationFilterPtrInput
 	// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+	// Status of the configuration. Valid values: `Enabled`, `Disabled`.
 	Status pulumi.StringPtrInput
-	// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+	// S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
 	Tierings BucketIntelligentTieringConfigurationTieringArrayInput
 }
 
@@ -324,7 +324,7 @@ func (o BucketIntelligentTieringConfigurationOutput) Bucket() pulumi.StringOutpu
 	return o.ApplyT(func(v *BucketIntelligentTieringConfiguration) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
+// Bucket filter. The configuration only includes objects that meet the filter's criteria. See `filter` Block below.
 func (o BucketIntelligentTieringConfigurationOutput) Filter() BucketIntelligentTieringConfigurationFilterPtrOutput {
 	return o.ApplyT(func(v *BucketIntelligentTieringConfiguration) BucketIntelligentTieringConfigurationFilterPtrOutput {
 		return v.Filter
@@ -341,12 +341,12 @@ func (o BucketIntelligentTieringConfigurationOutput) Region() pulumi.StringOutpu
 	return o.ApplyT(func(v *BucketIntelligentTieringConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
+// Status of the configuration. Valid values: `Enabled`, `Disabled`.
 func (o BucketIntelligentTieringConfigurationOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketIntelligentTieringConfiguration) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
+// S3 Intelligent-Tiering storage class tiers of the configuration. See `tiering` Block below.
 func (o BucketIntelligentTieringConfigurationOutput) Tierings() BucketIntelligentTieringConfigurationTieringArrayOutput {
 	return o.ApplyT(func(v *BucketIntelligentTieringConfiguration) BucketIntelligentTieringConfigurationTieringArrayOutput {
 		return v.Tierings

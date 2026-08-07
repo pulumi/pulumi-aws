@@ -70,16 +70,15 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly accessGrantsLocationId: pulumi.Output<string>;
     /**
-     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-     * requests to the location.
+     * ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
      */
     declare public readonly iamRoleArn: pulumi.Output<string>;
     /**
-     * The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+     * Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
      */
     declare public readonly locationScope: pulumi.Output<string>;
     /**
@@ -91,7 +90,7 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -151,16 +150,15 @@ export interface AccessGrantsLocationState {
      */
     accessGrantsLocationId?: pulumi.Input<string | undefined>;
     /**
-     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-     * requests to the location.
+     * ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
      */
     iamRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+     * Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
      */
     locationScope?: pulumi.Input<string | undefined>;
     /**
@@ -172,7 +170,7 @@ export interface AccessGrantsLocationState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -182,16 +180,15 @@ export interface AccessGrantsLocationState {
  */
 export interface AccessGrantsLocationArgs {
     /**
-     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-     * requests to the location.
+     * ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
      */
     iamRoleArn: pulumi.Input<string>;
     /**
-     * The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+     * Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
      */
     locationScope: pulumi.Input<string>;
     /**

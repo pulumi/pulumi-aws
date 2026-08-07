@@ -18,14 +18,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs();
 
     /**
-     * The OAuth 2.0 properties required for OAuth 2.0 authentication.
+     * OAuth 2.0 properties required for OAuth 2.0 authentication. See `connector_profile_config.connector_profile_properties.custom_connector.oauth2_properties` Block for details.
      * 
      */
     @Import(name="oauth2Properties")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs> oauth2Properties;
 
     /**
-     * @return The OAuth 2.0 properties required for OAuth 2.0 authentication.
+     * @return OAuth 2.0 properties required for OAuth 2.0 authentication. See `connector_profile_config.connector_profile_properties.custom_connector.oauth2_properties` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs>> oauth2Properties() {
@@ -33,14 +33,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * A map of properties that are required to create a profile for the custom connector.
+     * Map of properties that are required to create a profile for the custom connector.
      * 
      */
     @Import(name="profileProperties")
     private @Nullable Output<Map<String,String>> profileProperties;
 
     /**
-     * @return A map of properties that are required to create a profile for the custom connector.
+     * @return Map of properties that are required to create a profile for the custom connector.
      * 
      */
     public Optional<Output<Map<String,String>>> profileProperties() {
@@ -73,7 +73,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param oauth2Properties The OAuth 2.0 properties required for OAuth 2.0 authentication.
+         * @param oauth2Properties OAuth 2.0 properties required for OAuth 2.0 authentication. See `connector_profile_config.connector_profile_properties.custom_connector.oauth2_properties` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param oauth2Properties The OAuth 2.0 properties required for OAuth 2.0 authentication.
+         * @param oauth2Properties OAuth 2.0 properties required for OAuth 2.0 authentication. See `connector_profile_config.connector_profile_properties.custom_connector.oauth2_properties` Block for details.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param profileProperties A map of properties that are required to create a profile for the custom connector.
+         * @param profileProperties Map of properties that are required to create a profile for the custom connector.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param profileProperties A map of properties that are required to create a profile for the custom connector.
+         * @param profileProperties Map of properties that are required to create a profile for the custom connector.
          * 
          * @return builder
          * 

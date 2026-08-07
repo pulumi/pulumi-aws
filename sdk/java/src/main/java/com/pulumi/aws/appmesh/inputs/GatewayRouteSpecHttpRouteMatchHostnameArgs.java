@@ -16,14 +16,14 @@ public final class GatewayRouteSpecHttpRouteMatchHostnameArgs extends com.pulumi
     public static final GatewayRouteSpecHttpRouteMatchHostnameArgs Empty = new GatewayRouteSpecHttpRouteMatchHostnameArgs();
 
     /**
-     * Exact host name to match on.
+     * Exact query parameter to match on.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return Exact host name to match on.
+     * @return Exact query parameter to match on.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -71,7 +71,7 @@ public final class GatewayRouteSpecHttpRouteMatchHostnameArgs extends com.pulumi
         }
 
         /**
-         * @param exact Exact host name to match on.
+         * @param exact Exact query parameter to match on.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GatewayRouteSpecHttpRouteMatchHostnameArgs extends com.pulumi
         }
 
         /**
-         * @param exact Exact host name to match on.
+         * @param exact Exact query parameter to match on.
          * 
          * @return builder
          * 

@@ -20,16 +20,12 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * ABAC status configuration. See `abacStatus` Block for details.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="abacStatus", required=true)
     private Output<BucketAbacAbacStatusArgs> abacStatus;
 
     /**
      * @return ABAC status configuration. See `abacStatus` Block for details.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<BucketAbacAbacStatusArgs> abacStatus() {
@@ -39,12 +35,16 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * General purpose bucket that you want to create the metadata configuration for.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
      * @return General purpose bucket that you want to create the metadata configuration for.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> bucket() {
@@ -119,8 +119,6 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param abacStatus ABAC status configuration. See `abacStatus` Block for details.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -132,8 +130,6 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param abacStatus ABAC status configuration. See `abacStatus` Block for details.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -143,6 +139,8 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param bucket General purpose bucket that you want to create the metadata configuration for.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -154,6 +152,8 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param bucket General purpose bucket that you want to create the metadata configuration for.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

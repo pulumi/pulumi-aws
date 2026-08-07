@@ -17,14 +17,14 @@ public final class VirtualNodeSpecListenerTimeoutHttpArgs extends com.pulumi.res
     public static final VirtualNodeSpecListenerTimeoutHttpArgs Empty = new VirtualNodeSpecListenerTimeoutHttpArgs();
 
     /**
-     * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `idle` Block for details.
+     * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.listener.timeout.tcp.idle` Block for details.
      * 
      */
     @Import(name="idle")
     private @Nullable Output<VirtualNodeSpecListenerTimeoutHttpIdleArgs> idle;
 
     /**
-     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `idle` Block for details.
+     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.listener.timeout.tcp.idle` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTimeoutHttpIdleArgs>> idle() {
@@ -32,14 +32,14 @@ public final class VirtualNodeSpecListenerTimeoutHttpArgs extends com.pulumi.res
     }
 
     /**
-     * Per request timeout. See `perRequest` Block for details.
+     * Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
      * 
      */
     @Import(name="perRequest")
     private @Nullable Output<VirtualNodeSpecListenerTimeoutHttpPerRequestArgs> perRequest;
 
     /**
-     * @return Per request timeout. See `perRequest` Block for details.
+     * @return Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTimeoutHttpPerRequestArgs>> perRequest() {
@@ -72,7 +72,7 @@ public final class VirtualNodeSpecListenerTimeoutHttpArgs extends com.pulumi.res
         }
 
         /**
-         * @param idle Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `idle` Block for details.
+         * @param idle Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.listener.timeout.tcp.idle` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class VirtualNodeSpecListenerTimeoutHttpArgs extends com.pulumi.res
         }
 
         /**
-         * @param idle Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `idle` Block for details.
+         * @param idle Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.listener.timeout.tcp.idle` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class VirtualNodeSpecListenerTimeoutHttpArgs extends com.pulumi.res
         }
 
         /**
-         * @param perRequest Per request timeout. See `perRequest` Block for details.
+         * @param perRequest Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class VirtualNodeSpecListenerTimeoutHttpArgs extends com.pulumi.res
         }
 
         /**
-         * @param perRequest Per request timeout. See `perRequest` Block for details.
+         * @param perRequest Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
          * 
          * @return builder
          * 

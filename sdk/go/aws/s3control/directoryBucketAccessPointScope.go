@@ -93,9 +93,9 @@ import (
 type DirectoryBucketAccessPointScope struct {
 	pulumi.CustomResourceState
 
-	// The AWS account ID that owns the specified access point.
+	// AWS account ID that owns the specified access point.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The name of the access point that you want to apply the scope to.
+	// Name of the access point that you want to apply the scope to.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -139,9 +139,9 @@ func GetDirectoryBucketAccessPointScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DirectoryBucketAccessPointScope resources.
 type directoryBucketAccessPointScopeState struct {
-	// The AWS account ID that owns the specified access point.
+	// AWS account ID that owns the specified access point.
 	AccountId *string `pulumi:"accountId"`
-	// The name of the access point that you want to apply the scope to.
+	// Name of the access point that you want to apply the scope to.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -150,9 +150,9 @@ type directoryBucketAccessPointScopeState struct {
 }
 
 type DirectoryBucketAccessPointScopeState struct {
-	// The AWS account ID that owns the specified access point.
+	// AWS account ID that owns the specified access point.
 	AccountId pulumi.StringPtrInput
-	// The name of the access point that you want to apply the scope to.
+	// Name of the access point that you want to apply the scope to.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -165,9 +165,9 @@ func (DirectoryBucketAccessPointScopeState) ElementType() reflect.Type {
 }
 
 type directoryBucketAccessPointScopeArgs struct {
-	// The AWS account ID that owns the specified access point.
+	// AWS account ID that owns the specified access point.
 	AccountId string `pulumi:"accountId"`
-	// The name of the access point that you want to apply the scope to.
+	// Name of the access point that you want to apply the scope to.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -177,9 +177,9 @@ type directoryBucketAccessPointScopeArgs struct {
 
 // The set of arguments for constructing a DirectoryBucketAccessPointScope resource.
 type DirectoryBucketAccessPointScopeArgs struct {
-	// The AWS account ID that owns the specified access point.
+	// AWS account ID that owns the specified access point.
 	AccountId pulumi.StringInput
-	// The name of the access point that you want to apply the scope to.
+	// Name of the access point that you want to apply the scope to.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -274,12 +274,12 @@ func (o DirectoryBucketAccessPointScopeOutput) ToDirectoryBucketAccessPointScope
 	return o
 }
 
-// The AWS account ID that owns the specified access point.
+// AWS account ID that owns the specified access point.
 func (o DirectoryBucketAccessPointScopeOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucketAccessPointScope) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The name of the access point that you want to apply the scope to.
+// Name of the access point that you want to apply the scope to.
 func (o DirectoryBucketAccessPointScopeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucketAccessPointScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

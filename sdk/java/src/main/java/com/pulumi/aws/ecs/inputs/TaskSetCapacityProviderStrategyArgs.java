@@ -18,14 +18,14 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
     public static final TaskSetCapacityProviderStrategyArgs Empty = new TaskSetCapacityProviderStrategyArgs();
 
     /**
-     * The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+     * Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
      * 
      */
     @Import(name="base")
     private @Nullable Output<Integer> base;
 
     /**
-     * @return The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+     * @return Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
      * 
      */
     public Optional<Output<Integer>> base() {
@@ -33,14 +33,14 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
     }
 
     /**
-     * The short name or full Amazon Resource Name (ARN) of the capacity provider.
+     * Short name or full Amazon Resource Name (ARN) of the capacity provider.
      * 
      */
     @Import(name="capacityProvider", required=true)
     private Output<String> capacityProvider;
 
     /**
-     * @return The short name or full Amazon Resource Name (ARN) of the capacity provider.
+     * @return Short name or full Amazon Resource Name (ARN) of the capacity provider.
      * 
      */
     public Output<String> capacityProvider() {
@@ -48,14 +48,14 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
     }
 
     /**
-     * The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+     * Relative percentage of the total number of launched tasks that should use the specified capacity provider.
      * 
      */
     @Import(name="weight", required=true)
     private Output<Integer> weight;
 
     /**
-     * @return The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+     * @return Relative percentage of the total number of launched tasks that should use the specified capacity provider.
      * 
      */
     public Output<Integer> weight() {
@@ -89,7 +89,7 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param base The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+         * @param base Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param base The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+         * @param base Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param capacityProvider The short name or full Amazon Resource Name (ARN) of the capacity provider.
+         * @param capacityProvider Short name or full Amazon Resource Name (ARN) of the capacity provider.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param capacityProvider The short name or full Amazon Resource Name (ARN) of the capacity provider.
+         * @param capacityProvider Short name or full Amazon Resource Name (ARN) of the capacity provider.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param weight The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+         * @param weight Relative percentage of the total number of launched tasks that should use the specified capacity provider.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param weight The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+         * @param weight Relative percentage of the total number of launched tasks that should use the specified capacity provider.
          * 
          * @return builder
          * 

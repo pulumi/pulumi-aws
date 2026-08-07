@@ -96,7 +96,7 @@ export class RoutingRule extends pulumi.CustomResource {
      */
     declare public readonly domainName: pulumi.Output<string>;
     /**
-     * The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+     * Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
      */
     declare public readonly priority: pulumi.Output<number>;
     /**
@@ -178,7 +178,7 @@ export interface RoutingRuleState {
      */
     domainName?: pulumi.Input<string | undefined>;
     /**
-     * The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+     * Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
      */
     priority?: pulumi.Input<number | undefined>;
     /**
@@ -214,7 +214,7 @@ export interface RoutingRuleArgs {
      */
     domainName: pulumi.Input<string>;
     /**
-     * The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+     * Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
      */
     priority: pulumi.Input<number>;
     /**

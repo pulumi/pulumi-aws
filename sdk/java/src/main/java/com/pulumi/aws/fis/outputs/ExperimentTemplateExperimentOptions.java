@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ExperimentTemplateExperimentOptions {
     /**
-     * @return Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+     * @return Account targeting setting for experiment options. Supports `single-account` and `multi-account`.
      * 
      */
     private @Nullable String accountTargeting;
     /**
-     * @return Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+     * @return Empty target resolution mode for experiment options. Supports `fail` and `skip`.
      * 
      */
     private @Nullable String emptyTargetResolutionMode;
 
     private ExperimentTemplateExperimentOptions() {}
     /**
-     * @return Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+     * @return Account targeting setting for experiment options. Supports `single-account` and `multi-account`.
      * 
      */
     public Optional<String> accountTargeting() {
         return Optional.ofNullable(this.accountTargeting);
     }
     /**
-     * @return Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+     * @return Empty target resolution mode for experiment options. Supports `fail` and `skip`.
      * 
      */
     public Optional<String> emptyTargetResolutionMode() {

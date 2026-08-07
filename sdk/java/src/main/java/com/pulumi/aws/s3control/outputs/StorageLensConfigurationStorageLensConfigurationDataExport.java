@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationDataExport {
     /**
-     * @return Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+     * @return Amazon CloudWatch publishing for S3 Storage Lens metrics. See `cloudWatchMetrics` below for more details.
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics cloudWatchMetrics;
     /**
-     * @return The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+     * @return Bucket where the S3 Storage Lens metrics export will be located. See `s3BucketDestination` below for more details.
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination s3BucketDestination;
     /**
-     * @return S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+     * @return S3 table bucket where the S3 Storage Lens metrics export will be located. See `storageLensTableDestination` below for more details.
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestination storageLensTableDestination;
 
     private StorageLensConfigurationStorageLensConfigurationDataExport() {}
     /**
-     * @return Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+     * @return Amazon CloudWatch publishing for S3 Storage Lens metrics. See `cloudWatchMetrics` below for more details.
      * 
      */
     public Optional<StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics> cloudWatchMetrics() {
         return Optional.ofNullable(this.cloudWatchMetrics);
     }
     /**
-     * @return The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+     * @return Bucket where the S3 Storage Lens metrics export will be located. See `s3BucketDestination` below for more details.
      * 
      */
     public Optional<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination> s3BucketDestination() {
         return Optional.ofNullable(this.s3BucketDestination);
     }
     /**
-     * @return S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+     * @return S3 table bucket where the S3 Storage Lens metrics export will be located. See `storageLensTableDestination` below for more details.
      * 
      */
     public Optional<StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestination> storageLensTableDestination() {

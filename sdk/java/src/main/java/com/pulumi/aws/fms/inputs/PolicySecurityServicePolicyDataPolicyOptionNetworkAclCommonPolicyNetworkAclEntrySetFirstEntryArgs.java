@@ -21,14 +21,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     public static final PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs Empty = new PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs();
 
     /**
-     * A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+     * IPv4 network range to allow or deny, in CIDR notation.
      * 
      */
     @Import(name="cidrBlock")
     private @Nullable Output<String> cidrBlock;
 
     /**
-     * @return A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+     * @return IPv4 network range to allow or deny, in CIDR notation.
      * 
      */
     public Optional<Output<String>> cidrBlock() {
@@ -36,14 +36,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     }
 
     /**
-     * A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+     * Whether Firewall Manager creates an egress rule. If `false`, Firewall Manager creates an ingress rule.
      * 
      */
     @Import(name="egress", required=true)
     private Output<Boolean> egress;
 
     /**
-     * @return A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+     * @return Whether Firewall Manager creates an egress rule. If `false`, Firewall Manager creates an ingress rule.
      * 
      */
     public Output<Boolean> egress() {
@@ -51,14 +51,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     }
 
     /**
-     * A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+     * ICMP protocol configuration specifying the ICMP type and code. See the `icmpTypeCode` block.
      * 
      */
     @Import(name="icmpTypeCodes")
     private @Nullable Output<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs>> icmpTypeCodes;
 
     /**
-     * @return A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+     * @return ICMP protocol configuration specifying the ICMP type and code. See the `icmpTypeCode` block.
      * 
      */
     public Optional<Output<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs>>> icmpTypeCodes() {
@@ -66,14 +66,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     }
 
     /**
-     * A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+     * IPv6 network range to allow or deny, in CIDR notation.
      * 
      */
     @Import(name="ipv6CidrBlock")
     private @Nullable Output<String> ipv6CidrBlock;
 
     /**
-     * @return A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+     * @return IPv6 network range to allow or deny, in CIDR notation.
      * 
      */
     public Optional<Output<String>> ipv6CidrBlock() {
@@ -81,14 +81,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     }
 
     /**
-     * A configuration block for PortRange. See the `portRange` block.
+     * Port range configuration for the rule. See the `portRange` block.
      * 
      */
     @Import(name="portRanges")
     private @Nullable Output<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs>> portRanges;
 
     /**
-     * @return A configuration block for PortRange. See the `portRange` block.
+     * @return Port range configuration for the rule. See the `portRange` block.
      * 
      */
     public Optional<Output<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs>>> portRanges() {
@@ -96,14 +96,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     }
 
     /**
-     * The protocol number. A value of &#34;-1&#34; means all protocols.
+     * Protocol number. A value of `-1` means all protocols.
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return The protocol number. A value of &#34;-1&#34; means all protocols.
+     * @return Protocol number. A value of `-1` means all protocols.
      * 
      */
     public Output<String> protocol() {
@@ -111,14 +111,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     }
 
     /**
-     * A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+     * Whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
      * 
      */
     @Import(name="ruleAction", required=true)
     private Output<String> ruleAction;
 
     /**
-     * @return A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+     * @return Whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
      * 
      */
     public Output<String> ruleAction() {
@@ -156,7 +156,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param cidrBlock A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+         * @param cidrBlock IPv4 network range to allow or deny, in CIDR notation.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param cidrBlock A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+         * @param cidrBlock IPv4 network range to allow or deny, in CIDR notation.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param egress A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+         * @param egress Whether Firewall Manager creates an egress rule. If `false`, Firewall Manager creates an ingress rule.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param egress A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+         * @param egress Whether Firewall Manager creates an egress rule. If `false`, Firewall Manager creates an ingress rule.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param icmpTypeCodes A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+         * @param icmpTypeCodes ICMP protocol configuration specifying the ICMP type and code. See the `icmpTypeCode` block.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param icmpTypeCodes A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+         * @param icmpTypeCodes ICMP protocol configuration specifying the ICMP type and code. See the `icmpTypeCode` block.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param icmpTypeCodes A configuration block for ICMP protocol: The ICMP type and code. See the `icmpTypeCode` block.
+         * @param icmpTypeCodes ICMP protocol configuration specifying the ICMP type and code. See the `icmpTypeCode` block.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param ipv6CidrBlock A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+         * @param ipv6CidrBlock IPv6 network range to allow or deny, in CIDR notation.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param ipv6CidrBlock A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+         * @param ipv6CidrBlock IPv6 network range to allow or deny, in CIDR notation.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param portRanges A configuration block for PortRange. See the `portRange` block.
+         * @param portRanges Port range configuration for the rule. See the `portRange` block.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param portRanges A configuration block for PortRange. See the `portRange` block.
+         * @param portRanges Port range configuration for the rule. See the `portRange` block.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param portRanges A configuration block for PortRange. See the `portRange` block.
+         * @param portRanges Port range configuration for the rule. See the `portRange` block.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param protocol The protocol number. A value of &#34;-1&#34; means all protocols.
+         * @param protocol Protocol number. A value of `-1` means all protocols.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param protocol The protocol number. A value of &#34;-1&#34; means all protocols.
+         * @param protocol Protocol number. A value of `-1` means all protocols.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param ruleAction A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+         * @param ruleAction Whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param ruleAction A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+         * @param ruleAction Whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
          * 
          * @return builder
          * 

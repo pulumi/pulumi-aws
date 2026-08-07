@@ -156,6 +156,10 @@ export class Connection extends pulumi.CustomResource {
      */
     declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
     /**
+     * State of the connection. See [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html#API_CreateConnection_ResponseSyntax) for list of possible state values.
+     */
+    declare public /*out*/ readonly state: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -197,6 +201,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
             resourceInputs["requestMacsec"] = state?.requestMacsec;
             resourceInputs["skipDestroy"] = state?.skipDestroy;
+            resourceInputs["state"] = state?.state;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["vlanId"] = state?.vlanId;
@@ -225,6 +230,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["ownerAccountId"] = undefined /*out*/;
             resourceInputs["partnerName"] = undefined /*out*/;
             resourceInputs["portEncryptionStatus"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["vlanId"] = undefined /*out*/;
         }
@@ -303,6 +309,10 @@ export interface ConnectionState {
      * Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
      */
     skipDestroy?: pulumi.Input<boolean | undefined>;
+    /**
+     * State of the connection. See [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html#API_CreateConnection_ResponseSyntax) for list of possible state values.
+     */
+    state?: pulumi.Input<string | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

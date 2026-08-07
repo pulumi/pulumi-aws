@@ -60,11 +60,11 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The target.
+     * Target to register with the target group. See `target` Block for details.
      */
     declare public readonly target: pulumi.Output<outputs.vpclattice.TargetGroupAttachmentTarget>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the target group.
+     * ID or Amazon Resource Name (ARN) of the target group.
      */
     declare public readonly targetGroupIdentifier: pulumi.Output<string>;
 
@@ -110,11 +110,11 @@ export interface TargetGroupAttachmentState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The target.
+     * Target to register with the target group. See `target` Block for details.
      */
     target?: pulumi.Input<inputs.vpclattice.TargetGroupAttachmentTarget | undefined>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the target group.
+     * ID or Amazon Resource Name (ARN) of the target group.
      */
     targetGroupIdentifier?: pulumi.Input<string | undefined>;
 }
@@ -128,11 +128,11 @@ export interface TargetGroupAttachmentArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The target.
+     * Target to register with the target group. See `target` Block for details.
      */
     target: pulumi.Input<inputs.vpclattice.TargetGroupAttachmentTarget>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the target group.
+     * ID or Amazon Resource Name (ARN) of the target group.
      */
     targetGroupIdentifier: pulumi.Input<string>;
 }

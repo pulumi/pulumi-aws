@@ -223,7 +223,7 @@ import (
 type Target struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the scalable target.
+	// ARN of the scalable target.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Max capacity of the scalable target.
 	MaxCapacity pulumi.IntOutput `pulumi:"maxCapacity"`
@@ -239,7 +239,7 @@ type Target struct {
 	ScalableDimension pulumi.StringOutput `pulumi:"scalableDimension"`
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace pulumi.StringOutput `pulumi:"serviceNamespace"`
-	// Specifies whether the scaling activities for a scalable target are in a suspended state.
+	// Whether the scaling activities for a scalable target are in a suspended state.
 	SuspendedState TargetSuspendedStateOutput `pulumi:"suspendedState"`
 	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -292,7 +292,7 @@ func GetTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Target resources.
 type targetState struct {
-	// The ARN of the scalable target.
+	// ARN of the scalable target.
 	Arn *string `pulumi:"arn"`
 	// Max capacity of the scalable target.
 	MaxCapacity *int `pulumi:"maxCapacity"`
@@ -308,7 +308,7 @@ type targetState struct {
 	ScalableDimension *string `pulumi:"scalableDimension"`
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace *string `pulumi:"serviceNamespace"`
-	// Specifies whether the scaling activities for a scalable target are in a suspended state.
+	// Whether the scaling activities for a scalable target are in a suspended state.
 	SuspendedState *TargetSuspendedState `pulumi:"suspendedState"`
 	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -317,7 +317,7 @@ type targetState struct {
 }
 
 type TargetState struct {
-	// The ARN of the scalable target.
+	// ARN of the scalable target.
 	Arn pulumi.StringPtrInput
 	// Max capacity of the scalable target.
 	MaxCapacity pulumi.IntPtrInput
@@ -333,7 +333,7 @@ type TargetState struct {
 	ScalableDimension pulumi.StringPtrInput
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace pulumi.StringPtrInput
-	// Specifies whether the scaling activities for a scalable target are in a suspended state.
+	// Whether the scaling activities for a scalable target are in a suspended state.
 	SuspendedState TargetSuspendedStatePtrInput
 	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -360,7 +360,7 @@ type targetArgs struct {
 	ScalableDimension string `pulumi:"scalableDimension"`
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace string `pulumi:"serviceNamespace"`
-	// Specifies whether the scaling activities for a scalable target are in a suspended state.
+	// Whether the scaling activities for a scalable target are in a suspended state.
 	SuspendedState *TargetSuspendedState `pulumi:"suspendedState"`
 	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -382,7 +382,7 @@ type TargetArgs struct {
 	ScalableDimension pulumi.StringInput
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace pulumi.StringInput
-	// Specifies whether the scaling activities for a scalable target are in a suspended state.
+	// Whether the scaling activities for a scalable target are in a suspended state.
 	SuspendedState TargetSuspendedStatePtrInput
 	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -475,7 +475,7 @@ func (o TargetOutput) ToTargetOutputWithContext(ctx context.Context) TargetOutpu
 	return o
 }
 
-// The ARN of the scalable target.
+// ARN of the scalable target.
 func (o TargetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Target) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -515,7 +515,7 @@ func (o TargetOutput) ServiceNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *Target) pulumi.StringOutput { return v.ServiceNamespace }).(pulumi.StringOutput)
 }
 
-// Specifies whether the scaling activities for a scalable target are in a suspended state.
+// Whether the scaling activities for a scalable target are in a suspended state.
 func (o TargetOutput) SuspendedState() TargetSuspendedStateOutput {
 	return o.ApplyT(func(v *Target) TargetSuspendedStateOutput { return v.SuspendedState }).(TargetSuspendedStateOutput)
 }

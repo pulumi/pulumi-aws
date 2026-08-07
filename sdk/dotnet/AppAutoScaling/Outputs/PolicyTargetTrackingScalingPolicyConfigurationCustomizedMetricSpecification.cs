@@ -14,28 +14,19 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
     public sealed class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
     {
         /// <summary>
-        /// Dimensions of the metric.
+        /// Dimensions of the metric. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics.metric_stat.metric.dimensions` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> Dimensions;
-        /// <summary>
-        /// Name of the metric.
-        /// </summary>
         public readonly string? MetricName;
         /// <summary>
-        /// Metrics to include, as a metric data query.
+        /// Metrics to include, as a metric data query. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric> Metrics;
-        /// <summary>
-        /// Namespace of the metric.
-        /// </summary>
         public readonly string? Namespace;
         /// <summary>
-        /// Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+        /// Statistic of the metric. Valid values are `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
         /// </summary>
         public readonly string? Statistic;
-        /// <summary>
-        /// Unit of the metrics to return.
-        /// </summary>
         public readonly string? Unit;
 
         [OutputConstructor]

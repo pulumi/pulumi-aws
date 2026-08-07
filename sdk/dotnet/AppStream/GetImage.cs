@@ -124,7 +124,7 @@ namespace Pulumi.Aws.AppStream
         public string? Region { get; set; }
 
         /// <summary>
-        /// The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
+        /// Type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
         /// </summary>
         [Input("type")]
         public string? Type { get; set; }
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
+        /// Type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.AppStream
     public sealed class GetImageResult
     {
         /// <summary>
-        /// A application object that contains the following:
+        /// Application object that contains the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageApplicationResult> Applications;
         /// <summary>
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.AppStream
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
+        /// Name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
         /// </summary>
         public readonly string ImageBuilderName;
         /// <summary>

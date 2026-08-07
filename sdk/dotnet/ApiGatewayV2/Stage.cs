@@ -48,8 +48,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public partial class Stage : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Settings for logging access in this stage.
-        /// Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+        /// Settings for logging access in this stage. Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
         /// </summary>
         [Output("accessLogSettings")]
         public Output<Outputs.StageAccessLogSettings?> AccessLogSettings { get; private set; } = null!;
@@ -73,8 +72,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<bool?> AutoDeploy { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
-        /// Supported only for WebSocket APIs.
+        /// Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
         /// </summary>
         [Output("clientCertificateId")]
         public Output<string?> ClientCertificateId { get; private set; } = null!;
@@ -98,16 +96,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// ARN prefix to be used in an `aws.lambda.Permission`'s `SourceArn` attribute.
-        /// For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-        /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+        /// ARN prefix to be used in an `aws.lambda.Permission`'s `SourceArn` attribute. For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>
         [Output("executionArn")]
         public Output<string> ExecutionArn { get; private set; } = null!;
 
         /// <summary>
-        /// URL to invoke the API pointing to the stage,
-        /// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+        /// URL to invoke the API pointing to the stage, e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         /// </summary>
         [Output("invokeUrl")]
         public Output<string> InvokeUrl { get; private set; } = null!;
@@ -197,8 +192,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class StageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Settings for logging access in this stage.
-        /// Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+        /// Settings for logging access in this stage. Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
         /// </summary>
         [Input("accessLogSettings")]
         public Input<Inputs.StageAccessLogSettingsArgs>? AccessLogSettings { get; set; }
@@ -216,8 +210,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? AutoDeploy { get; set; }
 
         /// <summary>
-        /// Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
-        /// Supported only for WebSocket APIs.
+        /// Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
         /// </summary>
         [Input("clientCertificateId")]
         public Input<string>? ClientCertificateId { get; set; }
@@ -299,8 +292,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class StageState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Settings for logging access in this stage.
-        /// Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+        /// Settings for logging access in this stage. Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
         /// </summary>
         [Input("accessLogSettings")]
         public Input<Inputs.StageAccessLogSettingsGetArgs>? AccessLogSettings { get; set; }
@@ -324,8 +316,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? AutoDeploy { get; set; }
 
         /// <summary>
-        /// Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
-        /// Supported only for WebSocket APIs.
+        /// Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
         /// </summary>
         [Input("clientCertificateId")]
         public Input<string>? ClientCertificateId { get; set; }
@@ -349,16 +340,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// ARN prefix to be used in an `aws.lambda.Permission`'s `SourceArn` attribute.
-        /// For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-        /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+        /// ARN prefix to be used in an `aws.lambda.Permission`'s `SourceArn` attribute. For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>
         [Input("executionArn")]
         public Input<string>? ExecutionArn { get; set; }
 
         /// <summary>
-        /// URL to invoke the API pointing to the stage,
-        /// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+        /// URL to invoke the API pointing to the stage, e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         /// </summary>
         [Input("invokeUrl")]
         public Input<string>? InvokeUrl { get; set; }

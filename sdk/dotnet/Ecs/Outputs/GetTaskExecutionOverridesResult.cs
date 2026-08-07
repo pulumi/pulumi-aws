@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskExecutionOverridesContainerOverrideResult> ContainerOverrides;
         /// <summary>
-        /// The CPU override for the task.
+        /// CPU override for the task.
         /// </summary>
         public readonly string? Cpu;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? ExecutionRoleArn;
         /// <summary>
-        /// The memory override for the task.
+        /// Memory override for the task.
         /// </summary>
         public readonly string? Memory;
         /// <summary>

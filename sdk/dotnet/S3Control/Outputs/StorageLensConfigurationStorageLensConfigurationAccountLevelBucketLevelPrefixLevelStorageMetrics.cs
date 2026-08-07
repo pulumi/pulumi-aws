@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3Control.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Selection criteria. See Selection Criteria below for more details.
+        /// Selection criteria. See `SelectionCriteria` below for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria? SelectionCriteria;
 

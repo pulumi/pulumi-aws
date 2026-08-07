@@ -69,7 +69,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+        /// ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -82,6 +82,9 @@ namespace Pulumi.Aws.VpcLattice
         [Output("serviceNetworkLogType")]
         public Output<string> ServiceNetworkLogType { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -147,7 +150,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+        /// ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -162,6 +165,10 @@ namespace Pulumi.Aws.VpcLattice
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -201,7 +208,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? ResourceArn { get; set; }
 
         /// <summary>
-        /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+        /// ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -216,6 +223,10 @@ namespace Pulumi.Aws.VpcLattice
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

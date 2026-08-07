@@ -16,12 +16,12 @@ import javax.annotation.Nullable;
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
     private String objectPath;
     /**
-     * @return Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+     * @return Page size for each concurrent process that transfers OData records from your SAP instance. See the `source_flow_config.source_connector_properties.sapo_data.pagination_config` Block for details.
      * 
      */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig paginationConfig;
     /**
-     * @return Sets the number of concurrent processes that transfers OData records from your SAP instance.
+     * @return Number of concurrent processes that transfer OData records from your SAP instance. See the `source_flow_config.source_connector_properties.sapo_data.parallelism_config` Block for details.
      * 
      */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig parallelismConfig;
@@ -31,14 +31,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
         return this.objectPath;
     }
     /**
-     * @return Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+     * @return Page size for each concurrent process that transfers OData records from your SAP instance. See the `source_flow_config.source_connector_properties.sapo_data.pagination_config` Block for details.
      * 
      */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig> paginationConfig() {
         return Optional.ofNullable(this.paginationConfig);
     }
     /**
-     * @return Sets the number of concurrent processes that transfers OData records from your SAP instance.
+     * @return Number of concurrent processes that transfer OData records from your SAP instance. See the `source_flow_config.source_connector_properties.sapo_data.parallelism_config` Block for details.
      * 
      */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig> parallelismConfig() {

@@ -13,21 +13,24 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector
     {
+        /// <summary>
+        /// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey? ApiKey;
         /// <summary>
-        /// The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+        /// Authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
         /// </summary>
         public readonly string AuthenticationType;
         /// <summary>
-        /// Basic credentials that are required for the authentication of the user.
+        /// Basic credentials that are required for the authentication of the user. See `connector_profile_config.connector_profile_credentials.custom_connector.basic` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic? Basic;
         /// <summary>
-        /// If the connector uses the custom authentication mechanism, this holds the required credentials.
+        /// Credentials required when the connector uses the custom authentication mechanism. See `connector_profile_config.connector_profile_credentials.custom_connector.custom` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom? Custom;
         /// <summary>
-        /// OAuth 2.0 credentials required for the authentication of the user.
+        /// OAuth 2.0 credentials required for the authentication of the user. See `connector_profile_config.connector_profile_credentials.custom_connector.oauth2` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2? Oauth2;
 

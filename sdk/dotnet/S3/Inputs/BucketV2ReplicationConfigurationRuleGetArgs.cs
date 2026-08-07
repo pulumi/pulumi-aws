@@ -22,7 +22,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationGetArgs>? _destinations;
 
         /// <summary>
-        /// Specifies the destination for the rule (documented below).
+        /// Destination for the rule. See `Destination` Block below for details.
         /// </summary>
         public InputList<Inputs.BucketV2ReplicationConfigurationRuleDestinationGetArgs> Destinations
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2ReplicationConfigurationRuleFilterGetArgs>? _filters;
 
         /// <summary>
-        /// Filter that identifies subset of objects to which the replication rule applies (documented below).
+        /// Filter that identifies subset of objects to which the replication rule applies. See `Filter` Block below for details.
         /// </summary>
         public InputList<Inputs.BucketV2ReplicationConfigurationRuleFilterGetArgs> Filters
         {
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaGetArgs>? _sourceSelectionCriterias;
 
         /// <summary>
-        /// Specifies special object selection criteria (documented below).
+        /// Special object selection criteria. See `SourceSelectionCriteria` Block below for details.
         /// </summary>
         public InputList<Inputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaGetArgs> SourceSelectionCriterias
         {

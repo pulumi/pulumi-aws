@@ -29,7 +29,7 @@ class BucketMetricArgs:
         The set of arguments for constructing a BucketMetric resource.
 
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put metric configuration.
-        :param pulumi.Input['BucketMetricFilterArgs'] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        :param pulumi.Input['BucketMetricFilterArgs'] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
         :param pulumi.Input[_builtins.str] name: Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -57,7 +57,7 @@ class BucketMetricArgs:
     @pulumi.getter
     def filter(self) -> pulumi.Input[Optional['BucketMetricFilterArgs']]:
         """
-        [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
         """
         return pulumi.get(self, "filter")
 
@@ -101,7 +101,7 @@ class _BucketMetricState:
         Input properties used for looking up and filtering BucketMetric resources.
 
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put metric configuration.
-        :param pulumi.Input['BucketMetricFilterArgs'] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        :param pulumi.Input['BucketMetricFilterArgs'] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
         :param pulumi.Input[_builtins.str] name: Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -130,7 +130,7 @@ class _BucketMetricState:
     @pulumi.getter
     def filter(self) -> pulumi.Input[Optional['BucketMetricFilterArgs']]:
         """
-        [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
         """
         return pulumi.get(self, "filter")
 
@@ -268,7 +268,7 @@ class BucketMetric(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put metric configuration.
-        :param pulumi.Input[Union['BucketMetricFilterArgs', 'BucketMetricFilterArgsDict']] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        :param pulumi.Input[Union['BucketMetricFilterArgs', 'BucketMetricFilterArgsDict']] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
         :param pulumi.Input[_builtins.str] name: Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -425,7 +425,7 @@ class BucketMetric(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put metric configuration.
-        :param pulumi.Input[Union['BucketMetricFilterArgs', 'BucketMetricFilterArgsDict']] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        :param pulumi.Input[Union['BucketMetricFilterArgs', 'BucketMetricFilterArgsDict']] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
         :param pulumi.Input[_builtins.str] name: Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -451,7 +451,7 @@ class BucketMetric(pulumi.CustomResource):
     @pulumi.getter
     def filter(self) -> pulumi.Output[Optional['outputs.BucketMetricFilter']]:
         """
-        [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
         """
         return pulumi.get(self, "filter")
 

@@ -61,14 +61,15 @@ type AccessLogSubscription struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the service network or service.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+	// ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	//
 	// The following arguments are optional:
 	ResourceIdentifier pulumi.StringOutput `pulumi:"resourceIdentifier"`
 	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-	ServiceNetworkLogType pulumi.StringOutput    `pulumi:"serviceNetworkLogType"`
-	Tags                  pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll               pulumi.StringMapOutput `pulumi:"tagsAll"`
+	ServiceNetworkLogType pulumi.StringOutput `pulumi:"serviceNetworkLogType"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAccessLogSubscription registers a new resource with the given unique name, arguments, and options.
@@ -115,14 +116,15 @@ type accessLogSubscriptionState struct {
 	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the service network or service.
 	ResourceArn *string `pulumi:"resourceArn"`
-	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+	// ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	//
 	// The following arguments are optional:
 	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
 	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-	ServiceNetworkLogType *string           `pulumi:"serviceNetworkLogType"`
-	Tags                  map[string]string `pulumi:"tags"`
-	TagsAll               map[string]string `pulumi:"tagsAll"`
+	ServiceNetworkLogType *string `pulumi:"serviceNetworkLogType"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AccessLogSubscriptionState struct {
@@ -134,14 +136,15 @@ type AccessLogSubscriptionState struct {
 	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the service network or service.
 	ResourceArn pulumi.StringPtrInput
-	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+	// ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	//
 	// The following arguments are optional:
 	ResourceIdentifier pulumi.StringPtrInput
 	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
 	ServiceNetworkLogType pulumi.StringPtrInput
-	Tags                  pulumi.StringMapInput
-	TagsAll               pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (AccessLogSubscriptionState) ElementType() reflect.Type {
@@ -153,13 +156,14 @@ type accessLogSubscriptionArgs struct {
 	DestinationArn string `pulumi:"destinationArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+	// ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	//
 	// The following arguments are optional:
 	ResourceIdentifier string `pulumi:"resourceIdentifier"`
 	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
-	ServiceNetworkLogType *string           `pulumi:"serviceNetworkLogType"`
-	Tags                  map[string]string `pulumi:"tags"`
+	ServiceNetworkLogType *string `pulumi:"serviceNetworkLogType"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccessLogSubscription resource.
@@ -168,13 +172,14 @@ type AccessLogSubscriptionArgs struct {
 	DestinationArn pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+	// ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	//
 	// The following arguments are optional:
 	ResourceIdentifier pulumi.StringInput
 	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
 	ServiceNetworkLogType pulumi.StringPtrInput
-	Tags                  pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (AccessLogSubscriptionArgs) ElementType() reflect.Type {
@@ -284,7 +289,7 @@ func (o AccessLogSubscriptionOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+// ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 //
 // The following arguments are optional:
 func (o AccessLogSubscriptionOutput) ResourceIdentifier() pulumi.StringOutput {
@@ -296,6 +301,7 @@ func (o AccessLogSubscriptionOutput) ServiceNetworkLogType() pulumi.StringOutput
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.ServiceNetworkLogType }).(pulumi.StringOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AccessLogSubscriptionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

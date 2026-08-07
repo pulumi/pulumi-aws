@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
     public sealed class PolicyTargetTrackingScalingPolicyConfiguration
     {
         /// <summary>
-        /// Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+        /// Custom CloudWatch metric. See the [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html) documentation. See `target_tracking_scaling_policy_configuration.customized_metric_specification` Block for details.
         /// </summary>
         public readonly Outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification? CustomizedMetricSpecification;
         /// <summary>
-        /// Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `False`.
+        /// Whether scale in by the target tracking policy is disabled. If `True`, scale in is disabled and the target tracking policy does not remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. Defaults to `False`.
         /// </summary>
         public readonly bool? DisableScaleIn;
         /// <summary>
-        /// Predefined metric. See supported fields below.
+        /// Predefined metric. See `target_tracking_scaling_policy_configuration.predefined_metric_specification` Block for details.
         /// </summary>
         public readonly Outputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification? PredefinedMetricSpecification;
         /// <summary>

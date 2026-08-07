@@ -16,8 +16,7 @@ public final class StageAccessLogSettings {
      */
     private String destinationArn;
     /**
-     * @return Formatting and values recorded in the logs.
-     * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+     * @return Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
      * 
      */
     private String format;
@@ -31,8 +30,7 @@ public final class StageAccessLogSettings {
         return this.destinationArn;
     }
     /**
-     * @return Formatting and values recorded in the logs.
-     * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+     * @return Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
      * 
      */
     public String format() {

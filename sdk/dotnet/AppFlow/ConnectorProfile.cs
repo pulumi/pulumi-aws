@@ -137,25 +137,25 @@ namespace Pulumi.Aws.AppFlow
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+        /// Connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         /// </summary>
         [Output("connectionMode")]
         public Output<string> ConnectionMode { get; private set; } = null!;
 
         /// <summary>
-        /// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+        /// Label of the connector. The label is unique for each `ConnectorRegistration` in your AWS account. Only needed if calling for the `CustomConnector` connector type.
         /// </summary>
         [Output("connectorLabel")]
         public Output<string?> ConnectorLabel { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        /// Connector-specific configuration and credentials. See `ConnectorProfileConfig` Block for details.
         /// </summary>
         [Output("connectorProfileConfig")]
         public Output<Outputs.ConnectorProfileConnectorProfileConfig> ConnectorProfileConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+        /// Type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         /// </summary>
         [Output("connectorType")]
         public Output<string> ConnectorType { get; private set; } = null!;
@@ -167,17 +167,19 @@ namespace Pulumi.Aws.AppFlow
         public Output<string> CredentialsArn { get; private set; } = null!;
 
         /// <summary>
-        /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        /// ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
         [Output("kmsArn")]
         public Output<string> KmsArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -229,41 +231,43 @@ namespace Pulumi.Aws.AppFlow
     public sealed class ConnectorProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+        /// Connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         /// </summary>
         [Input("connectionMode", required: true)]
         public Input<string> ConnectionMode { get; set; } = null!;
 
         /// <summary>
-        /// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+        /// Label of the connector. The label is unique for each `ConnectorRegistration` in your AWS account. Only needed if calling for the `CustomConnector` connector type.
         /// </summary>
         [Input("connectorLabel")]
         public Input<string>? ConnectorLabel { get; set; }
 
         /// <summary>
-        /// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        /// Connector-specific configuration and credentials. See `ConnectorProfileConfig` Block for details.
         /// </summary>
         [Input("connectorProfileConfig", required: true)]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigArgs> ConnectorProfileConfig { get; set; } = null!;
 
         /// <summary>
-        /// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+        /// Type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         /// </summary>
         [Input("connectorType", required: true)]
         public Input<string> ConnectorType { get; set; } = null!;
 
         /// <summary>
-        /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        /// ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
         [Input("kmsArn")]
         public Input<string>? KmsArn { get; set; }
 
+        /// <summary>
+        /// Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -283,25 +287,25 @@ namespace Pulumi.Aws.AppFlow
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
+        /// Connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         /// </summary>
         [Input("connectionMode")]
         public Input<string>? ConnectionMode { get; set; }
 
         /// <summary>
-        /// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
+        /// Label of the connector. The label is unique for each `ConnectorRegistration` in your AWS account. Only needed if calling for the `CustomConnector` connector type.
         /// </summary>
         [Input("connectorLabel")]
         public Input<string>? ConnectorLabel { get; set; }
 
         /// <summary>
-        /// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        /// Connector-specific configuration and credentials. See `ConnectorProfileConfig` Block for details.
         /// </summary>
         [Input("connectorProfileConfig")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigGetArgs>? ConnectorProfileConfig { get; set; }
 
         /// <summary>
-        /// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
+        /// Type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         /// </summary>
         [Input("connectorType")]
         public Input<string>? ConnectorType { get; set; }
@@ -313,17 +317,19 @@ namespace Pulumi.Aws.AppFlow
         public Input<string>? CredentialsArn { get; set; }
 
         /// <summary>
-        /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+        /// ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
         [Input("kmsArn")]
         public Input<string>? KmsArn { get; set; }
 
+        /// <summary>
+        /// Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

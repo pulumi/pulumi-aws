@@ -98,27 +98,27 @@ import (
 type DomainVerification struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the domain verification.
+	// Amazon Resource Name (ARN) of the domain verification.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The date and time that the domain verification was created, in ISO-8601 format.
+	// Date and time that the domain verification was created, in ISO-8601 format.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The domain name to verify ownership for.
+	// Domain name to verify ownership for.
 	//
 	// The following arguments are optional:
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The date and time that the domain was last successfully verified, in ISO-8601 format.
+	// Date and time that the domain was last successfully verified, in ISO-8601 format.
 	LastVerifiedTime pulumi.StringOutput `pulumi:"lastVerifiedTime"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
+	// Current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The name of the TXT record that must be created for domain verification.
+	// Name of the TXT record that must be created for domain verification.
 	TxtRecordName pulumi.StringOutput `pulumi:"txtRecordName"`
-	// The value that must be added to the TXT record for domain verification.
+	// Value that must be added to the TXT record for domain verification.
 	TxtRecordValue pulumi.StringOutput `pulumi:"txtRecordValue"`
 }
 
@@ -155,52 +155,52 @@ func GetDomainVerification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainVerification resources.
 type domainVerificationState struct {
-	// The Amazon Resource Name (ARN) of the domain verification.
+	// Amazon Resource Name (ARN) of the domain verification.
 	Arn *string `pulumi:"arn"`
-	// The date and time that the domain verification was created, in ISO-8601 format.
+	// Date and time that the domain verification was created, in ISO-8601 format.
 	CreatedAt *string `pulumi:"createdAt"`
-	// The domain name to verify ownership for.
+	// Domain name to verify ownership for.
 	//
 	// The following arguments are optional:
 	DomainName *string `pulumi:"domainName"`
-	// The date and time that the domain was last successfully verified, in ISO-8601 format.
+	// Date and time that the domain was last successfully verified, in ISO-8601 format.
 	LastVerifiedTime *string `pulumi:"lastVerifiedTime"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
+	// Current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
 	Status *string `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The name of the TXT record that must be created for domain verification.
+	// Name of the TXT record that must be created for domain verification.
 	TxtRecordName *string `pulumi:"txtRecordName"`
-	// The value that must be added to the TXT record for domain verification.
+	// Value that must be added to the TXT record for domain verification.
 	TxtRecordValue *string `pulumi:"txtRecordValue"`
 }
 
 type DomainVerificationState struct {
-	// The Amazon Resource Name (ARN) of the domain verification.
+	// Amazon Resource Name (ARN) of the domain verification.
 	Arn pulumi.StringPtrInput
-	// The date and time that the domain verification was created, in ISO-8601 format.
+	// Date and time that the domain verification was created, in ISO-8601 format.
 	CreatedAt pulumi.StringPtrInput
-	// The domain name to verify ownership for.
+	// Domain name to verify ownership for.
 	//
 	// The following arguments are optional:
 	DomainName pulumi.StringPtrInput
-	// The date and time that the domain was last successfully verified, in ISO-8601 format.
+	// Date and time that the domain was last successfully verified, in ISO-8601 format.
 	LastVerifiedTime pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
+	// Current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
 	Status pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The name of the TXT record that must be created for domain verification.
+	// Name of the TXT record that must be created for domain verification.
 	TxtRecordName pulumi.StringPtrInput
-	// The value that must be added to the TXT record for domain verification.
+	// Value that must be added to the TXT record for domain verification.
 	TxtRecordValue pulumi.StringPtrInput
 }
 
@@ -209,7 +209,7 @@ func (DomainVerificationState) ElementType() reflect.Type {
 }
 
 type domainVerificationArgs struct {
-	// The domain name to verify ownership for.
+	// Domain name to verify ownership for.
 	//
 	// The following arguments are optional:
 	DomainName string `pulumi:"domainName"`
@@ -221,7 +221,7 @@ type domainVerificationArgs struct {
 
 // The set of arguments for constructing a DomainVerification resource.
 type DomainVerificationArgs struct {
-	// The domain name to verify ownership for.
+	// Domain name to verify ownership for.
 	//
 	// The following arguments are optional:
 	DomainName pulumi.StringInput
@@ -318,24 +318,24 @@ func (o DomainVerificationOutput) ToDomainVerificationOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the domain verification.
+// Amazon Resource Name (ARN) of the domain verification.
 func (o DomainVerificationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainVerification) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date and time that the domain verification was created, in ISO-8601 format.
+// Date and time that the domain verification was created, in ISO-8601 format.
 func (o DomainVerificationOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainVerification) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The domain name to verify ownership for.
+// Domain name to verify ownership for.
 //
 // The following arguments are optional:
 func (o DomainVerificationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainVerification) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The date and time that the domain was last successfully verified, in ISO-8601 format.
+// Date and time that the domain was last successfully verified, in ISO-8601 format.
 func (o DomainVerificationOutput) LastVerifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainVerification) pulumi.StringOutput { return v.LastVerifiedTime }).(pulumi.StringOutput)
 }
@@ -345,7 +345,7 @@ func (o DomainVerificationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainVerification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
+// Current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
 func (o DomainVerificationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainVerification) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -360,12 +360,12 @@ func (o DomainVerificationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DomainVerification) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The name of the TXT record that must be created for domain verification.
+// Name of the TXT record that must be created for domain verification.
 func (o DomainVerificationOutput) TxtRecordName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainVerification) pulumi.StringOutput { return v.TxtRecordName }).(pulumi.StringOutput)
 }
 
-// The value that must be added to the TXT record for domain verification.
+// Value that must be added to the TXT record for domain verification.
 func (o DomainVerificationOutput) TxtRecordValue() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainVerification) pulumi.StringOutput { return v.TxtRecordValue }).(pulumi.StringOutput)
 }

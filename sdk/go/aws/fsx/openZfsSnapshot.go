@@ -111,17 +111,18 @@ type OpenZfsSnapshot struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name of the snapshot.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Time that the snapshot was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+	// Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ID of the volume to snapshot. This can be the root volume or a child volume.
+	// ID of the volume to snapshot. This can be the root volume or a child volume.
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
 }
 
@@ -159,33 +160,35 @@ func GetOpenZfsSnapshot(ctx *pulumi.Context,
 // Input properties used for looking up and filtering OpenZfsSnapshot resources.
 type openZfsSnapshotState struct {
 	// Amazon Resource Name of the snapshot.
-	Arn          *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Time that the snapshot was created.
 	CreationTime *string `pulumi:"creationTime"`
-	// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+	// Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ID of the volume to snapshot. This can be the root volume or a child volume.
+	// ID of the volume to snapshot. This can be the root volume or a child volume.
 	VolumeId *string `pulumi:"volumeId"`
 }
 
 type OpenZfsSnapshotState struct {
 	// Amazon Resource Name of the snapshot.
-	Arn          pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// Time that the snapshot was created.
 	CreationTime pulumi.StringPtrInput
-	// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+	// Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The ID of the volume to snapshot. This can be the root volume or a child volume.
+	// ID of the volume to snapshot. This can be the root volume or a child volume.
 	VolumeId pulumi.StringPtrInput
 }
 
@@ -194,25 +197,25 @@ func (OpenZfsSnapshotState) ElementType() reflect.Type {
 }
 
 type openZfsSnapshotArgs struct {
-	// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+	// Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
-	// The ID of the volume to snapshot. This can be the root volume or a child volume.
+	// ID of the volume to snapshot. This can be the root volume or a child volume.
 	VolumeId string `pulumi:"volumeId"`
 }
 
 // The set of arguments for constructing a OpenZfsSnapshot resource.
 type OpenZfsSnapshotArgs struct {
-	// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+	// Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
-	// The ID of the volume to snapshot. This can be the root volume or a child volume.
+	// ID of the volume to snapshot. This can be the root volume or a child volume.
 	VolumeId pulumi.StringInput
 }
 
@@ -308,11 +311,12 @@ func (o OpenZfsSnapshotOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsSnapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Time that the snapshot was created.
 func (o OpenZfsSnapshotOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsSnapshot) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+// Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
 func (o OpenZfsSnapshotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsSnapshot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -322,17 +326,17 @@ func (o OpenZfsSnapshotOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsSnapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+// Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 func (o OpenZfsSnapshotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsSnapshot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o OpenZfsSnapshotOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsSnapshot) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ID of the volume to snapshot. This can be the root volume or a child volume.
+// ID of the volume to snapshot. This can be the root volume or a child volume.
 func (o OpenZfsSnapshotOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsSnapshot) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
 }

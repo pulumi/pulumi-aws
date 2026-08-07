@@ -20,14 +20,14 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
     public static final BucketMetadataConfigurationMetadataConfigurationArgs Empty = new BucketMetadataConfigurationMetadataConfigurationArgs();
 
     /**
-     * Destination information for the S3 Metadata configuration.
+     * Destination information for the S3 Metadata configuration. See `destination` Block for details.
      * 
      */
     @Import(name="destinations")
     private @Nullable Output<List<BucketMetadataConfigurationMetadataConfigurationDestinationArgs>> destinations;
 
     /**
-     * @return Destination information for the S3 Metadata configuration.
+     * @return Destination information for the S3 Metadata configuration. See `destination` Block for details.
      * 
      */
     public Optional<Output<List<BucketMetadataConfigurationMetadataConfigurationDestinationArgs>>> destinations() {
@@ -91,7 +91,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
         }
 
         /**
-         * @param destinations Destination information for the S3 Metadata configuration.
+         * @param destinations Destination information for the S3 Metadata configuration. See `destination` Block for details.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
         }
 
         /**
-         * @param destinations Destination information for the S3 Metadata configuration.
+         * @param destinations Destination information for the S3 Metadata configuration. See `destination` Block for details.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
         }
 
         /**
-         * @param destinations Destination information for the S3 Metadata configuration.
+         * @param destinations Destination information for the S3 Metadata configuration. See `destination` Block for details.
          * 
          * @return builder
          * 

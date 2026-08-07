@@ -19,14 +19,14 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
     public static final UsagePlanApiStageThrottleArgs Empty = new UsagePlanApiStageThrottleArgs();
 
     /**
-     * The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+     * API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
      * 
      */
     @Import(name="burstLimit")
     private @Nullable Output<Integer> burstLimit;
 
     /**
-     * @return The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+     * @return API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
      * 
      */
     public Optional<Output<Integer>> burstLimit() {
@@ -34,14 +34,18 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+     * Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="path", required=true)
     private Output<String> path;
 
     /**
-     * @return Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+     * @return Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> path() {
@@ -49,14 +53,14 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The API request steady-state rate limit.
+     * API request steady-state rate limit.
      * 
      */
     @Import(name="rateLimit")
     private @Nullable Output<Double> rateLimit;
 
     /**
-     * @return The API request steady-state rate limit.
+     * @return API request steady-state rate limit.
      * 
      */
     public Optional<Output<Double>> rateLimit() {
@@ -90,7 +94,7 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param burstLimit The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+         * @param burstLimit API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
          * 
          * @return builder
          * 
@@ -101,7 +105,7 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param burstLimit The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+         * @param burstLimit API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
          * 
          * @return builder
          * 
@@ -111,7 +115,9 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param path Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+         * @param path Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -122,7 +128,9 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param path Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+         * @param path Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -132,7 +140,7 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rateLimit The API request steady-state rate limit.
+         * @param rateLimit API request steady-state rate limit.
          * 
          * @return builder
          * 
@@ -143,7 +151,7 @@ public final class UsagePlanApiStageThrottleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rateLimit The API request steady-state rate limit.
+         * @param rateLimit API request steady-state rate limit.
          * 
          * @return builder
          * 

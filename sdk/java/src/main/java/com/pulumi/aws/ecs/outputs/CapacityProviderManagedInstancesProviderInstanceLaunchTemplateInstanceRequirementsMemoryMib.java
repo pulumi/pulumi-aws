@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib {
+    /**
+     * @return Maximum amount of memory, in MiB.
+     * 
+     */
     private @Nullable Integer max;
+    /**
+     * @return Minimum amount of memory, in MiB.
+     * 
+     */
     private Integer min;
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib() {}
+    /**
+     * @return Maximum amount of memory, in MiB.
+     * 
+     */
     public Optional<Integer> max() {
         return Optional.ofNullable(this.max);
     }
+    /**
+     * @return Minimum amount of memory, in MiB.
+     * 
+     */
     public Integer min() {
         return this.min;
     }

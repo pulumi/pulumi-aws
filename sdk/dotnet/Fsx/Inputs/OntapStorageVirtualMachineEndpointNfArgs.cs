@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Fsx.Inputs
     public sealed class OntapStorageVirtualMachineEndpointNfArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        /// Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }

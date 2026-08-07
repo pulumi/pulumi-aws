@@ -23,7 +23,7 @@ public final class GetBucketReplicationConfigurationRule {
     private List<GetBucketReplicationConfigurationRuleFilter> filters;
     private String id;
     /**
-     * @return The object key name prefix that identifies the subset of objects to which the rule applies.
+     * @return Object key name prefix that identifies the subset of objects to which the rule applies.
      * 
      */
     private String prefix;
@@ -48,7 +48,7 @@ public final class GetBucketReplicationConfigurationRule {
         return this.id;
     }
     /**
-     * @return The object key name prefix that identifies the subset of objects to which the rule applies.
+     * @return Object key name prefix that identifies the subset of objects to which the rule applies.
      * 
      */
     public String prefix() {

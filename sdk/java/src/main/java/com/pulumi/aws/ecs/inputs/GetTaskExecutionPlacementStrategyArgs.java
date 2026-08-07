@@ -17,14 +17,14 @@ public final class GetTaskExecutionPlacementStrategyArgs extends com.pulumi.reso
     public static final GetTaskExecutionPlacementStrategyArgs Empty = new GetTaskExecutionPlacementStrategyArgs();
 
     /**
-     * The field to apply the placement strategy against.
+     * Field to apply the placement strategy against.
      * 
      */
     @Import(name="field")
     private @Nullable Output<String> field;
 
     /**
-     * @return The field to apply the placement strategy against.
+     * @return Field to apply the placement strategy against.
      * 
      */
     public Optional<Output<String>> field() {
@@ -32,18 +32,14 @@ public final class GetTaskExecutionPlacementStrategyArgs extends com.pulumi.reso
     }
 
     /**
-     * The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-     * 
-     * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+     * Type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-     * 
-     * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+     * @return Type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
      * 
      */
     public Output<String> type() {
@@ -76,7 +72,7 @@ public final class GetTaskExecutionPlacementStrategyArgs extends com.pulumi.reso
         }
 
         /**
-         * @param field The field to apply the placement strategy against.
+         * @param field Field to apply the placement strategy against.
          * 
          * @return builder
          * 
@@ -87,7 +83,7 @@ public final class GetTaskExecutionPlacementStrategyArgs extends com.pulumi.reso
         }
 
         /**
-         * @param field The field to apply the placement strategy against.
+         * @param field Field to apply the placement strategy against.
          * 
          * @return builder
          * 
@@ -97,9 +93,7 @@ public final class GetTaskExecutionPlacementStrategyArgs extends com.pulumi.reso
         }
 
         /**
-         * @param type The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-         * 
-         * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+         * @param type Type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
          * 
          * @return builder
          * 
@@ -110,9 +104,7 @@ public final class GetTaskExecutionPlacementStrategyArgs extends com.pulumi.reso
         }
 
         /**
-         * @param type The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-         * 
-         * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+         * @param type Type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
          * 
          * @return builder
          * 

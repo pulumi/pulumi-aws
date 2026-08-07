@@ -15,16 +15,14 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
     public static final TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs Empty = new TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs();
 
     /**
-     * Data objects marked for deletion are deleted after this many days.
-     * Must be at least `1`.
+     * Data objects marked for deletion are deleted after this many days. Must be at least `1`.
      * 
      */
     @Import(name="nonCurrentDays", required=true)
     private Output<Integer> nonCurrentDays;
 
     /**
-     * @return Data objects marked for deletion are deleted after this many days.
-     * Must be at least `1`.
+     * @return Data objects marked for deletion are deleted after this many days. Must be at least `1`.
      * 
      */
     public Output<Integer> nonCurrentDays() {
@@ -32,16 +30,14 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
     }
 
     /**
-     * Unreferenced data objects are marked for deletion after this many days.
-     * Must be at least `1`.
+     * Unreferenced data objects are marked for deletion after this many days. Must be at least `1`.
      * 
      */
     @Import(name="unreferencedDays", required=true)
     private Output<Integer> unreferencedDays;
 
     /**
-     * @return Unreferenced data objects are marked for deletion after this many days.
-     * Must be at least `1`.
+     * @return Unreferenced data objects are marked for deletion after this many days. Must be at least `1`.
      * 
      */
     public Output<Integer> unreferencedDays() {
@@ -74,8 +70,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
         }
 
         /**
-         * @param nonCurrentDays Data objects marked for deletion are deleted after this many days.
-         * Must be at least `1`.
+         * @param nonCurrentDays Data objects marked for deletion are deleted after this many days. Must be at least `1`.
          * 
          * @return builder
          * 
@@ -86,8 +81,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
         }
 
         /**
-         * @param nonCurrentDays Data objects marked for deletion are deleted after this many days.
-         * Must be at least `1`.
+         * @param nonCurrentDays Data objects marked for deletion are deleted after this many days. Must be at least `1`.
          * 
          * @return builder
          * 
@@ -97,8 +91,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
         }
 
         /**
-         * @param unreferencedDays Unreferenced data objects are marked for deletion after this many days.
-         * Must be at least `1`.
+         * @param unreferencedDays Unreferenced data objects are marked for deletion after this many days. Must be at least `1`.
          * 
          * @return builder
          * 
@@ -109,8 +102,7 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
         }
 
         /**
-         * @param unreferencedDays Unreferenced data objects are marked for deletion after this many days.
-         * Must be at least `1`.
+         * @param unreferencedDays Unreferenced data objects are marked for deletion after this many days. Must be at least `1`.
          * 
          * @return builder
          * 

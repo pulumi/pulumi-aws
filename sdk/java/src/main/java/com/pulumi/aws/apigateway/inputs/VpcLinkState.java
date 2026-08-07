@@ -16,9 +16,17 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
 
     public static final VpcLinkState Empty = new VpcLinkState();
 
+    /**
+     * ARN of the VPC link.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return ARN of the VPC link.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -143,11 +151,23 @@ public final class VpcLinkState extends com.pulumi.resources.ResourceArgs {
             $ = new VpcLinkState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN of the VPC link.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN of the VPC link.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

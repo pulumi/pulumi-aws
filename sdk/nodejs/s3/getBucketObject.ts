@@ -86,7 +86,7 @@ export function getBucketObject(args: GetBucketObjectArgs, opts?: pulumi.InvokeO
  */
 export interface GetBucketObjectArgs {
     /**
-     * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` data source instead.
      *
      * @deprecated bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
      */
@@ -95,6 +95,9 @@ export interface GetBucketObjectArgs {
      * Full path to the object inside the bucket
      */
     key: string;
+    /**
+     * Range of bytes to read from the object, formatted as an [HTTP `Range` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Range).
+     */
     range?: string;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -114,6 +117,9 @@ export interface GetBucketObjectArgs {
  * A collection of values returned by getBucketObject.
  */
 export interface GetBucketObjectResult {
+    /**
+     * ARN of the object.
+     */
     readonly arn: string;
     /**
      * Object data (see **limitations above** to understand cases in which this field is actually available)
@@ -124,7 +130,7 @@ export interface GetBucketObjectResult {
      */
     readonly bucket: string;
     /**
-     * (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+     * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      */
     readonly bucketKeyEnabled: boolean;
     /**
@@ -177,7 +183,7 @@ export interface GetBucketObjectResult {
      */
     readonly metadata: {[key: string]: string};
     /**
-     * Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
+     * Whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
      */
     readonly objectLockLegalHoldStatus: string;
     /**
@@ -185,7 +191,7 @@ export interface GetBucketObjectResult {
      */
     readonly objectLockMode: string;
     /**
-     * The date and time when this object's object lock will expire.
+     * Date and time when this object's object lock will expire.
      */
     readonly objectLockRetainUntilDate: string;
     readonly range?: string;
@@ -297,7 +303,7 @@ export function getBucketObjectOutput(args: GetBucketObjectOutputArgs, opts?: pu
  */
 export interface GetBucketObjectOutputArgs {
     /**
-     * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` data source instead.
      *
      * @deprecated bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
      */
@@ -306,6 +312,9 @@ export interface GetBucketObjectOutputArgs {
      * Full path to the object inside the bucket
      */
     key: pulumi.Input<string>;
+    /**
+     * Range of bytes to read from the object, formatted as an [HTTP `Range` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Range).
+     */
     range?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

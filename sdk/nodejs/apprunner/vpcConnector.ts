@@ -101,7 +101,7 @@ export class VpcConnector extends pulumi.CustomResource {
      */
     declare public readonly vpcConnectorName: pulumi.Output<string>;
     /**
-     * The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
+     * Revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
      */
     declare public /*out*/ readonly vpcConnectorRevision: pulumi.Output<number>;
 
@@ -190,7 +190,7 @@ export interface VpcConnectorState {
      */
     vpcConnectorName?: pulumi.Input<string | undefined>;
     /**
-     * The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
+     * Revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
      */
     vpcConnectorRevision?: pulumi.Input<number | undefined>;
 }

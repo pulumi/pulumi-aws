@@ -155,9 +155,17 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.memory);
     }
 
+    /**
+     * Network configuration for the service. See `networkConfiguration` Block below.
+     * 
+     */
     @Import(name="networkConfigurations")
     private @Nullable Output<List<ExpressGatewayServiceNetworkConfigurationArgs>> networkConfigurations;
 
+    /**
+     * @return Network configuration for the service. See `networkConfiguration` Block below.
+     * 
+     */
     public Optional<Output<List<ExpressGatewayServiceNetworkConfigurationArgs>>> networkConfigurations() {
         return Optional.ofNullable(this.networkConfigurations);
     }
@@ -184,9 +192,17 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Auto-scaling configuration for the service. See `scalingTarget` Block below.
+     * 
+     */
     @Import(name="scalingTargets")
     private @Nullable Output<List<ExpressGatewayServiceScalingTargetArgs>> scalingTargets;
 
+    /**
+     * @return Auto-scaling configuration for the service. See `scalingTarget` Block below.
+     * 
+     */
     public Optional<Output<List<ExpressGatewayServiceScalingTargetArgs>>> scalingTargets() {
         return Optional.ofNullable(this.scalingTargets);
     }
@@ -536,15 +552,33 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
             return memory(Output.of(memory));
         }
 
+        /**
+         * @param networkConfigurations Network configuration for the service. See `networkConfiguration` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkConfigurations(@Nullable Output<List<ExpressGatewayServiceNetworkConfigurationArgs>> networkConfigurations) {
             $.networkConfigurations = networkConfigurations;
             return this;
         }
 
+        /**
+         * @param networkConfigurations Network configuration for the service. See `networkConfiguration` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkConfigurations(List<ExpressGatewayServiceNetworkConfigurationArgs> networkConfigurations) {
             return networkConfigurations(Output.of(networkConfigurations));
         }
 
+        /**
+         * @param networkConfigurations Network configuration for the service. See `networkConfiguration` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkConfigurations(ExpressGatewayServiceNetworkConfigurationArgs... networkConfigurations) {
             return networkConfigurations(List.of(networkConfigurations));
         }
@@ -579,15 +613,33 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
             return region(Output.of(region));
         }
 
+        /**
+         * @param scalingTargets Auto-scaling configuration for the service. See `scalingTarget` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scalingTargets(@Nullable Output<List<ExpressGatewayServiceScalingTargetArgs>> scalingTargets) {
             $.scalingTargets = scalingTargets;
             return this;
         }
 
+        /**
+         * @param scalingTargets Auto-scaling configuration for the service. See `scalingTarget` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scalingTargets(List<ExpressGatewayServiceScalingTargetArgs> scalingTargets) {
             return scalingTargets(Output.of(scalingTargets));
         }
 
+        /**
+         * @param scalingTargets Auto-scaling configuration for the service. See `scalingTarget` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scalingTargets(ExpressGatewayServiceScalingTargetArgs... scalingTargets) {
             return scalingTargets(List.of(scalingTargets));
         }

@@ -74,7 +74,7 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> ObservabilityConfigurationName { get; private set; } = null!;
 
         /// <summary>
-        /// The revision of this observability configuration.
+        /// Revision of this observability configuration.
         /// </summary>
         [Output("observabilityConfigurationRevision")]
         public Output<int> ObservabilityConfigurationRevision { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.AppRunner
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+        /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See `TraceConfiguration` Block below for more details.
         /// </summary>
         [Output("traceConfiguration")]
         public Output<Outputs.ObservabilityConfigurationTraceConfiguration?> TraceConfiguration { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.AppRunner
         }
 
         /// <summary>
-        /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+        /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See `TraceConfiguration` Block below for more details.
         /// </summary>
         [Input("traceConfiguration")]
         public Input<Inputs.ObservabilityConfigurationTraceConfigurationArgs>? TraceConfiguration { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<string>? ObservabilityConfigurationName { get; set; }
 
         /// <summary>
-        /// The revision of this observability configuration.
+        /// Revision of this observability configuration.
         /// </summary>
         [Input("observabilityConfigurationRevision")]
         public Input<int>? ObservabilityConfigurationRevision { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.AppRunner
         }
 
         /// <summary>
-        /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+        /// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See `TraceConfiguration` Block below for more details.
         /// </summary>
         [Input("traceConfiguration")]
         public Input<Inputs.ObservabilityConfigurationTraceConfigurationGetArgs>? TraceConfiguration { get; set; }

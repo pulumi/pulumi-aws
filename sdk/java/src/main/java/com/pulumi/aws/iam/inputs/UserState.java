@@ -35,7 +35,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     /**
      * When destroying this user, destroy even if it
      * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-     * a user with non-provider-managed access keys and login profile will fail to be destroyed.
+     * a user with non-provider-managed access keys and login profile will fail to be destroyed. This only deletes objects when the user is destroyed, not when setting this parameter to true. Once this parameter is set to true, there must be a successful pulumi up run before a destroy is required to update this value in the resource state. Without a successful pulumi up after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the user or destroying the user, this flag will not work. Additionally when importing a user, a successful pulumi up is required to set this value in state before it will take effect on a destroy operation.
      * 
      */
     @Import(name="forceDestroy")
@@ -44,7 +44,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return When destroying this user, destroy even if it
      * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-     * a user with non-provider-managed access keys and login profile will fail to be destroyed.
+     * a user with non-provider-managed access keys and login profile will fail to be destroyed. This only deletes objects when the user is destroyed, not when setting this parameter to true. Once this parameter is set to true, there must be a successful pulumi up run before a destroy is required to update this value in the resource state. Without a successful pulumi up after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the user or destroying the user, this flag will not work. Additionally when importing a user, a successful pulumi up is required to set this value in state before it will take effect on a destroy operation.
      * 
      */
     public Optional<Output<Boolean>> forceDestroy() {
@@ -196,7 +196,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param forceDestroy When destroying this user, destroy even if it
          * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-         * a user with non-provider-managed access keys and login profile will fail to be destroyed.
+         * a user with non-provider-managed access keys and login profile will fail to be destroyed. This only deletes objects when the user is destroyed, not when setting this parameter to true. Once this parameter is set to true, there must be a successful pulumi up run before a destroy is required to update this value in the resource state. Without a successful pulumi up after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the user or destroying the user, this flag will not work. Additionally when importing a user, a successful pulumi up is required to set this value in state before it will take effect on a destroy operation.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param forceDestroy When destroying this user, destroy even if it
          * has non-provider-managed IAM access keys, login profile or MFA devices. Without `forceDestroy`
-         * a user with non-provider-managed access keys and login profile will fail to be destroyed.
+         * a user with non-provider-managed access keys and login profile will fail to be destroyed. This only deletes objects when the user is destroyed, not when setting this parameter to true. Once this parameter is set to true, there must be a successful pulumi up run before a destroy is required to update this value in the resource state. Without a successful pulumi up after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the user or destroying the user, this flag will not work. Additionally when importing a user, a successful pulumi up is required to set this value in state before it will take effect on a destroy operation.
          * 
          * @return builder
          * 
