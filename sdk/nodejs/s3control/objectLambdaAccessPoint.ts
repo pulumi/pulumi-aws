@@ -75,7 +75,7 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
     }
 
     /**
-     * AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
  */
 export interface ObjectLambdaAccessPointState {
     /**
-     * AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
@@ -170,7 +170,7 @@ export interface ObjectLambdaAccessPointState {
  */
 export interface ObjectLambdaAccessPointArgs {
     /**
-     * AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**

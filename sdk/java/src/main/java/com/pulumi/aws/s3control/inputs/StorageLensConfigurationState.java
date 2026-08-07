@@ -18,14 +18,14 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
     public static final StorageLensConfigurationState Empty = new StorageLensConfigurationState();
 
     /**
-     * AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * @return AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -153,7 +153,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param accountId AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * @param accountId AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param accountId AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * @param accountId AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 

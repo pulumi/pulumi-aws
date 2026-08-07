@@ -28,7 +28,7 @@ class MultiRegionAccessPointPolicyArgs:
         The set of arguments for constructing a MultiRegionAccessPointPolicy resource.
 
         :param pulumi.Input['MultiRegionAccessPointPolicyDetailsArgs'] details: Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
-        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "details", details)
@@ -53,7 +53,7 @@ class MultiRegionAccessPointPolicyArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+        AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         """
         return pulumi.get(self, "account_id")
 
@@ -85,7 +85,7 @@ class _MultiRegionAccessPointPolicyState:
         """
         Input properties used for looking up and filtering MultiRegionAccessPointPolicy resources.
 
-        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input['MultiRegionAccessPointPolicyDetailsArgs'] details: Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
         :param pulumi.Input[_builtins.str] established: Last established policy for the Multi-Region Access Point.
         :param pulumi.Input[_builtins.str] proposed: Proposed policy for the Multi-Region Access Point.
@@ -106,7 +106,7 @@ class _MultiRegionAccessPointPolicyState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+        AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         """
         return pulumi.get(self, "account_id")
 
@@ -227,7 +227,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict']] details: Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -345,7 +345,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict']] details: Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
         :param pulumi.Input[_builtins.str] established: Last established policy for the Multi-Region Access Point.
         :param pulumi.Input[_builtins.str] proposed: Proposed policy for the Multi-Region Access Point.
@@ -366,7 +366,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+        AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         """
         return pulumi.get(self, "account_id")
 

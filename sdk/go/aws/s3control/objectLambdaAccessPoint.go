@@ -80,7 +80,7 @@ import (
 type ObjectLambdaAccessPoint struct {
 	pulumi.CustomResourceState
 
-	// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Alias for the S3 Object Lambda Access Point.
 	Alias pulumi.StringOutput `pulumi:"alias"`
@@ -127,7 +127,7 @@ func GetObjectLambdaAccessPoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ObjectLambdaAccessPoint resources.
 type objectLambdaAccessPointState struct {
-	// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
 	// Alias for the S3 Object Lambda Access Point.
 	Alias *string `pulumi:"alias"`
@@ -142,7 +142,7 @@ type objectLambdaAccessPointState struct {
 }
 
 type ObjectLambdaAccessPointState struct {
-	// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
 	// Alias for the S3 Object Lambda Access Point.
 	Alias pulumi.StringPtrInput
@@ -161,7 +161,7 @@ func (ObjectLambdaAccessPointState) ElementType() reflect.Type {
 }
 
 type objectLambdaAccessPointArgs struct {
-	// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
 	// Configuration block containing details about the Object Lambda Access Point. See `configuration` Block below for more details.
 	Configuration ObjectLambdaAccessPointConfiguration `pulumi:"configuration"`
@@ -173,7 +173,7 @@ type objectLambdaAccessPointArgs struct {
 
 // The set of arguments for constructing a ObjectLambdaAccessPoint resource.
 type ObjectLambdaAccessPointArgs struct {
-	// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
 	// Configuration block containing details about the Object Lambda Access Point. See `configuration` Block below for more details.
 	Configuration ObjectLambdaAccessPointConfigurationInput
@@ -270,7 +270,7 @@ func (o ObjectLambdaAccessPointOutput) ToObjectLambdaAccessPointOutputWithContex
 	return o
 }
 
-// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 func (o ObjectLambdaAccessPointOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

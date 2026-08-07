@@ -93,7 +93,7 @@ import (
 type StorageLensConfiguration struct {
 	pulumi.CustomResourceState
 
-	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -145,7 +145,7 @@ func GetStorageLensConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageLensConfiguration resources.
 type storageLensConfigurationState struct {
-	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
 	// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
 	Arn *string `pulumi:"arn"`
@@ -162,7 +162,7 @@ type storageLensConfigurationState struct {
 }
 
 type StorageLensConfigurationState struct {
-	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
 	Arn pulumi.StringPtrInput
@@ -183,7 +183,7 @@ func (StorageLensConfigurationState) ElementType() reflect.Type {
 }
 
 type storageLensConfigurationArgs struct {
-	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
 	// ID of the S3 Storage Lens configuration.
 	ConfigId string `pulumi:"configId"`
@@ -197,7 +197,7 @@ type storageLensConfigurationArgs struct {
 
 // The set of arguments for constructing a StorageLensConfiguration resource.
 type StorageLensConfigurationArgs struct {
-	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
 	// ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringInput
@@ -296,7 +296,7 @@ func (o StorageLensConfigurationOutput) ToStorageLensConfigurationOutputWithCont
 	return o
 }
 
-// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
+// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 func (o StorageLensConfigurationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

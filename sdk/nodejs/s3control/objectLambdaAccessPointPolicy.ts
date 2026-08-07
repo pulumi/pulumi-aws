@@ -85,7 +85,7 @@ export class ObjectLambdaAccessPointPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export class ObjectLambdaAccessPointPolicy extends pulumi.CustomResource {
  */
 export interface ObjectLambdaAccessPointPolicyState {
     /**
-     * AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
@@ -170,7 +170,7 @@ export interface ObjectLambdaAccessPointPolicyState {
  */
 export interface ObjectLambdaAccessPointPolicyArgs {
     /**
-     * AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**

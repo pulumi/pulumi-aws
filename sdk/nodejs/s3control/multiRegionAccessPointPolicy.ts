@@ -88,7 +88,7 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
@@ -147,7 +147,7 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
  */
 export interface MultiRegionAccessPointPolicyState {
     /**
-     * AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
@@ -173,7 +173,7 @@ export interface MultiRegionAccessPointPolicyState {
  */
 export interface MultiRegionAccessPointPolicyArgs {
     /**
-     * AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**

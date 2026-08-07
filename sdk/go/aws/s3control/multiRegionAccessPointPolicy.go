@@ -115,7 +115,7 @@ import (
 type MultiRegionAccessPointPolicy struct {
 	pulumi.CustomResourceState
 
-	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
 	Details MultiRegionAccessPointPolicyDetailsOutput `pulumi:"details"`
@@ -160,7 +160,7 @@ func GetMultiRegionAccessPointPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MultiRegionAccessPointPolicy resources.
 type multiRegionAccessPointPolicyState struct {
-	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
 	// Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
 	Details *MultiRegionAccessPointPolicyDetails `pulumi:"details"`
@@ -173,7 +173,7 @@ type multiRegionAccessPointPolicyState struct {
 }
 
 type MultiRegionAccessPointPolicyState struct {
-	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
 	// Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
 	Details MultiRegionAccessPointPolicyDetailsPtrInput
@@ -190,7 +190,7 @@ func (MultiRegionAccessPointPolicyState) ElementType() reflect.Type {
 }
 
 type multiRegionAccessPointPolicyArgs struct {
-	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
 	// Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
 	Details MultiRegionAccessPointPolicyDetails `pulumi:"details"`
@@ -200,7 +200,7 @@ type multiRegionAccessPointPolicyArgs struct {
 
 // The set of arguments for constructing a MultiRegionAccessPointPolicy resource.
 type MultiRegionAccessPointPolicyArgs struct {
-	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
 	// Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
 	Details MultiRegionAccessPointPolicyDetailsInput
@@ -295,7 +295,7 @@ func (o MultiRegionAccessPointPolicyOutput) ToMultiRegionAccessPointPolicyOutput
 	return o
 }
 
-// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
 func (o MultiRegionAccessPointPolicyOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

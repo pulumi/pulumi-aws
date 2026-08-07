@@ -75,7 +75,7 @@ namespace Pulumi.Aws.S3Control
     public partial class ObjectLambdaAccessPoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.S3Control
     public sealed class ObjectLambdaAccessPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.S3Control
     public sealed class ObjectLambdaAccessPointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }

@@ -104,7 +104,7 @@ namespace Pulumi.Aws.S3
         public Output<string> AccelerationStatus { get; private set; } = null!;
 
         /// <summary>
-        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `Private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `Private`. Conflicts with `Grant`. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
+        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `Private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `Private`. Conflicts with `Grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
         /// </summary>
         [Output("acl")]
         public Output<string> Acl { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.S3
         public Output<string> BucketRegionalDomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See `CorsRule` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfiguration` instead.
+        /// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See `CorsRule` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfiguration` instead.
         /// </summary>
         [Output("corsRules")]
         public Output<ImmutableArray<Outputs.BucketCorsRule>> CorsRules { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.S3
         public Output<bool?> ForceDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See `Grant` Block below for details. Conflicts with `Acl`. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
+        /// [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See `Grant` Block below for details. Conflicts with `Acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
         /// </summary>
         [Output("grants")]
         public Output<ImmutableArray<Outputs.BucketGrant>> Grants { get; private set; } = null!;
@@ -176,19 +176,19 @@ namespace Pulumi.Aws.S3
         public Output<string> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See `LifecycleRule` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketLifecycleConfiguration` instead.
+        /// Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See `LifecycleRule` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketLifecycleConfiguration` instead.
         /// </summary>
         [Output("lifecycleRules")]
         public Output<ImmutableArray<Outputs.BucketLifecycleRule>> LifecycleRules { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See `Logging` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketLogging` instead.
+        /// Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See `Logging` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketLogging` instead.
         /// </summary>
         [Output("logging")]
         public Output<Outputs.BucketLogging> Logging { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See `ObjectLockConfiguration` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the `ObjectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
+        /// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See `ObjectLockConfiguration` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the `ObjectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
         /// </summary>
         [Output("objectLockConfiguration")]
         public Output<Outputs.BucketObjectLockConfiguration> ObjectLockConfiguration { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.S3
         public Output<bool> ObjectLockEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketPolicy` instead.
+        /// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketPolicy` instead.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -212,19 +212,19 @@ namespace Pulumi.Aws.S3
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See `ReplicationConfiguration` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketReplicationConfig` instead.
+        /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See `ReplicationConfiguration` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketReplicationConfig` instead.
         /// </summary>
         [Output("replicationConfiguration")]
         public Output<Outputs.BucketReplicationConfiguration> ReplicationConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Who should bear the cost of Amazon S3 data transfer. Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketRequestPaymentConfiguration` instead.
+        /// Who should bear the cost of Amazon S3 data transfer. Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketRequestPaymentConfiguration` instead.
         /// </summary>
         [Output("requestPayer")]
         public Output<string> RequestPayer { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See `ServerSideEncryptionConfiguration` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketServerSideEncryptionConfiguration` instead.
+        /// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See `ServerSideEncryptionConfiguration` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketServerSideEncryptionConfiguration` instead.
         /// </summary>
         [Output("serverSideEncryptionConfiguration")]
         public Output<Outputs.BucketServerSideEncryptionConfiguration> ServerSideEncryptionConfiguration { get; private set; } = null!;
@@ -242,13 +242,13 @@ namespace Pulumi.Aws.S3
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See `Versioning` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioning` instead.
+        /// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See `Versioning` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioning` instead.
         /// </summary>
         [Output("versioning")]
         public Output<Outputs.BucketVersioning> Versioning { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See `Website` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
+        /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See `Website` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
         /// </summary>
         [Output("website")]
         public Output<Outputs.BucketWebsite> Website { get; private set; } = null!;
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? AccelerationStatus { get; set; }
 
         /// <summary>
-        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `Private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `Private`. Conflicts with `Grant`. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
+        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `Private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `Private`. Conflicts with `Grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
         /// </summary>
         [Input("acl")]
         public InputUnion<string, Pulumi.Aws.S3.CannedAcl>? Acl { get; set; }
@@ -350,7 +350,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketCorsRuleArgs>? _corsRules;
 
         /// <summary>
-        /// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See `CorsRule` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfiguration` instead.
+        /// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See `CorsRule` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfiguration` instead.
         /// </summary>
         [Obsolete(@"cors_rule is deprecated. Use the aws.s3.BucketCorsConfiguration resource instead.")]
         public InputList<Inputs.BucketCorsRuleArgs> CorsRules
@@ -369,7 +369,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketGrantArgs>? _grants;
 
         /// <summary>
-        /// [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See `Grant` Block below for details. Conflicts with `Acl`. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
+        /// [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See `Grant` Block below for details. Conflicts with `Acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
         /// </summary>
         [Obsolete(@"grant is deprecated. Use the aws.s3.BucketAcl resource instead.")]
         public InputList<Inputs.BucketGrantArgs> Grants
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketLifecycleRuleArgs>? _lifecycleRules;
 
         /// <summary>
-        /// Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See `LifecycleRule` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketLifecycleConfiguration` instead.
+        /// Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See `LifecycleRule` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketLifecycleConfiguration` instead.
         /// </summary>
         [Obsolete(@"lifecycle_rule is deprecated. Use the aws.s3.BucketLifecycleConfiguration resource instead.")]
         public InputList<Inputs.BucketLifecycleRuleArgs> LifecycleRules
@@ -392,13 +392,13 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See `Logging` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketLogging` instead.
+        /// Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See `Logging` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketLogging` instead.
         /// </summary>
         [Input("logging")]
         public Input<Inputs.BucketLoggingArgs>? Logging { get; set; }
 
         /// <summary>
-        /// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See `ObjectLockConfiguration` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the `ObjectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
+        /// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See `ObjectLockConfiguration` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the `ObjectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
         /// </summary>
         [Input("objectLockConfiguration")]
         public Input<Inputs.BucketObjectLockConfigurationArgs>? ObjectLockConfiguration { get; set; }
@@ -410,7 +410,7 @@ namespace Pulumi.Aws.S3
         public Input<bool>? ObjectLockEnabled { get; set; }
 
         /// <summary>
-        /// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketPolicy` instead.
+        /// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketPolicy` instead.
         /// </summary>
         [Input("policy")]
         public InputUnion<string, Inputs.PolicyDocumentArgs>? Policy { get; set; }
@@ -422,19 +422,19 @@ namespace Pulumi.Aws.S3
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See `ReplicationConfiguration` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketReplicationConfig` instead.
+        /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See `ReplicationConfiguration` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketReplicationConfig` instead.
         /// </summary>
         [Input("replicationConfiguration")]
         public Input<Inputs.BucketReplicationConfigurationArgs>? ReplicationConfiguration { get; set; }
 
         /// <summary>
-        /// Who should bear the cost of Amazon S3 data transfer. Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketRequestPaymentConfiguration` instead.
+        /// Who should bear the cost of Amazon S3 data transfer. Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketRequestPaymentConfiguration` instead.
         /// </summary>
         [Input("requestPayer")]
         public Input<string>? RequestPayer { get; set; }
 
         /// <summary>
-        /// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See `ServerSideEncryptionConfiguration` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketServerSideEncryptionConfiguration` instead.
+        /// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See `ServerSideEncryptionConfiguration` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketServerSideEncryptionConfiguration` instead.
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.BucketServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
@@ -452,13 +452,13 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See `Versioning` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioning` instead.
+        /// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See `Versioning` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioning` instead.
         /// </summary>
         [Input("versioning")]
         public Input<Inputs.BucketVersioningArgs>? Versioning { get; set; }
 
         /// <summary>
-        /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See `Website` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
+        /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See `Website` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
         /// </summary>
         [Input("website")]
         public Input<Inputs.BucketWebsiteArgs>? Website { get; set; }
@@ -478,7 +478,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? AccelerationStatus { get; set; }
 
         /// <summary>
-        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `Private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `Private`. Conflicts with `Grant`. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
+        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `Private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `Private`. Conflicts with `Grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
         /// </summary>
         [Input("acl")]
         public InputUnion<string, Pulumi.Aws.S3.CannedAcl>? Acl { get; set; }
@@ -529,7 +529,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketCorsRuleGetArgs>? _corsRules;
 
         /// <summary>
-        /// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See `CorsRule` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfiguration` instead.
+        /// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See `CorsRule` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfiguration` instead.
         /// </summary>
         [Obsolete(@"cors_rule is deprecated. Use the aws.s3.BucketCorsConfiguration resource instead.")]
         public InputList<Inputs.BucketCorsRuleGetArgs> CorsRules
@@ -548,7 +548,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketGrantGetArgs>? _grants;
 
         /// <summary>
-        /// [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See `Grant` Block below for details. Conflicts with `Acl`. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
+        /// [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See `Grant` Block below for details. Conflicts with `Acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAcl` instead.
         /// </summary>
         [Obsolete(@"grant is deprecated. Use the aws.s3.BucketAcl resource instead.")]
         public InputList<Inputs.BucketGrantGetArgs> Grants
@@ -567,7 +567,7 @@ namespace Pulumi.Aws.S3
         private InputList<Inputs.BucketLifecycleRuleGetArgs>? _lifecycleRules;
 
         /// <summary>
-        /// Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See `LifecycleRule` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketLifecycleConfiguration` instead.
+        /// Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See `LifecycleRule` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketLifecycleConfiguration` instead.
         /// </summary>
         [Obsolete(@"lifecycle_rule is deprecated. Use the aws.s3.BucketLifecycleConfiguration resource instead.")]
         public InputList<Inputs.BucketLifecycleRuleGetArgs> LifecycleRules
@@ -577,13 +577,13 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See `Logging` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketLogging` instead.
+        /// Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See `Logging` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketLogging` instead.
         /// </summary>
         [Input("logging")]
         public Input<Inputs.BucketLoggingGetArgs>? Logging { get; set; }
 
         /// <summary>
-        /// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See `ObjectLockConfiguration` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the `ObjectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
+        /// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See `ObjectLockConfiguration` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the `ObjectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfiguration` instead.
         /// </summary>
         [Input("objectLockConfiguration")]
         public Input<Inputs.BucketObjectLockConfigurationGetArgs>? ObjectLockConfiguration { get; set; }
@@ -595,7 +595,7 @@ namespace Pulumi.Aws.S3
         public Input<bool>? ObjectLockEnabled { get; set; }
 
         /// <summary>
-        /// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketPolicy` instead.
+        /// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketPolicy` instead.
         /// </summary>
         [Input("policy")]
         public InputUnion<string, Inputs.PolicyDocumentGetArgs>? Policy { get; set; }
@@ -607,19 +607,19 @@ namespace Pulumi.Aws.S3
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See `ReplicationConfiguration` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketReplicationConfig` instead.
+        /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See `ReplicationConfiguration` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketReplicationConfig` instead.
         /// </summary>
         [Input("replicationConfiguration")]
         public Input<Inputs.BucketReplicationConfigurationGetArgs>? ReplicationConfiguration { get; set; }
 
         /// <summary>
-        /// Who should bear the cost of Amazon S3 data transfer. Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketRequestPaymentConfiguration` instead.
+        /// Who should bear the cost of Amazon S3 data transfer. Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketRequestPaymentConfiguration` instead.
         /// </summary>
         [Input("requestPayer")]
         public Input<string>? RequestPayer { get; set; }
 
         /// <summary>
-        /// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See `ServerSideEncryptionConfiguration` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketServerSideEncryptionConfiguration` instead.
+        /// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See `ServerSideEncryptionConfiguration` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketServerSideEncryptionConfiguration` instead.
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.BucketServerSideEncryptionConfigurationGetArgs>? ServerSideEncryptionConfiguration { get; set; }
@@ -649,13 +649,13 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See `Versioning` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioning` instead.
+        /// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See `Versioning` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioning` instead.
         /// </summary>
         [Input("versioning")]
         public Input<Inputs.BucketVersioningGetArgs>? Versioning { get; set; }
 
         /// <summary>
-        /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See `Website` Block below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
+        /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See `Website` Block below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketWebsiteConfiguration` instead.
         /// </summary>
         [Input("website")]
         public Input<Inputs.BucketWebsiteGetArgs>? Website { get; set; }

@@ -108,7 +108,7 @@ import (
 type ObjectLambdaAccessPointPolicy struct {
 	pulumi.CustomResourceState
 
-	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy pulumi.BoolOutput `pulumi:"hasPublicAccessPolicy"`
@@ -153,7 +153,7 @@ func GetObjectLambdaAccessPointPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ObjectLambdaAccessPointPolicy resources.
 type objectLambdaAccessPointPolicyState struct {
-	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
 	// Whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy *bool `pulumi:"hasPublicAccessPolicy"`
@@ -166,7 +166,7 @@ type objectLambdaAccessPointPolicyState struct {
 }
 
 type ObjectLambdaAccessPointPolicyState struct {
-	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
 	// Whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy pulumi.BoolPtrInput
@@ -183,7 +183,7 @@ func (ObjectLambdaAccessPointPolicyState) ElementType() reflect.Type {
 }
 
 type objectLambdaAccessPointPolicyArgs struct {
-	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
 	// Name of the Object Lambda Access Point.
 	Name *string `pulumi:"name"`
@@ -195,7 +195,7 @@ type objectLambdaAccessPointPolicyArgs struct {
 
 // The set of arguments for constructing a ObjectLambdaAccessPointPolicy resource.
 type ObjectLambdaAccessPointPolicyArgs struct {
-	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
 	// Name of the Object Lambda Access Point.
 	Name pulumi.StringPtrInput
@@ -292,7 +292,7 @@ func (o ObjectLambdaAccessPointPolicyOutput) ToObjectLambdaAccessPointPolicyOutp
 	return o
 }
 
-// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
+// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 func (o ObjectLambdaAccessPointPolicyOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

@@ -93,7 +93,7 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
@@ -167,7 +167,7 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
  */
 export interface StorageLensConfigurationState {
     /**
-     * AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
@@ -201,7 +201,7 @@ export interface StorageLensConfigurationState {
  */
 export interface StorageLensConfigurationArgs {
     /**
-     * AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
