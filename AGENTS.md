@@ -50,6 +50,26 @@ Makefile              -- Generated build orchestration
 5. Build provider: `make provider`
 6. Build SDKs when schema changes: `make build_sdks`
 
+## Long-Running Commands
+
+`upgrade-provider` and a full `make build` both routinely run past 15 minutes on
+this repo. Anything that imposes a shorter wall-clock budget - a per-step CI
+timeout, a `timeout(1)` wrapper, an agent shell - will kill them partway.
+
+That is not a clean abort. A killed `upgrade-provider` leaves `upstream/`
+mid-checkout and generated files half-written, which reads like a tool bug and
+gets misdiagnosed as one. Run it detached and poll instead of inline:
+
+```sh
+nohup upgrade-provider pulumi/pulumi-aws --repo-path . --no-submit >> upgrade.log 2>&1 &
+pgrep -af upgrade-provider   # still running?
+tail -n 40 upgrade.log       # how far along?
+```
+
+If a run did get killed, check `git -C upstream status` and `git status` before
+re-running - start from a clean tree rather than layering a second run on top of
+a partial one.
+
 ## Investigation and Testing
 
 - Start provider issue investigation with `triage-provider-issue`; invoke a narrower helper directly only when that route is already established.

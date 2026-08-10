@@ -7,6 +7,9 @@ postinstall = "mise deps install agent-skills"
 [tools]
 "pipx:apm-cli" = "0.26.0"
 golangci-lint = "2.7.0"
+# AGENTS.md tells contributors and agents to search with `rg`; ship it so that
+# instruction holds in a fresh checkout.
+"aqua:BurntSushi/ripgrep" = "15.2.0"
 "vfox-pulumi:pulumi/pulumi-archive" = "0.3.6"
 "vfox-pulumi:pulumi/pulumi-tls" = "5.2.3"
 "vfox-pulumi:pulumi/pulumi-github" = "6.10.1"
