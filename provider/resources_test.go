@@ -3,6 +3,7 @@ package provider
 import (
 	"context"
 	"regexp"
+	"sort"
 	"strings"
 	"testing"
 
@@ -14,6 +15,77 @@ import (
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
+
+func TestExplicitTokenMappingsAreNecessary(t *testing.T) {
+	t.Parallel()
+
+	p := Provider()
+	strategy := awsTokenStrategy(p)
+	var redundant []string
+
+	for terraformToken, override := range resourceOverrides(p.P) {
+		// This helper owns the complete ResourceInfo, including its token.
+		if terraformToken == "aws_batch_compute_environment" {
+			continue
+		}
+		if _, ok := p.P.ResourcesMap().GetOk(terraformToken); !ok {
+			t.Errorf("resource token override does not exist upstream: %s", terraformToken)
+			continue
+		}
+		if override.Tok == "" {
+			continue
+		}
+		candidate := *override
+		candidate.Tok = ""
+		if err := strategy.Resource(terraformToken, &candidate); err == nil && candidate.Tok == override.Tok {
+			redundant = append(redundant, "resource "+terraformToken)
+		}
+	}
+	for terraformToken, override := range dataSourceOverrides() {
+		if _, ok := p.P.DataSourcesMap().GetOk(terraformToken); !ok {
+			t.Errorf("data source token override does not exist upstream: %s", terraformToken)
+			continue
+		}
+		if override.Tok == "" {
+			continue
+		}
+		candidate := *override
+		candidate.Tok = ""
+		if err := strategy.DataSource(terraformToken, &candidate); err == nil && candidate.Tok == override.Tok {
+			redundant = append(redundant, "data source "+terraformToken)
+		}
+	}
+
+	sort.Strings(redundant)
+	for _, terraformToken := range redundant {
+		t.Errorf("redundant explicit token mapping: %s", terraformToken)
+	}
+}
+
+func TestAutomaticTokenMappings(t *testing.T) {
+	t.Parallel()
+
+	p := Provider()
+
+	resourceTokens := map[string]string{
+		"aws_auditmanager_assessment": "aws:auditmanager/assessment:Assessment",
+		"aws_quicksight_namespace":    "aws:quicksight/namespace:Namespace",
+		"aws_resourceexplorer2_index": "aws:resourceexplorer/index:Index",
+	}
+	for terraformToken, expected := range resourceTokens {
+		actual, ok := p.Resources[terraformToken]
+		require.True(t, ok, terraformToken)
+		assert.Equal(t, expected, actual.Tok.String(), terraformToken)
+	}
+
+	actual, ok := p.DataSources["aws_cloudfront_distribution"]
+	require.True(t, ok)
+	assert.Equal(t, "aws:cloudfront/getDistribution:getDistribution", actual.Tok.String())
+
+	function, ok := p.Functions["arn_build"]
+	require.True(t, ok)
+	assert.Equal(t, "aws:index/arnBuild:arnBuild", function.Tok.String())
+}
 
 func Test_parseAssumeRoles(t *testing.T) {
 	t.Parallel()

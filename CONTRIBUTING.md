@@ -20,7 +20,7 @@ Please refer to the [main Pulumi repo](https://github.com/pulumi/pulumi/)'s [CON
 
 ## Committing Generated Code
 
-You must generate and check in the SDKs on each pull request containing a code change, e.g. adding a new resource to `resources.go`.
+You must generate and check in the SDKs on each pull request containing a code change, e.g. adding a new resource override to `provider/resource_overrides.go`.
 
 1. Run `make schema && make provider` to regenerate schema artifacts and the provider binary.
 1. Run `make build_sdks` from the root of this repository (this regenerates SDK artifacts as needed).
@@ -33,7 +33,7 @@ For most provider-code changes, run this loop before opening a pull request:
 
 1. `make lint`
 1. `make test_provider`
-1. If schema-affecting files changed (for example `provider/resources.go`, overlays, or mappings), also run:
+1. If schema-affecting files changed (for example `provider/resources.go`, override files, overlays, or token mappings), also run:
    - `make schema`
    - `make build_sdks`
 
@@ -73,7 +73,7 @@ Copy the content of `policies.go` and insert into the `iam_managed_policy.go` fi
 ## Updating pulumi-terraform-aws dependency
 
 Keeping the pulumi-terraform-aws dependency up-to-date involves updating the `./upstream` Git sub-module, resolving
-patch conflicts, adjusting `resources.go` mappings configurations and re-generating the SDKs. For a fully worked
+patch conflicts, adjusting provider overrides and token mappings, and re-generating the SDKs. For a fully worked
 example, to update to v5.60.0 (actual update in #4309):
 
 ```bash
@@ -90,7 +90,7 @@ git add ./upstream && git commit -m "Move upstream to v5.60.0"
 ./scripts/upstream.sh init -f # verify patches apply cleanly with no changes
 ./scripts/tidy-all.sh
 git add . && git commit -m "./scripts/tidy-all.sh"
-make tfgen # iterate on editing resources.go configurations as needed
+make tfgen # iterate on editing provider overrides and token mappings as needed
 git add . && git commit -m "make tfgen"
 make build_sdks && git add . && git commit -m "make build_sdks"
 ```
