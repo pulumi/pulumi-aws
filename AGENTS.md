@@ -38,7 +38,8 @@ Makefile              -- Generated build orchestration
 ```
 
 ### Key Files
-- `provider/resources.go` - Resource definitions
+- `provider/resources.go` - Provider assembly and language configuration
+- `provider/resource_overrides.go`, `provider/data_source_overrides.go`, and `provider/tokens.go` - Bridge overrides and Terraform-to-Pulumi token strategy
 - `provider/resources_test.go` - Provider tests
 
 ## Development Workflow
