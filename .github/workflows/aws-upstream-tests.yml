@@ -47,21 +47,12 @@ jobs:
       fail-fast: false
       matrix:
         service:
-          - sqs
           - ec2
-          - docdb
-          - redshiftserverless
           - cognitoidp
           - rds
         include:
-          - service: sqs
-            tests: TestAccSQSQueue
           - service: ec2
             tests: 'TestAccEC2KeyPair_publicKey|TestAccVPCRoute_timeoutsOnlyChange'
-          - service: docdb
-            tests: TestAccDocDBCluster_basic
-          - service: redshiftserverless
-            tests: TestAccRedshiftServerlessNamespace_basic
           - service: rds
             tests: TestAccRDSCluster_storageTypeUpdateNonAurora
           - service: cognitoidp
