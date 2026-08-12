@@ -247,22 +247,52 @@ func TestTagsPreCheckCallbackAppliesOnlyToSDKV2Resources(t *testing.T) {
 	assert.Equal(t, "from-default", tagsAll.ObjectValue()["default"].StringValue(), "%q", sdkv2Key)
 	assert.Equal(t, "from-resource", tagsAll.ObjectValue()["explicit"].StringValue(), "%q", sdkv2Key)
 	assert.Equal(t, "from-resource", tagsAll.ObjectValue()["shared"].StringValue(), "%q", sdkv2Key)
+}
+
+// TestTagsPreCheckCallbackAppliesAlsoToPFResources verifies that Plugin Framework resources
+// with tags_all also receive the tagsAll PreCheckCallback. This ensures that defaultTags
+// changes show up in pulumi preview diffs for PF resources (e.g. SecurityGroupIngressRule,
+// SecurityGroupEgressRule) the same way they do for SDKv2 resources.
+// See https://github.com/pulumi/pulumi-aws/issues/6602.
+func TestTagsPreCheckCallbackAppliesAlsoToPFResources(t *testing.T) {
+	t.Parallel()
+
+	p := Provider()
+	upstreamProvider := newUpstreamProvider(context.Background())
 
 	pfKey := findProviderResource(t, p, "PF resource with tags", func(key string) bool {
 		_, isSDKV2 := upstreamProvider.SDKV2Provider.ResourcesMap[key]
 		return !isSDKV2 && awsResourceMetadatas[key].HasTagsAndTagsAll
 	})
 	pfRes := p.Resources[pfKey]
-	if fields := pfRes.GetFields(); fields != nil {
-		if tagsAllField := fields["tags_all"]; tagsAllField != nil && tagsAllField.MarkAsComputedOnly != nil {
-			assert.False(t, *tagsAllField.MarkAsComputedOnly, "%q", pfKey)
-		}
+	assert.NotNil(t, pfRes.PreCheckCallback, "%q", pfKey)
+
+	tagsAllField := pfRes.GetFields()["tags_all"]
+	assert.NotNil(t, tagsAllField, "%q", pfKey)
+	assertBoolPtr(t, tagsAllField.MarkAsComputedOnly, true, "%q", pfKey)
+	assertBoolPtr(t, tagsAllField.MarkAsOptional, false, "%q", pfKey)
+
+	config := resource.PropertyMap{
+		"tags": resource.NewObjectProperty(resource.PropertyMap{
+			"explicit": resource.NewStringProperty("from-resource"),
+			"shared":   resource.NewStringProperty("from-resource"),
+		}),
 	}
-	if pfRes.PreCheckCallback != nil {
-		actual, err := pfRes.PreCheckCallback(context.Background(), config, meta)
-		assert.NoError(t, err, "%q", pfKey)
-		assert.False(t, actual["tagsAll"].IsObject(), "%q", pfKey)
+	meta := resource.PropertyMap{
+		"defaultTags": resource.NewObjectProperty(resource.PropertyMap{
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"default": resource.NewStringProperty("from-default"),
+				"shared":  resource.NewStringProperty("from-default"),
+			}),
+		}),
 	}
+	actual, err := pfRes.PreCheckCallback(context.Background(), config, meta)
+	assert.NoError(t, err, "%q", pfKey)
+	tagsAll := actual["tagsAll"]
+	assert.True(t, tagsAll.IsObject(), "%q", pfKey)
+	assert.Equal(t, "from-default", tagsAll.ObjectValue()["default"].StringValue(), "%q", pfKey)
+	assert.Equal(t, "from-resource", tagsAll.ObjectValue()["explicit"].StringValue(), "%q", pfKey)
+	assert.Equal(t, "from-resource", tagsAll.ObjectValue()["shared"].StringValue(), "%q", pfKey)
 }
 
 func TestSetAutonamingAddsGenericNameWithoutOverwritingFields(t *testing.T) {

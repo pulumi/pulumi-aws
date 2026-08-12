@@ -325,7 +325,7 @@ func providerFromMeta(
 				applyRegionPreCheckCallback(prov, key)
 			}
 
-			if _, isSDKV2 := up.ResourcesMap[key]; isSDKV2 && metadata.HasTagsAndTagsAll {
+			if metadata.HasTagsAndTagsAll {
 				applyTagsPreCheckCallback(prov, key)
 			}
 		}

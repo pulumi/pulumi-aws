@@ -41,10 +41,12 @@ import (
 // This is a workaround that allows the program to have the latest `tagsAll` values without
 // having to run `refresh` or `run-program`.
 //
-// The caller is responsible for applying this only to SDKv2 resources that have non-computed
+// The caller is responsible for applying this only to resources that have non-computed
 // `tags` and a `tags_all` field. ProviderFromMeta enforces that with generated AWS resource
-// metadata. Plugin Framework resources are excluded because upstream handles their tag behavior
-// without this Pulumi-side pre-check callback.
+// metadata. This applies to both SDKv2 and Plugin Framework resources so that defaultTags
+// changes are visible in pulumi preview diffs for all resource types. For PF resources,
+// upstream handles the actual tag merge at apply time; the callback ensures the computed
+// tagsAll value is visible in Check/Diff output so preview diffs are not empty.
 func applyTagsPreCheckCallback(
 	prov tfbridge.ProviderInfo,
 	key string,
