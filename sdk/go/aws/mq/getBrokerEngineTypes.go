@@ -58,7 +58,7 @@ type GetBrokerEngineTypesArgs struct {
 
 // A collection of values returned by getBrokerEngineTypes.
 type GetBrokerEngineTypesResult struct {
-	// List of available engine types and versions. See Engine Types.
+	// List of available engine types and versions. See `brokerEngineTypes` Block.
 	BrokerEngineTypes []GetBrokerEngineTypesBrokerEngineType `pulumi:"brokerEngineTypes"`
 	// Broker's engine type.
 	EngineType *string `pulumi:"engineType"`
@@ -103,7 +103,7 @@ func (o GetBrokerEngineTypesResultOutput) ToGetBrokerEngineTypesResultOutputWith
 	return o
 }
 
-// List of available engine types and versions. See Engine Types.
+// List of available engine types and versions. See `brokerEngineTypes` Block.
 func (o GetBrokerEngineTypesResultOutput) BrokerEngineTypes() GetBrokerEngineTypesBrokerEngineTypeArrayOutput {
 	return o.ApplyT(func(v GetBrokerEngineTypesResult) []GetBrokerEngineTypesBrokerEngineType { return v.BrokerEngineTypes }).(GetBrokerEngineTypesBrokerEngineTypeArrayOutput)
 }

@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetConnectionPhysicalConnectionRequirementResult
     {
+        /// <summary>
+        /// Availability Zone used by the connection.
+        /// </summary>
         public readonly string AvailabilityZone;
+        /// <summary>
+        /// List of security group IDs used by the connection.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIdLists;
+        /// <summary>
+        /// Subnet ID used by the connection.
+        /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]

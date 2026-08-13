@@ -16,29 +16,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecListener {
+    /**
+     * @return Connection pool information for the listener. See `spec.listener.connection_pool` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerConnectionPool> connectionPools;
+    /**
+     * @return Health check information for the listener. See `spec.listener.health_check` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerHealthCheck> healthChecks;
+    /**
+     * @return Outlier detection information for the listener. See `spec.listener.outlier_detection` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerOutlierDetection> outlierDetections;
+    /**
+     * @return Port mapping information for the listener. See `spec.listener.port_mapping` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerPortMapping> portMappings;
+    /**
+     * @return Timeouts for different protocols. See `spec.listener.timeout` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTimeout> timeouts;
+    /**
+     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTl> tls;
 
     private GetVirtualNodeSpecListener() {}
+    /**
+     * @return Connection pool information for the listener. See `spec.listener.connection_pool` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerConnectionPool> connectionPools() {
         return this.connectionPools;
     }
+    /**
+     * @return Health check information for the listener. See `spec.listener.health_check` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerHealthCheck> healthChecks() {
         return this.healthChecks;
     }
+    /**
+     * @return Outlier detection information for the listener. See `spec.listener.outlier_detection` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerOutlierDetection> outlierDetections() {
         return this.outlierDetections;
     }
+    /**
+     * @return Port mapping information for the listener. See `spec.listener.port_mapping` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerPortMapping> portMappings() {
         return this.portMappings;
     }
+    /**
+     * @return Timeouts for different protocols. See `spec.listener.timeout` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTimeout> timeouts() {
         return this.timeouts;
     }
+    /**
+     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTl> tls() {
         return this.tls;
     }

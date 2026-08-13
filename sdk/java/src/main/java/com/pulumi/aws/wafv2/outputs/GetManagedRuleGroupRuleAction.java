@@ -15,25 +15,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetManagedRuleGroupRuleAction {
+    /**
+     * @return Rule action that allows the request. See `allow` Block for details.
+     * 
+     */
     private List<GetManagedRuleGroupRuleActionAllow> allows;
+    /**
+     * @return Rule action that blocks the request. See `block` Block for details.
+     * 
+     */
     private List<GetManagedRuleGroupRuleActionBlock> blocks;
+    /**
+     * @return Rule action that requires CAPTCHA verification. See `captcha` Block for details.
+     * 
+     */
     private List<GetManagedRuleGroupRuleActionCaptcha> captchas;
+    /**
+     * @return Rule action that requires challenge verification. See `challenge` Block for details.
+     * 
+     */
     private List<GetManagedRuleGroupRuleActionChallenge> challenges;
+    /**
+     * @return Rule action that counts the request without taking other action. See `count` Block for details.
+     * 
+     */
     private List<GetManagedRuleGroupRuleActionCount> counts;
 
     private GetManagedRuleGroupRuleAction() {}
+    /**
+     * @return Rule action that allows the request. See `allow` Block for details.
+     * 
+     */
     public List<GetManagedRuleGroupRuleActionAllow> allows() {
         return this.allows;
     }
+    /**
+     * @return Rule action that blocks the request. See `block` Block for details.
+     * 
+     */
     public List<GetManagedRuleGroupRuleActionBlock> blocks() {
         return this.blocks;
     }
+    /**
+     * @return Rule action that requires CAPTCHA verification. See `captcha` Block for details.
+     * 
+     */
     public List<GetManagedRuleGroupRuleActionCaptcha> captchas() {
         return this.captchas;
     }
+    /**
+     * @return Rule action that requires challenge verification. See `challenge` Block for details.
+     * 
+     */
     public List<GetManagedRuleGroupRuleActionChallenge> challenges() {
         return this.challenges;
     }
+    /**
+     * @return Rule action that counts the request without taking other action. See `count` Block for details.
+     * 
+     */
     public List<GetManagedRuleGroupRuleActionCount> counts() {
         return this.counts;
     }

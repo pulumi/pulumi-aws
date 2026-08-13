@@ -194,7 +194,7 @@ type OntapFileSystem struct {
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\* range. Note that the 198.19.\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
 	EndpointIpAddressRange pulumi.StringOutput `pulumi:"endpointIpAddressRange"`
-	// Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+	// Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
 	Endpoints OntapFileSystemEndpointArrayOutput `pulumi:"endpoints"`
 	// ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
 	FsxAdminPassword pulumi.StringPtrOutput `pulumi:"fsxAdminPassword"`
@@ -297,7 +297,7 @@ type ontapFileSystemState struct {
 	DnsName *string `pulumi:"dnsName"`
 	// IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\* range. Note that the 198.19.\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
 	EndpointIpAddressRange *string `pulumi:"endpointIpAddressRange"`
-	// Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+	// Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
 	Endpoints []OntapFileSystemEndpoint `pulumi:"endpoints"`
 	// ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
 	FsxAdminPassword *string `pulumi:"fsxAdminPassword"`
@@ -352,7 +352,7 @@ type OntapFileSystemState struct {
 	DnsName pulumi.StringPtrInput
 	// IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.\* range. Note that the 198.19.\* range is also used by AWS services such as WorkSpaces and AppStream 2.0 for their [management network interfaces](https://docs.aws.amazon.com/appstream2/latest/developerguide/management_ports.html).
 	EndpointIpAddressRange pulumi.StringPtrInput
-	// Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+	// Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
 	Endpoints OntapFileSystemEndpointArrayInput
 	// ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
 	FsxAdminPassword pulumi.StringPtrInput
@@ -601,7 +601,7 @@ func (o OntapFileSystemOutput) EndpointIpAddressRange() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapFileSystem) pulumi.StringOutput { return v.EndpointIpAddressRange }).(pulumi.StringOutput)
 }
 
-// Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+// Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
 func (o OntapFileSystemOutput) Endpoints() OntapFileSystemEndpointArrayOutput {
 	return o.ApplyT(func(v *OntapFileSystem) OntapFileSystemEndpointArrayOutput { return v.Endpoints }).(OntapFileSystemEndpointArrayOutput)
 }

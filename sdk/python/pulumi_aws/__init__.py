@@ -2239,6 +2239,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/agentcoreGatewayRule",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreGatewayRule:AgentcoreGatewayRule": "AgentcoreGatewayRule"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/agentcoreGatewayTarget",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -8767,6 +8775,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "mailmanager/ingressPoint",
+  "fqn": "pulumi_aws.mailmanager",
+  "classes": {
+   "aws:mailmanager/ingressPoint:IngressPoint": "IngressPoint"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "mailmanager/ruleSet",
   "fqn": "pulumi_aws.mailmanager",
   "classes": {
@@ -9115,6 +9131,22 @@ _utilities.register(
   "fqn": "pulumi_aws.neptunegraph",
   "classes": {
    "aws:neptunegraph/graph:Graph": "Graph"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "neptunegraph/privateGraphEndpoint",
+  "fqn": "pulumi_aws.neptunegraph",
+  "classes": {
+   "aws:neptunegraph/privateGraphEndpoint:PrivateGraphEndpoint": "PrivateGraphEndpoint"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkfirewall/containerAssociation",
+  "fqn": "pulumi_aws.networkfirewall",
+  "classes": {
+   "aws:networkfirewall/containerAssociation:ContainerAssociation": "ContainerAssociation"
   }
  },
  {
@@ -9975,6 +10007,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "pinpoint/smsvoicev2ResourcePolicy",
+  "fqn": "pulumi_aws.pinpoint",
+  "classes": {
+   "aws:pinpoint/smsvoicev2ResourcePolicy:Smsvoicev2ResourcePolicy": "Smsvoicev2ResourcePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "pinpoint/smsvoicev2SenderId",
+  "fqn": "pulumi_aws.pinpoint",
+  "classes": {
+   "aws:pinpoint/smsvoicev2SenderId:Smsvoicev2SenderId": "Smsvoicev2SenderId"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "pipes/pipe",
   "fqn": "pulumi_aws.pipes",
   "classes": {
@@ -10803,6 +10851,22 @@ _utilities.register(
   "fqn": "pulumi_aws.resiliencehub",
   "classes": {
    "aws:resiliencehub/v2Policy:V2Policy": "V2Policy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "resiliencehub/v2Service",
+  "fqn": "pulumi_aws.resiliencehub",
+  "classes": {
+   "aws:resiliencehub/v2Service:V2Service": "V2Service"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "resiliencehub/v2System",
+  "fqn": "pulumi_aws.resiliencehub",
+  "classes": {
+   "aws:resiliencehub/v2System:V2System": "V2System"
   }
  },
  {

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string? PrefixFormat;
         /// <summary>
-        /// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+        /// Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
         /// </summary>
         public readonly ImmutableArray<string> PrefixHierarchies;
         /// <summary>

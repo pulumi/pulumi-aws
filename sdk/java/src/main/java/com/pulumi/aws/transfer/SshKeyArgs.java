@@ -17,14 +17,14 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
     public static final SshKeyArgs Empty = new SshKeyArgs();
 
     /**
-     * The public key portion of an SSH key pair.
+     * Public key portion of an SSH key pair.
      * 
      */
     @Import(name="body", required=true)
     private Output<String> body;
 
     /**
-     * @return The public key portion of an SSH key pair.
+     * @return Public key portion of an SSH key pair.
      * 
      */
     public Output<String> body() {
@@ -47,14 +47,14 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
+     * Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
     @Import(name="serverId", required=true)
     private Output<String> serverId;
 
     /**
-     * @return The Server ID of the Transfer Server (e.g., `s-12345678`)
+     * @return Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
     public Output<String> serverId() {
@@ -62,14 +62,14 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the user account that is assigned to one or more servers.
+     * Name of the user account that is assigned to one or more servers.
      * 
      */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
     /**
-     * @return The name of the user account that is assigned to one or more servers.
+     * @return Name of the user account that is assigned to one or more servers.
      * 
      */
     public Output<String> userName() {
@@ -104,7 +104,7 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param body The public key portion of an SSH key pair.
+         * @param body Public key portion of an SSH key pair.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param body The public key portion of an SSH key pair.
+         * @param body Public key portion of an SSH key pair.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverId The Server ID of the Transfer Server (e.g., `s-12345678`)
+         * @param serverId Server ID of the Transfer Server (e.g., `s-12345678`)
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverId The Server ID of the Transfer Server (e.g., `s-12345678`)
+         * @param serverId Server ID of the Transfer Server (e.g., `s-12345678`)
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userName The name of the user account that is assigned to one or more servers.
+         * @param userName Name of the user account that is assigned to one or more servers.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class SshKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userName The name of the user account that is assigned to one or more servers.
+         * @param userName Name of the user account that is assigned to one or more servers.
          * 
          * @return builder
          * 

@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerEnvGetArgs>? _envs;
 
         /// <summary>
-        /// Environment variables to pass to a container. See EKS Environment below.
+        /// Environment variables to pass to a container. See `Env` below.
         /// </summary>
         public InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerEnvGetArgs> Envs
         {
@@ -61,13 +61,13 @@ namespace Pulumi.Aws.Batch.Inputs
         public Input<string>? ImagePullPolicy { get; set; }
 
         /// <summary>
-        /// Name of the job definition.
+        /// Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Type and amount of resources to assign to a container. The supported resources include `Memory`, `Cpu`, and `nvidia.com/gpu`.
+        /// Type and amount of resources to assign to a container. See `Resources` below.
         /// </summary>
         [Input("resources")]
         public Input<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesGetArgs>? Resources { get; set; }
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Batch.Inputs
         private InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountGetArgs>? _volumeMounts;
 
         /// <summary>
-        /// Volume mounts for the container.
+        /// Volume mounts for the container. See `VolumeMounts` below.
         /// </summary>
         public InputList<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountGetArgs> VolumeMounts
         {

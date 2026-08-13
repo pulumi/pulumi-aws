@@ -126,14 +126,14 @@ public class VectorsVectorBucket extends com.pulumi.resources.CustomResource {
         return this.creationTime;
     }
     /**
-     * Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+     * Encryption configuration for the vector bucket. See `encryptionConfiguration` below for more details.
      * 
      */
     @Export(name="encryptionConfigurations", refs={List.class,VectorsVectorBucketEncryptionConfiguration.class}, tree="[0,1]")
     private Output<List<VectorsVectorBucketEncryptionConfiguration>> encryptionConfigurations;
 
     /**
-     * @return Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+     * @return Encryption configuration for the vector bucket. See `encryptionConfiguration` below for more details.
      * 
      */
     public Output<List<VectorsVectorBucketEncryptionConfiguration>> encryptionConfigurations() {

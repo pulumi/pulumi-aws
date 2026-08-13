@@ -5,6 +5,8 @@ package com.pulumi.aws.dlm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
+import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +18,11 @@ public final class LifecyclePolicyPolicyDetailsParameters {
      * 
      */
     private @Nullable Boolean excludeBootVolume;
+    /**
+     * @return Map specifies whether to exclude volumes that have specific tags.
+     * 
+     */
+    private @Nullable Map<String,String> excludeDataVolumeTags;
     /**
      * @return Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
      * 
@@ -29,6 +36,13 @@ public final class LifecyclePolicyPolicyDetailsParameters {
      */
     public Optional<Boolean> excludeBootVolume() {
         return Optional.ofNullable(this.excludeBootVolume);
+    }
+    /**
+     * @return Map specifies whether to exclude volumes that have specific tags.
+     * 
+     */
+    public Map<String,String> excludeDataVolumeTags() {
+        return this.excludeDataVolumeTags == null ? Map.of() : this.excludeDataVolumeTags;
     }
     /**
      * @return Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
@@ -48,11 +62,13 @@ public final class LifecyclePolicyPolicyDetailsParameters {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean excludeBootVolume;
+        private @Nullable Map<String,String> excludeDataVolumeTags;
         private @Nullable Boolean noReboot;
         public Builder() {}
         public Builder(LifecyclePolicyPolicyDetailsParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.excludeBootVolume = defaults.excludeBootVolume;
+    	      this.excludeDataVolumeTags = defaults.excludeDataVolumeTags;
     	      this.noReboot = defaults.noReboot;
         }
 
@@ -60,6 +76,12 @@ public final class LifecyclePolicyPolicyDetailsParameters {
         public Builder excludeBootVolume(@Nullable Boolean excludeBootVolume) {
 
             this.excludeBootVolume = excludeBootVolume;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder excludeDataVolumeTags(@Nullable Map<String,String> excludeDataVolumeTags) {
+
+            this.excludeDataVolumeTags = excludeDataVolumeTags;
             return this;
         }
         @CustomType.Setter
@@ -71,6 +93,7 @@ public final class LifecyclePolicyPolicyDetailsParameters {
         public LifecyclePolicyPolicyDetailsParameters build() {
             final var _resultValue = new LifecyclePolicyPolicyDetailsParameters();
             _resultValue.excludeBootVolume = excludeBootVolume;
+            _resultValue.excludeDataVolumeTags = excludeDataVolumeTags;
             _resultValue.noReboot = noReboot;
             return _resultValue;
         }

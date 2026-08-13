@@ -16,62 +16,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessToolConfig {
     /**
-     * @return AgentCore browser configuration. See `agentcoreBrowser` below.
+     * @return AgentCore browser configuration. See `agentcoreBrowser` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessToolConfigAgentcoreBrowser agentcoreBrowser;
     /**
-     * @return AgentCore code interpreter configuration. See `agentcoreCodeInterpreter` below.
+     * @return AgentCore code interpreter configuration. See `agentcoreCodeInterpreter` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessToolConfigAgentcoreCodeInterpreter agentcoreCodeInterpreter;
     /**
-     * @return AgentCore gateway configuration. See `agentcoreGateway` below.
+     * @return AgentCore gateway configuration. See `agentcoreGateway` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessToolConfigAgentcoreGateway agentcoreGateway;
     /**
-     * @return Inline function configuration. See `inlineFunction` below.
+     * @return Inline function configuration. See `inlineFunction` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessToolConfigInlineFunction inlineFunction;
     /**
-     * @return Remote MCP server configuration. See `remoteMcp` below.
+     * @return Remote MCP server configuration. See `remoteMcp` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessToolConfigRemoteMcp remoteMcp;
 
     private AgentcoreHarnessToolConfig() {}
     /**
-     * @return AgentCore browser configuration. See `agentcoreBrowser` below.
+     * @return AgentCore browser configuration. See `agentcoreBrowser` Block below.
      * 
      */
     public Optional<AgentcoreHarnessToolConfigAgentcoreBrowser> agentcoreBrowser() {
         return Optional.ofNullable(this.agentcoreBrowser);
     }
     /**
-     * @return AgentCore code interpreter configuration. See `agentcoreCodeInterpreter` below.
+     * @return AgentCore code interpreter configuration. See `agentcoreCodeInterpreter` Block below.
      * 
      */
     public Optional<AgentcoreHarnessToolConfigAgentcoreCodeInterpreter> agentcoreCodeInterpreter() {
         return Optional.ofNullable(this.agentcoreCodeInterpreter);
     }
     /**
-     * @return AgentCore gateway configuration. See `agentcoreGateway` below.
+     * @return AgentCore gateway configuration. See `agentcoreGateway` Block below.
      * 
      */
     public Optional<AgentcoreHarnessToolConfigAgentcoreGateway> agentcoreGateway() {
         return Optional.ofNullable(this.agentcoreGateway);
     }
     /**
-     * @return Inline function configuration. See `inlineFunction` below.
+     * @return Inline function configuration. See `inlineFunction` Block below.
      * 
      */
     public Optional<AgentcoreHarnessToolConfigInlineFunction> inlineFunction() {
         return Optional.ofNullable(this.inlineFunction);
     }
     /**
-     * @return Remote MCP server configuration. See `remoteMcp` below.
+     * @return Remote MCP server configuration. See `remoteMcp` Block below.
      * 
      */
     public Optional<AgentcoreHarnessToolConfigRemoteMcp> remoteMcp() {

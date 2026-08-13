@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
+    /**
+     * @return Access point ID used.
+     * 
+     */
     private String accessPointId;
+    /**
+     * @return Whether the Amazon ECS task IAM role defined in a task definition is used when mounting the Amazon EFS file system.
+     * 
+     */
     private String iam;
 
     private GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig() {}
+    /**
+     * @return Access point ID used.
+     * 
+     */
     public String accessPointId() {
         return this.accessPointId;
     }
+    /**
+     * @return Whether the Amazon ECS task IAM role defined in a task definition is used when mounting the Amazon EFS file system.
+     * 
+     */
     public String iam() {
         return this.iam;
     }

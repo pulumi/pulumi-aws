@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppFabric.Outputs
     [OutputType]
     public sealed class AppAuthorizationConnectionTenant
     {
+        /// <summary>
+        /// Display name of the tenant.
+        /// </summary>
         public readonly string TenantDisplayName;
+        /// <summary>
+        /// ID of the application tenant.
+        /// </summary>
         public readonly string TenantIdentifier;
 
         [OutputConstructor]

@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetInstanceTypeOfferingsBrokerInstanceOption {
     /**
-     * @return List of available Availability Zones. See Availability Zones below.
+     * @return List of available Availability Zones. See `availabilityZones` Block below.
      * 
      */
     private List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones;
@@ -45,7 +45,7 @@ public final class GetInstanceTypeOfferingsBrokerInstanceOption {
 
     private GetInstanceTypeOfferingsBrokerInstanceOption() {}
     /**
-     * @return List of available Availability Zones. See Availability Zones below.
+     * @return List of available Availability Zones. See `availabilityZones` Block below.
      * 
      */
     public List<GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone> availabilityZones() {

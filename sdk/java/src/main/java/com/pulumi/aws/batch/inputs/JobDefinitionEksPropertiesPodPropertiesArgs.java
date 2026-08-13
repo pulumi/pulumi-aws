@@ -24,14 +24,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
     public static final JobDefinitionEksPropertiesPodPropertiesArgs Empty = new JobDefinitionEksPropertiesPodPropertiesArgs();
 
     /**
-     * Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+     * Properties of the container that&#39;s used on the Amazon EKS pod. See `containers` below.
      * 
      */
     @Import(name="containers", required=true)
     private Output<List<JobDefinitionEksPropertiesPodPropertiesContainerArgs>> containers;
 
     /**
-     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See `containers` below.
      * 
      */
     public Output<List<JobDefinitionEksPropertiesPodPropertiesContainerArgs>> containers() {
@@ -84,14 +84,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
     }
 
     /**
-     * Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+     * Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `initContainers` below.
      * 
      */
     @Import(name="initContainers")
     private @Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesInitContainerArgs>> initContainers;
 
     /**
-     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `initContainers` below.
      * 
      */
     public Optional<Output<List<JobDefinitionEksPropertiesPodPropertiesInitContainerArgs>>> initContainers() {
@@ -99,14 +99,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
     }
 
     /**
-     * Metadata about the Kubernetes pod.
+     * Metadata about the Kubernetes pod. See `metadata` below.
      * 
      */
     @Import(name="metadata")
     private @Nullable Output<JobDefinitionEksPropertiesPodPropertiesMetadataArgs> metadata;
 
     /**
-     * @return Metadata about the Kubernetes pod.
+     * @return Metadata about the Kubernetes pod. See `metadata` below.
      * 
      */
     public Optional<Output<JobDefinitionEksPropertiesPodPropertiesMetadataArgs>> metadata() {
@@ -129,14 +129,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
     }
 
     /**
-     * Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+     * Whether the processes in a container are shared, or visible, to other containers in the same pod.
      * 
      */
     @Import(name="shareProcessNamespace")
     private @Nullable Output<Boolean> shareProcessNamespace;
 
     /**
-     * @return Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+     * @return Whether the processes in a container are shared, or visible, to other containers in the same pod.
      * 
      */
     public Optional<Output<Boolean>> shareProcessNamespace() {
@@ -144,14 +144,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
     }
 
     /**
-     * Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+     * Volumes for a job definition that uses Amazon EKS resources. See `volumes` below.
      * 
      */
     @Import(name="volumes")
     private @Nullable Output<List<JobDefinitionEksPropertiesPodPropertiesVolumeArgs>> volumes;
 
     /**
-     * @return Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+     * @return Volumes for a job definition that uses Amazon EKS resources. See `volumes` below.
      * 
      */
     public Optional<Output<List<JobDefinitionEksPropertiesPodPropertiesVolumeArgs>>> volumes() {
@@ -191,7 +191,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param containers Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+         * @param containers Properties of the container that&#39;s used on the Amazon EKS pod. See `containers` below.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param containers Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+         * @param containers Properties of the container that&#39;s used on the Amazon EKS pod. See `containers` below.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param containers Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+         * @param containers Properties of the container that&#39;s used on the Amazon EKS pod. See `containers` below.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param initContainers Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+         * @param initContainers Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `initContainers` below.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param initContainers Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+         * @param initContainers Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `initContainers` below.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param initContainers Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+         * @param initContainers Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `initContainers` below.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param metadata Metadata about the Kubernetes pod.
+         * @param metadata Metadata about the Kubernetes pod. See `metadata` below.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param metadata Metadata about the Kubernetes pod.
+         * @param metadata Metadata about the Kubernetes pod. See `metadata` below.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param shareProcessNamespace Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+         * @param shareProcessNamespace Whether the processes in a container are shared, or visible, to other containers in the same pod.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param shareProcessNamespace Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+         * @param shareProcessNamespace Whether the processes in a container are shared, or visible, to other containers in the same pod.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param volumes Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+         * @param volumes Volumes for a job definition that uses Amazon EKS resources. See `volumes` below.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param volumes Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+         * @param volumes Volumes for a job definition that uses Amazon EKS resources. See `volumes` below.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
         }
 
         /**
-         * @param volumes Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+         * @param volumes Volumes for a job definition that uses Amazon EKS resources. See `volumes` below.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class ConnectorSftpConfigArgs extends com.pulumi.resources.Resource
     public static final ConnectorSftpConfigArgs Empty = new ConnectorSftpConfigArgs();
 
     /**
-     * A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+     * List of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
      * 
      */
     @Import(name="trustedHostKeys")
     private @Nullable Output<List<String>> trustedHostKeys;
 
     /**
-     * @return A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+     * @return List of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
      * 
      */
     public Optional<Output<List<String>>> trustedHostKeys() {
@@ -32,14 +32,14 @@ public final class ConnectorSftpConfigArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+     * Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
      * 
      */
     @Import(name="userSecretId")
     private @Nullable Output<String> userSecretId;
 
     /**
-     * @return The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+     * @return Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
      * 
      */
     public Optional<Output<String>> userSecretId() {
@@ -72,7 +72,7 @@ public final class ConnectorSftpConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param trustedHostKeys A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+         * @param trustedHostKeys List of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ConnectorSftpConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param trustedHostKeys A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+         * @param trustedHostKeys List of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ConnectorSftpConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param trustedHostKeys A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+         * @param trustedHostKeys List of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ConnectorSftpConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param userSecretId The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+         * @param userSecretId Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ConnectorSftpConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param userSecretId The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+         * @param userSecretId Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
          * 
          * @return builder
          * 

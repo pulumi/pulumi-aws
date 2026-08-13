@@ -23,6 +23,14 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly string ClusterVersion;
         /// <summary>
+        /// Default control plane component configuration and constraints for this version.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigResult> ControlPlaneComponentConfigs;
+        /// <summary>
+        /// Available provisioned control plane scaling tiers and their capabilities.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierResult> ControlPlaneScalingTiers;
+        /// <summary>
         /// Default eks platform version for the cluster version.
         /// </summary>
         public readonly string DefaultPlatformVersion;
@@ -58,6 +66,10 @@ namespace Pulumi.Aws.Eks.Outputs
 
             string clusterVersion,
 
+            ImmutableArray<Outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfigResult> controlPlaneComponentConfigs,
+
+            ImmutableArray<Outputs.GetClusterVersionsClusterVersionControlPlaneScalingTierResult> controlPlaneScalingTiers,
+
             string defaultPlatformVersion,
 
             bool defaultVersion,
@@ -74,6 +86,8 @@ namespace Pulumi.Aws.Eks.Outputs
         {
             ClusterType = clusterType;
             ClusterVersion = clusterVersion;
+            ControlPlaneComponentConfigs = controlPlaneComponentConfigs;
+            ControlPlaneScalingTiers = controlPlaneScalingTiers;
             DefaultPlatformVersion = defaultPlatformVersion;
             DefaultVersion = defaultVersion;
             EndOfExtendedSupportDate = endOfExtendedSupportDate;

@@ -97,7 +97,7 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ownershipVerificationStatus: pulumi.Output<string>;
     /**
-     * List of DNS records required for domain verification. See `records` below.
+     * List of DNS records required for domain verification. See `records` Block below.
      */
     declare public /*out*/ readonly records: pulumi.Output<outputs.workmail.DomainRecord[]>;
     /**
@@ -177,7 +177,7 @@ export interface DomainState {
      */
     ownershipVerificationStatus?: pulumi.Input<string | undefined>;
     /**
-     * List of DNS records required for domain verification. See `records` below.
+     * List of DNS records required for domain verification. See `records` Block below.
      */
     records?: pulumi.Input<pulumi.Input<inputs.workmail.DomainRecord>[] | undefined>;
     /**

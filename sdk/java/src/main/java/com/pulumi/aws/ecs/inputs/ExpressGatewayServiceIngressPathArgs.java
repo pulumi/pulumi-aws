@@ -14,16 +14,32 @@ public final class ExpressGatewayServiceIngressPathArgs extends com.pulumi.resou
 
     public static final ExpressGatewayServiceIngressPathArgs Empty = new ExpressGatewayServiceIngressPathArgs();
 
+    /**
+     * Access type for the ingress path.
+     * 
+     */
     @Import(name="accessType", required=true)
     private Output<String> accessType;
 
+    /**
+     * @return Access type for the ingress path.
+     * 
+     */
     public Output<String> accessType() {
         return this.accessType;
     }
 
+    /**
+     * Endpoint for the ingress path.
+     * 
+     */
     @Import(name="endpoint", required=true)
     private Output<String> endpoint;
 
+    /**
+     * @return Endpoint for the ingress path.
+     * 
+     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
@@ -53,20 +69,44 @@ public final class ExpressGatewayServiceIngressPathArgs extends com.pulumi.resou
             $ = new ExpressGatewayServiceIngressPathArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accessType Access type for the ingress path.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessType(Output<String> accessType) {
             $.accessType = accessType;
             return this;
         }
 
+        /**
+         * @param accessType Access type for the ingress path.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessType(String accessType) {
             return accessType(Output.of(accessType));
         }
 
+        /**
+         * @param endpoint Endpoint for the ingress path.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpoint(Output<String> endpoint) {
             $.endpoint = endpoint;
             return this;
         }
 
+        /**
+         * @param endpoint Endpoint for the ingress path.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
         }

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly string DeploymentType;
         /// <summary>
-        /// Configuration for Lustre logging used to write the enabled logging events for the cache.
+        /// Configuration for Lustre logging used to write the enabled logging events for the cache. See `LogConfiguration` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FileCacheLustreConfigurationLogConfiguration> LogConfigurations;
         /// <summary>

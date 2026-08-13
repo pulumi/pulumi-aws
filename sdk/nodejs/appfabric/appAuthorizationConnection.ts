@@ -75,7 +75,7 @@ export class AppAuthorizationConnection extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Contains information about an application tenant, such as the application display name and identifier.
+     * Information about an application tenant. See `tenant` Block below.
      */
     declare public /*out*/ readonly tenants: pulumi.Output<outputs.appfabric.AppAuthorizationConnectionTenant[]>;
     declare public readonly timeouts: pulumi.Output<outputs.appfabric.AppAuthorizationConnectionTimeouts | undefined>;
@@ -148,7 +148,7 @@ export interface AppAuthorizationConnectionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Contains information about an application tenant, such as the application display name and identifier.
+     * Information about an application tenant. See `tenant` Block below.
      */
     tenants?: pulumi.Input<pulumi.Input<inputs.appfabric.AppAuthorizationConnectionTenant>[] | undefined>;
     timeouts?: pulumi.Input<inputs.appfabric.AppAuthorizationConnectionTimeouts | undefined>;

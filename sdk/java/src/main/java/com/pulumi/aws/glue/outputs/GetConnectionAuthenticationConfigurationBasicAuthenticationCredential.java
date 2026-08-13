@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectionAuthenticationConfigurationBasicAuthenticationCredential {
+    /**
+     * @return Password used for basic authentication.
+     * 
+     */
     private String password;
+    /**
+     * @return Username used for basic authentication.
+     * 
+     */
     private String username;
 
     private GetConnectionAuthenticationConfigurationBasicAuthenticationCredential() {}
+    /**
+     * @return Password used for basic authentication.
+     * 
+     */
     public String password() {
         return this.password;
     }
+    /**
+     * @return Username used for basic authentication.
+     * 
+     */
     public String username() {
         return this.username;
     }

@@ -13,10 +13,25 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetTaskDefinitionVolumeDockerVolumeConfigurationResult
     {
+        /// <summary>
+        /// Whether the Docker volume is created if it does not already exist.
+        /// </summary>
         public readonly bool Autoprovision;
+        /// <summary>
+        /// Docker volume driver used.
+        /// </summary>
         public readonly string Driver;
+        /// <summary>
+        /// Map of Docker driver-specific options.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> DriverOpts;
+        /// <summary>
+        /// Map of custom metadata added to the Docker volume.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Labels;
+        /// <summary>
+        /// Scope for the Docker volume, either `Task` or `Shared`.
+        /// </summary>
         public readonly string Scope;
 
         [OutputConstructor]

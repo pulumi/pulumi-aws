@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Transfer.Inputs
         public Input<string> ExecutionRole { get; set; } = null!;
 
         /// <summary>
-        /// A unique identifier for the workflow.
+        /// Unique identifier for the workflow.
         /// </summary>
         [Input("workflowId", required: true)]
         public Input<string> WorkflowId { get; set; } = null!;

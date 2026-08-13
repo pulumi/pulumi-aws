@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Transfer.Inputs
 
     public sealed class WebAppIdentityProviderDetailsIdentityCenterConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the IAM Identity Center application created for the web app.
+        /// </summary>
         [Input("applicationArn")]
         public Input<string>? ApplicationArn { get; set; }
 

@@ -45,13 +45,13 @@ namespace Pulumi.Aws.Iam
     public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN assigned by AWS for this group.
+        /// ARN assigned by AWS for this group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+        /// Group's name. Must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Iam
         public Output<string?> Path { get; private set; } = null!;
 
         /// <summary>
-        /// The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
+        /// [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         /// </summary>
         [Output("uniqueId")]
         public Output<string> UniqueId { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+        /// Group's name. Must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -135,13 +135,13 @@ namespace Pulumi.Aws.Iam
     public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN assigned by AWS for this group.
+        /// ARN assigned by AWS for this group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+        /// Group's name. Must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
+        /// [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         /// </summary>
         [Input("uniqueId")]
         public Input<string>? UniqueId { get; set; }

@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Mq
     public sealed class GetInstanceTypeOfferingsResult
     {
         /// <summary>
-        /// List of broker instance options. See Broker Instance Options below.
+        /// List of broker instance options. See `BrokerInstanceOptions` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceTypeOfferingsBrokerInstanceOptionResult> BrokerInstanceOptions;
         /// <summary>

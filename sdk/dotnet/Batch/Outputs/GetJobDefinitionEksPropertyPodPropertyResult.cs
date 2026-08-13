@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionEksPropertyPodPropertyResult
     {
         /// <summary>
-        /// Properties of the container that's used on the Amazon EKS pod. See containers below.
+        /// Properties of the container that's used on the Amazon EKS pod. See `Containers` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyContainerResult> Containers;
         /// <summary>
@@ -25,13 +25,16 @@ namespace Pulumi.Aws.Batch.Outputs
         /// Whether the pod uses the hosts' network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
         /// </summary>
         public readonly bool HostNetwork;
+        /// <summary>
+        /// List of Kubernetes secret resources. See `ImagePullSecrets` below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyImagePullSecretResult> ImagePullSecrets;
         /// <summary>
-        /// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+        /// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `InitContainers` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyInitContainerResult> InitContainers;
         /// <summary>
-        /// Metadata about the Kubernetes pod.
+        /// Metadata about the Kubernetes pod. See `Metadata` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyMetadataResult> Metadatas;
         /// <summary>
@@ -43,7 +46,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly bool ShareProcessNamespace;
         /// <summary>
-        /// List of data volumes used in a job.
+        /// List of data volumes used in a job. See `Volumes` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeResult> Volumes;
 

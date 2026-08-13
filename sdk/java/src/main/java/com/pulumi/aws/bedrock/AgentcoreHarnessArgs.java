@@ -45,14 +45,14 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+     * Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
      * 
      */
     @Import(name="authorizerConfiguration")
     private @Nullable Output<AgentcoreHarnessAuthorizerConfigurationArgs> authorizerConfiguration;
 
     /**
-     * @return Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+     * @return Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessAuthorizerConfigurationArgs>> authorizerConfiguration() {
@@ -60,14 +60,14 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Environment artifact configuration. See `environmentArtifact` below.
+     * Environment artifact configuration. See `environmentArtifact` Block below.
      * 
      */
     @Import(name="environmentArtifact")
     private @Nullable Output<AgentcoreHarnessEnvironmentArtifactArgs> environmentArtifact;
 
     /**
-     * @return Environment artifact configuration. See `environmentArtifact` below.
+     * @return Environment artifact configuration. See `environmentArtifact` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessEnvironmentArtifactArgs>> environmentArtifact() {
@@ -90,14 +90,14 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Compute environment configuration. See `environment` below.
+     * Compute environment configuration. See `environment` Block below.
      * 
      */
     @Import(name="environments")
     private @Nullable Output<List<AgentcoreHarnessEnvironmentArgs>> environments;
 
     /**
-     * @return Compute environment configuration. See `environment` below.
+     * @return Compute environment configuration. See `environment` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreHarnessEnvironmentArgs>>> environments() {
@@ -165,14 +165,14 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Memory configuration. See `memory` below.
+     * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
      * 
      */
     @Import(name="memory")
     private @Nullable Output<AgentcoreHarnessMemoryArgs> memory;
 
     /**
-     * @return Memory configuration. See `memory` below.
+     * @return Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
      * 
      */
     public Optional<Output<AgentcoreHarnessMemoryArgs>> memory() {
@@ -180,7 +180,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Model configuration for the harness. See `model` below.
+     * Model configuration for the harness. See `model` Block below.
      * 
      * The following arguments are optional:
      * 
@@ -189,7 +189,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     private Output<AgentcoreHarnessModelArgs> model;
 
     /**
-     * @return Model configuration for the harness. See `model` below.
+     * @return Model configuration for the harness. See `model` Block below.
      * 
      * The following arguments are optional:
      * 
@@ -214,14 +214,14 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Skill configurations. See `skill` below.
+     * Skill configurations. See `skill` Block below.
      * 
      */
     @Import(name="skills")
     private @Nullable Output<List<AgentcoreHarnessSkillArgs>> skills;
 
     /**
-     * @return Skill configurations. See `skill` below.
+     * @return Skill configurations. See `skill` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreHarnessSkillArgs>>> skills() {
@@ -229,14 +229,14 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * System prompt blocks for the harness. See `systemPrompt` below.
+     * System prompt blocks for the harness. See `systemPrompt` Block below.
      * 
      */
     @Import(name="systemPrompts")
     private @Nullable Output<List<AgentcoreHarnessSystemPromptArgs>> systemPrompts;
 
     /**
-     * @return System prompt blocks for the harness. See `systemPrompt` below.
+     * @return System prompt blocks for the harness. See `systemPrompt` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreHarnessSystemPromptArgs>>> systemPrompts() {
@@ -281,14 +281,14 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Tool configurations. See `tool` below.
+     * Tool configurations. See `tool` Block below.
      * 
      */
     @Import(name="tools")
     private @Nullable Output<List<AgentcoreHarnessToolArgs>> tools;
 
     /**
-     * @return Tool configurations. See `tool` below.
+     * @return Tool configurations. See `tool` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreHarnessToolArgs>>> tools() {
@@ -296,14 +296,14 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Truncation configuration for conversation history. See `truncation` below.
+     * Truncation configuration for conversation history. See `truncation` Block below.
      * 
      */
     @Import(name="truncations")
     private @Nullable Output<List<AgentcoreHarnessTruncationArgs>> truncations;
 
     /**
-     * @return Truncation configuration for conversation history. See `truncation` below.
+     * @return Truncation configuration for conversation history. See `truncation` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreHarnessTruncationArgs>>> truncations() {
@@ -384,7 +384,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authorizerConfiguration Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+         * @param authorizerConfiguration Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param authorizerConfiguration Authorization configuration for authenticating requests. See `authorizerConfiguration` below.
+         * @param authorizerConfiguration Authorization configuration for authenticating requests. See `authorizerConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param environmentArtifact Environment artifact configuration. See `environmentArtifact` below.
+         * @param environmentArtifact Environment artifact configuration. See `environmentArtifact` Block below.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param environmentArtifact Environment artifact configuration. See `environmentArtifact` below.
+         * @param environmentArtifact Environment artifact configuration. See `environmentArtifact` Block below.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param environments Compute environment configuration. See `environment` below.
+         * @param environments Compute environment configuration. See `environment` Block below.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param environments Compute environment configuration. See `environment` below.
+         * @param environments Compute environment configuration. See `environment` Block below.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param environments Compute environment configuration. See `environment` below.
+         * @param environments Compute environment configuration. See `environment` Block below.
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param memory Memory configuration. See `memory` below.
+         * @param memory Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
          * 
          * @return builder
          * 
@@ -573,7 +573,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param memory Memory configuration. See `memory` below.
+         * @param memory Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`.
          * 
          * @return builder
          * 
@@ -583,7 +583,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param model Model configuration for the harness. See `model` below.
+         * @param model Model configuration for the harness. See `model` Block below.
          * 
          * The following arguments are optional:
          * 
@@ -596,7 +596,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param model Model configuration for the harness. See `model` below.
+         * @param model Model configuration for the harness. See `model` Block below.
          * 
          * The following arguments are optional:
          * 
@@ -629,7 +629,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param skills Skill configurations. See `skill` below.
+         * @param skills Skill configurations. See `skill` Block below.
          * 
          * @return builder
          * 
@@ -640,7 +640,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param skills Skill configurations. See `skill` below.
+         * @param skills Skill configurations. See `skill` Block below.
          * 
          * @return builder
          * 
@@ -650,7 +650,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param skills Skill configurations. See `skill` below.
+         * @param skills Skill configurations. See `skill` Block below.
          * 
          * @return builder
          * 
@@ -660,7 +660,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param systemPrompts System prompt blocks for the harness. See `systemPrompt` below.
+         * @param systemPrompts System prompt blocks for the harness. See `systemPrompt` Block below.
          * 
          * @return builder
          * 
@@ -671,7 +671,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param systemPrompts System prompt blocks for the harness. See `systemPrompt` below.
+         * @param systemPrompts System prompt blocks for the harness. See `systemPrompt` Block below.
          * 
          * @return builder
          * 
@@ -681,7 +681,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param systemPrompts System prompt blocks for the harness. See `systemPrompt` below.
+         * @param systemPrompts System prompt blocks for the harness. See `systemPrompt` Block below.
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tools Tool configurations. See `tool` below.
+         * @param tools Tool configurations. See `tool` Block below.
          * 
          * @return builder
          * 
@@ -753,7 +753,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tools Tool configurations. See `tool` below.
+         * @param tools Tool configurations. See `tool` Block below.
          * 
          * @return builder
          * 
@@ -763,7 +763,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tools Tool configurations. See `tool` below.
+         * @param tools Tool configurations. See `tool` Block below.
          * 
          * @return builder
          * 
@@ -773,7 +773,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param truncations Truncation configuration for conversation history. See `truncation` below.
+         * @param truncations Truncation configuration for conversation history. See `truncation` Block below.
          * 
          * @return builder
          * 
@@ -784,7 +784,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param truncations Truncation configuration for conversation history. See `truncation` below.
+         * @param truncations Truncation configuration for conversation history. See `truncation` Block below.
          * 
          * @return builder
          * 
@@ -794,7 +794,7 @@ public final class AgentcoreHarnessArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param truncations Truncation configuration for conversation history. See `truncation` below.
+         * @param truncations Truncation configuration for conversation history. See `truncation` Block below.
          * 
          * @return builder
          * 

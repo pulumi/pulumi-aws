@@ -13,8 +13,17 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult
     {
+        /// <summary>
+        /// String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Attributes;
+        /// <summary>
+        /// Name of the AWS Cloud Map namespace to use.
+        /// </summary>
         public readonly string NamespaceName;
+        /// <summary>
+        /// Name of the AWS Cloud Map service to use.
+        /// </summary>
         public readonly string ServiceName;
 
         [OutputConstructor]

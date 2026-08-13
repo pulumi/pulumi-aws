@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorEgressConfig {
     /**
-     * @return VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
+     * @return VPC Lattice configuration for routing connector traffic through customer VPCs. See `vpcLattice` Block below.
      * 
      */
     private @Nullable ConnectorEgressConfigVpcLattice vpcLattice;
 
     private ConnectorEgressConfig() {}
     /**
-     * @return VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
+     * @return VPC Lattice configuration for routing connector traffic through customer VPCs. See `vpcLattice` Block below.
      * 
      */
     public Optional<ConnectorEgressConfigVpcLattice> vpcLattice() {

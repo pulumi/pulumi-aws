@@ -11,19 +11,27 @@ import java.util.Objects;
 
 @CustomType
 public final class NetworkManagedServiceManagedS3BackupAccess {
+    /**
+     * @return List of IPv4 addresses for the Amazon STS access.
+     * 
+     */
     private List<String> ipv4Addresses;
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     private String status;
 
     private NetworkManagedServiceManagedS3BackupAccess() {}
+    /**
+     * @return List of IPv4 addresses for the Amazon STS access.
+     * 
+     */
     public List<String> ipv4Addresses() {
         return this.ipv4Addresses;
     }
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     public String status() {

@@ -13,9 +13,6 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
     [OutputType]
     public sealed class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngraceful
     {
-        /// <summary>
-        /// Behavior when ungraceful. Valid values: `Skip`.
-        /// </summary>
         public readonly string Behavior;
 
         [OutputConstructor]

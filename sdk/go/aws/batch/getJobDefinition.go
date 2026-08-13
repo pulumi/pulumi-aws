@@ -98,16 +98,16 @@ type LookupJobDefinitionResult struct {
 	ArnPrefix string `pulumi:"arnPrefix"`
 	// Orchestration type of the compute environment.
 	ContainerOrchestrationType string `pulumi:"containerOrchestrationType"`
-	// Object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
+	// Properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions. See `eksProperties` below.
 	EksProperties []GetJobDefinitionEksProperty `pulumi:"eksProperties"`
 	// ARN
 	Id string `pulumi:"id"`
 	// Name of the volume.
 	Name *string `pulumi:"name"`
-	// Object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
+	// Properties specific to multi-node parallel jobs. See `nodeProperties` below.
 	NodeProperties []GetJobDefinitionNodeProperty `pulumi:"nodeProperties"`
 	Region         string                         `pulumi:"region"`
-	// Retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
+	// Retry strategy to use for failed jobs that are submitted with this job definition. See `retryStrategy` below.
 	RetryStrategies []GetJobDefinitionRetryStrategy `pulumi:"retryStrategies"`
 	Revision        *int                            `pulumi:"revision"`
 	// Scheduling priority for jobs that are submitted with this job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
@@ -115,7 +115,7 @@ type LookupJobDefinitionResult struct {
 	Status             *string `pulumi:"status"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn't retried. The minimum value for the timeout is 60 seconds.
+	// Timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. See `timeout` below.
 	Timeouts []GetJobDefinitionTimeout `pulumi:"timeouts"`
 	// Type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
 	Type string `pulumi:"type"`
@@ -177,7 +177,7 @@ func (o LookupJobDefinitionResultOutput) ContainerOrchestrationType() pulumi.Str
 	return o.ApplyT(func(v LookupJobDefinitionResult) string { return v.ContainerOrchestrationType }).(pulumi.StringOutput)
 }
 
-// Object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
+// Properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions. See `eksProperties` below.
 func (o LookupJobDefinitionResultOutput) EksProperties() GetJobDefinitionEksPropertyArrayOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) []GetJobDefinitionEksProperty { return v.EksProperties }).(GetJobDefinitionEksPropertyArrayOutput)
 }
@@ -192,7 +192,7 @@ func (o LookupJobDefinitionResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
+// Properties specific to multi-node parallel jobs. See `nodeProperties` below.
 func (o LookupJobDefinitionResultOutput) NodeProperties() GetJobDefinitionNodePropertyArrayOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) []GetJobDefinitionNodeProperty { return v.NodeProperties }).(GetJobDefinitionNodePropertyArrayOutput)
 }
@@ -201,7 +201,7 @@ func (o LookupJobDefinitionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
+// Retry strategy to use for failed jobs that are submitted with this job definition. See `retryStrategy` below.
 func (o LookupJobDefinitionResultOutput) RetryStrategies() GetJobDefinitionRetryStrategyArrayOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) []GetJobDefinitionRetryStrategy { return v.RetryStrategies }).(GetJobDefinitionRetryStrategyArrayOutput)
 }
@@ -224,7 +224,7 @@ func (o LookupJobDefinitionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn't retried. The minimum value for the timeout is 60 seconds.
+// Timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. See `timeout` below.
 func (o LookupJobDefinitionResultOutput) Timeouts() GetJobDefinitionTimeoutArrayOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) []GetJobDefinitionTimeout { return v.Timeouts }).(GetJobDefinitionTimeoutArrayOutput)
 }

@@ -12,6 +12,44 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Disabled S3 and Zero-ETL Access
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.odb.Network("example", {
+ *     displayName: "odb-my-net",
+ *     availabilityZoneId: "use1-az6",
+ *     clientSubnetCidr: "10.2.0.0/24",
+ *     backupSubnetCidr: "10.2.1.0/24",
+ *     s3Access: "DISABLED",
+ *     zeroEtlAccess: "DISABLED",
+ *     tags: {
+ *         env: "dev",
+ *     },
+ * });
+ * ```
+ *
+ * ### Enabled S3 and Zero-ETL Access
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.odb.Network("example", {
+ *     displayName: "odb-my-net",
+ *     availabilityZoneId: "use1-az6",
+ *     clientSubnetCidr: "10.2.0.0/24",
+ *     backupSubnetCidr: "10.2.1.0/24",
+ *     s3Access: "ENABLED",
+ *     zeroEtlAccess: "ENABLED",
+ *     tags: {
+ *         env: "dev",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Odb Network using the `id`. For example:
@@ -53,7 +91,7 @@ export class Network extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
      */
     declare public readonly availabilityZone: pulumi.Output<string>;
     /**
@@ -77,7 +115,7 @@ export class Network extends pulumi.CustomResource {
      */
     declare public readonly crossRegionS3RestoreSourcesAccesses: pulumi.Output<string[]>;
     /**
-     * Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+     * Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can't be given. Changing this will force terraform to create new resource.
      */
     declare public readonly customDomainName: pulumi.Output<string | undefined>;
     /**
@@ -105,11 +143,11 @@ export class Network extends pulumi.CustomResource {
      */
     declare public readonly kmsPolicyDocument: pulumi.Output<string | undefined>;
     /**
-     * Managed services configuration for the ODB network.
+     * Managed services configuration for the ODB network. See `managedServices` Block below.
      */
     declare public /*out*/ readonly managedServices: pulumi.Output<outputs.odb.NetworkManagedService[]>;
     /**
-     * Number of storage servers requested for the Exadata infrastructure.
+     * DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `ociDnsForwardingConfigs` Block below.
      */
     declare public /*out*/ readonly ociDnsForwardingConfigs: pulumi.Output<outputs.odb.NetworkOciDnsForwardingConfig[]>;
     /**
@@ -133,7 +171,7 @@ export class Network extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ociVcnUrl: pulumi.Output<string>;
     /**
-     * List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+     * List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
      */
     declare public /*out*/ readonly peeredCidrs: pulumi.Output<string[]>;
     /**
@@ -153,7 +191,7 @@ export class Network extends pulumi.CustomResource {
      */
     declare public readonly s3PolicyDocument: pulumi.Output<string | undefined>;
     /**
-     * Status of the network resource.
+     * Status of the Zero-ETL access.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -297,7 +335,7 @@ export interface NetworkState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
      */
     availabilityZone?: pulumi.Input<string | undefined>;
     /**
@@ -321,7 +359,7 @@ export interface NetworkState {
      */
     crossRegionS3RestoreSourcesAccesses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+     * Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can't be given. Changing this will force terraform to create new resource.
      */
     customDomainName?: pulumi.Input<string | undefined>;
     /**
@@ -349,11 +387,11 @@ export interface NetworkState {
      */
     kmsPolicyDocument?: pulumi.Input<string | undefined>;
     /**
-     * Managed services configuration for the ODB network.
+     * Managed services configuration for the ODB network. See `managedServices` Block below.
      */
     managedServices?: pulumi.Input<pulumi.Input<inputs.odb.NetworkManagedService>[] | undefined>;
     /**
-     * Number of storage servers requested for the Exadata infrastructure.
+     * DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `ociDnsForwardingConfigs` Block below.
      */
     ociDnsForwardingConfigs?: pulumi.Input<pulumi.Input<inputs.odb.NetworkOciDnsForwardingConfig>[] | undefined>;
     /**
@@ -377,7 +415,7 @@ export interface NetworkState {
      */
     ociVcnUrl?: pulumi.Input<string | undefined>;
     /**
-     * List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+     * List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
      */
     peeredCidrs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -397,7 +435,7 @@ export interface NetworkState {
      */
     s3PolicyDocument?: pulumi.Input<string | undefined>;
     /**
-     * Status of the network resource.
+     * Status of the Zero-ETL access.
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -431,7 +469,7 @@ export interface NetworkState {
  */
 export interface NetworkArgs {
     /**
-     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
      */
     availabilityZone?: pulumi.Input<string | undefined>;
     /**
@@ -451,7 +489,7 @@ export interface NetworkArgs {
      */
     crossRegionS3RestoreSourcesAccesses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+     * Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can't be given. Changing this will force terraform to create new resource.
      */
     customDomainName?: pulumi.Input<string | undefined>;
     /**

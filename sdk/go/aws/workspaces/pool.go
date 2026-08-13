@@ -169,13 +169,13 @@ import (
 type Pool struct {
 	pulumi.CustomResourceState
 
-	// Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+	// Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
 	ApplicationSettings PoolApplicationSettingArrayOutput `pulumi:"applicationSettings"`
 	// ID of the bundle for the WorkSpaces Pool.
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
 	// Capacity configuration for the WorkSpaces Pool. See `capacity` below.
 	Capacity PoolCapacityPtrOutput `pulumi:"capacity"`
-	// Capacity status of the WorkSpaces Pool. See `capacityStatus` below.
+	// Capacity status of the WorkSpaces Pool. See `capacityStatus` Block below.
 	CapacityStatuses PoolCapacityStatusArrayOutput `pulumi:"capacityStatuses"`
 	// Date and time the WorkSpaces Pool was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -203,7 +203,7 @@ type Pool struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+	// Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
 	TimeoutSettings PoolTimeoutSettingArrayOutput `pulumi:"timeoutSettings"`
 	Timeouts        PoolTimeoutsPtrOutput         `pulumi:"timeouts"`
 }
@@ -253,13 +253,13 @@ func GetPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pool resources.
 type poolState struct {
-	// Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+	// Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
 	ApplicationSettings []PoolApplicationSetting `pulumi:"applicationSettings"`
 	// ID of the bundle for the WorkSpaces Pool.
 	BundleId *string `pulumi:"bundleId"`
 	// Capacity configuration for the WorkSpaces Pool. See `capacity` below.
 	Capacity *PoolCapacity `pulumi:"capacity"`
-	// Capacity status of the WorkSpaces Pool. See `capacityStatus` below.
+	// Capacity status of the WorkSpaces Pool. See `capacityStatus` Block below.
 	CapacityStatuses []PoolCapacityStatus `pulumi:"capacityStatuses"`
 	// Date and time the WorkSpaces Pool was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -287,19 +287,19 @@ type poolState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+	// Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
 	TimeoutSettings []PoolTimeoutSetting `pulumi:"timeoutSettings"`
 	Timeouts        *PoolTimeouts        `pulumi:"timeouts"`
 }
 
 type PoolState struct {
-	// Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+	// Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
 	ApplicationSettings PoolApplicationSettingArrayInput
 	// ID of the bundle for the WorkSpaces Pool.
 	BundleId pulumi.StringPtrInput
 	// Capacity configuration for the WorkSpaces Pool. See `capacity` below.
 	Capacity PoolCapacityPtrInput
-	// Capacity status of the WorkSpaces Pool. See `capacityStatus` below.
+	// Capacity status of the WorkSpaces Pool. See `capacityStatus` Block below.
 	CapacityStatuses PoolCapacityStatusArrayInput
 	// Date and time the WorkSpaces Pool was created.
 	CreatedAt pulumi.StringPtrInput
@@ -327,7 +327,7 @@ type PoolState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+	// Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
 	TimeoutSettings PoolTimeoutSettingArrayInput
 	Timeouts        PoolTimeoutsPtrInput
 }
@@ -337,7 +337,7 @@ func (PoolState) ElementType() reflect.Type {
 }
 
 type poolArgs struct {
-	// Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+	// Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
 	ApplicationSettings []PoolApplicationSetting `pulumi:"applicationSettings"`
 	// ID of the bundle for the WorkSpaces Pool.
 	BundleId string `pulumi:"bundleId"`
@@ -357,14 +357,14 @@ type poolArgs struct {
 	RunningMode string `pulumi:"runningMode"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+	// Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
 	TimeoutSettings []PoolTimeoutSetting `pulumi:"timeoutSettings"`
 	Timeouts        *PoolTimeouts        `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Pool resource.
 type PoolArgs struct {
-	// Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+	// Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
 	ApplicationSettings PoolApplicationSettingArrayInput
 	// ID of the bundle for the WorkSpaces Pool.
 	BundleId pulumi.StringInput
@@ -384,7 +384,7 @@ type PoolArgs struct {
 	RunningMode pulumi.StringInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+	// Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
 	TimeoutSettings PoolTimeoutSettingArrayInput
 	Timeouts        PoolTimeoutsPtrInput
 }
@@ -476,7 +476,7 @@ func (o PoolOutput) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 	return o
 }
 
-// Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+// Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
 func (o PoolOutput) ApplicationSettings() PoolApplicationSettingArrayOutput {
 	return o.ApplyT(func(v *Pool) PoolApplicationSettingArrayOutput { return v.ApplicationSettings }).(PoolApplicationSettingArrayOutput)
 }
@@ -491,7 +491,7 @@ func (o PoolOutput) Capacity() PoolCapacityPtrOutput {
 	return o.ApplyT(func(v *Pool) PoolCapacityPtrOutput { return v.Capacity }).(PoolCapacityPtrOutput)
 }
 
-// Capacity status of the WorkSpaces Pool. See `capacityStatus` below.
+// Capacity status of the WorkSpaces Pool. See `capacityStatus` Block below.
 func (o PoolOutput) CapacityStatuses() PoolCapacityStatusArrayOutput {
 	return o.ApplyT(func(v *Pool) PoolCapacityStatusArrayOutput { return v.CapacityStatuses }).(PoolCapacityStatusArrayOutput)
 }
@@ -558,7 +558,7 @@ func (o PoolOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+// Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
 func (o PoolOutput) TimeoutSettings() PoolTimeoutSettingArrayOutput {
 	return o.ApplyT(func(v *Pool) PoolTimeoutSettingArrayOutput { return v.TimeoutSettings }).(PoolTimeoutSettingArrayOutput)
 }

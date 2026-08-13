@@ -11,17 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecServiceDiscoveryAwsCloudMap {
+    /**
+     * @return String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance.
+     * 
+     */
     private Map<String,String> attributes;
+    /**
+     * @return Name of the AWS Cloud Map namespace to use.
+     * 
+     */
     private String namespaceName;
+    /**
+     * @return Name of the AWS Cloud Map service to use.
+     * 
+     */
     private String serviceName;
 
     private GetVirtualNodeSpecServiceDiscoveryAwsCloudMap() {}
+    /**
+     * @return String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance.
+     * 
+     */
     public Map<String,String> attributes() {
         return this.attributes;
     }
+    /**
+     * @return Name of the AWS Cloud Map namespace to use.
+     * 
+     */
     public String namespaceName() {
         return this.namespaceName;
     }
+    /**
+     * @return Name of the AWS Cloud Map service to use.
+     * 
+     */
     public String serviceName() {
         return this.serviceName;
     }

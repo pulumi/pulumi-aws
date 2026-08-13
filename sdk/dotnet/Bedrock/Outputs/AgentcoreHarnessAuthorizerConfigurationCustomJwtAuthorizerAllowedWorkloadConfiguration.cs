@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration
     {
         /// <summary>
-        /// Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `HostingEnvironment` below.
+        /// Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `HostingEnvironment` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment> HostingEnvironments;
         /// <summary>

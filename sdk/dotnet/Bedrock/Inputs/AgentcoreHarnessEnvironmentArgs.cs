@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs>? _agentcoreRuntimeEnvironments;
 
         /// <summary>
-        /// AgentCore runtime environment configuration. See `AgentcoreRuntimeEnvironment` below.
+        /// AgentCore runtime environment configuration. See `AgentcoreRuntimeEnvironment` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs> AgentcoreRuntimeEnvironments
         {

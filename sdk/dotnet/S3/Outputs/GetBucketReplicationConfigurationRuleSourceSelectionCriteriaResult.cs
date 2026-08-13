@@ -13,7 +13,13 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaResult
     {
+        /// <summary>
+        /// Configuration block for selections for modifications on replicas. See `ReplicaModifications` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationResult> ReplicaModifications;
+        /// <summary>
+        /// Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. See `SseKmsEncryptedObjects` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectResult> SseKmsEncryptedObjects;
 
         [OutputConstructor]

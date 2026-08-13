@@ -18,7 +18,7 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionEksPropertyPodProperty {
     /**
-     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See `containers` below.
      * 
      */
     private List<GetJobDefinitionEksPropertyPodPropertyContainer> containers;
@@ -32,14 +32,18 @@ public final class GetJobDefinitionEksPropertyPodProperty {
      * 
      */
     private Boolean hostNetwork;
+    /**
+     * @return List of Kubernetes secret resources. See `imagePullSecrets` below.
+     * 
+     */
     private List<GetJobDefinitionEksPropertyPodPropertyImagePullSecret> imagePullSecrets;
     /**
-     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `initContainers` below.
      * 
      */
     private List<GetJobDefinitionEksPropertyPodPropertyInitContainer> initContainers;
     /**
-     * @return Metadata about the Kubernetes pod.
+     * @return Metadata about the Kubernetes pod. See `metadata` below.
      * 
      */
     private List<GetJobDefinitionEksPropertyPodPropertyMetadata> metadatas;
@@ -54,14 +58,14 @@ public final class GetJobDefinitionEksPropertyPodProperty {
      */
     private Boolean shareProcessNamespace;
     /**
-     * @return List of data volumes used in a job.
+     * @return List of data volumes used in a job. See `volumes` below.
      * 
      */
     private List<GetJobDefinitionEksPropertyPodPropertyVolume> volumes;
 
     private GetJobDefinitionEksPropertyPodProperty() {}
     /**
-     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See `containers` below.
      * 
      */
     public List<GetJobDefinitionEksPropertyPodPropertyContainer> containers() {
@@ -81,18 +85,22 @@ public final class GetJobDefinitionEksPropertyPodProperty {
     public Boolean hostNetwork() {
         return this.hostNetwork;
     }
+    /**
+     * @return List of Kubernetes secret resources. See `imagePullSecrets` below.
+     * 
+     */
     public List<GetJobDefinitionEksPropertyPodPropertyImagePullSecret> imagePullSecrets() {
         return this.imagePullSecrets;
     }
     /**
-     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+     * @return Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `initContainers` below.
      * 
      */
     public List<GetJobDefinitionEksPropertyPodPropertyInitContainer> initContainers() {
         return this.initContainers;
     }
     /**
-     * @return Metadata about the Kubernetes pod.
+     * @return Metadata about the Kubernetes pod. See `metadata` below.
      * 
      */
     public List<GetJobDefinitionEksPropertyPodPropertyMetadata> metadatas() {
@@ -113,7 +121,7 @@ public final class GetJobDefinitionEksPropertyPodProperty {
         return this.shareProcessNamespace;
     }
     /**
-     * @return List of data volumes used in a job.
+     * @return List of data volumes used in a job. See `volumes` below.
      * 
      */
     public List<GetJobDefinitionEksPropertyPodPropertyVolume> volumes() {

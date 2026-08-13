@@ -294,7 +294,7 @@ class _ExpressGatewayServiceState:
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceIngressPathArgs']]] ingress_paths: List of ingress paths with access type and endpoint information.
+        :param pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceIngressPathArgs']]] ingress_paths: List of ingress paths for the service. See `ingress_paths` Block below.
         :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceNetworkConfigurationArgs']]] network_configurations: Network configuration for the service. See `network_configuration` Block below.
         :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
@@ -430,7 +430,7 @@ class _ExpressGatewayServiceState:
     @pulumi.getter(name="ingressPaths")
     def ingress_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExpressGatewayServiceIngressPathArgs']]]]:
         """
-        List of ingress paths with access type and endpoint information.
+        List of ingress paths for the service. See `ingress_paths` Block below.
         """
         return pulumi.get(self, "ingress_paths")
 
@@ -945,7 +945,7 @@ class ExpressGatewayService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceIngressPathArgs', 'ExpressGatewayServiceIngressPathArgsDict']]]] ingress_paths: List of ingress paths with access type and endpoint information.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceIngressPathArgs', 'ExpressGatewayServiceIngressPathArgsDict']]]] ingress_paths: List of ingress paths for the service. See `ingress_paths` Block below.
         :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']]]] network_configurations: Network configuration for the service. See `network_configuration` Block below.
         :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
@@ -1039,7 +1039,7 @@ class ExpressGatewayService(pulumi.CustomResource):
     @pulumi.getter(name="ingressPaths")
     def ingress_paths(self) -> pulumi.Output[Sequence['outputs.ExpressGatewayServiceIngressPath']]:
         """
-        List of ingress paths with access type and endpoint information.
+        List of ingress paths for the service. See `ingress_paths` Block below.
         """
         return pulumi.get(self, "ingress_paths")
 

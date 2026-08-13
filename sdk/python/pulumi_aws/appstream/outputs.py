@@ -709,17 +709,17 @@ class GetImageApplicationResult(dict):
                  platforms: Sequence[_builtins.str],
                  working_directory: _builtins.str):
         """
-        :param _builtins.str app_block_arn: The app block ARN of the application.
+        :param _builtins.str app_block_arn: App block ARN of the application.
         :param _builtins.str arn: ARN of the image being searched for. Cannot be used with `name_regex` or `name`.
         :param _builtins.str created_time: Time at which this image was created.
         :param _builtins.str description: Description of image.
         :param _builtins.str display_name: Image name to display.
-        :param _builtins.bool enabled: Bool based on if the application is enabled.
-        :param Sequence['GetImageApplicationIconS3LocationArgs'] icon_s3_locations: A list named icon_s3_location that contains the following:
+        :param _builtins.bool enabled: Whether the application is enabled.
+        :param Sequence['GetImageApplicationIconS3LocationArgs'] icon_s3_locations: S3 location of the application icon and contains the following:
         :param _builtins.str icon_url: URL of the application icon. This URL may be time-limited.
         :param Sequence[_builtins.str] instance_families: List of the instance families of the application.
-        :param _builtins.str launch_parameters: Arguments that are passed to the application at it's launch.
-        :param _builtins.str launch_path: Path to the application's excecutable in the instance.
+        :param _builtins.str launch_parameters: Arguments that are passed to the application at its launch.
+        :param _builtins.str launch_path: Path to the application's executable in the instance.
         :param Mapping[str, _builtins.str] metadata: String to string map that contains additional attributes used to describe the application.
         :param _builtins.str name: Name of the image being searched for. Cannot be used with `name_regex` or `arn`.
         :param Sequence[_builtins.str] platforms: Array of strings describing the platforms on which the application can run. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
@@ -745,7 +745,7 @@ class GetImageApplicationResult(dict):
     @pulumi.getter(name="appBlockArn")
     def app_block_arn(self) -> _builtins.str:
         """
-        The app block ARN of the application.
+        App block ARN of the application.
         """
         return pulumi.get(self, "app_block_arn")
 
@@ -785,7 +785,7 @@ class GetImageApplicationResult(dict):
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
         """
-        Bool based on if the application is enabled.
+        Whether the application is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -793,7 +793,7 @@ class GetImageApplicationResult(dict):
     @pulumi.getter(name="iconS3Locations")
     def icon_s3_locations(self) -> Sequence['outputs.GetImageApplicationIconS3LocationResult']:
         """
-        A list named icon_s3_location that contains the following:
+        S3 location of the application icon and contains the following:
         """
         return pulumi.get(self, "icon_s3_locations")
 
@@ -817,7 +817,7 @@ class GetImageApplicationResult(dict):
     @pulumi.getter(name="launchParameters")
     def launch_parameters(self) -> _builtins.str:
         """
-        Arguments that are passed to the application at it's launch.
+        Arguments that are passed to the application at its launch.
         """
         return pulumi.get(self, "launch_parameters")
 
@@ -825,7 +825,7 @@ class GetImageApplicationResult(dict):
     @pulumi.getter(name="launchPath")
     def launch_path(self) -> _builtins.str:
         """
-        Path to the application's excecutable in the instance.
+        Path to the application's executable in the instance.
         """
         return pulumi.get(self, "launch_path")
 
@@ -868,8 +868,8 @@ class GetImageApplicationIconS3LocationResult(dict):
                  s3_bucket: _builtins.str,
                  s3_key: _builtins.str):
         """
-        :param _builtins.str s3_bucket: S3 bucket of the S3 object.
-        :param _builtins.str s3_key: S3 key of the S3 object.
+        :param _builtins.str s3_bucket: Name of the S3 bucket containing the icon.
+        :param _builtins.str s3_key: S3 key of the icon.
         """
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         pulumi.set(__self__, "s3_key", s3_key)
@@ -878,7 +878,7 @@ class GetImageApplicationIconS3LocationResult(dict):
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> _builtins.str:
         """
-        S3 bucket of the S3 object.
+        Name of the S3 bucket containing the icon.
         """
         return pulumi.get(self, "s3_bucket")
 
@@ -886,7 +886,7 @@ class GetImageApplicationIconS3LocationResult(dict):
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> _builtins.str:
         """
-        S3 key of the S3 object.
+        S3 key of the icon.
         """
         return pulumi.get(self, "s3_key")
 
@@ -897,8 +897,8 @@ class GetImageImagePermissionResult(dict):
                  allow_fleet: _builtins.bool,
                  allow_image_builder: _builtins.bool):
         """
-        :param _builtins.bool allow_fleet: Boolean indicating if the image can be used for a fleet.
-        :param _builtins.bool allow_image_builder: indicated whether the image can be used for an image builder.
+        :param _builtins.bool allow_fleet: Whether the image can be used for a fleet.
+        :param _builtins.bool allow_image_builder: Whether the image can be used for an image builder.
         """
         pulumi.set(__self__, "allow_fleet", allow_fleet)
         pulumi.set(__self__, "allow_image_builder", allow_image_builder)
@@ -907,7 +907,7 @@ class GetImageImagePermissionResult(dict):
     @pulumi.getter(name="allowFleet")
     def allow_fleet(self) -> _builtins.bool:
         """
-        Boolean indicating if the image can be used for a fleet.
+        Whether the image can be used for a fleet.
         """
         return pulumi.get(self, "allow_fleet")
 
@@ -915,7 +915,7 @@ class GetImageImagePermissionResult(dict):
     @pulumi.getter(name="allowImageBuilder")
     def allow_image_builder(self) -> _builtins.bool:
         """
-        indicated whether the image can be used for an image builder.
+        Whether the image can be used for an image builder.
         """
         return pulumi.get(self, "allow_image_builder")
 

@@ -22,6 +22,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatch? FieldToMatch;
         /// <summary>
+        /// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `TextTransformation` is applied. Supported only when `FieldToMatch` specifies `SingleQueryArgument` or `AllQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation> PreParseTextTransformations;
+        /// <summary>
         /// The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
         /// </summary>
         public readonly int Size;
@@ -38,12 +42,15 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatch? fieldToMatch,
 
+            ImmutableArray<Outputs.RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation> preParseTextTransformations,
+
             int size,
 
             ImmutableArray<Outputs.RuleGroupRuleStatementSizeConstraintStatementTextTransformation> textTransformations)
         {
             ComparisonOperator = comparisonOperator;
             FieldToMatch = fieldToMatch;
+            PreParseTextTransformations = preParseTextTransformations;
             Size = size;
             TextTransformations = textTransformations;
         }

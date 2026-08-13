@@ -12,6 +12,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBucketReplicationConfigurationResult {
+    /**
+     * @return ARN of the bucket where Amazon S3 stores the results.
+     * 
+     */
     private String bucket;
     private String region;
     /**
@@ -20,12 +24,16 @@ public final class GetBucketReplicationConfigurationResult {
      */
     private String role;
     /**
-     * @return Unordered list of configuration blocks that define the rules managing replication. See the `awsS3ReplicationConfiguration` resource documentation for details about the `rule` block (excluding the `and` block within the `filter` block).
+     * @return List of configuration blocks that define the rules managing replication. See `rule` Block below.
      * 
      */
     private List<GetBucketReplicationConfigurationRule> rules;
 
     private GetBucketReplicationConfigurationResult() {}
+    /**
+     * @return ARN of the bucket where Amazon S3 stores the results.
+     * 
+     */
     public String bucket() {
         return this.bucket;
     }
@@ -40,7 +48,7 @@ public final class GetBucketReplicationConfigurationResult {
         return this.role;
     }
     /**
-     * @return Unordered list of configuration blocks that define the rules managing replication. See the `awsS3ReplicationConfiguration` resource documentation for details about the `rule` block (excluding the `and` block within the `filter` block).
+     * @return List of configuration blocks that define the rules managing replication. See `rule` Block below.
      * 
      */
     public List<GetBucketReplicationConfigurationRule> rules() {

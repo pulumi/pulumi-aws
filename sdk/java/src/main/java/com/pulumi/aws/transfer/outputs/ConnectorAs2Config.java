@@ -13,98 +13,98 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorAs2Config {
     /**
-     * @return Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+     * @return Whether AS2 file is compressed. The valid values are ZLIB and DISABLED.
      * 
      */
     private String compression;
     /**
-     * @return The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+     * @return Algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
      * 
      */
     private String encryptionAlgorithm;
     /**
-     * @return The unique identifier for the AS2 local profile.
+     * @return Unique identifier for the AS2 local profile.
      * 
      */
     private String localProfileId;
     /**
-     * @return Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+     * @return Determines, for outbound requests, if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
      * 
      */
     private String mdnResponse;
     /**
-     * @return The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+     * @return Signing algorithm for the MDN response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
      * 
      */
     private @Nullable String mdnSigningAlgorithm;
     /**
-     * @return Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+     * @return Subject HTTP header attribute used in AS2 messages that are being sent with the connector.
      * 
      */
     private @Nullable String messageSubject;
     /**
-     * @return The unique identifier for the AS2 partner profile.
+     * @return Unique identifier for the AS2 partner profile.
      * 
      */
     private String partnerProfileId;
     /**
-     * @return The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+     * @return Algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
      * 
      */
     private String signingAlgorithm;
 
     private ConnectorAs2Config() {}
     /**
-     * @return Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+     * @return Whether AS2 file is compressed. The valid values are ZLIB and DISABLED.
      * 
      */
     public String compression() {
         return this.compression;
     }
     /**
-     * @return The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+     * @return Algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
      * 
      */
     public String encryptionAlgorithm() {
         return this.encryptionAlgorithm;
     }
     /**
-     * @return The unique identifier for the AS2 local profile.
+     * @return Unique identifier for the AS2 local profile.
      * 
      */
     public String localProfileId() {
         return this.localProfileId;
     }
     /**
-     * @return Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+     * @return Determines, for outbound requests, if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
      * 
      */
     public String mdnResponse() {
         return this.mdnResponse;
     }
     /**
-     * @return The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+     * @return Signing algorithm for the MDN response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
      * 
      */
     public Optional<String> mdnSigningAlgorithm() {
         return Optional.ofNullable(this.mdnSigningAlgorithm);
     }
     /**
-     * @return Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+     * @return Subject HTTP header attribute used in AS2 messages that are being sent with the connector.
      * 
      */
     public Optional<String> messageSubject() {
         return Optional.ofNullable(this.messageSubject);
     }
     /**
-     * @return The unique identifier for the AS2 partner profile.
+     * @return Unique identifier for the AS2 partner profile.
      * 
      */
     public String partnerProfileId() {
         return this.partnerProfileId;
     }
     /**
-     * @return The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+     * @return Algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
      * 
      */
     public String signingAlgorithm() {

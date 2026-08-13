@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -46,11 +48,43 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs ext
         return Optional.ofNullable(this.listingMode);
     }
 
+    /**
+     * Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+     * 
+     */
+    @Import(name="mcpToolSchema")
+    private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs> mcpToolSchema;
+
+    /**
+     * @return Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+     * 
+     */
+    public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs>> mcpToolSchema() {
+        return Optional.ofNullable(this.mcpToolSchema);
+    }
+
+    /**
+     * Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
+     * 
+     */
+    @Import(name="resourcePriority")
+    private @Nullable Output<Integer> resourcePriority;
+
+    /**
+     * @return Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
+     * 
+     */
+    public Optional<Output<Integer>> resourcePriority() {
+        return Optional.ofNullable(this.resourcePriority);
+    }
+
     private AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs() {}
 
     private AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs $) {
         this.endpoint = $.endpoint;
         this.listingMode = $.listingMode;
+        this.mcpToolSchema = $.mcpToolSchema;
+        this.resourcePriority = $.resourcePriority;
     }
 
     public static Builder builder() {
@@ -111,6 +145,48 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs ext
          */
         public Builder listingMode(String listingMode) {
             return listingMode(Output.of(listingMode));
+        }
+
+        /**
+         * @param mcpToolSchema Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mcpToolSchema(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs> mcpToolSchema) {
+            $.mcpToolSchema = mcpToolSchema;
+            return this;
+        }
+
+        /**
+         * @param mcpToolSchema Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mcpToolSchema(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs mcpToolSchema) {
+            return mcpToolSchema(Output.of(mcpToolSchema));
+        }
+
+        /**
+         * @param resourcePriority Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourcePriority(@Nullable Output<Integer> resourcePriority) {
+            $.resourcePriority = resourcePriority;
+            return this;
+        }
+
+        /**
+         * @param resourcePriority Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourcePriority(Integer resourcePriority) {
+            return resourcePriority(Output.of(resourcePriority));
         }
 
         public AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs build() {

@@ -44,7 +44,7 @@ public final class GetTaskDefinitionResult {
      */
     private Boolean enableFaultInjection;
     /**
-     * @return Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     * @return Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See `ephemeralStorage` Block.
      * 
      */
     private List<GetTaskDefinitionEphemeralStorage> ephemeralStorages;
@@ -85,12 +85,12 @@ public final class GetTaskDefinitionResult {
      */
     private String pidMode;
     /**
-     * @return Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
+     * @return Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. See `placementConstraints` Block.
      * 
      */
     private List<GetTaskDefinitionPlacementConstraint> placementConstraints;
     /**
-     * @return Configuration block for the App Mesh proxy. Detailed below.
+     * @return Configuration block for the App Mesh proxy. See `proxyConfiguration` Block.
      * 
      */
     private List<GetTaskDefinitionProxyConfiguration> proxyConfigurations;
@@ -122,7 +122,7 @@ public final class GetTaskDefinitionResult {
      */
     private String taskRoleArn;
     /**
-     * @return Attributes corresponding to the `volume` argument of the `aws.ecs.TaskDefinition` resource.
+     * @return Configuration block for volumes that containers in your task may use. See `volume` Block for details.
      * 
      */
     private List<GetTaskDefinitionVolume> volumes;
@@ -164,7 +164,7 @@ public final class GetTaskDefinitionResult {
         return this.enableFaultInjection;
     }
     /**
-     * @return Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     * @return Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See `ephemeralStorage` Block.
      * 
      */
     public List<GetTaskDefinitionEphemeralStorage> ephemeralStorages() {
@@ -221,14 +221,14 @@ public final class GetTaskDefinitionResult {
         return this.pidMode;
     }
     /**
-     * @return Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
+     * @return Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. See `placementConstraints` Block.
      * 
      */
     public List<GetTaskDefinitionPlacementConstraint> placementConstraints() {
         return this.placementConstraints;
     }
     /**
-     * @return Configuration block for the App Mesh proxy. Detailed below.
+     * @return Configuration block for the App Mesh proxy. See `proxyConfiguration` Block.
      * 
      */
     public List<GetTaskDefinitionProxyConfiguration> proxyConfigurations() {
@@ -276,7 +276,7 @@ public final class GetTaskDefinitionResult {
         return this.taskRoleArn;
     }
     /**
-     * @return Attributes corresponding to the `volume` argument of the `aws.ecs.TaskDefinition` resource.
+     * @return Configuration block for volumes that containers in your task may use. See `volume` Block for details.
      * 
      */
     public List<GetTaskDefinitionVolume> volumes() {

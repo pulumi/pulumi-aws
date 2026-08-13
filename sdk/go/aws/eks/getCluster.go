@@ -86,9 +86,16 @@ type LookupClusterResult struct {
 	Id string `pulumi:"id"`
 	// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `eks.Cluster` resource documentation.
 	Identities []GetClusterIdentity `pulumi:"identities"`
+	// Configuration for the Kubernetes API server.
+	KubeApiServerConfigs []GetClusterKubeApiServerConfig `pulumi:"kubeApiServerConfigs"`
+	// Configuration for the Kubernetes controller manager.
+	KubeControllerManagerConfigs []GetClusterKubeControllerManagerConfig `pulumi:"kubeControllerManagerConfigs"`
+	// Configuration for the Kubernetes scheduler.
+	KubeSchedulerConfigs []GetClusterKubeSchedulerConfig `pulumi:"kubeSchedulerConfigs"`
 	// Nested list containing Kubernetes Network Configuration.
 	KubernetesNetworkConfigs []GetClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfigs"`
-	Name                     string                              `pulumi:"name"`
+	// The name of the resource (e.g., `cpu`, `memory`).
+	Name string `pulumi:"name"`
 	// Contains Outpost Configuration.
 	OutpostConfigs []GetClusterOutpostConfig `pulumi:"outpostConfigs"`
 	// Platform version for the cluster.
@@ -212,11 +219,29 @@ func (o LookupClusterResultOutput) Identities() GetClusterIdentityArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterIdentity { return v.Identities }).(GetClusterIdentityArrayOutput)
 }
 
+// Configuration for the Kubernetes API server.
+func (o LookupClusterResultOutput) KubeApiServerConfigs() GetClusterKubeApiServerConfigArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterKubeApiServerConfig { return v.KubeApiServerConfigs }).(GetClusterKubeApiServerConfigArrayOutput)
+}
+
+// Configuration for the Kubernetes controller manager.
+func (o LookupClusterResultOutput) KubeControllerManagerConfigs() GetClusterKubeControllerManagerConfigArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterKubeControllerManagerConfig {
+		return v.KubeControllerManagerConfigs
+	}).(GetClusterKubeControllerManagerConfigArrayOutput)
+}
+
+// Configuration for the Kubernetes scheduler.
+func (o LookupClusterResultOutput) KubeSchedulerConfigs() GetClusterKubeSchedulerConfigArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterKubeSchedulerConfig { return v.KubeSchedulerConfigs }).(GetClusterKubeSchedulerConfigArrayOutput)
+}
+
 // Nested list containing Kubernetes Network Configuration.
 func (o LookupClusterResultOutput) KubernetesNetworkConfigs() GetClusterKubernetesNetworkConfigArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterKubernetesNetworkConfig { return v.KubernetesNetworkConfigs }).(GetClusterKubernetesNetworkConfigArrayOutput)
 }
 
+// The name of the resource (e.g., `cpu`, `memory`).
 func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Name }).(pulumi.StringOutput)
 }

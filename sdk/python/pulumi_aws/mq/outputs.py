@@ -674,7 +674,7 @@ class GetBrokerEngineTypesBrokerEngineTypeResult(dict):
                  engine_versions: Sequence['outputs.GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult']):
         """
         :param _builtins.str engine_type: MQ engine type to return version details for.
-        :param Sequence['GetBrokerEngineTypesBrokerEngineTypeEngineVersionArgs'] engine_versions: List of engine versions. See Engine Versions.
+        :param Sequence['GetBrokerEngineTypesBrokerEngineTypeEngineVersionArgs'] engine_versions: List of engine versions. See `engine_versions` Block.
         """
         pulumi.set(__self__, "engine_type", engine_type)
         pulumi.set(__self__, "engine_versions", engine_versions)
@@ -691,7 +691,7 @@ class GetBrokerEngineTypesBrokerEngineTypeResult(dict):
     @pulumi.getter(name="engineVersions")
     def engine_versions(self) -> Sequence['outputs.GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult']:
         """
-        List of engine versions. See Engine Versions.
+        List of engine versions. See `engine_versions` Block.
         """
         return pulumi.get(self, "engine_versions")
 
@@ -1063,7 +1063,7 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
                  supported_deployment_modes: Sequence[_builtins.str],
                  supported_engine_versions: Sequence[_builtins.str]):
         """
-        :param Sequence['GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs'] availability_zones: List of available Availability Zones. See Availability Zones below.
+        :param Sequence['GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs'] availability_zones: List of available Availability Zones. See `availability_zones` Block below.
         :param _builtins.str engine_type: Filter response by engine type.
         :param _builtins.str host_instance_type: Filter response by host instance type.
         :param _builtins.str storage_type: Filter response by storage type.
@@ -1081,7 +1081,7 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult']:
         """
-        List of available Availability Zones. See Availability Zones below.
+        List of available Availability Zones. See `availability_zones` Block below.
         """
         return pulumi.get(self, "availability_zones")
 

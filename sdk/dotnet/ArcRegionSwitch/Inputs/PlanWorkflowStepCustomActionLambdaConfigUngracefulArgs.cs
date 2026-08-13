@@ -12,9 +12,6 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
 
     public sealed class PlanWorkflowStepCustomActionLambdaConfigUngracefulArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Behavior when ungraceful. Valid values: `Skip`.
-        /// </summary>
         [Input("behavior", required: true)]
         public Input<string> Behavior { get; set; } = null!;
 

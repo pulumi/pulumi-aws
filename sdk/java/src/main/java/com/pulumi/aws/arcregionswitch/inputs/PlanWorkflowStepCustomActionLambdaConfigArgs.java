@@ -22,14 +22,14 @@ public final class PlanWorkflowStepCustomActionLambdaConfigArgs extends com.pulu
     public static final PlanWorkflowStepCustomActionLambdaConfigArgs Empty = new PlanWorkflowStepCustomActionLambdaConfigArgs();
 
     /**
-     * Lambda function configuration. See Lambda below.
+     * Lambda function configuration. See `lambda` Block for details.
      * 
      */
     @Import(name="lambdas")
     private @Nullable Output<List<PlanWorkflowStepCustomActionLambdaConfigLambdaArgs>> lambdas;
 
     /**
-     * @return Lambda function configuration. See Lambda below.
+     * @return Lambda function configuration. See `lambda` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepCustomActionLambdaConfigLambdaArgs>>> lambdas() {
@@ -82,14 +82,14 @@ public final class PlanWorkflowStepCustomActionLambdaConfigArgs extends com.pulu
     }
 
     /**
-     * Ungraceful behavior configuration. See Ungraceful below.
+     * Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
      * 
      */
     @Import(name="ungracefuls")
     private @Nullable Output<List<PlanWorkflowStepCustomActionLambdaConfigUngracefulArgs>> ungracefuls;
 
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful below.
+     * @return Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepCustomActionLambdaConfigUngracefulArgs>>> ungracefuls() {
@@ -125,7 +125,7 @@ public final class PlanWorkflowStepCustomActionLambdaConfigArgs extends com.pulu
         }
 
         /**
-         * @param lambdas Lambda function configuration. See Lambda below.
+         * @param lambdas Lambda function configuration. See `lambda` Block for details.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class PlanWorkflowStepCustomActionLambdaConfigArgs extends com.pulu
         }
 
         /**
-         * @param lambdas Lambda function configuration. See Lambda below.
+         * @param lambdas Lambda function configuration. See `lambda` Block for details.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class PlanWorkflowStepCustomActionLambdaConfigArgs extends com.pulu
         }
 
         /**
-         * @param lambdas Lambda function configuration. See Lambda below.
+         * @param lambdas Lambda function configuration. See `lambda` Block for details.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class PlanWorkflowStepCustomActionLambdaConfigArgs extends com.pulu
         }
 
         /**
-         * @param ungracefuls Ungraceful behavior configuration. See Ungraceful below.
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class PlanWorkflowStepCustomActionLambdaConfigArgs extends com.pulu
         }
 
         /**
-         * @param ungracefuls Ungraceful behavior configuration. See Ungraceful below.
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class PlanWorkflowStepCustomActionLambdaConfigArgs extends com.pulu
         }
 
         /**
-         * @param ungracefuls Ungraceful behavior configuration. See Ungraceful below.
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
          * 
          * @return builder
          * 

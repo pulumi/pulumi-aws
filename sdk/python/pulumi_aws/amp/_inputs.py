@@ -43,6 +43,10 @@ __all__ = [
     'ScraperDestinationAmpArgsDict',
     'ScraperDestinationCloudwatchArgs',
     'ScraperDestinationCloudwatchArgsDict',
+    'ScraperExporterArgs',
+    'ScraperExporterArgsDict',
+    'ScraperExporterOpensearchArgs',
+    'ScraperExporterOpensearchArgsDict',
     'ScraperLoggingConfigurationLoggingDestinationArgs',
     'ScraperLoggingConfigurationLoggingDestinationArgsDict',
     'ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs',
@@ -771,6 +775,62 @@ class ScraperDestinationCloudwatchArgs:
     @dataset_arn.setter
     def dataset_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "dataset_arn", value)
+
+
+class ScraperExporterArgsDict(TypedDict):
+    opensearch: pulumi.Input['ScraperExporterOpensearchArgsDict']
+    """
+    Configuration block for an OpenSearch exporter. See `opensearch` Block for details.
+    """
+
+@pulumi.input_type
+class ScraperExporterArgs:
+    def __init__(__self__, *,
+                 opensearch: pulumi.Input['ScraperExporterOpensearchArgs']):
+        """
+        :param pulumi.Input['ScraperExporterOpensearchArgs'] opensearch: Configuration block for an OpenSearch exporter. See `opensearch` Block for details.
+        """
+        pulumi.set(__self__, "opensearch", opensearch)
+
+    @_builtins.property
+    @pulumi.getter
+    def opensearch(self) -> pulumi.Input['ScraperExporterOpensearchArgs']:
+        """
+        Configuration block for an OpenSearch exporter. See `opensearch` Block for details.
+        """
+        return pulumi.get(self, "opensearch")
+
+    @opensearch.setter
+    def opensearch(self, value: pulumi.Input['ScraperExporterOpensearchArgs']):
+        pulumi.set(self, "opensearch", value)
+
+
+class ScraperExporterOpensearchArgsDict(TypedDict):
+    domain_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the OpenSearch domain.
+    """
+
+@pulumi.input_type
+class ScraperExporterOpensearchArgs:
+    def __init__(__self__, *,
+                 domain_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] domain_arn: ARN of the OpenSearch domain.
+        """
+        pulumi.set(__self__, "domain_arn", domain_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="domainArn")
+    def domain_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the OpenSearch domain.
+        """
+        return pulumi.get(self, "domain_arn")
+
+    @domain_arn.setter
+    def domain_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain_arn", value)
 
 
 class ScraperLoggingConfigurationLoggingDestinationArgsDict(TypedDict):

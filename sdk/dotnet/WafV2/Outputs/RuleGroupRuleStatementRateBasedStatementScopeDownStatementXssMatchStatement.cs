@@ -18,6 +18,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch? FieldToMatch;
         /// <summary>
+        /// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `TextTransformation` is applied. Supported only when `FieldToMatch` specifies `SingleQueryArgument` or `AllQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation> PreParseTextTransformations;
+        /// <summary>
         /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
         /// At least one required.
         /// See Text Transformation below for details.
@@ -28,9 +32,12 @@ namespace Pulumi.Aws.WafV2.Outputs
         private RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement(
             Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch? fieldToMatch,
 
+            ImmutableArray<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation> preParseTextTransformations,
+
             ImmutableArray<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation> textTransformations)
         {
             FieldToMatch = fieldToMatch;
+            PreParseTextTransformations = preParseTextTransformations;
             TextTransformations = textTransformations;
         }
     }

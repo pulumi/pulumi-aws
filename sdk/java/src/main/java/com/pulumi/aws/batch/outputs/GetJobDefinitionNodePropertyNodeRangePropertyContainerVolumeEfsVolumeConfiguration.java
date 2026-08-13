@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration {
     /**
-     * @return Authorization configuration details for the Amazon EFS file system.
+     * @return Authorization configuration details for the Amazon EFS file system. See `authorizationConfig` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig> authorizationConfigs;
@@ -29,7 +29,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeE
      */
     private String rootDirectory;
     /**
-     * @return Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server
+     * @return Whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
      * 
      */
     private String transitEncryption;
@@ -41,7 +41,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeE
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration() {}
     /**
-     * @return Authorization configuration details for the Amazon EFS file system.
+     * @return Authorization configuration details for the Amazon EFS file system. See `authorizationConfig` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig> authorizationConfigs() {
@@ -62,7 +62,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeE
         return this.rootDirectory;
     }
     /**
-     * @return Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server
+     * @return Whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
      * 
      */
     public String transitEncryption() {

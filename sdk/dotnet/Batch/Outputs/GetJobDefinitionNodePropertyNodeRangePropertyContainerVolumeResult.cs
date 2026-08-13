@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeResult
     {
         /// <summary>
-        /// This parameter is specified when you're using an Amazon Elastic File System file system for job storage.
+        /// Amazon Elastic File System configuration for job storage. See `EfsVolumeConfiguration` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationResult> EfsVolumeConfigurations;
         /// <summary>
-        /// Contents of the host parameter determine whether your data volume persists on the host container instance and where it's stored.
+        /// Contents of the host parameter determine whether your data volume persists on the host container instance and where it's stored. See `Host` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostResult> Hosts;
         /// <summary>

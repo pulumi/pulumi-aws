@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class CloudExadataInfrastructureCustomerContactsToSendToOci {
+    /**
+     * @return Email address of the contact.
+     * 
+     */
     private String email;
 
     private CloudExadataInfrastructureCustomerContactsToSendToOci() {}
+    /**
+     * @return Email address of the contact.
+     * 
+     */
     public String email() {
         return this.email;
     }

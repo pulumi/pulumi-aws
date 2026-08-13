@@ -12,25 +12,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTaskDefinitionVolumeDockerVolumeConfiguration {
+    /**
+     * @return Whether the Docker volume is created if it does not already exist.
+     * 
+     */
     private Boolean autoprovision;
+    /**
+     * @return Docker volume driver used.
+     * 
+     */
     private String driver;
+    /**
+     * @return Map of Docker driver-specific options.
+     * 
+     */
     private Map<String,String> driverOpts;
+    /**
+     * @return Map of custom metadata added to the Docker volume.
+     * 
+     */
     private Map<String,String> labels;
+    /**
+     * @return Scope for the Docker volume, either `task` or `shared`.
+     * 
+     */
     private String scope;
 
     private GetTaskDefinitionVolumeDockerVolumeConfiguration() {}
+    /**
+     * @return Whether the Docker volume is created if it does not already exist.
+     * 
+     */
     public Boolean autoprovision() {
         return this.autoprovision;
     }
+    /**
+     * @return Docker volume driver used.
+     * 
+     */
     public String driver() {
         return this.driver;
     }
+    /**
+     * @return Map of Docker driver-specific options.
+     * 
+     */
     public Map<String,String> driverOpts() {
         return this.driverOpts;
     }
+    /**
+     * @return Map of custom metadata added to the Docker volume.
+     * 
+     */
     public Map<String,String> labels() {
         return this.labels;
     }
+    /**
+     * @return Scope for the Docker volume, either `task` or `shared`.
+     * 
+     */
     public String scope() {
         return this.scope;
     }

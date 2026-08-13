@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessAuthorizerConfiguration
     {
         /// <summary>
-        /// JWT-based authorization configuration block. See `CustomJwtAuthorizer` below.
+        /// JWT-based authorization configuration block. See `CustomJwtAuthorizer` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer? CustomJwtAuthorizer;
 

@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/outposts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -38,8 +38,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = aws.NewEc2Instance(ctx, "example", &aws.Ec2InstanceArgs{
-//				InstanceType: example.InstanceType,
+//			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
+//				InstanceType: example.InstanceType.ApplyT(func(x *string) ec2.InstanceType { return ec2.InstanceType(*x) }).(ec2.InstanceTypeOutput),
 //			})
 //			if err != nil {
 //				return err

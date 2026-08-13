@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class DirectoryBucketLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+        /// [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

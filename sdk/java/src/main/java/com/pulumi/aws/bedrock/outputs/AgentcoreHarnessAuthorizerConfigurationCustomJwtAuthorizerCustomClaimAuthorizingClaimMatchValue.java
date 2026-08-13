@@ -17,7 +17,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCus
      */
     private String claimMatchOperator;
     /**
-     * @return Value or values to match for. See `claimMatchValue` below.
+     * @return Value or values to match for. See `claimMatchValue` Block below.
      * 
      */
     private AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue claimMatchValue;
@@ -31,7 +31,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCus
         return this.claimMatchOperator;
     }
     /**
-     * @return Value or values to match for. See `claimMatchValue` below.
+     * @return Value or values to match for. See `claimMatchValue` Block below.
      * 
      */
     public AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue claimMatchValue() {

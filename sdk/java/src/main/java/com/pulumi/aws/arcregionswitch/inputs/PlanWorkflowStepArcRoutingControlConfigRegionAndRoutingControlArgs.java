@@ -34,14 +34,14 @@ public final class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingContro
     }
 
     /**
-     * List of routing controls. See Routing Control below.
+     * Routing controls. See `routingControl` Block for details.
      * 
      */
     @Import(name="routingControls")
     private @Nullable Output<List<PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgs>> routingControls;
 
     /**
-     * @return List of routing controls. See Routing Control below.
+     * @return Routing controls. See `routingControl` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgs>>> routingControls() {
@@ -95,7 +95,7 @@ public final class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingContro
         }
 
         /**
-         * @param routingControls List of routing controls. See Routing Control below.
+         * @param routingControls Routing controls. See `routingControl` Block for details.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingContro
         }
 
         /**
-         * @param routingControls List of routing controls. See Routing Control below.
+         * @param routingControls Routing controls. See `routingControl` Block for details.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingContro
         }
 
         /**
-         * @param routingControls List of routing controls. See Routing Control below.
+         * @param routingControls Routing controls. See `routingControl` Block for details.
          * 
          * @return builder
          * 

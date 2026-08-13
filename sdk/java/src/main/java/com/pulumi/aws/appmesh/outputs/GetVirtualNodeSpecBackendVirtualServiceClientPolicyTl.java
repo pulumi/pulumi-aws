@@ -14,21 +14,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl {
+    /**
+     * @return Listener&#39;s TLS certificate. See `spec.listener.tls.certificate` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate> certificates;
+    /**
+     * @return Whether the policy is enforced.
+     * 
+     */
     private Boolean enforce;
+    /**
+     * @return One or more ports that the policy is enforced for.
+     * 
+     */
     private List<Integer> ports;
+    /**
+     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation> validations;
 
     private GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl() {}
+    /**
+     * @return Listener&#39;s TLS certificate. See `spec.listener.tls.certificate` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificate> certificates() {
         return this.certificates;
     }
+    /**
+     * @return Whether the policy is enforced.
+     * 
+     */
     public Boolean enforce() {
         return this.enforce;
     }
+    /**
+     * @return One or more ports that the policy is enforced for.
+     * 
+     */
     public List<Integer> ports() {
         return this.ports;
     }
+    /**
+     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation> validations() {
         return this.validations;
     }

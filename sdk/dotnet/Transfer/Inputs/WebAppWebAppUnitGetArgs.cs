@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Transfer.Inputs
 
     public sealed class WebAppWebAppUnitGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Number of units of concurrent connections.
+        /// </summary>
         [Input("provisioned", required: true)]
         public Input<int> Provisioned { get; set; } = null!;
 

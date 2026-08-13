@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatch;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -25,6 +26,11 @@ public final class RuleGroupRuleStatementByteMatchStatement {
      * 
      */
     private String positionalConstraint;
+    /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    private @Nullable List<RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation> preParseTextTransformations;
     /**
      * @return A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
      * 
@@ -54,6 +60,13 @@ public final class RuleGroupRuleStatementByteMatchStatement {
         return this.positionalConstraint;
     }
     /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    public List<RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation> preParseTextTransformations() {
+        return this.preParseTextTransformations == null ? List.of() : this.preParseTextTransformations;
+    }
+    /**
      * @return A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
      * 
      */
@@ -81,6 +94,7 @@ public final class RuleGroupRuleStatementByteMatchStatement {
     public static final class Builder {
         private @Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatch fieldToMatch;
         private String positionalConstraint;
+        private @Nullable List<RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation> preParseTextTransformations;
         private String searchString;
         private List<RuleGroupRuleStatementByteMatchStatementTextTransformation> textTransformations;
         public Builder() {}
@@ -88,6 +102,7 @@ public final class RuleGroupRuleStatementByteMatchStatement {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
     	      this.positionalConstraint = defaults.positionalConstraint;
+    	      this.preParseTextTransformations = defaults.preParseTextTransformations;
     	      this.searchString = defaults.searchString;
     	      this.textTransformations = defaults.textTransformations;
         }
@@ -105,6 +120,15 @@ public final class RuleGroupRuleStatementByteMatchStatement {
             }
             this.positionalConstraint = positionalConstraint;
             return this;
+        }
+        @CustomType.Setter
+        public Builder preParseTextTransformations(@Nullable List<RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation> preParseTextTransformations) {
+
+            this.preParseTextTransformations = preParseTextTransformations;
+            return this;
+        }
+        public Builder preParseTextTransformations(RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation... preParseTextTransformations) {
+            return preParseTextTransformations(List.of(preParseTextTransformations));
         }
         @CustomType.Setter
         public Builder searchString(String searchString) {
@@ -129,6 +153,7 @@ public final class RuleGroupRuleStatementByteMatchStatement {
             final var _resultValue = new RuleGroupRuleStatementByteMatchStatement();
             _resultValue.fieldToMatch = fieldToMatch;
             _resultValue.positionalConstraint = positionalConstraint;
+            _resultValue.preParseTextTransformations = preParseTextTransformations;
             _resultValue.searchString = searchString;
             _resultValue.textTransformations = textTransformations;
             return _resultValue;

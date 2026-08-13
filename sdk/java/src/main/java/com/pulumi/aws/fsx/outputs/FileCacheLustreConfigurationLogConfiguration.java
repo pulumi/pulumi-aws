@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FileCacheLustreConfigurationLogConfiguration {
+    /**
+     * @return Amazon Resource Name (ARN) of the destination that receives the logs.
+     * 
+     */
     private @Nullable String destination;
+    /**
+     * @return Level of logging that Lustre logs write to the destination.
+     * 
+     */
     private @Nullable String level;
 
     private FileCacheLustreConfigurationLogConfiguration() {}
+    /**
+     * @return Amazon Resource Name (ARN) of the destination that receives the logs.
+     * 
+     */
     public Optional<String> destination() {
         return Optional.ofNullable(this.destination);
     }
+    /**
+     * @return Level of logging that Lustre logs write to the destination.
+     * 
+     */
     public Optional<String> level() {
         return Optional.ofNullable(this.level);
     }

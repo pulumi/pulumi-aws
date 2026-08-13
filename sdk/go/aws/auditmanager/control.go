@@ -74,19 +74,18 @@ type Control struct {
 	// Title of the action plan for remediating the control.
 	ActionPlanTitle pulumi.StringPtrOutput `pulumi:"actionPlanTitle"`
 	// Amazon Resource Name (ARN) of the control.
-	// * `control_mapping_sources.*.source_id` - Unique identifier for the source.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Data mapping sources. See `controlMappingSources` below.
-	//
-	// The following arguments are optional:
 	ControlMappingSources ControlControlMappingSourceArrayOutput `pulumi:"controlMappingSources"`
 	// Description of the control.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the control.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Steps to follow to determine if the control is satisfied.
@@ -130,19 +129,18 @@ type controlState struct {
 	// Title of the action plan for remediating the control.
 	ActionPlanTitle *string `pulumi:"actionPlanTitle"`
 	// Amazon Resource Name (ARN) of the control.
-	// * `control_mapping_sources.*.source_id` - Unique identifier for the source.
 	Arn *string `pulumi:"arn"`
 	// Data mapping sources. See `controlMappingSources` below.
-	//
-	// The following arguments are optional:
 	ControlMappingSources []ControlControlMappingSource `pulumi:"controlMappingSources"`
 	// Description of the control.
 	Description *string `pulumi:"description"`
 	// Name of the control.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Steps to follow to determine if the control is satisfied.
@@ -157,19 +155,18 @@ type ControlState struct {
 	// Title of the action plan for remediating the control.
 	ActionPlanTitle pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the control.
-	// * `control_mapping_sources.*.source_id` - Unique identifier for the source.
 	Arn pulumi.StringPtrInput
 	// Data mapping sources. See `controlMappingSources` below.
-	//
-	// The following arguments are optional:
 	ControlMappingSources ControlControlMappingSourceArrayInput
 	// Description of the control.
 	Description pulumi.StringPtrInput
 	// Name of the control.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Steps to follow to determine if the control is satisfied.
@@ -188,16 +185,16 @@ type controlArgs struct {
 	// Title of the action plan for remediating the control.
 	ActionPlanTitle *string `pulumi:"actionPlanTitle"`
 	// Data mapping sources. See `controlMappingSources` below.
-	//
-	// The following arguments are optional:
 	ControlMappingSources []ControlControlMappingSource `pulumi:"controlMappingSources"`
 	// Description of the control.
 	Description *string `pulumi:"description"`
 	// Name of the control.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Steps to follow to determine if the control is satisfied.
 	TestingInformation *string `pulumi:"testingInformation"`
@@ -210,16 +207,16 @@ type ControlArgs struct {
 	// Title of the action plan for remediating the control.
 	ActionPlanTitle pulumi.StringPtrInput
 	// Data mapping sources. See `controlMappingSources` below.
-	//
-	// The following arguments are optional:
 	ControlMappingSources ControlControlMappingSourceArrayInput
 	// Description of the control.
 	Description pulumi.StringPtrInput
 	// Name of the control.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Steps to follow to determine if the control is satisfied.
 	TestingInformation pulumi.StringPtrInput
@@ -323,14 +320,11 @@ func (o ControlOutput) ActionPlanTitle() pulumi.StringPtrOutput {
 }
 
 // Amazon Resource Name (ARN) of the control.
-// * `control_mapping_sources.*.source_id` - Unique identifier for the source.
 func (o ControlOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Control) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Data mapping sources. See `controlMappingSources` below.
-//
-// The following arguments are optional:
 func (o ControlOutput) ControlMappingSources() ControlControlMappingSourceArrayOutput {
 	return o.ApplyT(func(v *Control) ControlControlMappingSourceArrayOutput { return v.ControlMappingSources }).(ControlControlMappingSourceArrayOutput)
 }
@@ -341,6 +335,8 @@ func (o ControlOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Name of the control.
+//
+// The following arguments are optional:
 func (o ControlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Control) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -350,7 +346,7 @@ func (o ControlOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Control) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ControlOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Control) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

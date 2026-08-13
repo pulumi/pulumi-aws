@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> Title { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the web app to be customized.
+        /// Identifier of the web app to be customized.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The identifier of the web app to be customized.
+        /// Identifier of the web app to be customized.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Title { get; set; }
 
         /// <summary>
-        /// The identifier of the web app to be customized.
+        /// Identifier of the web app to be customized.
         /// 
         /// The following arguments are optional:
         /// </summary>

@@ -16,14 +16,14 @@ public final class AgentcoreHarnessAuthorizerConfigurationArgs extends com.pulum
     public static final AgentcoreHarnessAuthorizerConfigurationArgs Empty = new AgentcoreHarnessAuthorizerConfigurationArgs();
 
     /**
-     * JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+     * JWT-based authorization configuration block. See `customJwtAuthorizer` Block below.
      * 
      */
     @Import(name="customJwtAuthorizer")
     private @Nullable Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs> customJwtAuthorizer;
 
     /**
-     * @return JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+     * @return JWT-based authorization configuration block. See `customJwtAuthorizer` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs>> customJwtAuthorizer() {
@@ -55,7 +55,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param customJwtAuthorizer JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+         * @param customJwtAuthorizer JWT-based authorization configuration block. See `customJwtAuthorizer` Block below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param customJwtAuthorizer JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+         * @param customJwtAuthorizer JWT-based authorization configuration block. See `customJwtAuthorizer` Block below.
          * 
          * @return builder
          * 

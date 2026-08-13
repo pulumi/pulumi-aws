@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecLoggingAccessLogFileFormat {
+    /**
+     * @return Logging format for JSON. See `spec.logging.access_log.file.format.json` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecLoggingAccessLogFileFormatJson> jsons;
+    /**
+     * @return Logging format for text.
+     * 
+     */
     private String text;
 
     private GetVirtualNodeSpecLoggingAccessLogFileFormat() {}
+    /**
+     * @return Logging format for JSON. See `spec.logging.access_log.file.format.json` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecLoggingAccessLogFileFormatJson> jsons() {
         return this.jsons;
     }
+    /**
+     * @return Logging format for text.
+     * 
+     */
     public String text() {
         return this.text;
     }

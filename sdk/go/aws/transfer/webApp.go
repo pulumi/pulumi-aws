@@ -179,9 +179,9 @@ type WebApp struct {
 	AccessEndpoint pulumi.StringOutput `pulumi:"accessEndpoint"`
 	// ARN of the Web App.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
 	EndpointDetails WebAppEndpointDetailsPtrOutput `pulumi:"endpointDetails"`
-	// Block for details of the identity provider to use with the web app. See Identity provider details below.
+	// Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
 	//
 	// The following arguments are optional:
 	IdentityProviderDetails WebAppIdentityProviderDetailsOutput `pulumi:"identityProviderDetails"`
@@ -192,10 +192,9 @@ type WebApp struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
 	WebAppEndpointPolicy pulumi.StringOutput `pulumi:"webAppEndpointPolicy"`
-	// ID of the Wep App resource.
+	// ID of the Web App resource.
 	WebAppId pulumi.StringOutput `pulumi:"webAppId"`
-	// Block for number of concurrent connections or the user sessions on the web app.
-	// * provisioned - (Optional) Number of units of concurrent connections.
+	// Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
 	WebAppUnits WebAppWebAppUnitArrayOutput `pulumi:"webAppUnits"`
 }
 
@@ -236,9 +235,9 @@ type webAppState struct {
 	AccessEndpoint *string `pulumi:"accessEndpoint"`
 	// ARN of the Web App.
 	Arn *string `pulumi:"arn"`
-	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
 	EndpointDetails *WebAppEndpointDetails `pulumi:"endpointDetails"`
-	// Block for details of the identity provider to use with the web app. See Identity provider details below.
+	// Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
 	//
 	// The following arguments are optional:
 	IdentityProviderDetails *WebAppIdentityProviderDetails `pulumi:"identityProviderDetails"`
@@ -249,10 +248,9 @@ type webAppState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
 	WebAppEndpointPolicy *string `pulumi:"webAppEndpointPolicy"`
-	// ID of the Wep App resource.
+	// ID of the Web App resource.
 	WebAppId *string `pulumi:"webAppId"`
-	// Block for number of concurrent connections or the user sessions on the web app.
-	// * provisioned - (Optional) Number of units of concurrent connections.
+	// Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
 	WebAppUnits []WebAppWebAppUnit `pulumi:"webAppUnits"`
 }
 
@@ -261,9 +259,9 @@ type WebAppState struct {
 	AccessEndpoint pulumi.StringPtrInput
 	// ARN of the Web App.
 	Arn pulumi.StringPtrInput
-	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
 	EndpointDetails WebAppEndpointDetailsPtrInput
-	// Block for details of the identity provider to use with the web app. See Identity provider details below.
+	// Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
 	//
 	// The following arguments are optional:
 	IdentityProviderDetails WebAppIdentityProviderDetailsPtrInput
@@ -274,10 +272,9 @@ type WebAppState struct {
 	TagsAll pulumi.StringMapInput
 	// Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
 	WebAppEndpointPolicy pulumi.StringPtrInput
-	// ID of the Wep App resource.
+	// ID of the Web App resource.
 	WebAppId pulumi.StringPtrInput
-	// Block for number of concurrent connections or the user sessions on the web app.
-	// * provisioned - (Optional) Number of units of concurrent connections.
+	// Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
 	WebAppUnits WebAppWebAppUnitArrayInput
 }
 
@@ -288,9 +285,9 @@ func (WebAppState) ElementType() reflect.Type {
 type webAppArgs struct {
 	// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
 	AccessEndpoint *string `pulumi:"accessEndpoint"`
-	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
 	EndpointDetails *WebAppEndpointDetails `pulumi:"endpointDetails"`
-	// Block for details of the identity provider to use with the web app. See Identity provider details below.
+	// Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
 	//
 	// The following arguments are optional:
 	IdentityProviderDetails WebAppIdentityProviderDetails `pulumi:"identityProviderDetails"`
@@ -300,8 +297,7 @@ type webAppArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
 	WebAppEndpointPolicy *string `pulumi:"webAppEndpointPolicy"`
-	// Block for number of concurrent connections or the user sessions on the web app.
-	// * provisioned - (Optional) Number of units of concurrent connections.
+	// Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
 	WebAppUnits []WebAppWebAppUnit `pulumi:"webAppUnits"`
 }
 
@@ -309,9 +305,9 @@ type webAppArgs struct {
 type WebAppArgs struct {
 	// URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `accessEndpoint` must not be provided.
 	AccessEndpoint pulumi.StringPtrInput
-	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+	// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
 	EndpointDetails WebAppEndpointDetailsPtrInput
-	// Block for details of the identity provider to use with the web app. See Identity provider details below.
+	// Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
 	//
 	// The following arguments are optional:
 	IdentityProviderDetails WebAppIdentityProviderDetailsInput
@@ -321,8 +317,7 @@ type WebAppArgs struct {
 	Tags pulumi.StringMapInput
 	// Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
 	WebAppEndpointPolicy pulumi.StringPtrInput
-	// Block for number of concurrent connections or the user sessions on the web app.
-	// * provisioned - (Optional) Number of units of concurrent connections.
+	// Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
 	WebAppUnits WebAppWebAppUnitArrayInput
 }
 
@@ -423,12 +418,12 @@ func (o WebAppOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
 func (o WebAppOutput) EndpointDetails() WebAppEndpointDetailsPtrOutput {
 	return o.ApplyT(func(v *WebApp) WebAppEndpointDetailsPtrOutput { return v.EndpointDetails }).(WebAppEndpointDetailsPtrOutput)
 }
 
-// Block for details of the identity provider to use with the web app. See Identity provider details below.
+// Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
 //
 // The following arguments are optional:
 func (o WebAppOutput) IdentityProviderDetails() WebAppIdentityProviderDetailsOutput {
@@ -454,13 +449,12 @@ func (o WebAppOutput) WebAppEndpointPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.WebAppEndpointPolicy }).(pulumi.StringOutput)
 }
 
-// ID of the Wep App resource.
+// ID of the Web App resource.
 func (o WebAppOutput) WebAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.WebAppId }).(pulumi.StringOutput)
 }
 
-// Block for number of concurrent connections or the user sessions on the web app.
-// * provisioned - (Optional) Number of units of concurrent connections.
+// Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
 func (o WebAppOutput) WebAppUnits() WebAppWebAppUnitArrayOutput {
 	return o.ApplyT(func(v *WebApp) WebAppWebAppUnitArrayOutput { return v.WebAppUnits }).(WebAppWebAppUnitArrayOutput)
 }

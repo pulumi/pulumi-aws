@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecBackend {
+    /**
+     * @return Virtual service used as a backend for a virtual node. See `spec.backend.virtual_service` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecBackendVirtualService> virtualServices;
 
     private GetVirtualNodeSpecBackend() {}
+    /**
+     * @return Virtual service used as a backend for a virtual node. See `spec.backend.virtual_service` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecBackendVirtualService> virtualServices() {
         return this.virtualServices;
     }

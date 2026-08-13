@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Note:** `awsAlbTrustStore` is known as `lb.TrustStore`. The functionality is identical.
-//
 // Provides information about a Load Balancer Trust Store.
 //
 // This data source can prove useful when a module accepts an LB Trust Store as an

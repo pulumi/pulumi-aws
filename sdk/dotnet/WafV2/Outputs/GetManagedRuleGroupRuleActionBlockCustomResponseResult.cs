@@ -13,8 +13,17 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class GetManagedRuleGroupRuleActionBlockCustomResponseResult
     {
+        /// <summary>
+        /// Key of the custom response body to use.
+        /// </summary>
         public readonly string CustomResponseBodyKey;
+        /// <summary>
+        /// HTTP response code returned.
+        /// </summary>
         public readonly int ResponseCode;
+        /// <summary>
+        /// Headers included in the response. See `ResponseHeader` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedRuleGroupRuleActionBlockCustomResponseResponseHeaderResult> ResponseHeaders;
 
         [OutputConstructor]

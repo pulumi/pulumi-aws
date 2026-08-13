@@ -46,35 +46,35 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
-     * An date when the certificate becomes active
+     * Date when the certificate becomes active
      */
     declare public /*out*/ readonly activeDate: pulumi.Output<string>;
     /**
-     * The ARN of the certificate
+     * ARN of the certificate
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The valid certificate file required for the transfer.
+     * Valid certificate file required for the transfer.
      */
     declare public readonly certificate: pulumi.Output<string>;
     /**
-     * The optional list of certificate that make up the chain for the certificate that is being imported.
+     * Optional list of certificate that make up the chain for the certificate that is being imported.
      */
     declare public readonly certificateChain: pulumi.Output<string | undefined>;
     /**
-     * The unique identifier for the AS2 certificate
+     * Unique identifier for the AS2 certificate
      */
     declare public /*out*/ readonly certificateId: pulumi.Output<string>;
     /**
-     * A short description that helps identify the certificate.
+     * Short description that helps identify the certificate.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * An date when the certificate becomes inactive
+     * Date when the certificate becomes inactive
      */
     declare public /*out*/ readonly inactiveDate: pulumi.Output<string>;
     /**
-     * The private key associated with the certificate being imported.
+     * Private key associated with the certificate being imported.
      */
     declare public readonly privateKey: pulumi.Output<string | undefined>;
     /**
@@ -82,12 +82,12 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+     * Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      */
     declare public readonly usage: pulumi.Output<string>;
 
@@ -149,35 +149,35 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateState {
     /**
-     * An date when the certificate becomes active
+     * Date when the certificate becomes active
      */
     activeDate?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the certificate
+     * ARN of the certificate
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The valid certificate file required for the transfer.
+     * Valid certificate file required for the transfer.
      */
     certificate?: pulumi.Input<string | undefined>;
     /**
-     * The optional list of certificate that make up the chain for the certificate that is being imported.
+     * Optional list of certificate that make up the chain for the certificate that is being imported.
      */
     certificateChain?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier for the AS2 certificate
+     * Unique identifier for the AS2 certificate
      */
     certificateId?: pulumi.Input<string | undefined>;
     /**
-     * A short description that helps identify the certificate.
+     * Short description that helps identify the certificate.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * An date when the certificate becomes inactive
+     * Date when the certificate becomes inactive
      */
     inactiveDate?: pulumi.Input<string | undefined>;
     /**
-     * The private key associated with the certificate being imported.
+     * Private key associated with the certificate being imported.
      */
     privateKey?: pulumi.Input<string | undefined>;
     /**
@@ -185,12 +185,12 @@ export interface CertificateState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+     * Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      */
     usage?: pulumi.Input<string | undefined>;
 }
@@ -200,19 +200,19 @@ export interface CertificateState {
  */
 export interface CertificateArgs {
     /**
-     * The valid certificate file required for the transfer.
+     * Valid certificate file required for the transfer.
      */
     certificate: pulumi.Input<string>;
     /**
-     * The optional list of certificate that make up the chain for the certificate that is being imported.
+     * Optional list of certificate that make up the chain for the certificate that is being imported.
      */
     certificateChain?: pulumi.Input<string | undefined>;
     /**
-     * A short description that helps identify the certificate.
+     * Short description that helps identify the certificate.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The private key associated with the certificate being imported.
+     * Private key associated with the certificate being imported.
      */
     privateKey?: pulumi.Input<string | undefined>;
     /**
@@ -220,11 +220,11 @@ export interface CertificateArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+     * Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      */
     usage: pulumi.Input<string>;
 }

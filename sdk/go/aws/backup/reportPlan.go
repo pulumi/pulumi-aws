@@ -64,25 +64,25 @@ import (
 type ReportPlan struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the backup report plan.
+	// ARN of the backup report plan.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+	// Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+	// Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
 	DeploymentStatus pulumi.StringOutput `pulumi:"deploymentStatus"`
-	// The description of the report plan with a maximum of 1,024 characters
+	// Description of the report plan with a maximum of 1,024 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+	// Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+	// Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
 	ReportDeliveryChannel ReportPlanReportDeliveryChannelOutput `pulumi:"reportDeliveryChannel"`
-	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+	// Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 	ReportSetting ReportPlanReportSettingOutput `pulumi:"reportSetting"`
 	// Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -122,48 +122,48 @@ func GetReportPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReportPlan resources.
 type reportPlanState struct {
-	// The ARN of the backup report plan.
+	// ARN of the backup report plan.
 	Arn *string `pulumi:"arn"`
-	// The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+	// Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
 	CreationTime *string `pulumi:"creationTime"`
-	// The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+	// Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
 	DeploymentStatus *string `pulumi:"deploymentStatus"`
-	// The description of the report plan with a maximum of 1,024 characters
+	// Description of the report plan with a maximum of 1,024 characters.
 	Description *string `pulumi:"description"`
-	// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+	// Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+	// Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
 	ReportDeliveryChannel *ReportPlanReportDeliveryChannel `pulumi:"reportDeliveryChannel"`
-	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+	// Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 	ReportSetting *ReportPlanReportSetting `pulumi:"reportSetting"`
 	// Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ReportPlanState struct {
-	// The ARN of the backup report plan.
+	// ARN of the backup report plan.
 	Arn pulumi.StringPtrInput
-	// The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+	// Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
 	CreationTime pulumi.StringPtrInput
-	// The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+	// Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
 	DeploymentStatus pulumi.StringPtrInput
-	// The description of the report plan with a maximum of 1,024 characters
+	// Description of the report plan with a maximum of 1,024 characters.
 	Description pulumi.StringPtrInput
-	// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+	// Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+	// Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
 	ReportDeliveryChannel ReportPlanReportDeliveryChannelPtrInput
-	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+	// Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 	ReportSetting ReportPlanReportSettingPtrInput
 	// Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -172,15 +172,15 @@ func (ReportPlanState) ElementType() reflect.Type {
 }
 
 type reportPlanArgs struct {
-	// The description of the report plan with a maximum of 1,024 characters
+	// Description of the report plan with a maximum of 1,024 characters.
 	Description *string `pulumi:"description"`
-	// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+	// Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+	// Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
 	ReportDeliveryChannel ReportPlanReportDeliveryChannel `pulumi:"reportDeliveryChannel"`
-	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+	// Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 	ReportSetting ReportPlanReportSetting `pulumi:"reportSetting"`
 	// Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -188,15 +188,15 @@ type reportPlanArgs struct {
 
 // The set of arguments for constructing a ReportPlan resource.
 type ReportPlanArgs struct {
-	// The description of the report plan with a maximum of 1,024 characters
+	// Description of the report plan with a maximum of 1,024 characters.
 	Description pulumi.StringPtrInput
-	// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+	// Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+	// Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
 	ReportDeliveryChannel ReportPlanReportDeliveryChannelInput
-	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+	// Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 	ReportSetting ReportPlanReportSettingInput
 	// Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -289,27 +289,27 @@ func (o ReportPlanOutput) ToReportPlanOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
-// The ARN of the backup report plan.
+// ARN of the backup report plan.
 func (o ReportPlanOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportPlan) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
+// Date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
 func (o ReportPlanOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportPlan) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
+// Deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
 func (o ReportPlanOutput) DeploymentStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportPlan) pulumi.StringOutput { return v.DeploymentStatus }).(pulumi.StringOutput)
 }
 
-// The description of the report plan with a maximum of 1,024 characters
+// Description of the report plan with a maximum of 1,024 characters.
 func (o ReportPlanOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReportPlan) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+// Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
 func (o ReportPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -319,12 +319,12 @@ func (o ReportPlanOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportPlan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+// Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
 func (o ReportPlanOutput) ReportDeliveryChannel() ReportPlanReportDeliveryChannelOutput {
 	return o.ApplyT(func(v *ReportPlan) ReportPlanReportDeliveryChannelOutput { return v.ReportDeliveryChannel }).(ReportPlanReportDeliveryChannelOutput)
 }
 
-// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+// Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 func (o ReportPlanOutput) ReportSetting() ReportPlanReportSettingOutput {
 	return o.ApplyT(func(v *ReportPlan) ReportPlanReportSettingOutput { return v.ReportSetting }).(ReportPlanReportSettingOutput)
 }
@@ -334,7 +334,7 @@ func (o ReportPlanOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReportPlan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ReportPlanOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReportPlan) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

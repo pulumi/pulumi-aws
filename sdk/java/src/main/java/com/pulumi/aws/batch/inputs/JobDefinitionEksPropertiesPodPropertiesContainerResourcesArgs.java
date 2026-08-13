@@ -16,16 +16,32 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs
 
     public static final JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs Empty = new JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs();
 
+    /**
+     * Type and quantity of the resources to reserve for the container. The values vary based on the name that&#39;s specified. Limits must be equal to or greater than requests.
+     * 
+     */
     @Import(name="limits")
     private @Nullable Output<Map<String,String>> limits;
 
+    /**
+     * @return Type and quantity of the resources to reserve for the container. The values vary based on the name that&#39;s specified. Limits must be equal to or greater than requests.
+     * 
+     */
     public Optional<Output<Map<String,String>>> limits() {
         return Optional.ofNullable(this.limits);
     }
 
+    /**
+     * Type and quantity of the resources to request for the container. The values vary based on the name that&#39;s specified.
+     * 
+     */
     @Import(name="requests")
     private @Nullable Output<Map<String,String>> requests;
 
+    /**
+     * @return Type and quantity of the resources to request for the container. The values vary based on the name that&#39;s specified.
+     * 
+     */
     public Optional<Output<Map<String,String>>> requests() {
         return Optional.ofNullable(this.requests);
     }
@@ -55,20 +71,44 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs
             $ = new JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param limits Type and quantity of the resources to reserve for the container. The values vary based on the name that&#39;s specified. Limits must be equal to or greater than requests.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limits(@Nullable Output<Map<String,String>> limits) {
             $.limits = limits;
             return this;
         }
 
+        /**
+         * @param limits Type and quantity of the resources to reserve for the container. The values vary based on the name that&#39;s specified. Limits must be equal to or greater than requests.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limits(Map<String,String> limits) {
             return limits(Output.of(limits));
         }
 
+        /**
+         * @param requests Type and quantity of the resources to request for the container. The values vary based on the name that&#39;s specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(@Nullable Output<Map<String,String>> requests) {
             $.requests = requests;
             return this;
         }
 
+        /**
+         * @param requests Type and quantity of the resources to request for the container. The values vary based on the name that&#39;s specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder requests(Map<String,String> requests) {
             return requests(Output.of(requests));
         }

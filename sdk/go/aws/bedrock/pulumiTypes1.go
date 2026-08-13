@@ -13,6 +13,3914 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel struct {
+	// Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
+	ModelIdentifier string `pulumi:"modelIdentifier"`
+}
+
+// EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs and EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput values.
+// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelInput` via:
+//
+//	EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs{...}
+type EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelInput interface {
+	pulumi.Input
+
+	ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput
+	ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput
+}
+
+type EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs struct {
+	// Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
+	ModelIdentifier pulumi.StringInput `pulumi:"modelIdentifier"`
+}
+
+func (EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel)(nil)).Elem()
+}
+
+func (i EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput {
+	return i.ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput)
+}
+
+func (i EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
+	return i.ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput).ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrInput is an input type that accepts EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs, EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtr and EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrInput` via:
+//
+//	        EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput
+	ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput
+}
+
+type evaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrType EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs
+
+func EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtr(v *EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrInput {
+	return (*evaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrType)(v)
+}
+
+func (*evaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel)(nil)).Elem()
+}
+
+func (i *evaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrType) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
+	return i.ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrType) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput)
+}
+
+type EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel)(nil)).Elem()
+}
+
+func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
+	return o.ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel) *EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel {
+		return &v
+	}).(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput)
+}
+
+// Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
+func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput) ModelIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel) string {
+		return v.ModelIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel)(nil)).Elem()
+}
+
+func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput) ToEvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput) Elem() EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput {
+	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel) EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel
+		return ret
+	}).(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput)
+}
+
+// Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
+func (o EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput) ModelIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationJobEvaluationConfigHuman struct {
+	// One or more custom metrics for your human workers to use. See `evaluation_config.human.custom_metric` Block below.
+	CustomMetrics []EvaluationJobEvaluationConfigHumanCustomMetric `pulumi:"customMetrics"`
+	// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
+	DatasetMetricConfigs []EvaluationJobEvaluationConfigHumanDatasetMetricConfig `pulumi:"datasetMetricConfigs"`
+	// Configuration for the human workflow. See `humanWorkflowConfig` Block below.
+	HumanWorkflowConfig *EvaluationJobEvaluationConfigHumanHumanWorkflowConfig `pulumi:"humanWorkflowConfig"`
+}
+
+// EvaluationJobEvaluationConfigHumanInput is an input type that accepts EvaluationJobEvaluationConfigHumanArgs and EvaluationJobEvaluationConfigHumanOutput values.
+// You can construct a concrete instance of `EvaluationJobEvaluationConfigHumanInput` via:
+//
+//	EvaluationJobEvaluationConfigHumanArgs{...}
+type EvaluationJobEvaluationConfigHumanInput interface {
+	pulumi.Input
+
+	ToEvaluationJobEvaluationConfigHumanOutput() EvaluationJobEvaluationConfigHumanOutput
+	ToEvaluationJobEvaluationConfigHumanOutputWithContext(context.Context) EvaluationJobEvaluationConfigHumanOutput
+}
+
+type EvaluationJobEvaluationConfigHumanArgs struct {
+	// One or more custom metrics for your human workers to use. See `evaluation_config.human.custom_metric` Block below.
+	CustomMetrics EvaluationJobEvaluationConfigHumanCustomMetricArrayInput `pulumi:"customMetrics"`
+	// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
+	DatasetMetricConfigs EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayInput `pulumi:"datasetMetricConfigs"`
+	// Configuration for the human workflow. See `humanWorkflowConfig` Block below.
+	HumanWorkflowConfig EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrInput `pulumi:"humanWorkflowConfig"`
+}
+
+func (EvaluationJobEvaluationConfigHumanArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobEvaluationConfigHuman)(nil)).Elem()
+}
+
+func (i EvaluationJobEvaluationConfigHumanArgs) ToEvaluationJobEvaluationConfigHumanOutput() EvaluationJobEvaluationConfigHumanOutput {
+	return i.ToEvaluationJobEvaluationConfigHumanOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobEvaluationConfigHumanArgs) ToEvaluationJobEvaluationConfigHumanOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigHumanOutput)
+}
+
+func (i EvaluationJobEvaluationConfigHumanArgs) ToEvaluationJobEvaluationConfigHumanPtrOutput() EvaluationJobEvaluationConfigHumanPtrOutput {
+	return i.ToEvaluationJobEvaluationConfigHumanPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobEvaluationConfigHumanArgs) ToEvaluationJobEvaluationConfigHumanPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigHumanOutput).ToEvaluationJobEvaluationConfigHumanPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobEvaluationConfigHumanPtrInput is an input type that accepts EvaluationJobEvaluationConfigHumanArgs, EvaluationJobEvaluationConfigHumanPtr and EvaluationJobEvaluationConfigHumanPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobEvaluationConfigHumanPtrInput` via:
+//
+//	        EvaluationJobEvaluationConfigHumanArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobEvaluationConfigHumanPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobEvaluationConfigHumanPtrOutput() EvaluationJobEvaluationConfigHumanPtrOutput
+	ToEvaluationJobEvaluationConfigHumanPtrOutputWithContext(context.Context) EvaluationJobEvaluationConfigHumanPtrOutput
+}
+
+type evaluationJobEvaluationConfigHumanPtrType EvaluationJobEvaluationConfigHumanArgs
+
+func EvaluationJobEvaluationConfigHumanPtr(v *EvaluationJobEvaluationConfigHumanArgs) EvaluationJobEvaluationConfigHumanPtrInput {
+	return (*evaluationJobEvaluationConfigHumanPtrType)(v)
+}
+
+func (*evaluationJobEvaluationConfigHumanPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobEvaluationConfigHuman)(nil)).Elem()
+}
+
+func (i *evaluationJobEvaluationConfigHumanPtrType) ToEvaluationJobEvaluationConfigHumanPtrOutput() EvaluationJobEvaluationConfigHumanPtrOutput {
+	return i.ToEvaluationJobEvaluationConfigHumanPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobEvaluationConfigHumanPtrType) ToEvaluationJobEvaluationConfigHumanPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigHumanPtrOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobEvaluationConfigHumanOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobEvaluationConfigHuman)(nil)).Elem()
+}
+
+func (o EvaluationJobEvaluationConfigHumanOutput) ToEvaluationJobEvaluationConfigHumanOutput() EvaluationJobEvaluationConfigHumanOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanOutput) ToEvaluationJobEvaluationConfigHumanOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanOutput) ToEvaluationJobEvaluationConfigHumanPtrOutput() EvaluationJobEvaluationConfigHumanPtrOutput {
+	return o.ToEvaluationJobEvaluationConfigHumanPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobEvaluationConfigHumanOutput) ToEvaluationJobEvaluationConfigHumanPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobEvaluationConfigHuman) *EvaluationJobEvaluationConfigHuman {
+		return &v
+	}).(EvaluationJobEvaluationConfigHumanPtrOutput)
+}
+
+// One or more custom metrics for your human workers to use. See `evaluation_config.human.custom_metric` Block below.
+func (o EvaluationJobEvaluationConfigHumanOutput) CustomMetrics() EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigHuman) []EvaluationJobEvaluationConfigHumanCustomMetric {
+		return v.CustomMetrics
+	}).(EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput)
+}
+
+// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
+func (o EvaluationJobEvaluationConfigHumanOutput) DatasetMetricConfigs() EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigHuman) []EvaluationJobEvaluationConfigHumanDatasetMetricConfig {
+		return v.DatasetMetricConfigs
+	}).(EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput)
+}
+
+// Configuration for the human workflow. See `humanWorkflowConfig` Block below.
+func (o EvaluationJobEvaluationConfigHumanOutput) HumanWorkflowConfig() EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigHuman) *EvaluationJobEvaluationConfigHumanHumanWorkflowConfig {
+		return v.HumanWorkflowConfig
+	}).(EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobEvaluationConfigHumanPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobEvaluationConfigHuman)(nil)).Elem()
+}
+
+func (o EvaluationJobEvaluationConfigHumanPtrOutput) ToEvaluationJobEvaluationConfigHumanPtrOutput() EvaluationJobEvaluationConfigHumanPtrOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanPtrOutput) ToEvaluationJobEvaluationConfigHumanPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanPtrOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanPtrOutput) Elem() EvaluationJobEvaluationConfigHumanOutput {
+	return o.ApplyT(func(v *EvaluationJobEvaluationConfigHuman) EvaluationJobEvaluationConfigHuman {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobEvaluationConfigHuman
+		return ret
+	}).(EvaluationJobEvaluationConfigHumanOutput)
+}
+
+// One or more custom metrics for your human workers to use. See `evaluation_config.human.custom_metric` Block below.
+func (o EvaluationJobEvaluationConfigHumanPtrOutput) CustomMetrics() EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput {
+	return o.ApplyT(func(v *EvaluationJobEvaluationConfigHuman) []EvaluationJobEvaluationConfigHumanCustomMetric {
+		if v == nil {
+			return nil
+		}
+		return v.CustomMetrics
+	}).(EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput)
+}
+
+// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
+func (o EvaluationJobEvaluationConfigHumanPtrOutput) DatasetMetricConfigs() EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput {
+	return o.ApplyT(func(v *EvaluationJobEvaluationConfigHuman) []EvaluationJobEvaluationConfigHumanDatasetMetricConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DatasetMetricConfigs
+	}).(EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput)
+}
+
+// Configuration for the human workflow. See `humanWorkflowConfig` Block below.
+func (o EvaluationJobEvaluationConfigHumanPtrOutput) HumanWorkflowConfig() EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobEvaluationConfigHuman) *EvaluationJobEvaluationConfigHumanHumanWorkflowConfig {
+		if v == nil {
+			return nil
+		}
+		return v.HumanWorkflowConfig
+	}).(EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanCustomMetric struct {
+	// Description of the metric.
+	Description *string `pulumi:"description"`
+	// Name of the metric.
+	Name string `pulumi:"name"`
+	// How the metric is rated. Valid values: `ThumbsUpDown`, `IndividualLikertScale`, `ComparisonLikertScale`, `ComparisonChoice`, `ComparisonRank`.
+	RatingMethod string `pulumi:"ratingMethod"`
+}
+
+// EvaluationJobEvaluationConfigHumanCustomMetricInput is an input type that accepts EvaluationJobEvaluationConfigHumanCustomMetricArgs and EvaluationJobEvaluationConfigHumanCustomMetricOutput values.
+// You can construct a concrete instance of `EvaluationJobEvaluationConfigHumanCustomMetricInput` via:
+//
+//	EvaluationJobEvaluationConfigHumanCustomMetricArgs{...}
+type EvaluationJobEvaluationConfigHumanCustomMetricInput interface {
+	pulumi.Input
+
+	ToEvaluationJobEvaluationConfigHumanCustomMetricOutput() EvaluationJobEvaluationConfigHumanCustomMetricOutput
+	ToEvaluationJobEvaluationConfigHumanCustomMetricOutputWithContext(context.Context) EvaluationJobEvaluationConfigHumanCustomMetricOutput
+}
+
+type EvaluationJobEvaluationConfigHumanCustomMetricArgs struct {
+	// Description of the metric.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Name of the metric.
+	Name pulumi.StringInput `pulumi:"name"`
+	// How the metric is rated. Valid values: `ThumbsUpDown`, `IndividualLikertScale`, `ComparisonLikertScale`, `ComparisonChoice`, `ComparisonRank`.
+	RatingMethod pulumi.StringInput `pulumi:"ratingMethod"`
+}
+
+func (EvaluationJobEvaluationConfigHumanCustomMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobEvaluationConfigHumanCustomMetric)(nil)).Elem()
+}
+
+func (i EvaluationJobEvaluationConfigHumanCustomMetricArgs) ToEvaluationJobEvaluationConfigHumanCustomMetricOutput() EvaluationJobEvaluationConfigHumanCustomMetricOutput {
+	return i.ToEvaluationJobEvaluationConfigHumanCustomMetricOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobEvaluationConfigHumanCustomMetricArgs) ToEvaluationJobEvaluationConfigHumanCustomMetricOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanCustomMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigHumanCustomMetricOutput)
+}
+
+// EvaluationJobEvaluationConfigHumanCustomMetricArrayInput is an input type that accepts EvaluationJobEvaluationConfigHumanCustomMetricArray and EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput values.
+// You can construct a concrete instance of `EvaluationJobEvaluationConfigHumanCustomMetricArrayInput` via:
+//
+//	EvaluationJobEvaluationConfigHumanCustomMetricArray{ EvaluationJobEvaluationConfigHumanCustomMetricArgs{...} }
+type EvaluationJobEvaluationConfigHumanCustomMetricArrayInput interface {
+	pulumi.Input
+
+	ToEvaluationJobEvaluationConfigHumanCustomMetricArrayOutput() EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput
+	ToEvaluationJobEvaluationConfigHumanCustomMetricArrayOutputWithContext(context.Context) EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput
+}
+
+type EvaluationJobEvaluationConfigHumanCustomMetricArray []EvaluationJobEvaluationConfigHumanCustomMetricInput
+
+func (EvaluationJobEvaluationConfigHumanCustomMetricArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationJobEvaluationConfigHumanCustomMetric)(nil)).Elem()
+}
+
+func (i EvaluationJobEvaluationConfigHumanCustomMetricArray) ToEvaluationJobEvaluationConfigHumanCustomMetricArrayOutput() EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput {
+	return i.ToEvaluationJobEvaluationConfigHumanCustomMetricArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobEvaluationConfigHumanCustomMetricArray) ToEvaluationJobEvaluationConfigHumanCustomMetricArrayOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanCustomMetricOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobEvaluationConfigHumanCustomMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobEvaluationConfigHumanCustomMetric)(nil)).Elem()
+}
+
+func (o EvaluationJobEvaluationConfigHumanCustomMetricOutput) ToEvaluationJobEvaluationConfigHumanCustomMetricOutput() EvaluationJobEvaluationConfigHumanCustomMetricOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanCustomMetricOutput) ToEvaluationJobEvaluationConfigHumanCustomMetricOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanCustomMetricOutput {
+	return o
+}
+
+// Description of the metric.
+func (o EvaluationJobEvaluationConfigHumanCustomMetricOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigHumanCustomMetric) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of the metric.
+func (o EvaluationJobEvaluationConfigHumanCustomMetricOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigHumanCustomMetric) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// How the metric is rated. Valid values: `ThumbsUpDown`, `IndividualLikertScale`, `ComparisonLikertScale`, `ComparisonChoice`, `ComparisonRank`.
+func (o EvaluationJobEvaluationConfigHumanCustomMetricOutput) RatingMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigHumanCustomMetric) string { return v.RatingMethod }).(pulumi.StringOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationJobEvaluationConfigHumanCustomMetric)(nil)).Elem()
+}
+
+func (o EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput) ToEvaluationJobEvaluationConfigHumanCustomMetricArrayOutput() EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput) ToEvaluationJobEvaluationConfigHumanCustomMetricArrayOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput) Index(i pulumi.IntInput) EvaluationJobEvaluationConfigHumanCustomMetricOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationJobEvaluationConfigHumanCustomMetric {
+		return vs[0].([]EvaluationJobEvaluationConfigHumanCustomMetric)[vs[1].(int)]
+	}).(EvaluationJobEvaluationConfigHumanCustomMetricOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfig struct {
+	// Prompt dataset to use. See `dataset` Block below.
+	Dataset EvaluationJobEvaluationConfigHumanDatasetMetricConfigDataset `pulumi:"dataset"`
+	// Names of the metrics to use for the evaluation job.
+	MetricNames []string `pulumi:"metricNames"`
+	// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
+	TaskType string `pulumi:"taskType"`
+}
+
+// EvaluationJobEvaluationConfigHumanDatasetMetricConfigInput is an input type that accepts EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs and EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput values.
+// You can construct a concrete instance of `EvaluationJobEvaluationConfigHumanDatasetMetricConfigInput` via:
+//
+//	EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs{...}
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigInput interface {
+	pulumi.Input
+
+	ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput
+	ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigOutputWithContext(context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput
+}
+
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs struct {
+	// Prompt dataset to use. See `dataset` Block below.
+	Dataset EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetInput `pulumi:"dataset"`
+	// Names of the metrics to use for the evaluation job.
+	MetricNames pulumi.StringArrayInput `pulumi:"metricNames"`
+	// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
+	TaskType pulumi.StringInput `pulumi:"taskType"`
+}
+
+func (EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobEvaluationConfigHumanDatasetMetricConfig)(nil)).Elem()
+}
+
+func (i EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput {
+	return i.ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput)
+}
+
+// EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayInput is an input type that accepts EvaluationJobEvaluationConfigHumanDatasetMetricConfigArray and EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput values.
+// You can construct a concrete instance of `EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayInput` via:
+//
+//	EvaluationJobEvaluationConfigHumanDatasetMetricConfigArray{ EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs{...} }
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayInput interface {
+	pulumi.Input
+
+	ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput
+	ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutputWithContext(context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput
+}
+
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigArray []EvaluationJobEvaluationConfigHumanDatasetMetricConfigInput
+
+func (EvaluationJobEvaluationConfigHumanDatasetMetricConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationJobEvaluationConfigHumanDatasetMetricConfig)(nil)).Elem()
+}
+
+func (i EvaluationJobEvaluationConfigHumanDatasetMetricConfigArray) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput {
+	return i.ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobEvaluationConfigHumanDatasetMetricConfigArray) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobEvaluationConfigHumanDatasetMetricConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput {
+	return o
+}
+
+// Prompt dataset to use. See `dataset` Block below.
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput) Dataset() EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigHumanDatasetMetricConfig) EvaluationJobEvaluationConfigHumanDatasetMetricConfigDataset {
+		return v.Dataset
+	}).(EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput)
+}
+
+// Names of the metrics to use for the evaluation job.
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput) MetricNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigHumanDatasetMetricConfig) []string { return v.MetricNames }).(pulumi.StringArrayOutput)
+}
+
+// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput) TaskType() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigHumanDatasetMetricConfig) string { return v.TaskType }).(pulumi.StringOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationJobEvaluationConfigHumanDatasetMetricConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput) Index(i pulumi.IntInput) EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationJobEvaluationConfigHumanDatasetMetricConfig {
+		return vs[0].([]EvaluationJobEvaluationConfigHumanDatasetMetricConfig)[vs[1].(int)]
+	}).(EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigDataset struct {
+	// Location of a custom prompt dataset. See `datasetLocation` Block below.
+	DatasetLocation *EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation `pulumi:"datasetLocation"`
+	// Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
+	Name string `pulumi:"name"`
+}
+
+// EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetInput is an input type that accepts EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgs and EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput values.
+// You can construct a concrete instance of `EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetInput` via:
+//
+//	EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgs{...}
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetInput interface {
+	pulumi.Input
+
+	ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput
+	ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutputWithContext(context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput
+}
+
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgs struct {
+	// Location of a custom prompt dataset. See `datasetLocation` Block below.
+	DatasetLocation EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrInput `pulumi:"datasetLocation"`
+	// Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobEvaluationConfigHumanDatasetMetricConfigDataset)(nil)).Elem()
+}
+
+func (i EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgs) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput {
+	return i.ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgs) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobEvaluationConfigHumanDatasetMetricConfigDataset)(nil)).Elem()
+}
+
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput {
+	return o
+}
+
+// Location of a custom prompt dataset. See `datasetLocation` Block below.
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput) DatasetLocation() EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigHumanDatasetMetricConfigDataset) *EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation {
+		return v.DatasetLocation
+	}).(EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput)
+}
+
+// Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigHumanDatasetMetricConfigDataset) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation struct {
+	// S3 URI of the custom prompt dataset.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationInput is an input type that accepts EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs and EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput values.
+// You can construct a concrete instance of `EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationInput` via:
+//
+//	EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs{...}
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationInput interface {
+	pulumi.Input
+
+	ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput
+	ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutputWithContext(context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput
+}
+
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs struct {
+	// S3 URI of the custom prompt dataset.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation)(nil)).Elem()
+}
+
+func (i EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput {
+	return i.ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput)
+}
+
+func (i EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput {
+	return i.ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput).ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrInput is an input type that accepts EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs, EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtr and EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrInput` via:
+//
+//	        EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput
+	ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput
+}
+
+type evaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrType EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs
+
+func EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtr(v *EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs) EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrInput {
+	return (*evaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrType)(v)
+}
+
+func (*evaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation)(nil)).Elem()
+}
+
+func (i *evaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrType) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput {
+	return i.ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrType) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation)(nil)).Elem()
+}
+
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput {
+	return o.ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation) *EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation {
+		return &v
+	}).(EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput)
+}
+
+// S3 URI of the custom prompt dataset.
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation) string {
+		return v.S3Uri
+	}).(pulumi.StringOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation)(nil)).Elem()
+}
+
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput() EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput) ToEvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput) Elem() EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput {
+	return o.ApplyT(func(v *EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation) EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation
+		return ret
+	}).(EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput)
+}
+
+// S3 URI of the custom prompt dataset.
+func (o EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanHumanWorkflowConfig struct {
+	// ARN of the Amazon SageMaker AI flow definition.
+	FlowDefinitionArn string `pulumi:"flowDefinitionArn"`
+	// Instructions for the flow definition.
+	Instructions *string `pulumi:"instructions"`
+}
+
+// EvaluationJobEvaluationConfigHumanHumanWorkflowConfigInput is an input type that accepts EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs and EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput values.
+// You can construct a concrete instance of `EvaluationJobEvaluationConfigHumanHumanWorkflowConfigInput` via:
+//
+//	EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs{...}
+type EvaluationJobEvaluationConfigHumanHumanWorkflowConfigInput interface {
+	pulumi.Input
+
+	ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput() EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput
+	ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutputWithContext(context.Context) EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput
+}
+
+type EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs struct {
+	// ARN of the Amazon SageMaker AI flow definition.
+	FlowDefinitionArn pulumi.StringInput `pulumi:"flowDefinitionArn"`
+	// Instructions for the flow definition.
+	Instructions pulumi.StringPtrInput `pulumi:"instructions"`
+}
+
+func (EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobEvaluationConfigHumanHumanWorkflowConfig)(nil)).Elem()
+}
+
+func (i EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs) ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput() EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput {
+	return i.ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs) ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput)
+}
+
+func (i EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs) ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput() EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput {
+	return i.ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs) ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput).ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrInput is an input type that accepts EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs, EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtr and EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrInput` via:
+//
+//	        EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput() EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput
+	ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutputWithContext(context.Context) EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput
+}
+
+type evaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrType EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs
+
+func EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtr(v *EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs) EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrInput {
+	return (*evaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrType)(v)
+}
+
+func (*evaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobEvaluationConfigHumanHumanWorkflowConfig)(nil)).Elem()
+}
+
+func (i *evaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrType) ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput() EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput {
+	return i.ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrType) ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobEvaluationConfigHumanHumanWorkflowConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput) ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput() EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput) ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput) ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput() EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput {
+	return o.ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput) ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobEvaluationConfigHumanHumanWorkflowConfig) *EvaluationJobEvaluationConfigHumanHumanWorkflowConfig {
+		return &v
+	}).(EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput)
+}
+
+// ARN of the Amazon SageMaker AI flow definition.
+func (o EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput) FlowDefinitionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigHumanHumanWorkflowConfig) string { return v.FlowDefinitionArn }).(pulumi.StringOutput)
+}
+
+// Instructions for the flow definition.
+func (o EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput) Instructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EvaluationJobEvaluationConfigHumanHumanWorkflowConfig) *string { return v.Instructions }).(pulumi.StringPtrOutput)
+}
+
+type EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobEvaluationConfigHumanHumanWorkflowConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput) ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput() EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput) ToEvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutputWithContext(ctx context.Context) EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput) Elem() EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput {
+	return o.ApplyT(func(v *EvaluationJobEvaluationConfigHumanHumanWorkflowConfig) EvaluationJobEvaluationConfigHumanHumanWorkflowConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobEvaluationConfigHumanHumanWorkflowConfig
+		return ret
+	}).(EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput)
+}
+
+// ARN of the Amazon SageMaker AI flow definition.
+func (o EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput) FlowDefinitionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobEvaluationConfigHumanHumanWorkflowConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FlowDefinitionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Instructions for the flow definition.
+func (o EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput) Instructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobEvaluationConfigHumanHumanWorkflowConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Instructions
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationJobInferenceConfig struct {
+	// One or more inference models. Automated jobs support a single model; jobs that use human workers support up to two models. See `model` Block below.
+	Models []EvaluationJobInferenceConfigModel `pulumi:"models"`
+	// Inference configuration for a knowledge base evaluation job. See `ragConfig` Block below.
+	RagConfig *EvaluationJobInferenceConfigRagConfig `pulumi:"ragConfig"`
+}
+
+// EvaluationJobInferenceConfigInput is an input type that accepts EvaluationJobInferenceConfigArgs and EvaluationJobInferenceConfigOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigInput` via:
+//
+//	EvaluationJobInferenceConfigArgs{...}
+type EvaluationJobInferenceConfigInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigOutput() EvaluationJobInferenceConfigOutput
+	ToEvaluationJobInferenceConfigOutputWithContext(context.Context) EvaluationJobInferenceConfigOutput
+}
+
+type EvaluationJobInferenceConfigArgs struct {
+	// One or more inference models. Automated jobs support a single model; jobs that use human workers support up to two models. See `model` Block below.
+	Models EvaluationJobInferenceConfigModelArrayInput `pulumi:"models"`
+	// Inference configuration for a knowledge base evaluation job. See `ragConfig` Block below.
+	RagConfig EvaluationJobInferenceConfigRagConfigPtrInput `pulumi:"ragConfig"`
+}
+
+func (EvaluationJobInferenceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfig)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigArgs) ToEvaluationJobInferenceConfigOutput() EvaluationJobInferenceConfigOutput {
+	return i.ToEvaluationJobInferenceConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigArgs) ToEvaluationJobInferenceConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigOutput)
+}
+
+func (i EvaluationJobInferenceConfigArgs) ToEvaluationJobInferenceConfigPtrOutput() EvaluationJobInferenceConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigArgs) ToEvaluationJobInferenceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigOutput).ToEvaluationJobInferenceConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigPtrInput is an input type that accepts EvaluationJobInferenceConfigArgs, EvaluationJobInferenceConfigPtr and EvaluationJobInferenceConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigPtrInput` via:
+//
+//	        EvaluationJobInferenceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigPtrOutput() EvaluationJobInferenceConfigPtrOutput
+	ToEvaluationJobInferenceConfigPtrOutputWithContext(context.Context) EvaluationJobInferenceConfigPtrOutput
+}
+
+type evaluationJobInferenceConfigPtrType EvaluationJobInferenceConfigArgs
+
+func EvaluationJobInferenceConfigPtr(v *EvaluationJobInferenceConfigArgs) EvaluationJobInferenceConfigPtrInput {
+	return (*evaluationJobInferenceConfigPtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfig)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigPtrType) ToEvaluationJobInferenceConfigPtrOutput() EvaluationJobInferenceConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigPtrType) ToEvaluationJobInferenceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigOutput) ToEvaluationJobInferenceConfigOutput() EvaluationJobInferenceConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigOutput) ToEvaluationJobInferenceConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigOutput) ToEvaluationJobInferenceConfigPtrOutput() EvaluationJobInferenceConfigPtrOutput {
+	return o.ToEvaluationJobInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigOutput) ToEvaluationJobInferenceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfig) *EvaluationJobInferenceConfig {
+		return &v
+	}).(EvaluationJobInferenceConfigPtrOutput)
+}
+
+// One or more inference models. Automated jobs support a single model; jobs that use human workers support up to two models. See `model` Block below.
+func (o EvaluationJobInferenceConfigOutput) Models() EvaluationJobInferenceConfigModelArrayOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfig) []EvaluationJobInferenceConfigModel { return v.Models }).(EvaluationJobInferenceConfigModelArrayOutput)
+}
+
+// Inference configuration for a knowledge base evaluation job. See `ragConfig` Block below.
+func (o EvaluationJobInferenceConfigOutput) RagConfig() EvaluationJobInferenceConfigRagConfigPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfig) *EvaluationJobInferenceConfigRagConfig { return v.RagConfig }).(EvaluationJobInferenceConfigRagConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigPtrOutput) ToEvaluationJobInferenceConfigPtrOutput() EvaluationJobInferenceConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigPtrOutput) ToEvaluationJobInferenceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigPtrOutput) Elem() EvaluationJobInferenceConfigOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfig) EvaluationJobInferenceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfig
+		return ret
+	}).(EvaluationJobInferenceConfigOutput)
+}
+
+// One or more inference models. Automated jobs support a single model; jobs that use human workers support up to two models. See `model` Block below.
+func (o EvaluationJobInferenceConfigPtrOutput) Models() EvaluationJobInferenceConfigModelArrayOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfig) []EvaluationJobInferenceConfigModel {
+		if v == nil {
+			return nil
+		}
+		return v.Models
+	}).(EvaluationJobInferenceConfigModelArrayOutput)
+}
+
+// Inference configuration for a knowledge base evaluation job. See `ragConfig` Block below.
+func (o EvaluationJobInferenceConfigPtrOutput) RagConfig() EvaluationJobInferenceConfigRagConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfig) *EvaluationJobInferenceConfigRagConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RagConfig
+	}).(EvaluationJobInferenceConfigRagConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigModel struct {
+	// Amazon Bedrock model. See `bedrockModel` Block below.
+	BedrockModel *EvaluationJobInferenceConfigModelBedrockModel `pulumi:"bedrockModel"`
+	// Model where you provide your own precomputed inference response data. See `precomputedInferenceSource` Block below.
+	PrecomputedInferenceSource *EvaluationJobInferenceConfigModelPrecomputedInferenceSource `pulumi:"precomputedInferenceSource"`
+}
+
+// EvaluationJobInferenceConfigModelInput is an input type that accepts EvaluationJobInferenceConfigModelArgs and EvaluationJobInferenceConfigModelOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigModelInput` via:
+//
+//	EvaluationJobInferenceConfigModelArgs{...}
+type EvaluationJobInferenceConfigModelInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigModelOutput() EvaluationJobInferenceConfigModelOutput
+	ToEvaluationJobInferenceConfigModelOutputWithContext(context.Context) EvaluationJobInferenceConfigModelOutput
+}
+
+type EvaluationJobInferenceConfigModelArgs struct {
+	// Amazon Bedrock model. See `bedrockModel` Block below.
+	BedrockModel EvaluationJobInferenceConfigModelBedrockModelPtrInput `pulumi:"bedrockModel"`
+	// Model where you provide your own precomputed inference response data. See `precomputedInferenceSource` Block below.
+	PrecomputedInferenceSource EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrInput `pulumi:"precomputedInferenceSource"`
+}
+
+func (EvaluationJobInferenceConfigModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigModel)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigModelArgs) ToEvaluationJobInferenceConfigModelOutput() EvaluationJobInferenceConfigModelOutput {
+	return i.ToEvaluationJobInferenceConfigModelOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigModelArgs) ToEvaluationJobInferenceConfigModelOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigModelOutput)
+}
+
+// EvaluationJobInferenceConfigModelArrayInput is an input type that accepts EvaluationJobInferenceConfigModelArray and EvaluationJobInferenceConfigModelArrayOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigModelArrayInput` via:
+//
+//	EvaluationJobInferenceConfigModelArray{ EvaluationJobInferenceConfigModelArgs{...} }
+type EvaluationJobInferenceConfigModelArrayInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigModelArrayOutput() EvaluationJobInferenceConfigModelArrayOutput
+	ToEvaluationJobInferenceConfigModelArrayOutputWithContext(context.Context) EvaluationJobInferenceConfigModelArrayOutput
+}
+
+type EvaluationJobInferenceConfigModelArray []EvaluationJobInferenceConfigModelInput
+
+func (EvaluationJobInferenceConfigModelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationJobInferenceConfigModel)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigModelArray) ToEvaluationJobInferenceConfigModelArrayOutput() EvaluationJobInferenceConfigModelArrayOutput {
+	return i.ToEvaluationJobInferenceConfigModelArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigModelArray) ToEvaluationJobInferenceConfigModelArrayOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigModelArrayOutput)
+}
+
+type EvaluationJobInferenceConfigModelOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigModel)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigModelOutput) ToEvaluationJobInferenceConfigModelOutput() EvaluationJobInferenceConfigModelOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelOutput) ToEvaluationJobInferenceConfigModelOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelOutput {
+	return o
+}
+
+// Amazon Bedrock model. See `bedrockModel` Block below.
+func (o EvaluationJobInferenceConfigModelOutput) BedrockModel() EvaluationJobInferenceConfigModelBedrockModelPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigModel) *EvaluationJobInferenceConfigModelBedrockModel {
+		return v.BedrockModel
+	}).(EvaluationJobInferenceConfigModelBedrockModelPtrOutput)
+}
+
+// Model where you provide your own precomputed inference response data. See `precomputedInferenceSource` Block below.
+func (o EvaluationJobInferenceConfigModelOutput) PrecomputedInferenceSource() EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigModel) *EvaluationJobInferenceConfigModelPrecomputedInferenceSource {
+		return v.PrecomputedInferenceSource
+	}).(EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput)
+}
+
+type EvaluationJobInferenceConfigModelArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigModelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationJobInferenceConfigModel)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigModelArrayOutput) ToEvaluationJobInferenceConfigModelArrayOutput() EvaluationJobInferenceConfigModelArrayOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelArrayOutput) ToEvaluationJobInferenceConfigModelArrayOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelArrayOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelArrayOutput) Index(i pulumi.IntInput) EvaluationJobInferenceConfigModelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationJobInferenceConfigModel {
+		return vs[0].([]EvaluationJobInferenceConfigModel)[vs[1].(int)]
+	}).(EvaluationJobInferenceConfigModelOutput)
+}
+
+type EvaluationJobInferenceConfigModelBedrockModel struct {
+	// JSON-formatted string of inference parameters for the model.
+	InferenceParams *string `pulumi:"inferenceParams"`
+	// Identifier of the Amazon Bedrock model, or inference profile, used for inference.
+	ModelIdentifier string `pulumi:"modelIdentifier"`
+	// Model's performance settings. See `performanceConfig` Block below.
+	PerformanceConfig *EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig `pulumi:"performanceConfig"`
+}
+
+// EvaluationJobInferenceConfigModelBedrockModelInput is an input type that accepts EvaluationJobInferenceConfigModelBedrockModelArgs and EvaluationJobInferenceConfigModelBedrockModelOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigModelBedrockModelInput` via:
+//
+//	EvaluationJobInferenceConfigModelBedrockModelArgs{...}
+type EvaluationJobInferenceConfigModelBedrockModelInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigModelBedrockModelOutput() EvaluationJobInferenceConfigModelBedrockModelOutput
+	ToEvaluationJobInferenceConfigModelBedrockModelOutputWithContext(context.Context) EvaluationJobInferenceConfigModelBedrockModelOutput
+}
+
+type EvaluationJobInferenceConfigModelBedrockModelArgs struct {
+	// JSON-formatted string of inference parameters for the model.
+	InferenceParams pulumi.StringPtrInput `pulumi:"inferenceParams"`
+	// Identifier of the Amazon Bedrock model, or inference profile, used for inference.
+	ModelIdentifier pulumi.StringInput `pulumi:"modelIdentifier"`
+	// Model's performance settings. See `performanceConfig` Block below.
+	PerformanceConfig EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrInput `pulumi:"performanceConfig"`
+}
+
+func (EvaluationJobInferenceConfigModelBedrockModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigModelBedrockModel)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigModelBedrockModelArgs) ToEvaluationJobInferenceConfigModelBedrockModelOutput() EvaluationJobInferenceConfigModelBedrockModelOutput {
+	return i.ToEvaluationJobInferenceConfigModelBedrockModelOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigModelBedrockModelArgs) ToEvaluationJobInferenceConfigModelBedrockModelOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelBedrockModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigModelBedrockModelOutput)
+}
+
+func (i EvaluationJobInferenceConfigModelBedrockModelArgs) ToEvaluationJobInferenceConfigModelBedrockModelPtrOutput() EvaluationJobInferenceConfigModelBedrockModelPtrOutput {
+	return i.ToEvaluationJobInferenceConfigModelBedrockModelPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigModelBedrockModelArgs) ToEvaluationJobInferenceConfigModelBedrockModelPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelBedrockModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigModelBedrockModelOutput).ToEvaluationJobInferenceConfigModelBedrockModelPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigModelBedrockModelPtrInput is an input type that accepts EvaluationJobInferenceConfigModelBedrockModelArgs, EvaluationJobInferenceConfigModelBedrockModelPtr and EvaluationJobInferenceConfigModelBedrockModelPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigModelBedrockModelPtrInput` via:
+//
+//	        EvaluationJobInferenceConfigModelBedrockModelArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigModelBedrockModelPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigModelBedrockModelPtrOutput() EvaluationJobInferenceConfigModelBedrockModelPtrOutput
+	ToEvaluationJobInferenceConfigModelBedrockModelPtrOutputWithContext(context.Context) EvaluationJobInferenceConfigModelBedrockModelPtrOutput
+}
+
+type evaluationJobInferenceConfigModelBedrockModelPtrType EvaluationJobInferenceConfigModelBedrockModelArgs
+
+func EvaluationJobInferenceConfigModelBedrockModelPtr(v *EvaluationJobInferenceConfigModelBedrockModelArgs) EvaluationJobInferenceConfigModelBedrockModelPtrInput {
+	return (*evaluationJobInferenceConfigModelBedrockModelPtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigModelBedrockModelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigModelBedrockModel)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigModelBedrockModelPtrType) ToEvaluationJobInferenceConfigModelBedrockModelPtrOutput() EvaluationJobInferenceConfigModelBedrockModelPtrOutput {
+	return i.ToEvaluationJobInferenceConfigModelBedrockModelPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigModelBedrockModelPtrType) ToEvaluationJobInferenceConfigModelBedrockModelPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelBedrockModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigModelBedrockModelPtrOutput)
+}
+
+type EvaluationJobInferenceConfigModelBedrockModelOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigModelBedrockModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigModelBedrockModel)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigModelBedrockModelOutput) ToEvaluationJobInferenceConfigModelBedrockModelOutput() EvaluationJobInferenceConfigModelBedrockModelOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelBedrockModelOutput) ToEvaluationJobInferenceConfigModelBedrockModelOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelBedrockModelOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelBedrockModelOutput) ToEvaluationJobInferenceConfigModelBedrockModelPtrOutput() EvaluationJobInferenceConfigModelBedrockModelPtrOutput {
+	return o.ToEvaluationJobInferenceConfigModelBedrockModelPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigModelBedrockModelOutput) ToEvaluationJobInferenceConfigModelBedrockModelPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelBedrockModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfigModelBedrockModel) *EvaluationJobInferenceConfigModelBedrockModel {
+		return &v
+	}).(EvaluationJobInferenceConfigModelBedrockModelPtrOutput)
+}
+
+// JSON-formatted string of inference parameters for the model.
+func (o EvaluationJobInferenceConfigModelBedrockModelOutput) InferenceParams() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigModelBedrockModel) *string { return v.InferenceParams }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the Amazon Bedrock model, or inference profile, used for inference.
+func (o EvaluationJobInferenceConfigModelBedrockModelOutput) ModelIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigModelBedrockModel) string { return v.ModelIdentifier }).(pulumi.StringOutput)
+}
+
+// Model's performance settings. See `performanceConfig` Block below.
+func (o EvaluationJobInferenceConfigModelBedrockModelOutput) PerformanceConfig() EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigModelBedrockModel) *EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig {
+		return v.PerformanceConfig
+	}).(EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigModelBedrockModelPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigModelBedrockModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigModelBedrockModel)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigModelBedrockModelPtrOutput) ToEvaluationJobInferenceConfigModelBedrockModelPtrOutput() EvaluationJobInferenceConfigModelBedrockModelPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelBedrockModelPtrOutput) ToEvaluationJobInferenceConfigModelBedrockModelPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelBedrockModelPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelBedrockModelPtrOutput) Elem() EvaluationJobInferenceConfigModelBedrockModelOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigModelBedrockModel) EvaluationJobInferenceConfigModelBedrockModel {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfigModelBedrockModel
+		return ret
+	}).(EvaluationJobInferenceConfigModelBedrockModelOutput)
+}
+
+// JSON-formatted string of inference parameters for the model.
+func (o EvaluationJobInferenceConfigModelBedrockModelPtrOutput) InferenceParams() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigModelBedrockModel) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceParams
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the Amazon Bedrock model, or inference profile, used for inference.
+func (o EvaluationJobInferenceConfigModelBedrockModelPtrOutput) ModelIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigModelBedrockModel) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Model's performance settings. See `performanceConfig` Block below.
+func (o EvaluationJobInferenceConfigModelBedrockModelPtrOutput) PerformanceConfig() EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigModelBedrockModel) *EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PerformanceConfig
+	}).(EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig struct {
+	// Whether to use the latency-optimized or standard version of the model. Valid values: `standard`, `optimized`.
+	Latency *string `pulumi:"latency"`
+}
+
+// EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigInput is an input type that accepts EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs and EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigInput` via:
+//
+//	EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs{...}
+type EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput() EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput
+	ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutputWithContext(context.Context) EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput
+}
+
+type EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs struct {
+	// Whether to use the latency-optimized or standard version of the model. Valid values: `standard`, `optimized`.
+	Latency pulumi.StringPtrInput `pulumi:"latency"`
+}
+
+func (EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs) ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput() EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput {
+	return i.ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs) ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput)
+}
+
+func (i EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs) ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput() EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs) ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput).ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrInput is an input type that accepts EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs, EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtr and EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrInput` via:
+//
+//	        EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput() EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput
+	ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutputWithContext(context.Context) EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput
+}
+
+type evaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrType EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs
+
+func EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtr(v *EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs) EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrInput {
+	return (*evaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrType) ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput() EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrType) ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput) ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput() EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput) ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput) ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput() EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput {
+	return o.ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput) ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig) *EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig {
+		return &v
+	}).(EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput)
+}
+
+// Whether to use the latency-optimized or standard version of the model. Valid values: `standard`, `optimized`.
+func (o EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput) Latency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig) *string { return v.Latency }).(pulumi.StringPtrOutput)
+}
+
+type EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput) ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput() EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput) ToEvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput) Elem() EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig) EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig
+		return ret
+	}).(EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput)
+}
+
+// Whether to use the latency-optimized or standard version of the model. Valid values: `standard`, `optimized`.
+func (o EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput) Latency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Latency
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationJobInferenceConfigModelPrecomputedInferenceSource struct {
+	// Label that identifies the precomputed inference source.
+	InferenceSourceIdentifier string `pulumi:"inferenceSourceIdentifier"`
+}
+
+// EvaluationJobInferenceConfigModelPrecomputedInferenceSourceInput is an input type that accepts EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs and EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigModelPrecomputedInferenceSourceInput` via:
+//
+//	EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs{...}
+type EvaluationJobInferenceConfigModelPrecomputedInferenceSourceInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput() EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput
+	ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutputWithContext(context.Context) EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput
+}
+
+type EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs struct {
+	// Label that identifies the precomputed inference source.
+	InferenceSourceIdentifier pulumi.StringInput `pulumi:"inferenceSourceIdentifier"`
+}
+
+func (EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigModelPrecomputedInferenceSource)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs) ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput() EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput {
+	return i.ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs) ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput)
+}
+
+func (i EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs) ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput() EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput {
+	return i.ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs) ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput).ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrInput is an input type that accepts EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs, EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtr and EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrInput` via:
+//
+//	        EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput() EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput
+	ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutputWithContext(context.Context) EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput
+}
+
+type evaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrType EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs
+
+func EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtr(v *EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs) EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrInput {
+	return (*evaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigModelPrecomputedInferenceSource)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrType) ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput() EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput {
+	return i.ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrType) ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput)
+}
+
+type EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigModelPrecomputedInferenceSource)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput) ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput() EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput) ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput) ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput() EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput {
+	return o.ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput) ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfigModelPrecomputedInferenceSource) *EvaluationJobInferenceConfigModelPrecomputedInferenceSource {
+		return &v
+	}).(EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput)
+}
+
+// Label that identifies the precomputed inference source.
+func (o EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput) InferenceSourceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigModelPrecomputedInferenceSource) string {
+		return v.InferenceSourceIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigModelPrecomputedInferenceSource)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput) ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput() EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput) ToEvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput) Elem() EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigModelPrecomputedInferenceSource) EvaluationJobInferenceConfigModelPrecomputedInferenceSource {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfigModelPrecomputedInferenceSource
+		return ret
+	}).(EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput)
+}
+
+// Label that identifies the precomputed inference source.
+func (o EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput) InferenceSourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigModelPrecomputedInferenceSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InferenceSourceIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfig struct {
+	// Amazon Bedrock knowledge base. See `knowledgeBaseConfig` Block below.
+	KnowledgeBaseConfig *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig `pulumi:"knowledgeBaseConfig"`
+	// RAG source where you provide your own precomputed inference response data. See `precomputedRagSourceConfig` Block below.
+	PrecomputedRagSourceConfig *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig `pulumi:"precomputedRagSourceConfig"`
+}
+
+// EvaluationJobInferenceConfigRagConfigInput is an input type that accepts EvaluationJobInferenceConfigRagConfigArgs and EvaluationJobInferenceConfigRagConfigOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigInput` via:
+//
+//	EvaluationJobInferenceConfigRagConfigArgs{...}
+type EvaluationJobInferenceConfigRagConfigInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigOutput() EvaluationJobInferenceConfigRagConfigOutput
+	ToEvaluationJobInferenceConfigRagConfigOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigOutput
+}
+
+type EvaluationJobInferenceConfigRagConfigArgs struct {
+	// Amazon Bedrock knowledge base. See `knowledgeBaseConfig` Block below.
+	KnowledgeBaseConfig EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrInput `pulumi:"knowledgeBaseConfig"`
+	// RAG source where you provide your own precomputed inference response data. See `precomputedRagSourceConfig` Block below.
+	PrecomputedRagSourceConfig EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrInput `pulumi:"precomputedRagSourceConfig"`
+}
+
+func (EvaluationJobInferenceConfigRagConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfig)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigRagConfigArgs) ToEvaluationJobInferenceConfigRagConfigOutput() EvaluationJobInferenceConfigRagConfigOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigArgs) ToEvaluationJobInferenceConfigRagConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigOutput)
+}
+
+func (i EvaluationJobInferenceConfigRagConfigArgs) ToEvaluationJobInferenceConfigRagConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigArgs) ToEvaluationJobInferenceConfigRagConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigOutput).ToEvaluationJobInferenceConfigRagConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigRagConfigPtrInput is an input type that accepts EvaluationJobInferenceConfigRagConfigArgs, EvaluationJobInferenceConfigRagConfigPtr and EvaluationJobInferenceConfigRagConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigPtrInput` via:
+//
+//	        EvaluationJobInferenceConfigRagConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigRagConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPtrOutput
+	ToEvaluationJobInferenceConfigRagConfigPtrOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigPtrOutput
+}
+
+type evaluationJobInferenceConfigRagConfigPtrType EvaluationJobInferenceConfigRagConfigArgs
+
+func EvaluationJobInferenceConfigRagConfigPtr(v *EvaluationJobInferenceConfigRagConfigArgs) EvaluationJobInferenceConfigRagConfigPtrInput {
+	return (*evaluationJobInferenceConfigRagConfigPtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigRagConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfig)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigRagConfigPtrType) ToEvaluationJobInferenceConfigRagConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigRagConfigPtrType) ToEvaluationJobInferenceConfigRagConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigOutput) ToEvaluationJobInferenceConfigRagConfigOutput() EvaluationJobInferenceConfigRagConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigOutput) ToEvaluationJobInferenceConfigRagConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigOutput) ToEvaluationJobInferenceConfigRagConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPtrOutput {
+	return o.ToEvaluationJobInferenceConfigRagConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigRagConfigOutput) ToEvaluationJobInferenceConfigRagConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfigRagConfig) *EvaluationJobInferenceConfigRagConfig {
+		return &v
+	}).(EvaluationJobInferenceConfigRagConfigPtrOutput)
+}
+
+// Amazon Bedrock knowledge base. See `knowledgeBaseConfig` Block below.
+func (o EvaluationJobInferenceConfigRagConfigOutput) KnowledgeBaseConfig() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfig) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig {
+		return v.KnowledgeBaseConfig
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput)
+}
+
+// RAG source where you provide your own precomputed inference response data. See `precomputedRagSourceConfig` Block below.
+func (o EvaluationJobInferenceConfigRagConfigOutput) PrecomputedRagSourceConfig() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfig) *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig {
+		return v.PrecomputedRagSourceConfig
+	}).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPtrOutput) ToEvaluationJobInferenceConfigRagConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPtrOutput) ToEvaluationJobInferenceConfigRagConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPtrOutput) Elem() EvaluationJobInferenceConfigRagConfigOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfig) EvaluationJobInferenceConfigRagConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfigRagConfig
+		return ret
+	}).(EvaluationJobInferenceConfigRagConfigOutput)
+}
+
+// Amazon Bedrock knowledge base. See `knowledgeBaseConfig` Block below.
+func (o EvaluationJobInferenceConfigRagConfigPtrOutput) KnowledgeBaseConfig() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfig) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig {
+		if v == nil {
+			return nil
+		}
+		return v.KnowledgeBaseConfig
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput)
+}
+
+// RAG source where you provide your own precomputed inference response data. See `precomputedRagSourceConfig` Block below.
+func (o EvaluationJobInferenceConfigRagConfigPtrOutput) PrecomputedRagSourceConfig() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfig) *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PrecomputedRagSourceConfig
+	}).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig struct {
+	// Configuration for retrieval with response generation. See `retrieveAndGenerateConfig` Block below.
+	RetrieveAndGenerateConfig *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig `pulumi:"retrieveAndGenerateConfig"`
+	// Configuration for retrieval only. See `retrieveConfig` Block below.
+	RetrieveConfig *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig `pulumi:"retrieveConfig"`
+}
+
+// EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigInput is an input type that accepts EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs and EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigInput` via:
+//
+//	EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs{...}
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs struct {
+	// Configuration for retrieval with response generation. See `retrieveAndGenerateConfig` Block below.
+	RetrieveAndGenerateConfig EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrInput `pulumi:"retrieveAndGenerateConfig"`
+	// Configuration for retrieval only. See `retrieveConfig` Block below.
+	RetrieveConfig EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrInput `pulumi:"retrieveConfig"`
+}
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput)
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput).ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrInput is an input type that accepts EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs, EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtr and EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrInput` via:
+//
+//	        EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput
+}
+
+type evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrType EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs
+
+func EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtr(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrInput {
+	return (*evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrType) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrType) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput {
+	return o.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig {
+		return &v
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput)
+}
+
+// Configuration for retrieval with response generation. See `retrieveAndGenerateConfig` Block below.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput) RetrieveAndGenerateConfig() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig {
+		return v.RetrieveAndGenerateConfig
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput)
+}
+
+// Configuration for retrieval only. See `retrieveConfig` Block below.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput) RetrieveConfig() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig {
+		return v.RetrieveConfig
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput) Elem() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig
+		return ret
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput)
+}
+
+// Configuration for retrieval with response generation. See `retrieveAndGenerateConfig` Block below.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput) RetrieveAndGenerateConfig() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RetrieveAndGenerateConfig
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput)
+}
+
+// Configuration for retrieval only. See `retrieveConfig` Block below.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput) RetrieveConfig() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RetrieveConfig
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig struct {
+	// Identifier of the knowledge base.
+	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
+	// ARN of the foundation model, or inference profile, used to generate responses.
+	ModelArn string `pulumi:"modelArn"`
+	// Knowledge base retrieval configuration. See `retrievalConfiguration` Block below.
+	RetrievalConfiguration *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration `pulumi:"retrievalConfiguration"`
+}
+
+// EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigInput is an input type that accepts EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs and EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigInput` via:
+//
+//	EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs{...}
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs struct {
+	// Identifier of the knowledge base.
+	KnowledgeBaseId pulumi.StringInput `pulumi:"knowledgeBaseId"`
+	// ARN of the foundation model, or inference profile, used to generate responses.
+	ModelArn pulumi.StringInput `pulumi:"modelArn"`
+	// Knowledge base retrieval configuration. See `retrievalConfiguration` Block below.
+	RetrievalConfiguration EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrInput `pulumi:"retrievalConfiguration"`
+}
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput)
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput).ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrInput is an input type that accepts EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs, EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtr and EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrInput` via:
+//
+//	        EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput
+}
+
+type evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrType EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs
+
+func EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtr(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrInput {
+	return (*evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrType) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrType) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput {
+	return o.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig {
+		return &v
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput)
+}
+
+// Identifier of the knowledge base.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput) KnowledgeBaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig) string {
+		return v.KnowledgeBaseId
+	}).(pulumi.StringOutput)
+}
+
+// ARN of the foundation model, or inference profile, used to generate responses.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput) ModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig) string {
+		return v.ModelArn
+	}).(pulumi.StringOutput)
+}
+
+// Knowledge base retrieval configuration. See `retrievalConfiguration` Block below.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput) RetrievalConfiguration() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration {
+		return v.RetrievalConfiguration
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput) Elem() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig
+		return ret
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput)
+}
+
+// Identifier of the knowledge base.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput) KnowledgeBaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KnowledgeBaseId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the foundation model, or inference profile, used to generate responses.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput) ModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Knowledge base retrieval configuration. See `retrievalConfiguration` Block below.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput) RetrievalConfiguration() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RetrievalConfiguration
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration struct {
+	// Vector search configuration. See `vectorSearchConfiguration` Block below.
+	VectorSearchConfiguration EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration `pulumi:"vectorSearchConfiguration"`
+}
+
+// EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationInput is an input type that accepts EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs and EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationInput` via:
+//
+//	EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs{...}
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs struct {
+	// Vector search configuration. See `vectorSearchConfiguration` Block below.
+	VectorSearchConfiguration EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationInput `pulumi:"vectorSearchConfiguration"`
+}
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput)
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput).ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrInput is an input type that accepts EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs, EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtr and EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrInput` via:
+//
+//	        EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput
+}
+
+type evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrType EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs
+
+func EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtr(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrInput {
+	return (*evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrType) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrType) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput {
+	return o.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration {
+		return &v
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput)
+}
+
+// Vector search configuration. See `vectorSearchConfiguration` Block below.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput) VectorSearchConfiguration() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration {
+		return v.VectorSearchConfiguration
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput) Elem() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration
+		return ret
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput)
+}
+
+// Vector search configuration. See `vectorSearchConfiguration` Block below.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput) VectorSearchConfiguration() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.VectorSearchConfiguration
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration struct {
+	// Number of text chunks to retrieve.
+	NumberOfResults *int `pulumi:"numberOfResults"`
+}
+
+// EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationInput is an input type that accepts EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs and EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationInput` via:
+//
+//	EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs{...}
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs struct {
+	// Number of text chunks to retrieve.
+	NumberOfResults pulumi.IntPtrInput `pulumi:"numberOfResults"`
+}
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput)
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput).ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrInput is an input type that accepts EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs, EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtr and EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrInput` via:
+//
+//	        EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput
+}
+
+type evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrType EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs
+
+func EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtr(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrInput {
+	return (*evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrType) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrType) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return o.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration {
+		return &v
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput)
+}
+
+// Number of text chunks to retrieve.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput) NumberOfResults() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration) *int {
+		return v.NumberOfResults
+	}).(pulumi.IntPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput) Elem() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration
+		return ret
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput)
+}
+
+// Number of text chunks to retrieve.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput) NumberOfResults() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfResults
+	}).(pulumi.IntPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig struct {
+	// Identifier of the knowledge base.
+	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
+	// Knowledge base retrieval configuration. See `knowledgeBaseRetrievalConfiguration` Block below.
+	KnowledgeBaseRetrievalConfiguration *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration `pulumi:"knowledgeBaseRetrievalConfiguration"`
+}
+
+// EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigInput is an input type that accepts EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs and EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigInput` via:
+//
+//	EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs{...}
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs struct {
+	// Identifier of the knowledge base.
+	KnowledgeBaseId pulumi.StringInput `pulumi:"knowledgeBaseId"`
+	// Knowledge base retrieval configuration. See `knowledgeBaseRetrievalConfiguration` Block below.
+	KnowledgeBaseRetrievalConfiguration EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrInput `pulumi:"knowledgeBaseRetrievalConfiguration"`
+}
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput)
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput).ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrInput is an input type that accepts EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs, EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtr and EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrInput` via:
+//
+//	        EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput
+}
+
+type evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrType EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs
+
+func EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtr(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrInput {
+	return (*evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrType) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrType) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput {
+	return o.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig {
+		return &v
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput)
+}
+
+// Identifier of the knowledge base.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput) KnowledgeBaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig) string {
+		return v.KnowledgeBaseId
+	}).(pulumi.StringOutput)
+}
+
+// Knowledge base retrieval configuration. See `knowledgeBaseRetrievalConfiguration` Block below.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput) KnowledgeBaseRetrievalConfiguration() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration {
+		return v.KnowledgeBaseRetrievalConfiguration
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput) Elem() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig
+		return ret
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput)
+}
+
+// Identifier of the knowledge base.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput) KnowledgeBaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KnowledgeBaseId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Knowledge base retrieval configuration. See `knowledgeBaseRetrievalConfiguration` Block below.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput) KnowledgeBaseRetrievalConfiguration() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.KnowledgeBaseRetrievalConfiguration
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration struct {
+	// Vector search configuration. See `vectorSearchConfiguration` Block above.
+	VectorSearchConfiguration EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration `pulumi:"vectorSearchConfiguration"`
+}
+
+// EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationInput is an input type that accepts EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs and EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationInput` via:
+//
+//	EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs{...}
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs struct {
+	// Vector search configuration. See `vectorSearchConfiguration` Block above.
+	VectorSearchConfiguration EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationInput `pulumi:"vectorSearchConfiguration"`
+}
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput)
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput).ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrInput is an input type that accepts EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs, EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtr and EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrInput` via:
+//
+//	        EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput
+}
+
+type evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrType EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs
+
+func EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtr(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrInput {
+	return (*evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrType) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrType) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput {
+	return o.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration {
+		return &v
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput)
+}
+
+// Vector search configuration. See `vectorSearchConfiguration` Block above.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput) VectorSearchConfiguration() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration {
+		return v.VectorSearchConfiguration
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput) Elem() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration
+		return ret
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput)
+}
+
+// Vector search configuration. See `vectorSearchConfiguration` Block above.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput) VectorSearchConfiguration() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.VectorSearchConfiguration
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration struct {
+	// Number of text chunks to retrieve.
+	NumberOfResults *int `pulumi:"numberOfResults"`
+}
+
+// EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationInput is an input type that accepts EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs and EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationInput` via:
+//
+//	EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs{...}
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs struct {
+	// Number of text chunks to retrieve.
+	NumberOfResults pulumi.IntPtrInput `pulumi:"numberOfResults"`
+}
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput)
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput).ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrInput is an input type that accepts EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs, EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtr and EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrInput` via:
+//
+//	        EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput
+	ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput
+}
+
+type evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrType EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs
+
+func EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtr(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrInput {
+	return (*evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrType) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrType) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return o.ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration) *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration {
+		return &v
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput)
+}
+
+// Number of text chunks to retrieve.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput) NumberOfResults() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration) *int {
+		return v.NumberOfResults
+	}).(pulumi.IntPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput) ToEvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput) Elem() EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration) EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration
+		return ret
+	}).(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput)
+}
+
+// Number of text chunks to retrieve.
+func (o EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput) NumberOfResults() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfResults
+	}).(pulumi.IntPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig struct {
+	// Configuration for retrieval with response generation. See `retrieveAndGenerateSourceConfig` Block below.
+	RetrieveAndGenerateSourceConfig *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig `pulumi:"retrieveAndGenerateSourceConfig"`
+	// Configuration for retrieval only. See `retrieveSourceConfig` Block below.
+	RetrieveSourceConfig *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig `pulumi:"retrieveSourceConfig"`
+}
+
+// EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigInput is an input type that accepts EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs and EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigInput` via:
+//
+//	EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs{...}
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput
+	ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput
+}
+
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs struct {
+	// Configuration for retrieval with response generation. See `retrieveAndGenerateSourceConfig` Block below.
+	RetrieveAndGenerateSourceConfig EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrInput `pulumi:"retrieveAndGenerateSourceConfig"`
+	// Configuration for retrieval only. See `retrieveSourceConfig` Block below.
+	RetrieveSourceConfig EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrInput `pulumi:"retrieveSourceConfig"`
+}
+
+func (EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput)
+}
+
+func (i EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput).ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrInput is an input type that accepts EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs, EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtr and EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrInput` via:
+//
+//	        EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput
+	ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput
+}
+
+type evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrType EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs
+
+func EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtr(v *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrInput {
+	return (*evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrType) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrType) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput {
+	return o.ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig) *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig {
+		return &v
+	}).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput)
+}
+
+// Configuration for retrieval with response generation. See `retrieveAndGenerateSourceConfig` Block below.
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput) RetrieveAndGenerateSourceConfig() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig) *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig {
+		return v.RetrieveAndGenerateSourceConfig
+	}).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput)
+}
+
+// Configuration for retrieval only. See `retrieveSourceConfig` Block below.
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput) RetrieveSourceConfig() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig) *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig {
+		return v.RetrieveSourceConfig
+	}).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput) Elem() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig
+		return ret
+	}).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput)
+}
+
+// Configuration for retrieval with response generation. See `retrieveAndGenerateSourceConfig` Block below.
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput) RetrieveAndGenerateSourceConfig() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig) *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RetrieveAndGenerateSourceConfig
+	}).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput)
+}
+
+// Configuration for retrieval only. See `retrieveSourceConfig` Block below.
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput) RetrieveSourceConfig() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig) *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RetrieveSourceConfig
+	}).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig struct {
+	// Label that identifies the precomputed RAG source.
+	RagSourceIdentifier string `pulumi:"ragSourceIdentifier"`
+}
+
+// EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigInput is an input type that accepts EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs and EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigInput` via:
+//
+//	EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs{...}
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput
+	ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput
+}
+
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs struct {
+	// Label that identifies the precomputed RAG source.
+	RagSourceIdentifier pulumi.StringInput `pulumi:"ragSourceIdentifier"`
+}
+
+func (EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput)
+}
+
+func (i EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput).ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrInput is an input type that accepts EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs, EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtr and EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrInput` via:
+//
+//	        EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput
+	ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput
+}
+
+type evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrType EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs
+
+func EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtr(v *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrInput {
+	return (*evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrType) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrType) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput {
+	return o.ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig) *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig {
+		return &v
+	}).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput)
+}
+
+// Label that identifies the precomputed RAG source.
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput) RagSourceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig) string {
+		return v.RagSourceIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput) Elem() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig
+		return ret
+	}).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput)
+}
+
+// Label that identifies the precomputed RAG source.
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput) RagSourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RagSourceIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig struct {
+	// Label that identifies the precomputed RAG source.
+	RagSourceIdentifier string `pulumi:"ragSourceIdentifier"`
+}
+
+// EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigInput is an input type that accepts EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs and EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigInput` via:
+//
+//	EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs{...}
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput
+	ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput
+}
+
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs struct {
+	// Label that identifies the precomputed RAG source.
+	RagSourceIdentifier pulumi.StringInput `pulumi:"ragSourceIdentifier"`
+}
+
+func (EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig)(nil)).Elem()
+}
+
+func (i EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput)
+}
+
+func (i EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput).ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrInput is an input type that accepts EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs, EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtr and EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrInput` via:
+//
+//	        EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput
+	ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutputWithContext(context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput
+}
+
+type evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrType EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs
+
+func EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtr(v *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrInput {
+	return (*evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrType)(v)
+}
+
+func (*evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig)(nil)).Elem()
+}
+
+func (i *evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrType) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput {
+	return i.ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrType) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput {
+	return o.ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig) *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig {
+		return &v
+	}).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput)
+}
+
+// Label that identifies the precomputed RAG source.
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput) RagSourceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig) string {
+		return v.RagSourceIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput) ToEvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutputWithContext(ctx context.Context) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput) Elem() EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig) EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig
+		return ret
+	}).(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput)
+}
+
+// Label that identifies the precomputed RAG source.
+func (o EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput) RagSourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RagSourceIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationJobOutputDataConfig struct {
+	// S3 URI where the results of the evaluation job are stored.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// EvaluationJobOutputDataConfigInput is an input type that accepts EvaluationJobOutputDataConfigArgs and EvaluationJobOutputDataConfigOutput values.
+// You can construct a concrete instance of `EvaluationJobOutputDataConfigInput` via:
+//
+//	EvaluationJobOutputDataConfigArgs{...}
+type EvaluationJobOutputDataConfigInput interface {
+	pulumi.Input
+
+	ToEvaluationJobOutputDataConfigOutput() EvaluationJobOutputDataConfigOutput
+	ToEvaluationJobOutputDataConfigOutputWithContext(context.Context) EvaluationJobOutputDataConfigOutput
+}
+
+type EvaluationJobOutputDataConfigArgs struct {
+	// S3 URI where the results of the evaluation job are stored.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (EvaluationJobOutputDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobOutputDataConfig)(nil)).Elem()
+}
+
+func (i EvaluationJobOutputDataConfigArgs) ToEvaluationJobOutputDataConfigOutput() EvaluationJobOutputDataConfigOutput {
+	return i.ToEvaluationJobOutputDataConfigOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobOutputDataConfigArgs) ToEvaluationJobOutputDataConfigOutputWithContext(ctx context.Context) EvaluationJobOutputDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobOutputDataConfigOutput)
+}
+
+func (i EvaluationJobOutputDataConfigArgs) ToEvaluationJobOutputDataConfigPtrOutput() EvaluationJobOutputDataConfigPtrOutput {
+	return i.ToEvaluationJobOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobOutputDataConfigArgs) ToEvaluationJobOutputDataConfigPtrOutputWithContext(ctx context.Context) EvaluationJobOutputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobOutputDataConfigOutput).ToEvaluationJobOutputDataConfigPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobOutputDataConfigPtrInput is an input type that accepts EvaluationJobOutputDataConfigArgs, EvaluationJobOutputDataConfigPtr and EvaluationJobOutputDataConfigPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobOutputDataConfigPtrInput` via:
+//
+//	        EvaluationJobOutputDataConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobOutputDataConfigPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobOutputDataConfigPtrOutput() EvaluationJobOutputDataConfigPtrOutput
+	ToEvaluationJobOutputDataConfigPtrOutputWithContext(context.Context) EvaluationJobOutputDataConfigPtrOutput
+}
+
+type evaluationJobOutputDataConfigPtrType EvaluationJobOutputDataConfigArgs
+
+func EvaluationJobOutputDataConfigPtr(v *EvaluationJobOutputDataConfigArgs) EvaluationJobOutputDataConfigPtrInput {
+	return (*evaluationJobOutputDataConfigPtrType)(v)
+}
+
+func (*evaluationJobOutputDataConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobOutputDataConfig)(nil)).Elem()
+}
+
+func (i *evaluationJobOutputDataConfigPtrType) ToEvaluationJobOutputDataConfigPtrOutput() EvaluationJobOutputDataConfigPtrOutput {
+	return i.ToEvaluationJobOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobOutputDataConfigPtrType) ToEvaluationJobOutputDataConfigPtrOutputWithContext(ctx context.Context) EvaluationJobOutputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobOutputDataConfigPtrOutput)
+}
+
+type EvaluationJobOutputDataConfigOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobOutputDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobOutputDataConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobOutputDataConfigOutput) ToEvaluationJobOutputDataConfigOutput() EvaluationJobOutputDataConfigOutput {
+	return o
+}
+
+func (o EvaluationJobOutputDataConfigOutput) ToEvaluationJobOutputDataConfigOutputWithContext(ctx context.Context) EvaluationJobOutputDataConfigOutput {
+	return o
+}
+
+func (o EvaluationJobOutputDataConfigOutput) ToEvaluationJobOutputDataConfigPtrOutput() EvaluationJobOutputDataConfigPtrOutput {
+	return o.ToEvaluationJobOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobOutputDataConfigOutput) ToEvaluationJobOutputDataConfigPtrOutputWithContext(ctx context.Context) EvaluationJobOutputDataConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobOutputDataConfig) *EvaluationJobOutputDataConfig {
+		return &v
+	}).(EvaluationJobOutputDataConfigPtrOutput)
+}
+
+// S3 URI where the results of the evaluation job are stored.
+func (o EvaluationJobOutputDataConfigOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v EvaluationJobOutputDataConfig) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type EvaluationJobOutputDataConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobOutputDataConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobOutputDataConfig)(nil)).Elem()
+}
+
+func (o EvaluationJobOutputDataConfigPtrOutput) ToEvaluationJobOutputDataConfigPtrOutput() EvaluationJobOutputDataConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobOutputDataConfigPtrOutput) ToEvaluationJobOutputDataConfigPtrOutputWithContext(ctx context.Context) EvaluationJobOutputDataConfigPtrOutput {
+	return o
+}
+
+func (o EvaluationJobOutputDataConfigPtrOutput) Elem() EvaluationJobOutputDataConfigOutput {
+	return o.ApplyT(func(v *EvaluationJobOutputDataConfig) EvaluationJobOutputDataConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobOutputDataConfig
+		return ret
+	}).(EvaluationJobOutputDataConfigOutput)
+}
+
+// S3 URI where the results of the evaluation job are stored.
+func (o EvaluationJobOutputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobOutputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationJobTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// EvaluationJobTimeoutsInput is an input type that accepts EvaluationJobTimeoutsArgs and EvaluationJobTimeoutsOutput values.
+// You can construct a concrete instance of `EvaluationJobTimeoutsInput` via:
+//
+//	EvaluationJobTimeoutsArgs{...}
+type EvaluationJobTimeoutsInput interface {
+	pulumi.Input
+
+	ToEvaluationJobTimeoutsOutput() EvaluationJobTimeoutsOutput
+	ToEvaluationJobTimeoutsOutputWithContext(context.Context) EvaluationJobTimeoutsOutput
+}
+
+type EvaluationJobTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (EvaluationJobTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobTimeouts)(nil)).Elem()
+}
+
+func (i EvaluationJobTimeoutsArgs) ToEvaluationJobTimeoutsOutput() EvaluationJobTimeoutsOutput {
+	return i.ToEvaluationJobTimeoutsOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobTimeoutsArgs) ToEvaluationJobTimeoutsOutputWithContext(ctx context.Context) EvaluationJobTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobTimeoutsOutput)
+}
+
+func (i EvaluationJobTimeoutsArgs) ToEvaluationJobTimeoutsPtrOutput() EvaluationJobTimeoutsPtrOutput {
+	return i.ToEvaluationJobTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationJobTimeoutsArgs) ToEvaluationJobTimeoutsPtrOutputWithContext(ctx context.Context) EvaluationJobTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobTimeoutsOutput).ToEvaluationJobTimeoutsPtrOutputWithContext(ctx)
+}
+
+// EvaluationJobTimeoutsPtrInput is an input type that accepts EvaluationJobTimeoutsArgs, EvaluationJobTimeoutsPtr and EvaluationJobTimeoutsPtrOutput values.
+// You can construct a concrete instance of `EvaluationJobTimeoutsPtrInput` via:
+//
+//	        EvaluationJobTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationJobTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationJobTimeoutsPtrOutput() EvaluationJobTimeoutsPtrOutput
+	ToEvaluationJobTimeoutsPtrOutputWithContext(context.Context) EvaluationJobTimeoutsPtrOutput
+}
+
+type evaluationJobTimeoutsPtrType EvaluationJobTimeoutsArgs
+
+func EvaluationJobTimeoutsPtr(v *EvaluationJobTimeoutsArgs) EvaluationJobTimeoutsPtrInput {
+	return (*evaluationJobTimeoutsPtrType)(v)
+}
+
+func (*evaluationJobTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobTimeouts)(nil)).Elem()
+}
+
+func (i *evaluationJobTimeoutsPtrType) ToEvaluationJobTimeoutsPtrOutput() EvaluationJobTimeoutsPtrOutput {
+	return i.ToEvaluationJobTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationJobTimeoutsPtrType) ToEvaluationJobTimeoutsPtrOutputWithContext(ctx context.Context) EvaluationJobTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationJobTimeoutsPtrOutput)
+}
+
+type EvaluationJobTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationJobTimeouts)(nil)).Elem()
+}
+
+func (o EvaluationJobTimeoutsOutput) ToEvaluationJobTimeoutsOutput() EvaluationJobTimeoutsOutput {
+	return o
+}
+
+func (o EvaluationJobTimeoutsOutput) ToEvaluationJobTimeoutsOutputWithContext(ctx context.Context) EvaluationJobTimeoutsOutput {
+	return o
+}
+
+func (o EvaluationJobTimeoutsOutput) ToEvaluationJobTimeoutsPtrOutput() EvaluationJobTimeoutsPtrOutput {
+	return o.ToEvaluationJobTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationJobTimeoutsOutput) ToEvaluationJobTimeoutsPtrOutputWithContext(ctx context.Context) EvaluationJobTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationJobTimeouts) *EvaluationJobTimeouts {
+		return &v
+	}).(EvaluationJobTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EvaluationJobTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EvaluationJobTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o EvaluationJobTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EvaluationJobTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type EvaluationJobTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationJobTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationJobTimeouts)(nil)).Elem()
+}
+
+func (o EvaluationJobTimeoutsPtrOutput) ToEvaluationJobTimeoutsPtrOutput() EvaluationJobTimeoutsPtrOutput {
+	return o
+}
+
+func (o EvaluationJobTimeoutsPtrOutput) ToEvaluationJobTimeoutsPtrOutputWithContext(ctx context.Context) EvaluationJobTimeoutsPtrOutput {
+	return o
+}
+
+func (o EvaluationJobTimeoutsPtrOutput) Elem() EvaluationJobTimeoutsOutput {
+	return o.ApplyT(func(v *EvaluationJobTimeouts) EvaluationJobTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationJobTimeouts
+		return ret
+	}).(EvaluationJobTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o EvaluationJobTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o EvaluationJobTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EvaluationJobTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardrailContentPolicyConfig struct {
+	// Set of content filter configs in content policy.
+	// See Filters Config for more information.
+	FiltersConfigs []GuardrailContentPolicyConfigFiltersConfig `pulumi:"filtersConfigs"`
+	// Configuration block for the content policy tier. See Tier Config for more information.
+	TierConfigs []GuardrailContentPolicyConfigTierConfig `pulumi:"tierConfigs"`
+}
+
+// GuardrailContentPolicyConfigInput is an input type that accepts GuardrailContentPolicyConfigArgs and GuardrailContentPolicyConfigOutput values.
+// You can construct a concrete instance of `GuardrailContentPolicyConfigInput` via:
+//
+//	GuardrailContentPolicyConfigArgs{...}
+type GuardrailContentPolicyConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailContentPolicyConfigOutput() GuardrailContentPolicyConfigOutput
+	ToGuardrailContentPolicyConfigOutputWithContext(context.Context) GuardrailContentPolicyConfigOutput
+}
+
+type GuardrailContentPolicyConfigArgs struct {
+	// Set of content filter configs in content policy.
+	// See Filters Config for more information.
+	FiltersConfigs GuardrailContentPolicyConfigFiltersConfigArrayInput `pulumi:"filtersConfigs"`
+	// Configuration block for the content policy tier. See Tier Config for more information.
+	TierConfigs GuardrailContentPolicyConfigTierConfigArrayInput `pulumi:"tierConfigs"`
+}
+
+func (GuardrailContentPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContentPolicyConfig)(nil)).Elem()
+}
+
+func (i GuardrailContentPolicyConfigArgs) ToGuardrailContentPolicyConfigOutput() GuardrailContentPolicyConfigOutput {
+	return i.ToGuardrailContentPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailContentPolicyConfigArgs) ToGuardrailContentPolicyConfigOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContentPolicyConfigOutput)
+}
+
+func (i GuardrailContentPolicyConfigArgs) ToGuardrailContentPolicyConfigPtrOutput() GuardrailContentPolicyConfigPtrOutput {
+	return i.ToGuardrailContentPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GuardrailContentPolicyConfigArgs) ToGuardrailContentPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContentPolicyConfigOutput).ToGuardrailContentPolicyConfigPtrOutputWithContext(ctx)
+}
+
+// GuardrailContentPolicyConfigPtrInput is an input type that accepts GuardrailContentPolicyConfigArgs, GuardrailContentPolicyConfigPtr and GuardrailContentPolicyConfigPtrOutput values.
+// You can construct a concrete instance of `GuardrailContentPolicyConfigPtrInput` via:
+//
+//	        GuardrailContentPolicyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type GuardrailContentPolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToGuardrailContentPolicyConfigPtrOutput() GuardrailContentPolicyConfigPtrOutput
+	ToGuardrailContentPolicyConfigPtrOutputWithContext(context.Context) GuardrailContentPolicyConfigPtrOutput
+}
+
+type guardrailContentPolicyConfigPtrType GuardrailContentPolicyConfigArgs
+
+func GuardrailContentPolicyConfigPtr(v *GuardrailContentPolicyConfigArgs) GuardrailContentPolicyConfigPtrInput {
+	return (*guardrailContentPolicyConfigPtrType)(v)
+}
+
+func (*guardrailContentPolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailContentPolicyConfig)(nil)).Elem()
+}
+
+func (i *guardrailContentPolicyConfigPtrType) ToGuardrailContentPolicyConfigPtrOutput() GuardrailContentPolicyConfigPtrOutput {
+	return i.ToGuardrailContentPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *guardrailContentPolicyConfigPtrType) ToGuardrailContentPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContentPolicyConfigPtrOutput)
+}
+
+type GuardrailContentPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContentPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContentPolicyConfig)(nil)).Elem()
+}
+
+func (o GuardrailContentPolicyConfigOutput) ToGuardrailContentPolicyConfigOutput() GuardrailContentPolicyConfigOutput {
+	return o
+}
+
+func (o GuardrailContentPolicyConfigOutput) ToGuardrailContentPolicyConfigOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigOutput {
+	return o
+}
+
+func (o GuardrailContentPolicyConfigOutput) ToGuardrailContentPolicyConfigPtrOutput() GuardrailContentPolicyConfigPtrOutput {
+	return o.ToGuardrailContentPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GuardrailContentPolicyConfigOutput) ToGuardrailContentPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardrailContentPolicyConfig) *GuardrailContentPolicyConfig {
+		return &v
+	}).(GuardrailContentPolicyConfigPtrOutput)
+}
+
+// Set of content filter configs in content policy.
+// See Filters Config for more information.
+func (o GuardrailContentPolicyConfigOutput) FiltersConfigs() GuardrailContentPolicyConfigFiltersConfigArrayOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfig) []GuardrailContentPolicyConfigFiltersConfig {
+		return v.FiltersConfigs
+	}).(GuardrailContentPolicyConfigFiltersConfigArrayOutput)
+}
+
+// Configuration block for the content policy tier. See Tier Config for more information.
+func (o GuardrailContentPolicyConfigOutput) TierConfigs() GuardrailContentPolicyConfigTierConfigArrayOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfig) []GuardrailContentPolicyConfigTierConfig { return v.TierConfigs }).(GuardrailContentPolicyConfigTierConfigArrayOutput)
+}
+
+type GuardrailContentPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContentPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardrailContentPolicyConfig)(nil)).Elem()
+}
+
+func (o GuardrailContentPolicyConfigPtrOutput) ToGuardrailContentPolicyConfigPtrOutput() GuardrailContentPolicyConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailContentPolicyConfigPtrOutput) ToGuardrailContentPolicyConfigPtrOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigPtrOutput {
+	return o
+}
+
+func (o GuardrailContentPolicyConfigPtrOutput) Elem() GuardrailContentPolicyConfigOutput {
+	return o.ApplyT(func(v *GuardrailContentPolicyConfig) GuardrailContentPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GuardrailContentPolicyConfig
+		return ret
+	}).(GuardrailContentPolicyConfigOutput)
+}
+
+// Set of content filter configs in content policy.
+// See Filters Config for more information.
+func (o GuardrailContentPolicyConfigPtrOutput) FiltersConfigs() GuardrailContentPolicyConfigFiltersConfigArrayOutput {
+	return o.ApplyT(func(v *GuardrailContentPolicyConfig) []GuardrailContentPolicyConfigFiltersConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FiltersConfigs
+	}).(GuardrailContentPolicyConfigFiltersConfigArrayOutput)
+}
+
+// Configuration block for the content policy tier. See Tier Config for more information.
+func (o GuardrailContentPolicyConfigPtrOutput) TierConfigs() GuardrailContentPolicyConfigTierConfigArrayOutput {
+	return o.ApplyT(func(v *GuardrailContentPolicyConfig) []GuardrailContentPolicyConfigTierConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TierConfigs
+	}).(GuardrailContentPolicyConfigTierConfigArrayOutput)
+}
+
+type GuardrailContentPolicyConfigFiltersConfig struct {
+	// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+	InputAction *string `pulumi:"inputAction"`
+	// Toggles guardrail evaluation on input.
+	InputEnabled *bool `pulumi:"inputEnabled"`
+	// List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+	InputModalities []string `pulumi:"inputModalities"`
+	// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
+	InputStrength string `pulumi:"inputStrength"`
+	// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+	OutputAction *string `pulumi:"outputAction"`
+	// Toggles guardrail evaluation on output.
+	OutputEnabled *bool `pulumi:"outputEnabled"`
+	// List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+	OutputModalities []string `pulumi:"outputModalities"`
+	// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
+	OutputStrength string `pulumi:"outputStrength"`
+	// Type of contextual grounding filter.
+	Type string `pulumi:"type"`
+}
+
+// GuardrailContentPolicyConfigFiltersConfigInput is an input type that accepts GuardrailContentPolicyConfigFiltersConfigArgs and GuardrailContentPolicyConfigFiltersConfigOutput values.
+// You can construct a concrete instance of `GuardrailContentPolicyConfigFiltersConfigInput` via:
+//
+//	GuardrailContentPolicyConfigFiltersConfigArgs{...}
+type GuardrailContentPolicyConfigFiltersConfigInput interface {
+	pulumi.Input
+
+	ToGuardrailContentPolicyConfigFiltersConfigOutput() GuardrailContentPolicyConfigFiltersConfigOutput
+	ToGuardrailContentPolicyConfigFiltersConfigOutputWithContext(context.Context) GuardrailContentPolicyConfigFiltersConfigOutput
+}
+
+type GuardrailContentPolicyConfigFiltersConfigArgs struct {
+	// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+	InputAction pulumi.StringPtrInput `pulumi:"inputAction"`
+	// Toggles guardrail evaluation on input.
+	InputEnabled pulumi.BoolPtrInput `pulumi:"inputEnabled"`
+	// List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+	InputModalities pulumi.StringArrayInput `pulumi:"inputModalities"`
+	// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
+	InputStrength pulumi.StringInput `pulumi:"inputStrength"`
+	// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+	OutputAction pulumi.StringPtrInput `pulumi:"outputAction"`
+	// Toggles guardrail evaluation on output.
+	OutputEnabled pulumi.BoolPtrInput `pulumi:"outputEnabled"`
+	// List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+	OutputModalities pulumi.StringArrayInput `pulumi:"outputModalities"`
+	// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
+	OutputStrength pulumi.StringInput `pulumi:"outputStrength"`
+	// Type of contextual grounding filter.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GuardrailContentPolicyConfigFiltersConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContentPolicyConfigFiltersConfig)(nil)).Elem()
+}
+
+func (i GuardrailContentPolicyConfigFiltersConfigArgs) ToGuardrailContentPolicyConfigFiltersConfigOutput() GuardrailContentPolicyConfigFiltersConfigOutput {
+	return i.ToGuardrailContentPolicyConfigFiltersConfigOutputWithContext(context.Background())
+}
+
+func (i GuardrailContentPolicyConfigFiltersConfigArgs) ToGuardrailContentPolicyConfigFiltersConfigOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigFiltersConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContentPolicyConfigFiltersConfigOutput)
+}
+
+// GuardrailContentPolicyConfigFiltersConfigArrayInput is an input type that accepts GuardrailContentPolicyConfigFiltersConfigArray and GuardrailContentPolicyConfigFiltersConfigArrayOutput values.
+// You can construct a concrete instance of `GuardrailContentPolicyConfigFiltersConfigArrayInput` via:
+//
+//	GuardrailContentPolicyConfigFiltersConfigArray{ GuardrailContentPolicyConfigFiltersConfigArgs{...} }
+type GuardrailContentPolicyConfigFiltersConfigArrayInput interface {
+	pulumi.Input
+
+	ToGuardrailContentPolicyConfigFiltersConfigArrayOutput() GuardrailContentPolicyConfigFiltersConfigArrayOutput
+	ToGuardrailContentPolicyConfigFiltersConfigArrayOutputWithContext(context.Context) GuardrailContentPolicyConfigFiltersConfigArrayOutput
+}
+
+type GuardrailContentPolicyConfigFiltersConfigArray []GuardrailContentPolicyConfigFiltersConfigInput
+
+func (GuardrailContentPolicyConfigFiltersConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailContentPolicyConfigFiltersConfig)(nil)).Elem()
+}
+
+func (i GuardrailContentPolicyConfigFiltersConfigArray) ToGuardrailContentPolicyConfigFiltersConfigArrayOutput() GuardrailContentPolicyConfigFiltersConfigArrayOutput {
+	return i.ToGuardrailContentPolicyConfigFiltersConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GuardrailContentPolicyConfigFiltersConfigArray) ToGuardrailContentPolicyConfigFiltersConfigArrayOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigFiltersConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardrailContentPolicyConfigFiltersConfigArrayOutput)
+}
+
+type GuardrailContentPolicyConfigFiltersConfigOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContentPolicyConfigFiltersConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardrailContentPolicyConfigFiltersConfig)(nil)).Elem()
+}
+
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) ToGuardrailContentPolicyConfigFiltersConfigOutput() GuardrailContentPolicyConfigFiltersConfigOutput {
+	return o
+}
+
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) ToGuardrailContentPolicyConfigFiltersConfigOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigFiltersConfigOutput {
+	return o
+}
+
+// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) InputAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) *string { return v.InputAction }).(pulumi.StringPtrOutput)
+}
+
+// Toggles guardrail evaluation on input.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) InputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) *bool { return v.InputEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// List of selected input modalities. Valid values: `IMAGE`, `TEXT`.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) InputModalities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) []string { return v.InputModalities }).(pulumi.StringArrayOutput)
+}
+
+// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) InputStrength() pulumi.StringOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) string { return v.InputStrength }).(pulumi.StringOutput)
+}
+
+// Action to take when harmful content is detected. Valid values: `BLOCK`, `NONE`.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) OutputAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) *string { return v.OutputAction }).(pulumi.StringPtrOutput)
+}
+
+// Toggles guardrail evaluation on output.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) OutputEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) *bool { return v.OutputEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// List of selected output modalities. Valid values: `IMAGE`, `TEXT`.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) OutputModalities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) []string { return v.OutputModalities }).(pulumi.StringArrayOutput)
+}
+
+// Strength for filters. Valid values: `NONE`, `LOW`, `MEDIUM`, `HIGH`.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) OutputStrength() pulumi.StringOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) string { return v.OutputStrength }).(pulumi.StringOutput)
+}
+
+// Type of contextual grounding filter.
+func (o GuardrailContentPolicyConfigFiltersConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GuardrailContentPolicyConfigFiltersConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GuardrailContentPolicyConfigFiltersConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GuardrailContentPolicyConfigFiltersConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardrailContentPolicyConfigFiltersConfig)(nil)).Elem()
+}
+
+func (o GuardrailContentPolicyConfigFiltersConfigArrayOutput) ToGuardrailContentPolicyConfigFiltersConfigArrayOutput() GuardrailContentPolicyConfigFiltersConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailContentPolicyConfigFiltersConfigArrayOutput) ToGuardrailContentPolicyConfigFiltersConfigArrayOutputWithContext(ctx context.Context) GuardrailContentPolicyConfigFiltersConfigArrayOutput {
+	return o
+}
+
+func (o GuardrailContentPolicyConfigFiltersConfigArrayOutput) Index(i pulumi.IntInput) GuardrailContentPolicyConfigFiltersConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GuardrailContentPolicyConfigFiltersConfig {
+		return vs[0].([]GuardrailContentPolicyConfigFiltersConfig)[vs[1].(int)]
+	}).(GuardrailContentPolicyConfigFiltersConfigOutput)
+}
+
 type GuardrailContentPolicyConfigTierConfig struct {
 	// The name of the content policy tier. Valid values include STANDARD or CLASSIC.
 	TierName string `pulumi:"tierName"`
@@ -3960,6 +7868,59 @@ func (o GetInferenceProfilesInferenceProfileSummaryModelArrayOutput) Index(i pul
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrInput)(nil)).Elem(), EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigHumanInput)(nil)).Elem(), EvaluationJobEvaluationConfigHumanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigHumanPtrInput)(nil)).Elem(), EvaluationJobEvaluationConfigHumanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigHumanCustomMetricInput)(nil)).Elem(), EvaluationJobEvaluationConfigHumanCustomMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigHumanCustomMetricArrayInput)(nil)).Elem(), EvaluationJobEvaluationConfigHumanCustomMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigHumanDatasetMetricConfigInput)(nil)).Elem(), EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayInput)(nil)).Elem(), EvaluationJobEvaluationConfigHumanDatasetMetricConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetInput)(nil)).Elem(), EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationInput)(nil)).Elem(), EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrInput)(nil)).Elem(), EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigHumanHumanWorkflowConfigInput)(nil)).Elem(), EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrInput)(nil)).Elem(), EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigInput)(nil)).Elem(), EvaluationJobInferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigPtrInput)(nil)).Elem(), EvaluationJobInferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigModelInput)(nil)).Elem(), EvaluationJobInferenceConfigModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigModelArrayInput)(nil)).Elem(), EvaluationJobInferenceConfigModelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigModelBedrockModelInput)(nil)).Elem(), EvaluationJobInferenceConfigModelBedrockModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigModelBedrockModelPtrInput)(nil)).Elem(), EvaluationJobInferenceConfigModelBedrockModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigInput)(nil)).Elem(), EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrInput)(nil)).Elem(), EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigModelPrecomputedInferenceSourceInput)(nil)).Elem(), EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrInput)(nil)).Elem(), EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigPtrInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrInput)(nil)).Elem(), EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobOutputDataConfigInput)(nil)).Elem(), EvaluationJobOutputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobOutputDataConfigPtrInput)(nil)).Elem(), EvaluationJobOutputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobTimeoutsInput)(nil)).Elem(), EvaluationJobTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationJobTimeoutsPtrInput)(nil)).Elem(), EvaluationJobTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentPolicyConfigInput)(nil)).Elem(), GuardrailContentPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentPolicyConfigPtrInput)(nil)).Elem(), GuardrailContentPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentPolicyConfigFiltersConfigInput)(nil)).Elem(), GuardrailContentPolicyConfigFiltersConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentPolicyConfigFiltersConfigArrayInput)(nil)).Elem(), GuardrailContentPolicyConfigFiltersConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentPolicyConfigTierConfigInput)(nil)).Elem(), GuardrailContentPolicyConfigTierConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContentPolicyConfigTierConfigArrayInput)(nil)).Elem(), GuardrailContentPolicyConfigTierConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailContextualGroundingPolicyConfigInput)(nil)).Elem(), GuardrailContextualGroundingPolicyConfigArgs{})
@@ -4022,6 +7983,59 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryArrayInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryModelInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryModelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInferenceProfilesInferenceProfileSummaryModelArrayInput)(nil)).Elem(), GetInferenceProfilesInferenceProfileSummaryModelArray{})
+	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelOutput{})
+	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigHumanOutput{})
+	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigHumanPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigHumanCustomMetricOutput{})
+	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigHumanCustomMetricArrayOutput{})
+	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigHumanDatasetMetricConfigOutput{})
+	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigHumanDatasetMetricConfigArrayOutput{})
+	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetOutput{})
+	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationOutput{})
+	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigHumanHumanWorkflowConfigOutput{})
+	pulumi.RegisterOutputType(EvaluationJobEvaluationConfigHumanHumanWorkflowConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigModelOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigModelArrayOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigModelBedrockModelOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigModelBedrockModelPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigModelPrecomputedInferenceSourceOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigModelPrecomputedInferenceSourcePtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigOutput{})
+	pulumi.RegisterOutputType(EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobOutputDataConfigOutput{})
+	pulumi.RegisterOutputType(EvaluationJobOutputDataConfigPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationJobTimeoutsOutput{})
+	pulumi.RegisterOutputType(EvaluationJobTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(GuardrailContentPolicyConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailContentPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(GuardrailContentPolicyConfigFiltersConfigOutput{})
+	pulumi.RegisterOutputType(GuardrailContentPolicyConfigFiltersConfigArrayOutput{})
 	pulumi.RegisterOutputType(GuardrailContentPolicyConfigTierConfigOutput{})
 	pulumi.RegisterOutputType(GuardrailContentPolicyConfigTierConfigArrayOutput{})
 	pulumi.RegisterOutputType(GuardrailContextualGroundingPolicyConfigOutput{})

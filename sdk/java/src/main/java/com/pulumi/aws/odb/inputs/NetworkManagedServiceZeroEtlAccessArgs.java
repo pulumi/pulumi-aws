@@ -14,22 +14,30 @@ public final class NetworkManagedServiceZeroEtlAccessArgs extends com.pulumi.res
 
     public static final NetworkManagedServiceZeroEtlAccessArgs Empty = new NetworkManagedServiceZeroEtlAccessArgs();
 
+    /**
+     * CIDR range for the Zero-ETL access.
+     * 
+     */
     @Import(name="cidr", required=true)
     private Output<String> cidr;
 
+    /**
+     * @return CIDR range for the Zero-ETL access.
+     * 
+     */
     public Output<String> cidr() {
         return this.cidr;
     }
 
     /**
-     * Status of the network resource.
+     * Status of the Zero-ETL access.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     public Output<String> status() {
@@ -61,17 +69,29 @@ public final class NetworkManagedServiceZeroEtlAccessArgs extends com.pulumi.res
             $ = new NetworkManagedServiceZeroEtlAccessArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cidr CIDR range for the Zero-ETL access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidr(Output<String> cidr) {
             $.cidr = cidr;
             return this;
         }
 
+        /**
+         * @param cidr CIDR range for the Zero-ETL access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cidr(String cidr) {
             return cidr(Output.of(cidr));
         }
 
         /**
-         * @param status Status of the network resource.
+         * @param status Status of the Zero-ETL access.
          * 
          * @return builder
          * 
@@ -82,7 +102,7 @@ public final class NetworkManagedServiceZeroEtlAccessArgs extends com.pulumi.res
         }
 
         /**
-         * @param status Status of the network resource.
+         * @param status Status of the Zero-ETL access.
          * 
          * @return builder
          * 

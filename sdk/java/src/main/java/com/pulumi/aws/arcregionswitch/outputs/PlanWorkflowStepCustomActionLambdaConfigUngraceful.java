@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class PlanWorkflowStepCustomActionLambdaConfigUngraceful {
-    /**
-     * @return Behavior when ungraceful. Valid values: `skip`.
-     * 
-     */
     private String behavior;
 
     private PlanWorkflowStepCustomActionLambdaConfigUngraceful() {}
-    /**
-     * @return Behavior when ungraceful. Valid values: `skip`.
-     * 
-     */
     public String behavior() {
         return this.behavior;
     }

@@ -110,14 +110,14 @@ public final class PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgs exte
     }
 
     /**
-     * Ungraceful behavior configuration. See Ungraceful Aurora below.
+     * Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
      * 
      */
     @Import(name="ungracefuls")
     private @Nullable Output<List<PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgs>> ungracefuls;
 
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful Aurora below.
+     * @return Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgs>>> ungracefuls() {
@@ -291,7 +291,7 @@ public final class PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgs exte
         }
 
         /**
-         * @param ungracefuls Ungraceful behavior configuration. See Ungraceful Aurora below.
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgs exte
         }
 
         /**
-         * @param ungracefuls Ungraceful behavior configuration. See Ungraceful Aurora below.
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgs exte
         }
 
         /**
-         * @param ungracefuls Ungraceful behavior configuration. See Ungraceful Aurora below.
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
          * 
          * @return builder
          * 

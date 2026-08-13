@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class NetworkOciDnsForwardingConfig
     {
+        /// <summary>
+        /// Domain name for which the DNS queries are forwarded.
+        /// </summary>
         public readonly string DomainName;
+        /// <summary>
+        /// IP address of the OCI DNS listener.
+        /// </summary>
         public readonly string OciDnsListenerIp;
 
         [OutputConstructor]

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppConfig.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Determines if a parameter value must be specified in the extension association.
+        /// Whether a parameter value must be specified in the extension association.
         /// </summary>
         public readonly bool? Required;
 

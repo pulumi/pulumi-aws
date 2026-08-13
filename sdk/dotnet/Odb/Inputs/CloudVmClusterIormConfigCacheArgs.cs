@@ -14,18 +14,31 @@ namespace Pulumi.Aws.Odb.Inputs
     {
         [Input("dbPlans", required: true)]
         private InputList<Inputs.CloudVmClusterIormConfigCacheDbPlanArgs>? _dbPlans;
+
+        /// <summary>
+        /// List of IORM (I/O Resource Manager) database plans for the VM cluster. See `DbPlans` Block below.
+        /// </summary>
         public InputList<Inputs.CloudVmClusterIormConfigCacheDbPlanArgs> DbPlans
         {
             get => _dbPlans ?? (_dbPlans = new InputList<Inputs.CloudVmClusterIormConfigCacheDbPlanArgs>());
             set => _dbPlans = value;
         }
 
+        /// <summary>
+        /// Additional information about the current lifecycle state of the IORM configuration.
+        /// </summary>
         [Input("lifecycleDetails", required: true)]
         public Input<string> LifecycleDetails { get; set; } = null!;
 
+        /// <summary>
+        /// Current lifecycle state of the IORM configuration.
+        /// </summary>
         [Input("lifecycleState", required: true)]
         public Input<string> LifecycleState { get; set; } = null!;
 
+        /// <summary>
+        /// Current value for the IORM objective.
+        /// </summary>
         [Input("objective", required: true)]
         public Input<string> Objective { get; set; } = null!;
 

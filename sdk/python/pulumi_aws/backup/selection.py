@@ -421,10 +421,22 @@ class Selection(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `plan_id` (Required) Backup plan ID associated with the selection of resources.
+        * `id` (String) Backup selection ID.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Backup selection using the `plan_id` and `id` separated by `|`. For example:
 
         ```sh
-        $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
+        $ pulumi import aws:backup/selection:Selection example abcd1234|efgh5678
         ```
 
 
@@ -561,10 +573,22 @@ class Selection(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `plan_id` (Required) Backup plan ID associated with the selection of resources.
+        * `id` (String) Backup selection ID.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Backup selection using the `plan_id` and `id` separated by `|`. For example:
 
         ```sh
-        $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
+        $ pulumi import aws:backup/selection:Selection example abcd1234|efgh5678
         ```
 
 

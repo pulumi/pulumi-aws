@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -26,6 +27,11 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
      * 
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch fieldToMatch;
+    /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation> preParseTextTransformations;
     /**
      * @return The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
      * 
@@ -55,6 +61,13 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
         return Optional.ofNullable(this.fieldToMatch);
     }
     /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation> preParseTextTransformations() {
+        return this.preParseTextTransformations == null ? List.of() : this.preParseTextTransformations;
+    }
+    /**
      * @return The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
      * 
      */
@@ -82,6 +95,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
     public static final class Builder {
         private String comparisonOperator;
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch fieldToMatch;
+        private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation> preParseTextTransformations;
         private Integer size;
         private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation> textTransformations;
         public Builder() {}
@@ -89,6 +103,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
     	      Objects.requireNonNull(defaults);
     	      this.comparisonOperator = defaults.comparisonOperator;
     	      this.fieldToMatch = defaults.fieldToMatch;
+    	      this.preParseTextTransformations = defaults.preParseTextTransformations;
     	      this.size = defaults.size;
     	      this.textTransformations = defaults.textTransformations;
         }
@@ -106,6 +121,15 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
 
             this.fieldToMatch = fieldToMatch;
             return this;
+        }
+        @CustomType.Setter
+        public Builder preParseTextTransformations(@Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation> preParseTextTransformations) {
+
+            this.preParseTextTransformations = preParseTextTransformations;
+            return this;
+        }
+        public Builder preParseTextTransformations(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation... preParseTextTransformations) {
+            return preParseTextTransformations(List.of(preParseTextTransformations));
         }
         @CustomType.Setter
         public Builder size(Integer size) {
@@ -130,6 +154,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
             final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement();
             _resultValue.comparisonOperator = comparisonOperator;
             _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.preParseTextTransformations = preParseTextTransformations;
             _resultValue.size = size;
             _resultValue.textTransformations = textTransformations;
             return _resultValue;

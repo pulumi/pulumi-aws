@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendDefaultClientPolicy {
+    /**
+     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecBackendDefaultClientPolicyTl> tls;
 
     private GetVirtualNodeSpecBackendDefaultClientPolicy() {}
+    /**
+     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecBackendDefaultClientPolicyTl> tls() {
         return this.tls;
     }

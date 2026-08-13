@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Mq
     public sealed class GetBrokerEngineTypesResult
     {
         /// <summary>
-        /// List of available engine types and versions. See Engine Types.
+        /// List of available engine types and versions. See `BrokerEngineTypes` Block.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBrokerEngineTypesBrokerEngineTypeResult> BrokerEngineTypes;
         /// <summary>

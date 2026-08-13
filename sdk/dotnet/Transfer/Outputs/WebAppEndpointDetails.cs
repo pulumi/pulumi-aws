@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Transfer.Outputs
     public sealed class WebAppEndpointDetails
     {
         /// <summary>
-        /// Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
+        /// Block defining VPC configuration for hosting the web app endpoint within a VPC. See `Vpc` Block below.
         /// </summary>
         public readonly Outputs.WebAppEndpointDetailsVpc? Vpc;
 

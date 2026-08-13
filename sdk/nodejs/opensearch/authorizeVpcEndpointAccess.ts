@@ -66,7 +66,7 @@ export class AuthorizeVpcEndpointAccess extends pulumi.CustomResource {
      */
     declare public readonly account: pulumi.Output<string>;
     /**
-     * Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+     * Information about the Amazon Web Services account or service that was provided access to the domain. See `authorizedPrincipal` Block for further details.
      */
     declare public /*out*/ readonly authorizedPrincipals: pulumi.Output<outputs.opensearch.AuthorizeVpcEndpointAccessAuthorizedPrincipal[]>;
     /**
@@ -122,7 +122,7 @@ export interface AuthorizeVpcEndpointAccessState {
      */
     account?: pulumi.Input<string | undefined>;
     /**
-     * Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+     * Information about the Amazon Web Services account or service that was provided access to the domain. See `authorizedPrincipal` Block for further details.
      */
     authorizedPrincipals?: pulumi.Input<pulumi.Input<inputs.opensearch.AuthorizeVpcEndpointAccessAuthorizedPrincipal>[] | undefined>;
     /**

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Transfer.Inputs
     public sealed class WebAppEndpointDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
+        /// Block defining VPC configuration for hosting the web app endpoint within a VPC. See `Vpc` Block below.
         /// </summary>
         [Input("vpc")]
         public Input<Inputs.WebAppEndpointDetailsVpcArgs>? Vpc { get; set; }

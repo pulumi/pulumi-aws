@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecBackendResult
     {
+        /// <summary>
+        /// Virtual service used as a backend for a virtual node. See `spec.backend.virtual_service` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecBackendVirtualServiceResult> VirtualServices;
 
         [OutputConstructor]

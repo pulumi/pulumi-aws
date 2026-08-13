@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerDefaultActionForward {
+    /**
+     * @return Target groups that the listener forwards traffic to. See `targetGroups` Block below.
+     * 
+     */
     private List<GetListenerDefaultActionForwardTargetGroup> targetGroups;
 
     private GetListenerDefaultActionForward() {}
+    /**
+     * @return Target groups that the listener forwards traffic to. See `targetGroups` Block below.
+     * 
+     */
     public List<GetListenerDefaultActionForwardTargetGroup> targetGroups() {
         return this.targetGroups;
     }

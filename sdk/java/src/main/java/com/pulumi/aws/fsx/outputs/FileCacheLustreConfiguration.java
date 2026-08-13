@@ -22,7 +22,7 @@ public final class FileCacheLustreConfiguration {
      */
     private String deploymentType;
     /**
-     * @return Configuration for Lustre logging used to write the enabled logging events for the cache.
+     * @return Configuration for Lustre logging used to write the enabled logging events for the cache. See `logConfiguration` Block below.
      * 
      */
     private @Nullable List<FileCacheLustreConfigurationLogConfiguration> logConfigurations;
@@ -56,7 +56,7 @@ public final class FileCacheLustreConfiguration {
         return this.deploymentType;
     }
     /**
-     * @return Configuration for Lustre logging used to write the enabled logging events for the cache.
+     * @return Configuration for Lustre logging used to write the enabled logging events for the cache. See `logConfiguration` Block below.
      * 
      */
     public List<FileCacheLustreConfigurationLogConfiguration> logConfigurations() {

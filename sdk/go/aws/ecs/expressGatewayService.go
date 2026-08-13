@@ -186,7 +186,7 @@ type ExpressGatewayService struct {
 	//
 	// The following arguments are optional:
 	InfrastructureRoleArn pulumi.StringOutput `pulumi:"infrastructureRoleArn"`
-	// List of ingress paths with access type and endpoint information.
+	// List of ingress paths for the service. See `ingressPaths` Block below.
 	IngressPaths ExpressGatewayServiceIngressPathArrayOutput `pulumi:"ingressPaths"`
 	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
 	Memory pulumi.StringOutput `pulumi:"memory"`
@@ -269,7 +269,7 @@ type expressGatewayServiceState struct {
 	//
 	// The following arguments are optional:
 	InfrastructureRoleArn *string `pulumi:"infrastructureRoleArn"`
-	// List of ingress paths with access type and endpoint information.
+	// List of ingress paths for the service. See `ingressPaths` Block below.
 	IngressPaths []ExpressGatewayServiceIngressPath `pulumi:"ingressPaths"`
 	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
 	Memory *string `pulumi:"memory"`
@@ -314,7 +314,7 @@ type ExpressGatewayServiceState struct {
 	//
 	// The following arguments are optional:
 	InfrastructureRoleArn pulumi.StringPtrInput
-	// List of ingress paths with access type and endpoint information.
+	// List of ingress paths for the service. See `ingressPaths` Block below.
 	IngressPaths ExpressGatewayServiceIngressPathArrayInput
 	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
 	Memory pulumi.StringPtrInput
@@ -534,7 +534,7 @@ func (o ExpressGatewayServiceOutput) InfrastructureRoleArn() pulumi.StringOutput
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.InfrastructureRoleArn }).(pulumi.StringOutput)
 }
 
-// List of ingress paths with access type and endpoint information.
+// List of ingress paths for the service. See `ingressPaths` Block below.
 func (o ExpressGatewayServiceOutput) IngressPaths() ExpressGatewayServiceIngressPathArrayOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) ExpressGatewayServiceIngressPathArrayOutput { return v.IngressPaths }).(ExpressGatewayServiceIngressPathArrayOutput)
 }

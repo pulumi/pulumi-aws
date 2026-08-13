@@ -17,11 +17,17 @@ namespace Pulumi.Aws.Odb.Outputs
         /// Additional information about the planned maintenance.
         /// </summary>
         public readonly string AdditionalDetails;
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the DB node.
+        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
         /// </summary>
         public readonly string BackupIpId;
+        /// <summary>
+        /// OCID of the second backup virtual network interface card (VNIC) for the DB node.
+        /// </summary>
         public readonly string BackupVnic2Id;
         /// <summary>
         /// OCID of the backup VNIC for the DB node.
@@ -35,6 +41,9 @@ namespace Pulumi.Aws.Odb.Outputs
         /// Date and time when the DB node was created.
         /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// Amount of local node storage, in gigabytes (GB), that's allocated on the DB node.
+        /// </summary>
         public readonly int DbNodeStorageSize;
         /// <summary>
         /// Unique identifier of the database server that's associated with the DB node.
@@ -56,11 +65,17 @@ namespace Pulumi.Aws.Odb.Outputs
         /// Host name for the DB node.
         /// </summary>
         public readonly string Hostname;
+        /// <summary>
+        /// Unique identifier of the DB node.
+        /// </summary>
         public readonly string Id;
         /// <summary>
         /// Type of maintenance the DB node is undergoing.
         /// </summary>
         public readonly string MaintenanceType;
+        /// <summary>
+        /// Amount of memory, in gigabytes (GB), that's allocated on the DB node.
+        /// </summary>
         public readonly int MemorySize;
         /// <summary>
         /// Name of the OCI resource anchor for the DB node.
@@ -70,6 +85,9 @@ namespace Pulumi.Aws.Odb.Outputs
         /// OCID of the DB node.
         /// </summary>
         public readonly string Ocid;
+        /// <summary>
+        /// Size of the block storage volume, in gigabytes (GB), that's allocated for the DB system. This attribute applies only for virtual machine DB systems.
+        /// </summary>
         public readonly int SoftwareStorageSize;
         /// <summary>
         /// Current status of the DB node.
@@ -91,6 +109,9 @@ namespace Pulumi.Aws.Odb.Outputs
         /// Total number of CPU cores reserved on the DB node.
         /// </summary>
         public readonly int TotalCpuCoreCount;
+        /// <summary>
+        /// OCID of the second VNIC.
+        /// </summary>
         public readonly string Vnic2Id;
         /// <summary>
         /// OCID of the VNIC.

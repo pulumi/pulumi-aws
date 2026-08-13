@@ -12,6 +12,9 @@ import com.pulumi.aws.eks.outputs.ClusterComputeConfig;
 import com.pulumi.aws.eks.outputs.ClusterControlPlaneScalingConfig;
 import com.pulumi.aws.eks.outputs.ClusterEncryptionConfig;
 import com.pulumi.aws.eks.outputs.ClusterIdentity;
+import com.pulumi.aws.eks.outputs.ClusterKubeApiServerConfig;
+import com.pulumi.aws.eks.outputs.ClusterKubeControllerManagerConfig;
+import com.pulumi.aws.eks.outputs.ClusterKubeSchedulerConfig;
 import com.pulumi.aws.eks.outputs.ClusterKubernetesNetworkConfig;
 import com.pulumi.aws.eks.outputs.ClusterOutpostConfig;
 import com.pulumi.aws.eks.outputs.ClusterRemoteNetworkConfig;
@@ -678,6 +681,48 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<List<ClusterIdentity>> identities() {
         return this.identities;
+    }
+    /**
+     * Configuration block for customizing the Kubernetes API server. Detailed below.
+     * 
+     */
+    @Export(name="kubeApiServerConfig", refs={ClusterKubeApiServerConfig.class}, tree="[0]")
+    private Output<ClusterKubeApiServerConfig> kubeApiServerConfig;
+
+    /**
+     * @return Configuration block for customizing the Kubernetes API server. Detailed below.
+     * 
+     */
+    public Output<ClusterKubeApiServerConfig> kubeApiServerConfig() {
+        return this.kubeApiServerConfig;
+    }
+    /**
+     * Configuration block for customizing the Kubernetes controller manager. Detailed below.
+     * 
+     */
+    @Export(name="kubeControllerManagerConfig", refs={ClusterKubeControllerManagerConfig.class}, tree="[0]")
+    private Output<ClusterKubeControllerManagerConfig> kubeControllerManagerConfig;
+
+    /**
+     * @return Configuration block for customizing the Kubernetes controller manager. Detailed below.
+     * 
+     */
+    public Output<ClusterKubeControllerManagerConfig> kubeControllerManagerConfig() {
+        return this.kubeControllerManagerConfig;
+    }
+    /**
+     * Configuration block for customizing the Kubernetes scheduler. Detailed below.
+     * 
+     */
+    @Export(name="kubeSchedulerConfig", refs={ClusterKubeSchedulerConfig.class}, tree="[0]")
+    private Output<ClusterKubeSchedulerConfig> kubeSchedulerConfig;
+
+    /**
+     * @return Configuration block for customizing the Kubernetes scheduler. Detailed below.
+     * 
+     */
+    public Output<ClusterKubeSchedulerConfig> kubeSchedulerConfig() {
+        return this.kubeSchedulerConfig;
     }
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.

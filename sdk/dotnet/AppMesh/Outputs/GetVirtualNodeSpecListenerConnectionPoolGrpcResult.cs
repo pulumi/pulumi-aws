@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecListenerConnectionPoolGrpcResult
     {
+        /// <summary>
+        /// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster.
+        /// </summary>
         public readonly int MaxRequests;
 
         [OutputConstructor]

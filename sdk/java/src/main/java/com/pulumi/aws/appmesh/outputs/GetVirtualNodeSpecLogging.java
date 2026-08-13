@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecLogging {
+    /**
+     * @return Access log configuration for a virtual node. See `spec.logging.access_log` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecLoggingAccessLog> accessLogs;
 
     private GetVirtualNodeSpecLogging() {}
+    /**
+     * @return Access log configuration for a virtual node. See `spec.logging.access_log` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecLoggingAccessLog> accessLogs() {
         return this.accessLogs;
     }

@@ -18,14 +18,14 @@ public final class WorkflowOnExceptionStepTagStepDetailsArgs extends com.pulumi.
     public static final WorkflowOnExceptionStepTagStepDetailsArgs Empty = new WorkflowOnExceptionStepTagStepDetailsArgs();
 
     /**
-     * The name of the step, used as an identifier.
+     * Name of the step, used as an identifier.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the step, used as an identifier.
+     * @return Name of the step, used as an identifier.
      * 
      */
     public Optional<Output<String>> name() {
@@ -33,14 +33,14 @@ public final class WorkflowOnExceptionStepTagStepDetailsArgs extends com.pulumi.
     }
 
     /**
-     * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+     * File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
      * 
      */
     @Import(name="sourceFileLocation")
     private @Nullable Output<String> sourceFileLocation;
 
     /**
-     * @return Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+     * @return File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
      * 
      */
     public Optional<Output<String>> sourceFileLocation() {
@@ -48,14 +48,14 @@ public final class WorkflowOnExceptionStepTagStepDetailsArgs extends com.pulumi.
     }
 
     /**
-     * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+     * Array that contains from 1 to 10 key/value pairs. See `tags` Block below.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<WorkflowOnExceptionStepTagStepDetailsTagArgs>> tags;
 
     /**
-     * @return Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+     * @return Array that contains from 1 to 10 key/value pairs. See `tags` Block below.
      * 
      */
     public Optional<Output<List<WorkflowOnExceptionStepTagStepDetailsTagArgs>>> tags() {
@@ -89,7 +89,7 @@ public final class WorkflowOnExceptionStepTagStepDetailsArgs extends com.pulumi.
         }
 
         /**
-         * @param name The name of the step, used as an identifier.
+         * @param name Name of the step, used as an identifier.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class WorkflowOnExceptionStepTagStepDetailsArgs extends com.pulumi.
         }
 
         /**
-         * @param name The name of the step, used as an identifier.
+         * @param name Name of the step, used as an identifier.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class WorkflowOnExceptionStepTagStepDetailsArgs extends com.pulumi.
         }
 
         /**
-         * @param sourceFileLocation Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * @param sourceFileLocation File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class WorkflowOnExceptionStepTagStepDetailsArgs extends com.pulumi.
         }
 
         /**
-         * @param sourceFileLocation Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * @param sourceFileLocation File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class WorkflowOnExceptionStepTagStepDetailsArgs extends com.pulumi.
         }
 
         /**
-         * @param tags Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+         * @param tags Array that contains from 1 to 10 key/value pairs. See `tags` Block below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class WorkflowOnExceptionStepTagStepDetailsArgs extends com.pulumi.
         }
 
         /**
-         * @param tags Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+         * @param tags Array that contains from 1 to 10 key/value pairs. See `tags` Block below.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class WorkflowOnExceptionStepTagStepDetailsArgs extends com.pulumi.
         }
 
         /**
-         * @param tags Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+         * @param tags Array that contains from 1 to 10 key/value pairs. See `tags` Block below.
          * 
          * @return builder
          * 

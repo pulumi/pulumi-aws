@@ -197,28 +197,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/proxy:Proxy")
 public class Proxy extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) for the proxy.
+     * Amazon Resource Name (ARN) for the proxy.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the proxy.
+     * @return Amazon Resource Name (ARN) for the proxy.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
+     * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. See the `auth` block below.
      * 
      */
     @Export(name="auths", refs={List.class,ProxyAuth.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProxyAuth>> auths;
 
     /**
-     * @return Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. Described below.
+     * @return Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `defaultAuthScheme` is `NONE` or unspecified. See the `auth` block below.
      * 
      */
     public Output<Optional<List<ProxyAuth>>> auths() {
@@ -253,14 +253,14 @@ public class Proxy extends com.pulumi.resources.CustomResource {
         return this.defaultAuthScheme;
     }
     /**
-     * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+     * Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
-     * @return The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+     * @return Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      * 
      */
     public Output<String> endpoint() {
@@ -281,42 +281,42 @@ public class Proxy extends com.pulumi.resources.CustomResource {
         return this.endpointNetworkType;
     }
     /**
-     * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
+     * Kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
      * 
      */
     @Export(name="engineFamily", refs={String.class}, tree="[0]")
     private Output<String> engineFamily;
 
     /**
-     * @return The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
+     * @return Kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
      * 
      */
     public Output<String> engineFamily() {
         return this.engineFamily;
     }
     /**
-     * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
+     * Number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
      * 
      */
     @Export(name="idleClientTimeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> idleClientTimeout;
 
     /**
-     * @return The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
+     * @return Number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
      * 
      */
     public Output<Integer> idleClientTimeout() {
         return this.idleClientTimeout;
     }
     /**
-     * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
+     * Identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
+     * @return Identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
      * 
      */
     public Output<String> name() {
@@ -337,56 +337,56 @@ public class Proxy extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
+     * Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
      * 
      */
     @Export(name="requireTls", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requireTls;
 
     /**
-     * @return A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
+     * @return Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
      * 
      */
     public Output<Optional<Boolean>> requireTls() {
         return Codegen.optional(this.requireTls);
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+     * Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+     * @return Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      * 
      */
     public Output<String> roleArn() {
         return this.roleArn;
     }
     /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

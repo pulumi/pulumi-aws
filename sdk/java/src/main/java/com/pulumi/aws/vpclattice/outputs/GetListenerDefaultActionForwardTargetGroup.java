@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerDefaultActionForwardTargetGroup {
+    /**
+     * @return ID or ARN of the target group.
+     * 
+     */
     private String targetGroupIdentifier;
+    /**
+     * @return Weight assigned to the target group that determines the proportion of traffic it receives.
+     * 
+     */
     private Integer weight;
 
     private GetListenerDefaultActionForwardTargetGroup() {}
+    /**
+     * @return ID or ARN of the target group.
+     * 
+     */
     public String targetGroupIdentifier() {
         return this.targetGroupIdentifier;
     }
+    /**
+     * @return Weight assigned to the target group that determines the proportion of traffic it receives.
+     * 
+     */
     public Integer weight() {
         return this.weight;
     }

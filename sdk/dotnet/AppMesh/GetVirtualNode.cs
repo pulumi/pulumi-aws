@@ -205,7 +205,7 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         public readonly string ResourceOwner;
         /// <summary>
-        /// Virtual node specification. See the `aws.appmesh.VirtualNode` resource for details.
+        /// Virtual node specification. See `Spec` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecResult> Specs;
         /// <summary>

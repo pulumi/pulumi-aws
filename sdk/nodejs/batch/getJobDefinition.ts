@@ -87,7 +87,7 @@ export interface GetJobDefinitionResult {
      */
     readonly containerOrchestrationType: string;
     /**
-     * Object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
+     * Properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions. See `eksProperties` below.
      */
     readonly eksProperties: outputs.batch.GetJobDefinitionEksProperty[];
     /**
@@ -99,12 +99,12 @@ export interface GetJobDefinitionResult {
      */
     readonly name?: string;
     /**
-     * Object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
+     * Properties specific to multi-node parallel jobs. See `nodeProperties` below.
      */
     readonly nodeProperties: outputs.batch.GetJobDefinitionNodeProperty[];
     readonly region: string;
     /**
-     * Retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
+     * Retry strategy to use for failed jobs that are submitted with this job definition. See `retryStrategy` below.
      */
     readonly retryStrategies: outputs.batch.GetJobDefinitionRetryStrategy[];
     readonly revision?: number;
@@ -118,7 +118,7 @@ export interface GetJobDefinitionResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * Timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn't retried. The minimum value for the timeout is 60 seconds.
+     * Timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. See `timeout` below.
      */
     readonly timeouts: outputs.batch.GetJobDefinitionTimeout[];
     /**

@@ -13,12 +13,21 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionEksPropertiesPodPropertiesVolume
     {
+        /// <summary>
+        /// Empty directory to mount on the pod. See `EmptyDir` below.
+        /// </summary>
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir? EmptyDir;
+        /// <summary>
+        /// Path on the host that's mounted to the pod. See `HostPath` below.
+        /// </summary>
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeHostPath? HostPath;
         /// <summary>
-        /// Name of the job definition.
+        /// Name of the volume. The name must be allowed as a DNS subdomain name.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Secret to mount as a volume. See `Secret` below.
+        /// </summary>
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesVolumeSecret? Secret;
 
         [OutputConstructor]

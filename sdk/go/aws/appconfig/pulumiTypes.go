@@ -597,7 +597,7 @@ type ExtensionParameter struct {
 	Description *string `pulumi:"description"`
 	// Parameter name.
 	Name string `pulumi:"name"`
-	// Determines if a parameter value must be specified in the extension association.
+	// Whether a parameter value must be specified in the extension association.
 	Required *bool `pulumi:"required"`
 }
 
@@ -617,7 +617,7 @@ type ExtensionParameterArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Parameter name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Determines if a parameter value must be specified in the extension association.
+	// Whether a parameter value must be specified in the extension association.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
 }
 
@@ -682,7 +682,7 @@ func (o ExtensionParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Determines if a parameter value must be specified in the extension association.
+// Whether a parameter value must be specified in the extension association.
 func (o ExtensionParameterOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExtensionParameter) *bool { return v.Required }).(pulumi.BoolPtrOutput)
 }

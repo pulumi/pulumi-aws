@@ -111,6 +111,32 @@ namespace Pulumi.Aws.Transfer
     /// });
     /// ```
     /// 
+    /// To restrict a user to their own home directory, use a `HomeDirectoryMappings` block like the following:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Transfer.User("example", new()
+    ///     {
+    ///         HomeDirectoryType = "LOGICAL",
+    ///         HomeDirectoryMappings = new[]
+    ///         {
+    ///             new Aws.Transfer.Inputs.UserHomeDirectoryMappingArgs
+    ///             {
+    ///                 Entry = "/",
+    ///                 Target = $"/{foo.Id}/${{Transfer:UserName}}",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer Users using the `ServerId` and `UserName` separated by `/`. For example:
@@ -129,31 +155,31 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `Username`.
+        /// Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `Username`.
         /// </summary>
         [Output("homeDirectory")]
         public Output<string?> HomeDirectory { get; private set; } = null!;
 
         /// <summary>
-        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
+        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See `HomeDirectoryMappings` Block below.
         /// </summary>
         [Output("homeDirectoryMappings")]
         public Output<ImmutableArray<Outputs.UserHomeDirectoryMapping>> HomeDirectoryMappings { get; private set; } = null!;
 
         /// <summary>
-        /// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        /// Type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         /// </summary>
         [Output("homeDirectoryType")]
         public Output<string?> HomeDirectoryType { get; private set; } = null!;
 
         /// <summary>
-        /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+        /// IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
         /// </summary>
         [Output("policy")]
         public Output<string?> Policy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        /// Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See `PosixProfile` Block below.
         /// </summary>
         [Output("posixProfile")]
         public Output<Outputs.UserPosixProfile?> PosixProfile { get; private set; } = null!;
@@ -171,25 +197,25 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
+        /// Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The name used for log in to your SFTP server.
+        /// Name used for log in to your SFTP server.
         /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
@@ -241,7 +267,7 @@ namespace Pulumi.Aws.Transfer
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `Username`.
+        /// Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `Username`.
         /// </summary>
         [Input("homeDirectory")]
         public Input<string>? HomeDirectory { get; set; }
@@ -250,7 +276,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<Inputs.UserHomeDirectoryMappingArgs>? _homeDirectoryMappings;
 
         /// <summary>
-        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
+        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See `HomeDirectoryMappings` Block below.
         /// </summary>
         public InputList<Inputs.UserHomeDirectoryMappingArgs> HomeDirectoryMappings
         {
@@ -259,19 +285,19 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        /// Type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         /// </summary>
         [Input("homeDirectoryType")]
         public Input<string>? HomeDirectoryType { get; set; }
 
         /// <summary>
-        /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+        /// IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
         /// <summary>
-        /// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        /// Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See `PosixProfile` Block below.
         /// </summary>
         [Input("posixProfile")]
         public Input<Inputs.UserPosixProfileArgs>? PosixProfile { get; set; }
@@ -289,7 +315,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string> Role { get; set; } = null!;
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
+        /// Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
@@ -298,7 +324,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -307,7 +333,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The name used for log in to your SFTP server.
+        /// Name used for log in to your SFTP server.
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
@@ -327,7 +353,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `Username`.
+        /// Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `Username`.
         /// </summary>
         [Input("homeDirectory")]
         public Input<string>? HomeDirectory { get; set; }
@@ -336,7 +362,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<Inputs.UserHomeDirectoryMappingGetArgs>? _homeDirectoryMappings;
 
         /// <summary>
-        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
+        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See `HomeDirectoryMappings` Block below.
         /// </summary>
         public InputList<Inputs.UserHomeDirectoryMappingGetArgs> HomeDirectoryMappings
         {
@@ -345,19 +371,19 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        /// Type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         /// </summary>
         [Input("homeDirectoryType")]
         public Input<string>? HomeDirectoryType { get; set; }
 
         /// <summary>
-        /// An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+        /// IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
         /// <summary>
-        /// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        /// Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See `PosixProfile` Block below.
         /// </summary>
         [Input("posixProfile")]
         public Input<Inputs.UserPosixProfileGetArgs>? PosixProfile { get; set; }
@@ -375,7 +401,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
+        /// Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }
@@ -384,7 +410,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -396,7 +422,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -405,7 +431,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The name used for log in to your SFTP server.
+        /// Name used for log in to your SFTP server.
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

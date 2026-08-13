@@ -77,15 +77,12 @@ namespace Pulumi.Aws.Auditmanager
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the control.
-        /// * `control_mapping_sources.*.source_id` - Unique identifier for the source.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// Data mapping sources. See `ControlMappingSources` below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("controlMappingSources")]
         public Output<ImmutableArray<Outputs.ControlControlMappingSource>> ControlMappingSources { get; private set; } = null!;
@@ -98,6 +95,8 @@ namespace Pulumi.Aws.Auditmanager
 
         /// <summary>
         /// Name of the control.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -109,7 +108,7 @@ namespace Pulumi.Aws.Auditmanager
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the control. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the control. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -192,8 +191,6 @@ namespace Pulumi.Aws.Auditmanager
 
         /// <summary>
         /// Data mapping sources. See `ControlMappingSources` below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.ControlControlMappingSourceArgs> ControlMappingSources
         {
@@ -209,6 +206,8 @@ namespace Pulumi.Aws.Auditmanager
 
         /// <summary>
         /// Name of the control.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -223,7 +222,7 @@ namespace Pulumi.Aws.Auditmanager
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the control. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the control. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -259,7 +258,6 @@ namespace Pulumi.Aws.Auditmanager
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the control.
-        /// * `control_mapping_sources.*.source_id` - Unique identifier for the source.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -269,8 +267,6 @@ namespace Pulumi.Aws.Auditmanager
 
         /// <summary>
         /// Data mapping sources. See `ControlMappingSources` below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.ControlControlMappingSourceGetArgs> ControlMappingSources
         {
@@ -286,6 +282,8 @@ namespace Pulumi.Aws.Auditmanager
 
         /// <summary>
         /// Name of the control.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -300,7 +298,7 @@ namespace Pulumi.Aws.Auditmanager
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the control. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the control. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

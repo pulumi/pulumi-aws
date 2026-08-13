@@ -15,16 +15,32 @@ public final class FileCacheLustreConfigurationLogConfigurationArgs extends com.
 
     public static final FileCacheLustreConfigurationLogConfigurationArgs Empty = new FileCacheLustreConfigurationLogConfigurationArgs();
 
+    /**
+     * Amazon Resource Name (ARN) of the destination that receives the logs.
+     * 
+     */
     @Import(name="destination")
     private @Nullable Output<String> destination;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the destination that receives the logs.
+     * 
+     */
     public Optional<Output<String>> destination() {
         return Optional.ofNullable(this.destination);
     }
 
+    /**
+     * Level of logging that Lustre logs write to the destination.
+     * 
+     */
     @Import(name="level")
     private @Nullable Output<String> level;
 
+    /**
+     * @return Level of logging that Lustre logs write to the destination.
+     * 
+     */
     public Optional<Output<String>> level() {
         return Optional.ofNullable(this.level);
     }
@@ -54,20 +70,44 @@ public final class FileCacheLustreConfigurationLogConfigurationArgs extends com.
             $ = new FileCacheLustreConfigurationLogConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param destination Amazon Resource Name (ARN) of the destination that receives the logs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destination(@Nullable Output<String> destination) {
             $.destination = destination;
             return this;
         }
 
+        /**
+         * @param destination Amazon Resource Name (ARN) of the destination that receives the logs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destination(String destination) {
             return destination(Output.of(destination));
         }
 
+        /**
+         * @param level Level of logging that Lustre logs write to the destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder level(@Nullable Output<String> level) {
             $.level = level;
             return this;
         }
 
+        /**
+         * @param level Level of logging that Lustre logs write to the destination.
+         * 
+         * @return builder
+         * 
+         */
         public Builder level(String level) {
             return level(Output.of(level));
         }

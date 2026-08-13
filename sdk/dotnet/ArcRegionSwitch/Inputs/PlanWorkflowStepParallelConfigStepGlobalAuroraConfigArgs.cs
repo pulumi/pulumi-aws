@@ -58,7 +58,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgs>? _ungracefuls;
 
         /// <summary>
-        /// Ungraceful behavior configuration. See Ungraceful Aurora below.
+        /// Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgs> Ungracefuls
         {

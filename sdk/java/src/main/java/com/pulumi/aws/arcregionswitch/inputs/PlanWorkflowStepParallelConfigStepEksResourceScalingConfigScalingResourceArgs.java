@@ -34,14 +34,14 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigSca
     }
 
     /**
-     * Set of resources to scale. See Resources below.
+     * Resources to scale. See `resources` Block for details.
      * 
      */
     @Import(name="resources")
     private @Nullable Output<List<PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResourceArgs>> resources;
 
     /**
-     * @return Set of resources to scale. See Resources below.
+     * @return Resources to scale. See `resources` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResourceArgs>>> resources() {
@@ -95,7 +95,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigSca
         }
 
         /**
-         * @param resources Set of resources to scale. See Resources below.
+         * @param resources Resources to scale. See `resources` Block for details.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigSca
         }
 
         /**
-         * @param resources Set of resources to scale. See Resources below.
+         * @param resources Resources to scale. See `resources` Block for details.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigSca
         }
 
         /**
-         * @param resources Set of resources to scale. See Resources below.
+         * @param resources Resources to scale. See `resources` Block for details.
          * 
          * @return builder
          * 

@@ -4,6 +4,8 @@
 package com.pulumi.aws.arcregionswitch.inputs;
 
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepArcRoutingControlConfigArgs;
+import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepAuroraProvisionedScalingConfigArgs;
+import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepAuroraServerlessScalingConfigArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepCustomActionLambdaConfigArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepDocumentDbConfigArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs;
@@ -11,6 +13,8 @@ import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepEcsCapacityIncrease
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepEksResourceScalingConfigArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepExecutionApprovalConfigArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepGlobalAuroraConfigArgs;
+import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepLambdaEventSourceMappingConfigArgs;
+import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepParallelConfigArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepRdsPromoteReadReplicaConfigArgs;
@@ -31,14 +35,14 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
     public static final PlanWorkflowStepArgs Empty = new PlanWorkflowStepArgs();
 
     /**
-     * Configuration for ARC routing control. See ARC Routing Control Config below.
+     * Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
      * 
      */
     @Import(name="arcRoutingControlConfigs")
     private @Nullable Output<List<PlanWorkflowStepArcRoutingControlConfigArgs>> arcRoutingControlConfigs;
 
     /**
-     * @return Configuration for ARC routing control. See ARC Routing Control Config below.
+     * @return Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepArcRoutingControlConfigArgs>>> arcRoutingControlConfigs() {
@@ -46,14 +50,44 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configuration for Lambda function execution. See Custom Action Lambda Config below.
+     * Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+     * 
+     */
+    @Import(name="auroraProvisionedScalingConfigs")
+    private @Nullable Output<List<PlanWorkflowStepAuroraProvisionedScalingConfigArgs>> auroraProvisionedScalingConfigs;
+
+    /**
+     * @return Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+     * 
+     */
+    public Optional<Output<List<PlanWorkflowStepAuroraProvisionedScalingConfigArgs>>> auroraProvisionedScalingConfigs() {
+        return Optional.ofNullable(this.auroraProvisionedScalingConfigs);
+    }
+
+    /**
+     * Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+     * 
+     */
+    @Import(name="auroraServerlessScalingConfigs")
+    private @Nullable Output<List<PlanWorkflowStepAuroraServerlessScalingConfigArgs>> auroraServerlessScalingConfigs;
+
+    /**
+     * @return Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+     * 
+     */
+    public Optional<Output<List<PlanWorkflowStepAuroraServerlessScalingConfigArgs>>> auroraServerlessScalingConfigs() {
+        return Optional.ofNullable(this.auroraServerlessScalingConfigs);
+    }
+
+    /**
+     * Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
      * 
      */
     @Import(name="customActionLambdaConfigs")
     private @Nullable Output<List<PlanWorkflowStepCustomActionLambdaConfigArgs>> customActionLambdaConfigs;
 
     /**
-     * @return Configuration for Lambda function execution. See Custom Action Lambda Config below.
+     * @return Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepCustomActionLambdaConfigArgs>>> customActionLambdaConfigs() {
@@ -76,14 +110,14 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+     * Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
      * 
      */
     @Import(name="documentDbConfigs")
     private @Nullable Output<List<PlanWorkflowStepDocumentDbConfigArgs>> documentDbConfigs;
 
     /**
-     * @return Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+     * @return Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepDocumentDbConfigArgs>>> documentDbConfigs() {
@@ -91,14 +125,14 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+     * Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
      * 
      */
     @Import(name="ec2AsgCapacityIncreaseConfigs")
     private @Nullable Output<List<PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs>> ec2AsgCapacityIncreaseConfigs;
 
     /**
-     * @return Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+     * @return Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs>>> ec2AsgCapacityIncreaseConfigs() {
@@ -106,14 +140,14 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+     * Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
      * 
      */
     @Import(name="ecsCapacityIncreaseConfigs")
     private @Nullable Output<List<PlanWorkflowStepEcsCapacityIncreaseConfigArgs>> ecsCapacityIncreaseConfigs;
 
     /**
-     * @return Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+     * @return Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepEcsCapacityIncreaseConfigArgs>>> ecsCapacityIncreaseConfigs() {
@@ -121,14 +155,14 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+     * Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
      * 
      */
     @Import(name="eksResourceScalingConfigs")
     private @Nullable Output<List<PlanWorkflowStepEksResourceScalingConfigArgs>> eksResourceScalingConfigs;
 
     /**
-     * @return Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+     * @return Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepEksResourceScalingConfigArgs>>> eksResourceScalingConfigs() {
@@ -136,14 +170,14 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configuration for manual approval steps. See Execution Approval Config below.
+     * Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
      * 
      */
     @Import(name="executionApprovalConfigs")
     private @Nullable Output<List<PlanWorkflowStepExecutionApprovalConfigArgs>> executionApprovalConfigs;
 
     /**
-     * @return Configuration for manual approval steps. See Execution Approval Config below.
+     * @return Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepExecutionApprovalConfigArgs>>> executionApprovalConfigs() {
@@ -166,18 +200,33 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configuration for Aurora Global Database operations. See Global Aurora Config below.
+     * Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
      * 
      */
     @Import(name="globalAuroraConfigs")
     private @Nullable Output<List<PlanWorkflowStepGlobalAuroraConfigArgs>> globalAuroraConfigs;
 
     /**
-     * @return Configuration for Aurora Global Database operations. See Global Aurora Config below.
+     * @return Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepGlobalAuroraConfigArgs>>> globalAuroraConfigs() {
         return Optional.ofNullable(this.globalAuroraConfigs);
+    }
+
+    /**
+     * Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+     * 
+     */
+    @Import(name="lambdaEventSourceMappingConfigs")
+    private @Nullable Output<List<PlanWorkflowStepLambdaEventSourceMappingConfigArgs>> lambdaEventSourceMappingConfigs;
+
+    /**
+     * @return Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+     * 
+     */
+    public Optional<Output<List<PlanWorkflowStepLambdaEventSourceMappingConfigArgs>>> lambdaEventSourceMappingConfigs() {
+        return Optional.ofNullable(this.lambdaEventSourceMappingConfigs);
     }
 
     /**
@@ -196,14 +245,29 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configuration for parallel execution of multiple steps. See Parallel Config below.
+     * Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+     * 
+     */
+    @Import(name="neptuneGlobalDatabaseConfigs")
+    private @Nullable Output<List<PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs>> neptuneGlobalDatabaseConfigs;
+
+    /**
+     * @return Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+     * 
+     */
+    public Optional<Output<List<PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs>>> neptuneGlobalDatabaseConfigs() {
+        return Optional.ofNullable(this.neptuneGlobalDatabaseConfigs);
+    }
+
+    /**
+     * Configuration for parallel execution of multiple steps. See `parallelConfig` Block for details.
      * 
      */
     @Import(name="parallelConfigs")
     private @Nullable Output<List<PlanWorkflowStepParallelConfigArgs>> parallelConfigs;
 
     /**
-     * @return Configuration for parallel execution of multiple steps. See Parallel Config below.
+     * @return Configuration for parallel execution of multiple steps. See `parallelConfig` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepParallelConfigArgs>>> parallelConfigs() {
@@ -211,14 +275,14 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+     * Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
      * 
      */
     @Import(name="rdsCreateCrossRegionReadReplicaConfigs")
     private @Nullable Output<List<PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs>> rdsCreateCrossRegionReadReplicaConfigs;
 
     /**
-     * @return Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+     * @return Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs>>> rdsCreateCrossRegionReadReplicaConfigs() {
@@ -226,36 +290,44 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+     * Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
      * 
      */
     @Import(name="rdsPromoteReadReplicaConfigs")
     private @Nullable Output<List<PlanWorkflowStepRdsPromoteReadReplicaConfigArgs>> rdsPromoteReadReplicaConfigs;
 
     /**
-     * @return Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+     * @return Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepRdsPromoteReadReplicaConfigArgs>>> rdsPromoteReadReplicaConfigs() {
         return Optional.ofNullable(this.rdsPromoteReadReplicaConfigs);
     }
 
+    /**
+     * Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
+     * 
+     */
     @Import(name="regionSwitchPlanConfigs")
     private @Nullable Output<List<PlanWorkflowStepRegionSwitchPlanConfigArgs>> regionSwitchPlanConfigs;
 
+    /**
+     * @return Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
+     * 
+     */
     public Optional<Output<List<PlanWorkflowStepRegionSwitchPlanConfigArgs>>> regionSwitchPlanConfigs() {
         return Optional.ofNullable(this.regionSwitchPlanConfigs);
     }
 
     /**
-     * Configuration for Route53 health check operations. See Route53 Health Check Config below.
+     * Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
      * 
      */
     @Import(name="route53HealthCheckConfigs")
     private @Nullable Output<List<PlanWorkflowStepRoute53HealthCheckConfigArgs>> route53HealthCheckConfigs;
 
     /**
-     * @return Configuration for Route53 health check operations. See Route53 Health Check Config below.
+     * @return Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepRoute53HealthCheckConfigArgs>>> route53HealthCheckConfigs() {
@@ -266,6 +338,8 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
 
     private PlanWorkflowStepArgs(PlanWorkflowStepArgs $) {
         this.arcRoutingControlConfigs = $.arcRoutingControlConfigs;
+        this.auroraProvisionedScalingConfigs = $.auroraProvisionedScalingConfigs;
+        this.auroraServerlessScalingConfigs = $.auroraServerlessScalingConfigs;
         this.customActionLambdaConfigs = $.customActionLambdaConfigs;
         this.description = $.description;
         this.documentDbConfigs = $.documentDbConfigs;
@@ -275,7 +349,9 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         this.executionApprovalConfigs = $.executionApprovalConfigs;
         this.executionBlockType = $.executionBlockType;
         this.globalAuroraConfigs = $.globalAuroraConfigs;
+        this.lambdaEventSourceMappingConfigs = $.lambdaEventSourceMappingConfigs;
         this.name = $.name;
+        this.neptuneGlobalDatabaseConfigs = $.neptuneGlobalDatabaseConfigs;
         this.parallelConfigs = $.parallelConfigs;
         this.rdsCreateCrossRegionReadReplicaConfigs = $.rdsCreateCrossRegionReadReplicaConfigs;
         this.rdsPromoteReadReplicaConfigs = $.rdsPromoteReadReplicaConfigs;
@@ -302,7 +378,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arcRoutingControlConfigs Configuration for ARC routing control. See ARC Routing Control Config below.
+         * @param arcRoutingControlConfigs Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
          * 
          * @return builder
          * 
@@ -313,7 +389,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arcRoutingControlConfigs Configuration for ARC routing control. See ARC Routing Control Config below.
+         * @param arcRoutingControlConfigs Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
          * 
          * @return builder
          * 
@@ -323,7 +399,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arcRoutingControlConfigs Configuration for ARC routing control. See ARC Routing Control Config below.
+         * @param arcRoutingControlConfigs Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
          * 
          * @return builder
          * 
@@ -333,7 +409,69 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param customActionLambdaConfigs Configuration for Lambda function execution. See Custom Action Lambda Config below.
+         * @param auroraProvisionedScalingConfigs Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auroraProvisionedScalingConfigs(@Nullable Output<List<PlanWorkflowStepAuroraProvisionedScalingConfigArgs>> auroraProvisionedScalingConfigs) {
+            $.auroraProvisionedScalingConfigs = auroraProvisionedScalingConfigs;
+            return this;
+        }
+
+        /**
+         * @param auroraProvisionedScalingConfigs Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auroraProvisionedScalingConfigs(List<PlanWorkflowStepAuroraProvisionedScalingConfigArgs> auroraProvisionedScalingConfigs) {
+            return auroraProvisionedScalingConfigs(Output.of(auroraProvisionedScalingConfigs));
+        }
+
+        /**
+         * @param auroraProvisionedScalingConfigs Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auroraProvisionedScalingConfigs(PlanWorkflowStepAuroraProvisionedScalingConfigArgs... auroraProvisionedScalingConfigs) {
+            return auroraProvisionedScalingConfigs(List.of(auroraProvisionedScalingConfigs));
+        }
+
+        /**
+         * @param auroraServerlessScalingConfigs Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auroraServerlessScalingConfigs(@Nullable Output<List<PlanWorkflowStepAuroraServerlessScalingConfigArgs>> auroraServerlessScalingConfigs) {
+            $.auroraServerlessScalingConfigs = auroraServerlessScalingConfigs;
+            return this;
+        }
+
+        /**
+         * @param auroraServerlessScalingConfigs Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auroraServerlessScalingConfigs(List<PlanWorkflowStepAuroraServerlessScalingConfigArgs> auroraServerlessScalingConfigs) {
+            return auroraServerlessScalingConfigs(Output.of(auroraServerlessScalingConfigs));
+        }
+
+        /**
+         * @param auroraServerlessScalingConfigs Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder auroraServerlessScalingConfigs(PlanWorkflowStepAuroraServerlessScalingConfigArgs... auroraServerlessScalingConfigs) {
+            return auroraServerlessScalingConfigs(List.of(auroraServerlessScalingConfigs));
+        }
+
+        /**
+         * @param customActionLambdaConfigs Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
          * 
          * @return builder
          * 
@@ -344,7 +482,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param customActionLambdaConfigs Configuration for Lambda function execution. See Custom Action Lambda Config below.
+         * @param customActionLambdaConfigs Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
          * 
          * @return builder
          * 
@@ -354,7 +492,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param customActionLambdaConfigs Configuration for Lambda function execution. See Custom Action Lambda Config below.
+         * @param customActionLambdaConfigs Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
          * 
          * @return builder
          * 
@@ -385,7 +523,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param documentDbConfigs Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+         * @param documentDbConfigs Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
          * 
          * @return builder
          * 
@@ -396,7 +534,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param documentDbConfigs Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+         * @param documentDbConfigs Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
          * 
          * @return builder
          * 
@@ -406,7 +544,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param documentDbConfigs Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+         * @param documentDbConfigs Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
          * 
          * @return builder
          * 
@@ -416,7 +554,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ec2AsgCapacityIncreaseConfigs Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+         * @param ec2AsgCapacityIncreaseConfigs Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
          * 
          * @return builder
          * 
@@ -427,7 +565,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ec2AsgCapacityIncreaseConfigs Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+         * @param ec2AsgCapacityIncreaseConfigs Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
          * 
          * @return builder
          * 
@@ -437,7 +575,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ec2AsgCapacityIncreaseConfigs Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+         * @param ec2AsgCapacityIncreaseConfigs Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
          * 
          * @return builder
          * 
@@ -447,7 +585,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ecsCapacityIncreaseConfigs Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+         * @param ecsCapacityIncreaseConfigs Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
          * 
          * @return builder
          * 
@@ -458,7 +596,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ecsCapacityIncreaseConfigs Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+         * @param ecsCapacityIncreaseConfigs Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
          * 
          * @return builder
          * 
@@ -468,7 +606,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param ecsCapacityIncreaseConfigs Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+         * @param ecsCapacityIncreaseConfigs Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
          * 
          * @return builder
          * 
@@ -478,7 +616,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param eksResourceScalingConfigs Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+         * @param eksResourceScalingConfigs Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
          * 
          * @return builder
          * 
@@ -489,7 +627,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param eksResourceScalingConfigs Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+         * @param eksResourceScalingConfigs Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
          * 
          * @return builder
          * 
@@ -499,7 +637,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param eksResourceScalingConfigs Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+         * @param eksResourceScalingConfigs Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
          * 
          * @return builder
          * 
@@ -509,7 +647,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param executionApprovalConfigs Configuration for manual approval steps. See Execution Approval Config below.
+         * @param executionApprovalConfigs Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
          * 
          * @return builder
          * 
@@ -520,7 +658,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param executionApprovalConfigs Configuration for manual approval steps. See Execution Approval Config below.
+         * @param executionApprovalConfigs Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
          * 
          * @return builder
          * 
@@ -530,7 +668,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param executionApprovalConfigs Configuration for manual approval steps. See Execution Approval Config below.
+         * @param executionApprovalConfigs Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
          * 
          * @return builder
          * 
@@ -561,7 +699,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param globalAuroraConfigs Configuration for Aurora Global Database operations. See Global Aurora Config below.
+         * @param globalAuroraConfigs Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
          * 
          * @return builder
          * 
@@ -572,7 +710,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param globalAuroraConfigs Configuration for Aurora Global Database operations. See Global Aurora Config below.
+         * @param globalAuroraConfigs Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
          * 
          * @return builder
          * 
@@ -582,13 +720,44 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param globalAuroraConfigs Configuration for Aurora Global Database operations. See Global Aurora Config below.
+         * @param globalAuroraConfigs Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
          * 
          * @return builder
          * 
          */
         public Builder globalAuroraConfigs(PlanWorkflowStepGlobalAuroraConfigArgs... globalAuroraConfigs) {
             return globalAuroraConfigs(List.of(globalAuroraConfigs));
+        }
+
+        /**
+         * @param lambdaEventSourceMappingConfigs Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambdaEventSourceMappingConfigs(@Nullable Output<List<PlanWorkflowStepLambdaEventSourceMappingConfigArgs>> lambdaEventSourceMappingConfigs) {
+            $.lambdaEventSourceMappingConfigs = lambdaEventSourceMappingConfigs;
+            return this;
+        }
+
+        /**
+         * @param lambdaEventSourceMappingConfigs Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambdaEventSourceMappingConfigs(List<PlanWorkflowStepLambdaEventSourceMappingConfigArgs> lambdaEventSourceMappingConfigs) {
+            return lambdaEventSourceMappingConfigs(Output.of(lambdaEventSourceMappingConfigs));
+        }
+
+        /**
+         * @param lambdaEventSourceMappingConfigs Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambdaEventSourceMappingConfigs(PlanWorkflowStepLambdaEventSourceMappingConfigArgs... lambdaEventSourceMappingConfigs) {
+            return lambdaEventSourceMappingConfigs(List.of(lambdaEventSourceMappingConfigs));
         }
 
         /**
@@ -613,7 +782,38 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param parallelConfigs Configuration for parallel execution of multiple steps. See Parallel Config below.
+         * @param neptuneGlobalDatabaseConfigs Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder neptuneGlobalDatabaseConfigs(@Nullable Output<List<PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs>> neptuneGlobalDatabaseConfigs) {
+            $.neptuneGlobalDatabaseConfigs = neptuneGlobalDatabaseConfigs;
+            return this;
+        }
+
+        /**
+         * @param neptuneGlobalDatabaseConfigs Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder neptuneGlobalDatabaseConfigs(List<PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs> neptuneGlobalDatabaseConfigs) {
+            return neptuneGlobalDatabaseConfigs(Output.of(neptuneGlobalDatabaseConfigs));
+        }
+
+        /**
+         * @param neptuneGlobalDatabaseConfigs Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder neptuneGlobalDatabaseConfigs(PlanWorkflowStepNeptuneGlobalDatabaseConfigArgs... neptuneGlobalDatabaseConfigs) {
+            return neptuneGlobalDatabaseConfigs(List.of(neptuneGlobalDatabaseConfigs));
+        }
+
+        /**
+         * @param parallelConfigs Configuration for parallel execution of multiple steps. See `parallelConfig` Block for details.
          * 
          * @return builder
          * 
@@ -624,7 +824,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param parallelConfigs Configuration for parallel execution of multiple steps. See Parallel Config below.
+         * @param parallelConfigs Configuration for parallel execution of multiple steps. See `parallelConfig` Block for details.
          * 
          * @return builder
          * 
@@ -634,7 +834,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param parallelConfigs Configuration for parallel execution of multiple steps. See Parallel Config below.
+         * @param parallelConfigs Configuration for parallel execution of multiple steps. See `parallelConfig` Block for details.
          * 
          * @return builder
          * 
@@ -644,7 +844,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rdsCreateCrossRegionReadReplicaConfigs Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+         * @param rdsCreateCrossRegionReadReplicaConfigs Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
          * 
          * @return builder
          * 
@@ -655,7 +855,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rdsCreateCrossRegionReadReplicaConfigs Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+         * @param rdsCreateCrossRegionReadReplicaConfigs Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
          * 
          * @return builder
          * 
@@ -665,7 +865,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rdsCreateCrossRegionReadReplicaConfigs Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+         * @param rdsCreateCrossRegionReadReplicaConfigs Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
          * 
          * @return builder
          * 
@@ -675,7 +875,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rdsPromoteReadReplicaConfigs Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+         * @param rdsPromoteReadReplicaConfigs Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
          * 
          * @return builder
          * 
@@ -686,7 +886,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rdsPromoteReadReplicaConfigs Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+         * @param rdsPromoteReadReplicaConfigs Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
          * 
          * @return builder
          * 
@@ -696,7 +896,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rdsPromoteReadReplicaConfigs Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+         * @param rdsPromoteReadReplicaConfigs Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
          * 
          * @return builder
          * 
@@ -705,21 +905,39 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
             return rdsPromoteReadReplicaConfigs(List.of(rdsPromoteReadReplicaConfigs));
         }
 
+        /**
+         * @param regionSwitchPlanConfigs Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regionSwitchPlanConfigs(@Nullable Output<List<PlanWorkflowStepRegionSwitchPlanConfigArgs>> regionSwitchPlanConfigs) {
             $.regionSwitchPlanConfigs = regionSwitchPlanConfigs;
             return this;
         }
 
+        /**
+         * @param regionSwitchPlanConfigs Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regionSwitchPlanConfigs(List<PlanWorkflowStepRegionSwitchPlanConfigArgs> regionSwitchPlanConfigs) {
             return regionSwitchPlanConfigs(Output.of(regionSwitchPlanConfigs));
         }
 
+        /**
+         * @param regionSwitchPlanConfigs Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regionSwitchPlanConfigs(PlanWorkflowStepRegionSwitchPlanConfigArgs... regionSwitchPlanConfigs) {
             return regionSwitchPlanConfigs(List.of(regionSwitchPlanConfigs));
         }
 
         /**
-         * @param route53HealthCheckConfigs Configuration for Route53 health check operations. See Route53 Health Check Config below.
+         * @param route53HealthCheckConfigs Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
          * 
          * @return builder
          * 
@@ -730,7 +948,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param route53HealthCheckConfigs Configuration for Route53 health check operations. See Route53 Health Check Config below.
+         * @param route53HealthCheckConfigs Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
          * 
          * @return builder
          * 
@@ -740,7 +958,7 @@ public final class PlanWorkflowStepArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param route53HealthCheckConfigs Configuration for Route53 health check operations. See Route53 Health Check Config below.
+         * @param route53HealthCheckConfigs Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
          * 
          * @return builder
          * 

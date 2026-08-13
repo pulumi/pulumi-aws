@@ -51,7 +51,7 @@ class GetInstanceTypeOfferingsResult:
     @pulumi.getter(name="brokerInstanceOptions")
     def broker_instance_options(self) -> Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionResult']:
         """
-        List of broker instance options. See Broker Instance Options below.
+        List of broker instance options. See `broker_instance_options` Block below.
         """
         return pulumi.get(self, "broker_instance_options")
 

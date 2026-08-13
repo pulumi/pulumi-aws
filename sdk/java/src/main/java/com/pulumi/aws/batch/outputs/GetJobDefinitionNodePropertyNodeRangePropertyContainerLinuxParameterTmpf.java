@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf {
     /**
-     * @return Absolute file path in the container where the tmpfs volume is mounted.
+     * @return Path on the container where the host volume is mounted.
      * 
      */
     private String containerPath;
@@ -30,7 +30,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxPa
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf() {}
     /**
-     * @return Absolute file path in the container where the tmpfs volume is mounted.
+     * @return Path on the container where the host volume is mounted.
      * 
      */
     public String containerPath() {

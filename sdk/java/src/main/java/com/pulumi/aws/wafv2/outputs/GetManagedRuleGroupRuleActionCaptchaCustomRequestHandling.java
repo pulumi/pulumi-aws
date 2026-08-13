@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetManagedRuleGroupRuleActionCaptchaCustomRequestHandling {
+    /**
+     * @return Headers inserted into the request. See `insertHeader` Block for details.
+     * 
+     */
     private List<GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders;
 
     private GetManagedRuleGroupRuleActionCaptchaCustomRequestHandling() {}
+    /**
+     * @return Headers inserted into the request. See `insertHeader` Block for details.
+     * 
+     */
     public List<GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader> insertHeaders() {
         return this.insertHeaders;
     }

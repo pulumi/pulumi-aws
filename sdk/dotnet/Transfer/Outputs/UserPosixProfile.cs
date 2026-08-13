@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Transfer.Outputs
     public sealed class UserPosixProfile
     {
         /// <summary>
-        /// The POSIX group ID used for all EFS operations by this user.
+        /// POSIX group ID used for all EFS operations by this user.
         /// </summary>
         public readonly int Gid;
         /// <summary>
-        /// The secondary POSIX group IDs used for all EFS operations by this user.
+        /// Secondary POSIX group IDs used for all EFS operations by this user.
         /// </summary>
         public readonly ImmutableArray<int> SecondaryGids;
         /// <summary>
-        /// The POSIX user ID used for all EFS operations by this user.
+        /// POSIX user ID used for all EFS operations by this user.
         /// </summary>
         public readonly int Uid;
 

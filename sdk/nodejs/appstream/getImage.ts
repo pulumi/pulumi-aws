@@ -99,15 +99,15 @@ export interface GetImageResult {
      */
     readonly displayName: string;
     /**
-     * Name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
+     * Name of the image builder that was used to created the private image. If the image is shared then the value is null.
      */
     readonly imageBuilderName: string;
     /**
-     * Boolean to indicate whether an image builder can be launched from this image.
+     * Whether an image builder can be launched from this image.
      */
     readonly imageBuilderSupported: boolean;
     /**
-     * List of strings describing the image permissions containing the following:
+     * List of objects describing the image permissions containing the following:
      */
     readonly imagePermissions: outputs.appstream.GetImageImagePermission[];
     readonly mostRecent?: boolean;

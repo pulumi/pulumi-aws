@@ -137,7 +137,7 @@ export class SecretVersion extends pulumi.CustomResource {
      */
     declare public readonly secretStringWo: pulumi.Output<string | undefined>;
     /**
-     * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
      */
     declare public readonly secretStringWoVersion: pulumi.Output<number | undefined>;
     /**
@@ -239,7 +239,7 @@ export interface SecretVersionState {
      */
     secretStringWo?: pulumi.Input<string | undefined>;
     /**
-     * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
      */
     secretStringWoVersion?: pulumi.Input<number | undefined>;
     /**
@@ -280,7 +280,7 @@ export interface SecretVersionArgs {
      */
     secretStringWo?: pulumi.Input<string | undefined>;
     /**
-     * Used together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
      */
     secretStringWoVersion?: pulumi.Input<number | undefined>;
     /**

@@ -97,14 +97,14 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+     * Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
      * 
      */
     @Import(name="resourceTypeLists")
     private @Nullable Output<List<String>> resourceTypeLists;
 
     /**
-     * @return Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+     * @return Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
      * 
      */
     public Optional<Output<List<String>>> resourceTypeLists() {
@@ -266,7 +266,7 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceTypeLists Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+         * @param resourceTypeLists Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceTypeLists Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+         * @param resourceTypeLists Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceTypeLists Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+         * @param resourceTypeLists Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
          * 
          * @return builder
          * 

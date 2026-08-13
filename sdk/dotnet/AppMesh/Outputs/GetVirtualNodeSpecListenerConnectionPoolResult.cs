@@ -13,9 +13,21 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecListenerConnectionPoolResult
     {
+        /// <summary>
+        /// Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerConnectionPoolGrpcResult> Grpcs;
+        /// <summary>
+        /// Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerConnectionPoolHttp2Result> Http2s;
+        /// <summary>
+        /// Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerConnectionPoolHttpResult> Https;
+        /// <summary>
+        /// Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerConnectionPoolTcpResult> Tcps;
 
         [OutputConstructor]

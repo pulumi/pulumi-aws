@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecLoggingAccessLogFileFormatJson {
+    /**
+     * @return Key for the JSON.
+     * 
+     */
     private String key;
+    /**
+     * @return Value for the JSON.
+     * 
+     */
     private String value;
 
     private GetVirtualNodeSpecLoggingAccessLogFileFormatJson() {}
+    /**
+     * @return Key for the JSON.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Value for the JSON.
+     * 
+     */
     public String value() {
         return this.value;
     }

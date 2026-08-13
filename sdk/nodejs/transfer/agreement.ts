@@ -62,31 +62,31 @@ export class Agreement extends pulumi.CustomResource {
     }
 
     /**
-     * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+     * IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      */
     declare public readonly accessRole: pulumi.Output<string>;
     /**
-     * The unique identifier for the AS2 agreement.
+     * Unique identifier for the AS2 agreement.
      */
     declare public /*out*/ readonly agreementId: pulumi.Output<string>;
     /**
-     * The ARN of the agreement.
+     * ARN of the agreement.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The landing directory for the files transferred by using the AS2 protocol.
+     * Landing directory for the files transferred by using the AS2 protocol.
      */
     declare public readonly baseDirectory: pulumi.Output<string>;
     /**
-     * The Optional description of the transdfer.
+     * Optional description of the transdfer.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The unique identifier for the AS2 local profile.
+     * Unique identifier for the AS2 local profile.
      */
     declare public readonly localProfileId: pulumi.Output<string>;
     /**
-     * The unique identifier for the AS2 partner profile.
+     * Unique identifier for the AS2 partner profile.
      */
     declare public readonly partnerProfileId: pulumi.Output<string>;
     /**
@@ -94,12 +94,15 @@ export class Agreement extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The unique server identifier for the server instance. This is the specific server the agreement uses.
+     * Unique server identifier for the server instance. This is the specific server the agreement uses.
      */
     declare public readonly serverId: pulumi.Output<string>;
+    /**
+     * Status of the agreement which is either ACTIVE or INACTIVE.
+     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
@@ -169,31 +172,31 @@ export class Agreement extends pulumi.CustomResource {
  */
 export interface AgreementState {
     /**
-     * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+     * IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      */
     accessRole?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier for the AS2 agreement.
+     * Unique identifier for the AS2 agreement.
      */
     agreementId?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the agreement.
+     * ARN of the agreement.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The landing directory for the files transferred by using the AS2 protocol.
+     * Landing directory for the files transferred by using the AS2 protocol.
      */
     baseDirectory?: pulumi.Input<string | undefined>;
     /**
-     * The Optional description of the transdfer.
+     * Optional description of the transdfer.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier for the AS2 local profile.
+     * Unique identifier for the AS2 local profile.
      */
     localProfileId?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier for the AS2 partner profile.
+     * Unique identifier for the AS2 partner profile.
      */
     partnerProfileId?: pulumi.Input<string | undefined>;
     /**
@@ -201,12 +204,15 @@ export interface AgreementState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The unique server identifier for the server instance. This is the specific server the agreement uses.
+     * Unique server identifier for the server instance. This is the specific server the agreement uses.
      */
     serverId?: pulumi.Input<string | undefined>;
+    /**
+     * Status of the agreement which is either ACTIVE or INACTIVE.
+     */
     status?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
@@ -217,23 +223,23 @@ export interface AgreementState {
  */
 export interface AgreementArgs {
     /**
-     * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+     * IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      */
     accessRole: pulumi.Input<string>;
     /**
-     * The landing directory for the files transferred by using the AS2 protocol.
+     * Landing directory for the files transferred by using the AS2 protocol.
      */
     baseDirectory: pulumi.Input<string>;
     /**
-     * The Optional description of the transdfer.
+     * Optional description of the transdfer.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier for the AS2 local profile.
+     * Unique identifier for the AS2 local profile.
      */
     localProfileId: pulumi.Input<string>;
     /**
-     * The unique identifier for the AS2 partner profile.
+     * Unique identifier for the AS2 partner profile.
      */
     partnerProfileId: pulumi.Input<string>;
     /**
@@ -241,11 +247,11 @@ export interface AgreementArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The unique server identifier for the server instance. This is the specific server the agreement uses.
+     * Unique server identifier for the server instance. This is the specific server the agreement uses.
      */
     serverId: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

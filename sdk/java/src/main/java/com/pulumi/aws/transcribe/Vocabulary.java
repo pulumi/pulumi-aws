@@ -123,28 +123,28 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
         return this.downloadUri;
     }
     /**
-     * The language code you selected for your vocabulary.
+     * Language code you selected for your vocabulary.
      * 
      */
     @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
     /**
-     * @return The language code you selected for your vocabulary.
+     * @return Language code you selected for your vocabulary.
      * 
      */
     public Output<String> languageCode() {
         return this.languageCode;
     }
     /**
-     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     * List of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      * 
      */
     @Export(name="phrases", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> phrases;
 
     /**
-     * @return A list of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
+     * @return List of terms to include in the vocabulary. Conflicts with `vocabularyFileUri`
      * 
      */
     public Output<Optional<List<String>>> phrases() {
@@ -165,14 +165,14 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the Vocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -185,21 +185,21 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+     * Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
      * 
      */
     @Export(name="vocabularyFileUri", refs={String.class}, tree="[0]")
     private Output<String> vocabularyFileUri;
 
     /**
-     * @return The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
+     * @return Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
      * 
      */
     public Output<String> vocabularyFileUri() {
         return this.vocabularyFileUri;
     }
     /**
-     * The name of the Vocabulary.
+     * Name of the Vocabulary.
      * 
      * The following arguments are optional:
      * 
@@ -208,7 +208,7 @@ public class Vocabulary extends com.pulumi.resources.CustomResource {
     private Output<String> vocabularyName;
 
     /**
-     * @return The name of the Vocabulary.
+     * @return Name of the Vocabulary.
      * 
      * The following arguments are optional:
      * 

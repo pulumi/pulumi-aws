@@ -46,7 +46,7 @@ public final class PlanWorkflowStepGlobalAuroraConfig {
      */
     private @Nullable Integer timeoutMinutes;
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful Aurora below.
+     * @return Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepGlobalAuroraConfigUngraceful> ungracefuls;
@@ -95,7 +95,7 @@ public final class PlanWorkflowStepGlobalAuroraConfig {
         return Optional.ofNullable(this.timeoutMinutes);
     }
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful Aurora below.
+     * @return Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
      * 
      */
     public List<PlanWorkflowStepGlobalAuroraConfigUngraceful> ungracefuls() {

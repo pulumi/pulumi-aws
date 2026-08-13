@@ -13,25 +13,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTaskDefinitionVolumeEfsVolumeConfiguration {
+    /**
+     * @return Configuration block for authorization for the Amazon FSx for Windows File Server file system. See `fsx_windows_file_server_volume_configuration.authorization_config` Block for details.
+     * 
+     */
     private List<GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig> authorizationConfigs;
+    /**
+     * @return Amazon FSx for Windows File Server file system ID used.
+     * 
+     */
     private String fileSystemId;
+    /**
+     * @return Directory within the Amazon S3 Files file system to mount as the root directory.
+     * 
+     */
     private String rootDirectory;
+    /**
+     * @return Whether encryption is enabled for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
+     * 
+     */
     private String transitEncryption;
+    /**
+     * @return Port used for sending encrypted data between the ECS host and the S3 Files file system.
+     * 
+     */
     private Integer transitEncryptionPort;
 
     private GetTaskDefinitionVolumeEfsVolumeConfiguration() {}
+    /**
+     * @return Configuration block for authorization for the Amazon FSx for Windows File Server file system. See `fsx_windows_file_server_volume_configuration.authorization_config` Block for details.
+     * 
+     */
     public List<GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig> authorizationConfigs() {
         return this.authorizationConfigs;
     }
+    /**
+     * @return Amazon FSx for Windows File Server file system ID used.
+     * 
+     */
     public String fileSystemId() {
         return this.fileSystemId;
     }
+    /**
+     * @return Directory within the Amazon S3 Files file system to mount as the root directory.
+     * 
+     */
     public String rootDirectory() {
         return this.rootDirectory;
     }
+    /**
+     * @return Whether encryption is enabled for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
+     * 
+     */
     public String transitEncryption() {
         return this.transitEncryption;
     }
+    /**
+     * @return Port used for sending encrypted data between the ECS host and the S3 Files file system.
+     * 
+     */
     public Integer transitEncryptionPort() {
         return this.transitEncryptionPort;
     }

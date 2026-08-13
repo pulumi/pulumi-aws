@@ -16,14 +16,14 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
     public static final SshKeyState Empty = new SshKeyState();
 
     /**
-     * The public key portion of an SSH key pair.
+     * Public key portion of an SSH key pair.
      * 
      */
     @Import(name="body")
     private @Nullable Output<String> body;
 
     /**
-     * @return The public key portion of an SSH key pair.
+     * @return Public key portion of an SSH key pair.
      * 
      */
     public Optional<Output<String>> body() {
@@ -46,36 +46,44 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
+     * Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
     @Import(name="serverId")
     private @Nullable Output<String> serverId;
 
     /**
-     * @return The Server ID of the Transfer Server (e.g., `s-12345678`)
+     * @return Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
     public Optional<Output<String>> serverId() {
         return Optional.ofNullable(this.serverId);
     }
 
+    /**
+     * ID of the SSH public key.
+     * 
+     */
     @Import(name="sshKeyId")
     private @Nullable Output<String> sshKeyId;
 
+    /**
+     * @return ID of the SSH public key.
+     * 
+     */
     public Optional<Output<String>> sshKeyId() {
         return Optional.ofNullable(this.sshKeyId);
     }
 
     /**
-     * The name of the user account that is assigned to one or more servers.
+     * Name of the user account that is assigned to one or more servers.
      * 
      */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
     /**
-     * @return The name of the user account that is assigned to one or more servers.
+     * @return Name of the user account that is assigned to one or more servers.
      * 
      */
     public Optional<Output<String>> userName() {
@@ -111,7 +119,7 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param body The public key portion of an SSH key pair.
+         * @param body Public key portion of an SSH key pair.
          * 
          * @return builder
          * 
@@ -122,7 +130,7 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param body The public key portion of an SSH key pair.
+         * @param body Public key portion of an SSH key pair.
          * 
          * @return builder
          * 
@@ -153,7 +161,7 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverId The Server ID of the Transfer Server (e.g., `s-12345678`)
+         * @param serverId Server ID of the Transfer Server (e.g., `s-12345678`)
          * 
          * @return builder
          * 
@@ -164,7 +172,7 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverId The Server ID of the Transfer Server (e.g., `s-12345678`)
+         * @param serverId Server ID of the Transfer Server (e.g., `s-12345678`)
          * 
          * @return builder
          * 
@@ -173,17 +181,29 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
             return serverId(Output.of(serverId));
         }
 
+        /**
+         * @param sshKeyId ID of the SSH public key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sshKeyId(@Nullable Output<String> sshKeyId) {
             $.sshKeyId = sshKeyId;
             return this;
         }
 
+        /**
+         * @param sshKeyId ID of the SSH public key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sshKeyId(String sshKeyId) {
             return sshKeyId(Output.of(sshKeyId));
         }
 
         /**
-         * @param userName The name of the user account that is assigned to one or more servers.
+         * @param userName Name of the user account that is assigned to one or more servers.
          * 
          * @return builder
          * 
@@ -194,7 +214,7 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userName The name of the user account that is assigned to one or more servers.
+         * @param userName Name of the user account that is assigned to one or more servers.
          * 
          * @return builder
          * 

@@ -24,6 +24,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
         [Input("listingMode")]
         public Input<string>? ListingMode { get; set; }
 
+        /// <summary>
+        /// Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `McpToolSchema` below.
+        /// </summary>
+        [Input("mcpToolSchema")]
+        public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaGetArgs>? McpToolSchema { get; set; }
+
+        /// <summary>
+        /// Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
+        /// </summary>
+        [Input("resourcePriority")]
+        public Input<int>? ResourcePriority { get; set; }
+
         public AgentcoreGatewayTargetTargetConfigurationMcpMcpServerGetArgs()
         {
         }

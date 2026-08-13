@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Glue.Outputs
     [OutputType]
     public sealed class GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialResult
     {
+        /// <summary>
+        /// Access token used for OAuth2 authentication.
+        /// </summary>
         public readonly string AccessToken;
+        /// <summary>
+        /// JWT token used for OAuth2 authentication.
+        /// </summary>
         public readonly string JwtToken;
+        /// <summary>
+        /// Refresh token used for OAuth2 authentication.
+        /// </summary>
         public readonly string RefreshToken;
+        /// <summary>
+        /// Client secret of the user-managed client application.
+        /// </summary>
         public readonly string UserManagedClientApplicationClientSecret;
 
         [OutputConstructor]

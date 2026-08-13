@@ -63,7 +63,7 @@ export interface GetConnectionResult {
      */
     readonly athenaProperties: {[key: string]: string};
     /**
-     * Configuration block for authentication options.
+     * Configuration block for authentication options. See `authenticationConfiguration` Block for details.
      */
     readonly authenticationConfigurations: outputs.glue.GetConnectionAuthenticationConfiguration[];
     /**
@@ -92,7 +92,7 @@ export interface GetConnectionResult {
      */
     readonly name: string;
     /**
-     * Map of physical connection requirements, such as VPC and SecurityGroup.
+     * Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
      */
     readonly physicalConnectionRequirements: outputs.glue.GetConnectionPhysicalConnectionRequirement[];
     readonly region: string;

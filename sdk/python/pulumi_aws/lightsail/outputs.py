@@ -1149,6 +1149,9 @@ class LbCertificateDomainValidationRecord(dict):
                  resource_record_value: Optional[_builtins.str] = None):
         """
         :param _builtins.str domain_name: Domain name (e.g., example.com) for your SSL/TLS certificate.
+        :param _builtins.str resource_record_name: Name of the DNS record to create to validate the certificate.
+        :param _builtins.str resource_record_type: Type of DNS record to create to validate the certificate.
+        :param _builtins.str resource_record_value: Value of the DNS record to create to validate the certificate.
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
@@ -1170,16 +1173,25 @@ class LbCertificateDomainValidationRecord(dict):
     @_builtins.property
     @pulumi.getter(name="resourceRecordName")
     def resource_record_name(self) -> Optional[_builtins.str]:
+        """
+        Name of the DNS record to create to validate the certificate.
+        """
         return pulumi.get(self, "resource_record_name")
 
     @_builtins.property
     @pulumi.getter(name="resourceRecordType")
     def resource_record_type(self) -> Optional[_builtins.str]:
+        """
+        Type of DNS record to create to validate the certificate.
+        """
         return pulumi.get(self, "resource_record_type")
 
     @_builtins.property
     @pulumi.getter(name="resourceRecordValue")
     def resource_record_value(self) -> Optional[_builtins.str]:
+        """
+        Value of the DNS record to create to validate the certificate.
+        """
         return pulumi.get(self, "resource_record_value")
 
 

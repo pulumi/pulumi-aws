@@ -43,7 +43,7 @@ public final class GetVirtualNodeResult {
      */
     private String resourceOwner;
     /**
-     * @return Virtual node specification. See the `aws.appmesh.VirtualNode` resource for details.
+     * @return Virtual node specification. See `spec` Block for details.
      * 
      */
     private List<GetVirtualNodeSpec> specs;
@@ -102,7 +102,7 @@ public final class GetVirtualNodeResult {
         return this.resourceOwner;
     }
     /**
-     * @return Virtual node specification. See the `aws.appmesh.VirtualNode` resource for details.
+     * @return Virtual node specification. See `spec` Block for details.
      * 
      */
     public List<GetVirtualNodeSpec> specs() {

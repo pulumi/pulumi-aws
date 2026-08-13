@@ -8,6 +8,9 @@ import com.pulumi.aws.eks.outputs.GetClusterCertificateAuthority;
 import com.pulumi.aws.eks.outputs.GetClusterComputeConfig;
 import com.pulumi.aws.eks.outputs.GetClusterControlPlaneScalingConfig;
 import com.pulumi.aws.eks.outputs.GetClusterIdentity;
+import com.pulumi.aws.eks.outputs.GetClusterKubeApiServerConfig;
+import com.pulumi.aws.eks.outputs.GetClusterKubeControllerManagerConfig;
+import com.pulumi.aws.eks.outputs.GetClusterKubeSchedulerConfig;
 import com.pulumi.aws.eks.outputs.GetClusterKubernetesNetworkConfig;
 import com.pulumi.aws.eks.outputs.GetClusterOutpostConfig;
 import com.pulumi.aws.eks.outputs.GetClusterRemoteNetworkConfig;
@@ -86,10 +89,29 @@ public final class GetClusterResult {
      */
     private List<GetClusterIdentity> identities;
     /**
+     * @return Configuration for the Kubernetes API server.
+     * 
+     */
+    private List<GetClusterKubeApiServerConfig> kubeApiServerConfigs;
+    /**
+     * @return Configuration for the Kubernetes controller manager.
+     * 
+     */
+    private List<GetClusterKubeControllerManagerConfig> kubeControllerManagerConfigs;
+    /**
+     * @return Configuration for the Kubernetes scheduler.
+     * 
+     */
+    private List<GetClusterKubeSchedulerConfig> kubeSchedulerConfigs;
+    /**
      * @return Nested list containing Kubernetes Network Configuration.
      * 
      */
     private List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs;
+    /**
+     * @return The name of the resource (e.g., `cpu`, `memory`).
+     * 
+     */
     private String name;
     /**
      * @return Contains Outpost Configuration.
@@ -234,12 +256,37 @@ public final class GetClusterResult {
         return this.identities;
     }
     /**
+     * @return Configuration for the Kubernetes API server.
+     * 
+     */
+    public List<GetClusterKubeApiServerConfig> kubeApiServerConfigs() {
+        return this.kubeApiServerConfigs;
+    }
+    /**
+     * @return Configuration for the Kubernetes controller manager.
+     * 
+     */
+    public List<GetClusterKubeControllerManagerConfig> kubeControllerManagerConfigs() {
+        return this.kubeControllerManagerConfigs;
+    }
+    /**
+     * @return Configuration for the Kubernetes scheduler.
+     * 
+     */
+    public List<GetClusterKubeSchedulerConfig> kubeSchedulerConfigs() {
+        return this.kubeSchedulerConfigs;
+    }
+    /**
      * @return Nested list containing Kubernetes Network Configuration.
      * 
      */
     public List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs() {
         return this.kubernetesNetworkConfigs;
     }
+    /**
+     * @return The name of the resource (e.g., `cpu`, `memory`).
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -345,6 +392,9 @@ public final class GetClusterResult {
         private String endpoint;
         private String id;
         private List<GetClusterIdentity> identities;
+        private List<GetClusterKubeApiServerConfig> kubeApiServerConfigs;
+        private List<GetClusterKubeControllerManagerConfig> kubeControllerManagerConfigs;
+        private List<GetClusterKubeSchedulerConfig> kubeSchedulerConfigs;
         private List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs;
         private String name;
         private List<GetClusterOutpostConfig> outpostConfigs;
@@ -374,6 +424,9 @@ public final class GetClusterResult {
     	      this.endpoint = defaults.endpoint;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
+    	      this.kubeApiServerConfigs = defaults.kubeApiServerConfigs;
+    	      this.kubeControllerManagerConfigs = defaults.kubeControllerManagerConfigs;
+    	      this.kubeSchedulerConfigs = defaults.kubeSchedulerConfigs;
     	      this.kubernetesNetworkConfigs = defaults.kubernetesNetworkConfigs;
     	      this.name = defaults.name;
     	      this.outpostConfigs = defaults.outpostConfigs;
@@ -503,6 +556,39 @@ public final class GetClusterResult {
         }
         public Builder identities(GetClusterIdentity... identities) {
             return identities(List.of(identities));
+        }
+        @CustomType.Setter
+        public Builder kubeApiServerConfigs(List<GetClusterKubeApiServerConfig> kubeApiServerConfigs) {
+            if (kubeApiServerConfigs == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "kubeApiServerConfigs");
+            }
+            this.kubeApiServerConfigs = kubeApiServerConfigs;
+            return this;
+        }
+        public Builder kubeApiServerConfigs(GetClusterKubeApiServerConfig... kubeApiServerConfigs) {
+            return kubeApiServerConfigs(List.of(kubeApiServerConfigs));
+        }
+        @CustomType.Setter
+        public Builder kubeControllerManagerConfigs(List<GetClusterKubeControllerManagerConfig> kubeControllerManagerConfigs) {
+            if (kubeControllerManagerConfigs == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "kubeControllerManagerConfigs");
+            }
+            this.kubeControllerManagerConfigs = kubeControllerManagerConfigs;
+            return this;
+        }
+        public Builder kubeControllerManagerConfigs(GetClusterKubeControllerManagerConfig... kubeControllerManagerConfigs) {
+            return kubeControllerManagerConfigs(List.of(kubeControllerManagerConfigs));
+        }
+        @CustomType.Setter
+        public Builder kubeSchedulerConfigs(List<GetClusterKubeSchedulerConfig> kubeSchedulerConfigs) {
+            if (kubeSchedulerConfigs == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "kubeSchedulerConfigs");
+            }
+            this.kubeSchedulerConfigs = kubeSchedulerConfigs;
+            return this;
+        }
+        public Builder kubeSchedulerConfigs(GetClusterKubeSchedulerConfig... kubeSchedulerConfigs) {
+            return kubeSchedulerConfigs(List.of(kubeSchedulerConfigs));
         }
         @CustomType.Setter
         public Builder kubernetesNetworkConfigs(List<GetClusterKubernetesNetworkConfig> kubernetesNetworkConfigs) {
@@ -648,6 +734,9 @@ public final class GetClusterResult {
             _resultValue.endpoint = endpoint;
             _resultValue.id = id;
             _resultValue.identities = identities;
+            _resultValue.kubeApiServerConfigs = kubeApiServerConfigs;
+            _resultValue.kubeControllerManagerConfigs = kubeControllerManagerConfigs;
+            _resultValue.kubeSchedulerConfigs = kubeSchedulerConfigs;
             _resultValue.kubernetesNetworkConfigs = kubernetesNetworkConfigs;
             _resultValue.name = name;
             _resultValue.outpostConfigs = outpostConfigs;

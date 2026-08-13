@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication {
+    /**
+     * @return Reference to the AWS managed client application.
+     * 
+     */
     private String awsManagedClientApplicationReference;
+    /**
+     * @return Client ID of the user-managed client application.
+     * 
+     */
     private String userManagedClientApplicationClientId;
 
     private GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication() {}
+    /**
+     * @return Reference to the AWS managed client application.
+     * 
+     */
     public String awsManagedClientApplicationReference() {
         return this.awsManagedClientApplicationReference;
     }
+    /**
+     * @return Client ID of the user-managed client application.
+     * 
+     */
     public String userManagedClientApplicationClientId() {
         return this.userManagedClientApplicationClientId;
     }

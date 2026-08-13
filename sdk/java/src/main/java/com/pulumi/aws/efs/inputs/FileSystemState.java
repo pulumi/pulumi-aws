@@ -300,14 +300,14 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
+     * Throughput mode for the file system. Defaults to `bursting`, matching the [`CreateFileSystem`](https://docs.aws.amazon.com/efs/latest/ug/API_CreateFileSystem.html) API default. Note that AWS [recommends `elastic` for most use cases](https://docs.aws.amazon.com/efs/latest/ug/managing-throughput.html), and `elastic` is the default in the Amazon EFS console. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      * 
      */
     @Import(name="throughputMode")
     private @Nullable Output<String> throughputMode;
 
     /**
-     * @return Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
+     * @return Throughput mode for the file system. Defaults to `bursting`, matching the [`CreateFileSystem`](https://docs.aws.amazon.com/efs/latest/ug/API_CreateFileSystem.html) API default. Note that AWS [recommends `elastic` for most use cases](https://docs.aws.amazon.com/efs/latest/ug/managing-throughput.html), and `elastic` is the default in the Amazon EFS console. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      * 
      */
     public Optional<Output<String>> throughputMode() {
@@ -761,7 +761,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param throughputMode Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
+         * @param throughputMode Throughput mode for the file system. Defaults to `bursting`, matching the [`CreateFileSystem`](https://docs.aws.amazon.com/efs/latest/ug/API_CreateFileSystem.html) API default. Note that AWS [recommends `elastic` for most use cases](https://docs.aws.amazon.com/efs/latest/ug/managing-throughput.html), and `elastic` is the default in the Amazon EFS console. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
          * 
          * @return builder
          * 
@@ -772,7 +772,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param throughputMode Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
+         * @param throughputMode Throughput mode for the file system. Defaults to `bursting`, matching the [`CreateFileSystem`](https://docs.aws.amazon.com/efs/latest/ug/API_CreateFileSystem.html) API default. Note that AWS [recommends `elastic` for most use cases](https://docs.aws.amazon.com/efs/latest/ug/managing-throughput.html), and `elastic` is the default in the Amazon EFS console. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisionedThroughputInMibps`.
          * 
          * @return builder
          * 

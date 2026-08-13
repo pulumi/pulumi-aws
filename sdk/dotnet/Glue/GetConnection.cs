@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly ImmutableDictionary<string, string> AthenaProperties;
         /// <summary>
-        /// Configuration block for authentication options.
+        /// Configuration block for authentication options. See `AuthenticationConfiguration` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionAuthenticationConfigurationResult> AuthenticationConfigurations;
         /// <summary>
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Map of physical connection requirements, such as VPC and SecurityGroup.
+        /// Map of physical connection requirements, such as VPC and SecurityGroup. See `PhysicalConnectionRequirements` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionPhysicalConnectionRequirementResult> PhysicalConnectionRequirements;
         public readonly string Region;

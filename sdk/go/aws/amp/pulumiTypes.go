@@ -2022,6 +2022,280 @@ func (o ScraperDestinationCloudwatchPtrOutput) DatasetArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type ScraperExporter struct {
+	// Configuration block for an OpenSearch exporter. See `opensearch` Block for details.
+	Opensearch ScraperExporterOpensearch `pulumi:"opensearch"`
+}
+
+// ScraperExporterInput is an input type that accepts ScraperExporterArgs and ScraperExporterOutput values.
+// You can construct a concrete instance of `ScraperExporterInput` via:
+//
+//	ScraperExporterArgs{...}
+type ScraperExporterInput interface {
+	pulumi.Input
+
+	ToScraperExporterOutput() ScraperExporterOutput
+	ToScraperExporterOutputWithContext(context.Context) ScraperExporterOutput
+}
+
+type ScraperExporterArgs struct {
+	// Configuration block for an OpenSearch exporter. See `opensearch` Block for details.
+	Opensearch ScraperExporterOpensearchInput `pulumi:"opensearch"`
+}
+
+func (ScraperExporterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperExporter)(nil)).Elem()
+}
+
+func (i ScraperExporterArgs) ToScraperExporterOutput() ScraperExporterOutput {
+	return i.ToScraperExporterOutputWithContext(context.Background())
+}
+
+func (i ScraperExporterArgs) ToScraperExporterOutputWithContext(ctx context.Context) ScraperExporterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperExporterOutput)
+}
+
+func (i ScraperExporterArgs) ToScraperExporterPtrOutput() ScraperExporterPtrOutput {
+	return i.ToScraperExporterPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperExporterArgs) ToScraperExporterPtrOutputWithContext(ctx context.Context) ScraperExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperExporterOutput).ToScraperExporterPtrOutputWithContext(ctx)
+}
+
+// ScraperExporterPtrInput is an input type that accepts ScraperExporterArgs, ScraperExporterPtr and ScraperExporterPtrOutput values.
+// You can construct a concrete instance of `ScraperExporterPtrInput` via:
+//
+//	        ScraperExporterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperExporterPtrInput interface {
+	pulumi.Input
+
+	ToScraperExporterPtrOutput() ScraperExporterPtrOutput
+	ToScraperExporterPtrOutputWithContext(context.Context) ScraperExporterPtrOutput
+}
+
+type scraperExporterPtrType ScraperExporterArgs
+
+func ScraperExporterPtr(v *ScraperExporterArgs) ScraperExporterPtrInput {
+	return (*scraperExporterPtrType)(v)
+}
+
+func (*scraperExporterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperExporter)(nil)).Elem()
+}
+
+func (i *scraperExporterPtrType) ToScraperExporterPtrOutput() ScraperExporterPtrOutput {
+	return i.ToScraperExporterPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperExporterPtrType) ToScraperExporterPtrOutputWithContext(ctx context.Context) ScraperExporterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperExporterPtrOutput)
+}
+
+type ScraperExporterOutput struct{ *pulumi.OutputState }
+
+func (ScraperExporterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperExporter)(nil)).Elem()
+}
+
+func (o ScraperExporterOutput) ToScraperExporterOutput() ScraperExporterOutput {
+	return o
+}
+
+func (o ScraperExporterOutput) ToScraperExporterOutputWithContext(ctx context.Context) ScraperExporterOutput {
+	return o
+}
+
+func (o ScraperExporterOutput) ToScraperExporterPtrOutput() ScraperExporterPtrOutput {
+	return o.ToScraperExporterPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperExporterOutput) ToScraperExporterPtrOutputWithContext(ctx context.Context) ScraperExporterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperExporter) *ScraperExporter {
+		return &v
+	}).(ScraperExporterPtrOutput)
+}
+
+// Configuration block for an OpenSearch exporter. See `opensearch` Block for details.
+func (o ScraperExporterOutput) Opensearch() ScraperExporterOpensearchOutput {
+	return o.ApplyT(func(v ScraperExporter) ScraperExporterOpensearch { return v.Opensearch }).(ScraperExporterOpensearchOutput)
+}
+
+type ScraperExporterPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperExporterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperExporter)(nil)).Elem()
+}
+
+func (o ScraperExporterPtrOutput) ToScraperExporterPtrOutput() ScraperExporterPtrOutput {
+	return o
+}
+
+func (o ScraperExporterPtrOutput) ToScraperExporterPtrOutputWithContext(ctx context.Context) ScraperExporterPtrOutput {
+	return o
+}
+
+func (o ScraperExporterPtrOutput) Elem() ScraperExporterOutput {
+	return o.ApplyT(func(v *ScraperExporter) ScraperExporter {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperExporter
+		return ret
+	}).(ScraperExporterOutput)
+}
+
+// Configuration block for an OpenSearch exporter. See `opensearch` Block for details.
+func (o ScraperExporterPtrOutput) Opensearch() ScraperExporterOpensearchPtrOutput {
+	return o.ApplyT(func(v *ScraperExporter) *ScraperExporterOpensearch {
+		if v == nil {
+			return nil
+		}
+		return &v.Opensearch
+	}).(ScraperExporterOpensearchPtrOutput)
+}
+
+type ScraperExporterOpensearch struct {
+	// ARN of the OpenSearch domain.
+	DomainArn string `pulumi:"domainArn"`
+}
+
+// ScraperExporterOpensearchInput is an input type that accepts ScraperExporterOpensearchArgs and ScraperExporterOpensearchOutput values.
+// You can construct a concrete instance of `ScraperExporterOpensearchInput` via:
+//
+//	ScraperExporterOpensearchArgs{...}
+type ScraperExporterOpensearchInput interface {
+	pulumi.Input
+
+	ToScraperExporterOpensearchOutput() ScraperExporterOpensearchOutput
+	ToScraperExporterOpensearchOutputWithContext(context.Context) ScraperExporterOpensearchOutput
+}
+
+type ScraperExporterOpensearchArgs struct {
+	// ARN of the OpenSearch domain.
+	DomainArn pulumi.StringInput `pulumi:"domainArn"`
+}
+
+func (ScraperExporterOpensearchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperExporterOpensearch)(nil)).Elem()
+}
+
+func (i ScraperExporterOpensearchArgs) ToScraperExporterOpensearchOutput() ScraperExporterOpensearchOutput {
+	return i.ToScraperExporterOpensearchOutputWithContext(context.Background())
+}
+
+func (i ScraperExporterOpensearchArgs) ToScraperExporterOpensearchOutputWithContext(ctx context.Context) ScraperExporterOpensearchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperExporterOpensearchOutput)
+}
+
+func (i ScraperExporterOpensearchArgs) ToScraperExporterOpensearchPtrOutput() ScraperExporterOpensearchPtrOutput {
+	return i.ToScraperExporterOpensearchPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperExporterOpensearchArgs) ToScraperExporterOpensearchPtrOutputWithContext(ctx context.Context) ScraperExporterOpensearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperExporterOpensearchOutput).ToScraperExporterOpensearchPtrOutputWithContext(ctx)
+}
+
+// ScraperExporterOpensearchPtrInput is an input type that accepts ScraperExporterOpensearchArgs, ScraperExporterOpensearchPtr and ScraperExporterOpensearchPtrOutput values.
+// You can construct a concrete instance of `ScraperExporterOpensearchPtrInput` via:
+//
+//	        ScraperExporterOpensearchArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperExporterOpensearchPtrInput interface {
+	pulumi.Input
+
+	ToScraperExporterOpensearchPtrOutput() ScraperExporterOpensearchPtrOutput
+	ToScraperExporterOpensearchPtrOutputWithContext(context.Context) ScraperExporterOpensearchPtrOutput
+}
+
+type scraperExporterOpensearchPtrType ScraperExporterOpensearchArgs
+
+func ScraperExporterOpensearchPtr(v *ScraperExporterOpensearchArgs) ScraperExporterOpensearchPtrInput {
+	return (*scraperExporterOpensearchPtrType)(v)
+}
+
+func (*scraperExporterOpensearchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperExporterOpensearch)(nil)).Elem()
+}
+
+func (i *scraperExporterOpensearchPtrType) ToScraperExporterOpensearchPtrOutput() ScraperExporterOpensearchPtrOutput {
+	return i.ToScraperExporterOpensearchPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperExporterOpensearchPtrType) ToScraperExporterOpensearchPtrOutputWithContext(ctx context.Context) ScraperExporterOpensearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperExporterOpensearchPtrOutput)
+}
+
+type ScraperExporterOpensearchOutput struct{ *pulumi.OutputState }
+
+func (ScraperExporterOpensearchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperExporterOpensearch)(nil)).Elem()
+}
+
+func (o ScraperExporterOpensearchOutput) ToScraperExporterOpensearchOutput() ScraperExporterOpensearchOutput {
+	return o
+}
+
+func (o ScraperExporterOpensearchOutput) ToScraperExporterOpensearchOutputWithContext(ctx context.Context) ScraperExporterOpensearchOutput {
+	return o
+}
+
+func (o ScraperExporterOpensearchOutput) ToScraperExporterOpensearchPtrOutput() ScraperExporterOpensearchPtrOutput {
+	return o.ToScraperExporterOpensearchPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperExporterOpensearchOutput) ToScraperExporterOpensearchPtrOutputWithContext(ctx context.Context) ScraperExporterOpensearchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperExporterOpensearch) *ScraperExporterOpensearch {
+		return &v
+	}).(ScraperExporterOpensearchPtrOutput)
+}
+
+// ARN of the OpenSearch domain.
+func (o ScraperExporterOpensearchOutput) DomainArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScraperExporterOpensearch) string { return v.DomainArn }).(pulumi.StringOutput)
+}
+
+type ScraperExporterOpensearchPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperExporterOpensearchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperExporterOpensearch)(nil)).Elem()
+}
+
+func (o ScraperExporterOpensearchPtrOutput) ToScraperExporterOpensearchPtrOutput() ScraperExporterOpensearchPtrOutput {
+	return o
+}
+
+func (o ScraperExporterOpensearchPtrOutput) ToScraperExporterOpensearchPtrOutputWithContext(ctx context.Context) ScraperExporterOpensearchPtrOutput {
+	return o
+}
+
+func (o ScraperExporterOpensearchPtrOutput) Elem() ScraperExporterOpensearchOutput {
+	return o.ApplyT(func(v *ScraperExporterOpensearch) ScraperExporterOpensearch {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperExporterOpensearch
+		return ret
+	}).(ScraperExporterOpensearchOutput)
+}
+
+// ARN of the OpenSearch domain.
+func (o ScraperExporterOpensearchPtrOutput) DomainArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScraperExporterOpensearch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ScraperLoggingConfigurationLoggingDestination struct {
 	// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block below.
 	CloudwatchLogs ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs `pulumi:"cloudwatchLogs"`
@@ -3779,6 +4053,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationAmpPtrInput)(nil)).Elem(), ScraperDestinationAmpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationCloudwatchInput)(nil)).Elem(), ScraperDestinationCloudwatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationCloudwatchPtrInput)(nil)).Elem(), ScraperDestinationCloudwatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperExporterInput)(nil)).Elem(), ScraperExporterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperExporterPtrInput)(nil)).Elem(), ScraperExporterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperExporterOpensearchInput)(nil)).Elem(), ScraperExporterOpensearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperExporterOpensearchPtrInput)(nil)).Elem(), ScraperExporterOpensearchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingConfigurationLoggingDestinationInput)(nil)).Elem(), ScraperLoggingConfigurationLoggingDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingConfigurationLoggingDestinationPtrInput)(nil)).Elem(), ScraperLoggingConfigurationLoggingDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsInput)(nil)).Elem(), ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs{})
@@ -3828,6 +4106,10 @@ func init() {
 	pulumi.RegisterOutputType(ScraperDestinationAmpPtrOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationCloudwatchOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationCloudwatchPtrOutput{})
+	pulumi.RegisterOutputType(ScraperExporterOutput{})
+	pulumi.RegisterOutputType(ScraperExporterPtrOutput{})
+	pulumi.RegisterOutputType(ScraperExporterOpensearchOutput{})
+	pulumi.RegisterOutputType(ScraperExporterOpensearchPtrOutput{})
 	pulumi.RegisterOutputType(ScraperLoggingConfigurationLoggingDestinationOutput{})
 	pulumi.RegisterOutputType(ScraperLoggingConfigurationLoggingDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput{})

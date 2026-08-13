@@ -88,7 +88,7 @@ class GetConnectionResult:
     @pulumi.getter(name="authenticationConfigurations")
     def authentication_configurations(self) -> Sequence['outputs.GetConnectionAuthenticationConfigurationResult']:
         """
-        Configuration block for authentication options.
+        Configuration block for authentication options. See `authentication_configuration` Block for details.
         """
         return pulumi.get(self, "authentication_configurations")
 
@@ -149,7 +149,7 @@ class GetConnectionResult:
     @pulumi.getter(name="physicalConnectionRequirements")
     def physical_connection_requirements(self) -> Sequence['outputs.GetConnectionPhysicalConnectionRequirementResult']:
         """
-        Map of physical connection requirements, such as VPC and SecurityGroup.
+        Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         """
         return pulumi.get(self, "physical_connection_requirements")
 

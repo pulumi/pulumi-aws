@@ -137,14 +137,15 @@ import (
 type SshKey struct {
 	pulumi.CustomResourceState
 
-	// The public key portion of an SSH key pair.
+	// Public key portion of an SSH key pair.
 	Body pulumi.StringOutput `pulumi:"body"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Server ID of the Transfer Server (e.g., `s-12345678`)
+	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
+	// ID of the SSH public key.
 	SshKeyId pulumi.StringOutput `pulumi:"sshKeyId"`
-	// The name of the user account that is assigned to one or more servers.
+	// Name of the user account that is assigned to one or more servers.
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
@@ -187,26 +188,28 @@ func GetSshKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SshKey resources.
 type sshKeyState struct {
-	// The public key portion of an SSH key pair.
+	// Public key portion of an SSH key pair.
 	Body *string `pulumi:"body"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Server ID of the Transfer Server (e.g., `s-12345678`)
+	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId *string `pulumi:"serverId"`
+	// ID of the SSH public key.
 	SshKeyId *string `pulumi:"sshKeyId"`
-	// The name of the user account that is assigned to one or more servers.
+	// Name of the user account that is assigned to one or more servers.
 	UserName *string `pulumi:"userName"`
 }
 
 type SshKeyState struct {
-	// The public key portion of an SSH key pair.
+	// Public key portion of an SSH key pair.
 	Body pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Server ID of the Transfer Server (e.g., `s-12345678`)
+	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringPtrInput
+	// ID of the SSH public key.
 	SshKeyId pulumi.StringPtrInput
-	// The name of the user account that is assigned to one or more servers.
+	// Name of the user account that is assigned to one or more servers.
 	UserName pulumi.StringPtrInput
 }
 
@@ -215,25 +218,25 @@ func (SshKeyState) ElementType() reflect.Type {
 }
 
 type sshKeyArgs struct {
-	// The public key portion of an SSH key pair.
+	// Public key portion of an SSH key pair.
 	Body string `pulumi:"body"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Server ID of the Transfer Server (e.g., `s-12345678`)
+	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId string `pulumi:"serverId"`
-	// The name of the user account that is assigned to one or more servers.
+	// Name of the user account that is assigned to one or more servers.
 	UserName string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a SshKey resource.
 type SshKeyArgs struct {
-	// The public key portion of an SSH key pair.
+	// Public key portion of an SSH key pair.
 	Body pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Server ID of the Transfer Server (e.g., `s-12345678`)
+	// Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringInput
-	// The name of the user account that is assigned to one or more servers.
+	// Name of the user account that is assigned to one or more servers.
 	UserName pulumi.StringInput
 }
 
@@ -324,7 +327,7 @@ func (o SshKeyOutput) ToSshKeyOutputWithContext(ctx context.Context) SshKeyOutpu
 	return o
 }
 
-// The public key portion of an SSH key pair.
+// Public key portion of an SSH key pair.
 func (o SshKeyOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.Body }).(pulumi.StringOutput)
 }
@@ -334,16 +337,17 @@ func (o SshKeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Server ID of the Transfer Server (e.g., `s-12345678`)
+// Server ID of the Transfer Server (e.g., `s-12345678`)
 func (o SshKeyOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
 }
 
+// ID of the SSH public key.
 func (o SshKeyOutput) SshKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.SshKeyId }).(pulumi.StringOutput)
 }
 
-// The name of the user account that is assigned to one or more servers.
+// Name of the user account that is assigned to one or more servers.
 func (o SshKeyOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SshKey) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

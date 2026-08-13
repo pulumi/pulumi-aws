@@ -33,14 +33,14 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayArgs extends com.pu
     }
 
     /**
-     * Outbound authentication configuration. See `outboundAuth` below.
+     * Outbound authentication configuration. See `outboundAuth` Block below.
      * 
      */
     @Import(name="outboundAuth")
     private @Nullable Output<AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs> outboundAuth;
 
     /**
-     * @return Outbound authentication configuration. See `outboundAuth` below.
+     * @return Outbound authentication configuration. See `outboundAuth` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs>> outboundAuth() {
@@ -94,7 +94,7 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayArgs extends com.pu
         }
 
         /**
-         * @param outboundAuth Outbound authentication configuration. See `outboundAuth` below.
+         * @param outboundAuth Outbound authentication configuration. See `outboundAuth` Block below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayArgs extends com.pu
         }
 
         /**
-         * @param outboundAuth Outbound authentication configuration. See `outboundAuth` below.
+         * @param outboundAuth Outbound authentication configuration. See `outboundAuth` Block below.
          * 
          * @return builder
          * 

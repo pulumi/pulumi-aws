@@ -23,14 +23,14 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     public static final PoolArgs Empty = new PoolArgs();
 
     /**
-     * Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+     * Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
      * 
      */
     @Import(name="applicationSettings")
     private @Nullable Output<List<PoolApplicationSettingArgs>> applicationSettings;
 
     /**
-     * @return Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+     * @return Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
      * 
      */
     public Optional<Output<List<PoolApplicationSettingArgs>>> applicationSettings() {
@@ -162,14 +162,14 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+     * Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
      * 
      */
     @Import(name="timeoutSettings")
     private @Nullable Output<List<PoolTimeoutSettingArgs>> timeoutSettings;
 
     /**
-     * @return Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+     * @return Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
      * 
      */
     public Optional<Output<List<PoolTimeoutSettingArgs>>> timeoutSettings() {
@@ -218,7 +218,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationSettings Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+         * @param applicationSettings Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationSettings Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+         * @param applicationSettings Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationSettings Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+         * @param applicationSettings Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeoutSettings Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+         * @param timeoutSettings Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeoutSettings Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+         * @param timeoutSettings Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeoutSettings Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+         * @param timeoutSettings Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
          * 
          * @return builder
          * 

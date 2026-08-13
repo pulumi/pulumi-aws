@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepArcRoutingControlConfigGetArgs>? _arcRoutingControlConfigs;
 
         /// <summary>
-        /// Configuration for ARC routing control. See ARC Routing Control Config below.
+        /// Configuration for ARC routing control. See `ArcRoutingControlConfig` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepArcRoutingControlConfigGetArgs> ArcRoutingControlConfigs
         {
@@ -24,11 +24,35 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
             set => _arcRoutingControlConfigs = value;
         }
 
+        [Input("auroraProvisionedScalingConfigs")]
+        private InputList<Inputs.PlanWorkflowStepAuroraProvisionedScalingConfigGetArgs>? _auroraProvisionedScalingConfigs;
+
+        /// <summary>
+        /// Configuration for Aurora provisioned scaling. See `AuroraProvisionedScalingConfig` Block for details.
+        /// </summary>
+        public InputList<Inputs.PlanWorkflowStepAuroraProvisionedScalingConfigGetArgs> AuroraProvisionedScalingConfigs
+        {
+            get => _auroraProvisionedScalingConfigs ?? (_auroraProvisionedScalingConfigs = new InputList<Inputs.PlanWorkflowStepAuroraProvisionedScalingConfigGetArgs>());
+            set => _auroraProvisionedScalingConfigs = value;
+        }
+
+        [Input("auroraServerlessScalingConfigs")]
+        private InputList<Inputs.PlanWorkflowStepAuroraServerlessScalingConfigGetArgs>? _auroraServerlessScalingConfigs;
+
+        /// <summary>
+        /// Configuration for Aurora Serverless scaling. See `AuroraServerlessScalingConfig` Block for details.
+        /// </summary>
+        public InputList<Inputs.PlanWorkflowStepAuroraServerlessScalingConfigGetArgs> AuroraServerlessScalingConfigs
+        {
+            get => _auroraServerlessScalingConfigs ?? (_auroraServerlessScalingConfigs = new InputList<Inputs.PlanWorkflowStepAuroraServerlessScalingConfigGetArgs>());
+            set => _auroraServerlessScalingConfigs = value;
+        }
+
         [Input("customActionLambdaConfigs")]
         private InputList<Inputs.PlanWorkflowStepCustomActionLambdaConfigGetArgs>? _customActionLambdaConfigs;
 
         /// <summary>
-        /// Configuration for Lambda function execution. See Custom Action Lambda Config below.
+        /// Configuration for Lambda function execution. See `CustomActionLambdaConfig` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepCustomActionLambdaConfigGetArgs> CustomActionLambdaConfigs
         {
@@ -46,7 +70,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepDocumentDbConfigGetArgs>? _documentDbConfigs;
 
         /// <summary>
-        /// Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+        /// Configuration for DocumentDB global cluster operations. See `DocumentDbConfig` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepDocumentDbConfigGetArgs> DocumentDbConfigs
         {
@@ -58,7 +82,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepEc2AsgCapacityIncreaseConfigGetArgs>? _ec2AsgCapacityIncreaseConfigs;
 
         /// <summary>
-        /// Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+        /// Configuration for EC2 Auto Scaling group capacity increase. See `Ec2AsgCapacityIncreaseConfig` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepEc2AsgCapacityIncreaseConfigGetArgs> Ec2AsgCapacityIncreaseConfigs
         {
@@ -70,7 +94,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepEcsCapacityIncreaseConfigGetArgs>? _ecsCapacityIncreaseConfigs;
 
         /// <summary>
-        /// Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+        /// Configuration for ECS service capacity increase. See `EcsCapacityIncreaseConfig` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepEcsCapacityIncreaseConfigGetArgs> EcsCapacityIncreaseConfigs
         {
@@ -82,7 +106,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepEksResourceScalingConfigGetArgs>? _eksResourceScalingConfigs;
 
         /// <summary>
-        /// Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+        /// Configuration for EKS resource scaling. See `EksResourceScalingConfig` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepEksResourceScalingConfigGetArgs> EksResourceScalingConfigs
         {
@@ -94,7 +118,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepExecutionApprovalConfigGetArgs>? _executionApprovalConfigs;
 
         /// <summary>
-        /// Configuration for manual approval steps. See Execution Approval Config below.
+        /// Configuration for manual approval steps. See `ExecutionApprovalConfig` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepExecutionApprovalConfigGetArgs> ExecutionApprovalConfigs
         {
@@ -112,12 +136,24 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepGlobalAuroraConfigGetArgs>? _globalAuroraConfigs;
 
         /// <summary>
-        /// Configuration for Aurora Global Database operations. See Global Aurora Config below.
+        /// Configuration for Aurora Global Database operations. See `GlobalAuroraConfig` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepGlobalAuroraConfigGetArgs> GlobalAuroraConfigs
         {
             get => _globalAuroraConfigs ?? (_globalAuroraConfigs = new InputList<Inputs.PlanWorkflowStepGlobalAuroraConfigGetArgs>());
             set => _globalAuroraConfigs = value;
+        }
+
+        [Input("lambdaEventSourceMappingConfigs")]
+        private InputList<Inputs.PlanWorkflowStepLambdaEventSourceMappingConfigGetArgs>? _lambdaEventSourceMappingConfigs;
+
+        /// <summary>
+        /// Configuration for Lambda event source mapping operations. See `LambdaEventSourceMappingConfig` Block for details.
+        /// </summary>
+        public InputList<Inputs.PlanWorkflowStepLambdaEventSourceMappingConfigGetArgs> LambdaEventSourceMappingConfigs
+        {
+            get => _lambdaEventSourceMappingConfigs ?? (_lambdaEventSourceMappingConfigs = new InputList<Inputs.PlanWorkflowStepLambdaEventSourceMappingConfigGetArgs>());
+            set => _lambdaEventSourceMappingConfigs = value;
         }
 
         /// <summary>
@@ -126,11 +162,23 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("neptuneGlobalDatabaseConfigs")]
+        private InputList<Inputs.PlanWorkflowStepNeptuneGlobalDatabaseConfigGetArgs>? _neptuneGlobalDatabaseConfigs;
+
+        /// <summary>
+        /// Configuration for Neptune global database operations. See `NeptuneGlobalDatabaseConfig` Block for details.
+        /// </summary>
+        public InputList<Inputs.PlanWorkflowStepNeptuneGlobalDatabaseConfigGetArgs> NeptuneGlobalDatabaseConfigs
+        {
+            get => _neptuneGlobalDatabaseConfigs ?? (_neptuneGlobalDatabaseConfigs = new InputList<Inputs.PlanWorkflowStepNeptuneGlobalDatabaseConfigGetArgs>());
+            set => _neptuneGlobalDatabaseConfigs = value;
+        }
+
         [Input("parallelConfigs")]
         private InputList<Inputs.PlanWorkflowStepParallelConfigGetArgs>? _parallelConfigs;
 
         /// <summary>
-        /// Configuration for parallel execution of multiple steps. See Parallel Config below.
+        /// Configuration for parallel execution of multiple steps. See `ParallelConfig` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepParallelConfigGetArgs> ParallelConfigs
         {
@@ -142,7 +190,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigGetArgs>? _rdsCreateCrossRegionReadReplicaConfigs;
 
         /// <summary>
-        /// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+        /// Configuration for creating cross-region RDS read replicas. See `RdsCreateCrossRegionReadReplicaConfig` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigGetArgs> RdsCreateCrossRegionReadReplicaConfigs
         {
@@ -154,7 +202,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepRdsPromoteReadReplicaConfigGetArgs>? _rdsPromoteReadReplicaConfigs;
 
         /// <summary>
-        /// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+        /// Configuration for promoting RDS read replicas. See `RdsPromoteReadReplicaConfig` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepRdsPromoteReadReplicaConfigGetArgs> RdsPromoteReadReplicaConfigs
         {
@@ -164,6 +212,10 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
 
         [Input("regionSwitchPlanConfigs")]
         private InputList<Inputs.PlanWorkflowStepRegionSwitchPlanConfigGetArgs>? _regionSwitchPlanConfigs;
+
+        /// <summary>
+        /// Configuration for executing a nested region switch plan. See `RegionSwitchPlanConfig` Block for details.
+        /// </summary>
         public InputList<Inputs.PlanWorkflowStepRegionSwitchPlanConfigGetArgs> RegionSwitchPlanConfigs
         {
             get => _regionSwitchPlanConfigs ?? (_regionSwitchPlanConfigs = new InputList<Inputs.PlanWorkflowStepRegionSwitchPlanConfigGetArgs>());
@@ -174,7 +226,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepRoute53HealthCheckConfigGetArgs>? _route53HealthCheckConfigs;
 
         /// <summary>
-        /// Configuration for Route53 health check operations. See Route53 Health Check Config below.
+        /// Configuration for Route53 health check operations. See `Route53HealthCheckConfig` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepRoute53HealthCheckConfigGetArgs> Route53HealthCheckConfigs
         {

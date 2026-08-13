@@ -11,33 +11,89 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerHealthCheck {
+    /**
+     * @return Number of consecutive successful health checks that must occur before declaring listener healthy.
+     * 
+     */
     private Integer healthyThreshold;
+    /**
+     * @return Time period in milliseconds between each health check execution.
+     * 
+     */
     private Integer intervalMillis;
+    /**
+     * @return File path to write access logs to.
+     * 
+     */
     private String path;
+    /**
+     * @return Port used for the port mapping.
+     * 
+     */
     private Integer port;
+    /**
+     * @return Protocol used for the port mapping.
+     * 
+     */
     private String protocol;
+    /**
+     * @return Amount of time to wait when receiving a response from the health check, in milliseconds.
+     * 
+     */
     private Integer timeoutMillis;
+    /**
+     * @return Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
+     * 
+     */
     private Integer unhealthyThreshold;
 
     private GetVirtualNodeSpecListenerHealthCheck() {}
+    /**
+     * @return Number of consecutive successful health checks that must occur before declaring listener healthy.
+     * 
+     */
     public Integer healthyThreshold() {
         return this.healthyThreshold;
     }
+    /**
+     * @return Time period in milliseconds between each health check execution.
+     * 
+     */
     public Integer intervalMillis() {
         return this.intervalMillis;
     }
+    /**
+     * @return File path to write access logs to.
+     * 
+     */
     public String path() {
         return this.path;
     }
+    /**
+     * @return Port used for the port mapping.
+     * 
+     */
     public Integer port() {
         return this.port;
     }
+    /**
+     * @return Protocol used for the port mapping.
+     * 
+     */
     public String protocol() {
         return this.protocol;
     }
+    /**
+     * @return Amount of time to wait when receiving a response from the health check, in milliseconds.
+     * 
+     */
     public Integer timeoutMillis() {
         return this.timeoutMillis;
     }
+    /**
+     * @return Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
+     * 
+     */
     public Integer unhealthyThreshold() {
         return this.unhealthyThreshold;
     }

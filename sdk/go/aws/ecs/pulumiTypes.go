@@ -8180,8 +8180,10 @@ func (o DaemonTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type ExpressGatewayServiceIngressPath struct {
+	// Access type for the ingress path.
 	AccessType string `pulumi:"accessType"`
-	Endpoint   string `pulumi:"endpoint"`
+	// Endpoint for the ingress path.
+	Endpoint string `pulumi:"endpoint"`
 }
 
 // ExpressGatewayServiceIngressPathInput is an input type that accepts ExpressGatewayServiceIngressPathArgs and ExpressGatewayServiceIngressPathOutput values.
@@ -8196,8 +8198,10 @@ type ExpressGatewayServiceIngressPathInput interface {
 }
 
 type ExpressGatewayServiceIngressPathArgs struct {
+	// Access type for the ingress path.
 	AccessType pulumi.StringInput `pulumi:"accessType"`
-	Endpoint   pulumi.StringInput `pulumi:"endpoint"`
+	// Endpoint for the ingress path.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 }
 
 func (ExpressGatewayServiceIngressPathArgs) ElementType() reflect.Type {
@@ -8251,10 +8255,12 @@ func (o ExpressGatewayServiceIngressPathOutput) ToExpressGatewayServiceIngressPa
 	return o
 }
 
+// Access type for the ingress path.
 func (o ExpressGatewayServiceIngressPathOutput) AccessType() pulumi.StringOutput {
 	return o.ApplyT(func(v ExpressGatewayServiceIngressPath) string { return v.AccessType }).(pulumi.StringOutput)
 }
 
+// Endpoint for the ingress path.
 func (o ExpressGatewayServiceIngressPathOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ExpressGatewayServiceIngressPath) string { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -13845,7 +13851,7 @@ func (o ServiceVolumeConfigurationManagedEbsVolumePtrOutput) VolumeType() pulumi
 }
 
 type ServiceVolumeConfigurationManagedEbsVolumeTagSpecification struct {
-	// Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+	// Whether to propagate the tags from the task definition to the Amazon EBS volume.
 	PropagateTags *string `pulumi:"propagateTags"`
 	// Type of volume resource. Valid values, `volume`.
 	ResourceType string `pulumi:"resourceType"`
@@ -13865,7 +13871,7 @@ type ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationInput interface {
 }
 
 type ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs struct {
-	// Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+	// Whether to propagate the tags from the task definition to the Amazon EBS volume.
 	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
 	// Type of volume resource. Valid values, `volume`.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
@@ -13924,7 +13930,7 @@ func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput) ToServ
 	return o
 }
 
-// Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+// Whether to propagate the tags from the task definition to the Amazon EBS volume.
 func (o ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationOutput) PropagateTags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceVolumeConfigurationManagedEbsVolumeTagSpecification) *string { return v.PropagateTags }).(pulumi.StringPtrOutput)
 }
@@ -19411,13 +19417,20 @@ func (o GetTaskDefinitionRuntimePlatformArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetTaskDefinitionVolume struct {
-	ConfigureAtLaunch                        bool                                                             `pulumi:"configureAtLaunch"`
-	DockerVolumeConfigurations               []GetTaskDefinitionVolumeDockerVolumeConfiguration               `pulumi:"dockerVolumeConfigurations"`
-	EfsVolumeConfigurations                  []GetTaskDefinitionVolumeEfsVolumeConfiguration                  `pulumi:"efsVolumeConfigurations"`
+	// Whether the volume is configured at launch time.
+	ConfigureAtLaunch bool `pulumi:"configureAtLaunch"`
+	// Configuration block for a Docker volume. See `dockerVolumeConfiguration` Block for details.
+	DockerVolumeConfigurations []GetTaskDefinitionVolumeDockerVolumeConfiguration `pulumi:"dockerVolumeConfigurations"`
+	// Configuration block for an EFS volume. See `efsVolumeConfiguration` Block for details.
+	EfsVolumeConfigurations []GetTaskDefinitionVolumeEfsVolumeConfiguration `pulumi:"efsVolumeConfigurations"`
+	// Configuration block for an FSx for Windows File Server volume. See `fsxWindowsFileServerVolumeConfiguration` Block for details.
 	FsxWindowsFileServerVolumeConfigurations []GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration `pulumi:"fsxWindowsFileServerVolumeConfigurations"`
-	HostPath                                 string                                                           `pulumi:"hostPath"`
-	Name                                     string                                                           `pulumi:"name"`
-	S3filesVolumeConfigurations              []GetTaskDefinitionVolumeS3filesVolumeConfiguration              `pulumi:"s3filesVolumeConfigurations"`
+	// Path on the host container instance that is presented to the container.
+	HostPath string `pulumi:"hostPath"`
+	// Name of the volume.
+	Name string `pulumi:"name"`
+	// Configuration block for an S3 Files volume. See `s3filesVolumeConfiguration` Block for details.
+	S3filesVolumeConfigurations []GetTaskDefinitionVolumeS3filesVolumeConfiguration `pulumi:"s3filesVolumeConfigurations"`
 }
 
 // GetTaskDefinitionVolumeInput is an input type that accepts GetTaskDefinitionVolumeArgs and GetTaskDefinitionVolumeOutput values.
@@ -19432,13 +19445,20 @@ type GetTaskDefinitionVolumeInput interface {
 }
 
 type GetTaskDefinitionVolumeArgs struct {
-	ConfigureAtLaunch                        pulumi.BoolInput                                                         `pulumi:"configureAtLaunch"`
-	DockerVolumeConfigurations               GetTaskDefinitionVolumeDockerVolumeConfigurationArrayInput               `pulumi:"dockerVolumeConfigurations"`
-	EfsVolumeConfigurations                  GetTaskDefinitionVolumeEfsVolumeConfigurationArrayInput                  `pulumi:"efsVolumeConfigurations"`
+	// Whether the volume is configured at launch time.
+	ConfigureAtLaunch pulumi.BoolInput `pulumi:"configureAtLaunch"`
+	// Configuration block for a Docker volume. See `dockerVolumeConfiguration` Block for details.
+	DockerVolumeConfigurations GetTaskDefinitionVolumeDockerVolumeConfigurationArrayInput `pulumi:"dockerVolumeConfigurations"`
+	// Configuration block for an EFS volume. See `efsVolumeConfiguration` Block for details.
+	EfsVolumeConfigurations GetTaskDefinitionVolumeEfsVolumeConfigurationArrayInput `pulumi:"efsVolumeConfigurations"`
+	// Configuration block for an FSx for Windows File Server volume. See `fsxWindowsFileServerVolumeConfiguration` Block for details.
 	FsxWindowsFileServerVolumeConfigurations GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayInput `pulumi:"fsxWindowsFileServerVolumeConfigurations"`
-	HostPath                                 pulumi.StringInput                                                       `pulumi:"hostPath"`
-	Name                                     pulumi.StringInput                                                       `pulumi:"name"`
-	S3filesVolumeConfigurations              GetTaskDefinitionVolumeS3filesVolumeConfigurationArrayInput              `pulumi:"s3filesVolumeConfigurations"`
+	// Path on the host container instance that is presented to the container.
+	HostPath pulumi.StringInput `pulumi:"hostPath"`
+	// Name of the volume.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Configuration block for an S3 Files volume. See `s3filesVolumeConfiguration` Block for details.
+	S3filesVolumeConfigurations GetTaskDefinitionVolumeS3filesVolumeConfigurationArrayInput `pulumi:"s3filesVolumeConfigurations"`
 }
 
 func (GetTaskDefinitionVolumeArgs) ElementType() reflect.Type {
@@ -19492,36 +19512,43 @@ func (o GetTaskDefinitionVolumeOutput) ToGetTaskDefinitionVolumeOutputWithContex
 	return o
 }
 
+// Whether the volume is configured at launch time.
 func (o GetTaskDefinitionVolumeOutput) ConfigureAtLaunch() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolume) bool { return v.ConfigureAtLaunch }).(pulumi.BoolOutput)
 }
 
+// Configuration block for a Docker volume. See `dockerVolumeConfiguration` Block for details.
 func (o GetTaskDefinitionVolumeOutput) DockerVolumeConfigurations() GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolume) []GetTaskDefinitionVolumeDockerVolumeConfiguration {
 		return v.DockerVolumeConfigurations
 	}).(GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput)
 }
 
+// Configuration block for an EFS volume. See `efsVolumeConfiguration` Block for details.
 func (o GetTaskDefinitionVolumeOutput) EfsVolumeConfigurations() GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolume) []GetTaskDefinitionVolumeEfsVolumeConfiguration {
 		return v.EfsVolumeConfigurations
 	}).(GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput)
 }
 
+// Configuration block for an FSx for Windows File Server volume. See `fsxWindowsFileServerVolumeConfiguration` Block for details.
 func (o GetTaskDefinitionVolumeOutput) FsxWindowsFileServerVolumeConfigurations() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolume) []GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
 		return v.FsxWindowsFileServerVolumeConfigurations
 	}).(GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutput)
 }
 
+// Path on the host container instance that is presented to the container.
 func (o GetTaskDefinitionVolumeOutput) HostPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolume) string { return v.HostPath }).(pulumi.StringOutput)
 }
 
+// Name of the volume.
 func (o GetTaskDefinitionVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolume) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Configuration block for an S3 Files volume. See `s3filesVolumeConfiguration` Block for details.
 func (o GetTaskDefinitionVolumeOutput) S3filesVolumeConfigurations() GetTaskDefinitionVolumeS3filesVolumeConfigurationArrayOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolume) []GetTaskDefinitionVolumeS3filesVolumeConfiguration {
 		return v.S3filesVolumeConfigurations
@@ -19549,11 +19576,16 @@ func (o GetTaskDefinitionVolumeArrayOutput) Index(i pulumi.IntInput) GetTaskDefi
 }
 
 type GetTaskDefinitionVolumeDockerVolumeConfiguration struct {
-	Autoprovision bool              `pulumi:"autoprovision"`
-	Driver        string            `pulumi:"driver"`
-	DriverOpts    map[string]string `pulumi:"driverOpts"`
-	Labels        map[string]string `pulumi:"labels"`
-	Scope         string            `pulumi:"scope"`
+	// Whether the Docker volume is created if it does not already exist.
+	Autoprovision bool `pulumi:"autoprovision"`
+	// Docker volume driver used.
+	Driver string `pulumi:"driver"`
+	// Map of Docker driver-specific options.
+	DriverOpts map[string]string `pulumi:"driverOpts"`
+	// Map of custom metadata added to the Docker volume.
+	Labels map[string]string `pulumi:"labels"`
+	// Scope for the Docker volume, either `task` or `shared`.
+	Scope string `pulumi:"scope"`
 }
 
 // GetTaskDefinitionVolumeDockerVolumeConfigurationInput is an input type that accepts GetTaskDefinitionVolumeDockerVolumeConfigurationArgs and GetTaskDefinitionVolumeDockerVolumeConfigurationOutput values.
@@ -19568,11 +19600,16 @@ type GetTaskDefinitionVolumeDockerVolumeConfigurationInput interface {
 }
 
 type GetTaskDefinitionVolumeDockerVolumeConfigurationArgs struct {
-	Autoprovision pulumi.BoolInput      `pulumi:"autoprovision"`
-	Driver        pulumi.StringInput    `pulumi:"driver"`
-	DriverOpts    pulumi.StringMapInput `pulumi:"driverOpts"`
-	Labels        pulumi.StringMapInput `pulumi:"labels"`
-	Scope         pulumi.StringInput    `pulumi:"scope"`
+	// Whether the Docker volume is created if it does not already exist.
+	Autoprovision pulumi.BoolInput `pulumi:"autoprovision"`
+	// Docker volume driver used.
+	Driver pulumi.StringInput `pulumi:"driver"`
+	// Map of Docker driver-specific options.
+	DriverOpts pulumi.StringMapInput `pulumi:"driverOpts"`
+	// Map of custom metadata added to the Docker volume.
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+	// Scope for the Docker volume, either `task` or `shared`.
+	Scope pulumi.StringInput `pulumi:"scope"`
 }
 
 func (GetTaskDefinitionVolumeDockerVolumeConfigurationArgs) ElementType() reflect.Type {
@@ -19626,22 +19663,27 @@ func (o GetTaskDefinitionVolumeDockerVolumeConfigurationOutput) ToGetTaskDefinit
 	return o
 }
 
+// Whether the Docker volume is created if it does not already exist.
 func (o GetTaskDefinitionVolumeDockerVolumeConfigurationOutput) Autoprovision() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeDockerVolumeConfiguration) bool { return v.Autoprovision }).(pulumi.BoolOutput)
 }
 
+// Docker volume driver used.
 func (o GetTaskDefinitionVolumeDockerVolumeConfigurationOutput) Driver() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeDockerVolumeConfiguration) string { return v.Driver }).(pulumi.StringOutput)
 }
 
+// Map of Docker driver-specific options.
 func (o GetTaskDefinitionVolumeDockerVolumeConfigurationOutput) DriverOpts() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeDockerVolumeConfiguration) map[string]string { return v.DriverOpts }).(pulumi.StringMapOutput)
 }
 
+// Map of custom metadata added to the Docker volume.
 func (o GetTaskDefinitionVolumeDockerVolumeConfigurationOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeDockerVolumeConfiguration) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
 }
 
+// Scope for the Docker volume, either `task` or `shared`.
 func (o GetTaskDefinitionVolumeDockerVolumeConfigurationOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeDockerVolumeConfiguration) string { return v.Scope }).(pulumi.StringOutput)
 }
@@ -19667,11 +19709,16 @@ func (o GetTaskDefinitionVolumeDockerVolumeConfigurationArrayOutput) Index(i pul
 }
 
 type GetTaskDefinitionVolumeEfsVolumeConfiguration struct {
-	AuthorizationConfigs  []GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig `pulumi:"authorizationConfigs"`
-	FileSystemId          string                                                             `pulumi:"fileSystemId"`
-	RootDirectory         string                                                             `pulumi:"rootDirectory"`
-	TransitEncryption     string                                                             `pulumi:"transitEncryption"`
-	TransitEncryptionPort int                                                                `pulumi:"transitEncryptionPort"`
+	// Configuration block for authorization for the Amazon FSx for Windows File Server file system. See `fsx_windows_file_server_volume_configuration.authorization_config` Block for details.
+	AuthorizationConfigs []GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig `pulumi:"authorizationConfigs"`
+	// Amazon FSx for Windows File Server file system ID used.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// Directory within the Amazon S3 Files file system to mount as the root directory.
+	RootDirectory string `pulumi:"rootDirectory"`
+	// Whether encryption is enabled for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
+	TransitEncryption string `pulumi:"transitEncryption"`
+	// Port used for sending encrypted data between the ECS host and the S3 Files file system.
+	TransitEncryptionPort int `pulumi:"transitEncryptionPort"`
 }
 
 // GetTaskDefinitionVolumeEfsVolumeConfigurationInput is an input type that accepts GetTaskDefinitionVolumeEfsVolumeConfigurationArgs and GetTaskDefinitionVolumeEfsVolumeConfigurationOutput values.
@@ -19686,11 +19733,16 @@ type GetTaskDefinitionVolumeEfsVolumeConfigurationInput interface {
 }
 
 type GetTaskDefinitionVolumeEfsVolumeConfigurationArgs struct {
-	AuthorizationConfigs  GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayInput `pulumi:"authorizationConfigs"`
-	FileSystemId          pulumi.StringInput                                                         `pulumi:"fileSystemId"`
-	RootDirectory         pulumi.StringInput                                                         `pulumi:"rootDirectory"`
-	TransitEncryption     pulumi.StringInput                                                         `pulumi:"transitEncryption"`
-	TransitEncryptionPort pulumi.IntInput                                                            `pulumi:"transitEncryptionPort"`
+	// Configuration block for authorization for the Amazon FSx for Windows File Server file system. See `fsx_windows_file_server_volume_configuration.authorization_config` Block for details.
+	AuthorizationConfigs GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayInput `pulumi:"authorizationConfigs"`
+	// Amazon FSx for Windows File Server file system ID used.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// Directory within the Amazon S3 Files file system to mount as the root directory.
+	RootDirectory pulumi.StringInput `pulumi:"rootDirectory"`
+	// Whether encryption is enabled for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
+	TransitEncryption pulumi.StringInput `pulumi:"transitEncryption"`
+	// Port used for sending encrypted data between the ECS host and the S3 Files file system.
+	TransitEncryptionPort pulumi.IntInput `pulumi:"transitEncryptionPort"`
 }
 
 func (GetTaskDefinitionVolumeEfsVolumeConfigurationArgs) ElementType() reflect.Type {
@@ -19744,24 +19796,29 @@ func (o GetTaskDefinitionVolumeEfsVolumeConfigurationOutput) ToGetTaskDefinition
 	return o
 }
 
+// Configuration block for authorization for the Amazon FSx for Windows File Server file system. See `fsx_windows_file_server_volume_configuration.authorization_config` Block for details.
 func (o GetTaskDefinitionVolumeEfsVolumeConfigurationOutput) AuthorizationConfigs() GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeEfsVolumeConfiguration) []GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
 		return v.AuthorizationConfigs
 	}).(GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput)
 }
 
+// Amazon FSx for Windows File Server file system ID used.
 func (o GetTaskDefinitionVolumeEfsVolumeConfigurationOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeEfsVolumeConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
+// Directory within the Amazon S3 Files file system to mount as the root directory.
 func (o GetTaskDefinitionVolumeEfsVolumeConfigurationOutput) RootDirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeEfsVolumeConfiguration) string { return v.RootDirectory }).(pulumi.StringOutput)
 }
 
+// Whether encryption is enabled for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
 func (o GetTaskDefinitionVolumeEfsVolumeConfigurationOutput) TransitEncryption() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeEfsVolumeConfiguration) string { return v.TransitEncryption }).(pulumi.StringOutput)
 }
 
+// Port used for sending encrypted data between the ECS host and the S3 Files file system.
 func (o GetTaskDefinitionVolumeEfsVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeEfsVolumeConfiguration) int { return v.TransitEncryptionPort }).(pulumi.IntOutput)
 }
@@ -19787,8 +19844,10 @@ func (o GetTaskDefinitionVolumeEfsVolumeConfigurationArrayOutput) Index(i pulumi
 }
 
 type GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig struct {
+	// Access point ID used.
 	AccessPointId string `pulumi:"accessPointId"`
-	Iam           string `pulumi:"iam"`
+	// Whether the Amazon ECS task IAM role defined in a task definition is used when mounting the Amazon EFS file system.
+	Iam string `pulumi:"iam"`
 }
 
 // GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigInput is an input type that accepts GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs and GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput values.
@@ -19803,8 +19862,10 @@ type GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigInput inter
 }
 
 type GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs struct {
+	// Access point ID used.
 	AccessPointId pulumi.StringInput `pulumi:"accessPointId"`
-	Iam           pulumi.StringInput `pulumi:"iam"`
+	// Whether the Amazon ECS task IAM role defined in a task definition is used when mounting the Amazon EFS file system.
+	Iam pulumi.StringInput `pulumi:"iam"`
 }
 
 func (GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ElementType() reflect.Type {
@@ -19858,12 +19919,14 @@ func (o GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) 
 	return o
 }
 
+// Access point ID used.
 func (o GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) AccessPointId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) string {
 		return v.AccessPointId
 	}).(pulumi.StringOutput)
 }
 
+// Whether the Amazon ECS task IAM role defined in a task definition is used when mounting the Amazon EFS file system.
 func (o GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) Iam() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) string { return v.Iam }).(pulumi.StringOutput)
 }
@@ -19889,9 +19952,12 @@ func (o GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrayOut
 }
 
 type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration struct {
+	// Configuration block for authorization for the Amazon FSx for Windows File Server file system. See `fsx_windows_file_server_volume_configuration.authorization_config` Block for details.
 	AuthorizationConfigs []GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig `pulumi:"authorizationConfigs"`
-	FileSystemId         string                                                                              `pulumi:"fileSystemId"`
-	RootDirectory        string                                                                              `pulumi:"rootDirectory"`
+	// Amazon FSx for Windows File Server file system ID used.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// Directory within the Amazon S3 Files file system to mount as the root directory.
+	RootDirectory string `pulumi:"rootDirectory"`
 }
 
 // GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationInput is an input type that accepts GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs and GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput values.
@@ -19906,9 +19972,12 @@ type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationInput interfa
 }
 
 type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs struct {
+	// Configuration block for authorization for the Amazon FSx for Windows File Server file system. See `fsx_windows_file_server_volume_configuration.authorization_config` Block for details.
 	AuthorizationConfigs GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayInput `pulumi:"authorizationConfigs"`
-	FileSystemId         pulumi.StringInput                                                                          `pulumi:"fileSystemId"`
-	RootDirectory        pulumi.StringInput                                                                          `pulumi:"rootDirectory"`
+	// Amazon FSx for Windows File Server file system ID used.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// Directory within the Amazon S3 Files file system to mount as the root directory.
+	RootDirectory pulumi.StringInput `pulumi:"rootDirectory"`
 }
 
 func (GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs) ElementType() reflect.Type {
@@ -19962,16 +20031,19 @@ func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) To
 	return o
 }
 
+// Configuration block for authorization for the Amazon FSx for Windows File Server file system. See `fsx_windows_file_server_volume_configuration.authorization_config` Block for details.
 func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) AuthorizationConfigs() GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) []GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
 		return v.AuthorizationConfigs
 	}).(GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrayOutput)
 }
 
+// Amazon FSx for Windows File Server file system ID used.
 func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
+// Directory within the Amazon S3 Files file system to mount as the root directory.
 func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) RootDirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) string { return v.RootDirectory }).(pulumi.StringOutput)
 }
@@ -19997,8 +20069,10 @@ func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrayOutpu
 }
 
 type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig struct {
+	// Authorization credential option used.
 	CredentialsParameter string `pulumi:"credentialsParameter"`
-	Domain               string `pulumi:"domain"`
+	// Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+	Domain string `pulumi:"domain"`
 }
 
 // GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigInput is an input type that accepts GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs and GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput values.
@@ -20013,8 +20087,10 @@ type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorization
 }
 
 type GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs struct {
+	// Authorization credential option used.
 	CredentialsParameter pulumi.StringInput `pulumi:"credentialsParameter"`
-	Domain               pulumi.StringInput `pulumi:"domain"`
+	// Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+	Domain pulumi.StringInput `pulumi:"domain"`
 }
 
 func (GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs) ElementType() reflect.Type {
@@ -20068,12 +20144,14 @@ func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizat
 	return o
 }
 
+// Authorization credential option used.
 func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) CredentialsParameter() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) string {
 		return v.CredentialsParameter
 	}).(pulumi.StringOutput)
 }
 
+// Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
 func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) string {
 		return v.Domain
@@ -20101,10 +20179,14 @@ func (o GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizat
 }
 
 type GetTaskDefinitionVolumeS3filesVolumeConfiguration struct {
-	AccessPointArn        string `pulumi:"accessPointArn"`
-	FileSystemArn         string `pulumi:"fileSystemArn"`
-	RootDirectory         string `pulumi:"rootDirectory"`
-	TransitEncryptionPort int    `pulumi:"transitEncryptionPort"`
+	// Full ARN of the S3 Files access point used.
+	AccessPointArn string `pulumi:"accessPointArn"`
+	// Full ARN of the S3 Files file system mounted.
+	FileSystemArn string `pulumi:"fileSystemArn"`
+	// Directory within the Amazon S3 Files file system to mount as the root directory.
+	RootDirectory string `pulumi:"rootDirectory"`
+	// Port used for sending encrypted data between the ECS host and the S3 Files file system.
+	TransitEncryptionPort int `pulumi:"transitEncryptionPort"`
 }
 
 // GetTaskDefinitionVolumeS3filesVolumeConfigurationInput is an input type that accepts GetTaskDefinitionVolumeS3filesVolumeConfigurationArgs and GetTaskDefinitionVolumeS3filesVolumeConfigurationOutput values.
@@ -20119,10 +20201,14 @@ type GetTaskDefinitionVolumeS3filesVolumeConfigurationInput interface {
 }
 
 type GetTaskDefinitionVolumeS3filesVolumeConfigurationArgs struct {
-	AccessPointArn        pulumi.StringInput `pulumi:"accessPointArn"`
-	FileSystemArn         pulumi.StringInput `pulumi:"fileSystemArn"`
-	RootDirectory         pulumi.StringInput `pulumi:"rootDirectory"`
-	TransitEncryptionPort pulumi.IntInput    `pulumi:"transitEncryptionPort"`
+	// Full ARN of the S3 Files access point used.
+	AccessPointArn pulumi.StringInput `pulumi:"accessPointArn"`
+	// Full ARN of the S3 Files file system mounted.
+	FileSystemArn pulumi.StringInput `pulumi:"fileSystemArn"`
+	// Directory within the Amazon S3 Files file system to mount as the root directory.
+	RootDirectory pulumi.StringInput `pulumi:"rootDirectory"`
+	// Port used for sending encrypted data between the ECS host and the S3 Files file system.
+	TransitEncryptionPort pulumi.IntInput `pulumi:"transitEncryptionPort"`
 }
 
 func (GetTaskDefinitionVolumeS3filesVolumeConfigurationArgs) ElementType() reflect.Type {
@@ -20176,18 +20262,22 @@ func (o GetTaskDefinitionVolumeS3filesVolumeConfigurationOutput) ToGetTaskDefini
 	return o
 }
 
+// Full ARN of the S3 Files access point used.
 func (o GetTaskDefinitionVolumeS3filesVolumeConfigurationOutput) AccessPointArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeS3filesVolumeConfiguration) string { return v.AccessPointArn }).(pulumi.StringOutput)
 }
 
+// Full ARN of the S3 Files file system mounted.
 func (o GetTaskDefinitionVolumeS3filesVolumeConfigurationOutput) FileSystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeS3filesVolumeConfiguration) string { return v.FileSystemArn }).(pulumi.StringOutput)
 }
 
+// Directory within the Amazon S3 Files file system to mount as the root directory.
 func (o GetTaskDefinitionVolumeS3filesVolumeConfigurationOutput) RootDirectory() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeS3filesVolumeConfiguration) string { return v.RootDirectory }).(pulumi.StringOutput)
 }
 
+// Port used for sending encrypted data between the ECS host and the S3 Files file system.
 func (o GetTaskDefinitionVolumeS3filesVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTaskDefinitionVolumeS3filesVolumeConfiguration) int { return v.TransitEncryptionPort }).(pulumi.IntOutput)
 }

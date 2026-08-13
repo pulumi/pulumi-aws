@@ -414,7 +414,7 @@ func (o ListenerDefaultActionForwardArrayOutput) Index(i pulumi.IntInput) Listen
 type ListenerDefaultActionForwardTargetGroup struct {
 	// ID or Amazon Resource Name (ARN) of the target group.
 	TargetGroupIdentifier *string `pulumi:"targetGroupIdentifier"`
-	// Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+	// Weight that controls how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -432,7 +432,7 @@ type ListenerDefaultActionForwardTargetGroupInput interface {
 type ListenerDefaultActionForwardTargetGroupArgs struct {
 	// ID or Amazon Resource Name (ARN) of the target group.
 	TargetGroupIdentifier pulumi.StringPtrInput `pulumi:"targetGroupIdentifier"`
-	// Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+	// Weight that controls how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
@@ -492,7 +492,7 @@ func (o ListenerDefaultActionForwardTargetGroupOutput) TargetGroupIdentifier() p
 	return o.ApplyT(func(v ListenerDefaultActionForwardTargetGroup) *string { return v.TargetGroupIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+// Weight that controls how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
 func (o ListenerDefaultActionForwardTargetGroupOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForwardTargetGroup) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -1483,7 +1483,7 @@ func (o ListenerRuleMatchHttpMatchHeaderMatchArrayOutput) Index(i pulumi.IntInpu
 }
 
 type ListenerRuleMatchHttpMatchHeaderMatchMatch struct {
-	// Contains type match.
+	// Value that the header must contain to match.
 	Contains *string `pulumi:"contains"`
 	// Exact type match.
 	Exact *string `pulumi:"exact"`
@@ -1503,7 +1503,7 @@ type ListenerRuleMatchHttpMatchHeaderMatchMatchInput interface {
 }
 
 type ListenerRuleMatchHttpMatchHeaderMatchMatchArgs struct {
-	// Contains type match.
+	// Value that the header must contain to match.
 	Contains pulumi.StringPtrInput `pulumi:"contains"`
 	// Exact type match.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
@@ -1537,7 +1537,7 @@ func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) ToListenerRuleMatchHtt
 	return o
 }
 
-// Contains type match.
+// Value that the header must contain to match.
 func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) Contains() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchHeaderMatchMatch) *string { return v.Contains }).(pulumi.StringPtrOutput)
 }
@@ -2826,7 +2826,9 @@ func (o ResourceGatewayTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type ServiceDnsEntry struct {
-	DomainName   *string `pulumi:"domainName"`
+	// Domain name of the service.
+	DomainName *string `pulumi:"domainName"`
+	// ID of the hosted zone.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 }
 
@@ -2842,7 +2844,9 @@ type ServiceDnsEntryInput interface {
 }
 
 type ServiceDnsEntryArgs struct {
-	DomainName   pulumi.StringPtrInput `pulumi:"domainName"`
+	// Domain name of the service.
+	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
+	// ID of the hosted zone.
 	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
 }
 
@@ -2897,10 +2901,12 @@ func (o ServiceDnsEntryOutput) ToServiceDnsEntryOutputWithContext(ctx context.Co
 	return o
 }
 
+// Domain name of the service.
 func (o ServiceDnsEntryOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceDnsEntry) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
+// ID of the hosted zone.
 func (o ServiceDnsEntryOutput) HostedZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceDnsEntry) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
@@ -3452,7 +3458,7 @@ func (o ServiceNetworkVpcAssociationDnsOptionsPtrOutput) PrivateDnsSpecifiedDoma
 type TargetGroupAttachmentTarget struct {
 	// ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
 	Id string `pulumi:"id"`
-	// This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+	// Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
 	Port *int `pulumi:"port"`
 }
 
@@ -3470,7 +3476,7 @@ type TargetGroupAttachmentTargetInput interface {
 type TargetGroupAttachmentTargetArgs struct {
 	// ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
 	Id pulumi.StringInput `pulumi:"id"`
-	// This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+	// Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
@@ -3556,7 +3562,7 @@ func (o TargetGroupAttachmentTargetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetGroupAttachmentTarget) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+// Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
 func (o TargetGroupAttachmentTargetOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupAttachmentTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -3595,7 +3601,7 @@ func (o TargetGroupAttachmentTargetPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+// Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
 func (o TargetGroupAttachmentTargetPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupAttachmentTarget) *int {
 		if v == nil {
@@ -4302,8 +4308,10 @@ func (o TargetGroupConfigHealthCheckMatcherPtrOutput) Value() pulumi.StringPtrOu
 }
 
 type GetListenerDefaultAction struct {
+	// Fixed response action. See `fixedResponse` Block below.
 	FixedResponses []GetListenerDefaultActionFixedResponse `pulumi:"fixedResponses"`
-	Forwards       []GetListenerDefaultActionForward       `pulumi:"forwards"`
+	// Forward action. See `forward` Block below.
+	Forwards []GetListenerDefaultActionForward `pulumi:"forwards"`
 }
 
 // GetListenerDefaultActionInput is an input type that accepts GetListenerDefaultActionArgs and GetListenerDefaultActionOutput values.
@@ -4318,8 +4326,10 @@ type GetListenerDefaultActionInput interface {
 }
 
 type GetListenerDefaultActionArgs struct {
+	// Fixed response action. See `fixedResponse` Block below.
 	FixedResponses GetListenerDefaultActionFixedResponseArrayInput `pulumi:"fixedResponses"`
-	Forwards       GetListenerDefaultActionForwardArrayInput       `pulumi:"forwards"`
+	// Forward action. See `forward` Block below.
+	Forwards GetListenerDefaultActionForwardArrayInput `pulumi:"forwards"`
 }
 
 func (GetListenerDefaultActionArgs) ElementType() reflect.Type {
@@ -4373,10 +4383,12 @@ func (o GetListenerDefaultActionOutput) ToGetListenerDefaultActionOutputWithCont
 	return o
 }
 
+// Fixed response action. See `fixedResponse` Block below.
 func (o GetListenerDefaultActionOutput) FixedResponses() GetListenerDefaultActionFixedResponseArrayOutput {
 	return o.ApplyT(func(v GetListenerDefaultAction) []GetListenerDefaultActionFixedResponse { return v.FixedResponses }).(GetListenerDefaultActionFixedResponseArrayOutput)
 }
 
+// Forward action. See `forward` Block below.
 func (o GetListenerDefaultActionOutput) Forwards() GetListenerDefaultActionForwardArrayOutput {
 	return o.ApplyT(func(v GetListenerDefaultAction) []GetListenerDefaultActionForward { return v.Forwards }).(GetListenerDefaultActionForwardArrayOutput)
 }
@@ -4402,6 +4414,7 @@ func (o GetListenerDefaultActionArrayOutput) Index(i pulumi.IntInput) GetListene
 }
 
 type GetListenerDefaultActionFixedResponse struct {
+	// Custom HTTP status code to return.
 	StatusCode int `pulumi:"statusCode"`
 }
 
@@ -4417,6 +4430,7 @@ type GetListenerDefaultActionFixedResponseInput interface {
 }
 
 type GetListenerDefaultActionFixedResponseArgs struct {
+	// Custom HTTP status code to return.
 	StatusCode pulumi.IntInput `pulumi:"statusCode"`
 }
 
@@ -4471,6 +4485,7 @@ func (o GetListenerDefaultActionFixedResponseOutput) ToGetListenerDefaultActionF
 	return o
 }
 
+// Custom HTTP status code to return.
 func (o GetListenerDefaultActionFixedResponseOutput) StatusCode() pulumi.IntOutput {
 	return o.ApplyT(func(v GetListenerDefaultActionFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
 }
@@ -4496,6 +4511,7 @@ func (o GetListenerDefaultActionFixedResponseArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetListenerDefaultActionForward struct {
+	// Target groups that the listener forwards traffic to. See `targetGroups` Block below.
 	TargetGroups []GetListenerDefaultActionForwardTargetGroup `pulumi:"targetGroups"`
 }
 
@@ -4511,6 +4527,7 @@ type GetListenerDefaultActionForwardInput interface {
 }
 
 type GetListenerDefaultActionForwardArgs struct {
+	// Target groups that the listener forwards traffic to. See `targetGroups` Block below.
 	TargetGroups GetListenerDefaultActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
 }
 
@@ -4565,6 +4582,7 @@ func (o GetListenerDefaultActionForwardOutput) ToGetListenerDefaultActionForward
 	return o
 }
 
+// Target groups that the listener forwards traffic to. See `targetGroups` Block below.
 func (o GetListenerDefaultActionForwardOutput) TargetGroups() GetListenerDefaultActionForwardTargetGroupArrayOutput {
 	return o.ApplyT(func(v GetListenerDefaultActionForward) []GetListenerDefaultActionForwardTargetGroup {
 		return v.TargetGroups
@@ -4592,8 +4610,10 @@ func (o GetListenerDefaultActionForwardArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetListenerDefaultActionForwardTargetGroup struct {
+	// ID or ARN of the target group.
 	TargetGroupIdentifier string `pulumi:"targetGroupIdentifier"`
-	Weight                int    `pulumi:"weight"`
+	// Weight assigned to the target group that determines the proportion of traffic it receives.
+	Weight int `pulumi:"weight"`
 }
 
 // GetListenerDefaultActionForwardTargetGroupInput is an input type that accepts GetListenerDefaultActionForwardTargetGroupArgs and GetListenerDefaultActionForwardTargetGroupOutput values.
@@ -4608,8 +4628,10 @@ type GetListenerDefaultActionForwardTargetGroupInput interface {
 }
 
 type GetListenerDefaultActionForwardTargetGroupArgs struct {
+	// ID or ARN of the target group.
 	TargetGroupIdentifier pulumi.StringInput `pulumi:"targetGroupIdentifier"`
-	Weight                pulumi.IntInput    `pulumi:"weight"`
+	// Weight assigned to the target group that determines the proportion of traffic it receives.
+	Weight pulumi.IntInput `pulumi:"weight"`
 }
 
 func (GetListenerDefaultActionForwardTargetGroupArgs) ElementType() reflect.Type {
@@ -4663,10 +4685,12 @@ func (o GetListenerDefaultActionForwardTargetGroupOutput) ToGetListenerDefaultAc
 	return o
 }
 
+// ID or ARN of the target group.
 func (o GetListenerDefaultActionForwardTargetGroupOutput) TargetGroupIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) string { return v.TargetGroupIdentifier }).(pulumi.StringOutput)
 }
 
+// Weight assigned to the target group that determines the proportion of traffic it receives.
 func (o GetListenerDefaultActionForwardTargetGroupOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v GetListenerDefaultActionForwardTargetGroup) int { return v.Weight }).(pulumi.IntOutput)
 }
@@ -4797,6 +4821,319 @@ func (o GetServiceDnsEntryArrayOutput) Index(i pulumi.IntInput) GetServiceDnsEnt
 	}).(GetServiceDnsEntryOutput)
 }
 
+type GetServiceNetworkServiceAssociationsItem struct {
+	// ARN of the association.
+	Arn string `pulumi:"arn"`
+	// Date and time the association was created, in RFC 3339 format.
+	CreatedAt string `pulumi:"createdAt"`
+	// Account that created the association.
+	CreatedBy string `pulumi:"createdBy"`
+	// Custom domain name of the service.
+	CustomDomainName string `pulumi:"customDomainName"`
+	// List of objects with DNS names.
+	DnsEntries []GetServiceNetworkServiceAssociationsItemDnsEntry `pulumi:"dnsEntries"`
+	// ID of the association.
+	Id string `pulumi:"id"`
+	// ARN of the associated service.
+	ServiceArn string `pulumi:"serviceArn"`
+	// ID of the associated service.
+	ServiceId string `pulumi:"serviceId"`
+	// Name of the associated service.
+	ServiceName string `pulumi:"serviceName"`
+	// ARN of the service network the service is associated with.
+	ServiceNetworkArn string `pulumi:"serviceNetworkArn"`
+	// ID of the service network the service is associated with.
+	ServiceNetworkId string `pulumi:"serviceNetworkId"`
+	// Name of the service network the service is associated with.
+	ServiceNetworkName string `pulumi:"serviceNetworkName"`
+	// Status of the association. One of `CREATE_IN_PROGRESS`, `ACTIVE`, `DELETE_IN_PROGRESS`, `CREATE_FAILED`, or `DELETE_FAILED`.
+	Status string `pulumi:"status"`
+}
+
+// GetServiceNetworkServiceAssociationsItemInput is an input type that accepts GetServiceNetworkServiceAssociationsItemArgs and GetServiceNetworkServiceAssociationsItemOutput values.
+// You can construct a concrete instance of `GetServiceNetworkServiceAssociationsItemInput` via:
+//
+//	GetServiceNetworkServiceAssociationsItemArgs{...}
+type GetServiceNetworkServiceAssociationsItemInput interface {
+	pulumi.Input
+
+	ToGetServiceNetworkServiceAssociationsItemOutput() GetServiceNetworkServiceAssociationsItemOutput
+	ToGetServiceNetworkServiceAssociationsItemOutputWithContext(context.Context) GetServiceNetworkServiceAssociationsItemOutput
+}
+
+type GetServiceNetworkServiceAssociationsItemArgs struct {
+	// ARN of the association.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Date and time the association was created, in RFC 3339 format.
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Account that created the association.
+	CreatedBy pulumi.StringInput `pulumi:"createdBy"`
+	// Custom domain name of the service.
+	CustomDomainName pulumi.StringInput `pulumi:"customDomainName"`
+	// List of objects with DNS names.
+	DnsEntries GetServiceNetworkServiceAssociationsItemDnsEntryArrayInput `pulumi:"dnsEntries"`
+	// ID of the association.
+	Id pulumi.StringInput `pulumi:"id"`
+	// ARN of the associated service.
+	ServiceArn pulumi.StringInput `pulumi:"serviceArn"`
+	// ID of the associated service.
+	ServiceId pulumi.StringInput `pulumi:"serviceId"`
+	// Name of the associated service.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+	// ARN of the service network the service is associated with.
+	ServiceNetworkArn pulumi.StringInput `pulumi:"serviceNetworkArn"`
+	// ID of the service network the service is associated with.
+	ServiceNetworkId pulumi.StringInput `pulumi:"serviceNetworkId"`
+	// Name of the service network the service is associated with.
+	ServiceNetworkName pulumi.StringInput `pulumi:"serviceNetworkName"`
+	// Status of the association. One of `CREATE_IN_PROGRESS`, `ACTIVE`, `DELETE_IN_PROGRESS`, `CREATE_FAILED`, or `DELETE_FAILED`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetServiceNetworkServiceAssociationsItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceNetworkServiceAssociationsItem)(nil)).Elem()
+}
+
+func (i GetServiceNetworkServiceAssociationsItemArgs) ToGetServiceNetworkServiceAssociationsItemOutput() GetServiceNetworkServiceAssociationsItemOutput {
+	return i.ToGetServiceNetworkServiceAssociationsItemOutputWithContext(context.Background())
+}
+
+func (i GetServiceNetworkServiceAssociationsItemArgs) ToGetServiceNetworkServiceAssociationsItemOutputWithContext(ctx context.Context) GetServiceNetworkServiceAssociationsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceNetworkServiceAssociationsItemOutput)
+}
+
+// GetServiceNetworkServiceAssociationsItemArrayInput is an input type that accepts GetServiceNetworkServiceAssociationsItemArray and GetServiceNetworkServiceAssociationsItemArrayOutput values.
+// You can construct a concrete instance of `GetServiceNetworkServiceAssociationsItemArrayInput` via:
+//
+//	GetServiceNetworkServiceAssociationsItemArray{ GetServiceNetworkServiceAssociationsItemArgs{...} }
+type GetServiceNetworkServiceAssociationsItemArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceNetworkServiceAssociationsItemArrayOutput() GetServiceNetworkServiceAssociationsItemArrayOutput
+	ToGetServiceNetworkServiceAssociationsItemArrayOutputWithContext(context.Context) GetServiceNetworkServiceAssociationsItemArrayOutput
+}
+
+type GetServiceNetworkServiceAssociationsItemArray []GetServiceNetworkServiceAssociationsItemInput
+
+func (GetServiceNetworkServiceAssociationsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceNetworkServiceAssociationsItem)(nil)).Elem()
+}
+
+func (i GetServiceNetworkServiceAssociationsItemArray) ToGetServiceNetworkServiceAssociationsItemArrayOutput() GetServiceNetworkServiceAssociationsItemArrayOutput {
+	return i.ToGetServiceNetworkServiceAssociationsItemArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceNetworkServiceAssociationsItemArray) ToGetServiceNetworkServiceAssociationsItemArrayOutputWithContext(ctx context.Context) GetServiceNetworkServiceAssociationsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceNetworkServiceAssociationsItemArrayOutput)
+}
+
+type GetServiceNetworkServiceAssociationsItemOutput struct{ *pulumi.OutputState }
+
+func (GetServiceNetworkServiceAssociationsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceNetworkServiceAssociationsItem)(nil)).Elem()
+}
+
+func (o GetServiceNetworkServiceAssociationsItemOutput) ToGetServiceNetworkServiceAssociationsItemOutput() GetServiceNetworkServiceAssociationsItemOutput {
+	return o
+}
+
+func (o GetServiceNetworkServiceAssociationsItemOutput) ToGetServiceNetworkServiceAssociationsItemOutputWithContext(ctx context.Context) GetServiceNetworkServiceAssociationsItemOutput {
+	return o
+}
+
+// ARN of the association.
+func (o GetServiceNetworkServiceAssociationsItemOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItem) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Date and time the association was created, in RFC 3339 format.
+func (o GetServiceNetworkServiceAssociationsItemOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItem) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Account that created the association.
+func (o GetServiceNetworkServiceAssociationsItemOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItem) string { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// Custom domain name of the service.
+func (o GetServiceNetworkServiceAssociationsItemOutput) CustomDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItem) string { return v.CustomDomainName }).(pulumi.StringOutput)
+}
+
+// List of objects with DNS names.
+func (o GetServiceNetworkServiceAssociationsItemOutput) DnsEntries() GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItem) []GetServiceNetworkServiceAssociationsItemDnsEntry {
+		return v.DnsEntries
+	}).(GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput)
+}
+
+// ID of the association.
+func (o GetServiceNetworkServiceAssociationsItemOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItem) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// ARN of the associated service.
+func (o GetServiceNetworkServiceAssociationsItemOutput) ServiceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItem) string { return v.ServiceArn }).(pulumi.StringOutput)
+}
+
+// ID of the associated service.
+func (o GetServiceNetworkServiceAssociationsItemOutput) ServiceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItem) string { return v.ServiceId }).(pulumi.StringOutput)
+}
+
+// Name of the associated service.
+func (o GetServiceNetworkServiceAssociationsItemOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItem) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+// ARN of the service network the service is associated with.
+func (o GetServiceNetworkServiceAssociationsItemOutput) ServiceNetworkArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItem) string { return v.ServiceNetworkArn }).(pulumi.StringOutput)
+}
+
+// ID of the service network the service is associated with.
+func (o GetServiceNetworkServiceAssociationsItemOutput) ServiceNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItem) string { return v.ServiceNetworkId }).(pulumi.StringOutput)
+}
+
+// Name of the service network the service is associated with.
+func (o GetServiceNetworkServiceAssociationsItemOutput) ServiceNetworkName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItem) string { return v.ServiceNetworkName }).(pulumi.StringOutput)
+}
+
+// Status of the association. One of `CREATE_IN_PROGRESS`, `ACTIVE`, `DELETE_IN_PROGRESS`, `CREATE_FAILED`, or `DELETE_FAILED`.
+func (o GetServiceNetworkServiceAssociationsItemOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItem) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetServiceNetworkServiceAssociationsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceNetworkServiceAssociationsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceNetworkServiceAssociationsItem)(nil)).Elem()
+}
+
+func (o GetServiceNetworkServiceAssociationsItemArrayOutput) ToGetServiceNetworkServiceAssociationsItemArrayOutput() GetServiceNetworkServiceAssociationsItemArrayOutput {
+	return o
+}
+
+func (o GetServiceNetworkServiceAssociationsItemArrayOutput) ToGetServiceNetworkServiceAssociationsItemArrayOutputWithContext(ctx context.Context) GetServiceNetworkServiceAssociationsItemArrayOutput {
+	return o
+}
+
+func (o GetServiceNetworkServiceAssociationsItemArrayOutput) Index(i pulumi.IntInput) GetServiceNetworkServiceAssociationsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceNetworkServiceAssociationsItem {
+		return vs[0].([]GetServiceNetworkServiceAssociationsItem)[vs[1].(int)]
+	}).(GetServiceNetworkServiceAssociationsItemOutput)
+}
+
+type GetServiceNetworkServiceAssociationsItemDnsEntry struct {
+	// Domain name of the service.
+	DomainName string `pulumi:"domainName"`
+	// ID of the hosted zone.
+	HostedZoneId string `pulumi:"hostedZoneId"`
+}
+
+// GetServiceNetworkServiceAssociationsItemDnsEntryInput is an input type that accepts GetServiceNetworkServiceAssociationsItemDnsEntryArgs and GetServiceNetworkServiceAssociationsItemDnsEntryOutput values.
+// You can construct a concrete instance of `GetServiceNetworkServiceAssociationsItemDnsEntryInput` via:
+//
+//	GetServiceNetworkServiceAssociationsItemDnsEntryArgs{...}
+type GetServiceNetworkServiceAssociationsItemDnsEntryInput interface {
+	pulumi.Input
+
+	ToGetServiceNetworkServiceAssociationsItemDnsEntryOutput() GetServiceNetworkServiceAssociationsItemDnsEntryOutput
+	ToGetServiceNetworkServiceAssociationsItemDnsEntryOutputWithContext(context.Context) GetServiceNetworkServiceAssociationsItemDnsEntryOutput
+}
+
+type GetServiceNetworkServiceAssociationsItemDnsEntryArgs struct {
+	// Domain name of the service.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// ID of the hosted zone.
+	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
+}
+
+func (GetServiceNetworkServiceAssociationsItemDnsEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceNetworkServiceAssociationsItemDnsEntry)(nil)).Elem()
+}
+
+func (i GetServiceNetworkServiceAssociationsItemDnsEntryArgs) ToGetServiceNetworkServiceAssociationsItemDnsEntryOutput() GetServiceNetworkServiceAssociationsItemDnsEntryOutput {
+	return i.ToGetServiceNetworkServiceAssociationsItemDnsEntryOutputWithContext(context.Background())
+}
+
+func (i GetServiceNetworkServiceAssociationsItemDnsEntryArgs) ToGetServiceNetworkServiceAssociationsItemDnsEntryOutputWithContext(ctx context.Context) GetServiceNetworkServiceAssociationsItemDnsEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceNetworkServiceAssociationsItemDnsEntryOutput)
+}
+
+// GetServiceNetworkServiceAssociationsItemDnsEntryArrayInput is an input type that accepts GetServiceNetworkServiceAssociationsItemDnsEntryArray and GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput values.
+// You can construct a concrete instance of `GetServiceNetworkServiceAssociationsItemDnsEntryArrayInput` via:
+//
+//	GetServiceNetworkServiceAssociationsItemDnsEntryArray{ GetServiceNetworkServiceAssociationsItemDnsEntryArgs{...} }
+type GetServiceNetworkServiceAssociationsItemDnsEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput() GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput
+	ToGetServiceNetworkServiceAssociationsItemDnsEntryArrayOutputWithContext(context.Context) GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput
+}
+
+type GetServiceNetworkServiceAssociationsItemDnsEntryArray []GetServiceNetworkServiceAssociationsItemDnsEntryInput
+
+func (GetServiceNetworkServiceAssociationsItemDnsEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceNetworkServiceAssociationsItemDnsEntry)(nil)).Elem()
+}
+
+func (i GetServiceNetworkServiceAssociationsItemDnsEntryArray) ToGetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput() GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput {
+	return i.ToGetServiceNetworkServiceAssociationsItemDnsEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceNetworkServiceAssociationsItemDnsEntryArray) ToGetServiceNetworkServiceAssociationsItemDnsEntryArrayOutputWithContext(ctx context.Context) GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput)
+}
+
+type GetServiceNetworkServiceAssociationsItemDnsEntryOutput struct{ *pulumi.OutputState }
+
+func (GetServiceNetworkServiceAssociationsItemDnsEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceNetworkServiceAssociationsItemDnsEntry)(nil)).Elem()
+}
+
+func (o GetServiceNetworkServiceAssociationsItemDnsEntryOutput) ToGetServiceNetworkServiceAssociationsItemDnsEntryOutput() GetServiceNetworkServiceAssociationsItemDnsEntryOutput {
+	return o
+}
+
+func (o GetServiceNetworkServiceAssociationsItemDnsEntryOutput) ToGetServiceNetworkServiceAssociationsItemDnsEntryOutputWithContext(ctx context.Context) GetServiceNetworkServiceAssociationsItemDnsEntryOutput {
+	return o
+}
+
+// Domain name of the service.
+func (o GetServiceNetworkServiceAssociationsItemDnsEntryOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItemDnsEntry) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// ID of the hosted zone.
+func (o GetServiceNetworkServiceAssociationsItemDnsEntryOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceNetworkServiceAssociationsItemDnsEntry) string { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
+type GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceNetworkServiceAssociationsItemDnsEntry)(nil)).Elem()
+}
+
+func (o GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput) ToGetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput() GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput {
+	return o
+}
+
+func (o GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput) ToGetServiceNetworkServiceAssociationsItemDnsEntryArrayOutputWithContext(ctx context.Context) GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput {
+	return o
+}
+
+func (o GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput) Index(i pulumi.IntInput) GetServiceNetworkServiceAssociationsItemDnsEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceNetworkServiceAssociationsItemDnsEntry {
+		return vs[0].([]GetServiceNetworkServiceAssociationsItemDnsEntry)[vs[1].(int)]
+	}).(GetServiceNetworkServiceAssociationsItemDnsEntryOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionInput)(nil)).Elem(), ListenerDefaultActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionPtrInput)(nil)).Elem(), ListenerDefaultActionArgs{})
@@ -4865,6 +5202,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroupArrayInput)(nil)).Elem(), GetListenerDefaultActionForwardTargetGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDnsEntryInput)(nil)).Elem(), GetServiceDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDnsEntryArrayInput)(nil)).Elem(), GetServiceDnsEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceNetworkServiceAssociationsItemInput)(nil)).Elem(), GetServiceNetworkServiceAssociationsItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceNetworkServiceAssociationsItemArrayInput)(nil)).Elem(), GetServiceNetworkServiceAssociationsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceNetworkServiceAssociationsItemDnsEntryInput)(nil)).Elem(), GetServiceNetworkServiceAssociationsItemDnsEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceNetworkServiceAssociationsItemDnsEntryArrayInput)(nil)).Elem(), GetServiceNetworkServiceAssociationsItemDnsEntryArray{})
 	pulumi.RegisterOutputType(ListenerDefaultActionOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionPtrOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionFixedResponseOutput{})
@@ -4932,4 +5273,8 @@ func init() {
 	pulumi.RegisterOutputType(GetListenerDefaultActionForwardTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceDnsEntryOutput{})
 	pulumi.RegisterOutputType(GetServiceDnsEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceNetworkServiceAssociationsItemOutput{})
+	pulumi.RegisterOutputType(GetServiceNetworkServiceAssociationsItemArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceNetworkServiceAssociationsItemDnsEntryOutput{})
+	pulumi.RegisterOutputType(GetServiceNetworkServiceAssociationsItemDnsEntryArrayOutput{})
 }

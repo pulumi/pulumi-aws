@@ -13,7 +13,13 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class GetBucketReplicationConfigurationRuleDestinationMetricResult
     {
+        /// <summary>
+        /// Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See `EventThreshold` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdResult> EventThresholds;
+        /// <summary>
+        /// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+        /// </summary>
         public readonly string Status;
 
         [OutputConstructor]

@@ -23,6 +23,7 @@ from .agentcore_browser_profile import *
 from .agentcore_code_interpreter import *
 from .agentcore_evaluator import *
 from .agentcore_gateway import *
+from .agentcore_gateway_rule import *
 from .agentcore_gateway_target import *
 from .agentcore_harness import *
 from .agentcore_memory import *

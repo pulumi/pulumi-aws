@@ -4,6 +4,7 @@
 package com.pulumi.aws.amp;
 
 import com.pulumi.aws.amp.inputs.ScraperDestinationArgs;
+import com.pulumi.aws.amp.inputs.ScraperExporterArgs;
 import com.pulumi.aws.amp.inputs.ScraperRoleConfigurationArgs;
 import com.pulumi.aws.amp.inputs.ScraperSourceArgs;
 import com.pulumi.aws.amp.inputs.ScraperTimeoutsArgs;
@@ -49,6 +50,21 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<ScraperDestinationArgs> destination() {
         return this.destination;
+    }
+
+    /**
+     * Configuration block for additional exporters. See `exporter` Block for details.
+     * 
+     */
+    @Import(name="exporter")
+    private @Nullable Output<ScraperExporterArgs> exporter;
+
+    /**
+     * @return Configuration block for additional exporters. See `exporter` Block for details.
+     * 
+     */
+    public Optional<Output<ScraperExporterArgs>> exporter() {
+        return Optional.ofNullable(this.exporter);
     }
 
     /**
@@ -142,6 +158,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
     private ScraperArgs(ScraperArgs $) {
         this.alias = $.alias;
         this.destination = $.destination;
+        this.exporter = $.exporter;
         this.region = $.region;
         this.roleConfiguration = $.roleConfiguration;
         this.scrapeConfiguration = $.scrapeConfiguration;
@@ -208,6 +225,27 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder destination(ScraperDestinationArgs destination) {
             return destination(Output.of(destination));
+        }
+
+        /**
+         * @param exporter Configuration block for additional exporters. See `exporter` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exporter(@Nullable Output<ScraperExporterArgs> exporter) {
+            $.exporter = exporter;
+            return this;
+        }
+
+        /**
+         * @param exporter Configuration block for additional exporters. See `exporter` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exporter(ScraperExporterArgs exporter) {
+            return exporter(Output.of(exporter));
         }
 
         /**

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigResult
     {
+        /// <summary>
+        /// Authorization credential option used.
+        /// </summary>
         public readonly string CredentialsParameter;
+        /// <summary>
+        /// Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+        /// </summary>
         public readonly string Domain;
 
         [OutputConstructor]

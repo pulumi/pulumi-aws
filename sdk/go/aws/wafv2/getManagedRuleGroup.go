@@ -74,10 +74,10 @@ type GetManagedRuleGroupResult struct {
 	ConsumedLabels []GetManagedRuleGroupConsumedLabel `pulumi:"consumedLabels"`
 	// Label namespace prefix for this rule group. All labels added by rules in this rule group have this prefix.
 	LabelNamespace string `pulumi:"labelNamespace"`
-	// Name of the rule.
+	// Name of the header.
 	Name   string `pulumi:"name"`
 	Region string `pulumi:"region"`
-	// High-level information about the rules. See Rules below for details.
+	// High-level information about the rules. See `rules` Block below for details.
 	Rules []GetManagedRuleGroupRule `pulumi:"rules"`
 	Scope string                    `pulumi:"scope"`
 	// ARN of the SNS topic that's used to provide notification of changes to the managed rule group.
@@ -148,7 +148,7 @@ func (o GetManagedRuleGroupResultOutput) LabelNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v GetManagedRuleGroupResult) string { return v.LabelNamespace }).(pulumi.StringOutput)
 }
 
-// Name of the rule.
+// Name of the header.
 func (o GetManagedRuleGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetManagedRuleGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -157,7 +157,7 @@ func (o GetManagedRuleGroupResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetManagedRuleGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// High-level information about the rules. See Rules below for details.
+// High-level information about the rules. See `rules` Block below for details.
 func (o GetManagedRuleGroupResultOutput) Rules() GetManagedRuleGroupRuleArrayOutput {
 	return o.ApplyT(func(v GetManagedRuleGroupResult) []GetManagedRuleGroupRule { return v.Rules }).(GetManagedRuleGroupRuleArrayOutput)
 }

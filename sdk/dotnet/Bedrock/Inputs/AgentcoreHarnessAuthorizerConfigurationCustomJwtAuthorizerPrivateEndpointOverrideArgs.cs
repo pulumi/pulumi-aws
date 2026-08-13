@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> Domain { get; set; } = null!;
 
         /// <summary>
-        /// Private endpoint configuration. See `PrivateEndpoint` below.
+        /// Private endpoint configuration. See `PrivateEndpoint` Block below.
         /// </summary>
         [Input("privateEndpoint", required: true)]
         public Input<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs> PrivateEndpoint { get; set; } = null!;

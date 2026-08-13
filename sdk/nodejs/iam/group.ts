@@ -58,11 +58,11 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN assigned by AWS for this group.
+     * ARN assigned by AWS for this group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+     * Group's name. Must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -70,7 +70,7 @@ export class Group extends pulumi.CustomResource {
      */
     declare public readonly path: pulumi.Output<string | undefined>;
     /**
-     * The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
+     * [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
      */
     declare public /*out*/ readonly uniqueId: pulumi.Output<string>;
 
@@ -108,11 +108,11 @@ export class Group extends pulumi.CustomResource {
  */
 export interface GroupState {
     /**
-     * The ARN assigned by AWS for this group.
+     * ARN assigned by AWS for this group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+     * Group's name. Must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -120,7 +120,7 @@ export interface GroupState {
      */
     path?: pulumi.Input<string | undefined>;
     /**
-     * The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
+     * [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
      */
     uniqueId?: pulumi.Input<string | undefined>;
 }
@@ -130,7 +130,7 @@ export interface GroupState {
  */
 export interface GroupArgs {
     /**
-     * The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
+     * Group's name. Must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
      */
     name?: pulumi.Input<string | undefined>;
     /**

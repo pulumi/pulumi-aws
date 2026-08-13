@@ -3,10 +3,13 @@
 
 package com.pulumi.aws.eks.outputs;
 
+import com.pulumi.aws.eks.outputs.GetClusterVersionsClusterVersionControlPlaneComponentConfig;
+import com.pulumi.aws.eks.outputs.GetClusterVersionsClusterVersionControlPlaneScalingTier;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -22,6 +25,16 @@ public final class GetClusterVersionsClusterVersion {
      * 
      */
     private String clusterVersion;
+    /**
+     * @return Default control plane component configuration and constraints for this version.
+     * 
+     */
+    private List<GetClusterVersionsClusterVersionControlPlaneComponentConfig> controlPlaneComponentConfigs;
+    /**
+     * @return Available provisioned control plane scaling tiers and their capabilities.
+     * 
+     */
+    private List<GetClusterVersionsClusterVersionControlPlaneScalingTier> controlPlaneScalingTiers;
     /**
      * @return Default eks platform version for the cluster version.
      * 
@@ -74,6 +87,20 @@ public final class GetClusterVersionsClusterVersion {
      */
     public String clusterVersion() {
         return this.clusterVersion;
+    }
+    /**
+     * @return Default control plane component configuration and constraints for this version.
+     * 
+     */
+    public List<GetClusterVersionsClusterVersionControlPlaneComponentConfig> controlPlaneComponentConfigs() {
+        return this.controlPlaneComponentConfigs;
+    }
+    /**
+     * @return Available provisioned control plane scaling tiers and their capabilities.
+     * 
+     */
+    public List<GetClusterVersionsClusterVersionControlPlaneScalingTier> controlPlaneScalingTiers() {
+        return this.controlPlaneScalingTiers;
     }
     /**
      * @return Default eks platform version for the cluster version.
@@ -137,6 +164,8 @@ public final class GetClusterVersionsClusterVersion {
     public static final class Builder {
         private String clusterType;
         private String clusterVersion;
+        private List<GetClusterVersionsClusterVersionControlPlaneComponentConfig> controlPlaneComponentConfigs;
+        private List<GetClusterVersionsClusterVersionControlPlaneScalingTier> controlPlaneScalingTiers;
         private String defaultPlatformVersion;
         private Boolean defaultVersion;
         private String endOfExtendedSupportDate;
@@ -149,6 +178,8 @@ public final class GetClusterVersionsClusterVersion {
     	      Objects.requireNonNull(defaults);
     	      this.clusterType = defaults.clusterType;
     	      this.clusterVersion = defaults.clusterVersion;
+    	      this.controlPlaneComponentConfigs = defaults.controlPlaneComponentConfigs;
+    	      this.controlPlaneScalingTiers = defaults.controlPlaneScalingTiers;
     	      this.defaultPlatformVersion = defaults.defaultPlatformVersion;
     	      this.defaultVersion = defaults.defaultVersion;
     	      this.endOfExtendedSupportDate = defaults.endOfExtendedSupportDate;
@@ -173,6 +204,28 @@ public final class GetClusterVersionsClusterVersion {
             }
             this.clusterVersion = clusterVersion;
             return this;
+        }
+        @CustomType.Setter
+        public Builder controlPlaneComponentConfigs(List<GetClusterVersionsClusterVersionControlPlaneComponentConfig> controlPlaneComponentConfigs) {
+            if (controlPlaneComponentConfigs == null) {
+              throw new MissingRequiredPropertyException("GetClusterVersionsClusterVersion", "controlPlaneComponentConfigs");
+            }
+            this.controlPlaneComponentConfigs = controlPlaneComponentConfigs;
+            return this;
+        }
+        public Builder controlPlaneComponentConfigs(GetClusterVersionsClusterVersionControlPlaneComponentConfig... controlPlaneComponentConfigs) {
+            return controlPlaneComponentConfigs(List.of(controlPlaneComponentConfigs));
+        }
+        @CustomType.Setter
+        public Builder controlPlaneScalingTiers(List<GetClusterVersionsClusterVersionControlPlaneScalingTier> controlPlaneScalingTiers) {
+            if (controlPlaneScalingTiers == null) {
+              throw new MissingRequiredPropertyException("GetClusterVersionsClusterVersion", "controlPlaneScalingTiers");
+            }
+            this.controlPlaneScalingTiers = controlPlaneScalingTiers;
+            return this;
+        }
+        public Builder controlPlaneScalingTiers(GetClusterVersionsClusterVersionControlPlaneScalingTier... controlPlaneScalingTiers) {
+            return controlPlaneScalingTiers(List.of(controlPlaneScalingTiers));
         }
         @CustomType.Setter
         public Builder defaultPlatformVersion(String defaultPlatformVersion) {
@@ -234,6 +287,8 @@ public final class GetClusterVersionsClusterVersion {
             final var _resultValue = new GetClusterVersionsClusterVersion();
             _resultValue.clusterType = clusterType;
             _resultValue.clusterVersion = clusterVersion;
+            _resultValue.controlPlaneComponentConfigs = controlPlaneComponentConfigs;
+            _resultValue.controlPlaneScalingTiers = controlPlaneScalingTiers;
             _resultValue.defaultPlatformVersion = defaultPlatformVersion;
             _resultValue.defaultVersion = defaultVersion;
             _resultValue.endOfExtendedSupportDate = endOfExtendedSupportDate;

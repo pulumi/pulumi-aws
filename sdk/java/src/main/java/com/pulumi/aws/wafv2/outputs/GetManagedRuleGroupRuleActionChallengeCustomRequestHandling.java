@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetManagedRuleGroupRuleActionChallengeCustomRequestHandling {
+    /**
+     * @return Headers inserted into the request. See `insertHeader` Block for details.
+     * 
+     */
     private List<GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader> insertHeaders;
 
     private GetManagedRuleGroupRuleActionChallengeCustomRequestHandling() {}
+    /**
+     * @return Headers inserted into the request. See `insertHeader` Block for details.
+     * 
+     */
     public List<GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader> insertHeaders() {
         return this.insertHeaders;
     }

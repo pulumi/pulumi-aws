@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Workspaces
     public partial class Pool : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Application settings configuration for the WorkSpaces Pool. See `ApplicationSettings` below.
+        /// Application settings configuration for the WorkSpaces Pool. See `ApplicationSettings` Block below.
         /// </summary>
         [Output("applicationSettings")]
         public Output<ImmutableArray<Outputs.PoolApplicationSetting>> ApplicationSettings { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Workspaces
         public Output<Outputs.PoolCapacity?> Capacity { get; private set; } = null!;
 
         /// <summary>
-        /// Capacity status of the WorkSpaces Pool. See `CapacityStatus` below.
+        /// Capacity status of the WorkSpaces Pool. See `CapacityStatus` Block below.
         /// </summary>
         [Output("capacityStatuses")]
         public Output<ImmutableArray<Outputs.PoolCapacityStatus>> CapacityStatuses { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.Workspaces
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Timeout settings configuration for the WorkSpaces Pool. See `TimeoutSettings` below.
+        /// Timeout settings configuration for the WorkSpaces Pool. See `TimeoutSettings` Block below.
         /// </summary>
         [Output("timeoutSettings")]
         public Output<ImmutableArray<Outputs.PoolTimeoutSetting>> TimeoutSettings { get; private set; } = null!;
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.Workspaces
         private InputList<Inputs.PoolApplicationSettingArgs>? _applicationSettings;
 
         /// <summary>
-        /// Application settings configuration for the WorkSpaces Pool. See `ApplicationSettings` below.
+        /// Application settings configuration for the WorkSpaces Pool. See `ApplicationSettings` Block below.
         /// </summary>
         public InputList<Inputs.PoolApplicationSettingArgs> ApplicationSettings
         {
@@ -375,7 +375,7 @@ namespace Pulumi.Aws.Workspaces
         private InputList<Inputs.PoolTimeoutSettingArgs>? _timeoutSettings;
 
         /// <summary>
-        /// Timeout settings configuration for the WorkSpaces Pool. See `TimeoutSettings` below.
+        /// Timeout settings configuration for the WorkSpaces Pool. See `TimeoutSettings` Block below.
         /// </summary>
         public InputList<Inputs.PoolTimeoutSettingArgs> TimeoutSettings
         {
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.Workspaces
         private InputList<Inputs.PoolApplicationSettingGetArgs>? _applicationSettings;
 
         /// <summary>
-        /// Application settings configuration for the WorkSpaces Pool. See `ApplicationSettings` below.
+        /// Application settings configuration for the WorkSpaces Pool. See `ApplicationSettings` Block below.
         /// </summary>
         public InputList<Inputs.PoolApplicationSettingGetArgs> ApplicationSettings
         {
@@ -422,7 +422,7 @@ namespace Pulumi.Aws.Workspaces
         private InputList<Inputs.PoolCapacityStatusGetArgs>? _capacityStatuses;
 
         /// <summary>
-        /// Capacity status of the WorkSpaces Pool. See `CapacityStatus` below.
+        /// Capacity status of the WorkSpaces Pool. See `CapacityStatus` Block below.
         /// </summary>
         public InputList<Inputs.PoolCapacityStatusGetArgs> CapacityStatuses
         {
@@ -520,7 +520,7 @@ namespace Pulumi.Aws.Workspaces
         private InputList<Inputs.PoolTimeoutSettingGetArgs>? _timeoutSettings;
 
         /// <summary>
-        /// Timeout settings configuration for the WorkSpaces Pool. See `TimeoutSettings` below.
+        /// Timeout settings configuration for the WorkSpaces Pool. See `TimeoutSettings` Block below.
         /// </summary>
         public InputList<Inputs.PoolTimeoutSettingGetArgs> TimeoutSettings
         {

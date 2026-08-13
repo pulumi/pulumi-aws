@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanTriggerConditionGetArgs>? _conditions;
 
         /// <summary>
-        /// List of conditions that must be met. See Conditions below.
+        /// Conditions that must be met. See `Conditions` Block for details.
         /// </summary>
         public InputList<Inputs.PlanTriggerConditionGetArgs> Conditions
         {

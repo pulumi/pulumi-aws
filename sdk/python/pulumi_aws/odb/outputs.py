@@ -106,10 +106,10 @@ class CloudAutonomousVmClusterMaintenanceWindow(dict):
                  weeks_of_months: Optional[Sequence[_builtins.int]] = None):
         """
         :param _builtins.str preference: Preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
-        :param Sequence['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs'] days_of_weeks: Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+        :param Sequence['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs'] days_of_weeks: Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `days_of_week` Block below.
         :param Sequence[_builtins.int] hours_of_days: Hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
         :param _builtins.int lead_time_in_weeks: Lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
-        :param Sequence['CloudAutonomousVmClusterMaintenanceWindowMonthArgs'] months: Months when maintenance can be performed. Changing this will force terraform to create new resource.
+        :param Sequence['CloudAutonomousVmClusterMaintenanceWindowMonthArgs'] months: Months when maintenance can be performed. Changing this will force terraform to create new resource. See `months` Block below.
         :param Sequence[_builtins.int] weeks_of_months: Whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
         """
         pulumi.set(__self__, "preference", preference)
@@ -136,7 +136,7 @@ class CloudAutonomousVmClusterMaintenanceWindow(dict):
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> Optional[Sequence['outputs.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek']]:
         """
-        Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+        Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `days_of_week` Block below.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -160,7 +160,7 @@ class CloudAutonomousVmClusterMaintenanceWindow(dict):
     @pulumi.getter
     def months(self) -> Optional[Sequence['outputs.CloudAutonomousVmClusterMaintenanceWindowMonth']]:
         """
-        Months when maintenance can be performed. Changing this will force terraform to create new resource.
+        Months when maintenance can be performed. Changing this will force terraform to create new resource. See `months` Block below.
         """
         return pulumi.get(self, "months")
 
@@ -177,11 +177,17 @@ class CloudAutonomousVmClusterMaintenanceWindow(dict):
 class CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
+        """
+        :param _builtins.str name: Name of the day of the week. Valid values are `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, and `SUNDAY`.
+        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Name of the day of the week. Valid values are `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, and `SUNDAY`.
+        """
         return pulumi.get(self, "name")
 
 
@@ -189,11 +195,17 @@ class CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek(dict):
 class CloudAutonomousVmClusterMaintenanceWindowMonth(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
+        """
+        :param _builtins.str name: Name of the month. Valid values are `JANUARY`, `FEBRUARY`, `MARCH`, `APRIL`, `MAY`, `JUNE`, `JULY`, `AUGUST`, `SEPTEMBER`, `OCTOBER`, `NOVEMBER`, and `DECEMBER`.
+        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Name of the month. Valid values are `JANUARY`, `FEBRUARY`, `MARCH`, `APRIL`, `MAY`, `JUNE`, `JULY`, `AUGUST`, `SEPTEMBER`, `OCTOBER`, `NOVEMBER`, and `DECEMBER`.
+        """
         return pulumi.get(self, "name")
 
 
@@ -244,11 +256,17 @@ class CloudAutonomousVmClusterTimeouts(dict):
 class CloudExadataInfrastructureCustomerContactsToSendToOci(dict):
     def __init__(__self__, *,
                  email: _builtins.str):
+        """
+        :param _builtins.str email: Email address of the contact.
+        """
         pulumi.set(__self__, "email", email)
 
     @_builtins.property
     @pulumi.getter
     def email(self) -> _builtins.str:
+        """
+        Email address of the contact.
+        """
         return pulumi.get(self, "email")
 
 
@@ -298,10 +316,10 @@ class CloudExadataInfrastructureMaintenanceWindow(dict):
         :param _builtins.bool is_custom_action_timeout_enabled: Whether custom action timeout is enabled for the maintenance window.
         :param _builtins.str patching_mode: Patching mode for the maintenance window.
         :param _builtins.str preference: Preference for the maintenance window scheduling.
-        :param Sequence['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs'] days_of_weeks: Days of the week when maintenance can be performed.
+        :param Sequence['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs'] days_of_weeks: Days of the week when maintenance can be performed. See `days_of_week` Block below.
         :param Sequence[_builtins.int] hours_of_days: Hours of the day when maintenance can be performed.
         :param _builtins.int lead_time_in_weeks: Lead time in weeks before the maintenance window.
-        :param Sequence['CloudExadataInfrastructureMaintenanceWindowMonthArgs'] months: Months when maintenance can be performed.
+        :param Sequence['CloudExadataInfrastructureMaintenanceWindowMonthArgs'] months: Months when maintenance can be performed. See `months` Block below.
         :param Sequence[_builtins.int] weeks_of_months: Weeks of the month when maintenance can be performed.
         """
         pulumi.set(__self__, "custom_action_timeout_in_mins", custom_action_timeout_in_mins)
@@ -355,7 +373,7 @@ class CloudExadataInfrastructureMaintenanceWindow(dict):
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> Optional[Sequence['outputs.CloudExadataInfrastructureMaintenanceWindowDaysOfWeek']]:
         """
-        Days of the week when maintenance can be performed.
+        Days of the week when maintenance can be performed. See `days_of_week` Block below.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -379,7 +397,7 @@ class CloudExadataInfrastructureMaintenanceWindow(dict):
     @pulumi.getter
     def months(self) -> Optional[Sequence['outputs.CloudExadataInfrastructureMaintenanceWindowMonth']]:
         """
-        Months when maintenance can be performed.
+        Months when maintenance can be performed. See `months` Block below.
         """
         return pulumi.get(self, "months")
 
@@ -396,11 +414,17 @@ class CloudExadataInfrastructureMaintenanceWindow(dict):
 class CloudExadataInfrastructureMaintenanceWindowDaysOfWeek(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
+        """
+        :param _builtins.str name: Name of the day of the week. Valid values are `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, and `SUNDAY`.
+        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Name of the day of the week. Valid values are `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, and `SUNDAY`.
+        """
         return pulumi.get(self, "name")
 
 
@@ -408,11 +432,17 @@ class CloudExadataInfrastructureMaintenanceWindowDaysOfWeek(dict):
 class CloudExadataInfrastructureMaintenanceWindowMonth(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
+        """
+        :param _builtins.str name: Name of the month. Valid values are `JANUARY`, `FEBRUARY`, `MARCH`, `APRIL`, `MAY`, `JUNE`, `JULY`, `AUGUST`, `SEPTEMBER`, `OCTOBER`, `NOVEMBER`, and `DECEMBER`.
+        """
         pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Name of the month. Valid values are `JANUARY`, `FEBRUARY`, `MARCH`, `APRIL`, `MAY`, `JUNE`, `JULY`, `AUGUST`, `SEPTEMBER`, `OCTOBER`, `NOVEMBER`, and `DECEMBER`.
+        """
         return pulumi.get(self, "name")
 
 
@@ -548,6 +578,12 @@ class CloudVmClusterIormConfigCache(dict):
                  lifecycle_details: _builtins.str,
                  lifecycle_state: _builtins.str,
                  objective: _builtins.str):
+        """
+        :param Sequence['CloudVmClusterIormConfigCacheDbPlanArgs'] db_plans: List of IORM (I/O Resource Manager) database plans for the VM cluster. See `db_plans` Block below.
+        :param _builtins.str lifecycle_details: Additional information about the current lifecycle state of the IORM configuration.
+        :param _builtins.str lifecycle_state: Current lifecycle state of the IORM configuration.
+        :param _builtins.str objective: Current value for the IORM objective.
+        """
         pulumi.set(__self__, "db_plans", db_plans)
         pulumi.set(__self__, "lifecycle_details", lifecycle_details)
         pulumi.set(__self__, "lifecycle_state", lifecycle_state)
@@ -556,21 +592,33 @@ class CloudVmClusterIormConfigCache(dict):
     @_builtins.property
     @pulumi.getter(name="dbPlans")
     def db_plans(self) -> Sequence['outputs.CloudVmClusterIormConfigCacheDbPlan']:
+        """
+        List of IORM (I/O Resource Manager) database plans for the VM cluster. See `db_plans` Block below.
+        """
         return pulumi.get(self, "db_plans")
 
     @_builtins.property
     @pulumi.getter(name="lifecycleDetails")
     def lifecycle_details(self) -> _builtins.str:
+        """
+        Additional information about the current lifecycle state of the IORM configuration.
+        """
         return pulumi.get(self, "lifecycle_details")
 
     @_builtins.property
     @pulumi.getter(name="lifecycleState")
     def lifecycle_state(self) -> _builtins.str:
+        """
+        Current lifecycle state of the IORM configuration.
+        """
         return pulumi.get(self, "lifecycle_state")
 
     @_builtins.property
     @pulumi.getter
     def objective(self) -> _builtins.str:
+        """
+        Current value for the IORM objective.
+        """
         return pulumi.get(self, "objective")
 
 
@@ -599,6 +647,11 @@ class CloudVmClusterIormConfigCacheDbPlan(dict):
                  db_name: _builtins.str,
                  flash_cache_limit: _builtins.str,
                  share: _builtins.int):
+        """
+        :param _builtins.str db_name: Database name to which the IORM plan applies.
+        :param _builtins.str flash_cache_limit: Flash cache limit for the database plan.
+        :param _builtins.int share: Relative priority of the database in the IORM plan.
+        """
         pulumi.set(__self__, "db_name", db_name)
         pulumi.set(__self__, "flash_cache_limit", flash_cache_limit)
         pulumi.set(__self__, "share", share)
@@ -606,16 +659,25 @@ class CloudVmClusterIormConfigCacheDbPlan(dict):
     @_builtins.property
     @pulumi.getter(name="dbName")
     def db_name(self) -> _builtins.str:
+        """
+        Database name to which the IORM plan applies.
+        """
         return pulumi.get(self, "db_name")
 
     @_builtins.property
     @pulumi.getter(name="flashCacheLimit")
     def flash_cache_limit(self) -> _builtins.str:
+        """
+        Flash cache limit for the database plan.
+        """
         return pulumi.get(self, "flash_cache_limit")
 
     @_builtins.property
     @pulumi.getter
     def share(self) -> _builtins.int:
+        """
+        Relative priority of the database in the IORM plan.
+        """
         return pulumi.get(self, "share")
 
 
@@ -713,7 +775,12 @@ class NetworkManagedService(dict):
         """
         :param Sequence['NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs'] cross_region_s3_restore_sources_accesses: List of regions enabled for cross-region restore in the ODB network.
         :param Sequence['NetworkManagedServiceKmsAccessArgs'] kms_accesses: Configuration for KMS access from the ODB network.
+        :param Sequence['NetworkManagedServiceManagedS3BackupAccessArgs'] managed_s3_backup_accesses: Managed S3 backup access configuration. See `managed_s3_backup_access` Block below.
+        :param Sequence[_builtins.str] managed_service_ipv4_cidrs: List of IPv4 CIDR ranges used by the managed services.
+        :param _builtins.str resource_gateway_arn: ARN of the resource gateway.
         :param Sequence['NetworkManagedServiceS3AccessArgs'] s3_accesses: Configuration for Amazon S3 access from the ODB network.
+        :param _builtins.str service_network_arn: ARN of the service network.
+        :param Sequence['NetworkManagedServiceServiceNetworkEndpointArgs'] service_network_endpoints: Service network endpoint configuration. See `service_network_endpoint` Block below.
         :param Sequence['NetworkManagedServiceStsAccessArgs'] sts_accesses: Configuration for STS access from the ODB network.
         :param Sequence['NetworkManagedServiceZeroEtlAccessArgs'] zero_etl_accesses: Configuration for Zero-ETL access from the ODB network.
                
@@ -749,16 +816,25 @@ class NetworkManagedService(dict):
     @_builtins.property
     @pulumi.getter(name="managedS3BackupAccesses")
     def managed_s3_backup_accesses(self) -> Sequence['outputs.NetworkManagedServiceManagedS3BackupAccess']:
+        """
+        Managed S3 backup access configuration. See `managed_s3_backup_access` Block below.
+        """
         return pulumi.get(self, "managed_s3_backup_accesses")
 
     @_builtins.property
     @pulumi.getter(name="managedServiceIpv4Cidrs")
     def managed_service_ipv4_cidrs(self) -> Sequence[_builtins.str]:
+        """
+        List of IPv4 CIDR ranges used by the managed services.
+        """
         return pulumi.get(self, "managed_service_ipv4_cidrs")
 
     @_builtins.property
     @pulumi.getter(name="resourceGatewayArn")
     def resource_gateway_arn(self) -> _builtins.str:
+        """
+        ARN of the resource gateway.
+        """
         return pulumi.get(self, "resource_gateway_arn")
 
     @_builtins.property
@@ -772,11 +848,17 @@ class NetworkManagedService(dict):
     @_builtins.property
     @pulumi.getter(name="serviceNetworkArn")
     def service_network_arn(self) -> _builtins.str:
+        """
+        ARN of the service network.
+        """
         return pulumi.get(self, "service_network_arn")
 
     @_builtins.property
     @pulumi.getter(name="serviceNetworkEndpoints")
     def service_network_endpoints(self) -> Sequence['outputs.NetworkManagedServiceServiceNetworkEndpoint']:
+        """
+        Service network endpoint configuration. See `service_network_endpoint` Block below.
+        """
         return pulumi.get(self, "service_network_endpoints")
 
     @_builtins.property
@@ -822,8 +904,9 @@ class NetworkManagedServiceCrossRegionS3RestoreSourcesAccess(dict):
                  region: _builtins.str,
                  status: _builtins.str):
         """
+        :param Sequence[_builtins.str] ipv4_addresses: List of IPv4 addresses for the Amazon STS access.
         :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param _builtins.str status: Status of the network resource.
+        :param _builtins.str status: Status of the Zero-ETL access.
         """
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
         pulumi.set(__self__, "region", region)
@@ -832,6 +915,9 @@ class NetworkManagedServiceCrossRegionS3RestoreSourcesAccess(dict):
     @_builtins.property
     @pulumi.getter(name="ipv4Addresses")
     def ipv4_addresses(self) -> Sequence[_builtins.str]:
+        """
+        List of IPv4 addresses for the Amazon STS access.
+        """
         return pulumi.get(self, "ipv4_addresses")
 
     @_builtins.property
@@ -846,7 +932,7 @@ class NetworkManagedServiceCrossRegionS3RestoreSourcesAccess(dict):
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Status of the network resource.
+        Status of the Zero-ETL access.
         """
         return pulumi.get(self, "status")
 
@@ -880,8 +966,10 @@ class NetworkManagedServiceKmsAccess(dict):
                  kms_policy_document: _builtins.str,
                  status: _builtins.str):
         """
+        :param _builtins.str domain_name: Domain name for which the DNS queries are forwarded.
+        :param Sequence[_builtins.str] ipv4_addresses: List of IPv4 addresses for the Amazon STS access.
         :param _builtins.str kms_policy_document: Endpoint policy for KMS access from the ODB network.
-        :param _builtins.str status: Status of the network resource.
+        :param _builtins.str status: Status of the Zero-ETL access.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
@@ -891,11 +979,17 @@ class NetworkManagedServiceKmsAccess(dict):
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> _builtins.str:
+        """
+        Domain name for which the DNS queries are forwarded.
+        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="ipv4Addresses")
     def ipv4_addresses(self) -> Sequence[_builtins.str]:
+        """
+        List of IPv4 addresses for the Amazon STS access.
+        """
         return pulumi.get(self, "ipv4_addresses")
 
     @_builtins.property
@@ -910,7 +1004,7 @@ class NetworkManagedServiceKmsAccess(dict):
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Status of the network resource.
+        Status of the Zero-ETL access.
         """
         return pulumi.get(self, "status")
 
@@ -938,7 +1032,8 @@ class NetworkManagedServiceManagedS3BackupAccess(dict):
                  ipv4_addresses: Sequence[_builtins.str],
                  status: _builtins.str):
         """
-        :param _builtins.str status: Status of the network resource.
+        :param Sequence[_builtins.str] ipv4_addresses: List of IPv4 addresses for the Amazon STS access.
+        :param _builtins.str status: Status of the Zero-ETL access.
         """
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
         pulumi.set(__self__, "status", status)
@@ -946,13 +1041,16 @@ class NetworkManagedServiceManagedS3BackupAccess(dict):
     @_builtins.property
     @pulumi.getter(name="ipv4Addresses")
     def ipv4_addresses(self) -> Sequence[_builtins.str]:
+        """
+        List of IPv4 addresses for the Amazon STS access.
+        """
         return pulumi.get(self, "ipv4_addresses")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Status of the network resource.
+        Status of the Zero-ETL access.
         """
         return pulumi.get(self, "status")
 
@@ -986,8 +1084,10 @@ class NetworkManagedServiceS3Access(dict):
                  s3_policy_document: _builtins.str,
                  status: _builtins.str):
         """
+        :param _builtins.str domain_name: Domain name for which the DNS queries are forwarded.
+        :param Sequence[_builtins.str] ipv4_addresses: List of IPv4 addresses for the Amazon STS access.
         :param _builtins.str s3_policy_document: Endpoint policy for Amazon S3 access from the ODB network.
-        :param _builtins.str status: Status of the network resource.
+        :param _builtins.str status: Status of the Zero-ETL access.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
@@ -997,11 +1097,17 @@ class NetworkManagedServiceS3Access(dict):
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> _builtins.str:
+        """
+        Domain name for which the DNS queries are forwarded.
+        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="ipv4Addresses")
     def ipv4_addresses(self) -> Sequence[_builtins.str]:
+        """
+        List of IPv4 addresses for the Amazon STS access.
+        """
         return pulumi.get(self, "ipv4_addresses")
 
     @_builtins.property
@@ -1016,7 +1122,7 @@ class NetworkManagedServiceS3Access(dict):
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Status of the network resource.
+        Status of the Zero-ETL access.
         """
         return pulumi.get(self, "status")
 
@@ -1045,17 +1151,27 @@ class NetworkManagedServiceServiceNetworkEndpoint(dict):
     def __init__(__self__, *,
                  vpc_endpoint_id: _builtins.str,
                  vpc_endpoint_type: _builtins.str):
+        """
+        :param _builtins.str vpc_endpoint_id: Unique identifier of the VPC endpoint.
+        :param _builtins.str vpc_endpoint_type: Type of the VPC endpoint.
+        """
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         pulumi.set(__self__, "vpc_endpoint_type", vpc_endpoint_type)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> _builtins.str:
+        """
+        Unique identifier of the VPC endpoint.
+        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointType")
     def vpc_endpoint_type(self) -> _builtins.str:
+        """
+        Type of the VPC endpoint.
+        """
         return pulumi.get(self, "vpc_endpoint_type")
 
 
@@ -1088,7 +1204,9 @@ class NetworkManagedServiceStsAccess(dict):
                  status: _builtins.str,
                  sts_policy_document: _builtins.str):
         """
-        :param _builtins.str status: Status of the network resource.
+        :param _builtins.str domain_name: Domain name for which the DNS queries are forwarded.
+        :param Sequence[_builtins.str] ipv4_addresses: List of IPv4 addresses for the Amazon STS access.
+        :param _builtins.str status: Status of the Zero-ETL access.
         :param _builtins.str sts_policy_document: Endpoint policy for STS access from the ODB network.
         """
         pulumi.set(__self__, "domain_name", domain_name)
@@ -1099,18 +1217,24 @@ class NetworkManagedServiceStsAccess(dict):
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> _builtins.str:
+        """
+        Domain name for which the DNS queries are forwarded.
+        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="ipv4Addresses")
     def ipv4_addresses(self) -> Sequence[_builtins.str]:
+        """
+        List of IPv4 addresses for the Amazon STS access.
+        """
         return pulumi.get(self, "ipv4_addresses")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Status of the network resource.
+        Status of the Zero-ETL access.
         """
         return pulumi.get(self, "status")
 
@@ -1129,7 +1253,8 @@ class NetworkManagedServiceZeroEtlAccess(dict):
                  cidr: _builtins.str,
                  status: _builtins.str):
         """
-        :param _builtins.str status: Status of the network resource.
+        :param _builtins.str cidr: CIDR range for the Zero-ETL access.
+        :param _builtins.str status: Status of the Zero-ETL access.
         """
         pulumi.set(__self__, "cidr", cidr)
         pulumi.set(__self__, "status", status)
@@ -1137,13 +1262,16 @@ class NetworkManagedServiceZeroEtlAccess(dict):
     @_builtins.property
     @pulumi.getter
     def cidr(self) -> _builtins.str:
+        """
+        CIDR range for the Zero-ETL access.
+        """
         return pulumi.get(self, "cidr")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Status of the network resource.
+        Status of the Zero-ETL access.
         """
         return pulumi.get(self, "status")
 
@@ -1172,17 +1300,27 @@ class NetworkOciDnsForwardingConfig(dict):
     def __init__(__self__, *,
                  domain_name: _builtins.str,
                  oci_dns_listener_ip: _builtins.str):
+        """
+        :param _builtins.str domain_name: Domain name for which the DNS queries are forwarded.
+        :param _builtins.str oci_dns_listener_ip: IP address of the OCI DNS listener.
+        """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "oci_dns_listener_ip", oci_dns_listener_ip)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> _builtins.str:
+        """
+        Domain name for which the DNS queries are forwarded.
+        """
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
     @pulumi.getter(name="ociDnsListenerIp")
     def oci_dns_listener_ip(self) -> _builtins.str:
+        """
+        IP address of the OCI DNS listener.
+        """
         return pulumi.get(self, "oci_dns_listener_ip")
 
 
@@ -1826,23 +1964,30 @@ class GetDbNodesDbNodeResult(dict):
                  vnic_id: _builtins.str):
         """
         :param _builtins.str additional_details: Additional information about the planned maintenance.
+        :param _builtins.str arn: Amazon Resource Name (ARN) of the DB node.
         :param _builtins.str backup_ip_id: Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+        :param _builtins.str backup_vnic2_id: OCID of the second backup virtual network interface card (VNIC) for the DB node.
         :param _builtins.str backup_vnic_id: OCID of the backup VNIC for the DB node.
         :param _builtins.int cpu_core_count: Number of CPU cores enabled on the DB node.
         :param _builtins.str created_at: Date and time when the DB node was created.
+        :param _builtins.int db_node_storage_size: Amount of local node storage, in gigabytes (GB), that's allocated on the DB node.
         :param _builtins.str db_server_id: Unique identifier of the database server that's associated with the DB node.
         :param _builtins.str db_system_id: OCID of the DB system.
         :param _builtins.str fault_domain: Name of the fault domain where the DB node is located.
         :param _builtins.str host_ip_id: OCID of the host IP address that's associated with the DB node.
         :param _builtins.str hostname: Host name for the DB node.
+        :param _builtins.str id: Unique identifier of the DB node.
         :param _builtins.str maintenance_type: Type of maintenance the DB node is undergoing.
+        :param _builtins.int memory_size: Amount of memory, in gigabytes (GB), that's allocated on the DB node.
         :param _builtins.str oci_resource_anchor_name: Name of the OCI resource anchor for the DB node.
         :param _builtins.str ocid: OCID of the DB node.
+        :param _builtins.int software_storage_size: Size of the block storage volume, in gigabytes (GB), that's allocated for the DB system. This attribute applies only for virtual machine DB systems.
         :param _builtins.str status: Current status of the DB node.
         :param _builtins.str status_reason: Additional information about the status of the DB node.
         :param _builtins.str time_maintenance_window_end: End date and time of the maintenance window.
         :param _builtins.str time_maintenance_window_start: Start date and time of the maintenance window.
         :param _builtins.int total_cpu_core_count: Total number of CPU cores reserved on the DB node.
+        :param _builtins.str vnic2_id: OCID of the second VNIC.
         :param _builtins.str vnic_id: OCID of the VNIC.
         """
         pulumi.set(__self__, "additional_details", additional_details)
@@ -1883,6 +2028,9 @@ class GetDbNodesDbNodeResult(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
+        """
+        Amazon Resource Name (ARN) of the DB node.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -1896,6 +2044,9 @@ class GetDbNodesDbNodeResult(dict):
     @_builtins.property
     @pulumi.getter(name="backupVnic2Id")
     def backup_vnic2_id(self) -> _builtins.str:
+        """
+        OCID of the second backup virtual network interface card (VNIC) for the DB node.
+        """
         return pulumi.get(self, "backup_vnic2_id")
 
     @_builtins.property
@@ -1925,6 +2076,9 @@ class GetDbNodesDbNodeResult(dict):
     @_builtins.property
     @pulumi.getter(name="dbNodeStorageSize")
     def db_node_storage_size(self) -> _builtins.int:
+        """
+        Amount of local node storage, in gigabytes (GB), that's allocated on the DB node.
+        """
         return pulumi.get(self, "db_node_storage_size")
 
     @_builtins.property
@@ -1970,6 +2124,9 @@ class GetDbNodesDbNodeResult(dict):
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        Unique identifier of the DB node.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -1983,6 +2140,9 @@ class GetDbNodesDbNodeResult(dict):
     @_builtins.property
     @pulumi.getter(name="memorySize")
     def memory_size(self) -> _builtins.int:
+        """
+        Amount of memory, in gigabytes (GB), that's allocated on the DB node.
+        """
         return pulumi.get(self, "memory_size")
 
     @_builtins.property
@@ -2004,6 +2164,9 @@ class GetDbNodesDbNodeResult(dict):
     @_builtins.property
     @pulumi.getter(name="softwareStorageSize")
     def software_storage_size(self) -> _builtins.int:
+        """
+        Size of the block storage volume, in gigabytes (GB), that's allocated for the DB system. This attribute applies only for virtual machine DB systems.
+        """
         return pulumi.get(self, "software_storage_size")
 
     @_builtins.property
@@ -2049,6 +2212,9 @@ class GetDbNodesDbNodeResult(dict):
     @_builtins.property
     @pulumi.getter(name="vnic2Id")
     def vnic2_id(self) -> _builtins.str:
+        """
+        OCID of the second VNIC.
+        """
         return pulumi.get(self, "vnic2_id")
 
     @_builtins.property
@@ -2067,6 +2233,12 @@ class GetDbServerDbServerPatchingDetailResult(dict):
                  patching_status: _builtins.str,
                  time_patching_ended: _builtins.str,
                  time_patching_started: _builtins.str):
+        """
+        :param _builtins.int estimated_patch_duration: Estimated time, in minutes, that it takes to patch the database server.
+        :param _builtins.str patching_status: Status of the patching operation.
+        :param _builtins.str time_patching_ended: Date and time when the patching operation ended.
+        :param _builtins.str time_patching_started: Date and time when the patching operation started.
+        """
         pulumi.set(__self__, "estimated_patch_duration", estimated_patch_duration)
         pulumi.set(__self__, "patching_status", patching_status)
         pulumi.set(__self__, "time_patching_ended", time_patching_ended)
@@ -2075,21 +2247,33 @@ class GetDbServerDbServerPatchingDetailResult(dict):
     @_builtins.property
     @pulumi.getter(name="estimatedPatchDuration")
     def estimated_patch_duration(self) -> _builtins.int:
+        """
+        Estimated time, in minutes, that it takes to patch the database server.
+        """
         return pulumi.get(self, "estimated_patch_duration")
 
     @_builtins.property
     @pulumi.getter(name="patchingStatus")
     def patching_status(self) -> _builtins.str:
+        """
+        Status of the patching operation.
+        """
         return pulumi.get(self, "patching_status")
 
     @_builtins.property
     @pulumi.getter(name="timePatchingEnded")
     def time_patching_ended(self) -> _builtins.str:
+        """
+        Date and time when the patching operation ended.
+        """
         return pulumi.get(self, "time_patching_ended")
 
     @_builtins.property
     @pulumi.getter(name="timePatchingStarted")
     def time_patching_started(self) -> _builtins.str:
+        """
+        Date and time when the patching operation started.
+        """
         return pulumi.get(self, "time_patching_started")
 
 
@@ -2327,6 +2511,12 @@ class GetDbServersDbServerDbServerPatchingDetailResult(dict):
                  patching_status: _builtins.str,
                  time_patching_ended: _builtins.str,
                  time_patching_started: _builtins.str):
+        """
+        :param _builtins.int estimated_patch_duration: Estimated time, in minutes, that it takes to patch the database server.
+        :param _builtins.str patching_status: Status of the patching operation.
+        :param _builtins.str time_patching_ended: Date and time when the patching operation ended.
+        :param _builtins.str time_patching_started: Date and time when the patching operation started.
+        """
         pulumi.set(__self__, "estimated_patch_duration", estimated_patch_duration)
         pulumi.set(__self__, "patching_status", patching_status)
         pulumi.set(__self__, "time_patching_ended", time_patching_ended)
@@ -2335,21 +2525,33 @@ class GetDbServersDbServerDbServerPatchingDetailResult(dict):
     @_builtins.property
     @pulumi.getter(name="estimatedPatchDuration")
     def estimated_patch_duration(self) -> _builtins.int:
+        """
+        Estimated time, in minutes, that it takes to patch the database server.
+        """
         return pulumi.get(self, "estimated_patch_duration")
 
     @_builtins.property
     @pulumi.getter(name="patchingStatus")
     def patching_status(self) -> _builtins.str:
+        """
+        Status of the patching operation.
+        """
         return pulumi.get(self, "patching_status")
 
     @_builtins.property
     @pulumi.getter(name="timePatchingEnded")
     def time_patching_ended(self) -> _builtins.str:
+        """
+        Date and time when the patching operation ended.
+        """
         return pulumi.get(self, "time_patching_ended")
 
     @_builtins.property
     @pulumi.getter(name="timePatchingStarted")
     def time_patching_started(self) -> _builtins.str:
+        """
+        Date and time when the patching operation started.
+        """
         return pulumi.get(self, "time_patching_started")
 
 

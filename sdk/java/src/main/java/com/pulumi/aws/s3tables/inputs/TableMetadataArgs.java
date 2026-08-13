@@ -15,14 +15,14 @@ public final class TableMetadataArgs extends com.pulumi.resources.ResourceArgs {
     public static final TableMetadataArgs Empty = new TableMetadataArgs();
 
     /**
-     * Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+     * Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
      * 
      */
     @Import(name="iceberg", required=true)
     private Output<TableMetadataIcebergArgs> iceberg;
 
     /**
-     * @return Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+     * @return Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
      * 
      */
     public Output<TableMetadataIcebergArgs> iceberg() {
@@ -54,7 +54,7 @@ public final class TableMetadataArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iceberg Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+         * @param iceberg Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class TableMetadataArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iceberg Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+         * @param iceberg Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
          * 
          * @return builder
          * 

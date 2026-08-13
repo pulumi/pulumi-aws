@@ -17,14 +17,14 @@ public final class ServerProtocolDetailsArgs extends com.pulumi.resources.Resour
     public static final ServerProtocolDetailsArgs Empty = new ServerProtocolDetailsArgs();
 
     /**
-     * Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
+     * Transport method for the AS2 messages. Currently, only `HTTP` is supported.
      * 
      */
     @Import(name="as2Transports")
     private @Nullable Output<List<String>> as2Transports;
 
     /**
-     * @return Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
+     * @return Transport method for the AS2 messages. Currently, only `HTTP` is supported.
      * 
      */
     public Optional<Output<List<String>>> as2Transports() {
@@ -32,14 +32,14 @@ public final class ServerProtocolDetailsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
+     * Passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
      * 
      */
     @Import(name="passiveIp")
     private @Nullable Output<String> passiveIp;
 
     /**
-     * @return Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
+     * @return Passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
      * 
      */
     public Optional<Output<String>> passiveIp() {
@@ -62,14 +62,14 @@ public final class ServerProtocolDetailsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
+     * Property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
      * 
      */
     @Import(name="tlsSessionResumptionMode")
     private @Nullable Output<String> tlsSessionResumptionMode;
 
     /**
-     * @return A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
+     * @return Property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
      * 
      */
     public Optional<Output<String>> tlsSessionResumptionMode() {
@@ -104,7 +104,7 @@ public final class ServerProtocolDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param as2Transports Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
+         * @param as2Transports Transport method for the AS2 messages. Currently, only `HTTP` is supported.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ServerProtocolDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param as2Transports Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
+         * @param as2Transports Transport method for the AS2 messages. Currently, only `HTTP` is supported.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ServerProtocolDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param as2Transports Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
+         * @param as2Transports Transport method for the AS2 messages. Currently, only `HTTP` is supported.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class ServerProtocolDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passiveIp Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
+         * @param passiveIp Passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ServerProtocolDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param passiveIp Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
+         * @param passiveIp Passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ServerProtocolDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tlsSessionResumptionMode A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
+         * @param tlsSessionResumptionMode Property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class ServerProtocolDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tlsSessionResumptionMode A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
+         * @param tlsSessionResumptionMode Property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
          * 
          * @return builder
          * 

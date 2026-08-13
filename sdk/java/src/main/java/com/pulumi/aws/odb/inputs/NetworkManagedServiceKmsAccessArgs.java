@@ -15,16 +15,32 @@ public final class NetworkManagedServiceKmsAccessArgs extends com.pulumi.resourc
 
     public static final NetworkManagedServiceKmsAccessArgs Empty = new NetworkManagedServiceKmsAccessArgs();
 
+    /**
+     * Domain name for which the DNS queries are forwarded.
+     * 
+     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
+    /**
+     * @return Domain name for which the DNS queries are forwarded.
+     * 
+     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
+    /**
+     * List of IPv4 addresses for the Amazon STS access.
+     * 
+     */
     @Import(name="ipv4Addresses", required=true)
     private Output<List<String>> ipv4Addresses;
 
+    /**
+     * @return List of IPv4 addresses for the Amazon STS access.
+     * 
+     */
     public Output<List<String>> ipv4Addresses() {
         return this.ipv4Addresses;
     }
@@ -45,14 +61,14 @@ public final class NetworkManagedServiceKmsAccessArgs extends com.pulumi.resourc
     }
 
     /**
-     * Status of the network resource.
+     * Status of the Zero-ETL access.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     public Output<String> status() {
@@ -86,24 +102,54 @@ public final class NetworkManagedServiceKmsAccessArgs extends com.pulumi.resourc
             $ = new NetworkManagedServiceKmsAccessArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param domainName Domain name for which the DNS queries are forwarded.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
+        /**
+         * @param domainName Domain name for which the DNS queries are forwarded.
+         * 
+         * @return builder
+         * 
+         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
+        /**
+         * @param ipv4Addresses List of IPv4 addresses for the Amazon STS access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv4Addresses(Output<List<String>> ipv4Addresses) {
             $.ipv4Addresses = ipv4Addresses;
             return this;
         }
 
+        /**
+         * @param ipv4Addresses List of IPv4 addresses for the Amazon STS access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv4Addresses(List<String> ipv4Addresses) {
             return ipv4Addresses(Output.of(ipv4Addresses));
         }
 
+        /**
+         * @param ipv4Addresses List of IPv4 addresses for the Amazon STS access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv4Addresses(String... ipv4Addresses) {
             return ipv4Addresses(List.of(ipv4Addresses));
         }
@@ -130,7 +176,7 @@ public final class NetworkManagedServiceKmsAccessArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param status Status of the network resource.
+         * @param status Status of the Zero-ETL access.
          * 
          * @return builder
          * 
@@ -141,7 +187,7 @@ public final class NetworkManagedServiceKmsAccessArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param status Status of the network resource.
+         * @param status Status of the Zero-ETL access.
          * 
          * @return builder
          * 

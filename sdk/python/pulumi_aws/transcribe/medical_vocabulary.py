@@ -27,13 +27,13 @@ class MedicalVocabularyArgs:
         """
         The set of arguments for constructing a MedicalVocabulary resource.
 
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
-        :param pulumi.Input[_builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
-        :param pulumi.Input[_builtins.str] vocabulary_name: The name of the Medical Vocabulary.
+        :param pulumi.Input[_builtins.str] language_code: Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+        :param pulumi.Input[_builtins.str] vocabulary_file_uri: Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        :param pulumi.Input[_builtins.str] vocabulary_name: Name of the Medical Vocabulary.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "language_code", language_code)
         pulumi.set(__self__, "vocabulary_file_uri", vocabulary_file_uri)
@@ -47,7 +47,7 @@ class MedicalVocabularyArgs:
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[_builtins.str]:
         """
-        The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+        Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         """
         return pulumi.get(self, "language_code")
 
@@ -59,7 +59,7 @@ class MedicalVocabularyArgs:
     @pulumi.getter(name="vocabularyFileUri")
     def vocabulary_file_uri(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         """
         return pulumi.get(self, "vocabulary_file_uri")
 
@@ -71,7 +71,7 @@ class MedicalVocabularyArgs:
     @pulumi.getter(name="vocabularyName")
     def vocabulary_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the Medical Vocabulary.
+        Name of the Medical Vocabulary.
 
         The following arguments are optional:
         """
@@ -97,7 +97,7 @@ class MedicalVocabularyArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -122,11 +122,11 @@ class _MedicalVocabularyState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the MedicalVocabulary.
         :param pulumi.Input[_builtins.str] download_uri: Generated download URI.
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+        :param pulumi.Input[_builtins.str] language_code: Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
-        :param pulumi.Input[_builtins.str] vocabulary_name: The name of the Medical Vocabulary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vocabulary_file_uri: Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        :param pulumi.Input[_builtins.str] vocabulary_name: Name of the Medical Vocabulary.
                
                The following arguments are optional:
         """
@@ -175,7 +175,7 @@ class _MedicalVocabularyState:
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+        Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         """
         return pulumi.get(self, "language_code")
 
@@ -199,7 +199,7 @@ class _MedicalVocabularyState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -220,7 +220,7 @@ class _MedicalVocabularyState:
     @pulumi.getter(name="vocabularyFileUri")
     def vocabulary_file_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         """
         return pulumi.get(self, "vocabulary_file_uri")
 
@@ -232,7 +232,7 @@ class _MedicalVocabularyState:
     @pulumi.getter(name="vocabularyName")
     def vocabulary_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the Medical Vocabulary.
+        Name of the Medical Vocabulary.
 
         The following arguments are optional:
         """
@@ -299,11 +299,11 @@ class MedicalVocabulary(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+        :param pulumi.Input[_builtins.str] language_code: Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
-        :param pulumi.Input[_builtins.str] vocabulary_name: The name of the Medical Vocabulary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vocabulary_file_uri: Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        :param pulumi.Input[_builtins.str] vocabulary_name: Name of the Medical Vocabulary.
                
                The following arguments are optional:
         """
@@ -425,11 +425,11 @@ class MedicalVocabulary(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the MedicalVocabulary.
         :param pulumi.Input[_builtins.str] download_uri: Generated download URI.
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+        :param pulumi.Input[_builtins.str] language_code: Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
-        :param pulumi.Input[_builtins.str] vocabulary_name: The name of the Medical Vocabulary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vocabulary_file_uri: Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        :param pulumi.Input[_builtins.str] vocabulary_name: Name of the Medical Vocabulary.
                
                The following arguments are optional:
         """
@@ -467,7 +467,7 @@ class MedicalVocabulary(pulumi.CustomResource):
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Output[_builtins.str]:
         """
-        The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+        Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         """
         return pulumi.get(self, "language_code")
 
@@ -483,7 +483,7 @@ class MedicalVocabulary(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -496,7 +496,7 @@ class MedicalVocabulary(pulumi.CustomResource):
     @pulumi.getter(name="vocabularyFileUri")
     def vocabulary_file_uri(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+        Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         """
         return pulumi.get(self, "vocabulary_file_uri")
 
@@ -504,7 +504,7 @@ class MedicalVocabulary(pulumi.CustomResource):
     @pulumi.getter(name="vocabularyName")
     def vocabulary_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the Medical Vocabulary.
+        Name of the Medical Vocabulary.
 
         The following arguments are optional:
         """

@@ -7,5 +7,6 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .graph import *
+from .private_graph_endpoint import *
 from ._inputs import *
 from . import outputs

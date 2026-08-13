@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.amp.ScraperArgs;
 import com.pulumi.aws.amp.inputs.ScraperState;
 import com.pulumi.aws.amp.outputs.ScraperDestination;
+import com.pulumi.aws.amp.outputs.ScraperExporter;
 import com.pulumi.aws.amp.outputs.ScraperRoleConfiguration;
 import com.pulumi.aws.amp.outputs.ScraperSource;
 import com.pulumi.aws.amp.outputs.ScraperTimeouts;
@@ -245,6 +246,73 @@ import javax.annotation.Nullable;
  *         replacement: 'my-service'
  *       - target_label: discovery_method
  *         replacement: 'cloudmap-dns'
+ *             """)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### OpenSearch Exporter
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amp.Scraper;
+ * import com.pulumi.aws.amp.ScraperArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperSourceArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperSourceVpcArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperDestinationArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperDestinationAmpArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperExporterArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperExporterOpensearchArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Scraper("example", ScraperArgs.builder()
+ *             .source(ScraperSourceArgs.builder()
+ *                 .vpc(ScraperSourceVpcArgs.builder()
+ *                     .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                     .subnetIds(                    
+ *                         example1.id(),
+ *                         example2.id())
+ *                     .build())
+ *                 .build())
+ *             .destination(ScraperDestinationArgs.builder()
+ *                 .amp(ScraperDestinationAmpArgs.builder()
+ *                     .workspaceArn(exampleAwsPrometheusWorkspace.arn())
+ *                     .build())
+ *                 .build())
+ *             .exporter(ScraperExporterArgs.builder()
+ *                 .opensearch(ScraperExporterOpensearchArgs.builder()
+ *                     .domainArn(exampleAwsOpensearchDomain.arn())
+ *                     .build())
+ *                 .build())
+ *             .scrapeConfiguration("""
+ * global:
+ *   scrape_interval: 30s
+ * scrape_configs:
+ *   - job_name: 'my-service'
+ *     dns_sd_configs:
+ *       - names: ['my-service.my-namespace']
+ *         type: A
+ *         port: 8080
+ *     metrics_path: '/metrics'
  *             """)
  *             .build());
  * 
@@ -504,6 +572,20 @@ public class Scraper extends com.pulumi.resources.CustomResource {
      */
     public Output<ScraperDestination> destination() {
         return this.destination;
+    }
+    /**
+     * Configuration block for additional exporters. See `exporter` Block for details.
+     * 
+     */
+    @Export(name="exporter", refs={ScraperExporter.class}, tree="[0]")
+    private Output</* @Nullable */ ScraperExporter> exporter;
+
+    /**
+     * @return Configuration block for additional exporters. See `exporter` Block for details.
+     * 
+     */
+    public Output<Optional<ScraperExporter>> exporter() {
+        return Codegen.optional(this.exporter);
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

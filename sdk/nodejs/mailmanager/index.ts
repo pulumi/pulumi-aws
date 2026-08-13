@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { IngressPointArgs, IngressPointState } from "./ingressPoint";
+export type IngressPoint = import("./ingressPoint").IngressPoint;
+export const IngressPoint: typeof import("./ingressPoint").IngressPoint = null as any;
+utilities.lazyLoad(exports, ["IngressPoint"], () => require("./ingressPoint"));
+
 export { RuleSetArgs, RuleSetState } from "./ruleSet";
 export type RuleSet = import("./ruleSet").RuleSet;
 export const RuleSet: typeof import("./ruleSet").RuleSet = null as any;
@@ -20,6 +25,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:mailmanager/ingressPoint:IngressPoint":
+                return new IngressPoint(name, <any>undefined, { urn })
             case "aws:mailmanager/ruleSet:RuleSet":
                 return new RuleSet(name, <any>undefined, { urn })
             case "aws:mailmanager/trafficPolicy:TrafficPolicy":
@@ -29,5 +36,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "mailmanager/ingressPoint", _module)
 pulumi.runtime.registerResourceModule("aws", "mailmanager/ruleSet", _module)
 pulumi.runtime.registerResourceModule("aws", "mailmanager/trafficPolicy", _module)

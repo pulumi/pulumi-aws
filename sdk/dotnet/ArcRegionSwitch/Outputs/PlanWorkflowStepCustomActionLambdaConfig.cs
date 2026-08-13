@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
     public sealed class PlanWorkflowStepCustomActionLambdaConfig
     {
         /// <summary>
-        /// Lambda function configuration. See Lambda below.
+        /// Lambda function configuration. See `Lambda` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepCustomActionLambdaConfigLambda> Lambdas;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly int? TimeoutMinutes;
         /// <summary>
-        /// Ungraceful behavior configuration. See Ungraceful below.
+        /// Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepCustomActionLambdaConfigUngraceful> Ungracefuls;
 

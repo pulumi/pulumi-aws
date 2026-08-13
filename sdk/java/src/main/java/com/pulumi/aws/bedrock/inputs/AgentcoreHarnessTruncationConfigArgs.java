@@ -17,14 +17,14 @@ public final class AgentcoreHarnessTruncationConfigArgs extends com.pulumi.resou
     public static final AgentcoreHarnessTruncationConfigArgs Empty = new AgentcoreHarnessTruncationConfigArgs();
 
     /**
-     * Sliding window truncation configuration. See `slidingWindow` below.
+     * Sliding window truncation configuration. See `slidingWindow` Block below.
      * 
      */
     @Import(name="slidingWindows", required=true)
     private Output<List<AgentcoreHarnessTruncationConfigSlidingWindowArgs>> slidingWindows;
 
     /**
-     * @return Sliding window truncation configuration. See `slidingWindow` below.
+     * @return Sliding window truncation configuration. See `slidingWindow` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessTruncationConfigSlidingWindowArgs>> slidingWindows() {
@@ -32,14 +32,14 @@ public final class AgentcoreHarnessTruncationConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * Summarization truncation configuration. See `summarization` below.
+     * Summarization truncation configuration. See `summarization` Block below.
      * 
      */
     @Import(name="summarizations", required=true)
     private Output<List<AgentcoreHarnessTruncationConfigSummarizationArgs>> summarizations;
 
     /**
-     * @return Summarization truncation configuration. See `summarization` below.
+     * @return Summarization truncation configuration. See `summarization` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessTruncationConfigSummarizationArgs>> summarizations() {
@@ -72,7 +72,7 @@ public final class AgentcoreHarnessTruncationConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param slidingWindows Sliding window truncation configuration. See `slidingWindow` below.
+         * @param slidingWindows Sliding window truncation configuration. See `slidingWindow` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AgentcoreHarnessTruncationConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param slidingWindows Sliding window truncation configuration. See `slidingWindow` below.
+         * @param slidingWindows Sliding window truncation configuration. See `slidingWindow` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class AgentcoreHarnessTruncationConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param slidingWindows Sliding window truncation configuration. See `slidingWindow` below.
+         * @param slidingWindows Sliding window truncation configuration. See `slidingWindow` Block below.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class AgentcoreHarnessTruncationConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param summarizations Summarization truncation configuration. See `summarization` below.
+         * @param summarizations Summarization truncation configuration. See `summarization` Block below.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AgentcoreHarnessTruncationConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param summarizations Summarization truncation configuration. See `summarization` below.
+         * @param summarizations Summarization truncation configuration. See `summarization` Block below.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class AgentcoreHarnessTruncationConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param summarizations Summarization truncation configuration. See `summarization` below.
+         * @param summarizations Summarization truncation configuration. See `summarization` Block below.
          * 
          * @return builder
          * 

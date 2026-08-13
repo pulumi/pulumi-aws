@@ -94,7 +94,7 @@ class GetListenerResult:
     @pulumi.getter(name="defaultActions")
     def default_actions(self) -> Sequence['outputs.GetListenerDefaultActionResult']:
         """
-        Actions for the default listener rule.
+        Action for the default listener rule. See `default_action` Block below.
         """
         return pulumi.get(self, "default_actions")
 

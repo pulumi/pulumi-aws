@@ -143,7 +143,7 @@ class GetConnectorResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
-        Object containing the following attributes:
+        Map of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 

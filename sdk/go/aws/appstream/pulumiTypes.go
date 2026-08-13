@@ -1889,7 +1889,7 @@ func (o StackUserSettingArrayOutput) Index(i pulumi.IntInput) StackUserSettingOu
 }
 
 type GetImageApplication struct {
-	// The app block ARN of the application.
+	// App block ARN of the application.
 	AppBlockArn string `pulumi:"appBlockArn"`
 	// ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
 	Arn string `pulumi:"arn"`
@@ -1899,17 +1899,17 @@ type GetImageApplication struct {
 	Description string `pulumi:"description"`
 	// Image name to display.
 	DisplayName string `pulumi:"displayName"`
-	// Bool based on if the application is enabled.
+	// Whether the application is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// A list named iconS3Location that contains the following:
+	// S3 location of the application icon and contains the following:
 	IconS3Locations []GetImageApplicationIconS3Location `pulumi:"iconS3Locations"`
 	// URL of the application icon. This URL may be time-limited.
 	IconUrl string `pulumi:"iconUrl"`
 	// List of the instance families of the application.
 	InstanceFamilies []string `pulumi:"instanceFamilies"`
-	// Arguments that are passed to the application at it's launch.
+	// Arguments that are passed to the application at its launch.
 	LaunchParameters string `pulumi:"launchParameters"`
-	// Path to the application's excecutable in the instance.
+	// Path to the application's executable in the instance.
 	LaunchPath string `pulumi:"launchPath"`
 	// String to string map that contains additional attributes used to describe the application.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -1933,7 +1933,7 @@ type GetImageApplicationInput interface {
 }
 
 type GetImageApplicationArgs struct {
-	// The app block ARN of the application.
+	// App block ARN of the application.
 	AppBlockArn pulumi.StringInput `pulumi:"appBlockArn"`
 	// ARN of the image being searched for. Cannot be used with `nameRegex` or `name`.
 	Arn pulumi.StringInput `pulumi:"arn"`
@@ -1943,17 +1943,17 @@ type GetImageApplicationArgs struct {
 	Description pulumi.StringInput `pulumi:"description"`
 	// Image name to display.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// Bool based on if the application is enabled.
+	// Whether the application is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// A list named iconS3Location that contains the following:
+	// S3 location of the application icon and contains the following:
 	IconS3Locations GetImageApplicationIconS3LocationArrayInput `pulumi:"iconS3Locations"`
 	// URL of the application icon. This URL may be time-limited.
 	IconUrl pulumi.StringInput `pulumi:"iconUrl"`
 	// List of the instance families of the application.
 	InstanceFamilies pulumi.StringArrayInput `pulumi:"instanceFamilies"`
-	// Arguments that are passed to the application at it's launch.
+	// Arguments that are passed to the application at its launch.
 	LaunchParameters pulumi.StringInput `pulumi:"launchParameters"`
-	// Path to the application's excecutable in the instance.
+	// Path to the application's executable in the instance.
 	LaunchPath pulumi.StringInput `pulumi:"launchPath"`
 	// String to string map that contains additional attributes used to describe the application.
 	Metadata pulumi.StringMapInput `pulumi:"metadata"`
@@ -2016,7 +2016,7 @@ func (o GetImageApplicationOutput) ToGetImageApplicationOutputWithContext(ctx co
 	return o
 }
 
-// The app block ARN of the application.
+// App block ARN of the application.
 func (o GetImageApplicationOutput) AppBlockArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.AppBlockArn }).(pulumi.StringOutput)
 }
@@ -2041,12 +2041,12 @@ func (o GetImageApplicationOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Bool based on if the application is enabled.
+// Whether the application is enabled.
 func (o GetImageApplicationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImageApplication) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// A list named iconS3Location that contains the following:
+// S3 location of the application icon and contains the following:
 func (o GetImageApplicationOutput) IconS3Locations() GetImageApplicationIconS3LocationArrayOutput {
 	return o.ApplyT(func(v GetImageApplication) []GetImageApplicationIconS3Location { return v.IconS3Locations }).(GetImageApplicationIconS3LocationArrayOutput)
 }
@@ -2061,12 +2061,12 @@ func (o GetImageApplicationOutput) InstanceFamilies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImageApplication) []string { return v.InstanceFamilies }).(pulumi.StringArrayOutput)
 }
 
-// Arguments that are passed to the application at it's launch.
+// Arguments that are passed to the application at its launch.
 func (o GetImageApplicationOutput) LaunchParameters() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.LaunchParameters }).(pulumi.StringOutput)
 }
 
-// Path to the application's excecutable in the instance.
+// Path to the application's executable in the instance.
 func (o GetImageApplicationOutput) LaunchPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.LaunchPath }).(pulumi.StringOutput)
 }
@@ -2112,9 +2112,9 @@ func (o GetImageApplicationArrayOutput) Index(i pulumi.IntInput) GetImageApplica
 }
 
 type GetImageApplicationIconS3Location struct {
-	// S3 bucket of the S3 object.
+	// Name of the S3 bucket containing the icon.
 	S3Bucket string `pulumi:"s3Bucket"`
-	// S3 key of the S3 object.
+	// S3 key of the icon.
 	S3Key string `pulumi:"s3Key"`
 }
 
@@ -2130,9 +2130,9 @@ type GetImageApplicationIconS3LocationInput interface {
 }
 
 type GetImageApplicationIconS3LocationArgs struct {
-	// S3 bucket of the S3 object.
+	// Name of the S3 bucket containing the icon.
 	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
-	// S3 key of the S3 object.
+	// S3 key of the icon.
 	S3Key pulumi.StringInput `pulumi:"s3Key"`
 }
 
@@ -2187,12 +2187,12 @@ func (o GetImageApplicationIconS3LocationOutput) ToGetImageApplicationIconS3Loca
 	return o
 }
 
-// S3 bucket of the S3 object.
+// Name of the S3 bucket containing the icon.
 func (o GetImageApplicationIconS3LocationOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplicationIconS3Location) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
-// S3 key of the S3 object.
+// S3 key of the icon.
 func (o GetImageApplicationIconS3LocationOutput) S3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplicationIconS3Location) string { return v.S3Key }).(pulumi.StringOutput)
 }
@@ -2218,9 +2218,9 @@ func (o GetImageApplicationIconS3LocationArrayOutput) Index(i pulumi.IntInput) G
 }
 
 type GetImageImagePermission struct {
-	// Boolean indicating if the image can be used for a fleet.
+	// Whether the image can be used for a fleet.
 	AllowFleet bool `pulumi:"allowFleet"`
-	// indicated whether the image can be used for an image builder.
+	// Whether the image can be used for an image builder.
 	AllowImageBuilder bool `pulumi:"allowImageBuilder"`
 }
 
@@ -2236,9 +2236,9 @@ type GetImageImagePermissionInput interface {
 }
 
 type GetImageImagePermissionArgs struct {
-	// Boolean indicating if the image can be used for a fleet.
+	// Whether the image can be used for a fleet.
 	AllowFleet pulumi.BoolInput `pulumi:"allowFleet"`
-	// indicated whether the image can be used for an image builder.
+	// Whether the image can be used for an image builder.
 	AllowImageBuilder pulumi.BoolInput `pulumi:"allowImageBuilder"`
 }
 
@@ -2293,12 +2293,12 @@ func (o GetImageImagePermissionOutput) ToGetImageImagePermissionOutputWithContex
 	return o
 }
 
-// Boolean indicating if the image can be used for a fleet.
+// Whether the image can be used for a fleet.
 func (o GetImageImagePermissionOutput) AllowFleet() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImageImagePermission) bool { return v.AllowFleet }).(pulumi.BoolOutput)
 }
 
-// indicated whether the image can be used for an image builder.
+// Whether the image can be used for an image builder.
 func (o GetImageImagePermissionOutput) AllowImageBuilder() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImageImagePermission) bool { return v.AllowImageBuilder }).(pulumi.BoolOutput)
 }

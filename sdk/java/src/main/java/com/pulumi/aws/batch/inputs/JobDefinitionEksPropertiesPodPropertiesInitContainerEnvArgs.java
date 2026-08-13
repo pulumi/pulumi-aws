@@ -15,14 +15,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs e
     public static final JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs Empty = new JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs();
 
     /**
-     * Name of the job definition.
+     * Name of the environment variable.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the job definition.
+     * @return Name of the environment variable.
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs e
         }
 
         /**
-         * @param name Name of the job definition.
+         * @param name Name of the environment variable.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs e
         }
 
         /**
-         * @param name Name of the job definition.
+         * @param name Name of the environment variable.
          * 
          * @return builder
          * 

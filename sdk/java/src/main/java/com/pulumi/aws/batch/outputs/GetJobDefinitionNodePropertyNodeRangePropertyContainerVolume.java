@@ -14,12 +14,12 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume {
     /**
-     * @return This parameter is specified when you&#39;re using an Amazon Elastic File System file system for job storage.
+     * @return Amazon Elastic File System configuration for job storage. See `efsVolumeConfiguration` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration> efsVolumeConfigurations;
     /**
-     * @return Contents of the host parameter determine whether your data volume persists on the host container instance and where it&#39;s stored.
+     * @return Contents of the host parameter determine whether your data volume persists on the host container instance and where it&#39;s stored. See `host` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost> hosts;
@@ -31,14 +31,14 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume 
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume() {}
     /**
-     * @return This parameter is specified when you&#39;re using an Amazon Elastic File System file system for job storage.
+     * @return Amazon Elastic File System configuration for job storage. See `efsVolumeConfiguration` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration> efsVolumeConfigurations() {
         return this.efsVolumeConfigurations;
     }
     /**
-     * @return Contents of the host parameter determine whether your data volume persists on the host container instance and where it&#39;s stored.
+     * @return Contents of the host parameter determine whether your data volume persists on the host container instance and where it&#39;s stored. See `host` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost> hosts() {

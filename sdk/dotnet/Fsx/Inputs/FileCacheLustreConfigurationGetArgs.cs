@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private InputList<Inputs.FileCacheLustreConfigurationLogConfigurationGetArgs>? _logConfigurations;
 
         /// <summary>
-        /// Configuration for Lustre logging used to write the enabled logging events for the cache.
+        /// Configuration for Lustre logging used to write the enabled logging events for the cache. See `LogConfiguration` Block below.
         /// </summary>
         public InputList<Inputs.FileCacheLustreConfigurationLogConfigurationGetArgs> LogConfigurations
         {

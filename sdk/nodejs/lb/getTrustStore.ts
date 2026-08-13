@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * > **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
- *
  * Provides information about a Load Balancer Trust Store.
  *
  * This data source can prove useful when a module accepts an LB Trust Store as an
@@ -71,8 +69,6 @@ export interface GetTrustStoreResult {
     readonly region: string;
 }
 /**
- * > **Note:** `awsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
- *
  * Provides information about a Load Balancer Trust Store.
  *
  * This data source can prove useful when a module accepts an LB Trust Store as an

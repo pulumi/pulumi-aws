@@ -73,7 +73,7 @@ type LookupApplicationResult struct {
 	InstanceArn string `pulumi:"instanceArn"`
 	// Name of the application.
 	Name string `pulumi:"name"`
-	// Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
+	// Options for the portal associated with an application. See `portalOptions` Block below.
 	PortalOptions []GetApplicationPortalOption `pulumi:"portalOptions"`
 	Region        string                       `pulumi:"region"`
 	// Status of the application.
@@ -150,7 +150,7 @@ func (o LookupApplicationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
+// Options for the portal associated with an application. See `portalOptions` Block below.
 func (o LookupApplicationResultOutput) PortalOptions() GetApplicationPortalOptionArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []GetApplicationPortalOption { return v.PortalOptions }).(GetApplicationPortalOptionArrayOutput)
 }

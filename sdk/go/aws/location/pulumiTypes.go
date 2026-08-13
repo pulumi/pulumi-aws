@@ -151,7 +151,7 @@ func (o MapConfigurationPtrOutput) Style() pulumi.StringPtrOutput {
 }
 
 type PlaceIndexDataSourceConfiguration struct {
-	// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+	// How the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
 	IntendedUse *string `pulumi:"intendedUse"`
 }
 
@@ -167,7 +167,7 @@ type PlaceIndexDataSourceConfigurationInput interface {
 }
 
 type PlaceIndexDataSourceConfigurationArgs struct {
-	// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+	// How the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
 	IntendedUse pulumi.StringPtrInput `pulumi:"intendedUse"`
 }
 
@@ -248,7 +248,7 @@ func (o PlaceIndexDataSourceConfigurationOutput) ToPlaceIndexDataSourceConfigura
 	}).(PlaceIndexDataSourceConfigurationPtrOutput)
 }
 
-// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+// How the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
 func (o PlaceIndexDataSourceConfigurationOutput) IntendedUse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlaceIndexDataSourceConfiguration) *string { return v.IntendedUse }).(pulumi.StringPtrOutput)
 }
@@ -277,7 +277,7 @@ func (o PlaceIndexDataSourceConfigurationPtrOutput) Elem() PlaceIndexDataSourceC
 	}).(PlaceIndexDataSourceConfigurationOutput)
 }
 
-// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+// How the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
 func (o PlaceIndexDataSourceConfigurationPtrOutput) IntendedUse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlaceIndexDataSourceConfiguration) *string {
 		if v == nil {

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Transfer.Inputs
     public sealed class WorkflowStepDecryptStepDetailsDestinationFileLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the details for the EFS file being copied.
+        /// Details for the EFS file being copied. See `EfsFileLocation` Block below.
         /// </summary>
         [Input("efsFileLocation")]
         public Input<Inputs.WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs>? EfsFileLocation { get; set; }
 
         /// <summary>
-        /// Specifies the details for the S3 file being copied.
+        /// Details for the S3 file being copied. See `S3FileLocation` Block below.
         /// </summary>
         [Input("s3FileLocation")]
         public Input<Inputs.WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs>? S3FileLocation { get; set; }

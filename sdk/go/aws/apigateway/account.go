@@ -116,7 +116,7 @@ type Account struct {
 	Features pulumi.StringArrayOutput `pulumi:"features"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+	// Account-Level throttle settings. See `throttleSettings` Block below.
 	ThrottleSettings AccountThrottleSettingArrayOutput `pulumi:"throttleSettings"`
 }
 
@@ -158,7 +158,7 @@ type accountState struct {
 	Features []string `pulumi:"features"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+	// Account-Level throttle settings. See `throttleSettings` Block below.
 	ThrottleSettings []AccountThrottleSetting `pulumi:"throttleSettings"`
 }
 
@@ -171,7 +171,7 @@ type AccountState struct {
 	Features pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+	// Account-Level throttle settings. See `throttleSettings` Block below.
 	ThrottleSettings AccountThrottleSettingArrayInput
 }
 
@@ -301,7 +301,7 @@ func (o AccountOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+// Account-Level throttle settings. See `throttleSettings` Block below.
 func (o AccountOutput) ThrottleSettings() AccountThrottleSettingArrayOutput {
 	return o.ApplyT(func(v *Account) AccountThrottleSettingArrayOutput { return v.ThrottleSettings }).(AccountThrottleSettingArrayOutput)
 }

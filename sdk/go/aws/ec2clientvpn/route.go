@@ -87,8 +87,10 @@ type Route struct {
 	Origin pulumi.StringOutput `pulumi:"origin"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-	TargetVpcSubnetId pulumi.StringOutput `pulumi:"targetVpcSubnetId"`
+	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
+	TargetVpcSubnetId pulumi.StringPtrOutput `pulumi:"targetVpcSubnetId"`
+	// The ID of the Transit Gateway attachment, if the route targets a Transit Gateway-based Client VPN endpoint.
+	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// The type of the route.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -105,9 +107,6 @@ func NewRoute(ctx *pulumi.Context,
 	}
 	if args.DestinationCidrBlock == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationCidrBlock'")
-	}
-	if args.TargetVpcSubnetId == nil {
-		return nil, errors.New("invalid value for required argument 'TargetVpcSubnetId'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Route
@@ -142,8 +141,10 @@ type routeState struct {
 	Origin *string `pulumi:"origin"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
 	TargetVpcSubnetId *string `pulumi:"targetVpcSubnetId"`
+	// The ID of the Transit Gateway attachment, if the route targets a Transit Gateway-based Client VPN endpoint.
+	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// The type of the route.
 	Type *string `pulumi:"type"`
 }
@@ -159,8 +160,10 @@ type RouteState struct {
 	Origin pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
 	TargetVpcSubnetId pulumi.StringPtrInput
+	// The ID of the Transit Gateway attachment, if the route targets a Transit Gateway-based Client VPN endpoint.
+	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// The type of the route.
 	Type pulumi.StringPtrInput
 }
@@ -178,8 +181,8 @@ type routeArgs struct {
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-	TargetVpcSubnetId string `pulumi:"targetVpcSubnetId"`
+	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
+	TargetVpcSubnetId *string `pulumi:"targetVpcSubnetId"`
 }
 
 // The set of arguments for constructing a Route resource.
@@ -192,8 +195,8 @@ type RouteArgs struct {
 	DestinationCidrBlock pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-	TargetVpcSubnetId pulumi.StringInput
+	// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
+	TargetVpcSubnetId pulumi.StringPtrInput
 }
 
 func (RouteArgs) ElementType() reflect.Type {
@@ -308,9 +311,14 @@ func (o RouteOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
-func (o RouteOutput) TargetVpcSubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.TargetVpcSubnetId }).(pulumi.StringOutput)
+// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
+func (o RouteOutput) TargetVpcSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.TargetVpcSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Transit Gateway attachment, if the route targets a Transit Gateway-based Client VPN endpoint.
+func (o RouteOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
 
 // The type of the route.

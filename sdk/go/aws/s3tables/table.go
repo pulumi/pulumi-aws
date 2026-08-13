@@ -150,7 +150,7 @@ type Table struct {
 	Format pulumi.StringOutput `pulumi:"format"`
 	// Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationOutput `pulumi:"maintenanceConfiguration"`
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+	// Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
 	Metadata TableMetadataPtrOutput `pulumi:"metadata"`
 	// Location of table metadata.
 	MetadataLocation pulumi.StringOutput `pulumi:"metadataLocation"`
@@ -233,7 +233,7 @@ type tableState struct {
 	Format *string `pulumi:"format"`
 	// Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+	// Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
 	Metadata *TableMetadata `pulumi:"metadata"`
 	// Location of table metadata.
 	MetadataLocation *string `pulumi:"metadataLocation"`
@@ -278,7 +278,7 @@ type TableState struct {
 	Format pulumi.StringPtrInput
 	// Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationPtrInput
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+	// Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
 	Metadata TableMetadataPtrInput
 	// Location of table metadata.
 	MetadataLocation pulumi.StringPtrInput
@@ -321,7 +321,7 @@ type tableArgs struct {
 	Format string `pulumi:"format"`
 	// Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+	// Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
 	Metadata *TableMetadata `pulumi:"metadata"`
 	// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 	Name *string `pulumi:"name"`
@@ -345,7 +345,7 @@ type TableArgs struct {
 	Format pulumi.StringInput
 	// Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationPtrInput
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+	// Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
 	Metadata TableMetadataPtrInput
 	// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 	Name pulumi.StringPtrInput
@@ -478,7 +478,7 @@ func (o TableOutput) MaintenanceConfiguration() TableMaintenanceConfigurationOut
 	return o.ApplyT(func(v *Table) TableMaintenanceConfigurationOutput { return v.MaintenanceConfiguration }).(TableMaintenanceConfigurationOutput)
 }
 
-// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+// Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
 func (o TableOutput) Metadata() TableMetadataPtrOutput {
 	return o.ApplyT(func(v *Table) TableMetadataPtrOutput { return v.Metadata }).(TableMetadataPtrOutput)
 }

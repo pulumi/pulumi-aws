@@ -14,29 +14,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobDefinitionEksPropertiesPodPropertiesVolume {
+    /**
+     * @return Empty directory to mount on the pod. See `emptyDir` below.
+     * 
+     */
     private @Nullable JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir emptyDir;
+    /**
+     * @return Path on the host that&#39;s mounted to the pod. See `hostPath` below.
+     * 
+     */
     private @Nullable JobDefinitionEksPropertiesPodPropertiesVolumeHostPath hostPath;
     /**
-     * @return Name of the job definition.
+     * @return Name of the volume. The name must be allowed as a DNS subdomain name.
      * 
      */
     private @Nullable String name;
+    /**
+     * @return Secret to mount as a volume. See `secret` below.
+     * 
+     */
     private @Nullable JobDefinitionEksPropertiesPodPropertiesVolumeSecret secret;
 
     private JobDefinitionEksPropertiesPodPropertiesVolume() {}
+    /**
+     * @return Empty directory to mount on the pod. See `emptyDir` below.
+     * 
+     */
     public Optional<JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir> emptyDir() {
         return Optional.ofNullable(this.emptyDir);
     }
+    /**
+     * @return Path on the host that&#39;s mounted to the pod. See `hostPath` below.
+     * 
+     */
     public Optional<JobDefinitionEksPropertiesPodPropertiesVolumeHostPath> hostPath() {
         return Optional.ofNullable(this.hostPath);
     }
     /**
-     * @return Name of the job definition.
+     * @return Name of the volume. The name must be allowed as a DNS subdomain name.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    /**
+     * @return Secret to mount as a volume. See `secret` below.
+     * 
+     */
     public Optional<JobDefinitionEksPropertiesPodPropertiesVolumeSecret> secret() {
         return Optional.ofNullable(this.secret);
     }

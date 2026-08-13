@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetManagedRuleGroupRuleActionBlock {
+    /**
+     * @return Custom response for the blocked request. See `customResponse` Block for details.
+     * 
+     */
     private List<GetManagedRuleGroupRuleActionBlockCustomResponse> customResponses;
 
     private GetManagedRuleGroupRuleActionBlock() {}
+    /**
+     * @return Custom response for the blocked request. See `customResponse` Block for details.
+     * 
+     */
     public List<GetManagedRuleGroupRuleActionBlockCustomResponse> customResponses() {
         return this.customResponses;
     }

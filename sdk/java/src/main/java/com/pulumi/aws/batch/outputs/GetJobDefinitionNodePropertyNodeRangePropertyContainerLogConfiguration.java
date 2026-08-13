@@ -24,7 +24,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConf
      */
     private Map<String,String> options;
     /**
-     * @return Secrets to pass to the log configuration.
+     * @return Secrets to pass to the log configuration. See `secretOptions` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption> secretOptions;
@@ -45,7 +45,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConf
         return this.options;
     }
     /**
-     * @return Secrets to pass to the log configuration.
+     * @return Secrets to pass to the log configuration. See `secretOptions` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption> secretOptions() {

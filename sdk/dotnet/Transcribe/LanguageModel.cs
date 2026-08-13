@@ -140,19 +140,21 @@ namespace Pulumi.Aws.Transcribe
         public Output<string> BaseModelName { get; private set; } = null!;
 
         /// <summary>
-        /// The input data config for the LanguageModel. See Input Data Config for more details.
+        /// Input data configuration for the LanguageModel. See `InputDataConfig` Block for details.
         /// </summary>
         [Output("inputDataConfig")]
         public Output<Outputs.LanguageModelInputDataConfig> InputDataConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+        /// Language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         /// </summary>
         [Output("languageCode")]
         public Output<string> LanguageCode { get; private set; } = null!;
 
         /// <summary>
-        /// The model name.
+        /// Model name.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("modelName")]
         public Output<string> ModelName { get; private set; } = null!;
@@ -163,6 +165,9 @@ namespace Pulumi.Aws.Transcribe
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags to assign to the LanguageModel. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -222,19 +227,21 @@ namespace Pulumi.Aws.Transcribe
         public Input<string> BaseModelName { get; set; } = null!;
 
         /// <summary>
-        /// The input data config for the LanguageModel. See Input Data Config for more details.
+        /// Input data configuration for the LanguageModel. See `InputDataConfig` Block for details.
         /// </summary>
         [Input("inputDataConfig", required: true)]
         public Input<Inputs.LanguageModelInputDataConfigArgs> InputDataConfig { get; set; } = null!;
 
         /// <summary>
-        /// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+        /// Language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         /// </summary>
         [Input("languageCode", required: true)]
         public Input<string> LanguageCode { get; set; } = null!;
 
         /// <summary>
-        /// The model name.
+        /// Model name.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("modelName", required: true)]
         public Input<string> ModelName { get; set; } = null!;
@@ -247,6 +254,10 @@ namespace Pulumi.Aws.Transcribe
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the LanguageModel. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -274,19 +285,21 @@ namespace Pulumi.Aws.Transcribe
         public Input<string>? BaseModelName { get; set; }
 
         /// <summary>
-        /// The input data config for the LanguageModel. See Input Data Config for more details.
+        /// Input data configuration for the LanguageModel. See `InputDataConfig` Block for details.
         /// </summary>
         [Input("inputDataConfig")]
         public Input<Inputs.LanguageModelInputDataConfigGetArgs>? InputDataConfig { get; set; }
 
         /// <summary>
-        /// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+        /// Language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }
 
         /// <summary>
-        /// The model name.
+        /// Model name.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("modelName")]
         public Input<string>? ModelName { get; set; }
@@ -299,6 +312,10 @@ namespace Pulumi.Aws.Transcribe
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the LanguageModel. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

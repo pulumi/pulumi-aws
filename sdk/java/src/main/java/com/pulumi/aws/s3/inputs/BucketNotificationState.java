@@ -55,14 +55,14 @@ public final class BucketNotificationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Used to configure notifications to a Lambda Function. See below.
+     * Notification configuration to a Lambda Function. See below.
      * 
      */
     @Import(name="lambdaFunctions")
     private @Nullable Output<List<BucketNotificationLambdaFunctionArgs>> lambdaFunctions;
 
     /**
-     * @return Used to configure notifications to a Lambda Function. See below.
+     * @return Notification configuration to a Lambda Function. See below.
      * 
      */
     public Optional<Output<List<BucketNotificationLambdaFunctionArgs>>> lambdaFunctions() {
@@ -190,7 +190,7 @@ public final class BucketNotificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param lambdaFunctions Used to configure notifications to a Lambda Function. See below.
+         * @param lambdaFunctions Notification configuration to a Lambda Function. See below.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class BucketNotificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param lambdaFunctions Used to configure notifications to a Lambda Function. See below.
+         * @param lambdaFunctions Notification configuration to a Lambda Function. See below.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class BucketNotificationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param lambdaFunctions Used to configure notifications to a Lambda Function. See below.
+         * @param lambdaFunctions Notification configuration to a Lambda Function. See below.
          * 
          * @return builder
          * 

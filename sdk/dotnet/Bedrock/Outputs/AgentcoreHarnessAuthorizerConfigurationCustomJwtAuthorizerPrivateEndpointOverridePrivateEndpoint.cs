@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint
     {
         /// <summary>
-        /// Managed VPC resource configuration. See `ManagedVpcResource` below.
+        /// Managed VPC resource configuration. See `ManagedVpcResource` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource? ManagedVpcResource;
         /// <summary>
-        /// Self-managed VPC Lattice resource configuration. See `SelfManagedLatticeResource` below.
+        /// Self-managed VPC Lattice resource configuration. See `SelfManagedLatticeResource` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource? SelfManagedLatticeResource;
 

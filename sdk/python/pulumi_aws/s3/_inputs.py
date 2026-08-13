@@ -464,7 +464,7 @@ class AccessPointPublicAccessBlockConfigurationArgs:
 class AccessPointVpcConfigurationArgsDict(TypedDict):
     vpc_id: pulumi.Input[_builtins.str]
     """
-    This access point will only allow connections from the specified VPC ID.
+    VPC ID from which the access point allows connections.
     """
 
 @pulumi.input_type
@@ -472,7 +472,7 @@ class AccessPointVpcConfigurationArgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] vpc_id: This access point will only allow connections from the specified VPC ID.
+        :param pulumi.Input[_builtins.str] vpc_id: VPC ID from which the access point allows connections.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
 
@@ -480,7 +480,7 @@ class AccessPointVpcConfigurationArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
         """
-        This access point will only allow connections from the specified VPC ID.
+        VPC ID from which the access point allows connections.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -9728,7 +9728,7 @@ class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs:
 class DirectoryBucketLocationArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+    [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
     """
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -9741,7 +9741,7 @@ class DirectoryBucketLocationArgs:
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+        :param pulumi.Input[_builtins.str] name: [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
         :param pulumi.Input[_builtins.str] type: Location type. Valid values: `AvailabilityZone`, `LocalZone`.
         """
         pulumi.set(__self__, "name", name)
@@ -9752,7 +9752,7 @@ class DirectoryBucketLocationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+        [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
         """
         return pulumi.get(self, "name")
 

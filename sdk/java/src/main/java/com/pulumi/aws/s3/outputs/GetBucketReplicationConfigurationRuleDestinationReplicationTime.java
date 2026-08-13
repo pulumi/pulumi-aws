@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBucketReplicationConfigurationRuleDestinationReplicationTime {
+    /**
+     * @return Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+     * 
+     */
     private String status;
+    /**
+     * @return Configuration block that specifies the time by which replication should be complete for all objects and operations on objects. See `time` Block below.
+     * 
+     */
     private List<GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime> times;
 
     private GetBucketReplicationConfigurationRuleDestinationReplicationTime() {}
+    /**
+     * @return Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+     * 
+     */
     public String status() {
         return this.status;
     }
+    /**
+     * @return Configuration block that specifies the time by which replication should be complete for all objects and operations on objects. See `time` Block below.
+     * 
+     */
     public List<GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime> times() {
         return this.times;
     }

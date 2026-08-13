@@ -14,9 +14,17 @@ public final class CloudExadataInfrastructureCustomerContactsToSendToOciArgs ext
 
     public static final CloudExadataInfrastructureCustomerContactsToSendToOciArgs Empty = new CloudExadataInfrastructureCustomerContactsToSendToOciArgs();
 
+    /**
+     * Email address of the contact.
+     * 
+     */
     @Import(name="email", required=true)
     private Output<String> email;
 
+    /**
+     * @return Email address of the contact.
+     * 
+     */
     public Output<String> email() {
         return this.email;
     }
@@ -45,11 +53,23 @@ public final class CloudExadataInfrastructureCustomerContactsToSendToOciArgs ext
             $ = new CloudExadataInfrastructureCustomerContactsToSendToOciArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param email Email address of the contact.
+         * 
+         * @return builder
+         * 
+         */
         public Builder email(Output<String> email) {
             $.email = email;
             return this;
         }
 
+        /**
+         * @param email Email address of the contact.
+         * 
+         * @return builder
+         * 
+         */
         public Builder email(String email) {
             return email(Output.of(email));
         }

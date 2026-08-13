@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> ClaimMatchOperator { get; set; } = null!;
 
         /// <summary>
-        /// Value or values to match for. See `ClaimMatchValue` below.
+        /// Value or values to match for. See `ClaimMatchValue` Block below.
         /// </summary>
         [Input("claimMatchValue", required: true)]
         public Input<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueGetArgs> ClaimMatchValue { get; set; } = null!;

@@ -21,9 +21,12 @@ namespace Pulumi.Aws.Auditmanager.Outputs
         /// Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
         /// </summary>
         public readonly string? SourceFrequency;
+        /// <summary>
+        /// Unique identifier for the source.
+        /// </summary>
         public readonly string? SourceId;
         /// <summary>
-        /// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `SourceKeyword` below.
+        /// Keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `SourceKeyword` below.
         /// </summary>
         public readonly Outputs.ControlControlMappingSourceSourceKeyword? SourceKeyword;
         /// <summary>
@@ -31,7 +34,7 @@ namespace Pulumi.Aws.Auditmanager.Outputs
         /// </summary>
         public readonly string SourceName;
         /// <summary>
-        /// The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+        /// Setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
         /// </summary>
         public readonly string SourceSetUpOption;
         /// <summary>

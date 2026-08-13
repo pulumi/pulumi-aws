@@ -15,9 +15,17 @@ public final class WebAppIdentityProviderDetailsIdentityCenterConfigArgs extends
 
     public static final WebAppIdentityProviderDetailsIdentityCenterConfigArgs Empty = new WebAppIdentityProviderDetailsIdentityCenterConfigArgs();
 
+    /**
+     * ARN of the IAM Identity Center application created for the web app.
+     * 
+     */
     @Import(name="applicationArn")
     private @Nullable Output<String> applicationArn;
 
+    /**
+     * @return ARN of the IAM Identity Center application created for the web app.
+     * 
+     */
     public Optional<Output<String>> applicationArn() {
         return Optional.ofNullable(this.applicationArn);
     }
@@ -78,11 +86,23 @@ public final class WebAppIdentityProviderDetailsIdentityCenterConfigArgs extends
             $ = new WebAppIdentityProviderDetailsIdentityCenterConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param applicationArn ARN of the IAM Identity Center application created for the web app.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationArn(@Nullable Output<String> applicationArn) {
             $.applicationArn = applicationArn;
             return this;
         }
 
+        /**
+         * @param applicationArn ARN of the IAM Identity Center application created for the web app.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationArn(String applicationArn) {
             return applicationArn(Output.of(applicationArn));
         }

@@ -68,70 +68,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:transfer/profile:Profile")
 public class Profile extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the profile.
+     * ARN of the profile.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the profile.
+     * @return ARN of the profile.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+     * AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
      * 
      */
     @Export(name="as2Id", refs={String.class}, tree="[0]")
     private Output<String> as2Id;
 
     /**
-     * @return The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+     * @return AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
      * 
      */
     public Output<String> as2Id() {
         return this.as2Id;
     }
     /**
-     * The list of certificate Ids from the imported certificate operation.
+     * List of certificate IDs from the imported certificate operation.
      * 
      */
     @Export(name="certificateIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> certificateIds;
 
     /**
-     * @return The list of certificate Ids from the imported certificate operation.
+     * @return List of certificate IDs from the imported certificate operation.
      * 
      */
     public Output<Optional<List<String>>> certificateIds() {
         return Codegen.optional(this.certificateIds);
     }
     /**
-     * The unique identifier for the AS2 profile.
+     * Unique identifier for the AS2 profile.
      * 
      */
     @Export(name="profileId", refs={String.class}, tree="[0]")
     private Output<String> profileId;
 
     /**
-     * @return The unique identifier for the AS2 profile.
+     * @return Unique identifier for the AS2 profile.
      * 
      */
     public Output<String> profileId() {
         return this.profileId;
     }
     /**
-     * The profile type should be LOCAL or PARTNER.
+     * Profile type. Valid values are `LOCAL` or `PARTNER`.
      * 
      */
     @Export(name="profileType", refs={String.class}, tree="[0]")
     private Output<String> profileType;
 
     /**
-     * @return The profile type should be LOCAL or PARTNER.
+     * @return Profile type. Valid values are `LOCAL` or `PARTNER`.
      * 
      */
     public Output<String> profileType() {
@@ -152,14 +152,14 @@ public class Profile extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

@@ -17,14 +17,14 @@ public final class PlanReportConfigurationReportOutputArgs extends com.pulumi.re
     public static final PlanReportConfigurationReportOutputArgs Empty = new PlanReportConfigurationReportOutputArgs();
 
     /**
-     * S3 output configuration. See S3 Configuration below.
+     * S3 output configuration. See `s3Configuration` Block for details.
      * 
      */
     @Import(name="s3Configurations")
     private @Nullable Output<List<PlanReportConfigurationReportOutputS3ConfigurationArgs>> s3Configurations;
 
     /**
-     * @return S3 output configuration. See S3 Configuration below.
+     * @return S3 output configuration. See `s3Configuration` Block for details.
      * 
      */
     public Optional<Output<List<PlanReportConfigurationReportOutputS3ConfigurationArgs>>> s3Configurations() {
@@ -56,7 +56,7 @@ public final class PlanReportConfigurationReportOutputArgs extends com.pulumi.re
         }
 
         /**
-         * @param s3Configurations S3 output configuration. See S3 Configuration below.
+         * @param s3Configurations S3 output configuration. See `s3Configuration` Block for details.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class PlanReportConfigurationReportOutputArgs extends com.pulumi.re
         }
 
         /**
-         * @param s3Configurations S3 output configuration. See S3 Configuration below.
+         * @param s3Configurations S3 output configuration. See `s3Configuration` Block for details.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class PlanReportConfigurationReportOutputArgs extends com.pulumi.re
         }
 
         /**
-         * @param s3Configurations S3 output configuration. See S3 Configuration below.
+         * @param s3Configurations S3 output configuration. See `s3Configuration` Block for details.
          * 
          * @return builder
          * 

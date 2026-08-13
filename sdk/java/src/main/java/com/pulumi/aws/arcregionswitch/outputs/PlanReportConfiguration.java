@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PlanReportConfiguration {
     /**
-     * @return Output destination for the report. See Report Output below.
+     * @return Output destination for the report. See `reportOutput` Block for details.
      * 
      */
     private @Nullable List<PlanReportConfigurationReportOutput> reportOutputs;
 
     private PlanReportConfiguration() {}
     /**
-     * @return Output destination for the report. See Report Output below.
+     * @return Output destination for the report. See `reportOutput` Block for details.
      * 
      */
     public List<PlanReportConfigurationReportOutput> reportOutputs() {

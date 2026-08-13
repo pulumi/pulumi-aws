@@ -26,8 +26,6 @@ namespace Pulumi.Aws.Transcribe.Inputs
 
         /// <summary>
         /// S3 URI where tuning data is located.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("tuningDataS3Uri")]
         public Input<string>? TuningDataS3Uri { get; set; }

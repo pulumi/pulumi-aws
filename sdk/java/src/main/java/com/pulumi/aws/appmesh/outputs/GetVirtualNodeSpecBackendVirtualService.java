@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendVirtualService {
+    /**
+     * @return Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicy> clientPolicies;
+    /**
+     * @return Name of the virtual service that is acting as a virtual node backend.
+     * 
+     */
     private String virtualServiceName;
 
     private GetVirtualNodeSpecBackendVirtualService() {}
+    /**
+     * @return Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecBackendVirtualServiceClientPolicy> clientPolicies() {
         return this.clientPolicies;
     }
+    /**
+     * @return Name of the virtual service that is acting as a virtual node backend.
+     * 
+     */
     public String virtualServiceName() {
         return this.virtualServiceName;
     }

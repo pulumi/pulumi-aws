@@ -164,13 +164,13 @@ namespace Pulumi.Aws.Rds
     public partial class Proxy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the proxy.
+        /// Amazon Resource Name (ARN) for the proxy.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `DefaultAuthScheme` is `NONE` or unspecified. Described below.
+        /// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `DefaultAuthScheme` is `NONE` or unspecified. See the `Auth` block below.
         /// </summary>
         [Output("auths")]
         public Output<ImmutableArray<Outputs.ProxyAuth>> Auths { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> DefaultAuthScheme { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+        /// Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
@@ -200,19 +200,19 @@ namespace Pulumi.Aws.Rds
         public Output<string> EndpointNetworkType { get; private set; } = null!;
 
         /// <summary>
-        /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
+        /// Kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
         /// </summary>
         [Output("engineFamily")]
         public Output<string> EngineFamily { get; private set; } = null!;
 
         /// <summary>
-        /// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
+        /// Number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
         /// </summary>
         [Output("idleClientTimeout")]
         public Output<int> IdleClientTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+        /// Identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -224,25 +224,25 @@ namespace Pulumi.Aws.Rds
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
+        /// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
         /// </summary>
         [Output("requireTls")]
         public Output<bool?> RequireTls { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        /// Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.ProxyAuthArgs>? _auths;
 
         /// <summary>
-        /// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `DefaultAuthScheme` is `NONE` or unspecified. Described below.
+        /// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `DefaultAuthScheme` is `NONE` or unspecified. See the `Auth` block below.
         /// </summary>
         public InputList<Inputs.ProxyAuthArgs> Auths
         {
@@ -342,19 +342,19 @@ namespace Pulumi.Aws.Rds
         public Input<string>? EndpointNetworkType { get; set; }
 
         /// <summary>
-        /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
+        /// Kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
         /// </summary>
         [Input("engineFamily", required: true)]
         public Input<string> EngineFamily { get; set; } = null!;
 
         /// <summary>
-        /// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
+        /// Number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
         /// </summary>
         [Input("idleClientTimeout")]
         public Input<int>? IdleClientTimeout { get; set; }
 
         /// <summary>
-        /// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+        /// Identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -366,13 +366,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
+        /// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
         /// </summary>
         [Input("requireTls")]
         public Input<bool>? RequireTls { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        /// Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -381,7 +381,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -428,7 +428,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ProxyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the proxy.
+        /// Amazon Resource Name (ARN) for the proxy.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -437,7 +437,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.ProxyAuthGetArgs>? _auths;
 
         /// <summary>
-        /// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `DefaultAuthScheme` is `NONE` or unspecified. Described below.
+        /// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `DefaultAuthScheme` is `NONE` or unspecified. See the `Auth` block below.
         /// </summary>
         public InputList<Inputs.ProxyAuthGetArgs> Auths
         {
@@ -458,7 +458,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DefaultAuthScheme { get; set; }
 
         /// <summary>
-        /// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+        /// Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
@@ -470,19 +470,19 @@ namespace Pulumi.Aws.Rds
         public Input<string>? EndpointNetworkType { get; set; }
 
         /// <summary>
-        /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
+        /// Kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
         /// </summary>
         [Input("engineFamily")]
         public Input<string>? EngineFamily { get; set; }
 
         /// <summary>
-        /// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
+        /// Number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
         /// </summary>
         [Input("idleClientTimeout")]
         public Input<int>? IdleClientTimeout { get; set; }
 
         /// <summary>
-        /// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+        /// Identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -494,13 +494,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
+        /// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
         /// </summary>
         [Input("requireTls")]
         public Input<bool>? RequireTls { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        /// Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -509,7 +509,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -521,7 +521,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

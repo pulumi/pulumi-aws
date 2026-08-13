@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecification {
     /**
-     * @return Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+     * @return Whether to propagate the tags from the task definition to the Amazon EBS volume.
      * 
      */
     private @Nullable String propagateTags;
@@ -31,7 +31,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecification {
 
     private ServiceVolumeConfigurationManagedEbsVolumeTagSpecification() {}
     /**
-     * @return Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+     * @return Whether to propagate the tags from the task definition to the Amazon EBS volume.
      * 
      */
     public Optional<String> propagateTags() {

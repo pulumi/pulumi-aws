@@ -46,9 +46,17 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityC
         return Optional.ofNullable(this.privileged);
     }
 
+    /**
+     * When this parameter is `true`, the container is given read-only access to its root file system. The default value is `false`.
+     * 
+     */
     @Import(name="readOnlyRootFileSystem")
     private @Nullable Output<Boolean> readOnlyRootFileSystem;
 
+    /**
+     * @return When this parameter is `true`, the container is given read-only access to its root file system. The default value is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> readOnlyRootFileSystem() {
         return Optional.ofNullable(this.readOnlyRootFileSystem);
     }
@@ -169,11 +177,23 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityC
             return privileged(Output.of(privileged));
         }
 
+        /**
+         * @param readOnlyRootFileSystem When this parameter is `true`, the container is given read-only access to its root file system. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder readOnlyRootFileSystem(@Nullable Output<Boolean> readOnlyRootFileSystem) {
             $.readOnlyRootFileSystem = readOnlyRootFileSystem;
             return this;
         }
 
+        /**
+         * @param readOnlyRootFileSystem When this parameter is `true`, the container is given read-only access to its root file system. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder readOnlyRootFileSystem(Boolean readOnlyRootFileSystem) {
             return readOnlyRootFileSystem(Output.of(readOnlyRootFileSystem));
         }

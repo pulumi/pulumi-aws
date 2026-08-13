@@ -21,6 +21,9 @@ namespace Pulumi.Aws.Batch.Outputs
         /// When this parameter is `True`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `False`.
         /// </summary>
         public readonly bool? Privileged;
+        /// <summary>
+        /// When this parameter is `True`, the container is given read-only access to its root file system. The default value is `False`.
+        /// </summary>
         public readonly bool? ReadOnlyRootFileSystem;
         /// <summary>
         /// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.

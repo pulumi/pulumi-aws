@@ -136,11 +136,11 @@ export class WebApp extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
      */
     declare public readonly endpointDetails: pulumi.Output<outputs.transfer.WebAppEndpointDetails | undefined>;
     /**
-     * Block for details of the identity provider to use with the web app. See Identity provider details below.
+     * Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
      *
      * The following arguments are optional:
      */
@@ -159,12 +159,11 @@ export class WebApp extends pulumi.CustomResource {
      */
     declare public readonly webAppEndpointPolicy: pulumi.Output<string>;
     /**
-     * ID of the Wep App resource.
+     * ID of the Web App resource.
      */
     declare public /*out*/ readonly webAppId: pulumi.Output<string>;
     /**
-     * Block for number of concurrent connections or the user sessions on the web app.
-     * * provisioned - (Optional) Number of units of concurrent connections.
+     * Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
      */
     declare public readonly webAppUnits: pulumi.Output<outputs.transfer.WebAppWebAppUnit[]>;
 
@@ -225,11 +224,11 @@ export interface WebAppState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
      */
     endpointDetails?: pulumi.Input<inputs.transfer.WebAppEndpointDetails | undefined>;
     /**
-     * Block for details of the identity provider to use with the web app. See Identity provider details below.
+     * Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
      *
      * The following arguments are optional:
      */
@@ -248,12 +247,11 @@ export interface WebAppState {
      */
     webAppEndpointPolicy?: pulumi.Input<string | undefined>;
     /**
-     * ID of the Wep App resource.
+     * ID of the Web App resource.
      */
     webAppId?: pulumi.Input<string | undefined>;
     /**
-     * Block for number of concurrent connections or the user sessions on the web app.
-     * * provisioned - (Optional) Number of units of concurrent connections.
+     * Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
      */
     webAppUnits?: pulumi.Input<pulumi.Input<inputs.transfer.WebAppWebAppUnit>[] | undefined>;
 }
@@ -267,11 +265,11 @@ export interface WebAppArgs {
      */
     accessEndpoint?: pulumi.Input<string | undefined>;
     /**
-     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+     * Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpointDetails` Block below.
      */
     endpointDetails?: pulumi.Input<inputs.transfer.WebAppEndpointDetails | undefined>;
     /**
-     * Block for details of the identity provider to use with the web app. See Identity provider details below.
+     * Block for details of the identity provider to use with the web app. See `identityProviderDetails` Block below.
      *
      * The following arguments are optional:
      */
@@ -289,8 +287,7 @@ export interface WebAppArgs {
      */
     webAppEndpointPolicy?: pulumi.Input<string | undefined>;
     /**
-     * Block for number of concurrent connections or the user sessions on the web app.
-     * * provisioned - (Optional) Number of units of concurrent connections.
+     * Block for number of concurrent connections or the user sessions on the web app. See `webAppUnits` Block below.
      */
     webAppUnits?: pulumi.Input<pulumi.Input<inputs.transfer.WebAppWebAppUnit>[] | undefined>;
 }

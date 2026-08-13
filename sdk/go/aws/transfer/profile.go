@@ -56,19 +56,19 @@ import (
 type Profile struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the profile.
+	// ARN of the profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+	// AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
 	As2Id pulumi.StringOutput `pulumi:"as2Id"`
-	// The list of certificate Ids from the imported certificate operation.
+	// List of certificate IDs from the imported certificate operation.
 	CertificateIds pulumi.StringArrayOutput `pulumi:"certificateIds"`
-	// The unique identifier for the AS2 profile.
+	// Unique identifier for the AS2 profile.
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
-	// The profile type should be LOCAL or PARTNER.
+	// Profile type. Valid values are `LOCAL` or `PARTNER`.
 	ProfileType pulumi.StringOutput `pulumi:"profileType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -109,37 +109,37 @@ func GetProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Profile resources.
 type profileState struct {
-	// The ARN of the profile.
+	// ARN of the profile.
 	Arn *string `pulumi:"arn"`
-	// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+	// AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
 	As2Id *string `pulumi:"as2Id"`
-	// The list of certificate Ids from the imported certificate operation.
+	// List of certificate IDs from the imported certificate operation.
 	CertificateIds []string `pulumi:"certificateIds"`
-	// The unique identifier for the AS2 profile.
+	// Unique identifier for the AS2 profile.
 	ProfileId *string `pulumi:"profileId"`
-	// The profile type should be LOCAL or PARTNER.
+	// Profile type. Valid values are `LOCAL` or `PARTNER`.
 	ProfileType *string `pulumi:"profileType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ProfileState struct {
-	// The ARN of the profile.
+	// ARN of the profile.
 	Arn pulumi.StringPtrInput
-	// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+	// AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
 	As2Id pulumi.StringPtrInput
-	// The list of certificate Ids from the imported certificate operation.
+	// List of certificate IDs from the imported certificate operation.
 	CertificateIds pulumi.StringArrayInput
-	// The unique identifier for the AS2 profile.
+	// Unique identifier for the AS2 profile.
 	ProfileId pulumi.StringPtrInput
-	// The profile type should be LOCAL or PARTNER.
+	// Profile type. Valid values are `LOCAL` or `PARTNER`.
 	ProfileType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
@@ -149,29 +149,29 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
-	// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+	// AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
 	As2Id string `pulumi:"as2Id"`
-	// The list of certificate Ids from the imported certificate operation.
+	// List of certificate IDs from the imported certificate operation.
 	CertificateIds []string `pulumi:"certificateIds"`
-	// The profile type should be LOCAL or PARTNER.
+	// Profile type. Valid values are `LOCAL` or `PARTNER`.
 	ProfileType string `pulumi:"profileType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
-	// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+	// AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
 	As2Id pulumi.StringInput
-	// The list of certificate Ids from the imported certificate operation.
+	// List of certificate IDs from the imported certificate operation.
 	CertificateIds pulumi.StringArrayInput
-	// The profile type should be LOCAL or PARTNER.
+	// Profile type. Valid values are `LOCAL` or `PARTNER`.
 	ProfileType pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -262,27 +262,27 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 	return o
 }
 
-// The ARN of the profile.
+// ARN of the profile.
 func (o ProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+// AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
 func (o ProfileOutput) As2Id() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.As2Id }).(pulumi.StringOutput)
 }
 
-// The list of certificate Ids from the imported certificate operation.
+// List of certificate IDs from the imported certificate operation.
 func (o ProfileOutput) CertificateIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringArrayOutput { return v.CertificateIds }).(pulumi.StringArrayOutput)
 }
 
-// The unique identifier for the AS2 profile.
+// Unique identifier for the AS2 profile.
 func (o ProfileOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
 }
 
-// The profile type should be LOCAL or PARTNER.
+// Profile type. Valid values are `LOCAL` or `PARTNER`.
 func (o ProfileOutput) ProfileType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProfileType }).(pulumi.StringOutput)
 }
@@ -292,7 +292,7 @@ func (o ProfileOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

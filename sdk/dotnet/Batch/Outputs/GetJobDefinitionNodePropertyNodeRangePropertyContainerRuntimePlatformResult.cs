@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly string CpuArchitecture;
         /// <summary>
-        /// Operating system for the compute environment. V
+        /// Operating system for the compute environment.
         /// </summary>
         public readonly string OperatingSystemFamily;
 

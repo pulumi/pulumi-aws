@@ -22,7 +22,7 @@ public final class PlanWorkflowStepEcsCapacityIncreaseConfig {
      */
     private String capacityMonitoringApproach;
     /**
-     * @return ECS service configuration. See ECS Service below.
+     * @return ECS service configuration. See `service` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepEcsCapacityIncreaseConfigService> services;
@@ -37,7 +37,7 @@ public final class PlanWorkflowStepEcsCapacityIncreaseConfig {
      */
     private @Nullable Integer timeoutMinutes;
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful Capacity below.
+     * @return Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
      * 
      */
     private @Nullable PlanWorkflowStepEcsCapacityIncreaseConfigUngraceful ungraceful;
@@ -51,7 +51,7 @@ public final class PlanWorkflowStepEcsCapacityIncreaseConfig {
         return this.capacityMonitoringApproach;
     }
     /**
-     * @return ECS service configuration. See ECS Service below.
+     * @return ECS service configuration. See `service` Block for details.
      * 
      */
     public List<PlanWorkflowStepEcsCapacityIncreaseConfigService> services() {
@@ -72,7 +72,7 @@ public final class PlanWorkflowStepEcsCapacityIncreaseConfig {
         return Optional.ofNullable(this.timeoutMinutes);
     }
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful Capacity below.
+     * @return Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
      * 
      */
     public Optional<PlanWorkflowStepEcsCapacityIncreaseConfigUngraceful> ungraceful() {

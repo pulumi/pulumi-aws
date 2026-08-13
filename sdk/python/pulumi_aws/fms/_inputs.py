@@ -158,7 +158,7 @@ class PolicySecurityServicePolicyDataArgsDict(TypedDict):
     """
     policy_option: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionArgsDict']]]
     """
-    Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
+    Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
     """
 
 @pulumi.input_type
@@ -170,7 +170,7 @@ class PolicySecurityServicePolicyDataArgs:
         """
         :param pulumi.Input[_builtins.str] type: Service that the policy uses to protect the resources. For the current list of supported types, refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
         :param pulumi.Input[_builtins.str] managed_service_data: Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
-        :param pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgs'] policy_option: Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
+        :param pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgs'] policy_option: Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
         """
         pulumi.set(__self__, "type", type)
         if managed_service_data is not None:
@@ -206,7 +206,7 @@ class PolicySecurityServicePolicyDataArgs:
     @pulumi.getter(name="policyOption")
     def policy_option(self) -> pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionArgs']]:
         """
-        Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
+        Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
         """
         return pulumi.get(self, "policy_option")
 
@@ -971,7 +971,7 @@ class ResourceSetResourceSetArgsDict(TypedDict):
     """
     resource_type_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+    Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
     """
     update_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -996,7 +996,7 @@ class ResourceSetResourceSetArgs:
         :param pulumi.Input[_builtins.str] id: Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
         :param pulumi.Input[_builtins.str] last_update_time: Last time that the resource set was changed.
         :param pulumi.Input[_builtins.str] resource_set_status: Whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_type_lists: Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_type_lists: Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
         :param pulumi.Input[_builtins.str] update_token: Unique identifier for each update to the resource set.
         """
         pulumi.set(__self__, "name", name)
@@ -1079,7 +1079,7 @@ class ResourceSetResourceSetArgs:
     @pulumi.getter(name="resourceTypeLists")
     def resource_type_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+        Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
         """
         return pulumi.get(self, "resource_type_lists")
 

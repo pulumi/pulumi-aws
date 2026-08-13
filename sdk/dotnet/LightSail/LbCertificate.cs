@@ -75,7 +75,7 @@ namespace Pulumi.Aws.LightSail
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
         /// </summary>
         [Output("domainValidationRecords")]
         public Output<ImmutableArray<Outputs.LbCertificateDomainValidationRecord>> DomainValidationRecords { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.LightSail
         private InputList<Inputs.LbCertificateDomainValidationRecordGetArgs>? _domainValidationRecords;
 
         /// <summary>
-        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
         /// </summary>
         public InputList<Inputs.LbCertificateDomainValidationRecordGetArgs> DomainValidationRecords
         {

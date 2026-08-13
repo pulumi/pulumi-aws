@@ -26,28 +26,28 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// An date when the certificate becomes active
+	// Date when the certificate becomes active
 	ActiveDate pulumi.StringOutput `pulumi:"activeDate"`
-	// The ARN of the certificate
+	// ARN of the certificate
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The valid certificate file required for the transfer.
+	// Valid certificate file required for the transfer.
 	Certificate pulumi.StringOutput `pulumi:"certificate"`
-	// The optional list of certificate that make up the chain for the certificate that is being imported.
+	// Optional list of certificate that make up the chain for the certificate that is being imported.
 	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
-	// The unique identifier for the AS2 certificate
+	// Unique identifier for the AS2 certificate
 	CertificateId pulumi.StringOutput `pulumi:"certificateId"`
-	// A short description that helps identify the certificate.
+	// Short description that helps identify the certificate.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// An date when the certificate becomes inactive
+	// Date when the certificate becomes inactive
 	InactiveDate pulumi.StringOutput `pulumi:"inactiveDate"`
-	// The private key associated with the certificate being imported.
+	// Private key associated with the certificate being imported.
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+	// Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
 	Usage pulumi.StringOutput `pulumi:"usage"`
 }
 
@@ -102,54 +102,54 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// An date when the certificate becomes active
+	// Date when the certificate becomes active
 	ActiveDate *string `pulumi:"activeDate"`
-	// The ARN of the certificate
+	// ARN of the certificate
 	Arn *string `pulumi:"arn"`
-	// The valid certificate file required for the transfer.
+	// Valid certificate file required for the transfer.
 	Certificate *string `pulumi:"certificate"`
-	// The optional list of certificate that make up the chain for the certificate that is being imported.
+	// Optional list of certificate that make up the chain for the certificate that is being imported.
 	CertificateChain *string `pulumi:"certificateChain"`
-	// The unique identifier for the AS2 certificate
+	// Unique identifier for the AS2 certificate
 	CertificateId *string `pulumi:"certificateId"`
-	// A short description that helps identify the certificate.
+	// Short description that helps identify the certificate.
 	Description *string `pulumi:"description"`
-	// An date when the certificate becomes inactive
+	// Date when the certificate becomes inactive
 	InactiveDate *string `pulumi:"inactiveDate"`
-	// The private key associated with the certificate being imported.
+	// Private key associated with the certificate being imported.
 	PrivateKey *string `pulumi:"privateKey"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+	// Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
 	Usage *string `pulumi:"usage"`
 }
 
 type CertificateState struct {
-	// An date when the certificate becomes active
+	// Date when the certificate becomes active
 	ActiveDate pulumi.StringPtrInput
-	// The ARN of the certificate
+	// ARN of the certificate
 	Arn pulumi.StringPtrInput
-	// The valid certificate file required for the transfer.
+	// Valid certificate file required for the transfer.
 	Certificate pulumi.StringPtrInput
-	// The optional list of certificate that make up the chain for the certificate that is being imported.
+	// Optional list of certificate that make up the chain for the certificate that is being imported.
 	CertificateChain pulumi.StringPtrInput
-	// The unique identifier for the AS2 certificate
+	// Unique identifier for the AS2 certificate
 	CertificateId pulumi.StringPtrInput
-	// A short description that helps identify the certificate.
+	// Short description that helps identify the certificate.
 	Description pulumi.StringPtrInput
-	// An date when the certificate becomes inactive
+	// Date when the certificate becomes inactive
 	InactiveDate pulumi.StringPtrInput
-	// The private key associated with the certificate being imported.
+	// Private key associated with the certificate being imported.
 	PrivateKey pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
-	// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+	// Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
 	Usage pulumi.StringPtrInput
 }
 
@@ -158,37 +158,37 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// The valid certificate file required for the transfer.
+	// Valid certificate file required for the transfer.
 	Certificate string `pulumi:"certificate"`
-	// The optional list of certificate that make up the chain for the certificate that is being imported.
+	// Optional list of certificate that make up the chain for the certificate that is being imported.
 	CertificateChain *string `pulumi:"certificateChain"`
-	// A short description that helps identify the certificate.
+	// Short description that helps identify the certificate.
 	Description *string `pulumi:"description"`
-	// The private key associated with the certificate being imported.
+	// Private key associated with the certificate being imported.
 	PrivateKey *string `pulumi:"privateKey"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+	// Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
 	Usage string `pulumi:"usage"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// The valid certificate file required for the transfer.
+	// Valid certificate file required for the transfer.
 	Certificate pulumi.StringInput
-	// The optional list of certificate that make up the chain for the certificate that is being imported.
+	// Optional list of certificate that make up the chain for the certificate that is being imported.
 	CertificateChain pulumi.StringPtrInput
-	// A short description that helps identify the certificate.
+	// Short description that helps identify the certificate.
 	Description pulumi.StringPtrInput
-	// The private key associated with the certificate being imported.
+	// Private key associated with the certificate being imported.
 	PrivateKey pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+	// Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
 	Usage pulumi.StringInput
 }
 
@@ -279,42 +279,42 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// An date when the certificate becomes active
+// Date when the certificate becomes active
 func (o CertificateOutput) ActiveDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ActiveDate }).(pulumi.StringOutput)
 }
 
-// The ARN of the certificate
+// ARN of the certificate
 func (o CertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The valid certificate file required for the transfer.
+// Valid certificate file required for the transfer.
 func (o CertificateOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
 }
 
-// The optional list of certificate that make up the chain for the certificate that is being imported.
+// Optional list of certificate that make up the chain for the certificate that is being imported.
 func (o CertificateOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CertificateChain }).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier for the AS2 certificate
+// Unique identifier for the AS2 certificate
 func (o CertificateOutput) CertificateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateId }).(pulumi.StringOutput)
 }
 
-// A short description that helps identify the certificate.
+// Short description that helps identify the certificate.
 func (o CertificateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// An date when the certificate becomes inactive
+// Date when the certificate becomes inactive
 func (o CertificateOutput) InactiveDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.InactiveDate }).(pulumi.StringOutput)
 }
 
-// The private key associated with the certificate being imported.
+// Private key associated with the certificate being imported.
 func (o CertificateOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }
@@ -324,7 +324,7 @@ func (o CertificateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -333,7 +333,7 @@ func (o CertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+// Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
 func (o CertificateOutput) Usage() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Usage }).(pulumi.StringOutput)
 }

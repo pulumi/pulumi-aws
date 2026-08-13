@@ -31,14 +31,14 @@ public final class KxClusterCapacityConfigurationArgs extends com.pulumi.resourc
     }
 
     /**
-     * Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
+     * Hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
      * 
      */
     @Import(name="nodeType", required=true)
     private Output<String> nodeType;
 
     /**
-     * @return Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
+     * @return Hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
      * 
      */
     public Output<String> nodeType() {
@@ -92,7 +92,7 @@ public final class KxClusterCapacityConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param nodeType Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
+         * @param nodeType Hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class KxClusterCapacityConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param nodeType Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
+         * @param nodeType Hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
          * 
          * @return builder
          * 

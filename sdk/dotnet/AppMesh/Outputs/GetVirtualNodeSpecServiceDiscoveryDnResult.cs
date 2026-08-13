@@ -13,8 +13,17 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecServiceDiscoveryDnResult
     {
+        /// <summary>
+        /// DNS host name for your virtual node.
+        /// </summary>
         public readonly string Hostname;
+        /// <summary>
+        /// Preferred IP version that this virtual node uses.
+        /// </summary>
         public readonly string IpPreference;
+        /// <summary>
+        /// DNS response type for the virtual node.
+        /// </summary>
         public readonly string ResponseType;
 
         [OutputConstructor]

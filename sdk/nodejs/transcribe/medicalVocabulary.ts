@@ -82,7 +82,7 @@ export class MedicalVocabulary extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly downloadUri: pulumi.Output<string>;
     /**
-     * The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+     * Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
      */
     declare public readonly languageCode: pulumi.Output<string>;
     /**
@@ -90,16 +90,16 @@ export class MedicalVocabulary extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+     * Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
      */
     declare public readonly vocabularyFileUri: pulumi.Output<string>;
     /**
-     * The name of the Medical Vocabulary.
+     * Name of the Medical Vocabulary.
      *
      * The following arguments are optional:
      */
@@ -164,7 +164,7 @@ export interface MedicalVocabularyState {
      */
     downloadUri?: pulumi.Input<string | undefined>;
     /**
-     * The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+     * Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
      */
     languageCode?: pulumi.Input<string | undefined>;
     /**
@@ -172,16 +172,16 @@ export interface MedicalVocabularyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+     * Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
      */
     vocabularyFileUri?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Medical Vocabulary.
+     * Name of the Medical Vocabulary.
      *
      * The following arguments are optional:
      */
@@ -193,7 +193,7 @@ export interface MedicalVocabularyState {
  */
 export interface MedicalVocabularyArgs {
     /**
-     * The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+     * Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
      */
     languageCode: pulumi.Input<string>;
     /**
@@ -201,15 +201,15 @@ export interface MedicalVocabularyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+     * Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
      */
     vocabularyFileUri: pulumi.Input<string>;
     /**
-     * The name of the Medical Vocabulary.
+     * Name of the Medical Vocabulary.
      *
      * The following arguments are optional:
      */

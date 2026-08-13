@@ -3224,17 +3224,27 @@ class ExpressGatewayServiceIngressPath(dict):
     def __init__(__self__, *,
                  access_type: _builtins.str,
                  endpoint: _builtins.str):
+        """
+        :param _builtins.str access_type: Access type for the ingress path.
+        :param _builtins.str endpoint: Endpoint for the ingress path.
+        """
         pulumi.set(__self__, "access_type", access_type)
         pulumi.set(__self__, "endpoint", endpoint)
 
     @_builtins.property
     @pulumi.getter(name="accessType")
     def access_type(self) -> _builtins.str:
+        """
+        Access type for the ingress path.
+        """
         return pulumi.get(self, "access_type")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
+        """
+        Endpoint for the ingress path.
+        """
         return pulumi.get(self, "endpoint")
 
 
@@ -5321,7 +5331,7 @@ class ServiceVolumeConfigurationManagedEbsVolumeTagSpecification(dict):
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         :param _builtins.str resource_type: Type of volume resource. Valid values, `volume`.
-        :param _builtins.str propagate_tags: Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+        :param _builtins.str propagate_tags: Whether to propagate the tags from the task definition to the Amazon EBS volume.
         :param Mapping[str, _builtins.str] tags: Tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
         """
         pulumi.set(__self__, "resource_type", resource_type)
@@ -5342,7 +5352,7 @@ class ServiceVolumeConfigurationManagedEbsVolumeTagSpecification(dict):
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[_builtins.str]:
         """
-        Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+        Whether to propagate the tags from the task definition to the Amazon EBS volume.
         """
         return pulumi.get(self, "propagate_tags")
 
@@ -7422,6 +7432,15 @@ class GetTaskDefinitionVolumeResult(dict):
                  host_path: _builtins.str,
                  name: _builtins.str,
                  s3files_volume_configurations: Sequence['outputs.GetTaskDefinitionVolumeS3filesVolumeConfigurationResult']):
+        """
+        :param _builtins.bool configure_at_launch: Whether the volume is configured at launch time.
+        :param Sequence['GetTaskDefinitionVolumeDockerVolumeConfigurationArgs'] docker_volume_configurations: Configuration block for a Docker volume. See `docker_volume_configuration` Block for details.
+        :param Sequence['GetTaskDefinitionVolumeEfsVolumeConfigurationArgs'] efs_volume_configurations: Configuration block for an EFS volume. See `efs_volume_configuration` Block for details.
+        :param Sequence['GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs'] fsx_windows_file_server_volume_configurations: Configuration block for an FSx for Windows File Server volume. See `fsx_windows_file_server_volume_configuration` Block for details.
+        :param _builtins.str host_path: Path on the host container instance that is presented to the container.
+        :param _builtins.str name: Name of the volume.
+        :param Sequence['GetTaskDefinitionVolumeS3filesVolumeConfigurationArgs'] s3files_volume_configurations: Configuration block for an S3 Files volume. See `s3files_volume_configuration` Block for details.
+        """
         pulumi.set(__self__, "configure_at_launch", configure_at_launch)
         pulumi.set(__self__, "docker_volume_configurations", docker_volume_configurations)
         pulumi.set(__self__, "efs_volume_configurations", efs_volume_configurations)
@@ -7433,36 +7452,57 @@ class GetTaskDefinitionVolumeResult(dict):
     @_builtins.property
     @pulumi.getter(name="configureAtLaunch")
     def configure_at_launch(self) -> _builtins.bool:
+        """
+        Whether the volume is configured at launch time.
+        """
         return pulumi.get(self, "configure_at_launch")
 
     @_builtins.property
     @pulumi.getter(name="dockerVolumeConfigurations")
     def docker_volume_configurations(self) -> Sequence['outputs.GetTaskDefinitionVolumeDockerVolumeConfigurationResult']:
+        """
+        Configuration block for a Docker volume. See `docker_volume_configuration` Block for details.
+        """
         return pulumi.get(self, "docker_volume_configurations")
 
     @_builtins.property
     @pulumi.getter(name="efsVolumeConfigurations")
     def efs_volume_configurations(self) -> Sequence['outputs.GetTaskDefinitionVolumeEfsVolumeConfigurationResult']:
+        """
+        Configuration block for an EFS volume. See `efs_volume_configuration` Block for details.
+        """
         return pulumi.get(self, "efs_volume_configurations")
 
     @_builtins.property
     @pulumi.getter(name="fsxWindowsFileServerVolumeConfigurations")
     def fsx_windows_file_server_volume_configurations(self) -> Sequence['outputs.GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationResult']:
+        """
+        Configuration block for an FSx for Windows File Server volume. See `fsx_windows_file_server_volume_configuration` Block for details.
+        """
         return pulumi.get(self, "fsx_windows_file_server_volume_configurations")
 
     @_builtins.property
     @pulumi.getter(name="hostPath")
     def host_path(self) -> _builtins.str:
+        """
+        Path on the host container instance that is presented to the container.
+        """
         return pulumi.get(self, "host_path")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Name of the volume.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="s3filesVolumeConfigurations")
     def s3files_volume_configurations(self) -> Sequence['outputs.GetTaskDefinitionVolumeS3filesVolumeConfigurationResult']:
+        """
+        Configuration block for an S3 Files volume. See `s3files_volume_configuration` Block for details.
+        """
         return pulumi.get(self, "s3files_volume_configurations")
 
 
@@ -7474,6 +7514,13 @@ class GetTaskDefinitionVolumeDockerVolumeConfigurationResult(dict):
                  driver_opts: Mapping[str, _builtins.str],
                  labels: Mapping[str, _builtins.str],
                  scope: _builtins.str):
+        """
+        :param _builtins.bool autoprovision: Whether the Docker volume is created if it does not already exist.
+        :param _builtins.str driver: Docker volume driver used.
+        :param Mapping[str, _builtins.str] driver_opts: Map of Docker driver-specific options.
+        :param Mapping[str, _builtins.str] labels: Map of custom metadata added to the Docker volume.
+        :param _builtins.str scope: Scope for the Docker volume, either `task` or `shared`.
+        """
         pulumi.set(__self__, "autoprovision", autoprovision)
         pulumi.set(__self__, "driver", driver)
         pulumi.set(__self__, "driver_opts", driver_opts)
@@ -7483,26 +7530,41 @@ class GetTaskDefinitionVolumeDockerVolumeConfigurationResult(dict):
     @_builtins.property
     @pulumi.getter
     def autoprovision(self) -> _builtins.bool:
+        """
+        Whether the Docker volume is created if it does not already exist.
+        """
         return pulumi.get(self, "autoprovision")
 
     @_builtins.property
     @pulumi.getter
     def driver(self) -> _builtins.str:
+        """
+        Docker volume driver used.
+        """
         return pulumi.get(self, "driver")
 
     @_builtins.property
     @pulumi.getter(name="driverOpts")
     def driver_opts(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of Docker driver-specific options.
+        """
         return pulumi.get(self, "driver_opts")
 
     @_builtins.property
     @pulumi.getter
     def labels(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of custom metadata added to the Docker volume.
+        """
         return pulumi.get(self, "labels")
 
     @_builtins.property
     @pulumi.getter
     def scope(self) -> _builtins.str:
+        """
+        Scope for the Docker volume, either `task` or `shared`.
+        """
         return pulumi.get(self, "scope")
 
 
@@ -7514,6 +7576,13 @@ class GetTaskDefinitionVolumeEfsVolumeConfigurationResult(dict):
                  root_directory: _builtins.str,
                  transit_encryption: _builtins.str,
                  transit_encryption_port: _builtins.int):
+        """
+        :param Sequence['GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs'] authorization_configs: Configuration block for authorization for the Amazon FSx for Windows File Server file system. See `fsx_windows_file_server_volume_configuration.authorization_config` Block for details.
+        :param _builtins.str file_system_id: Amazon FSx for Windows File Server file system ID used.
+        :param _builtins.str root_directory: Directory within the Amazon S3 Files file system to mount as the root directory.
+        :param _builtins.str transit_encryption: Whether encryption is enabled for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
+        :param _builtins.int transit_encryption_port: Port used for sending encrypted data between the ECS host and the S3 Files file system.
+        """
         pulumi.set(__self__, "authorization_configs", authorization_configs)
         pulumi.set(__self__, "file_system_id", file_system_id)
         pulumi.set(__self__, "root_directory", root_directory)
@@ -7523,26 +7592,41 @@ class GetTaskDefinitionVolumeEfsVolumeConfigurationResult(dict):
     @_builtins.property
     @pulumi.getter(name="authorizationConfigs")
     def authorization_configs(self) -> Sequence['outputs.GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigResult']:
+        """
+        Configuration block for authorization for the Amazon FSx for Windows File Server file system. See `fsx_windows_file_server_volume_configuration.authorization_config` Block for details.
+        """
         return pulumi.get(self, "authorization_configs")
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> _builtins.str:
+        """
+        Amazon FSx for Windows File Server file system ID used.
+        """
         return pulumi.get(self, "file_system_id")
 
     @_builtins.property
     @pulumi.getter(name="rootDirectory")
     def root_directory(self) -> _builtins.str:
+        """
+        Directory within the Amazon S3 Files file system to mount as the root directory.
+        """
         return pulumi.get(self, "root_directory")
 
     @_builtins.property
     @pulumi.getter(name="transitEncryption")
     def transit_encryption(self) -> _builtins.str:
+        """
+        Whether encryption is enabled for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
+        """
         return pulumi.get(self, "transit_encryption")
 
     @_builtins.property
     @pulumi.getter(name="transitEncryptionPort")
     def transit_encryption_port(self) -> _builtins.int:
+        """
+        Port used for sending encrypted data between the ECS host and the S3 Files file system.
+        """
         return pulumi.get(self, "transit_encryption_port")
 
 
@@ -7551,17 +7635,27 @@ class GetTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigResult(dic
     def __init__(__self__, *,
                  access_point_id: _builtins.str,
                  iam: _builtins.str):
+        """
+        :param _builtins.str access_point_id: Access point ID used.
+        :param _builtins.str iam: Whether the Amazon ECS task IAM role defined in a task definition is used when mounting the Amazon EFS file system.
+        """
         pulumi.set(__self__, "access_point_id", access_point_id)
         pulumi.set(__self__, "iam", iam)
 
     @_builtins.property
     @pulumi.getter(name="accessPointId")
     def access_point_id(self) -> _builtins.str:
+        """
+        Access point ID used.
+        """
         return pulumi.get(self, "access_point_id")
 
     @_builtins.property
     @pulumi.getter
     def iam(self) -> _builtins.str:
+        """
+        Whether the Amazon ECS task IAM role defined in a task definition is used when mounting the Amazon EFS file system.
+        """
         return pulumi.get(self, "iam")
 
 
@@ -7571,6 +7665,11 @@ class GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationResult(dict)
                  authorization_configs: Sequence['outputs.GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigResult'],
                  file_system_id: _builtins.str,
                  root_directory: _builtins.str):
+        """
+        :param Sequence['GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs'] authorization_configs: Configuration block for authorization for the Amazon FSx for Windows File Server file system. See `fsx_windows_file_server_volume_configuration.authorization_config` Block for details.
+        :param _builtins.str file_system_id: Amazon FSx for Windows File Server file system ID used.
+        :param _builtins.str root_directory: Directory within the Amazon S3 Files file system to mount as the root directory.
+        """
         pulumi.set(__self__, "authorization_configs", authorization_configs)
         pulumi.set(__self__, "file_system_id", file_system_id)
         pulumi.set(__self__, "root_directory", root_directory)
@@ -7578,16 +7677,25 @@ class GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationResult(dict)
     @_builtins.property
     @pulumi.getter(name="authorizationConfigs")
     def authorization_configs(self) -> Sequence['outputs.GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigResult']:
+        """
+        Configuration block for authorization for the Amazon FSx for Windows File Server file system. See `fsx_windows_file_server_volume_configuration.authorization_config` Block for details.
+        """
         return pulumi.get(self, "authorization_configs")
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> _builtins.str:
+        """
+        Amazon FSx for Windows File Server file system ID used.
+        """
         return pulumi.get(self, "file_system_id")
 
     @_builtins.property
     @pulumi.getter(name="rootDirectory")
     def root_directory(self) -> _builtins.str:
+        """
+        Directory within the Amazon S3 Files file system to mount as the root directory.
+        """
         return pulumi.get(self, "root_directory")
 
 
@@ -7596,17 +7704,27 @@ class GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizatio
     def __init__(__self__, *,
                  credentials_parameter: _builtins.str,
                  domain: _builtins.str):
+        """
+        :param _builtins.str credentials_parameter: Authorization credential option used.
+        :param _builtins.str domain: Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+        """
         pulumi.set(__self__, "credentials_parameter", credentials_parameter)
         pulumi.set(__self__, "domain", domain)
 
     @_builtins.property
     @pulumi.getter(name="credentialsParameter")
     def credentials_parameter(self) -> _builtins.str:
+        """
+        Authorization credential option used.
+        """
         return pulumi.get(self, "credentials_parameter")
 
     @_builtins.property
     @pulumi.getter
     def domain(self) -> _builtins.str:
+        """
+        Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+        """
         return pulumi.get(self, "domain")
 
 
@@ -7617,6 +7735,12 @@ class GetTaskDefinitionVolumeS3filesVolumeConfigurationResult(dict):
                  file_system_arn: _builtins.str,
                  root_directory: _builtins.str,
                  transit_encryption_port: _builtins.int):
+        """
+        :param _builtins.str access_point_arn: Full ARN of the S3 Files access point used.
+        :param _builtins.str file_system_arn: Full ARN of the S3 Files file system mounted.
+        :param _builtins.str root_directory: Directory within the Amazon S3 Files file system to mount as the root directory.
+        :param _builtins.int transit_encryption_port: Port used for sending encrypted data between the ECS host and the S3 Files file system.
+        """
         pulumi.set(__self__, "access_point_arn", access_point_arn)
         pulumi.set(__self__, "file_system_arn", file_system_arn)
         pulumi.set(__self__, "root_directory", root_directory)
@@ -7625,21 +7749,33 @@ class GetTaskDefinitionVolumeS3filesVolumeConfigurationResult(dict):
     @_builtins.property
     @pulumi.getter(name="accessPointArn")
     def access_point_arn(self) -> _builtins.str:
+        """
+        Full ARN of the S3 Files access point used.
+        """
         return pulumi.get(self, "access_point_arn")
 
     @_builtins.property
     @pulumi.getter(name="fileSystemArn")
     def file_system_arn(self) -> _builtins.str:
+        """
+        Full ARN of the S3 Files file system mounted.
+        """
         return pulumi.get(self, "file_system_arn")
 
     @_builtins.property
     @pulumi.getter(name="rootDirectory")
     def root_directory(self) -> _builtins.str:
+        """
+        Directory within the Amazon S3 Files file system to mount as the root directory.
+        """
         return pulumi.get(self, "root_directory")
 
     @_builtins.property
     @pulumi.getter(name="transitEncryptionPort")
     def transit_encryption_port(self) -> _builtins.int:
+        """
+        Port used for sending encrypted data between the ECS host and the S3 Files file system.
+        """
         return pulumi.get(self, "transit_encryption_port")
 
 

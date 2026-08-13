@@ -16,14 +16,14 @@ public final class WorkflowStepDeleteStepDetailsArgs extends com.pulumi.resource
     public static final WorkflowStepDeleteStepDetailsArgs Empty = new WorkflowStepDeleteStepDetailsArgs();
 
     /**
-     * The name of the step, used as an identifier.
+     * Name of the step, used as an identifier.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the step, used as an identifier.
+     * @return Name of the step, used as an identifier.
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,14 +31,14 @@ public final class WorkflowStepDeleteStepDetailsArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+     * File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
      * 
      */
     @Import(name="sourceFileLocation")
     private @Nullable Output<String> sourceFileLocation;
 
     /**
-     * @return Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+     * @return File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
      * 
      */
     public Optional<Output<String>> sourceFileLocation() {
@@ -71,7 +71,7 @@ public final class WorkflowStepDeleteStepDetailsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The name of the step, used as an identifier.
+         * @param name Name of the step, used as an identifier.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class WorkflowStepDeleteStepDetailsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name The name of the step, used as an identifier.
+         * @param name Name of the step, used as an identifier.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class WorkflowStepDeleteStepDetailsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sourceFileLocation Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * @param sourceFileLocation File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class WorkflowStepDeleteStepDetailsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sourceFileLocation Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * @param sourceFileLocation File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          * 
          * @return builder
          * 

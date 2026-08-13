@@ -38,7 +38,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedInstanceTypes;
         /// <summary>
-        /// Indicates whether bare metal instances are included, excluded, or required.
+        /// Whether bare metal instances are included, excluded, or required.
         /// </summary>
         public readonly string BareMetal;
         /// <summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult> BaselineEbsBandwidthMbps;
         /// <summary>
-        /// Indicates whether burstable performance instance types are included, excluded, or required.
+        /// Whether burstable performance instance types are included, excluded, or required.
         /// </summary>
         public readonly string BurstablePerformance;
         /// <summary>
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly ImmutableArray<string> InstanceGenerations;
         /// <summary>
-        /// Indicates whether instance types with instance store volumes are included, excluded, or required.
+        /// Whether instance types with instance store volumes are included, excluded, or required.
         /// </summary>
         public readonly string LocalStorage;
         /// <summary>
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly int OnDemandMaxPricePercentageOverLowestPrice;
         /// <summary>
-        /// Indicates whether instance types must support On-Demand Instance Hibernation.
+        /// Whether instance types must support On-Demand Instance Hibernation.
         /// </summary>
         public readonly bool RequireHibernateSupport;
         /// <summary>

@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetInferenceProfilesResult {
     /**
-     * @return List of inference profile summary objects. See `inferenceProfileSummaries`.
+     * @return List of inference profile summary objects. See `inferenceProfileSummaries` Block.
      * 
      */
     private List<GetInferenceProfilesInferenceProfileSummary> inferenceProfileSummaries;
@@ -28,7 +28,7 @@ public final class GetInferenceProfilesResult {
 
     private GetInferenceProfilesResult() {}
     /**
-     * @return List of inference profile summary objects. See `inferenceProfileSummaries`.
+     * @return List of inference profile summary objects. See `inferenceProfileSummaries` Block.
      * 
      */
     public List<GetInferenceProfilesInferenceProfileSummary> inferenceProfileSummaries() {

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessTruncationConfig
     {
         /// <summary>
-        /// Sliding window truncation configuration. See `SlidingWindow` below.
+        /// Sliding window truncation configuration. See `SlidingWindow` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessTruncationConfigSlidingWindow> SlidingWindows;
         /// <summary>
-        /// Summarization truncation configuration. See `Summarization` below.
+        /// Summarization truncation configuration. See `Summarization` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessTruncationConfigSummarization> Summarizations;
 

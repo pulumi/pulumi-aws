@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgGetArgs>? _asgs;
 
         /// <summary>
-        /// Auto Scaling group configuration. See ASG below.
+        /// Auto Scaling group configuration. See `Asg` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgGetArgs> Asgs
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         public Input<int>? TimeoutMinutes { get; set; }
 
         /// <summary>
-        /// Ungraceful behavior configuration. See Ungraceful below.
+        /// Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
         /// </summary>
         [Input("ungraceful")]
         public Input<Inputs.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngracefulGetArgs>? Ungraceful { get; set; }

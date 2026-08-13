@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Odb.Outputs
     public sealed class CloudAutonomousVmClusterMaintenanceWindow
     {
         /// <summary>
-        /// Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+        /// Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `DaysOfWeek` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek> DaysOfWeeks;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Odb.Outputs
         /// </summary>
         public readonly int? LeadTimeInWeeks;
         /// <summary>
-        /// Months when maintenance can be performed. Changing this will force terraform to create new resource.
+        /// Months when maintenance can be performed. Changing this will force terraform to create new resource. See `Months` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.CloudAutonomousVmClusterMaintenanceWindowMonth> Months;
         /// <summary>

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterResult
     {
         /// <summary>
-        /// Any of the host devices to expose to the container.
+        /// Host devices to expose to the container. See `Devices` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceResult> Devices;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly int SharedMemorySize;
         /// <summary>
-        /// You can use this parameter to tune a container's memory swappiness behavior.
+        /// Value used to tune a container's memory swappiness behavior.
         /// </summary>
         public readonly int Swappiness;
         /// <summary>
-        /// Container path, mount options, and size (in MiB) of the tmpfs mount.
+        /// Container path, mount options, and size (in MiB) of the tmpfs mount. See `Tmpfs` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfResult> Tmpfs;
 

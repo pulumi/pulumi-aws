@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Transfer.Outputs
         /// </summary>
         public readonly string BasicAuthSecretId;
         /// <summary>
-        /// Specifies whether AS2 file is compressed. Will be ZLIB or DISABLED
+        /// Whether AS2 file is compressed. Will be ZLIB or DISABLED
         /// </summary>
         public readonly string Compression;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Transfer.Outputs
         /// </summary>
         public readonly string LocalProfileId;
         /// <summary>
-        /// Used for outbound requests to tell if response is asynchronous or not. Will be either SYNC or NONE.
+        /// Whether outbound requests use an asynchronous response. Will be either SYNC or NONE.
         /// </summary>
         public readonly string MdnResponse;
         /// <summary>
@@ -45,6 +45,9 @@ namespace Pulumi.Aws.Transfer.Outputs
         /// Unique identifier used by connector for partner profile.
         /// </summary>
         public readonly string PartnerProfileId;
+        /// <summary>
+        /// Algorithm used for signing AS2 messages sent with the connector.
+        /// </summary>
         public readonly string SingingAlgorithm;
 
         [OutputConstructor]

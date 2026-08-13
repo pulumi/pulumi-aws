@@ -7,6 +7,9 @@ import com.pulumi.aws.eks.inputs.ClusterAccessConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterComputeConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterControlPlaneScalingConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterEncryptionConfigArgs;
+import com.pulumi.aws.eks.inputs.ClusterKubeApiServerConfigArgs;
+import com.pulumi.aws.eks.inputs.ClusterKubeControllerManagerConfigArgs;
+import com.pulumi.aws.eks.inputs.ClusterKubeSchedulerConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterKubernetesNetworkConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterOutpostConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterRemoteNetworkConfigArgs;
@@ -167,6 +170,51 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> forceUpdateVersion() {
         return Optional.ofNullable(this.forceUpdateVersion);
+    }
+
+    /**
+     * Configuration block for customizing the Kubernetes API server. Detailed below.
+     * 
+     */
+    @Import(name="kubeApiServerConfig")
+    private @Nullable Output<ClusterKubeApiServerConfigArgs> kubeApiServerConfig;
+
+    /**
+     * @return Configuration block for customizing the Kubernetes API server. Detailed below.
+     * 
+     */
+    public Optional<Output<ClusterKubeApiServerConfigArgs>> kubeApiServerConfig() {
+        return Optional.ofNullable(this.kubeApiServerConfig);
+    }
+
+    /**
+     * Configuration block for customizing the Kubernetes controller manager. Detailed below.
+     * 
+     */
+    @Import(name="kubeControllerManagerConfig")
+    private @Nullable Output<ClusterKubeControllerManagerConfigArgs> kubeControllerManagerConfig;
+
+    /**
+     * @return Configuration block for customizing the Kubernetes controller manager. Detailed below.
+     * 
+     */
+    public Optional<Output<ClusterKubeControllerManagerConfigArgs>> kubeControllerManagerConfig() {
+        return Optional.ofNullable(this.kubeControllerManagerConfig);
+    }
+
+    /**
+     * Configuration block for customizing the Kubernetes scheduler. Detailed below.
+     * 
+     */
+    @Import(name="kubeSchedulerConfig")
+    private @Nullable Output<ClusterKubeSchedulerConfigArgs> kubeSchedulerConfig;
+
+    /**
+     * @return Configuration block for customizing the Kubernetes scheduler. Detailed below.
+     * 
+     */
+    public Optional<Output<ClusterKubeSchedulerConfigArgs>> kubeSchedulerConfig() {
+        return Optional.ofNullable(this.kubeSchedulerConfig);
     }
 
     /**
@@ -365,6 +413,9 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.enabledClusterLogTypes = $.enabledClusterLogTypes;
         this.encryptionConfig = $.encryptionConfig;
         this.forceUpdateVersion = $.forceUpdateVersion;
+        this.kubeApiServerConfig = $.kubeApiServerConfig;
+        this.kubeControllerManagerConfig = $.kubeControllerManagerConfig;
+        this.kubeSchedulerConfig = $.kubeSchedulerConfig;
         this.kubernetesNetworkConfig = $.kubernetesNetworkConfig;
         this.name = $.name;
         this.outpostConfig = $.outpostConfig;
@@ -610,6 +661,69 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder forceUpdateVersion(Boolean forceUpdateVersion) {
             return forceUpdateVersion(Output.of(forceUpdateVersion));
+        }
+
+        /**
+         * @param kubeApiServerConfig Configuration block for customizing the Kubernetes API server. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kubeApiServerConfig(@Nullable Output<ClusterKubeApiServerConfigArgs> kubeApiServerConfig) {
+            $.kubeApiServerConfig = kubeApiServerConfig;
+            return this;
+        }
+
+        /**
+         * @param kubeApiServerConfig Configuration block for customizing the Kubernetes API server. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kubeApiServerConfig(ClusterKubeApiServerConfigArgs kubeApiServerConfig) {
+            return kubeApiServerConfig(Output.of(kubeApiServerConfig));
+        }
+
+        /**
+         * @param kubeControllerManagerConfig Configuration block for customizing the Kubernetes controller manager. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kubeControllerManagerConfig(@Nullable Output<ClusterKubeControllerManagerConfigArgs> kubeControllerManagerConfig) {
+            $.kubeControllerManagerConfig = kubeControllerManagerConfig;
+            return this;
+        }
+
+        /**
+         * @param kubeControllerManagerConfig Configuration block for customizing the Kubernetes controller manager. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kubeControllerManagerConfig(ClusterKubeControllerManagerConfigArgs kubeControllerManagerConfig) {
+            return kubeControllerManagerConfig(Output.of(kubeControllerManagerConfig));
+        }
+
+        /**
+         * @param kubeSchedulerConfig Configuration block for customizing the Kubernetes scheduler. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kubeSchedulerConfig(@Nullable Output<ClusterKubeSchedulerConfigArgs> kubeSchedulerConfig) {
+            $.kubeSchedulerConfig = kubeSchedulerConfig;
+            return this;
+        }
+
+        /**
+         * @param kubeSchedulerConfig Configuration block for customizing the Kubernetes scheduler. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kubeSchedulerConfig(ClusterKubeSchedulerConfigArgs kubeSchedulerConfig) {
+            return kubeSchedulerConfig(Output.of(kubeSchedulerConfig));
         }
 
         /**

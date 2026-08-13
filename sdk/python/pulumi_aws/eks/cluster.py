@@ -32,6 +32,9 @@ class ClusterArgs:
                  enabled_cluster_log_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  encryption_config: pulumi.Input[Optional['ClusterEncryptionConfigArgs']] = None,
                  force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kube_api_server_config: pulumi.Input[Optional['ClusterKubeApiServerConfigArgs']] = None,
+                 kube_controller_manager_config: pulumi.Input[Optional['ClusterKubeControllerManagerConfigArgs']] = None,
+                 kube_scheduler_config: pulumi.Input[Optional['ClusterKubeSchedulerConfigArgs']] = None,
                  kubernetes_network_config: pulumi.Input[Optional['ClusterKubernetesNetworkConfigArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  outpost_config: pulumi.Input[Optional['ClusterOutpostConfigArgs']] = None,
@@ -57,6 +60,9 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input[_builtins.bool] force_update_version: Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+        :param pulumi.Input['ClusterKubeApiServerConfigArgs'] kube_api_server_config: Configuration block for customizing the Kubernetes API server. Detailed below.
+        :param pulumi.Input['ClusterKubeControllerManagerConfigArgs'] kube_controller_manager_config: Configuration block for customizing the Kubernetes controller manager. Detailed below.
+        :param pulumi.Input['ClusterKubeSchedulerConfigArgs'] kube_scheduler_config: Configuration block for customizing the Kubernetes scheduler. Detailed below.
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input['ClusterOutpostConfigArgs'] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
@@ -91,6 +97,12 @@ class ClusterArgs:
             pulumi.set(__self__, "encryption_config", encryption_config)
         if force_update_version is not None:
             pulumi.set(__self__, "force_update_version", force_update_version)
+        if kube_api_server_config is not None:
+            pulumi.set(__self__, "kube_api_server_config", kube_api_server_config)
+        if kube_controller_manager_config is not None:
+            pulumi.set(__self__, "kube_controller_manager_config", kube_controller_manager_config)
+        if kube_scheduler_config is not None:
+            pulumi.set(__self__, "kube_scheduler_config", kube_scheduler_config)
         if kubernetes_network_config is not None:
             pulumi.set(__self__, "kubernetes_network_config", kubernetes_network_config)
         if name is not None:
@@ -245,6 +257,42 @@ class ClusterArgs:
         pulumi.set(self, "force_update_version", value)
 
     @_builtins.property
+    @pulumi.getter(name="kubeApiServerConfig")
+    def kube_api_server_config(self) -> pulumi.Input[Optional['ClusterKubeApiServerConfigArgs']]:
+        """
+        Configuration block for customizing the Kubernetes API server. Detailed below.
+        """
+        return pulumi.get(self, "kube_api_server_config")
+
+    @kube_api_server_config.setter
+    def kube_api_server_config(self, value: pulumi.Input[Optional['ClusterKubeApiServerConfigArgs']]):
+        pulumi.set(self, "kube_api_server_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kubeControllerManagerConfig")
+    def kube_controller_manager_config(self) -> pulumi.Input[Optional['ClusterKubeControllerManagerConfigArgs']]:
+        """
+        Configuration block for customizing the Kubernetes controller manager. Detailed below.
+        """
+        return pulumi.get(self, "kube_controller_manager_config")
+
+    @kube_controller_manager_config.setter
+    def kube_controller_manager_config(self, value: pulumi.Input[Optional['ClusterKubeControllerManagerConfigArgs']]):
+        pulumi.set(self, "kube_controller_manager_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kubeSchedulerConfig")
+    def kube_scheduler_config(self) -> pulumi.Input[Optional['ClusterKubeSchedulerConfigArgs']]:
+        """
+        Configuration block for customizing the Kubernetes scheduler. Detailed below.
+        """
+        return pulumi.get(self, "kube_scheduler_config")
+
+    @kube_scheduler_config.setter
+    def kube_scheduler_config(self, value: pulumi.Input[Optional['ClusterKubeSchedulerConfigArgs']]):
+        pulumi.set(self, "kube_scheduler_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="kubernetesNetworkConfig")
     def kubernetes_network_config(self) -> pulumi.Input[Optional['ClusterKubernetesNetworkConfigArgs']]:
         """
@@ -383,6 +431,9 @@ class _ClusterState:
                  endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
                  identities: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterIdentityArgs']]]] = None,
+                 kube_api_server_config: pulumi.Input[Optional['ClusterKubeApiServerConfigArgs']] = None,
+                 kube_controller_manager_config: pulumi.Input[Optional['ClusterKubeControllerManagerConfigArgs']] = None,
+                 kube_scheduler_config: pulumi.Input[Optional['ClusterKubeSchedulerConfigArgs']] = None,
                  kubernetes_network_config: pulumi.Input[Optional['ClusterKubernetesNetworkConfigArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  outpost_config: pulumi.Input[Optional['ClusterOutpostConfigArgs']] = None,
@@ -415,6 +466,9 @@ class _ClusterState:
         :param pulumi.Input[_builtins.str] endpoint: Endpoint for your Kubernetes API server.
         :param pulumi.Input[_builtins.bool] force_update_version: Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterIdentityArgs']]] identities: Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
+        :param pulumi.Input['ClusterKubeApiServerConfigArgs'] kube_api_server_config: Configuration block for customizing the Kubernetes API server. Detailed below.
+        :param pulumi.Input['ClusterKubeControllerManagerConfigArgs'] kube_controller_manager_config: Configuration block for customizing the Kubernetes controller manager. Detailed below.
+        :param pulumi.Input['ClusterKubeSchedulerConfigArgs'] kube_scheduler_config: Configuration block for customizing the Kubernetes scheduler. Detailed below.
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input['ClusterOutpostConfigArgs'] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
@@ -466,6 +520,12 @@ class _ClusterState:
             pulumi.set(__self__, "force_update_version", force_update_version)
         if identities is not None:
             pulumi.set(__self__, "identities", identities)
+        if kube_api_server_config is not None:
+            pulumi.set(__self__, "kube_api_server_config", kube_api_server_config)
+        if kube_controller_manager_config is not None:
+            pulumi.set(__self__, "kube_controller_manager_config", kube_controller_manager_config)
+        if kube_scheduler_config is not None:
+            pulumi.set(__self__, "kube_scheduler_config", kube_scheduler_config)
         if kubernetes_network_config is not None:
             pulumi.set(__self__, "kubernetes_network_config", kubernetes_network_config)
         if name is not None:
@@ -676,6 +736,42 @@ class _ClusterState:
         pulumi.set(self, "identities", value)
 
     @_builtins.property
+    @pulumi.getter(name="kubeApiServerConfig")
+    def kube_api_server_config(self) -> pulumi.Input[Optional['ClusterKubeApiServerConfigArgs']]:
+        """
+        Configuration block for customizing the Kubernetes API server. Detailed below.
+        """
+        return pulumi.get(self, "kube_api_server_config")
+
+    @kube_api_server_config.setter
+    def kube_api_server_config(self, value: pulumi.Input[Optional['ClusterKubeApiServerConfigArgs']]):
+        pulumi.set(self, "kube_api_server_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kubeControllerManagerConfig")
+    def kube_controller_manager_config(self) -> pulumi.Input[Optional['ClusterKubeControllerManagerConfigArgs']]:
+        """
+        Configuration block for customizing the Kubernetes controller manager. Detailed below.
+        """
+        return pulumi.get(self, "kube_controller_manager_config")
+
+    @kube_controller_manager_config.setter
+    def kube_controller_manager_config(self, value: pulumi.Input[Optional['ClusterKubeControllerManagerConfigArgs']]):
+        pulumi.set(self, "kube_controller_manager_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kubeSchedulerConfig")
+    def kube_scheduler_config(self) -> pulumi.Input[Optional['ClusterKubeSchedulerConfigArgs']]:
+        """
+        Configuration block for customizing the Kubernetes scheduler. Detailed below.
+        """
+        return pulumi.get(self, "kube_scheduler_config")
+
+    @kube_scheduler_config.setter
+    def kube_scheduler_config(self, value: pulumi.Input[Optional['ClusterKubeSchedulerConfigArgs']]):
+        pulumi.set(self, "kube_scheduler_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="kubernetesNetworkConfig")
     def kubernetes_network_config(self) -> pulumi.Input[Optional['ClusterKubernetesNetworkConfigArgs']]:
         """
@@ -873,6 +969,9 @@ class Cluster(pulumi.CustomResource):
                  enabled_cluster_log_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  encryption_config: pulumi.Input[Optional[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
                  force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kube_api_server_config: pulumi.Input[Optional[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict']]] = None,
+                 kube_controller_manager_config: pulumi.Input[Optional[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict']]] = None,
+                 kube_scheduler_config: pulumi.Input[Optional[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict']]] = None,
                  kubernetes_network_config: pulumi.Input[Optional[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  outpost_config: pulumi.Input[Optional[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
@@ -1167,6 +1266,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input[_builtins.bool] force_update_version: Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
+        :param pulumi.Input[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict']] kube_api_server_config: Configuration block for customizing the Kubernetes API server. Detailed below.
+        :param pulumi.Input[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict']] kube_controller_manager_config: Configuration block for customizing the Kubernetes controller manager. Detailed below.
+        :param pulumi.Input[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict']] kube_scheduler_config: Configuration block for customizing the Kubernetes scheduler. Detailed below.
         :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
@@ -1483,6 +1585,9 @@ class Cluster(pulumi.CustomResource):
                  enabled_cluster_log_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  encryption_config: pulumi.Input[Optional[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
                  force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kube_api_server_config: pulumi.Input[Optional[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict']]] = None,
+                 kube_controller_manager_config: pulumi.Input[Optional[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict']]] = None,
+                 kube_scheduler_config: pulumi.Input[Optional[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict']]] = None,
                  kubernetes_network_config: pulumi.Input[Optional[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  outpost_config: pulumi.Input[Optional[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
@@ -1513,6 +1618,9 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["force_update_version"] = force_update_version
+            __props__.__dict__["kube_api_server_config"] = kube_api_server_config
+            __props__.__dict__["kube_controller_manager_config"] = kube_controller_manager_config
+            __props__.__dict__["kube_scheduler_config"] = kube_scheduler_config
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
             __props__.__dict__["name"] = name
             __props__.__dict__["outpost_config"] = outpost_config
@@ -1563,6 +1671,9 @@ class Cluster(pulumi.CustomResource):
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
             identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]]]] = None,
+            kube_api_server_config: pulumi.Input[Optional[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict']]] = None,
+            kube_controller_manager_config: pulumi.Input[Optional[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict']]] = None,
+            kube_scheduler_config: pulumi.Input[Optional[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict']]] = None,
             kubernetes_network_config: pulumi.Input[Optional[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             outpost_config: pulumi.Input[Optional[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
@@ -1599,6 +1710,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] endpoint: Endpoint for your Kubernetes API server.
         :param pulumi.Input[_builtins.bool] force_update_version: Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]]] identities: Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
+        :param pulumi.Input[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict']] kube_api_server_config: Configuration block for customizing the Kubernetes API server. Detailed below.
+        :param pulumi.Input[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict']] kube_controller_manager_config: Configuration block for customizing the Kubernetes controller manager. Detailed below.
+        :param pulumi.Input[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict']] kube_scheduler_config: Configuration block for customizing the Kubernetes scheduler. Detailed below.
         :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
@@ -1636,6 +1750,9 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["force_update_version"] = force_update_version
         __props__.__dict__["identities"] = identities
+        __props__.__dict__["kube_api_server_config"] = kube_api_server_config
+        __props__.__dict__["kube_controller_manager_config"] = kube_controller_manager_config
+        __props__.__dict__["kube_scheduler_config"] = kube_scheduler_config
         __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
         __props__.__dict__["name"] = name
         __props__.__dict__["outpost_config"] = outpost_config
@@ -1770,6 +1887,30 @@ class Cluster(pulumi.CustomResource):
         Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
         """
         return pulumi.get(self, "identities")
+
+    @_builtins.property
+    @pulumi.getter(name="kubeApiServerConfig")
+    def kube_api_server_config(self) -> pulumi.Output['outputs.ClusterKubeApiServerConfig']:
+        """
+        Configuration block for customizing the Kubernetes API server. Detailed below.
+        """
+        return pulumi.get(self, "kube_api_server_config")
+
+    @_builtins.property
+    @pulumi.getter(name="kubeControllerManagerConfig")
+    def kube_controller_manager_config(self) -> pulumi.Output['outputs.ClusterKubeControllerManagerConfig']:
+        """
+        Configuration block for customizing the Kubernetes controller manager. Detailed below.
+        """
+        return pulumi.get(self, "kube_controller_manager_config")
+
+    @_builtins.property
+    @pulumi.getter(name="kubeSchedulerConfig")
+    def kube_scheduler_config(self) -> pulumi.Output['outputs.ClusterKubeSchedulerConfig']:
+        """
+        Configuration block for customizing the Kubernetes scheduler. Detailed below.
+        """
+        return pulumi.get(self, "kube_scheduler_config")
 
     @_builtins.property
     @pulumi.getter(name="kubernetesNetworkConfig")

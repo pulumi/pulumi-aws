@@ -146,7 +146,7 @@ class GetImageResult:
     @pulumi.getter(name="imageBuilderName")
     def image_builder_name(self) -> _builtins.str:
         """
-        Name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
+        Name of the image builder that was used to created the private image. If the image is shared then the value is null.
         """
         return pulumi.get(self, "image_builder_name")
 
@@ -154,7 +154,7 @@ class GetImageResult:
     @pulumi.getter(name="imageBuilderSupported")
     def image_builder_supported(self) -> _builtins.bool:
         """
-        Boolean to indicate whether an image builder can be launched from this image.
+        Whether an image builder can be launched from this image.
         """
         return pulumi.get(self, "image_builder_supported")
 
@@ -162,7 +162,7 @@ class GetImageResult:
     @pulumi.getter(name="imagePermissions")
     def image_permissions(self) -> Sequence['outputs.GetImageImagePermissionResult']:
         """
-        List of strings describing the image permissions containing the following:
+        List of objects describing the image permissions containing the following:
         """
         return pulumi.get(self, "image_permissions")
 

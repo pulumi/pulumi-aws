@@ -4380,7 +4380,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
                  prefix_type: Optional[_builtins.str] = None):
         """
         :param _builtins.str prefix_format: Level of granularity included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-        :param Sequence[_builtins.str] prefix_hierarchies: Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+        :param Sequence[_builtins.str] prefix_hierarchies: Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
         :param _builtins.str prefix_type: Format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
         """
         if prefix_format is not None:
@@ -4402,7 +4402,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
     @pulumi.getter(name="prefixHierarchies")
     def prefix_hierarchies(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+        Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
         """
         return pulumi.get(self, "prefix_hierarchies")
 
@@ -5040,7 +5040,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
         """
         :param _builtins.str prefix_type: Format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
         :param _builtins.str prefix_format: Level of granularity included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-        :param Sequence[_builtins.str] prefix_hierarchies: Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+        :param Sequence[_builtins.str] prefix_hierarchies: Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
         """
         pulumi.set(__self__, "prefix_type", prefix_type)
         if prefix_format is not None:
@@ -5068,7 +5068,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
     @pulumi.getter(name="prefixHierarchies")
     def prefix_hierarchies(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+        Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
         """
         return pulumi.get(self, "prefix_hierarchies")
 

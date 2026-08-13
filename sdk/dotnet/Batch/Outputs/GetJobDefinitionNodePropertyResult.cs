@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly int MainNode;
         /// <summary>
-        /// List of node ranges and their properties that are associated with a multi-node parallel job.
+        /// List of node ranges and their properties that are associated with a multi-node parallel job. See `NodeRangeProperties` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyResult> NodeRangeProperties;
         /// <summary>

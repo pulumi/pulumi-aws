@@ -16,14 +16,14 @@ public final class AgentcoreHarnessEnvironmentArgs extends com.pulumi.resources.
     public static final AgentcoreHarnessEnvironmentArgs Empty = new AgentcoreHarnessEnvironmentArgs();
 
     /**
-     * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` below.
+     * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
      * 
      */
     @Import(name="agentcoreRuntimeEnvironments", required=true)
     private Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs>> agentcoreRuntimeEnvironments;
 
     /**
-     * @return AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` below.
+     * @return AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
      * 
      */
     public Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs>> agentcoreRuntimeEnvironments() {
@@ -55,7 +55,7 @@ public final class AgentcoreHarnessEnvironmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` below.
+         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentcoreHarnessEnvironmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` below.
+         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class AgentcoreHarnessEnvironmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` below.
+         * @param agentcoreRuntimeEnvironments AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
          * 
          * @return builder
          * 

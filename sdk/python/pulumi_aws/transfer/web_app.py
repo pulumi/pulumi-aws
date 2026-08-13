@@ -31,16 +31,15 @@ class WebAppArgs:
         """
         The set of arguments for constructing a WebApp resource.
 
-        :param pulumi.Input['WebAppIdentityProviderDetailsArgs'] identity_provider_details: Block for details of the identity provider to use with the web app. See Identity provider details below.
+        :param pulumi.Input['WebAppIdentityProviderDetailsArgs'] identity_provider_details: Block for details of the identity provider to use with the web app. See `identity_provider_details` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] access_endpoint: URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `access_endpoint` must not be provided.
-        :param pulumi.Input['WebAppEndpointDetailsArgs'] endpoint_details: Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+        :param pulumi.Input['WebAppEndpointDetailsArgs'] endpoint_details: Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpoint_details` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs that can be used to group and search for web apps.
         :param pulumi.Input[_builtins.str] web_app_endpoint_policy: Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-        :param pulumi.Input[Sequence[pulumi.Input['WebAppWebAppUnitArgs']]] web_app_units: Block for number of concurrent connections or the user sessions on the web app.
-               * provisioned - (Optional) Number of units of concurrent connections.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAppWebAppUnitArgs']]] web_app_units: Block for number of concurrent connections or the user sessions on the web app. See `web_app_units` Block below.
         """
         pulumi.set(__self__, "identity_provider_details", identity_provider_details)
         if access_endpoint is not None:
@@ -60,7 +59,7 @@ class WebAppArgs:
     @pulumi.getter(name="identityProviderDetails")
     def identity_provider_details(self) -> pulumi.Input['WebAppIdentityProviderDetailsArgs']:
         """
-        Block for details of the identity provider to use with the web app. See Identity provider details below.
+        Block for details of the identity provider to use with the web app. See `identity_provider_details` Block below.
 
         The following arguments are optional:
         """
@@ -86,7 +85,7 @@ class WebAppArgs:
     @pulumi.getter(name="endpointDetails")
     def endpoint_details(self) -> pulumi.Input[Optional['WebAppEndpointDetailsArgs']]:
         """
-        Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+        Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpoint_details` Block below.
         """
         return pulumi.get(self, "endpoint_details")
 
@@ -134,8 +133,7 @@ class WebAppArgs:
     @pulumi.getter(name="webAppUnits")
     def web_app_units(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAppWebAppUnitArgs']]]]:
         """
-        Block for number of concurrent connections or the user sessions on the web app.
-        * provisioned - (Optional) Number of units of concurrent connections.
+        Block for number of concurrent connections or the user sessions on the web app. See `web_app_units` Block below.
         """
         return pulumi.get(self, "web_app_units")
 
@@ -162,16 +160,15 @@ class _WebAppState:
 
         :param pulumi.Input[_builtins.str] access_endpoint: URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `access_endpoint` must not be provided.
         :param pulumi.Input[_builtins.str] arn: ARN of the Web App.
-        :param pulumi.Input['WebAppEndpointDetailsArgs'] endpoint_details: Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-        :param pulumi.Input['WebAppIdentityProviderDetailsArgs'] identity_provider_details: Block for details of the identity provider to use with the web app. See Identity provider details below.
+        :param pulumi.Input['WebAppEndpointDetailsArgs'] endpoint_details: Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpoint_details` Block below.
+        :param pulumi.Input['WebAppIdentityProviderDetailsArgs'] identity_provider_details: Block for details of the identity provider to use with the web app. See `identity_provider_details` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs that can be used to group and search for web apps.
         :param pulumi.Input[_builtins.str] web_app_endpoint_policy: Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-        :param pulumi.Input[_builtins.str] web_app_id: ID of the Wep App resource.
-        :param pulumi.Input[Sequence[pulumi.Input['WebAppWebAppUnitArgs']]] web_app_units: Block for number of concurrent connections or the user sessions on the web app.
-               * provisioned - (Optional) Number of units of concurrent connections.
+        :param pulumi.Input[_builtins.str] web_app_id: ID of the Web App resource.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAppWebAppUnitArgs']]] web_app_units: Block for number of concurrent connections or the user sessions on the web app. See `web_app_units` Block below.
         """
         if access_endpoint is not None:
             pulumi.set(__self__, "access_endpoint", access_endpoint)
@@ -222,7 +219,7 @@ class _WebAppState:
     @pulumi.getter(name="endpointDetails")
     def endpoint_details(self) -> pulumi.Input[Optional['WebAppEndpointDetailsArgs']]:
         """
-        Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+        Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpoint_details` Block below.
         """
         return pulumi.get(self, "endpoint_details")
 
@@ -234,7 +231,7 @@ class _WebAppState:
     @pulumi.getter(name="identityProviderDetails")
     def identity_provider_details(self) -> pulumi.Input[Optional['WebAppIdentityProviderDetailsArgs']]:
         """
-        Block for details of the identity provider to use with the web app. See Identity provider details below.
+        Block for details of the identity provider to use with the web app. See `identity_provider_details` Block below.
 
         The following arguments are optional:
         """
@@ -293,7 +290,7 @@ class _WebAppState:
     @pulumi.getter(name="webAppId")
     def web_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ID of the Wep App resource.
+        ID of the Web App resource.
         """
         return pulumi.get(self, "web_app_id")
 
@@ -305,8 +302,7 @@ class _WebAppState:
     @pulumi.getter(name="webAppUnits")
     def web_app_units(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAppWebAppUnitArgs']]]]:
         """
-        Block for number of concurrent connections or the user sessions on the web app.
-        * provisioned - (Optional) Number of units of concurrent connections.
+        Block for number of concurrent connections or the user sessions on the web app. See `web_app_units` Block below.
         """
         return pulumi.get(self, "web_app_units")
 
@@ -418,15 +414,14 @@ class WebApp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_endpoint: URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `access_endpoint` must not be provided.
-        :param pulumi.Input[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']] endpoint_details: Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-        :param pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']] identity_provider_details: Block for details of the identity provider to use with the web app. See Identity provider details below.
+        :param pulumi.Input[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']] endpoint_details: Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpoint_details` Block below.
+        :param pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']] identity_provider_details: Block for details of the identity provider to use with the web app. See `identity_provider_details` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs that can be used to group and search for web apps.
         :param pulumi.Input[_builtins.str] web_app_endpoint_policy: Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WebAppWebAppUnitArgs', 'WebAppWebAppUnitArgsDict']]]] web_app_units: Block for number of concurrent connections or the user sessions on the web app.
-               * provisioned - (Optional) Number of units of concurrent connections.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebAppWebAppUnitArgs', 'WebAppWebAppUnitArgsDict']]]] web_app_units: Block for number of concurrent connections or the user sessions on the web app. See `web_app_units` Block below.
         """
         ...
     @overload
@@ -592,16 +587,15 @@ class WebApp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_endpoint: URL provided to interact with the Transfer Family web app. If `endpoint_details.vpc` block is specified, `access_endpoint` must not be provided.
         :param pulumi.Input[_builtins.str] arn: ARN of the Web App.
-        :param pulumi.Input[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']] endpoint_details: Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
-        :param pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']] identity_provider_details: Block for details of the identity provider to use with the web app. See Identity provider details below.
+        :param pulumi.Input[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']] endpoint_details: Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpoint_details` Block below.
+        :param pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']] identity_provider_details: Block for details of the identity provider to use with the web app. See `identity_provider_details` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs that can be used to group and search for web apps.
         :param pulumi.Input[_builtins.str] web_app_endpoint_policy: Type of endpoint policy for the web app. Valid values are: `STANDARD`(default) or `FIPS`.
-        :param pulumi.Input[_builtins.str] web_app_id: ID of the Wep App resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WebAppWebAppUnitArgs', 'WebAppWebAppUnitArgsDict']]]] web_app_units: Block for number of concurrent connections or the user sessions on the web app.
-               * provisioned - (Optional) Number of units of concurrent connections.
+        :param pulumi.Input[_builtins.str] web_app_id: ID of the Web App resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WebAppWebAppUnitArgs', 'WebAppWebAppUnitArgsDict']]]] web_app_units: Block for number of concurrent connections or the user sessions on the web app. See `web_app_units` Block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -639,7 +633,7 @@ class WebApp(pulumi.CustomResource):
     @pulumi.getter(name="endpointDetails")
     def endpoint_details(self) -> pulumi.Output[Optional['outputs.WebAppEndpointDetails']]:
         """
-        Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+        Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `endpoint_details` Block below.
         """
         return pulumi.get(self, "endpoint_details")
 
@@ -647,7 +641,7 @@ class WebApp(pulumi.CustomResource):
     @pulumi.getter(name="identityProviderDetails")
     def identity_provider_details(self) -> pulumi.Output['outputs.WebAppIdentityProviderDetails']:
         """
-        Block for details of the identity provider to use with the web app. See Identity provider details below.
+        Block for details of the identity provider to use with the web app. See `identity_provider_details` Block below.
 
         The following arguments are optional:
         """
@@ -686,7 +680,7 @@ class WebApp(pulumi.CustomResource):
     @pulumi.getter(name="webAppId")
     def web_app_id(self) -> pulumi.Output[_builtins.str]:
         """
-        ID of the Wep App resource.
+        ID of the Web App resource.
         """
         return pulumi.get(self, "web_app_id")
 
@@ -694,8 +688,7 @@ class WebApp(pulumi.CustomResource):
     @pulumi.getter(name="webAppUnits")
     def web_app_units(self) -> pulumi.Output[Sequence['outputs.WebAppWebAppUnit']]:
         """
-        Block for number of concurrent connections or the user sessions on the web app.
-        * provisioned - (Optional) Number of units of concurrent connections.
+        Block for number of concurrent connections or the user sessions on the web app. See `web_app_units` Block below.
         """
         return pulumi.get(self, "web_app_units")
 

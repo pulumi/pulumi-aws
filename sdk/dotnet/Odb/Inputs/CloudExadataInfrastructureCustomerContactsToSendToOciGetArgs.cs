@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Odb.Inputs
 
     public sealed class CloudExadataInfrastructureCustomerContactsToSendToOciGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Email address of the contact.
+        /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
 

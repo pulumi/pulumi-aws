@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetManagedRuleGroupRuleActionCaptcha {
+    /**
+     * @return Custom handling for the counted request. See `customRequestHandling` Block for details.
+     * 
+     */
     private List<GetManagedRuleGroupRuleActionCaptchaCustomRequestHandling> customRequestHandlings;
 
     private GetManagedRuleGroupRuleActionCaptcha() {}
+    /**
+     * @return Custom handling for the counted request. See `customRequestHandling` Block for details.
+     * 
+     */
     public List<GetManagedRuleGroupRuleActionCaptchaCustomRequestHandling> customRequestHandlings() {
         return this.customRequestHandlings;
     }

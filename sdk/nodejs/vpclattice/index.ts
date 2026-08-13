@@ -45,6 +45,11 @@ export const getServiceNetwork: typeof import("./getServiceNetwork").getServiceN
 export const getServiceNetworkOutput: typeof import("./getServiceNetwork").getServiceNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceNetwork","getServiceNetworkOutput"], () => require("./getServiceNetwork"));
 
+export { GetServiceNetworkServiceAssociationsArgs, GetServiceNetworkServiceAssociationsResult, GetServiceNetworkServiceAssociationsOutputArgs } from "./getServiceNetworkServiceAssociations";
+export const getServiceNetworkServiceAssociations: typeof import("./getServiceNetworkServiceAssociations").getServiceNetworkServiceAssociations = null as any;
+export const getServiceNetworkServiceAssociationsOutput: typeof import("./getServiceNetworkServiceAssociations").getServiceNetworkServiceAssociationsOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceNetworkServiceAssociations","getServiceNetworkServiceAssociationsOutput"], () => require("./getServiceNetworkServiceAssociations"));
+
 export { ListenerArgs, ListenerState } from "./listener";
 export type Listener = import("./listener").Listener;
 export const Listener: typeof import("./listener").Listener = null as any;

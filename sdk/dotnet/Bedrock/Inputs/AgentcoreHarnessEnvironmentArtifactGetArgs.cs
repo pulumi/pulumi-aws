@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreHarnessEnvironmentArtifactGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Container configuration. See `ContainerConfiguration` below.
+        /// Container configuration. See `ContainerConfiguration` Block below.
         /// </summary>
         [Input("containerConfiguration")]
         public Input<Inputs.AgentcoreHarnessEnvironmentArtifactContainerConfigurationGetArgs>? ContainerConfiguration { get; set; }

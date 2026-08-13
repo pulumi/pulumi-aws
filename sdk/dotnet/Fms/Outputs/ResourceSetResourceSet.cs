@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Fms.Outputs
         /// </summary>
         public readonly string? ResourceSetStatus;
         /// <summary>
-        /// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+        /// Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
         /// </summary>
         public readonly ImmutableArray<string> ResourceTypeLists;
         /// <summary>

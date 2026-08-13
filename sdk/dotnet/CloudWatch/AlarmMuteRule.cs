@@ -50,9 +50,9 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.CloudwatchAlarm("example", new()
+    ///     var example = new Aws.CloudWatch.MetricAlarm("example", new()
     ///     {
-    ///         AlarmName = "example",
+    ///         Name = "example",
     ///         ComparisonOperator = "GreaterThanThreshold",
     ///         EvaluationPeriods = 2,
     ///         MetricName = "CPUUtilization",
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         {
     ///             AlarmNames = new[]
     ///             {
-    ///                 example.AlarmName,
+    ///                 example.Name,
     ///             },
     ///         },
     ///         Tags = 

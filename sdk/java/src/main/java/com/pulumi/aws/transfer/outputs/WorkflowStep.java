@@ -18,68 +18,76 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkflowStep {
     /**
-     * @return Details for a step that performs a file copy. See Copy Step Details below.
+     * @return Details for a step that performs a file copy. See `copyStepDetails` Block below.
      * 
      */
     private @Nullable WorkflowStepCopyStepDetails copyStepDetails;
     /**
-     * @return Details for a step that invokes a lambda function.
+     * @return Details for a step that invokes a lambda function. See `customStepDetails` Block below.
      * 
      */
     private @Nullable WorkflowStepCustomStepDetails customStepDetails;
     /**
-     * @return Details for a step that decrypts the file.
+     * @return Details for a step that decrypts the file. See `decryptStepDetails` Block below.
      * 
      */
     private @Nullable WorkflowStepDecryptStepDetails decryptStepDetails;
     /**
-     * @return Details for a step that deletes the file.
+     * @return Details for a step that deletes the file. See `deleteStepDetails` Block below.
      * 
      */
     private @Nullable WorkflowStepDeleteStepDetails deleteStepDetails;
     /**
-     * @return Details for a step that creates one or more tags.
+     * @return Details for a step that creates one or more tags. See `tagStepDetails` Block below.
      * 
      */
     private @Nullable WorkflowStepTagStepDetails tagStepDetails;
+    /**
+     * @return Step type. Valid values are `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+     * 
+     */
     private String type;
 
     private WorkflowStep() {}
     /**
-     * @return Details for a step that performs a file copy. See Copy Step Details below.
+     * @return Details for a step that performs a file copy. See `copyStepDetails` Block below.
      * 
      */
     public Optional<WorkflowStepCopyStepDetails> copyStepDetails() {
         return Optional.ofNullable(this.copyStepDetails);
     }
     /**
-     * @return Details for a step that invokes a lambda function.
+     * @return Details for a step that invokes a lambda function. See `customStepDetails` Block below.
      * 
      */
     public Optional<WorkflowStepCustomStepDetails> customStepDetails() {
         return Optional.ofNullable(this.customStepDetails);
     }
     /**
-     * @return Details for a step that decrypts the file.
+     * @return Details for a step that decrypts the file. See `decryptStepDetails` Block below.
      * 
      */
     public Optional<WorkflowStepDecryptStepDetails> decryptStepDetails() {
         return Optional.ofNullable(this.decryptStepDetails);
     }
     /**
-     * @return Details for a step that deletes the file.
+     * @return Details for a step that deletes the file. See `deleteStepDetails` Block below.
      * 
      */
     public Optional<WorkflowStepDeleteStepDetails> deleteStepDetails() {
         return Optional.ofNullable(this.deleteStepDetails);
     }
     /**
-     * @return Details for a step that creates one or more tags.
+     * @return Details for a step that creates one or more tags. See `tagStepDetails` Block below.
      * 
      */
     public Optional<WorkflowStepTagStepDetails> tagStepDetails() {
         return Optional.ofNullable(this.tagStepDetails);
     }
+    /**
+     * @return Step type. Valid values are `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+     * 
+     */
     public String type() {
         return this.type;
     }

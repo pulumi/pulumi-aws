@@ -91,7 +91,7 @@ type GetInstanceTypeOfferingsArgs struct {
 
 // A collection of values returned by getInstanceTypeOfferings.
 type GetInstanceTypeOfferingsResult struct {
-	// List of broker instance options. See Broker Instance Options below.
+	// List of broker instance options. See `brokerInstanceOptions` Block below.
 	BrokerInstanceOptions []GetInstanceTypeOfferingsBrokerInstanceOption `pulumi:"brokerInstanceOptions"`
 	// Broker's engine type.
 	EngineType *string `pulumi:"engineType"`
@@ -144,7 +144,7 @@ func (o GetInstanceTypeOfferingsResultOutput) ToGetInstanceTypeOfferingsResultOu
 	return o
 }
 
-// List of broker instance options. See Broker Instance Options below.
+// List of broker instance options. See `brokerInstanceOptions` Block below.
 func (o GetInstanceTypeOfferingsResultOutput) BrokerInstanceOptions() GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) []GetInstanceTypeOfferingsBrokerInstanceOption {
 		return v.BrokerInstanceOptions

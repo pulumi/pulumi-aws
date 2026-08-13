@@ -4,6 +4,8 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessMemoryDisabledArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessMemoryManagedMemoryConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -16,24 +18,56 @@ public final class AgentcoreHarnessMemoryArgs extends com.pulumi.resources.Resou
     public static final AgentcoreHarnessMemoryArgs Empty = new AgentcoreHarnessMemoryArgs();
 
     /**
-     * AgentCore memory configuration. See `agentcoreMemoryConfiguration` below.
+     * AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
      * 
      */
     @Import(name="agentcoreMemoryConfiguration")
     private @Nullable Output<AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs> agentcoreMemoryConfiguration;
 
     /**
-     * @return AgentCore memory configuration. See `agentcoreMemoryConfiguration` below.
+     * @return AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs>> agentcoreMemoryConfiguration() {
         return Optional.ofNullable(this.agentcoreMemoryConfiguration);
     }
 
+    /**
+     * Explicitly disable memory for this harness. See `disabled` Block below.
+     * 
+     */
+    @Import(name="disabled")
+    private @Nullable Output<AgentcoreHarnessMemoryDisabledArgs> disabled;
+
+    /**
+     * @return Explicitly disable memory for this harness. See `disabled` Block below.
+     * 
+     */
+    public Optional<Output<AgentcoreHarnessMemoryDisabledArgs>> disabled() {
+        return Optional.ofNullable(this.disabled);
+    }
+
+    /**
+     * Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+     * 
+     */
+    @Import(name="managedMemoryConfiguration")
+    private @Nullable Output<AgentcoreHarnessMemoryManagedMemoryConfigurationArgs> managedMemoryConfiguration;
+
+    /**
+     * @return Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+     * 
+     */
+    public Optional<Output<AgentcoreHarnessMemoryManagedMemoryConfigurationArgs>> managedMemoryConfiguration() {
+        return Optional.ofNullable(this.managedMemoryConfiguration);
+    }
+
     private AgentcoreHarnessMemoryArgs() {}
 
     private AgentcoreHarnessMemoryArgs(AgentcoreHarnessMemoryArgs $) {
         this.agentcoreMemoryConfiguration = $.agentcoreMemoryConfiguration;
+        this.disabled = $.disabled;
+        this.managedMemoryConfiguration = $.managedMemoryConfiguration;
     }
 
     public static Builder builder() {
@@ -55,7 +89,7 @@ public final class AgentcoreHarnessMemoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentcoreMemoryConfiguration AgentCore memory configuration. See `agentcoreMemoryConfiguration` below.
+         * @param agentcoreMemoryConfiguration AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -66,13 +100,55 @@ public final class AgentcoreHarnessMemoryArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param agentcoreMemoryConfiguration AgentCore memory configuration. See `agentcoreMemoryConfiguration` below.
+         * @param agentcoreMemoryConfiguration AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
          * 
          * @return builder
          * 
          */
         public Builder agentcoreMemoryConfiguration(AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs agentcoreMemoryConfiguration) {
             return agentcoreMemoryConfiguration(Output.of(agentcoreMemoryConfiguration));
+        }
+
+        /**
+         * @param disabled Explicitly disable memory for this harness. See `disabled` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disabled(@Nullable Output<AgentcoreHarnessMemoryDisabledArgs> disabled) {
+            $.disabled = disabled;
+            return this;
+        }
+
+        /**
+         * @param disabled Explicitly disable memory for this harness. See `disabled` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disabled(AgentcoreHarnessMemoryDisabledArgs disabled) {
+            return disabled(Output.of(disabled));
+        }
+
+        /**
+         * @param managedMemoryConfiguration Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedMemoryConfiguration(@Nullable Output<AgentcoreHarnessMemoryManagedMemoryConfigurationArgs> managedMemoryConfiguration) {
+            $.managedMemoryConfiguration = managedMemoryConfiguration;
+            return this;
+        }
+
+        /**
+         * @param managedMemoryConfiguration Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedMemoryConfiguration(AgentcoreHarnessMemoryManagedMemoryConfigurationArgs managedMemoryConfiguration) {
+            return managedMemoryConfiguration(Output.of(managedMemoryConfiguration));
         }
 
         public AgentcoreHarnessMemoryArgs build() {

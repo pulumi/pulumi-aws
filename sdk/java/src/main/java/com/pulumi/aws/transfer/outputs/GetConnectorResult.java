@@ -58,7 +58,7 @@ public final class GetConnectorResult {
      */
     private List<GetConnectorSftpConfig> sftpConfigs;
     /**
-     * @return Object containing the following attributes:
+     * @return Map of tags assigned to the resource.
      * 
      */
     private Map<String,String> tags;
@@ -132,7 +132,7 @@ public final class GetConnectorResult {
         return this.sftpConfigs;
     }
     /**
-     * @return Object containing the following attributes:
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {

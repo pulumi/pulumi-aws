@@ -54,7 +54,6 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -62,15 +61,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := aws.NewCloudwatchAlarm(ctx, "example", &aws.CloudwatchAlarmArgs{
-//				AlarmName:          "example",
-//				ComparisonOperator: "GreaterThanThreshold",
-//				EvaluationPeriods:  2,
-//				MetricName:         "CPUUtilization",
-//				Namespace:          "AWS/EC2",
-//				Period:             120,
-//				Statistic:          "Average",
-//				Threshold:          80,
+//			example, err := cloudwatch.NewMetricAlarm(ctx, "example", &cloudwatch.MetricAlarmArgs{
+//				Name:               pulumi.String("example"),
+//				ComparisonOperator: pulumi.String("GreaterThanThreshold"),
+//				EvaluationPeriods:  pulumi.Int(2),
+//				MetricName:         pulumi.String("CPUUtilization"),
+//				Namespace:          pulumi.String("AWS/EC2"),
+//				Period:             pulumi.Int(120),
+//				Statistic:          pulumi.String("Average"),
+//				Threshold:          pulumi.Float64(80),
 //			})
 //			if err != nil {
 //				return err
@@ -89,7 +88,7 @@ import (
 //				},
 //				MuteTargets: &cloudwatch.AlarmMuteRuleMuteTargetsArgs{
 //					AlarmNames: pulumi.StringArray{
-//						example.AlarmName,
+//						example.Name,
 //					},
 //				},
 //				Tags: pulumi.StringMap{

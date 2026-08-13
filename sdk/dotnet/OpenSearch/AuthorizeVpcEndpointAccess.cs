@@ -53,7 +53,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> Account { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+        /// Information about the Amazon Web Services account or service that was provided access to the domain. See `AuthorizedPrincipal` Block for further details.
         /// </summary>
         [Output("authorizedPrincipals")]
         public Output<ImmutableArray<Outputs.AuthorizeVpcEndpointAccessAuthorizedPrincipal>> AuthorizedPrincipals { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.OpenSearch
         private InputList<Inputs.AuthorizeVpcEndpointAccessAuthorizedPrincipalGetArgs>? _authorizedPrincipals;
 
         /// <summary>
-        /// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+        /// Information about the Amazon Web Services account or service that was provided access to the domain. See `AuthorizedPrincipal` Block for further details.
         /// </summary>
         public InputList<Inputs.AuthorizeVpcEndpointAccessAuthorizedPrincipalGetArgs> AuthorizedPrincipals
         {

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string Domain;
         /// <summary>
-        /// Private endpoint configuration. See `PrivateEndpoint` below.
+        /// Private endpoint configuration. See `PrivateEndpoint` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint PrivateEndpoint;
 

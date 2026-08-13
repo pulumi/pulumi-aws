@@ -142,7 +142,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter(name="ephemeralStorages")
     def ephemeral_storages(self) -> Sequence['outputs.GetTaskDefinitionEphemeralStorageResult']:
         """
-        Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+        Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See `ephemeral_storage` Block.
         """
         return pulumi.get(self, "ephemeral_storages")
 
@@ -207,7 +207,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter(name="placementConstraints")
     def placement_constraints(self) -> Sequence['outputs.GetTaskDefinitionPlacementConstraintResult']:
         """
-        Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+        Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. See `placement_constraints` Block.
         """
         return pulumi.get(self, "placement_constraints")
 
@@ -215,7 +215,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter(name="proxyConfigurations")
     def proxy_configurations(self) -> Sequence['outputs.GetTaskDefinitionProxyConfigurationResult']:
         """
-        Configuration block for the App Mesh proxy. Detailed below.
+        Configuration block for the App Mesh proxy. See `proxy_configuration` Block.
         """
         return pulumi.get(self, "proxy_configurations")
 
@@ -273,7 +273,7 @@ class GetTaskDefinitionResult:
     @pulumi.getter
     def volumes(self) -> Sequence['outputs.GetTaskDefinitionVolumeResult']:
         """
-        Attributes corresponding to the `volume` argument of the `ecs.TaskDefinition` resource.
+        Configuration block for volumes that containers in your task may use. See `volume` Block for details.
         """
         return pulumi.get(self, "volumes")
 

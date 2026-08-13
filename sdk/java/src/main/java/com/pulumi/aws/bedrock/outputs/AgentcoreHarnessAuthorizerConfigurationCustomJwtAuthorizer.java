@@ -33,12 +33,12 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer {
      */
     private @Nullable List<String> allowedScopes;
     /**
-     * @return Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+     * @return Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration allowedWorkloadConfiguration;
     /**
-     * @return Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+     * @return Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` Block below.
      * 
      */
     private @Nullable List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims;
@@ -48,12 +48,12 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer {
      */
     private String discoveryUrl;
     /**
-     * @return Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+     * @return Private endpoint used to reach the authorization server. See `privateEndpoint` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint privateEndpoint;
     /**
-     * @return Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+     * @return Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` Block below.
      * 
      */
     private @Nullable List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides;
@@ -81,14 +81,14 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer {
         return this.allowedScopes == null ? List.of() : this.allowedScopes;
     }
     /**
-     * @return Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+     * @return Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` Block below.
      * 
      */
     public Optional<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration> allowedWorkloadConfiguration() {
         return Optional.ofNullable(this.allowedWorkloadConfiguration);
     }
     /**
-     * @return Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+     * @return Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` Block below.
      * 
      */
     public List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims() {
@@ -102,14 +102,14 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer {
         return this.discoveryUrl;
     }
     /**
-     * @return Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+     * @return Private endpoint used to reach the authorization server. See `privateEndpoint` Block below.
      * 
      */
     public Optional<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint> privateEndpoint() {
         return Optional.ofNullable(this.privateEndpoint);
     }
     /**
-     * @return Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+     * @return Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` Block below.
      * 
      */
     public List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides() {

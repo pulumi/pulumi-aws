@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ExpressGatewayServiceIngressPath
     {
+        /// <summary>
+        /// Access type for the ingress path.
+        /// </summary>
         public readonly string AccessType;
+        /// <summary>
+        /// Endpoint for the ingress path.
+        /// </summary>
         public readonly string Endpoint;
 
         [OutputConstructor]

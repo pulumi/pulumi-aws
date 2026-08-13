@@ -13,7 +13,13 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class ServiceDnsEntry
     {
+        /// <summary>
+        /// Domain name of the service.
+        /// </summary>
         public readonly string? DomainName;
+        /// <summary>
+        /// ID of the hosted zone.
+        /// </summary>
         public readonly string? HostedZoneId;
 
         [OutputConstructor]

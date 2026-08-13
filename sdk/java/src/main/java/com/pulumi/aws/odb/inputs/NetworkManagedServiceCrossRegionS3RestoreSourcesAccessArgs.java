@@ -15,9 +15,17 @@ public final class NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs ex
 
     public static final NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs Empty = new NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs();
 
+    /**
+     * List of IPv4 addresses for the Amazon STS access.
+     * 
+     */
     @Import(name="ipv4Addresses", required=true)
     private Output<List<String>> ipv4Addresses;
 
+    /**
+     * @return List of IPv4 addresses for the Amazon STS access.
+     * 
+     */
     public Output<List<String>> ipv4Addresses() {
         return this.ipv4Addresses;
     }
@@ -38,14 +46,14 @@ public final class NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs ex
     }
 
     /**
-     * Status of the network resource.
+     * Status of the Zero-ETL access.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     public Output<String> status() {
@@ -78,15 +86,33 @@ public final class NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs ex
             $ = new NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param ipv4Addresses List of IPv4 addresses for the Amazon STS access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv4Addresses(Output<List<String>> ipv4Addresses) {
             $.ipv4Addresses = ipv4Addresses;
             return this;
         }
 
+        /**
+         * @param ipv4Addresses List of IPv4 addresses for the Amazon STS access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv4Addresses(List<String> ipv4Addresses) {
             return ipv4Addresses(Output.of(ipv4Addresses));
         }
 
+        /**
+         * @param ipv4Addresses List of IPv4 addresses for the Amazon STS access.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipv4Addresses(String... ipv4Addresses) {
             return ipv4Addresses(List.of(ipv4Addresses));
         }
@@ -113,7 +139,7 @@ public final class NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs ex
         }
 
         /**
-         * @param status Status of the network resource.
+         * @param status Status of the Zero-ETL access.
          * 
          * @return builder
          * 
@@ -124,7 +150,7 @@ public final class NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs ex
         }
 
         /**
-         * @param status Status of the network resource.
+         * @param status Status of the Zero-ETL access.
          * 
          * @return builder
          * 

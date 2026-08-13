@@ -18,17 +18,17 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment {
     private String agentRuntimeId;
     private String agentRuntimeName;
     /**
-     * @return Filesystem configurations. See `filesystemConfiguration` below.
+     * @return Filesystem configurations. See `filesystemConfiguration` Block below.
      * 
      */
     private List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration> filesystemConfigurations;
     /**
-     * @return Lifecycle configuration. See `lifecycleConfiguration` below.
+     * @return Lifecycle configuration. See `lifecycleConfiguration` Block below.
      * 
      */
     private List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration> lifecycleConfigurations;
     /**
-     * @return Network configuration. See `networkConfiguration` below.
+     * @return Network configuration. See `networkConfiguration` Block below.
      * 
      */
     private List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration> networkConfigurations;
@@ -44,21 +44,21 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment {
         return this.agentRuntimeName;
     }
     /**
-     * @return Filesystem configurations. See `filesystemConfiguration` below.
+     * @return Filesystem configurations. See `filesystemConfiguration` Block below.
      * 
      */
     public List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration> filesystemConfigurations() {
         return this.filesystemConfigurations;
     }
     /**
-     * @return Lifecycle configuration. See `lifecycleConfiguration` below.
+     * @return Lifecycle configuration. See `lifecycleConfiguration` Block below.
      * 
      */
     public List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration> lifecycleConfigurations() {
         return this.lifecycleConfigurations;
     }
     /**
-     * @return Network configuration. See `networkConfiguration` below.
+     * @return Network configuration. See `networkConfiguration` Block below.
      * 
      */
     public List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration> networkConfigurations() {

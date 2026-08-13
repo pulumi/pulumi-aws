@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Fms.Inputs
         public Input<string>? ManagedServiceData { get; set; }
 
         /// <summary>
-        /// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `PolicyOption` block.
+        /// Network Firewall firewall policy options to configure a centralized deployment model. See the `PolicyOption` block.
         /// </summary>
         [Input("policyOption")]
         public Input<Inputs.PolicySecurityServicePolicyDataPolicyOptionArgs>? PolicyOption { get; set; }

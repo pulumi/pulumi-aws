@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class ExpressGatewayServiceIngressPath {
+    /**
+     * @return Access type for the ingress path.
+     * 
+     */
     private String accessType;
+    /**
+     * @return Endpoint for the ingress path.
+     * 
+     */
     private String endpoint;
 
     private ExpressGatewayServiceIngressPath() {}
+    /**
+     * @return Access type for the ingress path.
+     * 
+     */
     public String accessType() {
         return this.accessType;
     }
+    /**
+     * @return Endpoint for the ingress path.
+     * 
+     */
     public String endpoint() {
         return this.endpoint;
     }

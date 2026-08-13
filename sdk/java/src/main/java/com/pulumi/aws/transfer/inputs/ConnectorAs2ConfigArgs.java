@@ -17,14 +17,14 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
     public static final ConnectorAs2ConfigArgs Empty = new ConnectorAs2ConfigArgs();
 
     /**
-     * Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+     * Whether AS2 file is compressed. The valid values are ZLIB and DISABLED.
      * 
      */
     @Import(name="compression", required=true)
     private Output<String> compression;
 
     /**
-     * @return Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+     * @return Whether AS2 file is compressed. The valid values are ZLIB and DISABLED.
      * 
      */
     public Output<String> compression() {
@@ -32,14 +32,14 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+     * Algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
      * 
      */
     @Import(name="encryptionAlgorithm", required=true)
     private Output<String> encryptionAlgorithm;
 
     /**
-     * @return The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+     * @return Algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
      * 
      */
     public Output<String> encryptionAlgorithm() {
@@ -47,14 +47,14 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The unique identifier for the AS2 local profile.
+     * Unique identifier for the AS2 local profile.
      * 
      */
     @Import(name="localProfileId", required=true)
     private Output<String> localProfileId;
 
     /**
-     * @return The unique identifier for the AS2 local profile.
+     * @return Unique identifier for the AS2 local profile.
      * 
      */
     public Output<String> localProfileId() {
@@ -62,14 +62,14 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+     * Determines, for outbound requests, if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
      * 
      */
     @Import(name="mdnResponse", required=true)
     private Output<String> mdnResponse;
 
     /**
-     * @return Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+     * @return Determines, for outbound requests, if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
      * 
      */
     public Output<String> mdnResponse() {
@@ -77,14 +77,14 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+     * Signing algorithm for the MDN response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
      * 
      */
     @Import(name="mdnSigningAlgorithm")
     private @Nullable Output<String> mdnSigningAlgorithm;
 
     /**
-     * @return The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+     * @return Signing algorithm for the MDN response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
      * 
      */
     public Optional<Output<String>> mdnSigningAlgorithm() {
@@ -92,14 +92,14 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+     * Subject HTTP header attribute used in AS2 messages that are being sent with the connector.
      * 
      */
     @Import(name="messageSubject")
     private @Nullable Output<String> messageSubject;
 
     /**
-     * @return Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+     * @return Subject HTTP header attribute used in AS2 messages that are being sent with the connector.
      * 
      */
     public Optional<Output<String>> messageSubject() {
@@ -107,14 +107,14 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The unique identifier for the AS2 partner profile.
+     * Unique identifier for the AS2 partner profile.
      * 
      */
     @Import(name="partnerProfileId", required=true)
     private Output<String> partnerProfileId;
 
     /**
-     * @return The unique identifier for the AS2 partner profile.
+     * @return Unique identifier for the AS2 partner profile.
      * 
      */
     public Output<String> partnerProfileId() {
@@ -122,14 +122,14 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+     * Algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
      * 
      */
     @Import(name="signingAlgorithm", required=true)
     private Output<String> signingAlgorithm;
 
     /**
-     * @return The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+     * @return Algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
      * 
      */
     public Output<String> signingAlgorithm() {
@@ -168,7 +168,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param compression Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+         * @param compression Whether AS2 file is compressed. The valid values are ZLIB and DISABLED.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param compression Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+         * @param compression Whether AS2 file is compressed. The valid values are ZLIB and DISABLED.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param encryptionAlgorithm The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+         * @param encryptionAlgorithm Algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param encryptionAlgorithm The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+         * @param encryptionAlgorithm Algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param localProfileId The unique identifier for the AS2 local profile.
+         * @param localProfileId Unique identifier for the AS2 local profile.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param localProfileId The unique identifier for the AS2 local profile.
+         * @param localProfileId Unique identifier for the AS2 local profile.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param mdnResponse Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+         * @param mdnResponse Determines, for outbound requests, if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param mdnResponse Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+         * @param mdnResponse Determines, for outbound requests, if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param mdnSigningAlgorithm The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+         * @param mdnSigningAlgorithm Signing algorithm for the MDN response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param mdnSigningAlgorithm The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+         * @param mdnSigningAlgorithm Signing algorithm for the MDN response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param messageSubject Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+         * @param messageSubject Subject HTTP header attribute used in AS2 messages that are being sent with the connector.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param messageSubject Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+         * @param messageSubject Subject HTTP header attribute used in AS2 messages that are being sent with the connector.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param partnerProfileId The unique identifier for the AS2 partner profile.
+         * @param partnerProfileId Unique identifier for the AS2 partner profile.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param partnerProfileId The unique identifier for the AS2 partner profile.
+         * @param partnerProfileId Unique identifier for the AS2 partner profile.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param signingAlgorithm The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+         * @param signingAlgorithm Algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class ConnectorAs2ConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param signingAlgorithm The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+         * @param signingAlgorithm Algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
          * 
          * @return builder
          * 

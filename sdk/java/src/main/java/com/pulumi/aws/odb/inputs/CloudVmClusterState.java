@@ -294,14 +294,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+     * Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster. See `iormConfigCache` Block below.
      * 
      */
     @Import(name="iormConfigCaches")
     private @Nullable Output<List<CloudVmClusterIormConfigCacheArgs>> iormConfigCaches;
 
     /**
-     * @return Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+     * @return Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster. See `iormConfigCache` Block below.
      * 
      */
     public Optional<Output<List<CloudVmClusterIormConfigCacheArgs>>> iormConfigCaches() {
@@ -1199,7 +1199,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param iormConfigCaches Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+         * @param iormConfigCaches Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster. See `iormConfigCache` Block below.
          * 
          * @return builder
          * 
@@ -1210,7 +1210,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param iormConfigCaches Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+         * @param iormConfigCaches Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster. See `iormConfigCache` Block below.
          * 
          * @return builder
          * 
@@ -1220,7 +1220,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param iormConfigCaches Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+         * @param iormConfigCaches Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster. See `iormConfigCache` Block below.
          * 
          * @return builder
          * 

@@ -30,14 +30,14 @@ public final class ControlControlMappingSourceSourceKeywordArgs extends com.pulu
     }
 
     /**
-     * The value of the keyword that&#39;s used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
+     * Value of the keyword that&#39;s used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
      * 
      */
     @Import(name="keywordValue", required=true)
     private Output<String> keywordValue;
 
     /**
-     * @return The value of the keyword that&#39;s used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
+     * @return Value of the keyword that&#39;s used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
      * 
      */
     public Output<String> keywordValue() {
@@ -91,7 +91,7 @@ public final class ControlControlMappingSourceSourceKeywordArgs extends com.pulu
         }
 
         /**
-         * @param keywordValue The value of the keyword that&#39;s used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
+         * @param keywordValue Value of the keyword that&#39;s used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ControlControlMappingSourceSourceKeywordArgs extends com.pulu
         }
 
         /**
-         * @param keywordValue The value of the keyword that&#39;s used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
+         * @param keywordValue Value of the keyword that&#39;s used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
          * 
          * @return builder
          * 

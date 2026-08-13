@@ -26,49 +26,49 @@ namespace Pulumi.Aws.Transfer
     public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An date when the certificate becomes active
+        /// Date when the certificate becomes active
         /// </summary>
         [Output("activeDate")]
         public Output<string> ActiveDate { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the certificate
+        /// ARN of the certificate
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The valid certificate file required for the transfer.
+        /// Valid certificate file required for the transfer.
         /// </summary>
         [Output("certificate")]
         public Output<string> CertificateFile { get; private set; } = null!;
 
         /// <summary>
-        /// The optional list of certificate that make up the chain for the certificate that is being imported.
+        /// Optional list of certificate that make up the chain for the certificate that is being imported.
         /// </summary>
         [Output("certificateChain")]
         public Output<string?> CertificateChain { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the AS2 certificate
+        /// Unique identifier for the AS2 certificate
         /// </summary>
         [Output("certificateId")]
         public Output<string> CertificateId { get; private set; } = null!;
 
         /// <summary>
-        /// A short description that helps identify the certificate.
+        /// Short description that helps identify the certificate.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An date when the certificate becomes inactive
+        /// Date when the certificate becomes inactive
         /// </summary>
         [Output("inactiveDate")]
         public Output<string> InactiveDate { get; private set; } = null!;
 
         /// <summary>
-        /// The private key associated with the certificate being imported.
+        /// Private key associated with the certificate being imported.
         /// </summary>
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Transfer
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+        /// Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         /// </summary>
         [Output("usage")]
         public Output<string> Usage { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Transfer
         private Input<string>? _certificate;
 
         /// <summary>
-        /// The valid certificate file required for the transfer.
+        /// Valid certificate file required for the transfer.
         /// </summary>
         public Input<string>? CertificateFile
         {
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Transfer
         private Input<string>? _certificateChain;
 
         /// <summary>
-        /// The optional list of certificate that make up the chain for the certificate that is being imported.
+        /// Optional list of certificate that make up the chain for the certificate that is being imported.
         /// </summary>
         public Input<string>? CertificateChain
         {
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// A short description that helps identify the certificate.
+        /// Short description that helps identify the certificate.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Transfer
         private Input<string>? _privateKey;
 
         /// <summary>
-        /// The private key associated with the certificate being imported.
+        /// Private key associated with the certificate being imported.
         /// </summary>
         public Input<string>? PrivateKey
         {
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+        /// Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         /// </summary>
         [Input("usage", required: true)]
         public Input<string> Usage { get; set; } = null!;
@@ -233,13 +233,13 @@ namespace Pulumi.Aws.Transfer
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An date when the certificate becomes active
+        /// Date when the certificate becomes active
         /// </summary>
         [Input("activeDate")]
         public Input<string>? ActiveDate { get; set; }
 
         /// <summary>
-        /// The ARN of the certificate
+        /// ARN of the certificate
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Transfer
         private Input<string>? _certificate;
 
         /// <summary>
-        /// The valid certificate file required for the transfer.
+        /// Valid certificate file required for the transfer.
         /// </summary>
         public Input<string>? CertificateFile
         {
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Transfer
         private Input<string>? _certificateChain;
 
         /// <summary>
-        /// The optional list of certificate that make up the chain for the certificate that is being imported.
+        /// Optional list of certificate that make up the chain for the certificate that is being imported.
         /// </summary>
         public Input<string>? CertificateChain
         {
@@ -277,19 +277,19 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The unique identifier for the AS2 certificate
+        /// Unique identifier for the AS2 certificate
         /// </summary>
         [Input("certificateId")]
         public Input<string>? CertificateId { get; set; }
 
         /// <summary>
-        /// A short description that helps identify the certificate.
+        /// Short description that helps identify the certificate.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An date when the certificate becomes inactive
+        /// Date when the certificate becomes inactive
         /// </summary>
         [Input("inactiveDate")]
         public Input<string>? InactiveDate { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Transfer
         private Input<string>? _privateKey;
 
         /// <summary>
-        /// The private key associated with the certificate being imported.
+        /// Private key associated with the certificate being imported.
         /// </summary>
         public Input<string>? PrivateKey
         {
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -337,7 +337,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+        /// Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         /// </summary>
         [Input("usage")]
         public Input<string>? Usage { get; set; }

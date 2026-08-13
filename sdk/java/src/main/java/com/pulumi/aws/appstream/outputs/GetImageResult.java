@@ -53,17 +53,17 @@ public final class GetImageResult {
      */
     private String displayName;
     /**
-     * @return Name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
+     * @return Name of the image builder that was used to created the private image. If the image is shared then the value is null.
      * 
      */
     private String imageBuilderName;
     /**
-     * @return Boolean to indicate whether an image builder can be launched from this image.
+     * @return Whether an image builder can be launched from this image.
      * 
      */
     private Boolean imageBuilderSupported;
     /**
-     * @return List of strings describing the image permissions containing the following:
+     * @return List of objects describing the image permissions containing the following:
      * 
      */
     private List<GetImageImagePermission> imagePermissions;
@@ -148,21 +148,21 @@ public final class GetImageResult {
         return this.displayName;
     }
     /**
-     * @return Name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
+     * @return Name of the image builder that was used to created the private image. If the image is shared then the value is null.
      * 
      */
     public String imageBuilderName() {
         return this.imageBuilderName;
     }
     /**
-     * @return Boolean to indicate whether an image builder can be launched from this image.
+     * @return Whether an image builder can be launched from this image.
      * 
      */
     public Boolean imageBuilderSupported() {
         return this.imageBuilderSupported;
     }
     /**
-     * @return List of strings describing the image permissions containing the following:
+     * @return List of objects describing the image permissions containing the following:
      * 
      */
     public List<GetImageImagePermission> imagePermissions() {

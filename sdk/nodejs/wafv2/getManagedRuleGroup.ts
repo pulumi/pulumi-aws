@@ -81,12 +81,12 @@ export interface GetManagedRuleGroupResult {
      */
     readonly labelNamespace: string;
     /**
-     * Name of the rule.
+     * Name of the header.
      */
     readonly name: string;
     readonly region: string;
     /**
-     * High-level information about the rules. See Rules below for details.
+     * High-level information about the rules. See `rules` Block below for details.
      */
     readonly rules: outputs.wafv2.GetManagedRuleGroupRule[];
     readonly scope: string;

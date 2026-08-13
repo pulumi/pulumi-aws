@@ -19,7 +19,7 @@ namespace Pulumi.Aws.VpcLattice.Inputs
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+        /// Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

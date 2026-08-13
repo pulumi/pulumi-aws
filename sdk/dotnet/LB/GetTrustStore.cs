@@ -12,8 +12,6 @@ namespace Pulumi.Aws.LB
     public static class GetTrustStore
     {
         /// <summary>
-        /// &gt; **Note:** `AwsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
-        /// 
         /// Provides information about a Load Balancer Trust Store.
         /// 
         /// This data source can prove useful when a module accepts an LB Trust Store as an
@@ -46,8 +44,6 @@ namespace Pulumi.Aws.LB
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **Note:** `AwsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
-        /// 
         /// Provides information about a Load Balancer Trust Store.
         /// 
         /// This data source can prove useful when a module accepts an LB Trust Store as an
@@ -80,8 +76,6 @@ namespace Pulumi.Aws.LB
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **Note:** `AwsAlbTrustStore` is known as `aws.lb.TrustStore`. The functionality is identical.
-        /// 
         /// Provides information about a Load Balancer Trust Store.
         /// 
         /// This data source can prove useful when a module accepts an LB Trust Store as an

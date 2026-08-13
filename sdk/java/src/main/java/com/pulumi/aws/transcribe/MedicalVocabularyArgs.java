@@ -18,14 +18,14 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
     public static final MedicalVocabularyArgs Empty = new MedicalVocabularyArgs();
 
     /**
-     * The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+     * Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
      * 
      */
     @Import(name="languageCode", required=true)
     private Output<String> languageCode;
 
     /**
-     * @return The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+     * @return Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
      * 
      */
     public Output<String> languageCode() {
@@ -48,14 +48,14 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -63,14 +63,14 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+     * Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
      * 
      */
     @Import(name="vocabularyFileUri", required=true)
     private Output<String> vocabularyFileUri;
 
     /**
-     * @return The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+     * @return Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
      * 
      */
     public Output<String> vocabularyFileUri() {
@@ -78,7 +78,7 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name of the Medical Vocabulary.
+     * Name of the Medical Vocabulary.
      * 
      * The following arguments are optional:
      * 
@@ -87,7 +87,7 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
     private Output<String> vocabularyName;
 
     /**
-     * @return The name of the Medical Vocabulary.
+     * @return Name of the Medical Vocabulary.
      * 
      * The following arguments are optional:
      * 
@@ -125,7 +125,7 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param languageCode The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+         * @param languageCode Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param languageCode The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+         * @param languageCode Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vocabularyFileUri The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+         * @param vocabularyFileUri Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vocabularyFileUri The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+         * @param vocabularyFileUri Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vocabularyName The name of the Medical Vocabulary.
+         * @param vocabularyName Name of the Medical Vocabulary.
          * 
          * The following arguments are optional:
          * 
@@ -222,7 +222,7 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vocabularyName The name of the Medical Vocabulary.
+         * @param vocabularyName Name of the Medical Vocabulary.
          * 
          * The following arguments are optional:
          * 

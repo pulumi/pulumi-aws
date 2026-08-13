@@ -52,23 +52,47 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         return this.kmsAccesses;
     }
 
+    /**
+     * Managed S3 backup access configuration. See `managedS3BackupAccess` Block below.
+     * 
+     */
     @Import(name="managedS3BackupAccesses", required=true)
     private Output<List<NetworkManagedServiceManagedS3BackupAccessArgs>> managedS3BackupAccesses;
 
+    /**
+     * @return Managed S3 backup access configuration. See `managedS3BackupAccess` Block below.
+     * 
+     */
     public Output<List<NetworkManagedServiceManagedS3BackupAccessArgs>> managedS3BackupAccesses() {
         return this.managedS3BackupAccesses;
     }
 
+    /**
+     * List of IPv4 CIDR ranges used by the managed services.
+     * 
+     */
     @Import(name="managedServiceIpv4Cidrs", required=true)
     private Output<List<String>> managedServiceIpv4Cidrs;
 
+    /**
+     * @return List of IPv4 CIDR ranges used by the managed services.
+     * 
+     */
     public Output<List<String>> managedServiceIpv4Cidrs() {
         return this.managedServiceIpv4Cidrs;
     }
 
+    /**
+     * ARN of the resource gateway.
+     * 
+     */
     @Import(name="resourceGatewayArn", required=true)
     private Output<String> resourceGatewayArn;
 
+    /**
+     * @return ARN of the resource gateway.
+     * 
+     */
     public Output<String> resourceGatewayArn() {
         return this.resourceGatewayArn;
     }
@@ -88,16 +112,32 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         return this.s3Accesses;
     }
 
+    /**
+     * ARN of the service network.
+     * 
+     */
     @Import(name="serviceNetworkArn", required=true)
     private Output<String> serviceNetworkArn;
 
+    /**
+     * @return ARN of the service network.
+     * 
+     */
     public Output<String> serviceNetworkArn() {
         return this.serviceNetworkArn;
     }
 
+    /**
+     * Service network endpoint configuration. See `serviceNetworkEndpoint` Block below.
+     * 
+     */
     @Import(name="serviceNetworkEndpoints", required=true)
     private Output<List<NetworkManagedServiceServiceNetworkEndpointArgs>> serviceNetworkEndpoints;
 
+    /**
+     * @return Service network endpoint configuration. See `serviceNetworkEndpoint` Block below.
+     * 
+     */
     public Output<List<NetworkManagedServiceServiceNetworkEndpointArgs>> serviceNetworkEndpoints() {
         return this.serviceNetworkEndpoints;
     }
@@ -231,37 +271,85 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
             return kmsAccesses(List.of(kmsAccesses));
         }
 
+        /**
+         * @param managedS3BackupAccesses Managed S3 backup access configuration. See `managedS3BackupAccess` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedS3BackupAccesses(Output<List<NetworkManagedServiceManagedS3BackupAccessArgs>> managedS3BackupAccesses) {
             $.managedS3BackupAccesses = managedS3BackupAccesses;
             return this;
         }
 
+        /**
+         * @param managedS3BackupAccesses Managed S3 backup access configuration. See `managedS3BackupAccess` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedS3BackupAccesses(List<NetworkManagedServiceManagedS3BackupAccessArgs> managedS3BackupAccesses) {
             return managedS3BackupAccesses(Output.of(managedS3BackupAccesses));
         }
 
+        /**
+         * @param managedS3BackupAccesses Managed S3 backup access configuration. See `managedS3BackupAccess` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedS3BackupAccesses(NetworkManagedServiceManagedS3BackupAccessArgs... managedS3BackupAccesses) {
             return managedS3BackupAccesses(List.of(managedS3BackupAccesses));
         }
 
+        /**
+         * @param managedServiceIpv4Cidrs List of IPv4 CIDR ranges used by the managed services.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedServiceIpv4Cidrs(Output<List<String>> managedServiceIpv4Cidrs) {
             $.managedServiceIpv4Cidrs = managedServiceIpv4Cidrs;
             return this;
         }
 
+        /**
+         * @param managedServiceIpv4Cidrs List of IPv4 CIDR ranges used by the managed services.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedServiceIpv4Cidrs(List<String> managedServiceIpv4Cidrs) {
             return managedServiceIpv4Cidrs(Output.of(managedServiceIpv4Cidrs));
         }
 
+        /**
+         * @param managedServiceIpv4Cidrs List of IPv4 CIDR ranges used by the managed services.
+         * 
+         * @return builder
+         * 
+         */
         public Builder managedServiceIpv4Cidrs(String... managedServiceIpv4Cidrs) {
             return managedServiceIpv4Cidrs(List.of(managedServiceIpv4Cidrs));
         }
 
+        /**
+         * @param resourceGatewayArn ARN of the resource gateway.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceGatewayArn(Output<String> resourceGatewayArn) {
             $.resourceGatewayArn = resourceGatewayArn;
             return this;
         }
 
+        /**
+         * @param resourceGatewayArn ARN of the resource gateway.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceGatewayArn(String resourceGatewayArn) {
             return resourceGatewayArn(Output.of(resourceGatewayArn));
         }
@@ -297,24 +385,54 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
             return s3Accesses(List.of(s3Accesses));
         }
 
+        /**
+         * @param serviceNetworkArn ARN of the service network.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceNetworkArn(Output<String> serviceNetworkArn) {
             $.serviceNetworkArn = serviceNetworkArn;
             return this;
         }
 
+        /**
+         * @param serviceNetworkArn ARN of the service network.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceNetworkArn(String serviceNetworkArn) {
             return serviceNetworkArn(Output.of(serviceNetworkArn));
         }
 
+        /**
+         * @param serviceNetworkEndpoints Service network endpoint configuration. See `serviceNetworkEndpoint` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceNetworkEndpoints(Output<List<NetworkManagedServiceServiceNetworkEndpointArgs>> serviceNetworkEndpoints) {
             $.serviceNetworkEndpoints = serviceNetworkEndpoints;
             return this;
         }
 
+        /**
+         * @param serviceNetworkEndpoints Service network endpoint configuration. See `serviceNetworkEndpoint` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceNetworkEndpoints(List<NetworkManagedServiceServiceNetworkEndpointArgs> serviceNetworkEndpoints) {
             return serviceNetworkEndpoints(Output.of(serviceNetworkEndpoints));
         }
 
+        /**
+         * @param serviceNetworkEndpoints Service network endpoint configuration. See `serviceNetworkEndpoint` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceNetworkEndpoints(NetworkManagedServiceServiceNetworkEndpointArgs... serviceNetworkEndpoints) {
             return serviceNetworkEndpoints(List.of(serviceNetworkEndpoints));
         }

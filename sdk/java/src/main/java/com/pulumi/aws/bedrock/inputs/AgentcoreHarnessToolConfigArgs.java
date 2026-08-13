@@ -20,14 +20,14 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
     public static final AgentcoreHarnessToolConfigArgs Empty = new AgentcoreHarnessToolConfigArgs();
 
     /**
-     * AgentCore browser configuration. See `agentcoreBrowser` below.
+     * AgentCore browser configuration. See `agentcoreBrowser` Block below.
      * 
      */
     @Import(name="agentcoreBrowser")
     private @Nullable Output<AgentcoreHarnessToolConfigAgentcoreBrowserArgs> agentcoreBrowser;
 
     /**
-     * @return AgentCore browser configuration. See `agentcoreBrowser` below.
+     * @return AgentCore browser configuration. See `agentcoreBrowser` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessToolConfigAgentcoreBrowserArgs>> agentcoreBrowser() {
@@ -35,14 +35,14 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * AgentCore code interpreter configuration. See `agentcoreCodeInterpreter` below.
+     * AgentCore code interpreter configuration. See `agentcoreCodeInterpreter` Block below.
      * 
      */
     @Import(name="agentcoreCodeInterpreter")
     private @Nullable Output<AgentcoreHarnessToolConfigAgentcoreCodeInterpreterArgs> agentcoreCodeInterpreter;
 
     /**
-     * @return AgentCore code interpreter configuration. See `agentcoreCodeInterpreter` below.
+     * @return AgentCore code interpreter configuration. See `agentcoreCodeInterpreter` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessToolConfigAgentcoreCodeInterpreterArgs>> agentcoreCodeInterpreter() {
@@ -50,14 +50,14 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * AgentCore gateway configuration. See `agentcoreGateway` below.
+     * AgentCore gateway configuration. See `agentcoreGateway` Block below.
      * 
      */
     @Import(name="agentcoreGateway")
     private @Nullable Output<AgentcoreHarnessToolConfigAgentcoreGatewayArgs> agentcoreGateway;
 
     /**
-     * @return AgentCore gateway configuration. See `agentcoreGateway` below.
+     * @return AgentCore gateway configuration. See `agentcoreGateway` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessToolConfigAgentcoreGatewayArgs>> agentcoreGateway() {
@@ -65,14 +65,14 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Inline function configuration. See `inlineFunction` below.
+     * Inline function configuration. See `inlineFunction` Block below.
      * 
      */
     @Import(name="inlineFunction")
     private @Nullable Output<AgentcoreHarnessToolConfigInlineFunctionArgs> inlineFunction;
 
     /**
-     * @return Inline function configuration. See `inlineFunction` below.
+     * @return Inline function configuration. See `inlineFunction` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessToolConfigInlineFunctionArgs>> inlineFunction() {
@@ -80,14 +80,14 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Remote MCP server configuration. See `remoteMcp` below.
+     * Remote MCP server configuration. See `remoteMcp` Block below.
      * 
      */
     @Import(name="remoteMcp")
     private @Nullable Output<AgentcoreHarnessToolConfigRemoteMcpArgs> remoteMcp;
 
     /**
-     * @return Remote MCP server configuration. See `remoteMcp` below.
+     * @return Remote MCP server configuration. See `remoteMcp` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessToolConfigRemoteMcpArgs>> remoteMcp() {
@@ -123,7 +123,7 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param agentcoreBrowser AgentCore browser configuration. See `agentcoreBrowser` below.
+         * @param agentcoreBrowser AgentCore browser configuration. See `agentcoreBrowser` Block below.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param agentcoreBrowser AgentCore browser configuration. See `agentcoreBrowser` below.
+         * @param agentcoreBrowser AgentCore browser configuration. See `agentcoreBrowser` Block below.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param agentcoreCodeInterpreter AgentCore code interpreter configuration. See `agentcoreCodeInterpreter` below.
+         * @param agentcoreCodeInterpreter AgentCore code interpreter configuration. See `agentcoreCodeInterpreter` Block below.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param agentcoreCodeInterpreter AgentCore code interpreter configuration. See `agentcoreCodeInterpreter` below.
+         * @param agentcoreCodeInterpreter AgentCore code interpreter configuration. See `agentcoreCodeInterpreter` Block below.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param agentcoreGateway AgentCore gateway configuration. See `agentcoreGateway` below.
+         * @param agentcoreGateway AgentCore gateway configuration. See `agentcoreGateway` Block below.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param agentcoreGateway AgentCore gateway configuration. See `agentcoreGateway` below.
+         * @param agentcoreGateway AgentCore gateway configuration. See `agentcoreGateway` Block below.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param inlineFunction Inline function configuration. See `inlineFunction` below.
+         * @param inlineFunction Inline function configuration. See `inlineFunction` Block below.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param inlineFunction Inline function configuration. See `inlineFunction` below.
+         * @param inlineFunction Inline function configuration. See `inlineFunction` Block below.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param remoteMcp Remote MCP server configuration. See `remoteMcp` below.
+         * @param remoteMcp Remote MCP server configuration. See `remoteMcp` Block below.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class AgentcoreHarnessToolConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param remoteMcp Remote MCP server configuration. See `remoteMcp` below.
+         * @param remoteMcp Remote MCP server configuration. See `remoteMcp` Block below.
          * 
          * @return builder
          * 

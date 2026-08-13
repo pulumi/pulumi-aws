@@ -520,7 +520,7 @@ class FileCacheLustreConfigurationArgsDict(TypedDict):
     """
     log_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArgsDict']]]]]
     """
-    Configuration for Lustre logging used to write the enabled logging events for the cache.
+    Configuration for Lustre logging used to write the enabled logging events for the cache. See `log_configuration` Block below.
     """
     mount_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -544,7 +544,7 @@ class FileCacheLustreConfigurationArgs:
         :param pulumi.Input[_builtins.str] deployment_type: Cache deployment type. The only supported value is `CACHE_1`.
         :param pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationMetadataConfigurationArgs']]] metadata_configurations: Configuration for a Lustre MDT (Metadata Target) storage volume. See `metadata_configuration` Block below.
         :param pulumi.Input[_builtins.int] per_unit_storage_throughput: Throughput provisioned for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
-        :param pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArgs']]] log_configurations: Configuration for Lustre logging used to write the enabled logging events for the cache.
+        :param pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArgs']]] log_configurations: Configuration for Lustre logging used to write the enabled logging events for the cache. See `log_configuration` Block below.
         :param pulumi.Input[_builtins.str] mount_name: Mount name of the cache.
         :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: Recurring weekly time to start maintenance, in the format `D:HH:MM`. `D` is the day of the week, where `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
         """
@@ -598,7 +598,7 @@ class FileCacheLustreConfigurationArgs:
     @pulumi.getter(name="logConfigurations")
     def log_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArgs']]]]:
         """
-        Configuration for Lustre logging used to write the enabled logging events for the cache.
+        Configuration for Lustre logging used to write the enabled logging events for the cache. See `log_configuration` Block below.
         """
         return pulumi.get(self, "log_configurations")
 
@@ -633,13 +633,23 @@ class FileCacheLustreConfigurationArgs:
 
 class FileCacheLustreConfigurationLogConfigurationArgsDict(TypedDict):
     destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Amazon Resource Name (ARN) of the destination that receives the logs.
+    """
     level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Level of logging that Lustre logs write to the destination.
+    """
 
 @pulumi.input_type
 class FileCacheLustreConfigurationLogConfigurationArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[Optional[_builtins.str]] = None,
                  level: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] destination: Amazon Resource Name (ARN) of the destination that receives the logs.
+        :param pulumi.Input[_builtins.str] level: Level of logging that Lustre logs write to the destination.
+        """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
         if level is not None:
@@ -648,6 +658,9 @@ class FileCacheLustreConfigurationLogConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Amazon Resource Name (ARN) of the destination that receives the logs.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -657,6 +670,9 @@ class FileCacheLustreConfigurationLogConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Level of logging that Lustre logs write to the destination.
+        """
         return pulumi.get(self, "level")
 
     @level.setter

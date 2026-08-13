@@ -13,6 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class GetManagedRuleGroupRuleActionCountResult
     {
+        /// <summary>
+        /// Custom handling for the counted request. See `CustomRequestHandling` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedRuleGroupRuleActionCountCustomRequestHandlingResult> CustomRequestHandlings;
 
         [OutputConstructor]

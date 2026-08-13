@@ -3054,17 +3054,17 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 }
 
 type ProxyAuth struct {
-	// The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+	// Type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
 	AuthScheme *string `pulumi:"authScheme"`
-	// The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+	// Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
 	ClientPasswordAuthType *string `pulumi:"clientPasswordAuthType"`
-	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
+	// User-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description *string `pulumi:"description"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
 	IamAuth *string `pulumi:"iamAuth"`
-	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+	// Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn *string `pulumi:"secretArn"`
-	// The name of the database user to which the proxy connects.
+	// Name of the database user to which the proxy connects.
 	Username *string `pulumi:"username"`
 }
 
@@ -3080,17 +3080,17 @@ type ProxyAuthInput interface {
 }
 
 type ProxyAuthArgs struct {
-	// The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+	// Type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
 	AuthScheme pulumi.StringPtrInput `pulumi:"authScheme"`
-	// The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+	// Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
 	ClientPasswordAuthType pulumi.StringPtrInput `pulumi:"clientPasswordAuthType"`
-	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
+	// User-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
 	IamAuth pulumi.StringPtrInput `pulumi:"iamAuth"`
-	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+	// Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
-	// The name of the database user to which the proxy connects.
+	// Name of the database user to which the proxy connects.
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
@@ -3145,17 +3145,17 @@ func (o ProxyAuthOutput) ToProxyAuthOutputWithContext(ctx context.Context) Proxy
 	return o
 }
 
-// The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+// Type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
 func (o ProxyAuthOutput) AuthScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyAuth) *string { return v.AuthScheme }).(pulumi.StringPtrOutput)
 }
 
-// The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+// Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
 func (o ProxyAuthOutput) ClientPasswordAuthType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyAuth) *string { return v.ClientPasswordAuthType }).(pulumi.StringPtrOutput)
 }
 
-// A user-specified description about the authentication used by a proxy to log in as a specific database user.
+// User-specified description about the authentication used by a proxy to log in as a specific database user.
 func (o ProxyAuthOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyAuth) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -3165,12 +3165,12 @@ func (o ProxyAuthOutput) IamAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyAuth) *string { return v.IamAuth }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+// Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 func (o ProxyAuthOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyAuth) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
-// The name of the database user to which the proxy connects.
+// Name of the database user to which the proxy connects.
 func (o ProxyAuthOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyAuth) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -4446,6 +4446,504 @@ func (o GetProxyAuthArrayOutput) Index(i pulumi.IntInput) GetProxyAuthOutput {
 	}).(GetProxyAuthOutput)
 }
 
+type GetSnapshotsFilter struct {
+	// Name of the filter field. Valid values can be found in the RDS DescribeDBSnapshots API Reference.
+	Name string `pulumi:"name"`
+	// Set of values accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetSnapshotsFilterInput is an input type that accepts GetSnapshotsFilterArgs and GetSnapshotsFilterOutput values.
+// You can construct a concrete instance of `GetSnapshotsFilterInput` via:
+//
+//	GetSnapshotsFilterArgs{...}
+type GetSnapshotsFilterInput interface {
+	pulumi.Input
+
+	ToGetSnapshotsFilterOutput() GetSnapshotsFilterOutput
+	ToGetSnapshotsFilterOutputWithContext(context.Context) GetSnapshotsFilterOutput
+}
+
+type GetSnapshotsFilterArgs struct {
+	// Name of the filter field. Valid values can be found in the RDS DescribeDBSnapshots API Reference.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetSnapshotsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotsFilter)(nil)).Elem()
+}
+
+func (i GetSnapshotsFilterArgs) ToGetSnapshotsFilterOutput() GetSnapshotsFilterOutput {
+	return i.ToGetSnapshotsFilterOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotsFilterArgs) ToGetSnapshotsFilterOutputWithContext(ctx context.Context) GetSnapshotsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotsFilterOutput)
+}
+
+// GetSnapshotsFilterArrayInput is an input type that accepts GetSnapshotsFilterArray and GetSnapshotsFilterArrayOutput values.
+// You can construct a concrete instance of `GetSnapshotsFilterArrayInput` via:
+//
+//	GetSnapshotsFilterArray{ GetSnapshotsFilterArgs{...} }
+type GetSnapshotsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetSnapshotsFilterArrayOutput() GetSnapshotsFilterArrayOutput
+	ToGetSnapshotsFilterArrayOutputWithContext(context.Context) GetSnapshotsFilterArrayOutput
+}
+
+type GetSnapshotsFilterArray []GetSnapshotsFilterInput
+
+func (GetSnapshotsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotsFilter)(nil)).Elem()
+}
+
+func (i GetSnapshotsFilterArray) ToGetSnapshotsFilterArrayOutput() GetSnapshotsFilterArrayOutput {
+	return i.ToGetSnapshotsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotsFilterArray) ToGetSnapshotsFilterArrayOutputWithContext(ctx context.Context) GetSnapshotsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotsFilterArrayOutput)
+}
+
+type GetSnapshotsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotsFilter)(nil)).Elem()
+}
+
+func (o GetSnapshotsFilterOutput) ToGetSnapshotsFilterOutput() GetSnapshotsFilterOutput {
+	return o
+}
+
+func (o GetSnapshotsFilterOutput) ToGetSnapshotsFilterOutputWithContext(ctx context.Context) GetSnapshotsFilterOutput {
+	return o
+}
+
+// Name of the filter field. Valid values can be found in the RDS DescribeDBSnapshots API Reference.
+func (o GetSnapshotsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetSnapshotsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSnapshotsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetSnapshotsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotsFilter)(nil)).Elem()
+}
+
+func (o GetSnapshotsFilterArrayOutput) ToGetSnapshotsFilterArrayOutput() GetSnapshotsFilterArrayOutput {
+	return o
+}
+
+func (o GetSnapshotsFilterArrayOutput) ToGetSnapshotsFilterArrayOutputWithContext(ctx context.Context) GetSnapshotsFilterArrayOutput {
+	return o
+}
+
+func (o GetSnapshotsFilterArrayOutput) Index(i pulumi.IntInput) GetSnapshotsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotsFilter {
+		return vs[0].([]GetSnapshotsFilter)[vs[1].(int)]
+	}).(GetSnapshotsFilterOutput)
+}
+
+type GetSnapshotsSnapshot struct {
+	// Allocated storage size in gigabytes (GB).
+	AllocatedStorage int `pulumi:"allocatedStorage"`
+	// Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+	AvailabilityZone string `pulumi:"availabilityZone"`
+	// Returns the list of snapshots created by the specific db_instance.
+	DbInstanceIdentifier string `pulumi:"dbInstanceIdentifier"`
+	// ARN for the DB snapshot.
+	DbSnapshotArn string `pulumi:"dbSnapshotArn"`
+	// Returns information on a specific snapshot_id.
+	DbSnapshotIdentifier string `pulumi:"dbSnapshotIdentifier"`
+	// Whether the DB snapshot is encrypted.
+	Encrypted bool `pulumi:"encrypted"`
+	// Name of the database engine.
+	Engine string `pulumi:"engine"`
+	// Version of the database engine.
+	EngineVersion string `pulumi:"engineVersion"`
+	// Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+	Iops int `pulumi:"iops"`
+	// ARN for the KMS encryption key.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// License model information for the restored DB instance.
+	LicenseModel string `pulumi:"licenseModel"`
+	// Option group name for the DB snapshot.
+	OptionGroupName string `pulumi:"optionGroupName"`
+	// Time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn't change when the snapshot is copied.
+	OriginalSnapshotCreateTime string `pulumi:"originalSnapshotCreateTime"`
+	// Port that the database engine was listening on at the time of the snapshot.
+	Port int `pulumi:"port"`
+	// Time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes when the snapshot is copied.
+	SnapshotCreateTime string `pulumi:"snapshotCreateTime"`
+	// Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. Possible values are `automated`, `manual`, `shared`, `public` and `awsbackup`.
+	SnapshotType string `pulumi:"snapshotType"`
+	// DB snapshot ARN that the DB snapshot was copied from. Only set for cross-account or cross-region copies.
+	SourceDbSnapshotIdentifier string `pulumi:"sourceDbSnapshotIdentifier"`
+	// Region that the DB snapshot was created in or copied from.
+	SourceRegion string `pulumi:"sourceRegion"`
+	// Status of this DB snapshot.
+	Status string `pulumi:"status"`
+	// Storage type associated with the DB snapshot.
+	StorageType string `pulumi:"storageType"`
+	// List of tags attached to the DB snapshot. See `tagList` below.
+	TagLists []GetSnapshotsSnapshotTagList `pulumi:"tagLists"`
+	// ID of the VPC associated with the DB snapshot.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// GetSnapshotsSnapshotInput is an input type that accepts GetSnapshotsSnapshotArgs and GetSnapshotsSnapshotOutput values.
+// You can construct a concrete instance of `GetSnapshotsSnapshotInput` via:
+//
+//	GetSnapshotsSnapshotArgs{...}
+type GetSnapshotsSnapshotInput interface {
+	pulumi.Input
+
+	ToGetSnapshotsSnapshotOutput() GetSnapshotsSnapshotOutput
+	ToGetSnapshotsSnapshotOutputWithContext(context.Context) GetSnapshotsSnapshotOutput
+}
+
+type GetSnapshotsSnapshotArgs struct {
+	// Allocated storage size in gigabytes (GB).
+	AllocatedStorage pulumi.IntInput `pulumi:"allocatedStorage"`
+	// Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	// Returns the list of snapshots created by the specific db_instance.
+	DbInstanceIdentifier pulumi.StringInput `pulumi:"dbInstanceIdentifier"`
+	// ARN for the DB snapshot.
+	DbSnapshotArn pulumi.StringInput `pulumi:"dbSnapshotArn"`
+	// Returns information on a specific snapshot_id.
+	DbSnapshotIdentifier pulumi.StringInput `pulumi:"dbSnapshotIdentifier"`
+	// Whether the DB snapshot is encrypted.
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	// Name of the database engine.
+	Engine pulumi.StringInput `pulumi:"engine"`
+	// Version of the database engine.
+	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
+	// Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+	Iops pulumi.IntInput `pulumi:"iops"`
+	// ARN for the KMS encryption key.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	// License model information for the restored DB instance.
+	LicenseModel pulumi.StringInput `pulumi:"licenseModel"`
+	// Option group name for the DB snapshot.
+	OptionGroupName pulumi.StringInput `pulumi:"optionGroupName"`
+	// Time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn't change when the snapshot is copied.
+	OriginalSnapshotCreateTime pulumi.StringInput `pulumi:"originalSnapshotCreateTime"`
+	// Port that the database engine was listening on at the time of the snapshot.
+	Port pulumi.IntInput `pulumi:"port"`
+	// Time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes when the snapshot is copied.
+	SnapshotCreateTime pulumi.StringInput `pulumi:"snapshotCreateTime"`
+	// Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. Possible values are `automated`, `manual`, `shared`, `public` and `awsbackup`.
+	SnapshotType pulumi.StringInput `pulumi:"snapshotType"`
+	// DB snapshot ARN that the DB snapshot was copied from. Only set for cross-account or cross-region copies.
+	SourceDbSnapshotIdentifier pulumi.StringInput `pulumi:"sourceDbSnapshotIdentifier"`
+	// Region that the DB snapshot was created in or copied from.
+	SourceRegion pulumi.StringInput `pulumi:"sourceRegion"`
+	// Status of this DB snapshot.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Storage type associated with the DB snapshot.
+	StorageType pulumi.StringInput `pulumi:"storageType"`
+	// List of tags attached to the DB snapshot. See `tagList` below.
+	TagLists GetSnapshotsSnapshotTagListArrayInput `pulumi:"tagLists"`
+	// ID of the VPC associated with the DB snapshot.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (GetSnapshotsSnapshotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotsSnapshot)(nil)).Elem()
+}
+
+func (i GetSnapshotsSnapshotArgs) ToGetSnapshotsSnapshotOutput() GetSnapshotsSnapshotOutput {
+	return i.ToGetSnapshotsSnapshotOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotsSnapshotArgs) ToGetSnapshotsSnapshotOutputWithContext(ctx context.Context) GetSnapshotsSnapshotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotsSnapshotOutput)
+}
+
+// GetSnapshotsSnapshotArrayInput is an input type that accepts GetSnapshotsSnapshotArray and GetSnapshotsSnapshotArrayOutput values.
+// You can construct a concrete instance of `GetSnapshotsSnapshotArrayInput` via:
+//
+//	GetSnapshotsSnapshotArray{ GetSnapshotsSnapshotArgs{...} }
+type GetSnapshotsSnapshotArrayInput interface {
+	pulumi.Input
+
+	ToGetSnapshotsSnapshotArrayOutput() GetSnapshotsSnapshotArrayOutput
+	ToGetSnapshotsSnapshotArrayOutputWithContext(context.Context) GetSnapshotsSnapshotArrayOutput
+}
+
+type GetSnapshotsSnapshotArray []GetSnapshotsSnapshotInput
+
+func (GetSnapshotsSnapshotArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotsSnapshot)(nil)).Elem()
+}
+
+func (i GetSnapshotsSnapshotArray) ToGetSnapshotsSnapshotArrayOutput() GetSnapshotsSnapshotArrayOutput {
+	return i.ToGetSnapshotsSnapshotArrayOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotsSnapshotArray) ToGetSnapshotsSnapshotArrayOutputWithContext(ctx context.Context) GetSnapshotsSnapshotArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotsSnapshotArrayOutput)
+}
+
+type GetSnapshotsSnapshotOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotsSnapshotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotsSnapshot)(nil)).Elem()
+}
+
+func (o GetSnapshotsSnapshotOutput) ToGetSnapshotsSnapshotOutput() GetSnapshotsSnapshotOutput {
+	return o
+}
+
+func (o GetSnapshotsSnapshotOutput) ToGetSnapshotsSnapshotOutputWithContext(ctx context.Context) GetSnapshotsSnapshotOutput {
+	return o
+}
+
+// Allocated storage size in gigabytes (GB).
+func (o GetSnapshotsSnapshotOutput) AllocatedStorage() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) int { return v.AllocatedStorage }).(pulumi.IntOutput)
+}
+
+// Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+func (o GetSnapshotsSnapshotOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+// Returns the list of snapshots created by the specific db_instance.
+func (o GetSnapshotsSnapshotOutput) DbInstanceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.DbInstanceIdentifier }).(pulumi.StringOutput)
+}
+
+// ARN for the DB snapshot.
+func (o GetSnapshotsSnapshotOutput) DbSnapshotArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.DbSnapshotArn }).(pulumi.StringOutput)
+}
+
+// Returns information on a specific snapshot_id.
+func (o GetSnapshotsSnapshotOutput) DbSnapshotIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.DbSnapshotIdentifier }).(pulumi.StringOutput)
+}
+
+// Whether the DB snapshot is encrypted.
+func (o GetSnapshotsSnapshotOutput) Encrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) bool { return v.Encrypted }).(pulumi.BoolOutput)
+}
+
+// Name of the database engine.
+func (o GetSnapshotsSnapshotOutput) Engine() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.Engine }).(pulumi.StringOutput)
+}
+
+// Version of the database engine.
+func (o GetSnapshotsSnapshotOutput) EngineVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.EngineVersion }).(pulumi.StringOutput)
+}
+
+// Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+func (o GetSnapshotsSnapshotOutput) Iops() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) int { return v.Iops }).(pulumi.IntOutput)
+}
+
+// ARN for the KMS encryption key.
+func (o GetSnapshotsSnapshotOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// License model information for the restored DB instance.
+func (o GetSnapshotsSnapshotOutput) LicenseModel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.LicenseModel }).(pulumi.StringOutput)
+}
+
+// Option group name for the DB snapshot.
+func (o GetSnapshotsSnapshotOutput) OptionGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.OptionGroupName }).(pulumi.StringOutput)
+}
+
+// Time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn't change when the snapshot is copied.
+func (o GetSnapshotsSnapshotOutput) OriginalSnapshotCreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.OriginalSnapshotCreateTime }).(pulumi.StringOutput)
+}
+
+// Port that the database engine was listening on at the time of the snapshot.
+func (o GetSnapshotsSnapshotOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// Time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes when the snapshot is copied.
+func (o GetSnapshotsSnapshotOutput) SnapshotCreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.SnapshotCreateTime }).(pulumi.StringOutput)
+}
+
+// Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. Possible values are `automated`, `manual`, `shared`, `public` and `awsbackup`.
+func (o GetSnapshotsSnapshotOutput) SnapshotType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.SnapshotType }).(pulumi.StringOutput)
+}
+
+// DB snapshot ARN that the DB snapshot was copied from. Only set for cross-account or cross-region copies.
+func (o GetSnapshotsSnapshotOutput) SourceDbSnapshotIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.SourceDbSnapshotIdentifier }).(pulumi.StringOutput)
+}
+
+// Region that the DB snapshot was created in or copied from.
+func (o GetSnapshotsSnapshotOutput) SourceRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.SourceRegion }).(pulumi.StringOutput)
+}
+
+// Status of this DB snapshot.
+func (o GetSnapshotsSnapshotOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Storage type associated with the DB snapshot.
+func (o GetSnapshotsSnapshotOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+// List of tags attached to the DB snapshot. See `tagList` below.
+func (o GetSnapshotsSnapshotOutput) TagLists() GetSnapshotsSnapshotTagListArrayOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) []GetSnapshotsSnapshotTagList { return v.TagLists }).(GetSnapshotsSnapshotTagListArrayOutput)
+}
+
+// ID of the VPC associated with the DB snapshot.
+func (o GetSnapshotsSnapshotOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshot) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type GetSnapshotsSnapshotArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotsSnapshotArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotsSnapshot)(nil)).Elem()
+}
+
+func (o GetSnapshotsSnapshotArrayOutput) ToGetSnapshotsSnapshotArrayOutput() GetSnapshotsSnapshotArrayOutput {
+	return o
+}
+
+func (o GetSnapshotsSnapshotArrayOutput) ToGetSnapshotsSnapshotArrayOutputWithContext(ctx context.Context) GetSnapshotsSnapshotArrayOutput {
+	return o
+}
+
+func (o GetSnapshotsSnapshotArrayOutput) Index(i pulumi.IntInput) GetSnapshotsSnapshotOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotsSnapshot {
+		return vs[0].([]GetSnapshotsSnapshot)[vs[1].(int)]
+	}).(GetSnapshotsSnapshotOutput)
+}
+
+type GetSnapshotsSnapshotTagList struct {
+	// Key of the tag.
+	Key string `pulumi:"key"`
+	// Value of the tag.
+	Value string `pulumi:"value"`
+}
+
+// GetSnapshotsSnapshotTagListInput is an input type that accepts GetSnapshotsSnapshotTagListArgs and GetSnapshotsSnapshotTagListOutput values.
+// You can construct a concrete instance of `GetSnapshotsSnapshotTagListInput` via:
+//
+//	GetSnapshotsSnapshotTagListArgs{...}
+type GetSnapshotsSnapshotTagListInput interface {
+	pulumi.Input
+
+	ToGetSnapshotsSnapshotTagListOutput() GetSnapshotsSnapshotTagListOutput
+	ToGetSnapshotsSnapshotTagListOutputWithContext(context.Context) GetSnapshotsSnapshotTagListOutput
+}
+
+type GetSnapshotsSnapshotTagListArgs struct {
+	// Key of the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetSnapshotsSnapshotTagListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotsSnapshotTagList)(nil)).Elem()
+}
+
+func (i GetSnapshotsSnapshotTagListArgs) ToGetSnapshotsSnapshotTagListOutput() GetSnapshotsSnapshotTagListOutput {
+	return i.ToGetSnapshotsSnapshotTagListOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotsSnapshotTagListArgs) ToGetSnapshotsSnapshotTagListOutputWithContext(ctx context.Context) GetSnapshotsSnapshotTagListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotsSnapshotTagListOutput)
+}
+
+// GetSnapshotsSnapshotTagListArrayInput is an input type that accepts GetSnapshotsSnapshotTagListArray and GetSnapshotsSnapshotTagListArrayOutput values.
+// You can construct a concrete instance of `GetSnapshotsSnapshotTagListArrayInput` via:
+//
+//	GetSnapshotsSnapshotTagListArray{ GetSnapshotsSnapshotTagListArgs{...} }
+type GetSnapshotsSnapshotTagListArrayInput interface {
+	pulumi.Input
+
+	ToGetSnapshotsSnapshotTagListArrayOutput() GetSnapshotsSnapshotTagListArrayOutput
+	ToGetSnapshotsSnapshotTagListArrayOutputWithContext(context.Context) GetSnapshotsSnapshotTagListArrayOutput
+}
+
+type GetSnapshotsSnapshotTagListArray []GetSnapshotsSnapshotTagListInput
+
+func (GetSnapshotsSnapshotTagListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotsSnapshotTagList)(nil)).Elem()
+}
+
+func (i GetSnapshotsSnapshotTagListArray) ToGetSnapshotsSnapshotTagListArrayOutput() GetSnapshotsSnapshotTagListArrayOutput {
+	return i.ToGetSnapshotsSnapshotTagListArrayOutputWithContext(context.Background())
+}
+
+func (i GetSnapshotsSnapshotTagListArray) ToGetSnapshotsSnapshotTagListArrayOutputWithContext(ctx context.Context) GetSnapshotsSnapshotTagListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotsSnapshotTagListArrayOutput)
+}
+
+type GetSnapshotsSnapshotTagListOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotsSnapshotTagListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotsSnapshotTagList)(nil)).Elem()
+}
+
+func (o GetSnapshotsSnapshotTagListOutput) ToGetSnapshotsSnapshotTagListOutput() GetSnapshotsSnapshotTagListOutput {
+	return o
+}
+
+func (o GetSnapshotsSnapshotTagListOutput) ToGetSnapshotsSnapshotTagListOutputWithContext(ctx context.Context) GetSnapshotsSnapshotTagListOutput {
+	return o
+}
+
+// Key of the tag.
+func (o GetSnapshotsSnapshotTagListOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshotTagList) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value of the tag.
+func (o GetSnapshotsSnapshotTagListOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotsSnapshotTagList) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetSnapshotsSnapshotTagListArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotsSnapshotTagListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSnapshotsSnapshotTagList)(nil)).Elem()
+}
+
+func (o GetSnapshotsSnapshotTagListArrayOutput) ToGetSnapshotsSnapshotTagListArrayOutput() GetSnapshotsSnapshotTagListArrayOutput {
+	return o
+}
+
+func (o GetSnapshotsSnapshotTagListArrayOutput) ToGetSnapshotsSnapshotTagListArrayOutputWithContext(ctx context.Context) GetSnapshotsSnapshotTagListArrayOutput {
+	return o
+}
+
+func (o GetSnapshotsSnapshotTagListArrayOutput) Index(i pulumi.IntInput) GetSnapshotsSnapshotTagListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSnapshotsSnapshotTagList {
+		return vs[0].([]GetSnapshotsSnapshotTagList)[vs[1].(int)]
+	}).(GetSnapshotsSnapshotTagListOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMasterUserSecretInput)(nil)).Elem(), ClusterMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMasterUserSecretArrayInput)(nil)).Elem(), ClusterMasterUserSecretArray{})
@@ -4507,6 +5005,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstancesFilterArrayInput)(nil)).Elem(), GetInstancesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProxyAuthInput)(nil)).Elem(), GetProxyAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProxyAuthArrayInput)(nil)).Elem(), GetProxyAuthArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotsFilterInput)(nil)).Elem(), GetSnapshotsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotsFilterArrayInput)(nil)).Elem(), GetSnapshotsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotsSnapshotInput)(nil)).Elem(), GetSnapshotsSnapshotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotsSnapshotArrayInput)(nil)).Elem(), GetSnapshotsSnapshotArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotsSnapshotTagListInput)(nil)).Elem(), GetSnapshotsSnapshotTagListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotsSnapshotTagListArrayInput)(nil)).Elem(), GetSnapshotsSnapshotTagListArray{})
 	pulumi.RegisterOutputType(ClusterMasterUserSecretOutput{})
 	pulumi.RegisterOutputType(ClusterMasterUserSecretArrayOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterOutput{})
@@ -4567,4 +5071,10 @@ func init() {
 	pulumi.RegisterOutputType(GetInstancesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetProxyAuthOutput{})
 	pulumi.RegisterOutputType(GetProxyAuthArrayOutput{})
+	pulumi.RegisterOutputType(GetSnapshotsFilterOutput{})
+	pulumi.RegisterOutputType(GetSnapshotsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetSnapshotsSnapshotOutput{})
+	pulumi.RegisterOutputType(GetSnapshotsSnapshotArrayOutput{})
+	pulumi.RegisterOutputType(GetSnapshotsSnapshotTagListOutput{})
+	pulumi.RegisterOutputType(GetSnapshotsSnapshotTagListArrayOutput{})
 }

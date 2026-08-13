@@ -25,8 +25,6 @@ public final class LanguageModelInputDataConfig {
     /**
      * @return S3 URI where tuning data is located.
      * 
-     * The following arguments are optional:
-     * 
      */
     private @Nullable String tuningDataS3Uri;
 
@@ -47,8 +45,6 @@ public final class LanguageModelInputDataConfig {
     }
     /**
      * @return S3 URI where tuning data is located.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<String> tuningDataS3Uri() {

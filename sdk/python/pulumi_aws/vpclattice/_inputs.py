@@ -194,7 +194,7 @@ class ListenerDefaultActionForwardTargetGroupArgsDict(TypedDict):
     """
     weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+    Weight that controls how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
     """
 
 @pulumi.input_type
@@ -204,7 +204,7 @@ class ListenerDefaultActionForwardTargetGroupArgs:
                  weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] target_group_identifier: ID or Amazon Resource Name (ARN) of the target group.
-        :param pulumi.Input[_builtins.int] weight: Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+        :param pulumi.Input[_builtins.int] weight: Weight that controls how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
         """
         if target_group_identifier is not None:
             pulumi.set(__self__, "target_group_identifier", target_group_identifier)
@@ -227,7 +227,7 @@ class ListenerDefaultActionForwardTargetGroupArgs:
     @pulumi.getter
     def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+        Weight that controls how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
         """
         return pulumi.get(self, "weight")
 
@@ -556,7 +556,7 @@ class ListenerRuleMatchHttpMatchHeaderMatchArgs:
 class ListenerRuleMatchHttpMatchHeaderMatchMatchArgsDict(TypedDict):
     contains: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Contains type match.
+    Value that the header must contain to match.
     """
     exact: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -574,7 +574,7 @@ class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs:
                  exact: pulumi.Input[Optional[_builtins.str]] = None,
                  prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] contains: Contains type match.
+        :param pulumi.Input[_builtins.str] contains: Value that the header must contain to match.
         :param pulumi.Input[_builtins.str] exact: Exact type match.
         :param pulumi.Input[_builtins.str] prefix: Prefix type match. Matches the value with the prefix.
         """
@@ -589,7 +589,7 @@ class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs:
     @pulumi.getter
     def contains(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Contains type match.
+        Value that the header must contain to match.
         """
         return pulumi.get(self, "contains")
 
@@ -1031,13 +1031,23 @@ class ResourceGatewayTimeoutsArgs:
 
 class ServiceDnsEntryArgsDict(TypedDict):
     domain_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Domain name of the service.
+    """
     hosted_zone_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ID of the hosted zone.
+    """
 
 @pulumi.input_type
 class ServiceDnsEntryArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] domain_name: Domain name of the service.
+        :param pulumi.Input[_builtins.str] hosted_zone_id: ID of the hosted zone.
+        """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
         if hosted_zone_id is not None:
@@ -1046,6 +1056,9 @@ class ServiceDnsEntryArgs:
     @_builtins.property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Domain name of the service.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -1055,6 +1068,9 @@ class ServiceDnsEntryArgs:
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ID of the hosted zone.
+        """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
@@ -1263,7 +1279,7 @@ class TargetGroupAttachmentTargetArgsDict(TypedDict):
     """
     port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+    Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
     """
 
 @pulumi.input_type
@@ -1273,7 +1289,7 @@ class TargetGroupAttachmentTargetArgs:
                  port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] id: ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
-        :param pulumi.Input[_builtins.int] port: This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+        :param pulumi.Input[_builtins.int] port: Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
         """
         pulumi.set(__self__, "id", id)
         if port is not None:
@@ -1295,7 +1311,7 @@ class TargetGroupAttachmentTargetArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+        Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
         """
         return pulumi.get(self, "port")
 

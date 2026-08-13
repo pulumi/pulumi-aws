@@ -139,7 +139,7 @@ export class Table extends pulumi.CustomResource {
      */
     declare public readonly maintenanceConfiguration: pulumi.Output<outputs.s3tables.TableMaintenanceConfiguration>;
     /**
-     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+     * Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
      */
     declare public readonly metadata: pulumi.Output<outputs.s3tables.TableMetadata | undefined>;
     /**
@@ -296,7 +296,7 @@ export interface TableState {
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration | undefined>;
     /**
-     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+     * Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
      */
     metadata?: pulumi.Input<inputs.s3tables.TableMetadata | undefined>;
     /**
@@ -372,7 +372,7 @@ export interface TableArgs {
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration | undefined>;
     /**
-     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+     * Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
      */
     metadata?: pulumi.Input<inputs.s3tables.TableMetadata | undefined>;
     /**

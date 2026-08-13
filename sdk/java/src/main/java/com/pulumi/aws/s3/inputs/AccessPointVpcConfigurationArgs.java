@@ -15,14 +15,14 @@ public final class AccessPointVpcConfigurationArgs extends com.pulumi.resources.
     public static final AccessPointVpcConfigurationArgs Empty = new AccessPointVpcConfigurationArgs();
 
     /**
-     * This access point will only allow connections from the specified VPC ID.
+     * VPC ID from which the access point allows connections.
      * 
      */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
     /**
-     * @return This access point will only allow connections from the specified VPC ID.
+     * @return VPC ID from which the access point allows connections.
      * 
      */
     public Output<String> vpcId() {
@@ -54,7 +54,7 @@ public final class AccessPointVpcConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param vpcId This access point will only allow connections from the specified VPC ID.
+         * @param vpcId VPC ID from which the access point allows connections.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AccessPointVpcConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param vpcId This access point will only allow connections from the specified VPC ID.
+         * @param vpcId VPC ID from which the access point allows connections.
          * 
          * @return builder
          * 

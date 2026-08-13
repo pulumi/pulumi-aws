@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig
     {
         /// <summary>
-        /// Key for the retrieval configuration map block.
+        /// Namespace path template for retrieval settings.
         /// </summary>
         public readonly string MapBlockKey;
         /// <summary>

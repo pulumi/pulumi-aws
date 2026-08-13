@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult
     {
+        /// <summary>
+        /// Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult> Matches;
 
         [OutputConstructor]

@@ -30,7 +30,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfiguration {
      */
     private @Nullable Integer messagesCount;
     /**
-     * @return Retrieval configuration parameters. See `retrievalConfig` below.
+     * @return Retrieval configuration parameters. See `retrievalConfig` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig retrievalConfig;
@@ -58,7 +58,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfiguration {
         return Optional.ofNullable(this.messagesCount);
     }
     /**
-     * @return Retrieval configuration parameters. See `retrievalConfig` below.
+     * @return Retrieval configuration parameters. See `retrievalConfig` Block below.
      * 
      */
     public Optional<AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig> retrievalConfig() {

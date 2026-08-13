@@ -116,21 +116,26 @@ export class LanguageModel extends pulumi.CustomResource {
      */
     declare public readonly baseModelName: pulumi.Output<string>;
     /**
-     * The input data config for the LanguageModel. See Input Data Config for more details.
+     * Input data configuration for the LanguageModel. See `inputDataConfig` Block for details.
      */
     declare public readonly inputDataConfig: pulumi.Output<outputs.transcribe.LanguageModelInputDataConfig>;
     /**
-     * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+     * Language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
     declare public readonly languageCode: pulumi.Output<string>;
     /**
-     * The model name.
+     * Model name.
+     *
+     * The following arguments are optional:
      */
     declare public readonly modelName: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -196,21 +201,26 @@ export interface LanguageModelState {
      */
     baseModelName?: pulumi.Input<string | undefined>;
     /**
-     * The input data config for the LanguageModel. See Input Data Config for more details.
+     * Input data configuration for the LanguageModel. See `inputDataConfig` Block for details.
      */
     inputDataConfig?: pulumi.Input<inputs.transcribe.LanguageModelInputDataConfig | undefined>;
     /**
-     * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+     * Language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
     languageCode?: pulumi.Input<string | undefined>;
     /**
-     * The model name.
+     * Model name.
+     *
+     * The following arguments are optional:
      */
     modelName?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -224,20 +234,25 @@ export interface LanguageModelArgs {
      */
     baseModelName: pulumi.Input<string>;
     /**
-     * The input data config for the LanguageModel. See Input Data Config for more details.
+     * Input data configuration for the LanguageModel. See `inputDataConfig` Block for details.
      */
     inputDataConfig: pulumi.Input<inputs.transcribe.LanguageModelInputDataConfig>;
     /**
-     * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+     * Language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      */
     languageCode: pulumi.Input<string>;
     /**
-     * The model name.
+     * Model name.
+     *
+     * The following arguments are optional:
      */
     modelName: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

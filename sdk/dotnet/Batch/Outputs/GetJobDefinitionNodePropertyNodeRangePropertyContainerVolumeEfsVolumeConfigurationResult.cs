@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationResult
     {
         /// <summary>
-        /// Authorization configuration details for the Amazon EFS file system.
+        /// Authorization configuration details for the Amazon EFS file system. See `AuthorizationConfig` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigResult> AuthorizationConfigs;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly string RootDirectory;
         /// <summary>
-        /// Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server
+        /// Whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server.
         /// </summary>
         public readonly string TransitEncryption;
         /// <summary>

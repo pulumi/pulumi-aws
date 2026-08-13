@@ -213,7 +213,7 @@ export class Plan extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+     * CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
      */
     declare public readonly associatedAlarms: pulumi.Output<outputs.arcregionswitch.PlanAssociatedAlarm[] | undefined>;
     /**
@@ -247,11 +247,11 @@ export class Plan extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * List of AWS regions involved in the plan.
+     * List of AWS regions involved in the plan. Must contain at least 2 regions.
      */
     declare public readonly regions: pulumi.Output<string[]>;
     /**
-     * Configuration for automated execution reports. See Report Configuration below.
+     * Configuration for automated execution reports. See `reportConfiguration` Block for details.
      */
     declare public readonly reportConfigurations: pulumi.Output<outputs.arcregionswitch.PlanReportConfiguration[] | undefined>;
     /**
@@ -264,11 +264,11 @@ export class Plan extends pulumi.CustomResource {
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.arcregionswitch.PlanTimeouts | undefined>;
     /**
-     * Set of triggers that can initiate the plan execution. See Triggers below.
+     * Triggers that can initiate the plan execution. See `triggers` Block for details.
      */
     declare public readonly triggers: pulumi.Output<outputs.arcregionswitch.PlanTrigger[] | undefined>;
     /**
-     * List of workflows that define the steps to execute. See Workflow below.
+     * Workflows that define the steps to execute. See `workflow` Block for details.
      *
      * The following arguments are optional:
      */
@@ -345,7 +345,7 @@ export interface PlanState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+     * CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
      */
     associatedAlarms?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanAssociatedAlarm>[] | undefined>;
     /**
@@ -379,11 +379,11 @@ export interface PlanState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * List of AWS regions involved in the plan.
+     * List of AWS regions involved in the plan. Must contain at least 2 regions.
      */
     regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Configuration for automated execution reports. See Report Configuration below.
+     * Configuration for automated execution reports. See `reportConfiguration` Block for details.
      */
     reportConfigurations?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanReportConfiguration>[] | undefined>;
     /**
@@ -396,11 +396,11 @@ export interface PlanState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.arcregionswitch.PlanTimeouts | undefined>;
     /**
-     * Set of triggers that can initiate the plan execution. See Triggers below.
+     * Triggers that can initiate the plan execution. See `triggers` Block for details.
      */
     triggers?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanTrigger>[] | undefined>;
     /**
-     * List of workflows that define the steps to execute. See Workflow below.
+     * Workflows that define the steps to execute. See `workflow` Block for details.
      *
      * The following arguments are optional:
      */
@@ -412,7 +412,7 @@ export interface PlanState {
  */
 export interface PlanArgs {
     /**
-     * Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+     * CloudWatch alarms associated with the plan. See `associatedAlarms` Block for details.
      */
     associatedAlarms?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanAssociatedAlarm>[] | undefined>;
     /**
@@ -446,11 +446,11 @@ export interface PlanArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * List of AWS regions involved in the plan.
+     * List of AWS regions involved in the plan. Must contain at least 2 regions.
      */
     regions: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Configuration for automated execution reports. See Report Configuration below.
+     * Configuration for automated execution reports. See `reportConfiguration` Block for details.
      */
     reportConfigurations?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanReportConfiguration>[] | undefined>;
     /**
@@ -459,11 +459,11 @@ export interface PlanArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.arcregionswitch.PlanTimeouts | undefined>;
     /**
-     * Set of triggers that can initiate the plan execution. See Triggers below.
+     * Triggers that can initiate the plan execution. See `triggers` Block for details.
      */
     triggers?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanTrigger>[] | undefined>;
     /**
-     * List of workflows that define the steps to execute. See Workflow below.
+     * Workflows that define the steps to execute. See `workflow` Block for details.
      *
      * The following arguments are optional:
      */

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecListenerTimeoutTcpResult
     {
+        /// <summary>
+        /// Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult> Idles;
 
         [OutputConstructor]

@@ -544,7 +544,7 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs:
 class TableMetadataArgsDict(TypedDict):
     iceberg: pulumi.Input['TableMetadataIcebergArgsDict']
     """
-    Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+    Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
     """
 
 @pulumi.input_type
@@ -552,7 +552,7 @@ class TableMetadataArgs:
     def __init__(__self__, *,
                  iceberg: pulumi.Input['TableMetadataIcebergArgs']):
         """
-        :param pulumi.Input['TableMetadataIcebergArgs'] iceberg: Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+        :param pulumi.Input['TableMetadataIcebergArgs'] iceberg: Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
         """
         pulumi.set(__self__, "iceberg", iceberg)
 
@@ -560,7 +560,7 @@ class TableMetadataArgs:
     @pulumi.getter
     def iceberg(self) -> pulumi.Input['TableMetadataIcebergArgs']:
         """
-        Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+        Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
         """
         return pulumi.get(self, "iceberg")
 

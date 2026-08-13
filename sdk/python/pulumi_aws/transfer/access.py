@@ -33,13 +33,13 @@ class AccessArgs:
         """
         The set of arguments for constructing a Access resource.
 
-        :param pulumi.Input[_builtins.str] external_id: The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
-        :param pulumi.Input[_builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
-        :param pulumi.Input[_builtins.str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
-        :param pulumi.Input[Sequence[pulumi.Input['AccessHomeDirectoryMappingArgs']]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
-        :param pulumi.Input[_builtins.str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
-        :param pulumi.Input[_builtins.str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
-        :param pulumi.Input['AccessPosixProfileArgs'] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        :param pulumi.Input[_builtins.str] external_id: SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
+        :param pulumi.Input[_builtins.str] server_id: Server ID of the Transfer Server (e.g., `s-12345678`)
+        :param pulumi.Input[_builtins.str] home_directory: Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessHomeDirectoryMappingArgs']]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See `home_directory_mappings` Block below.
+        :param pulumi.Input[_builtins.str] home_directory_type: Type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        :param pulumi.Input[_builtins.str] policy: IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
+        :param pulumi.Input['AccessPosixProfileArgs'] posix_profile: Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See `posix_profile` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         """
@@ -64,7 +64,7 @@ class AccessArgs:
     @pulumi.getter(name="externalId")
     def external_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
+        SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
         """
         return pulumi.get(self, "external_id")
 
@@ -76,7 +76,7 @@ class AccessArgs:
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The Server ID of the Transfer Server (e.g., `s-12345678`)
+        Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         return pulumi.get(self, "server_id")
 
@@ -88,7 +88,7 @@ class AccessArgs:
     @pulumi.getter(name="homeDirectory")
     def home_directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+        Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
         """
         return pulumi.get(self, "home_directory")
 
@@ -100,7 +100,7 @@ class AccessArgs:
     @pulumi.getter(name="homeDirectoryMappings")
     def home_directory_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessHomeDirectoryMappingArgs']]]]:
         """
-        Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
+        Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See `home_directory_mappings` Block below.
         """
         return pulumi.get(self, "home_directory_mappings")
 
@@ -112,7 +112,7 @@ class AccessArgs:
     @pulumi.getter(name="homeDirectoryType")
     def home_directory_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        Type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         """
         return pulumi.get(self, "home_directory_type")
 
@@ -124,7 +124,7 @@ class AccessArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+        IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
         """
         return pulumi.get(self, "policy")
 
@@ -136,7 +136,7 @@ class AccessArgs:
     @pulumi.getter(name="posixProfile")
     def posix_profile(self) -> pulumi.Input[Optional['AccessPosixProfileArgs']]:
         """
-        Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See `posix_profile` Block below.
         """
         return pulumi.get(self, "posix_profile")
 
@@ -184,15 +184,15 @@ class _AccessState:
         """
         Input properties used for looking up and filtering Access resources.
 
-        :param pulumi.Input[_builtins.str] external_id: The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
-        :param pulumi.Input[_builtins.str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
-        :param pulumi.Input[Sequence[pulumi.Input['AccessHomeDirectoryMappingArgs']]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
-        :param pulumi.Input[_builtins.str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
-        :param pulumi.Input[_builtins.str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
-        :param pulumi.Input['AccessPosixProfileArgs'] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        :param pulumi.Input[_builtins.str] external_id: SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
+        :param pulumi.Input[_builtins.str] home_directory: Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessHomeDirectoryMappingArgs']]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See `home_directory_mappings` Block below.
+        :param pulumi.Input[_builtins.str] home_directory_type: Type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        :param pulumi.Input[_builtins.str] policy: IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
+        :param pulumi.Input['AccessPosixProfileArgs'] posix_profile: Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See `posix_profile` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
-        :param pulumi.Input[_builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
+        :param pulumi.Input[_builtins.str] server_id: Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
@@ -217,7 +217,7 @@ class _AccessState:
     @pulumi.getter(name="externalId")
     def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
+        SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
         """
         return pulumi.get(self, "external_id")
 
@@ -229,7 +229,7 @@ class _AccessState:
     @pulumi.getter(name="homeDirectory")
     def home_directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+        Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
         """
         return pulumi.get(self, "home_directory")
 
@@ -241,7 +241,7 @@ class _AccessState:
     @pulumi.getter(name="homeDirectoryMappings")
     def home_directory_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessHomeDirectoryMappingArgs']]]]:
         """
-        Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
+        Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See `home_directory_mappings` Block below.
         """
         return pulumi.get(self, "home_directory_mappings")
 
@@ -253,7 +253,7 @@ class _AccessState:
     @pulumi.getter(name="homeDirectoryType")
     def home_directory_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        Type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         """
         return pulumi.get(self, "home_directory_type")
 
@@ -265,7 +265,7 @@ class _AccessState:
     @pulumi.getter
     def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+        IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
         """
         return pulumi.get(self, "policy")
 
@@ -277,7 +277,7 @@ class _AccessState:
     @pulumi.getter(name="posixProfile")
     def posix_profile(self) -> pulumi.Input[Optional['AccessPosixProfileArgs']]:
         """
-        Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See `posix_profile` Block below.
         """
         return pulumi.get(self, "posix_profile")
 
@@ -313,7 +313,7 @@ class _AccessState:
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Server ID of the Transfer Server (e.g., `s-12345678`)
+        Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         return pulumi.get(self, "server_id")
 
@@ -386,15 +386,15 @@ class Access(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] external_id: The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
-        :param pulumi.Input[_builtins.str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessHomeDirectoryMappingArgs', 'AccessHomeDirectoryMappingArgsDict']]]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
-        :param pulumi.Input[_builtins.str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
-        :param pulumi.Input[_builtins.str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
-        :param pulumi.Input[Union['AccessPosixProfileArgs', 'AccessPosixProfileArgsDict']] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        :param pulumi.Input[_builtins.str] external_id: SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
+        :param pulumi.Input[_builtins.str] home_directory: Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessHomeDirectoryMappingArgs', 'AccessHomeDirectoryMappingArgsDict']]]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See `home_directory_mappings` Block below.
+        :param pulumi.Input[_builtins.str] home_directory_type: Type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        :param pulumi.Input[_builtins.str] policy: IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
+        :param pulumi.Input[Union['AccessPosixProfileArgs', 'AccessPosixProfileArgsDict']] posix_profile: Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See `posix_profile` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
-        :param pulumi.Input[_builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
+        :param pulumi.Input[_builtins.str] server_id: Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         ...
     @overload
@@ -520,15 +520,15 @@ class Access(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] external_id: The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
-        :param pulumi.Input[_builtins.str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessHomeDirectoryMappingArgs', 'AccessHomeDirectoryMappingArgsDict']]]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
-        :param pulumi.Input[_builtins.str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
-        :param pulumi.Input[_builtins.str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
-        :param pulumi.Input[Union['AccessPosixProfileArgs', 'AccessPosixProfileArgsDict']] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        :param pulumi.Input[_builtins.str] external_id: SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
+        :param pulumi.Input[_builtins.str] home_directory: Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessHomeDirectoryMappingArgs', 'AccessHomeDirectoryMappingArgsDict']]]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See `home_directory_mappings` Block below.
+        :param pulumi.Input[_builtins.str] home_directory_type: Type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        :param pulumi.Input[_builtins.str] policy: IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
+        :param pulumi.Input[Union['AccessPosixProfileArgs', 'AccessPosixProfileArgsDict']] posix_profile: Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See `posix_profile` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
-        :param pulumi.Input[_builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
+        :param pulumi.Input[_builtins.str] server_id: Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -549,7 +549,7 @@ class Access(pulumi.CustomResource):
     @pulumi.getter(name="externalId")
     def external_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
+        SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
         """
         return pulumi.get(self, "external_id")
 
@@ -557,7 +557,7 @@ class Access(pulumi.CustomResource):
     @pulumi.getter(name="homeDirectory")
     def home_directory(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+        Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
         """
         return pulumi.get(self, "home_directory")
 
@@ -565,7 +565,7 @@ class Access(pulumi.CustomResource):
     @pulumi.getter(name="homeDirectoryMappings")
     def home_directory_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.AccessHomeDirectoryMapping']]]:
         """
-        Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
+        Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See `home_directory_mappings` Block below.
         """
         return pulumi.get(self, "home_directory_mappings")
 
@@ -573,7 +573,7 @@ class Access(pulumi.CustomResource):
     @pulumi.getter(name="homeDirectoryType")
     def home_directory_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
+        Type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         """
         return pulumi.get(self, "home_directory_type")
 
@@ -581,7 +581,7 @@ class Access(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+        IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform's interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
         """
         return pulumi.get(self, "policy")
 
@@ -589,7 +589,7 @@ class Access(pulumi.CustomResource):
     @pulumi.getter(name="posixProfile")
     def posix_profile(self) -> pulumi.Output[Optional['outputs.AccessPosixProfile']]:
         """
-        Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See `posix_profile` Block below.
         """
         return pulumi.get(self, "posix_profile")
 
@@ -613,7 +613,7 @@ class Access(pulumi.CustomResource):
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Server ID of the Transfer Server (e.g., `s-12345678`)
+        Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         return pulumi.get(self, "server_id")
 

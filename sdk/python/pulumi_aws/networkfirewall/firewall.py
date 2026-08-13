@@ -666,7 +666,7 @@ class Firewall(pulumi.CustomResource):
 
         ### Transit Gateway Attached Firewall (Cross Account)
 
-        A full example of how to create a Transit Gateway in one AWS account, share it with a second AWS account, and create Network Firewall in the second account to the Transit Gateway via the `networkfirewall.Firewall` and `aws_networkfirewall_network_firewall_transit_gateway_attachment_accepter` resources can be found in the `./examples/network-firewall-cross-account-transit-gateway` directory within the Github Repository
+        A full example of how to create a Transit Gateway in one AWS account, share it with a second AWS account, and create Network Firewall in the second account to the Transit Gateway via the `networkfirewall.Firewall` and `networkfirewall.FirewallTransitGatewayAttachmentAccepter` resources can be found in the `./examples/network-firewall-cross-account-transit-gateway` directory within the Github Repository
 
         ## Import
 
@@ -750,7 +750,7 @@ class Firewall(pulumi.CustomResource):
 
         ### Transit Gateway Attached Firewall (Cross Account)
 
-        A full example of how to create a Transit Gateway in one AWS account, share it with a second AWS account, and create Network Firewall in the second account to the Transit Gateway via the `networkfirewall.Firewall` and `aws_networkfirewall_network_firewall_transit_gateway_attachment_accepter` resources can be found in the `./examples/network-firewall-cross-account-transit-gateway` directory within the Github Repository
+        A full example of how to create a Transit Gateway in one AWS account, share it with a second AWS account, and create Network Firewall in the second account to the Transit Gateway via the `networkfirewall.Firewall` and `networkfirewall.FirewallTransitGatewayAttachmentAccepter` resources can be found in the `./examples/network-firewall-cross-account-transit-gateway` directory within the Github Repository
 
         ## Import
 

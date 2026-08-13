@@ -76,7 +76,7 @@ type LookupConnectorResult struct {
 	ServiceManagedEgressIpAddresses []string `pulumi:"serviceManagedEgressIpAddresses"`
 	// Object containing the following attributes:
 	SftpConfigs []GetConnectorSftpConfig `pulumi:"sftpConfigs"`
-	// Object containing the following attributes:
+	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// URL of the partner's AS2 or SFTP endpoint.
 	Url string `pulumi:"url"`
@@ -166,7 +166,7 @@ func (o LookupConnectorResultOutput) SftpConfigs() GetConnectorSftpConfigArrayOu
 	return o.ApplyT(func(v LookupConnectorResult) []GetConnectorSftpConfig { return v.SftpConfigs }).(GetConnectorSftpConfigArrayOutput)
 }
 
-// Object containing the following attributes:
+// Map of tags assigned to the resource.
 func (o LookupConnectorResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectorResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

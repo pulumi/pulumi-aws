@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetManagedRuleGroupRuleActionChallenge {
+    /**
+     * @return Custom handling for the counted request. See `customRequestHandling` Block for details.
+     * 
+     */
     private List<GetManagedRuleGroupRuleActionChallengeCustomRequestHandling> customRequestHandlings;
 
     private GetManagedRuleGroupRuleActionChallenge() {}
+    /**
+     * @return Custom handling for the counted request. See `customRequestHandling` Block for details.
+     * 
+     */
     public List<GetManagedRuleGroupRuleActionChallengeCustomRequestHandling> customRequestHandlings() {
         return this.customRequestHandlings;
     }

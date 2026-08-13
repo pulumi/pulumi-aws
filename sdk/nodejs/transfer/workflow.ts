@@ -94,15 +94,15 @@ export class Workflow extends pulumi.CustomResource {
     }
 
     /**
-     * The Workflow ARN.
+     * Workflow ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A textual description for the workflow.
+     * Textual description for the workflow.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+     * Steps (actions) to take if errors are encountered during execution of the workflow. See `onExceptionSteps` Block below.
      */
     declare public readonly onExceptionSteps: pulumi.Output<outputs.transfer.WorkflowOnExceptionStep[] | undefined>;
     /**
@@ -110,15 +110,15 @@ export class Workflow extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+     * Details for the steps that are in the specified workflow. See `steps` Block below.
      */
     declare public readonly steps: pulumi.Output<outputs.transfer.WorkflowStep[]>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -165,15 +165,15 @@ export class Workflow extends pulumi.CustomResource {
  */
 export interface WorkflowState {
     /**
-     * The Workflow ARN.
+     * Workflow ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A textual description for the workflow.
+     * Textual description for the workflow.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+     * Steps (actions) to take if errors are encountered during execution of the workflow. See `onExceptionSteps` Block below.
      */
     onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStep>[] | undefined>;
     /**
@@ -181,15 +181,15 @@ export interface WorkflowState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+     * Details for the steps that are in the specified workflow. See `steps` Block below.
      */
     steps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStep>[] | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -199,11 +199,11 @@ export interface WorkflowState {
  */
 export interface WorkflowArgs {
     /**
-     * A textual description for the workflow.
+     * Textual description for the workflow.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+     * Steps (actions) to take if errors are encountered during execution of the workflow. See `onExceptionSteps` Block below.
      */
     onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStep>[] | undefined>;
     /**
@@ -211,11 +211,11 @@ export interface WorkflowArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+     * Details for the steps that are in the specified workflow. See `steps` Block below.
      */
     steps: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStep>[]>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

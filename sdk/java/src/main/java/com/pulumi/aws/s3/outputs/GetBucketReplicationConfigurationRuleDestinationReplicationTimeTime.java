@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime {
+    /**
+     * @return Time in minutes.
+     * 
+     */
     private Integer minutes;
 
     private GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime() {}
+    /**
+     * @return Time in minutes.
+     * 
+     */
     public Integer minutes() {
         return this.minutes;
     }

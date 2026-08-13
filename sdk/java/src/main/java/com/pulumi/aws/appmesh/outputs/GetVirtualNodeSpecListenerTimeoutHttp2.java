@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTimeoutHttp2 {
+    /**
+     * @return Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTimeoutHttp2Idle> idles;
+    /**
+     * @return Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTimeoutHttp2PerRequest> perRequests;
 
     private GetVirtualNodeSpecListenerTimeoutHttp2() {}
+    /**
+     * @return Idle timeout. See `spec.listener.timeout.tcp.idle` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTimeoutHttp2Idle> idles() {
         return this.idles;
     }
+    /**
+     * @return Per request timeout. See `spec.listener.timeout.http2.per_request` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTimeoutHttp2PerRequest> perRequests() {
         return this.perRequests;
     }

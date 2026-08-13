@@ -162,7 +162,7 @@ namespace Pulumi.Aws.S3Tables
         public Output<Outputs.TableMaintenanceConfiguration> MaintenanceConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `Metadata` below.
+        /// Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `Metadata` below.
         /// </summary>
         [Output("metadata")]
         public Output<Outputs.TableMetadata?> Metadata { get; private set; } = null!;
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.S3Tables
         public Input<Inputs.TableMaintenanceConfigurationArgs>? MaintenanceConfiguration { get; set; }
 
         /// <summary>
-        /// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `Metadata` below.
+        /// Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `Metadata` below.
         /// </summary>
         [Input("metadata")]
         public Input<Inputs.TableMetadataArgs>? Metadata { get; set; }
@@ -400,7 +400,7 @@ namespace Pulumi.Aws.S3Tables
         public Input<Inputs.TableMaintenanceConfigurationGetArgs>? MaintenanceConfiguration { get; set; }
 
         /// <summary>
-        /// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `Metadata` below.
+        /// Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `Metadata` below.
         /// </summary>
         [Input("metadata")]
         public Input<Inputs.TableMetadataGetArgs>? Metadata { get; set; }

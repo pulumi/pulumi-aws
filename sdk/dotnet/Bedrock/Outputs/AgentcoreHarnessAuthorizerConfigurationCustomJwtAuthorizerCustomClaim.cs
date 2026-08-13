@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim
     {
         /// <summary>
-        /// Configuration block to define the value or values to match for and the relationship of the match. See `AuthorizingClaimMatchValue` below.
+        /// Configuration block to define the value or values to match for and the relationship of the match. See `AuthorizingClaimMatchValue` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue AuthorizingClaimMatchValue;
         /// <summary>

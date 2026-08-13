@@ -18,6 +18,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch? FieldToMatch;
         /// <summary>
+        /// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `TextTransformation` is applied. Supported only when `FieldToMatch` specifies `SingleQueryArgument` or `AllQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation> PreParseTextTransformations;
+        /// <summary>
         /// Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
         /// </summary>
         public readonly string? SensitivityLevel;
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.WafV2.Outputs
         private RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement(
             Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch? fieldToMatch,
 
+            ImmutableArray<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation> preParseTextTransformations,
+
             string? sensitivityLevel,
 
             ImmutableArray<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations)
         {
             FieldToMatch = fieldToMatch;
+            PreParseTextTransformations = preParseTextTransformations;
             SensitivityLevel = sensitivityLevel;
             TextTransformations = textTransformations;
         }

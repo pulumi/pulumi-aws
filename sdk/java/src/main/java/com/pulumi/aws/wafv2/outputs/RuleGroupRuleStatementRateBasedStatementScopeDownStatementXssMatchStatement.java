@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -20,6 +21,11 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch fieldToMatch;
     /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation> preParseTextTransformations;
+    /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
      * See Text Transformation below for details.
@@ -34,6 +40,13 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
      */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
+    }
+    /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation> preParseTextTransformations() {
+        return this.preParseTextTransformations == null ? List.of() : this.preParseTextTransformations;
     }
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
@@ -55,11 +68,13 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
     @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch fieldToMatch;
+        private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation> preParseTextTransformations;
         private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation> textTransformations;
         public Builder() {}
         public Builder(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
+    	      this.preParseTextTransformations = defaults.preParseTextTransformations;
     	      this.textTransformations = defaults.textTransformations;
         }
 
@@ -68,6 +83,15 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
 
             this.fieldToMatch = fieldToMatch;
             return this;
+        }
+        @CustomType.Setter
+        public Builder preParseTextTransformations(@Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation> preParseTextTransformations) {
+
+            this.preParseTextTransformations = preParseTextTransformations;
+            return this;
+        }
+        public Builder preParseTextTransformations(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation... preParseTextTransformations) {
+            return preParseTextTransformations(List.of(preParseTextTransformations));
         }
         @CustomType.Setter
         public Builder textTransformations(List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation> textTransformations) {
@@ -83,6 +107,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement build() {
             final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement();
             _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.preParseTextTransformations = preParseTextTransformations;
             _resultValue.textTransformations = textTransformations;
             return _resultValue;
         }

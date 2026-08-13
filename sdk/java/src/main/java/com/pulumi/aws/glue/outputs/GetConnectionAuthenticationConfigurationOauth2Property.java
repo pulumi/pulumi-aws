@@ -15,29 +15,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectionAuthenticationConfigurationOauth2Property {
+    /**
+     * @return Authorization code properties. See `authorizationCodeProperties` Block for details.
+     * 
+     */
     private List<GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty> authorizationCodeProperties;
+    /**
+     * @return OAuth2 client application. See `oauth2ClientApplication` Block for details.
+     * 
+     */
     private List<GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication> oauth2ClientApplications;
+    /**
+     * @return OAuth2 credentials. See `oauth2Credentials` Block for details.
+     * 
+     */
     private List<GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential> oauth2Credentials;
+    /**
+     * @return OAuth2 grant type.
+     * 
+     */
     private String oauth2GrantType;
+    /**
+     * @return URL of the provider&#39;s authentication server used to exchange an authorization code for an access token.
+     * 
+     */
     private String tokenUrl;
+    /**
+     * @return Map of parameters to add to the token request.
+     * 
+     */
     private Map<String,String> tokenUrlParametersMap;
 
     private GetConnectionAuthenticationConfigurationOauth2Property() {}
+    /**
+     * @return Authorization code properties. See `authorizationCodeProperties` Block for details.
+     * 
+     */
     public List<GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty> authorizationCodeProperties() {
         return this.authorizationCodeProperties;
     }
+    /**
+     * @return OAuth2 client application. See `oauth2ClientApplication` Block for details.
+     * 
+     */
     public List<GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication> oauth2ClientApplications() {
         return this.oauth2ClientApplications;
     }
+    /**
+     * @return OAuth2 credentials. See `oauth2Credentials` Block for details.
+     * 
+     */
     public List<GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential> oauth2Credentials() {
         return this.oauth2Credentials;
     }
+    /**
+     * @return OAuth2 grant type.
+     * 
+     */
     public String oauth2GrantType() {
         return this.oauth2GrantType;
     }
+    /**
+     * @return URL of the provider&#39;s authentication server used to exchange an authorization code for an access token.
+     * 
+     */
     public String tokenUrl() {
         return this.tokenUrl;
     }
+    /**
+     * @return Map of parameters to add to the token request.
+     * 
+     */
     public Map<String,String> tokenUrlParametersMap() {
         return this.tokenUrlParametersMap;
     }

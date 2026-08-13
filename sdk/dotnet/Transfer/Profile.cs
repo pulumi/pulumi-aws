@@ -49,31 +49,31 @@ namespace Pulumi.Aws.Transfer
     public partial class Profile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the profile.
+        /// ARN of the profile.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+        /// AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
         /// </summary>
         [Output("as2Id")]
         public Output<string> As2Id { get; private set; } = null!;
 
         /// <summary>
-        /// The list of certificate Ids from the imported certificate operation.
+        /// List of certificate IDs from the imported certificate operation.
         /// </summary>
         [Output("certificateIds")]
         public Output<ImmutableArray<string>> CertificateIds { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the AS2 profile.
+        /// Unique identifier for the AS2 profile.
         /// </summary>
         [Output("profileId")]
         public Output<string> ProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// The profile type should be LOCAL or PARTNER.
+        /// Profile type. Valid values are `LOCAL` or `PARTNER`.
         /// </summary>
         [Output("profileType")]
         public Output<string> ProfileType { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Transfer
     public sealed class ProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+        /// AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
         /// </summary>
         [Input("as2Id", required: true)]
         public Input<string> As2Id { get; set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<string>? _certificateIds;
 
         /// <summary>
-        /// The list of certificate Ids from the imported certificate operation.
+        /// List of certificate IDs from the imported certificate operation.
         /// </summary>
         public InputList<string> CertificateIds
         {
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The profile type should be LOCAL or PARTNER.
+        /// Profile type. Valid values are `LOCAL` or `PARTNER`.
         /// </summary>
         [Input("profileType", required: true)]
         public Input<string> ProfileType { get; set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -190,13 +190,13 @@ namespace Pulumi.Aws.Transfer
     public sealed class ProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the profile.
+        /// ARN of the profile.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+        /// AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
         /// </summary>
         [Input("as2Id")]
         public Input<string>? As2Id { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<string>? _certificateIds;
 
         /// <summary>
-        /// The list of certificate Ids from the imported certificate operation.
+        /// List of certificate IDs from the imported certificate operation.
         /// </summary>
         public InputList<string> CertificateIds
         {
@@ -214,13 +214,13 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The unique identifier for the AS2 profile.
+        /// Unique identifier for the AS2 profile.
         /// </summary>
         [Input("profileId")]
         public Input<string>? ProfileId { get; set; }
 
         /// <summary>
-        /// The profile type should be LOCAL or PARTNER.
+        /// Profile type. Valid values are `LOCAL` or `PARTNER`.
         /// </summary>
         [Input("profileType")]
         public Input<string>? ProfileType { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Transfer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

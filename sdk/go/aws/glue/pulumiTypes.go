@@ -17567,12 +17567,18 @@ func (o GetCatalogTargetRedshiftCatalogArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetConnectionAuthenticationConfiguration struct {
-	AuthenticationType              string                                                                  `pulumi:"authenticationType"`
-	BasicAuthenticationCredentials  []GetConnectionAuthenticationConfigurationBasicAuthenticationCredential `pulumi:"basicAuthenticationCredentials"`
-	CustomAuthenticationCredentials map[string]string                                                       `pulumi:"customAuthenticationCredentials"`
-	KmsKeyArn                       string                                                                  `pulumi:"kmsKeyArn"`
-	Oauth2Properties                []GetConnectionAuthenticationConfigurationOauth2Property                `pulumi:"oauth2Properties"`
-	SecretArn                       string                                                                  `pulumi:"secretArn"`
+	// Type of authentication used for the connection.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// Basic authentication credentials. See `basicAuthenticationCredentials` Block for details.
+	BasicAuthenticationCredentials []GetConnectionAuthenticationConfigurationBasicAuthenticationCredential `pulumi:"basicAuthenticationCredentials"`
+	// Map of credentials used when the authentication type is custom authentication.
+	CustomAuthenticationCredentials map[string]string `pulumi:"customAuthenticationCredentials"`
+	// ARN of the KMS key used to encrypt the connection.
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+	// OAuth2 properties. See `oauth2Properties` Block for details.
+	Oauth2Properties []GetConnectionAuthenticationConfigurationOauth2Property `pulumi:"oauth2Properties"`
+	// ARN of the secret used for authentication.
+	SecretArn string `pulumi:"secretArn"`
 }
 
 // GetConnectionAuthenticationConfigurationInput is an input type that accepts GetConnectionAuthenticationConfigurationArgs and GetConnectionAuthenticationConfigurationOutput values.
@@ -17587,12 +17593,18 @@ type GetConnectionAuthenticationConfigurationInput interface {
 }
 
 type GetConnectionAuthenticationConfigurationArgs struct {
-	AuthenticationType              pulumi.StringInput                                                              `pulumi:"authenticationType"`
-	BasicAuthenticationCredentials  GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayInput `pulumi:"basicAuthenticationCredentials"`
-	CustomAuthenticationCredentials pulumi.StringMapInput                                                           `pulumi:"customAuthenticationCredentials"`
-	KmsKeyArn                       pulumi.StringInput                                                              `pulumi:"kmsKeyArn"`
-	Oauth2Properties                GetConnectionAuthenticationConfigurationOauth2PropertyArrayInput                `pulumi:"oauth2Properties"`
-	SecretArn                       pulumi.StringInput                                                              `pulumi:"secretArn"`
+	// Type of authentication used for the connection.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Basic authentication credentials. See `basicAuthenticationCredentials` Block for details.
+	BasicAuthenticationCredentials GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayInput `pulumi:"basicAuthenticationCredentials"`
+	// Map of credentials used when the authentication type is custom authentication.
+	CustomAuthenticationCredentials pulumi.StringMapInput `pulumi:"customAuthenticationCredentials"`
+	// ARN of the KMS key used to encrypt the connection.
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+	// OAuth2 properties. See `oauth2Properties` Block for details.
+	Oauth2Properties GetConnectionAuthenticationConfigurationOauth2PropertyArrayInput `pulumi:"oauth2Properties"`
+	// ARN of the secret used for authentication.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
 }
 
 func (GetConnectionAuthenticationConfigurationArgs) ElementType() reflect.Type {
@@ -17646,32 +17658,38 @@ func (o GetConnectionAuthenticationConfigurationOutput) ToGetConnectionAuthentic
 	return o
 }
 
+// Type of authentication used for the connection.
 func (o GetConnectionAuthenticationConfigurationOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfiguration) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
+// Basic authentication credentials. See `basicAuthenticationCredentials` Block for details.
 func (o GetConnectionAuthenticationConfigurationOutput) BasicAuthenticationCredentials() GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfiguration) []GetConnectionAuthenticationConfigurationBasicAuthenticationCredential {
 		return v.BasicAuthenticationCredentials
 	}).(GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArrayOutput)
 }
 
+// Map of credentials used when the authentication type is custom authentication.
 func (o GetConnectionAuthenticationConfigurationOutput) CustomAuthenticationCredentials() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfiguration) map[string]string {
 		return v.CustomAuthenticationCredentials
 	}).(pulumi.StringMapOutput)
 }
 
+// ARN of the KMS key used to encrypt the connection.
 func (o GetConnectionAuthenticationConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
+// OAuth2 properties. See `oauth2Properties` Block for details.
 func (o GetConnectionAuthenticationConfigurationOutput) Oauth2Properties() GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfiguration) []GetConnectionAuthenticationConfigurationOauth2Property {
 		return v.Oauth2Properties
 	}).(GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput)
 }
 
+// ARN of the secret used for authentication.
 func (o GetConnectionAuthenticationConfigurationOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
 }
@@ -17697,7 +17715,9 @@ func (o GetConnectionAuthenticationConfigurationArrayOutput) Index(i pulumi.IntI
 }
 
 type GetConnectionAuthenticationConfigurationBasicAuthenticationCredential struct {
+	// Password used for basic authentication.
 	Password string `pulumi:"password"`
+	// Username used for basic authentication.
 	Username string `pulumi:"username"`
 }
 
@@ -17713,7 +17733,9 @@ type GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialInput 
 }
 
 type GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArgs struct {
+	// Password used for basic authentication.
 	Password pulumi.StringInput `pulumi:"password"`
+	// Username used for basic authentication.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -17768,12 +17790,14 @@ func (o GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOut
 	return o
 }
 
+// Password used for basic authentication.
 func (o GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationBasicAuthenticationCredential) string {
 		return v.Password
 	}).(pulumi.StringOutput)
 }
 
+// Username used for basic authentication.
 func (o GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationBasicAuthenticationCredential) string {
 		return v.Username
@@ -17801,12 +17825,18 @@ func (o GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArr
 }
 
 type GetConnectionAuthenticationConfigurationOauth2Property struct {
+	// Authorization code properties. See `authorizationCodeProperties` Block for details.
 	AuthorizationCodeProperties []GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty `pulumi:"authorizationCodeProperties"`
-	Oauth2ClientApplications    []GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication   `pulumi:"oauth2ClientApplications"`
-	Oauth2Credentials           []GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential          `pulumi:"oauth2Credentials"`
-	Oauth2GrantType             string                                                                            `pulumi:"oauth2GrantType"`
-	TokenUrl                    string                                                                            `pulumi:"tokenUrl"`
-	TokenUrlParametersMap       map[string]string                                                                 `pulumi:"tokenUrlParametersMap"`
+	// OAuth2 client application. See `oauth2ClientApplication` Block for details.
+	Oauth2ClientApplications []GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication `pulumi:"oauth2ClientApplications"`
+	// OAuth2 credentials. See `oauth2Credentials` Block for details.
+	Oauth2Credentials []GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential `pulumi:"oauth2Credentials"`
+	// OAuth2 grant type.
+	Oauth2GrantType string `pulumi:"oauth2GrantType"`
+	// URL of the provider's authentication server used to exchange an authorization code for an access token.
+	TokenUrl string `pulumi:"tokenUrl"`
+	// Map of parameters to add to the token request.
+	TokenUrlParametersMap map[string]string `pulumi:"tokenUrlParametersMap"`
 }
 
 // GetConnectionAuthenticationConfigurationOauth2PropertyInput is an input type that accepts GetConnectionAuthenticationConfigurationOauth2PropertyArgs and GetConnectionAuthenticationConfigurationOauth2PropertyOutput values.
@@ -17821,12 +17851,18 @@ type GetConnectionAuthenticationConfigurationOauth2PropertyInput interface {
 }
 
 type GetConnectionAuthenticationConfigurationOauth2PropertyArgs struct {
+	// Authorization code properties. See `authorizationCodeProperties` Block for details.
 	AuthorizationCodeProperties GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayInput `pulumi:"authorizationCodeProperties"`
-	Oauth2ClientApplications    GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayInput   `pulumi:"oauth2ClientApplications"`
-	Oauth2Credentials           GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayInput          `pulumi:"oauth2Credentials"`
-	Oauth2GrantType             pulumi.StringInput                                                                        `pulumi:"oauth2GrantType"`
-	TokenUrl                    pulumi.StringInput                                                                        `pulumi:"tokenUrl"`
-	TokenUrlParametersMap       pulumi.StringMapInput                                                                     `pulumi:"tokenUrlParametersMap"`
+	// OAuth2 client application. See `oauth2ClientApplication` Block for details.
+	Oauth2ClientApplications GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayInput `pulumi:"oauth2ClientApplications"`
+	// OAuth2 credentials. See `oauth2Credentials` Block for details.
+	Oauth2Credentials GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayInput `pulumi:"oauth2Credentials"`
+	// OAuth2 grant type.
+	Oauth2GrantType pulumi.StringInput `pulumi:"oauth2GrantType"`
+	// URL of the provider's authentication server used to exchange an authorization code for an access token.
+	TokenUrl pulumi.StringInput `pulumi:"tokenUrl"`
+	// Map of parameters to add to the token request.
+	TokenUrlParametersMap pulumi.StringMapInput `pulumi:"tokenUrlParametersMap"`
 }
 
 func (GetConnectionAuthenticationConfigurationOauth2PropertyArgs) ElementType() reflect.Type {
@@ -17880,32 +17916,38 @@ func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) ToGetConne
 	return o
 }
 
+// Authorization code properties. See `authorizationCodeProperties` Block for details.
 func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) AuthorizationCodeProperties() GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2Property) []GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty {
 		return v.AuthorizationCodeProperties
 	}).(GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArrayOutput)
 }
 
+// OAuth2 client application. See `oauth2ClientApplication` Block for details.
 func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) Oauth2ClientApplications() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2Property) []GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication {
 		return v.Oauth2ClientApplications
 	}).(GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArrayOutput)
 }
 
+// OAuth2 credentials. See `oauth2Credentials` Block for details.
 func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) Oauth2Credentials() GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2Property) []GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential {
 		return v.Oauth2Credentials
 	}).(GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArrayOutput)
 }
 
+// OAuth2 grant type.
 func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) Oauth2GrantType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2Property) string { return v.Oauth2GrantType }).(pulumi.StringOutput)
 }
 
+// URL of the provider's authentication server used to exchange an authorization code for an access token.
 func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) TokenUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2Property) string { return v.TokenUrl }).(pulumi.StringOutput)
 }
 
+// Map of parameters to add to the token request.
 func (o GetConnectionAuthenticationConfigurationOauth2PropertyOutput) TokenUrlParametersMap() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2Property) map[string]string {
 		return v.TokenUrlParametersMap
@@ -17933,8 +17975,10 @@ func (o GetConnectionAuthenticationConfigurationOauth2PropertyArrayOutput) Index
 }
 
 type GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty struct {
+	// Authorization code used to obtain an access token.
 	AuthorizationCode string `pulumi:"authorizationCode"`
-	RedirectUri       string `pulumi:"redirectUri"`
+	// Redirect URI used in the authorization code request.
+	RedirectUri string `pulumi:"redirectUri"`
 }
 
 // GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyInput is an input type that accepts GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArgs and GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput values.
@@ -17949,8 +17993,10 @@ type GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProp
 }
 
 type GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArgs struct {
+	// Authorization code used to obtain an access token.
 	AuthorizationCode pulumi.StringInput `pulumi:"authorizationCode"`
-	RedirectUri       pulumi.StringInput `pulumi:"redirectUri"`
+	// Redirect URI used in the authorization code request.
+	RedirectUri pulumi.StringInput `pulumi:"redirectUri"`
 }
 
 func (GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArgs) ElementType() reflect.Type {
@@ -18004,12 +18050,14 @@ func (o GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeP
 	return o
 }
 
+// Authorization code used to obtain an access token.
 func (o GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput) AuthorizationCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty) string {
 		return v.AuthorizationCode
 	}).(pulumi.StringOutput)
 }
 
+// Redirect URI used in the authorization code request.
 func (o GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyOutput) RedirectUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty) string {
 		return v.RedirectUri
@@ -18037,7 +18085,9 @@ func (o GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeP
 }
 
 type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication struct {
+	// Reference to the AWS managed client application.
 	AwsManagedClientApplicationReference string `pulumi:"awsManagedClientApplicationReference"`
+	// Client ID of the user-managed client application.
 	UserManagedClientApplicationClientId string `pulumi:"userManagedClientApplicationClientId"`
 }
 
@@ -18053,7 +18103,9 @@ type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicati
 }
 
 type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArgs struct {
+	// Reference to the AWS managed client application.
 	AwsManagedClientApplicationReference pulumi.StringInput `pulumi:"awsManagedClientApplicationReference"`
+	// Client ID of the user-managed client application.
 	UserManagedClientApplicationClientId pulumi.StringInput `pulumi:"userManagedClientApplicationClientId"`
 }
 
@@ -18108,12 +18160,14 @@ func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplic
 	return o
 }
 
+// Reference to the AWS managed client application.
 func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput) AwsManagedClientApplicationReference() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication) string {
 		return v.AwsManagedClientApplicationReference
 	}).(pulumi.StringOutput)
 }
 
+// Client ID of the user-managed client application.
 func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationOutput) UserManagedClientApplicationClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplication) string {
 		return v.UserManagedClientApplicationClientId
@@ -18141,9 +18195,13 @@ func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplic
 }
 
 type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential struct {
-	AccessToken                              string `pulumi:"accessToken"`
-	JwtToken                                 string `pulumi:"jwtToken"`
-	RefreshToken                             string `pulumi:"refreshToken"`
+	// Access token used for OAuth2 authentication.
+	AccessToken string `pulumi:"accessToken"`
+	// JWT token used for OAuth2 authentication.
+	JwtToken string `pulumi:"jwtToken"`
+	// Refresh token used for OAuth2 authentication.
+	RefreshToken string `pulumi:"refreshToken"`
+	// Client secret of the user-managed client application.
 	UserManagedClientApplicationClientSecret string `pulumi:"userManagedClientApplicationClientSecret"`
 }
 
@@ -18159,9 +18217,13 @@ type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialInput
 }
 
 type GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArgs struct {
-	AccessToken                              pulumi.StringInput `pulumi:"accessToken"`
-	JwtToken                                 pulumi.StringInput `pulumi:"jwtToken"`
-	RefreshToken                             pulumi.StringInput `pulumi:"refreshToken"`
+	// Access token used for OAuth2 authentication.
+	AccessToken pulumi.StringInput `pulumi:"accessToken"`
+	// JWT token used for OAuth2 authentication.
+	JwtToken pulumi.StringInput `pulumi:"jwtToken"`
+	// Refresh token used for OAuth2 authentication.
+	RefreshToken pulumi.StringInput `pulumi:"refreshToken"`
+	// Client secret of the user-managed client application.
 	UserManagedClientApplicationClientSecret pulumi.StringInput `pulumi:"userManagedClientApplicationClientSecret"`
 }
 
@@ -18216,24 +18278,28 @@ func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOu
 	return o
 }
 
+// Access token used for OAuth2 authentication.
 func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput) AccessToken() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential) string {
 		return v.AccessToken
 	}).(pulumi.StringOutput)
 }
 
+// JWT token used for OAuth2 authentication.
 func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput) JwtToken() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential) string {
 		return v.JwtToken
 	}).(pulumi.StringOutput)
 }
 
+// Refresh token used for OAuth2 authentication.
 func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput) RefreshToken() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential) string {
 		return v.RefreshToken
 	}).(pulumi.StringOutput)
 }
 
+// Client secret of the user-managed client application.
 func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialOutput) UserManagedClientApplicationClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionAuthenticationConfigurationOauth2PropertyOauth2Credential) string {
 		return v.UserManagedClientApplicationClientSecret
@@ -18261,9 +18327,12 @@ func (o GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialAr
 }
 
 type GetConnectionPhysicalConnectionRequirement struct {
-	AvailabilityZone     string   `pulumi:"availabilityZone"`
+	// Availability Zone used by the connection.
+	AvailabilityZone string `pulumi:"availabilityZone"`
+	// List of security group IDs used by the connection.
 	SecurityGroupIdLists []string `pulumi:"securityGroupIdLists"`
-	SubnetId             string   `pulumi:"subnetId"`
+	// Subnet ID used by the connection.
+	SubnetId string `pulumi:"subnetId"`
 }
 
 // GetConnectionPhysicalConnectionRequirementInput is an input type that accepts GetConnectionPhysicalConnectionRequirementArgs and GetConnectionPhysicalConnectionRequirementOutput values.
@@ -18278,9 +18347,12 @@ type GetConnectionPhysicalConnectionRequirementInput interface {
 }
 
 type GetConnectionPhysicalConnectionRequirementArgs struct {
-	AvailabilityZone     pulumi.StringInput      `pulumi:"availabilityZone"`
+	// Availability Zone used by the connection.
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	// List of security group IDs used by the connection.
 	SecurityGroupIdLists pulumi.StringArrayInput `pulumi:"securityGroupIdLists"`
-	SubnetId             pulumi.StringInput      `pulumi:"subnetId"`
+	// Subnet ID used by the connection.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
 func (GetConnectionPhysicalConnectionRequirementArgs) ElementType() reflect.Type {
@@ -18334,14 +18406,17 @@ func (o GetConnectionPhysicalConnectionRequirementOutput) ToGetConnectionPhysica
 	return o
 }
 
+// Availability Zone used by the connection.
 func (o GetConnectionPhysicalConnectionRequirementOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionPhysicalConnectionRequirement) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
+// List of security group IDs used by the connection.
 func (o GetConnectionPhysicalConnectionRequirementOutput) SecurityGroupIdLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetConnectionPhysicalConnectionRequirement) []string { return v.SecurityGroupIdLists }).(pulumi.StringArrayOutput)
 }
 
+// Subnet ID used by the connection.
 func (o GetConnectionPhysicalConnectionRequirementOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionPhysicalConnectionRequirement) string { return v.SubnetId }).(pulumi.StringOutput)
 }

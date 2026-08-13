@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<string>? _accounts;
 
         /// <summary>
-        /// Specifies the list of accounts a report covers.
+        /// List of accounts a report covers.
         /// </summary>
         public InputList<string> Accounts
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<string>? _frameworkArns;
 
         /// <summary>
-        /// Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+        /// Amazon Resource Names (ARNs) of the frameworks a report covers.
         /// </summary>
         public InputList<string> FrameworkArns
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Backup.Inputs
         }
 
         /// <summary>
-        /// Specifies the number of frameworks a report covers.
+        /// Number of frameworks a report covers.
         /// </summary>
         [Input("numberOfFrameworks")]
         public Input<int>? NumberOfFrameworks { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<string>? _organizationUnits;
 
         /// <summary>
-        /// Specifies the list of Organizational Units a report covers.
+        /// List of Organizational Units a report covers.
         /// </summary>
         public InputList<string> OrganizationUnits
         {
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Backup.Inputs
         private InputList<string>? _regions;
 
         /// <summary>
-        /// Specifies the list of regions a report covers.
+        /// List of regions a report covers.
         /// </summary>
         public InputList<string> Regions
         {
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Backup.Inputs
         }
 
         /// <summary>
-        /// Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+        /// Report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
         /// </summary>
         [Input("reportTemplate", required: true)]
         public Input<string> ReportTemplate { get; set; } = null!;

@@ -95,7 +95,7 @@ export interface GetTaskDefinitionResult {
      */
     readonly enableFaultInjection: boolean;
     /**
-     * Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     * Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See `ephemeralStorage` Block.
      */
     readonly ephemeralStorages: outputs.ecs.GetTaskDefinitionEphemeralStorage[];
     /**
@@ -128,11 +128,11 @@ export interface GetTaskDefinitionResult {
      */
     readonly pidMode: string;
     /**
-     * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
+     * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. See `placementConstraints` Block.
      */
     readonly placementConstraints: outputs.ecs.GetTaskDefinitionPlacementConstraint[];
     /**
-     * Configuration block for the App Mesh proxy. Detailed below.
+     * Configuration block for the App Mesh proxy. See `proxyConfiguration` Block.
      */
     readonly proxyConfigurations: outputs.ecs.GetTaskDefinitionProxyConfiguration[];
     readonly region: string;
@@ -158,7 +158,7 @@ export interface GetTaskDefinitionResult {
      */
     readonly taskRoleArn: string;
     /**
-     * Attributes corresponding to the `volume` argument of the `aws.ecs.TaskDefinition` resource.
+     * Configuration block for volumes that containers in your task may use. See `volume` Block for details.
      */
     readonly volumes: outputs.ecs.GetTaskDefinitionVolume[];
 }

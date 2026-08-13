@@ -21,6 +21,10 @@ public final class GetGroupMixedInstancesPolicyInstancesDistribution {
      * 
      */
     private Integer onDemandBaseCapacity;
+    /**
+     * @return Percentages of On-Demand Instances and Spot Instances for your additional capacity beyond `onDemandBaseCapacity`.
+     * 
+     */
     private Integer onDemandPercentageAboveBaseCapacity;
     /**
      * @return Strategy used when launching Spot instances.
@@ -53,6 +57,10 @@ public final class GetGroupMixedInstancesPolicyInstancesDistribution {
     public Integer onDemandBaseCapacity() {
         return this.onDemandBaseCapacity;
     }
+    /**
+     * @return Percentages of On-Demand Instances and Spot Instances for your additional capacity beyond `onDemandBaseCapacity`.
+     * 
+     */
     public Integer onDemandPercentageAboveBaseCapacity() {
         return this.onDemandPercentageAboveBaseCapacity;
     }

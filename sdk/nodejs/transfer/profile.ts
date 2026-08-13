@@ -59,23 +59,23 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the profile.
+     * ARN of the profile.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+     * AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
      */
     declare public readonly as2Id: pulumi.Output<string>;
     /**
-     * The list of certificate Ids from the imported certificate operation.
+     * List of certificate IDs from the imported certificate operation.
      */
     declare public readonly certificateIds: pulumi.Output<string[] | undefined>;
     /**
-     * The unique identifier for the AS2 profile.
+     * Unique identifier for the AS2 profile.
      */
     declare public /*out*/ readonly profileId: pulumi.Output<string>;
     /**
-     * The profile type should be LOCAL or PARTNER.
+     * Profile type. Valid values are `LOCAL` or `PARTNER`.
      */
     declare public readonly profileType: pulumi.Output<string>;
     /**
@@ -83,7 +83,7 @@ export class Profile extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
@@ -136,23 +136,23 @@ export class Profile extends pulumi.CustomResource {
  */
 export interface ProfileState {
     /**
-     * The ARN of the profile.
+     * ARN of the profile.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+     * AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
      */
     as2Id?: pulumi.Input<string | undefined>;
     /**
-     * The list of certificate Ids from the imported certificate operation.
+     * List of certificate IDs from the imported certificate operation.
      */
     certificateIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The unique identifier for the AS2 profile.
+     * Unique identifier for the AS2 profile.
      */
     profileId?: pulumi.Input<string | undefined>;
     /**
-     * The profile type should be LOCAL or PARTNER.
+     * Profile type. Valid values are `LOCAL` or `PARTNER`.
      */
     profileType?: pulumi.Input<string | undefined>;
     /**
@@ -160,7 +160,7 @@ export interface ProfileState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
@@ -171,15 +171,15 @@ export interface ProfileState {
  */
 export interface ProfileArgs {
     /**
-     * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
+     * AS2 name as defined in RFC 4130. For inbound transfers this is the AS2 From Header for the AS2 messages sent from the partner. For outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. This ID cannot include spaces.
      */
     as2Id: pulumi.Input<string>;
     /**
-     * The list of certificate Ids from the imported certificate operation.
+     * List of certificate IDs from the imported certificate operation.
      */
     certificateIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The profile type should be LOCAL or PARTNER.
+     * Profile type. Valid values are `LOCAL` or `PARTNER`.
      */
     profileType: pulumi.Input<string>;
     /**
@@ -187,7 +187,7 @@ export interface ProfileArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

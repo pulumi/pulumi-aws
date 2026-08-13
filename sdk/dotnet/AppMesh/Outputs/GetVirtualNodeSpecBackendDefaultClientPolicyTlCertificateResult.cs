@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult
     {
+        /// <summary>
+        /// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult> Files;
+        /// <summary>
+        /// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult> Sds;
 
         [OutputConstructor]

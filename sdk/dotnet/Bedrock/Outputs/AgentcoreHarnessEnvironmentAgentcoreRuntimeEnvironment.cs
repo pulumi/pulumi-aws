@@ -17,15 +17,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
         public readonly string AgentRuntimeId;
         public readonly string AgentRuntimeName;
         /// <summary>
-        /// Filesystem configurations. See `FilesystemConfiguration` below.
+        /// Filesystem configurations. See `FilesystemConfiguration` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration> FilesystemConfigurations;
         /// <summary>
-        /// Lifecycle configuration. See `LifecycleConfiguration` below.
+        /// Lifecycle configuration. See `LifecycleConfiguration` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration> LifecycleConfigurations;
         /// <summary>
-        /// Network configuration. See `NetworkConfiguration` below.
+        /// Network configuration. See `NetworkConfiguration` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration> NetworkConfigurations;
 

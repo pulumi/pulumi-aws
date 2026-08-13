@@ -94,9 +94,13 @@ export class Route extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+     * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
      */
-    declare public readonly targetVpcSubnetId: pulumi.Output<string>;
+    declare public readonly targetVpcSubnetId: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the Transit Gateway attachment, if the route targets a Transit Gateway-based Client VPN endpoint.
+     */
+    declare public /*out*/ readonly transitGatewayAttachmentId: pulumi.Output<string>;
     /**
      * The type of the route.
      */
@@ -121,6 +125,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["origin"] = state?.origin;
             resourceInputs["region"] = state?.region;
             resourceInputs["targetVpcSubnetId"] = state?.targetVpcSubnetId;
+            resourceInputs["transitGatewayAttachmentId"] = state?.transitGatewayAttachmentId;
             resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as RouteArgs | undefined;
@@ -130,15 +135,13 @@ export class Route extends pulumi.CustomResource {
             if (args?.destinationCidrBlock === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationCidrBlock'");
             }
-            if (args?.targetVpcSubnetId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'targetVpcSubnetId'");
-            }
             resourceInputs["clientVpnEndpointId"] = args?.clientVpnEndpointId;
             resourceInputs["description"] = args?.description;
             resourceInputs["destinationCidrBlock"] = args?.destinationCidrBlock;
             resourceInputs["region"] = args?.region;
             resourceInputs["targetVpcSubnetId"] = args?.targetVpcSubnetId;
             resourceInputs["origin"] = undefined /*out*/;
+            resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -171,9 +174,13 @@ export interface RouteState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+     * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
      */
     targetVpcSubnetId?: pulumi.Input<string | undefined>;
+    /**
+     * The ID of the Transit Gateway attachment, if the route targets a Transit Gateway-based Client VPN endpoint.
+     */
+    transitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * The type of the route.
      */
@@ -201,7 +208,7 @@ export interface RouteArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+     * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
      */
-    targetVpcSubnetId: pulumi.Input<string>;
+    targetVpcSubnetId?: pulumi.Input<string | undefined>;
 }

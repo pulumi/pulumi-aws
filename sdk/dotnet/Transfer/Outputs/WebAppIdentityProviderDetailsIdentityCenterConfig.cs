@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Transfer.Outputs
     [OutputType]
     public sealed class WebAppIdentityProviderDetailsIdentityCenterConfig
     {
+        /// <summary>
+        /// ARN of the IAM Identity Center application created for the web app.
+        /// </summary>
         public readonly string? ApplicationArn;
         /// <summary>
         /// ARN of the IAM Identity Center used for the web app.

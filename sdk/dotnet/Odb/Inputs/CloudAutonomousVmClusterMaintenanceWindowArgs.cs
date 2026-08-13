@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Odb.Inputs
         private InputList<Inputs.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs>? _daysOfWeeks;
 
         /// <summary>
-        /// Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+        /// Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `DaysOfWeek` Block below.
         /// </summary>
         public InputList<Inputs.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs> DaysOfWeeks
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Odb.Inputs
         private InputList<Inputs.CloudAutonomousVmClusterMaintenanceWindowMonthArgs>? _months;
 
         /// <summary>
-        /// Months when maintenance can be performed. Changing this will force terraform to create new resource.
+        /// Months when maintenance can be performed. Changing this will force terraform to create new resource. See `Months` Block below.
         /// </summary>
         public InputList<Inputs.CloudAutonomousVmClusterMaintenanceWindowMonthArgs> Months
         {

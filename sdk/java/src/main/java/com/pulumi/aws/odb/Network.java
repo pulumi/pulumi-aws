@@ -26,6 +26,84 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Disabled S3 and Zero-ETL Access
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.odb.Network;
+ * import com.pulumi.aws.odb.NetworkArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Network("example", NetworkArgs.builder()
+ *             .displayName("odb-my-net")
+ *             .availabilityZoneId("use1-az6")
+ *             .clientSubnetCidr("10.2.0.0/24")
+ *             .backupSubnetCidr("10.2.1.0/24")
+ *             .s3Access("DISABLED")
+ *             .zeroEtlAccess("DISABLED")
+ *             .tags(Map.of("env", "dev"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Enabled S3 and Zero-ETL Access
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.odb.Network;
+ * import com.pulumi.aws.odb.NetworkArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Network("example", NetworkArgs.builder()
+ *             .displayName("odb-my-net")
+ *             .availabilityZoneId("use1-az6")
+ *             .clientSubnetCidr("10.2.0.0/24")
+ *             .backupSubnetCidr("10.2.1.0/24")
+ *             .s3Access("ENABLED")
+ *             .zeroEtlAccess("ENABLED")
+ *             .tags(Map.of("env", "dev"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Odb Network using the `id`. For example:
@@ -52,14 +130,14 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * @return Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
      * 
      */
     public Output<String> availabilityZone() {
@@ -136,14 +214,14 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.crossRegionS3RestoreSourcesAccesses;
     }
     /**
-     * Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
+     * Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can&#39;t be given. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="customDomainName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customDomainName;
 
     /**
-     * @return Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
+     * @return Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can&#39;t be given. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Optional<String>> customDomainName() {
@@ -234,28 +312,28 @@ public class Network extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsPolicyDocument);
     }
     /**
-     * Managed services configuration for the ODB network.
+     * Managed services configuration for the ODB network. See `managedServices` Block below.
      * 
      */
     @Export(name="managedServices", refs={List.class,NetworkManagedService.class}, tree="[0,1]")
     private Output<List<NetworkManagedService>> managedServices;
 
     /**
-     * @return Managed services configuration for the ODB network.
+     * @return Managed services configuration for the ODB network. See `managedServices` Block below.
      * 
      */
     public Output<List<NetworkManagedService>> managedServices() {
         return this.managedServices;
     }
     /**
-     * Number of storage servers requested for the Exadata infrastructure.
+     * DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `ociDnsForwardingConfigs` Block below.
      * 
      */
     @Export(name="ociDnsForwardingConfigs", refs={List.class,NetworkOciDnsForwardingConfig.class}, tree="[0,1]")
     private Output<List<NetworkOciDnsForwardingConfig>> ociDnsForwardingConfigs;
 
     /**
-     * @return Number of storage servers requested for the Exadata infrastructure.
+     * @return DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `ociDnsForwardingConfigs` Block below.
      * 
      */
     public Output<List<NetworkOciDnsForwardingConfig>> ociDnsForwardingConfigs() {
@@ -332,14 +410,14 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.ociVcnUrl;
     }
     /**
-     * List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+     * List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
      * 
      */
     @Export(name="peeredCidrs", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> peeredCidrs;
 
     /**
-     * @return List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+     * @return List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
      * 
      */
     public Output<List<String>> peeredCidrs() {
@@ -402,14 +480,14 @@ public class Network extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.s3PolicyDocument);
     }
     /**
-     * Status of the network resource.
+     * Status of the Zero-ETL access.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return Status of the network resource.
+     * @return Status of the Zero-ETL access.
      * 
      */
     public Output<String> status() {

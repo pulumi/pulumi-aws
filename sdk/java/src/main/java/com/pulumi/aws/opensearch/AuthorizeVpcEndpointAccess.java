@@ -85,14 +85,14 @@ public class AuthorizeVpcEndpointAccess extends com.pulumi.resources.CustomResou
         return this.account;
     }
     /**
-     * Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+     * Information about the Amazon Web Services account or service that was provided access to the domain. See `authorizedPrincipal` Block for further details.
      * 
      */
     @Export(name="authorizedPrincipals", refs={List.class,AuthorizeVpcEndpointAccessAuthorizedPrincipal.class}, tree="[0,1]")
     private Output<List<AuthorizeVpcEndpointAccessAuthorizedPrincipal>> authorizedPrincipals;
 
     /**
-     * @return Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+     * @return Information about the Amazon Web Services account or service that was provided access to the domain. See `authorizedPrincipal` Block for further details.
      * 
      */
     public Output<List<AuthorizeVpcEndpointAccessAuthorizedPrincipal>> authorizedPrincipals() {

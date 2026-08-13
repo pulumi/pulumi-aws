@@ -196,6 +196,51 @@ namespace Pulumi.Aws.Bedrock
     /// });
     /// ```
     /// 
+    /// ### With Managed Memory
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentcoreHarness("example", new()
+    ///     {
+    ///         HarnessName = "my_harness",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         Model = new Aws.Bedrock.Inputs.AgentcoreHarnessModelArgs
+    ///         {
+    ///             BedrockModelConfig = new Aws.Bedrock.Inputs.AgentcoreHarnessModelBedrockModelConfigArgs
+    ///             {
+    ///                 ModelId = "anthropic.claude-sonnet-4-20250514",
+    ///             },
+    ///         },
+    ///         SystemPrompts = new[]
+    ///         {
+    ///             new Aws.Bedrock.Inputs.AgentcoreHarnessSystemPromptArgs
+    ///             {
+    ///                 Text = "You are a helpful assistant.",
+    ///             },
+    ///         },
+    ///         Memory = new Aws.Bedrock.Inputs.AgentcoreHarnessMemoryArgs
+    ///         {
+    ///             ManagedMemoryConfiguration = new Aws.Bedrock.Inputs.AgentcoreHarnessMemoryManagedMemoryConfigurationArgs
+    ///             {
+    ///                 EventExpiryDuration = 14,
+    ///                 Strategies = new[]
+    ///                 {
+    ///                     "SEMANTIC",
+    ///                     "SUMMARIZATION",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ### Identity Schema
@@ -231,13 +276,13 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Authorization configuration for authenticating requests. See `AuthorizerConfiguration` below.
+        /// Authorization configuration for authenticating requests. See `AuthorizerConfiguration` Block below.
         /// </summary>
         [Output("authorizerConfiguration")]
         public Output<Outputs.AgentcoreHarnessAuthorizerConfiguration?> AuthorizerConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Environment artifact configuration. See `EnvironmentArtifact` below.
+        /// Environment artifact configuration. See `EnvironmentArtifact` Block below.
         /// </summary>
         [Output("environmentArtifact")]
         public Output<Outputs.AgentcoreHarnessEnvironmentArtifact?> EnvironmentArtifact { get; private set; } = null!;
@@ -249,7 +294,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableDictionary<string, string>?> EnvironmentVariables { get; private set; } = null!;
 
         /// <summary>
-        /// Compute environment configuration. See `Environment` below.
+        /// Compute environment configuration. See `Environment` Block below.
         /// </summary>
         [Output("environments")]
         public Output<ImmutableArray<Outputs.AgentcoreHarnessEnvironment>> Environments { get; private set; } = null!;
@@ -285,13 +330,19 @@ namespace Pulumi.Aws.Bedrock
         public Output<int?> MaxTokens { get; private set; } = null!;
 
         /// <summary>
-        /// Memory configuration. See `Memory` below.
+        /// Memory configuration. See `Memory` Block below. If not specified, configured values can be found in `MemoryActual`.
         /// </summary>
         [Output("memory")]
         public Output<Outputs.AgentcoreHarnessMemory?> Memory { get; private set; } = null!;
 
         /// <summary>
-        /// Model configuration for the harness. See `Model` below.
+        /// Actual deployed memory configuration.
+        /// </summary>
+        [Output("memoryActuals")]
+        public Output<ImmutableArray<Outputs.AgentcoreHarnessMemoryActual>> MemoryActuals { get; private set; } = null!;
+
+        /// <summary>
+        /// Model configuration for the harness. See `Model` Block below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -305,13 +356,13 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Skill configurations. See `Skill` below.
+        /// Skill configurations. See `Skill` Block below.
         /// </summary>
         [Output("skills")]
         public Output<ImmutableArray<Outputs.AgentcoreHarnessSkill>> Skills { get; private set; } = null!;
 
         /// <summary>
-        /// System prompt blocks for the harness. See `SystemPrompt` below.
+        /// System prompt blocks for the harness. See `SystemPrompt` Block below.
         /// </summary>
         [Output("systemPrompts")]
         public Output<ImmutableArray<Outputs.AgentcoreHarnessSystemPrompt>> SystemPrompts { get; private set; } = null!;
@@ -338,13 +389,13 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.AgentcoreHarnessTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Tool configurations. See `Tool` below.
+        /// Tool configurations. See `Tool` Block below.
         /// </summary>
         [Output("tools")]
         public Output<ImmutableArray<Outputs.AgentcoreHarnessTool>> Tools { get; private set; } = null!;
 
         /// <summary>
-        /// Truncation configuration for conversation history. See `Truncation` below.
+        /// Truncation configuration for conversation history. See `Truncation` Block below.
         /// </summary>
         [Output("truncations")]
         public Output<ImmutableArray<Outputs.AgentcoreHarnessTruncation>> Truncations { get; private set; } = null!;
@@ -412,13 +463,13 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// Authorization configuration for authenticating requests. See `AuthorizerConfiguration` below.
+        /// Authorization configuration for authenticating requests. See `AuthorizerConfiguration` Block below.
         /// </summary>
         [Input("authorizerConfiguration")]
         public Input<Inputs.AgentcoreHarnessAuthorizerConfigurationArgs>? AuthorizerConfiguration { get; set; }
 
         /// <summary>
-        /// Environment artifact configuration. See `EnvironmentArtifact` below.
+        /// Environment artifact configuration. See `EnvironmentArtifact` Block below.
         /// </summary>
         [Input("environmentArtifact")]
         public Input<Inputs.AgentcoreHarnessEnvironmentArtifactArgs>? EnvironmentArtifact { get; set; }
@@ -443,7 +494,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessEnvironmentArgs>? _environments;
 
         /// <summary>
-        /// Compute environment configuration. See `Environment` below.
+        /// Compute environment configuration. See `Environment` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentArgs> Environments
         {
@@ -476,13 +527,13 @@ namespace Pulumi.Aws.Bedrock
         public Input<int>? MaxTokens { get; set; }
 
         /// <summary>
-        /// Memory configuration. See `Memory` below.
+        /// Memory configuration. See `Memory` Block below. If not specified, configured values can be found in `MemoryActual`.
         /// </summary>
         [Input("memory")]
         public Input<Inputs.AgentcoreHarnessMemoryArgs>? Memory { get; set; }
 
         /// <summary>
-        /// Model configuration for the harness. See `Model` below.
+        /// Model configuration for the harness. See `Model` Block below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -499,7 +550,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessSkillArgs>? _skills;
 
         /// <summary>
-        /// Skill configurations. See `Skill` below.
+        /// Skill configurations. See `Skill` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessSkillArgs> Skills
         {
@@ -511,7 +562,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessSystemPromptArgs>? _systemPrompts;
 
         /// <summary>
-        /// System prompt blocks for the harness. See `SystemPrompt` below.
+        /// System prompt blocks for the harness. See `SystemPrompt` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessSystemPromptArgs> SystemPrompts
         {
@@ -544,7 +595,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessToolArgs>? _tools;
 
         /// <summary>
-        /// Tool configurations. See `Tool` below.
+        /// Tool configurations. See `Tool` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessToolArgs> Tools
         {
@@ -556,7 +607,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessTruncationArgs>? _truncations;
 
         /// <summary>
-        /// Truncation configuration for conversation history. See `Truncation` below.
+        /// Truncation configuration for conversation history. See `Truncation` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessTruncationArgs> Truncations
         {
@@ -591,13 +642,13 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Authorization configuration for authenticating requests. See `AuthorizerConfiguration` below.
+        /// Authorization configuration for authenticating requests. See `AuthorizerConfiguration` Block below.
         /// </summary>
         [Input("authorizerConfiguration")]
         public Input<Inputs.AgentcoreHarnessAuthorizerConfigurationGetArgs>? AuthorizerConfiguration { get; set; }
 
         /// <summary>
-        /// Environment artifact configuration. See `EnvironmentArtifact` below.
+        /// Environment artifact configuration. See `EnvironmentArtifact` Block below.
         /// </summary>
         [Input("environmentArtifact")]
         public Input<Inputs.AgentcoreHarnessEnvironmentArtifactGetArgs>? EnvironmentArtifact { get; set; }
@@ -622,7 +673,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessEnvironmentGetArgs>? _environments;
 
         /// <summary>
-        /// Compute environment configuration. See `Environment` below.
+        /// Compute environment configuration. See `Environment` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentGetArgs> Environments
         {
@@ -661,13 +712,25 @@ namespace Pulumi.Aws.Bedrock
         public Input<int>? MaxTokens { get; set; }
 
         /// <summary>
-        /// Memory configuration. See `Memory` below.
+        /// Memory configuration. See `Memory` Block below. If not specified, configured values can be found in `MemoryActual`.
         /// </summary>
         [Input("memory")]
         public Input<Inputs.AgentcoreHarnessMemoryGetArgs>? Memory { get; set; }
 
+        [Input("memoryActuals")]
+        private InputList<Inputs.AgentcoreHarnessMemoryActualGetArgs>? _memoryActuals;
+
         /// <summary>
-        /// Model configuration for the harness. See `Model` below.
+        /// Actual deployed memory configuration.
+        /// </summary>
+        public InputList<Inputs.AgentcoreHarnessMemoryActualGetArgs> MemoryActuals
+        {
+            get => _memoryActuals ?? (_memoryActuals = new InputList<Inputs.AgentcoreHarnessMemoryActualGetArgs>());
+            set => _memoryActuals = value;
+        }
+
+        /// <summary>
+        /// Model configuration for the harness. See `Model` Block below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -684,7 +747,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessSkillGetArgs>? _skills;
 
         /// <summary>
-        /// Skill configurations. See `Skill` below.
+        /// Skill configurations. See `Skill` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessSkillGetArgs> Skills
         {
@@ -696,7 +759,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessSystemPromptGetArgs>? _systemPrompts;
 
         /// <summary>
-        /// System prompt blocks for the harness. See `SystemPrompt` below.
+        /// System prompt blocks for the harness. See `SystemPrompt` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessSystemPromptGetArgs> SystemPrompts
         {
@@ -741,7 +804,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessToolGetArgs>? _tools;
 
         /// <summary>
-        /// Tool configurations. See `Tool` below.
+        /// Tool configurations. See `Tool` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessToolGetArgs> Tools
         {
@@ -753,7 +816,7 @@ namespace Pulumi.Aws.Bedrock
         private InputList<Inputs.AgentcoreHarnessTruncationGetArgs>? _truncations;
 
         /// <summary>
-        /// Truncation configuration for conversation history. See `Truncation` below.
+        /// Truncation configuration for conversation history. See `Truncation` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessTruncationGetArgs> Truncations
         {

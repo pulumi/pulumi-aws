@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly string? ExternalId;
         /// <summary>
-        /// List of regions and their routing controls. See Region and Routing Controls below.
+        /// Regions and their routing controls. See `RegionAndRoutingControls` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControl> RegionAndRoutingControls;
         /// <summary>

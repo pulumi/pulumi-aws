@@ -126,14 +126,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      * 
      */
     @Import(name="endpoints")
     private @Nullable Output<List<OntapFileSystemEndpointArgs>> endpoints;
 
     /**
-     * @return Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * @return Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      * 
      */
     public Optional<Output<List<OntapFileSystemEndpointArgs>>> endpoints() {
@@ -607,7 +607,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpoints Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+         * @param endpoints Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
          * 
          * @return builder
          * 
@@ -618,7 +618,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpoints Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+         * @param endpoints Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
          * 
          * @return builder
          * 
@@ -628,7 +628,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpoints Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+         * @param endpoints Endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
          * 
          * @return builder
          * 

@@ -74,7 +74,7 @@ class _AccountState:
         :param pulumi.Input[_builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] features: List of features supported for the account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]] throttle_settings: Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+        :param pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]] throttle_settings: Account-Level throttle settings. See `throttle_settings` Block below.
         """
         if api_key_version is not None:
             pulumi.set(__self__, "api_key_version", api_key_version)
@@ -139,7 +139,7 @@ class _AccountState:
     @pulumi.getter(name="throttleSettings")
     def throttle_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]]:
         """
-        Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+        Account-Level throttle settings. See `throttle_settings` Block below.
         """
         return pulumi.get(self, "throttle_settings")
 
@@ -323,7 +323,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] features: List of features supported for the account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountThrottleSettingArgs', 'AccountThrottleSettingArgsDict']]]] throttle_settings: Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountThrottleSettingArgs', 'AccountThrottleSettingArgsDict']]]] throttle_settings: Account-Level throttle settings. See `throttle_settings` Block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -372,7 +372,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="throttleSettings")
     def throttle_settings(self) -> pulumi.Output[Sequence['outputs.AccountThrottleSetting']]:
         """
-        Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+        Account-Level throttle settings. See `throttle_settings` Block below.
         """
         return pulumi.get(self, "throttle_settings")
 

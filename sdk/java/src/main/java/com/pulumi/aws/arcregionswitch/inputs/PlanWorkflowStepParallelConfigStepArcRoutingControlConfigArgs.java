@@ -49,14 +49,14 @@ public final class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgs
     }
 
     /**
-     * List of regions and their routing controls. See Region and Routing Controls below.
+     * Regions and their routing controls. See `regionAndRoutingControls` Block for details.
      * 
      */
     @Import(name="regionAndRoutingControls")
     private @Nullable Output<List<PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArgs>> regionAndRoutingControls;
 
     /**
-     * @return List of regions and their routing controls. See Region and Routing Controls below.
+     * @return Regions and their routing controls. See `regionAndRoutingControls` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArgs>>> regionAndRoutingControls() {
@@ -148,7 +148,7 @@ public final class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgs
         }
 
         /**
-         * @param regionAndRoutingControls List of regions and their routing controls. See Region and Routing Controls below.
+         * @param regionAndRoutingControls Regions and their routing controls. See `regionAndRoutingControls` Block for details.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgs
         }
 
         /**
-         * @param regionAndRoutingControls List of regions and their routing controls. See Region and Routing Controls below.
+         * @param regionAndRoutingControls Regions and their routing controls. See `regionAndRoutingControls` Block for details.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgs
         }
 
         /**
-         * @param regionAndRoutingControls List of regions and their routing controls. See Region and Routing Controls below.
+         * @param regionAndRoutingControls Regions and their routing controls. See `regionAndRoutingControls` Block for details.
          * 
          * @return builder
          * 

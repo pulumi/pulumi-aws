@@ -30,12 +30,12 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
      */
     private List<String> commands;
     /**
-     * @return Environment variables to pass to a container.
+     * @return Environment variables to pass to a container. See `environment` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment> environments;
     /**
-     * @return Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
+     * @return Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See `ephemeralStorage` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage> ephemeralStorages;
@@ -45,7 +45,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
      */
     private String executionRoleArn;
     /**
-     * @return Platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
+     * @return Platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter. See `fargatePlatformConfiguration` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration> fargatePlatformConfigurations;
@@ -65,22 +65,22 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
      */
     private String jobRoleArn;
     /**
-     * @return Linux-specific modifications that are applied to the container.
+     * @return Linux-specific modifications that are applied to the container. See `linuxParameters` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter> linuxParameters;
     /**
-     * @return Log configuration specification for the container.
+     * @return Log configuration specification for the container. See `logConfiguration` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration> logConfigurations;
     /**
-     * @return Mount points for data volumes in your container.
+     * @return Mount points for data volumes in your container. See `mountPoints` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint> mountPoints;
     /**
-     * @return Network configuration for jobs that are running on Fargate resources.
+     * @return Network configuration for jobs that are running on Fargate resources. See `networkConfiguration` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration> networkConfigurations;
@@ -95,22 +95,22 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
      */
     private Boolean readonlyRootFilesystem;
     /**
-     * @return Type and amount of resources to assign to a container.
+     * @return Type and amount of resources to assign to a container. See `resourceRequirements` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement> resourceRequirements;
     /**
-     * @return Object that represents the compute environment architecture for AWS Batch jobs on Fargate.
+     * @return Compute environment architecture for AWS Batch jobs on Fargate. See `runtimePlatform` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform> runtimePlatforms;
     /**
-     * @return Secrets for the container.
+     * @return Secrets for the container. See `secrets` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret> secrets;
     /**
-     * @return List of ulimits to set in the container.
+     * @return List of ulimits to set in the container. See `ulimits` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit> ulimits;
@@ -120,7 +120,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
      */
     private String user;
     /**
-     * @return List of data volumes used in a job.
+     * @return List of data volumes used in a job. See `volumes` below.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume> volumes;
@@ -134,14 +134,14 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
         return this.commands;
     }
     /**
-     * @return Environment variables to pass to a container.
+     * @return Environment variables to pass to a container. See `environment` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment> environments() {
         return this.environments;
     }
     /**
-     * @return Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
+     * @return Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See `ephemeralStorage` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage> ephemeralStorages() {
@@ -155,7 +155,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
         return this.executionRoleArn;
     }
     /**
-     * @return Platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
+     * @return Platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter. See `fargatePlatformConfiguration` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration> fargatePlatformConfigurations() {
@@ -183,28 +183,28 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
         return this.jobRoleArn;
     }
     /**
-     * @return Linux-specific modifications that are applied to the container.
+     * @return Linux-specific modifications that are applied to the container. See `linuxParameters` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter> linuxParameters() {
         return this.linuxParameters;
     }
     /**
-     * @return Log configuration specification for the container.
+     * @return Log configuration specification for the container. See `logConfiguration` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration> logConfigurations() {
         return this.logConfigurations;
     }
     /**
-     * @return Mount points for data volumes in your container.
+     * @return Mount points for data volumes in your container. See `mountPoints` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint> mountPoints() {
         return this.mountPoints;
     }
     /**
-     * @return Network configuration for jobs that are running on Fargate resources.
+     * @return Network configuration for jobs that are running on Fargate resources. See `networkConfiguration` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration> networkConfigurations() {
@@ -225,28 +225,28 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
         return this.readonlyRootFilesystem;
     }
     /**
-     * @return Type and amount of resources to assign to a container.
+     * @return Type and amount of resources to assign to a container. See `resourceRequirements` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement> resourceRequirements() {
         return this.resourceRequirements;
     }
     /**
-     * @return Object that represents the compute environment architecture for AWS Batch jobs on Fargate.
+     * @return Compute environment architecture for AWS Batch jobs on Fargate. See `runtimePlatform` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform> runtimePlatforms() {
         return this.runtimePlatforms;
     }
     /**
-     * @return Secrets for the container.
+     * @return Secrets for the container. See `secrets` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret> secrets() {
         return this.secrets;
     }
     /**
-     * @return List of ulimits to set in the container.
+     * @return List of ulimits to set in the container. See `ulimits` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit> ulimits() {
@@ -260,7 +260,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
         return this.user;
     }
     /**
-     * @return List of data volumes used in a job.
+     * @return List of data volumes used in a job. See `volumes` below.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume> volumes() {

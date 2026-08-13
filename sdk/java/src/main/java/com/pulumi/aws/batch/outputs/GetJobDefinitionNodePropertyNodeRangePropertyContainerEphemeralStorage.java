@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage {
+    /**
+     * @return Total amount, in GiB, of ephemeral storage to set for the task.
+     * 
+     */
     private Integer sizeInGib;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage() {}
+    /**
+     * @return Total amount, in GiB, of ephemeral storage to set for the task.
+     * 
+     */
     public Integer sizeInGib() {
         return this.sizeInGib;
     }

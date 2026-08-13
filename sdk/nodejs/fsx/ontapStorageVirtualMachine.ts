@@ -105,7 +105,7 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      */
     declare public /*out*/ readonly endpoints: pulumi.Output<outputs.fsx.OntapStorageVirtualMachineEndpoint[]>;
     /**
@@ -208,7 +208,7 @@ export interface OntapStorageVirtualMachineState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      */
     endpoints?: pulumi.Input<pulumi.Input<inputs.fsx.OntapStorageVirtualMachineEndpoint>[] | undefined>;
     /**

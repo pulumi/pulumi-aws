@@ -71,7 +71,7 @@ type LbCertificate struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Domain name (e.g., example.com) for your SSL/TLS certificate.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
 	DomainValidationRecords LbCertificateDomainValidationRecordArrayOutput `pulumi:"domainValidationRecords"`
 	// Load balancer name where you want to create the SSL/TLS certificate.
 	LbName pulumi.StringOutput `pulumi:"lbName"`
@@ -126,7 +126,7 @@ type lbCertificateState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// Domain name (e.g., example.com) for your SSL/TLS certificate.
 	DomainName *string `pulumi:"domainName"`
-	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
 	DomainValidationRecords []LbCertificateDomainValidationRecord `pulumi:"domainValidationRecords"`
 	// Load balancer name where you want to create the SSL/TLS certificate.
 	LbName *string `pulumi:"lbName"`
@@ -149,7 +149,7 @@ type LbCertificateState struct {
 	CreatedAt pulumi.StringPtrInput
 	// Domain name (e.g., example.com) for your SSL/TLS certificate.
 	DomainName pulumi.StringPtrInput
-	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
 	DomainValidationRecords LbCertificateDomainValidationRecordArrayInput
 	// Load balancer name where you want to create the SSL/TLS certificate.
 	LbName pulumi.StringPtrInput
@@ -302,7 +302,7 @@ func (o LbCertificateOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbCertificate) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
 func (o LbCertificateOutput) DomainValidationRecords() LbCertificateDomainValidationRecordArrayOutput {
 	return o.ApplyT(func(v *LbCertificate) LbCertificateDomainValidationRecordArrayOutput {
 		return v.DomainValidationRecords

@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreHarnessModelGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Bedrock model configuration. See `BedrockModelConfig` below.
+        /// Amazon Bedrock model configuration. See `BedrockModelConfig` Block below.
         /// </summary>
         [Input("bedrockModelConfig")]
         public Input<Inputs.AgentcoreHarnessModelBedrockModelConfigGetArgs>? BedrockModelConfig { get; set; }
 
         /// <summary>
-        /// Gemini model configuration. See `GeminiModelConfig` below.
+        /// Gemini model configuration. See `GeminiModelConfig` Block below.
         /// </summary>
         [Input("geminiModelConfig")]
         public Input<Inputs.AgentcoreHarnessModelGeminiModelConfigGetArgs>? GeminiModelConfig { get; set; }
 
         /// <summary>
-        /// OpenAI model configuration. See `OpenaiModelConfig` below.
+        /// OpenAI model configuration. See `OpenaiModelConfig` Block below.
         /// </summary>
         [Input("openaiModelConfig")]
         public Input<Inputs.AgentcoreHarnessModelOpenaiModelConfigGetArgs>? OpenaiModelConfig { get; set; }

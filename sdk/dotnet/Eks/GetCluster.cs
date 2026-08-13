@@ -217,9 +217,24 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterIdentityResult> Identities;
         /// <summary>
+        /// Configuration for the Kubernetes API server.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterKubeApiServerConfigResult> KubeApiServerConfigs;
+        /// <summary>
+        /// Configuration for the Kubernetes controller manager.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterKubeControllerManagerConfigResult> KubeControllerManagerConfigs;
+        /// <summary>
+        /// Configuration for the Kubernetes scheduler.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterKubeSchedulerConfigResult> KubeSchedulerConfigs;
+        /// <summary>
         /// Nested list containing Kubernetes Network Configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterKubernetesNetworkConfigResult> KubernetesNetworkConfigs;
+        /// <summary>
+        /// The name of the resource (e.g., `Cpu`, `Memory`).
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// Contains Outpost Configuration.
@@ -293,6 +308,12 @@ namespace Pulumi.Aws.Eks
 
             ImmutableArray<Outputs.GetClusterIdentityResult> identities,
 
+            ImmutableArray<Outputs.GetClusterKubeApiServerConfigResult> kubeApiServerConfigs,
+
+            ImmutableArray<Outputs.GetClusterKubeControllerManagerConfigResult> kubeControllerManagerConfigs,
+
+            ImmutableArray<Outputs.GetClusterKubeSchedulerConfigResult> kubeSchedulerConfigs,
+
             ImmutableArray<Outputs.GetClusterKubernetesNetworkConfigResult> kubernetesNetworkConfigs,
 
             string name,
@@ -333,6 +354,9 @@ namespace Pulumi.Aws.Eks
             Endpoint = endpoint;
             Id = id;
             Identities = identities;
+            KubeApiServerConfigs = kubeApiServerConfigs;
+            KubeControllerManagerConfigs = kubeControllerManagerConfigs;
+            KubeSchedulerConfigs = kubeSchedulerConfigs;
             KubernetesNetworkConfigs = kubernetesNetworkConfigs;
             Name = name;
             OutpostConfigs = outpostConfigs;

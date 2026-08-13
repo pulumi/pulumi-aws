@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class AccountThrottleSetting {
+    /**
+     * @return Absolute maximum number of times API Gateway allows the API to be called per second.
+     * 
+     */
     private Integer burstLimit;
+    /**
+     * @return Number of times API Gateway allows the API to be called per second on average.
+     * 
+     */
     private Double rateLimit;
 
     private AccountThrottleSetting() {}
+    /**
+     * @return Absolute maximum number of times API Gateway allows the API to be called per second.
+     * 
+     */
     public Integer burstLimit() {
         return this.burstLimit;
     }
+    /**
+     * @return Number of times API Gateway allows the API to be called per second on average.
+     * 
+     */
     public Double rateLimit() {
         return this.rateLimit;
     }

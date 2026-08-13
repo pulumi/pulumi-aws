@@ -13,17 +13,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTl {
+    /**
+     * @return Listener&#39;s TLS certificate. See `spec.listener.tls.certificate` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTlCertificate> certificates;
+    /**
+     * @return Listener&#39;s TLS mode.
+     * 
+     */
     private String mode;
+    /**
+     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTlValidation> validations;
 
     private GetVirtualNodeSpecListenerTl() {}
+    /**
+     * @return Listener&#39;s TLS certificate. See `spec.listener.tls.certificate` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTlCertificate> certificates() {
         return this.certificates;
     }
+    /**
+     * @return Listener&#39;s TLS mode.
+     * 
+     */
     public String mode() {
         return this.mode;
     }
+    /**
+     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTlValidation> validations() {
         return this.validations;
     }

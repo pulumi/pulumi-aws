@@ -62,7 +62,7 @@ export class WebAppCustomization extends pulumi.CustomResource {
      */
     declare public readonly title: pulumi.Output<string | undefined>;
     /**
-     * The identifier of the web app to be customized.
+     * Identifier of the web app to be customized.
      *
      * The following arguments are optional:
      */
@@ -123,7 +123,7 @@ export interface WebAppCustomizationState {
      */
     title?: pulumi.Input<string | undefined>;
     /**
-     * The identifier of the web app to be customized.
+     * Identifier of the web app to be customized.
      *
      * The following arguments are optional:
      */
@@ -151,7 +151,7 @@ export interface WebAppCustomizationArgs {
      */
     title?: pulumi.Input<string | undefined>;
     /**
-     * The identifier of the web app to be customized.
+     * Identifier of the web app to be customized.
      *
      * The following arguments are optional:
      */

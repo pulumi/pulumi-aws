@@ -540,6 +540,24 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableArray<Outputs.ClusterIdentity>> Identities { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for customizing the Kubernetes API server. Detailed below.
+        /// </summary>
+        [Output("kubeApiServerConfig")]
+        public Output<Outputs.ClusterKubeApiServerConfig> KubeApiServerConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for customizing the Kubernetes controller manager. Detailed below.
+        /// </summary>
+        [Output("kubeControllerManagerConfig")]
+        public Output<Outputs.ClusterKubeControllerManagerConfig> KubeControllerManagerConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for customizing the Kubernetes scheduler. Detailed below.
+        /// </summary>
+        [Output("kubeSchedulerConfig")]
+        public Output<Outputs.ClusterKubeSchedulerConfig> KubeSchedulerConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("kubernetesNetworkConfig")]
@@ -741,6 +759,24 @@ namespace Pulumi.Aws.Eks
         public Input<bool>? ForceUpdateVersion { get; set; }
 
         /// <summary>
+        /// Configuration block for customizing the Kubernetes API server. Detailed below.
+        /// </summary>
+        [Input("kubeApiServerConfig")]
+        public Input<Inputs.ClusterKubeApiServerConfigArgs>? KubeApiServerConfig { get; set; }
+
+        /// <summary>
+        /// Configuration block for customizing the Kubernetes controller manager. Detailed below.
+        /// </summary>
+        [Input("kubeControllerManagerConfig")]
+        public Input<Inputs.ClusterKubeControllerManagerConfigArgs>? KubeControllerManagerConfig { get; set; }
+
+        /// <summary>
+        /// Configuration block for customizing the Kubernetes scheduler. Detailed below.
+        /// </summary>
+        [Input("kubeSchedulerConfig")]
+        public Input<Inputs.ClusterKubeSchedulerConfigArgs>? KubeSchedulerConfig { get; set; }
+
+        /// <summary>
         /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("kubernetesNetworkConfig")]
@@ -932,6 +968,24 @@ namespace Pulumi.Aws.Eks
             get => _identities ?? (_identities = new InputList<Inputs.ClusterIdentityGetArgs>());
             set => _identities = value;
         }
+
+        /// <summary>
+        /// Configuration block for customizing the Kubernetes API server. Detailed below.
+        /// </summary>
+        [Input("kubeApiServerConfig")]
+        public Input<Inputs.ClusterKubeApiServerConfigGetArgs>? KubeApiServerConfig { get; set; }
+
+        /// <summary>
+        /// Configuration block for customizing the Kubernetes controller manager. Detailed below.
+        /// </summary>
+        [Input("kubeControllerManagerConfig")]
+        public Input<Inputs.ClusterKubeControllerManagerConfigGetArgs>? KubeControllerManagerConfig { get; set; }
+
+        /// <summary>
+        /// Configuration block for customizing the Kubernetes scheduler. Detailed below.
+        /// </summary>
+        [Input("kubeSchedulerConfig")]
+        public Input<Inputs.ClusterKubeSchedulerConfigGetArgs>? KubeSchedulerConfig { get; set; }
 
         /// <summary>
         /// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.

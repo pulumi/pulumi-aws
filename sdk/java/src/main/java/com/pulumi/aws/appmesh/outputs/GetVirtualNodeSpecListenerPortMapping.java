@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerPortMapping {
+    /**
+     * @return Port used for the port mapping.
+     * 
+     */
     private Integer port;
+    /**
+     * @return Protocol used for the port mapping.
+     * 
+     */
     private String protocol;
 
     private GetVirtualNodeSpecListenerPortMapping() {}
+    /**
+     * @return Port used for the port mapping.
+     * 
+     */
     public Integer port() {
         return this.port;
     }
+    /**
+     * @return Protocol used for the port mapping.
+     * 
+     */
     public String protocol() {
         return this.protocol;
     }

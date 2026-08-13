@@ -17,6 +17,9 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// Managed rule group name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Value of the header.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

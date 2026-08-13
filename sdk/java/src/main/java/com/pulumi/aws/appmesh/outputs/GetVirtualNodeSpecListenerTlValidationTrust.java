@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTlValidationTrust {
+    /**
+     * @return File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTlValidationTrustFile> files;
+    /**
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTlValidationTrustSd> sds;
 
     private GetVirtualNodeSpecListenerTlValidationTrust() {}
+    /**
+     * @return File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTlValidationTrustFile> files() {
         return this.files;
     }
+    /**
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTlValidationTrustSd> sds() {
         return this.sds;
     }

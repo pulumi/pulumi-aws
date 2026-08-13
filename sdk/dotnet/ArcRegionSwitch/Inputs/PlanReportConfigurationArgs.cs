@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanReportConfigurationReportOutputArgs>? _reportOutputs;
 
         /// <summary>
-        /// Output destination for the report. See Report Output below.
+        /// Output destination for the report. See `ReportOutput` Block for details.
         /// </summary>
         public InputList<Inputs.PlanReportConfigurationReportOutputArgs> ReportOutputs
         {

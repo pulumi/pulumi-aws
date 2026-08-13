@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetImageApplicationIconS3Location {
     /**
-     * @return S3 bucket of the S3 object.
+     * @return Name of the S3 bucket containing the icon.
      * 
      */
     private String s3Bucket;
     /**
-     * @return S3 key of the S3 object.
+     * @return S3 key of the icon.
      * 
      */
     private String s3Key;
 
     private GetImageApplicationIconS3Location() {}
     /**
-     * @return S3 bucket of the S3 object.
+     * @return Name of the S3 bucket containing the icon.
      * 
      */
     public String s3Bucket() {
         return this.s3Bucket;
     }
     /**
-     * @return S3 key of the S3 object.
+     * @return S3 key of the icon.
      * 
      */
     public String s3Key() {

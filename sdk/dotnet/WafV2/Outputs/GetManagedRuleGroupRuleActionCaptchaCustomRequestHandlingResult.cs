@@ -13,6 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingResult
     {
+        /// <summary>
+        /// Headers inserted into the request. See `InsertHeader` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderResult> InsertHeaders;
 
         [OutputConstructor]

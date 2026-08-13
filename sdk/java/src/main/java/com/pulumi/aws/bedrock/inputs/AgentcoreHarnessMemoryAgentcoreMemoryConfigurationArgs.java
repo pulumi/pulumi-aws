@@ -64,14 +64,14 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs extend
     }
 
     /**
-     * Retrieval configuration parameters. See `retrievalConfig` below.
+     * Retrieval configuration parameters. See `retrievalConfig` Block below.
      * 
      */
     @Import(name="retrievalConfig")
     private @Nullable Output<AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs> retrievalConfig;
 
     /**
-     * @return Retrieval configuration parameters. See `retrievalConfig` below.
+     * @return Retrieval configuration parameters. See `retrievalConfig` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs>> retrievalConfig() {
@@ -169,7 +169,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs extend
         }
 
         /**
-         * @param retrievalConfig Retrieval configuration parameters. See `retrievalConfig` below.
+         * @param retrievalConfig Retrieval configuration parameters. See `retrievalConfig` Block below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs extend
         }
 
         /**
-         * @param retrievalConfig Retrieval configuration parameters. See `retrievalConfig` below.
+         * @param retrievalConfig Retrieval configuration parameters. See `retrievalConfig` Block below.
          * 
          * @return builder
          * 

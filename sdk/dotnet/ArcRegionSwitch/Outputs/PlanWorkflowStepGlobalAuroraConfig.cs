@@ -38,7 +38,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly int? TimeoutMinutes;
         /// <summary>
-        /// Ungraceful behavior configuration. See Ungraceful Aurora below.
+        /// Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepGlobalAuroraConfigUngraceful> Ungracefuls;
 

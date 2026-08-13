@@ -189,13 +189,13 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+        /// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `EndpointDetails` Block below.
         /// </summary>
         [Output("endpointDetails")]
         public Output<Outputs.WebAppEndpointDetails?> EndpointDetails { get; private set; } = null!;
 
         /// <summary>
-        /// Block for details of the identity provider to use with the web app. See Identity provider details below.
+        /// Block for details of the identity provider to use with the web app. See `IdentityProviderDetails` Block below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -224,14 +224,13 @@ namespace Pulumi.Aws.Transfer
         public Output<string> WebAppEndpointPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the Wep App resource.
+        /// ID of the Web App resource.
         /// </summary>
         [Output("webAppId")]
         public Output<string> WebAppId { get; private set; } = null!;
 
         /// <summary>
-        /// Block for number of concurrent connections or the user sessions on the web app.
-        /// * provisioned - (Optional) Number of units of concurrent connections.
+        /// Block for number of concurrent connections or the user sessions on the web app. See `WebAppUnits` Block below.
         /// </summary>
         [Output("webAppUnits")]
         public Output<ImmutableArray<Outputs.WebAppWebAppUnit>> WebAppUnits { get; private set; } = null!;
@@ -289,13 +288,13 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? AccessEndpoint { get; set; }
 
         /// <summary>
-        /// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+        /// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `EndpointDetails` Block below.
         /// </summary>
         [Input("endpointDetails")]
         public Input<Inputs.WebAppEndpointDetailsArgs>? EndpointDetails { get; set; }
 
         /// <summary>
-        /// Block for details of the identity provider to use with the web app. See Identity provider details below.
+        /// Block for details of the identity provider to use with the web app. See `IdentityProviderDetails` Block below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -330,8 +329,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<Inputs.WebAppWebAppUnitArgs>? _webAppUnits;
 
         /// <summary>
-        /// Block for number of concurrent connections or the user sessions on the web app.
-        /// * provisioned - (Optional) Number of units of concurrent connections.
+        /// Block for number of concurrent connections or the user sessions on the web app. See `WebAppUnits` Block below.
         /// </summary>
         public InputList<Inputs.WebAppWebAppUnitArgs> WebAppUnits
         {
@@ -360,13 +358,13 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint.
+        /// Block for the endpoint configuration for the web app. If not specified, the web app will be created with a public endpoint. See `EndpointDetails` Block below.
         /// </summary>
         [Input("endpointDetails")]
         public Input<Inputs.WebAppEndpointDetailsGetArgs>? EndpointDetails { get; set; }
 
         /// <summary>
-        /// Block for details of the identity provider to use with the web app. See Identity provider details below.
+        /// Block for details of the identity provider to use with the web app. See `IdentityProviderDetails` Block below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -406,7 +404,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? WebAppEndpointPolicy { get; set; }
 
         /// <summary>
-        /// ID of the Wep App resource.
+        /// ID of the Web App resource.
         /// </summary>
         [Input("webAppId")]
         public Input<string>? WebAppId { get; set; }
@@ -415,8 +413,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<Inputs.WebAppWebAppUnitGetArgs>? _webAppUnits;
 
         /// <summary>
-        /// Block for number of concurrent connections or the user sessions on the web app.
-        /// * provisioned - (Optional) Number of units of concurrent connections.
+        /// Block for number of concurrent connections or the user sessions on the web app. See `WebAppUnits` Block below.
         /// </summary>
         public InputList<Inputs.WebAppWebAppUnitGetArgs> WebAppUnits
         {

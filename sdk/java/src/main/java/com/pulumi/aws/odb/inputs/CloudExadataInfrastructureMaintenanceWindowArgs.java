@@ -37,14 +37,14 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
     }
 
     /**
-     * Days of the week when maintenance can be performed.
+     * Days of the week when maintenance can be performed. See `daysOfWeek` Block below.
      * 
      */
     @Import(name="daysOfWeeks")
     private @Nullable Output<List<CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs>> daysOfWeeks;
 
     /**
-     * @return Days of the week when maintenance can be performed.
+     * @return Days of the week when maintenance can be performed. See `daysOfWeek` Block below.
      * 
      */
     public Optional<Output<List<CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs>>> daysOfWeeks() {
@@ -97,14 +97,14 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
     }
 
     /**
-     * Months when maintenance can be performed.
+     * Months when maintenance can be performed. See `months` Block below.
      * 
      */
     @Import(name="months")
     private @Nullable Output<List<CloudExadataInfrastructureMaintenanceWindowMonthArgs>> months;
 
     /**
-     * @return Months when maintenance can be performed.
+     * @return Months when maintenance can be performed. See `months` Block below.
      * 
      */
     public Optional<Output<List<CloudExadataInfrastructureMaintenanceWindowMonthArgs>>> months() {
@@ -210,7 +210,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param daysOfWeeks Days of the week when maintenance can be performed.
+         * @param daysOfWeeks Days of the week when maintenance can be performed. See `daysOfWeek` Block below.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param daysOfWeeks Days of the week when maintenance can be performed.
+         * @param daysOfWeeks Days of the week when maintenance can be performed. See `daysOfWeek` Block below.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param daysOfWeeks Days of the week when maintenance can be performed.
+         * @param daysOfWeeks Days of the week when maintenance can be performed. See `daysOfWeek` Block below.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param months Months when maintenance can be performed.
+         * @param months Months when maintenance can be performed. See `months` Block below.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param months Months when maintenance can be performed.
+         * @param months Months when maintenance can be performed. See `months` Block below.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param months Months when maintenance can be performed.
+         * @param months Months when maintenance can be performed. See `months` Block below.
          * 
          * @return builder
          * 

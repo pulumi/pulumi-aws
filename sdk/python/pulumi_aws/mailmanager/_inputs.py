@@ -15,6 +15,20 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'IngressPointIngressPointConfigurationArgs',
+    'IngressPointIngressPointConfigurationArgsDict',
+    'IngressPointIngressPointConfigurationTlsAuthConfigurationArgs',
+    'IngressPointIngressPointConfigurationTlsAuthConfigurationArgsDict',
+    'IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs',
+    'IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgsDict',
+    'IngressPointNetworkConfigurationArgs',
+    'IngressPointNetworkConfigurationArgsDict',
+    'IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs',
+    'IngressPointNetworkConfigurationPrivateNetworkConfigurationArgsDict',
+    'IngressPointNetworkConfigurationPublicNetworkConfigurationArgs',
+    'IngressPointNetworkConfigurationPublicNetworkConfigurationArgsDict',
+    'IngressPointTimeoutsArgs',
+    'IngressPointTimeoutsArgsDict',
     'RuleSetRuleArgs',
     'RuleSetRuleArgsDict',
     'RuleSetRuleActionArgs',
@@ -138,6 +152,369 @@ __all__ = [
     'TrafficPolicyPolicyStatementConditionTlsExpressionEvaluateArgs',
     'TrafficPolicyPolicyStatementConditionTlsExpressionEvaluateArgsDict',
 ]
+
+class IngressPointIngressPointConfigurationArgsDict(TypedDict):
+    secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
+    """
+    smtp_password_wo: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+    SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtp_password_wo_version` to be set. See Write-Only Arguments for more information.
+    """
+    smtp_password_wo_version: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Version number for `smtp_password_wo`. Increment this value to trigger a password update. Required when using `smtp_password_wo`.
+    """
+    tls_auth_configuration: NotRequired[pulumi.Input[Optional['IngressPointIngressPointConfigurationTlsAuthConfigurationArgsDict']]]
+    """
+    Configuration used to authenticate with `MTLS` ingress points. See `tls_auth_configuration` Block for details.
+    """
+
+@pulumi.input_type
+class IngressPointIngressPointConfigurationArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 smtp_password_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 smtp_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 tls_auth_configuration: pulumi.Input[Optional['IngressPointIngressPointConfigurationTlsAuthConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_arn: ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
+        :param pulumi.Input[_builtins.str] smtp_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtp_password_wo_version` to be set. See Write-Only Arguments for more information.
+        :param pulumi.Input[_builtins.int] smtp_password_wo_version: Version number for `smtp_password_wo`. Increment this value to trigger a password update. Required when using `smtp_password_wo`.
+        :param pulumi.Input['IngressPointIngressPointConfigurationTlsAuthConfigurationArgs'] tls_auth_configuration: Configuration used to authenticate with `MTLS` ingress points. See `tls_auth_configuration` Block for details.
+        """
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+        if smtp_password_wo is not None:
+            pulumi.set(__self__, "smtp_password_wo", smtp_password_wo)
+        if smtp_password_wo_version is not None:
+            pulumi.set(__self__, "smtp_password_wo_version", smtp_password_wo_version)
+        if tls_auth_configuration is not None:
+            pulumi.set(__self__, "tls_auth_configuration", tls_auth_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secret_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="smtpPasswordWo")
+    def smtp_password_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtp_password_wo_version` to be set. See Write-Only Arguments for more information.
+        """
+        return pulumi.get(self, "smtp_password_wo")
+
+    @smtp_password_wo.setter
+    def smtp_password_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "smtp_password_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="smtpPasswordWoVersion")
+    def smtp_password_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Version number for `smtp_password_wo`. Increment this value to trigger a password update. Required when using `smtp_password_wo`.
+        """
+        return pulumi.get(self, "smtp_password_wo_version")
+
+    @smtp_password_wo_version.setter
+    def smtp_password_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "smtp_password_wo_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tlsAuthConfiguration")
+    def tls_auth_configuration(self) -> pulumi.Input[Optional['IngressPointIngressPointConfigurationTlsAuthConfigurationArgs']]:
+        """
+        Configuration used to authenticate with `MTLS` ingress points. See `tls_auth_configuration` Block for details.
+        """
+        return pulumi.get(self, "tls_auth_configuration")
+
+    @tls_auth_configuration.setter
+    def tls_auth_configuration(self, value: pulumi.Input[Optional['IngressPointIngressPointConfigurationTlsAuthConfigurationArgs']]):
+        pulumi.set(self, "tls_auth_configuration", value)
+
+
+class IngressPointIngressPointConfigurationTlsAuthConfigurationArgsDict(TypedDict):
+    trust_store: NotRequired[pulumi.Input[Optional['IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgsDict']]]
+    """
+    Trust store used to validate client certificates. See `trust_store` Block for details.
+    """
+
+@pulumi.input_type
+class IngressPointIngressPointConfigurationTlsAuthConfigurationArgs:
+    def __init__(__self__, *,
+                 trust_store: pulumi.Input[Optional['IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs']] = None):
+        """
+        :param pulumi.Input['IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs'] trust_store: Trust store used to validate client certificates. See `trust_store` Block for details.
+        """
+        if trust_store is not None:
+            pulumi.set(__self__, "trust_store", trust_store)
+
+    @_builtins.property
+    @pulumi.getter(name="trustStore")
+    def trust_store(self) -> pulumi.Input[Optional['IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs']]:
+        """
+        Trust store used to validate client certificates. See `trust_store` Block for details.
+        """
+        return pulumi.get(self, "trust_store")
+
+    @trust_store.setter
+    def trust_store(self, value: pulumi.Input[Optional['IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs']]):
+        pulumi.set(self, "trust_store", value)
+
+
+class IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgsDict(TypedDict):
+    ca_content: pulumi.Input[_builtins.str]
+    """
+    PEM-encoded certificate authority (CA) content used to validate client certificates.
+    """
+    crl_content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    PEM-encoded certificate revocation list (CRL) content used to check whether client certificates have been revoked.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the AWS KMS key used to decrypt the CRL content.
+    """
+
+@pulumi.input_type
+class IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStoreArgs:
+    def __init__(__self__, *,
+                 ca_content: pulumi.Input[_builtins.str],
+                 crl_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] ca_content: PEM-encoded certificate authority (CA) content used to validate client certificates.
+        :param pulumi.Input[_builtins.str] crl_content: PEM-encoded certificate revocation list (CRL) content used to check whether client certificates have been revoked.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS KMS key used to decrypt the CRL content.
+        """
+        pulumi.set(__self__, "ca_content", ca_content)
+        if crl_content is not None:
+            pulumi.set(__self__, "crl_content", crl_content)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="caContent")
+    def ca_content(self) -> pulumi.Input[_builtins.str]:
+        """
+        PEM-encoded certificate authority (CA) content used to validate client certificates.
+        """
+        return pulumi.get(self, "ca_content")
+
+    @ca_content.setter
+    def ca_content(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ca_content", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crlContent")
+    def crl_content(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        PEM-encoded certificate revocation list (CRL) content used to check whether client certificates have been revoked.
+        """
+        return pulumi.get(self, "crl_content")
+
+    @crl_content.setter
+    def crl_content(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "crl_content", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the AWS KMS key used to decrypt the CRL content.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+class IngressPointNetworkConfigurationArgsDict(TypedDict):
+    private_network_configuration: NotRequired[pulumi.Input[Optional['IngressPointNetworkConfigurationPrivateNetworkConfigurationArgsDict']]]
+    """
+    Configuration for a private ingress point that uses a VPC endpoint. See `private_network_configuration` Block for details.
+    """
+    public_network_configuration: NotRequired[pulumi.Input[Optional['IngressPointNetworkConfigurationPublicNetworkConfigurationArgsDict']]]
+    """
+    Configuration for a public ingress point. See `public_network_configuration` Block for details.
+    """
+
+@pulumi.input_type
+class IngressPointNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 private_network_configuration: pulumi.Input[Optional['IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs']] = None,
+                 public_network_configuration: pulumi.Input[Optional['IngressPointNetworkConfigurationPublicNetworkConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs'] private_network_configuration: Configuration for a private ingress point that uses a VPC endpoint. See `private_network_configuration` Block for details.
+        :param pulumi.Input['IngressPointNetworkConfigurationPublicNetworkConfigurationArgs'] public_network_configuration: Configuration for a public ingress point. See `public_network_configuration` Block for details.
+        """
+        if private_network_configuration is not None:
+            pulumi.set(__self__, "private_network_configuration", private_network_configuration)
+        if public_network_configuration is not None:
+            pulumi.set(__self__, "public_network_configuration", public_network_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="privateNetworkConfiguration")
+    def private_network_configuration(self) -> pulumi.Input[Optional['IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs']]:
+        """
+        Configuration for a private ingress point that uses a VPC endpoint. See `private_network_configuration` Block for details.
+        """
+        return pulumi.get(self, "private_network_configuration")
+
+    @private_network_configuration.setter
+    def private_network_configuration(self, value: pulumi.Input[Optional['IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs']]):
+        pulumi.set(self, "private_network_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicNetworkConfiguration")
+    def public_network_configuration(self) -> pulumi.Input[Optional['IngressPointNetworkConfigurationPublicNetworkConfigurationArgs']]:
+        """
+        Configuration for a public ingress point. See `public_network_configuration` Block for details.
+        """
+        return pulumi.get(self, "public_network_configuration")
+
+    @public_network_configuration.setter
+    def public_network_configuration(self, value: pulumi.Input[Optional['IngressPointNetworkConfigurationPublicNetworkConfigurationArgs']]):
+        pulumi.set(self, "public_network_configuration", value)
+
+
+class IngressPointNetworkConfigurationPrivateNetworkConfigurationArgsDict(TypedDict):
+    vpc_endpoint_id: pulumi.Input[_builtins.str]
+    """
+    Identifier of the VPC endpoint to associate with the ingress point.
+    """
+
+@pulumi.input_type
+class IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 vpc_endpoint_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] vpc_endpoint_id: Identifier of the VPC endpoint to associate with the ingress point.
+        """
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the VPC endpoint to associate with the ingress point.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vpc_endpoint_id", value)
+
+
+class IngressPointNetworkConfigurationPublicNetworkConfigurationArgsDict(TypedDict):
+    ip_type: pulumi.Input[_builtins.str]
+    """
+    IP address type for the public ingress point. Valid values are `IPV4` and `DUAL_STACK`.
+    """
+
+@pulumi.input_type
+class IngressPointNetworkConfigurationPublicNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 ip_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] ip_type: IP address type for the public ingress point. Valid values are `IPV4` and `DUAL_STACK`.
+        """
+        pulumi.set(__self__, "ip_type", ip_type)
+
+    @_builtins.property
+    @pulumi.getter(name="ipType")
+    def ip_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        IP address type for the public ingress point. Valid values are `IPV4` and `DUAL_STACK`.
+        """
+        return pulumi.get(self, "ip_type")
+
+    @ip_type.setter
+    def ip_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ip_type", value)
+
+
+class IngressPointTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class IngressPointTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
 
 class RuleSetRuleArgsDict(TypedDict):
     actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleSetRuleActionArgsDict']]]]]

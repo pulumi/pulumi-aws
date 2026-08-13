@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetGroupInstanceMaintenancePolicy {
     /**
-     * @return Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+     * @return Upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
      * 
      */
     private Integer maxHealthyPercentage;
     /**
-     * @return Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+     * @return Lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
      * 
      */
     private Integer minHealthyPercentage;
 
     private GetGroupInstanceMaintenancePolicy() {}
     /**
-     * @return Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
+     * @return Upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
      * 
      */
     public Integer maxHealthyPercentage() {
         return this.maxHealthyPercentage;
     }
     /**
-     * @return Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
+     * @return Lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
      * 
      */
     public Integer minHealthyPercentage() {

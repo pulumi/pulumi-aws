@@ -13,7 +13,7 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     public sealed class ListenerRuleMatchHttpMatchHeaderMatchMatchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains type match.
+        /// Value that the header must contain to match.
         /// </summary>
         [Input("contains")]
         public Input<string>? Contains { get; set; }

@@ -17,7 +17,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPri
      */
     private String domain;
     /**
-     * @return Private endpoint configuration. See `privateEndpoint` below.
+     * @return Private endpoint configuration. See `privateEndpoint` Block below.
      * 
      */
     private AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint privateEndpoint;
@@ -31,7 +31,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPri
         return this.domain;
     }
     /**
-     * @return Private endpoint configuration. See `privateEndpoint` below.
+     * @return Private endpoint configuration. See `privateEndpoint` Block below.
      * 
      */
     public AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint privateEndpoint() {

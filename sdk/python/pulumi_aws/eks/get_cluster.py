@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, access_configs=None, arn=None, certificate_authorities=None, cluster_id=None, compute_configs=None, control_plane_scaling_configs=None, created_at=None, deletion_protection=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, region=None, remote_network_configs=None, role_arn=None, status=None, storage_configs=None, tags=None, upgrade_policies=None, version=None, vpc_config=None, zonal_shift_configs=None):
+    def __init__(__self__, access_configs=None, arn=None, certificate_authorities=None, cluster_id=None, compute_configs=None, control_plane_scaling_configs=None, created_at=None, deletion_protection=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kube_api_server_configs=None, kube_controller_manager_configs=None, kube_scheduler_configs=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, region=None, remote_network_configs=None, role_arn=None, status=None, storage_configs=None, tags=None, upgrade_policies=None, version=None, vpc_config=None, zonal_shift_configs=None):
         if access_configs and not isinstance(access_configs, list):
             raise TypeError("Expected argument 'access_configs' to be a list")
         pulumi.set(__self__, "access_configs", access_configs)
@@ -64,6 +64,15 @@ class GetClusterResult:
         if identities and not isinstance(identities, list):
             raise TypeError("Expected argument 'identities' to be a list")
         pulumi.set(__self__, "identities", identities)
+        if kube_api_server_configs and not isinstance(kube_api_server_configs, list):
+            raise TypeError("Expected argument 'kube_api_server_configs' to be a list")
+        pulumi.set(__self__, "kube_api_server_configs", kube_api_server_configs)
+        if kube_controller_manager_configs and not isinstance(kube_controller_manager_configs, list):
+            raise TypeError("Expected argument 'kube_controller_manager_configs' to be a list")
+        pulumi.set(__self__, "kube_controller_manager_configs", kube_controller_manager_configs)
+        if kube_scheduler_configs and not isinstance(kube_scheduler_configs, list):
+            raise TypeError("Expected argument 'kube_scheduler_configs' to be a list")
+        pulumi.set(__self__, "kube_scheduler_configs", kube_scheduler_configs)
         if kubernetes_network_configs and not isinstance(kubernetes_network_configs, list):
             raise TypeError("Expected argument 'kubernetes_network_configs' to be a list")
         pulumi.set(__self__, "kubernetes_network_configs", kubernetes_network_configs)
@@ -204,6 +213,30 @@ class GetClusterResult:
         return pulumi.get(self, "identities")
 
     @_builtins.property
+    @pulumi.getter(name="kubeApiServerConfigs")
+    def kube_api_server_configs(self) -> Sequence['outputs.GetClusterKubeApiServerConfigResult']:
+        """
+        Configuration for the Kubernetes API server.
+        """
+        return pulumi.get(self, "kube_api_server_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="kubeControllerManagerConfigs")
+    def kube_controller_manager_configs(self) -> Sequence['outputs.GetClusterKubeControllerManagerConfigResult']:
+        """
+        Configuration for the Kubernetes controller manager.
+        """
+        return pulumi.get(self, "kube_controller_manager_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="kubeSchedulerConfigs")
+    def kube_scheduler_configs(self) -> Sequence['outputs.GetClusterKubeSchedulerConfigResult']:
+        """
+        Configuration for the Kubernetes scheduler.
+        """
+        return pulumi.get(self, "kube_scheduler_configs")
+
+    @_builtins.property
     @pulumi.getter(name="kubernetesNetworkConfigs")
     def kubernetes_network_configs(self) -> Sequence['outputs.GetClusterKubernetesNetworkConfigResult']:
         """
@@ -214,6 +247,9 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        The name of the resource (e.g., `cpu`, `memory`).
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -328,6 +364,9 @@ class AwaitableGetClusterResult(GetClusterResult):
             endpoint=self.endpoint,
             id=self.id,
             identities=self.identities,
+            kube_api_server_configs=self.kube_api_server_configs,
+            kube_controller_manager_configs=self.kube_controller_manager_configs,
+            kube_scheduler_configs=self.kube_scheduler_configs,
             kubernetes_network_configs=self.kubernetes_network_configs,
             name=self.name,
             outpost_configs=self.outpost_configs,
@@ -387,6 +426,9 @@ def get_cluster(name: Optional[_builtins.str] = None,
         endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),
         identities=pulumi.get(__ret__, 'identities'),
+        kube_api_server_configs=pulumi.get(__ret__, 'kube_api_server_configs'),
+        kube_controller_manager_configs=pulumi.get(__ret__, 'kube_controller_manager_configs'),
+        kube_scheduler_configs=pulumi.get(__ret__, 'kube_scheduler_configs'),
         kubernetes_network_configs=pulumi.get(__ret__, 'kubernetes_network_configs'),
         name=pulumi.get(__ret__, 'name'),
         outpost_configs=pulumi.get(__ret__, 'outpost_configs'),
@@ -443,6 +485,9 @@ def get_cluster_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         endpoint=pulumi.get(__response__, 'endpoint'),
         id=pulumi.get(__response__, 'id'),
         identities=pulumi.get(__response__, 'identities'),
+        kube_api_server_configs=pulumi.get(__response__, 'kube_api_server_configs'),
+        kube_controller_manager_configs=pulumi.get(__response__, 'kube_controller_manager_configs'),
+        kube_scheduler_configs=pulumi.get(__response__, 'kube_scheduler_configs'),
         kubernetes_network_configs=pulumi.get(__response__, 'kubernetes_network_configs'),
         name=pulumi.get(__response__, 'name'),
         outpost_configs=pulumi.get(__response__, 'outpost_configs'),

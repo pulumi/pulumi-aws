@@ -222,6 +222,65 @@ import (
 //
 // ```
 //
+// ### OpenSearch Exporter
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := amp.NewScraper(ctx, "example", &amp.ScraperArgs{
+//				Source: &amp.ScraperSourceArgs{
+//					Vpc: &amp.ScraperSourceVpcArgs{
+//						SecurityGroupIds: pulumi.StringArray{
+//							exampleAwsSecurityGroup.Id,
+//						},
+//						SubnetIds: pulumi.StringArray{
+//							example1.Id,
+//							example2.Id,
+//						},
+//					},
+//				},
+//				Destination: &amp.ScraperDestinationArgs{
+//					Amp: &amp.ScraperDestinationAmpArgs{
+//						WorkspaceArn: pulumi.Any(exampleAwsPrometheusWorkspace.Arn),
+//					},
+//				},
+//				Exporter: &amp.ScraperExporterArgs{
+//					Opensearch: &amp.ScraperExporterOpensearchArgs{
+//						DomainArn: pulumi.Any(exampleAwsOpensearchDomain.Arn),
+//					},
+//				},
+//				ScrapeConfiguration: pulumi.String(`global:
+//	  scrape_interval: 30s
+//
+// scrape_configs:
+//   - job_name: 'my-service'
+//     dns_sd_configs:
+//   - names: ['my-service.my-namespace']
+//     type: A
+//     port: 8080
+//     metrics_path: '/metrics'
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Use default EKS scraper configuration
 //
 // You can use the data source `awsPrometheusScraperConfiguration` to use a
@@ -405,6 +464,8 @@ type Scraper struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
 	Destination ScraperDestinationOutput `pulumi:"destination"`
+	// Configuration block for additional exporters. See `exporter` Block for details.
+	Exporter ScraperExporterPtrOutput `pulumi:"exporter"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
@@ -466,6 +527,8 @@ type scraperState struct {
 	Arn *string `pulumi:"arn"`
 	// Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
 	Destination *ScraperDestination `pulumi:"destination"`
+	// Configuration block for additional exporters. See `exporter` Block for details.
+	Exporter *ScraperExporter `pulumi:"exporter"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
@@ -492,6 +555,8 @@ type ScraperState struct {
 	Arn pulumi.StringPtrInput
 	// Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
 	Destination ScraperDestinationPtrInput
+	// Configuration block for additional exporters. See `exporter` Block for details.
+	Exporter ScraperExporterPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
@@ -520,6 +585,8 @@ type scraperArgs struct {
 	Alias *string `pulumi:"alias"`
 	// Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
 	Destination ScraperDestination `pulumi:"destination"`
+	// Configuration block for additional exporters. See `exporter` Block for details.
+	Exporter *ScraperExporter `pulumi:"exporter"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
@@ -541,6 +608,8 @@ type ScraperArgs struct {
 	Alias pulumi.StringPtrInput
 	// Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
 	Destination ScraperDestinationInput
+	// Configuration block for additional exporters. See `exporter` Block for details.
+	Exporter ScraperExporterPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
@@ -656,6 +725,11 @@ func (o ScraperOutput) Arn() pulumi.StringOutput {
 // Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
 func (o ScraperOutput) Destination() ScraperDestinationOutput {
 	return o.ApplyT(func(v *Scraper) ScraperDestinationOutput { return v.Destination }).(ScraperDestinationOutput)
+}
+
+// Configuration block for additional exporters. See `exporter` Block for details.
+func (o ScraperOutput) Exporter() ScraperExporterPtrOutput {
+	return o.ApplyT(func(v *Scraper) ScraperExporterPtrOutput { return v.Exporter }).(ScraperExporterPtrOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

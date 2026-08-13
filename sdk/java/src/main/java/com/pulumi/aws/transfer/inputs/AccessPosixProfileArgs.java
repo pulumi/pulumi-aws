@@ -18,14 +18,14 @@ public final class AccessPosixProfileArgs extends com.pulumi.resources.ResourceA
     public static final AccessPosixProfileArgs Empty = new AccessPosixProfileArgs();
 
     /**
-     * The POSIX group ID used for all EFS operations by this user.
+     * POSIX group ID used for all EFS operations by this user.
      * 
      */
     @Import(name="gid", required=true)
     private Output<Integer> gid;
 
     /**
-     * @return The POSIX group ID used for all EFS operations by this user.
+     * @return POSIX group ID used for all EFS operations by this user.
      * 
      */
     public Output<Integer> gid() {
@@ -33,14 +33,14 @@ public final class AccessPosixProfileArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The secondary POSIX group IDs used for all EFS operations by this user.
+     * Secondary POSIX group IDs used for all EFS operations by this user.
      * 
      */
     @Import(name="secondaryGids")
     private @Nullable Output<List<Integer>> secondaryGids;
 
     /**
-     * @return The secondary POSIX group IDs used for all EFS operations by this user.
+     * @return Secondary POSIX group IDs used for all EFS operations by this user.
      * 
      */
     public Optional<Output<List<Integer>>> secondaryGids() {
@@ -48,14 +48,14 @@ public final class AccessPosixProfileArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The POSIX user ID used for all EFS operations by this user.
+     * POSIX user ID used for all EFS operations by this user.
      * 
      */
     @Import(name="uid", required=true)
     private Output<Integer> uid;
 
     /**
-     * @return The POSIX user ID used for all EFS operations by this user.
+     * @return POSIX user ID used for all EFS operations by this user.
      * 
      */
     public Output<Integer> uid() {
@@ -89,7 +89,7 @@ public final class AccessPosixProfileArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param gid The POSIX group ID used for all EFS operations by this user.
+         * @param gid POSIX group ID used for all EFS operations by this user.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class AccessPosixProfileArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param gid The POSIX group ID used for all EFS operations by this user.
+         * @param gid POSIX group ID used for all EFS operations by this user.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AccessPosixProfileArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param secondaryGids The secondary POSIX group IDs used for all EFS operations by this user.
+         * @param secondaryGids Secondary POSIX group IDs used for all EFS operations by this user.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class AccessPosixProfileArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param secondaryGids The secondary POSIX group IDs used for all EFS operations by this user.
+         * @param secondaryGids Secondary POSIX group IDs used for all EFS operations by this user.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class AccessPosixProfileArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param secondaryGids The secondary POSIX group IDs used for all EFS operations by this user.
+         * @param secondaryGids Secondary POSIX group IDs used for all EFS operations by this user.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class AccessPosixProfileArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param uid The POSIX user ID used for all EFS operations by this user.
+         * @param uid POSIX user ID used for all EFS operations by this user.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class AccessPosixProfileArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param uid The POSIX user ID used for all EFS operations by this user.
+         * @param uid POSIX user ID used for all EFS operations by this user.
          * 
          * @return builder
          * 

@@ -109,14 +109,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of DNS records required for domain verification. See `records` below.
+     * List of DNS records required for domain verification. See `records` Block below.
      * 
      */
     @Import(name="records")
     private @Nullable Output<List<DomainRecordArgs>> records;
 
     /**
-     * @return List of DNS records required for domain verification. See `records` below.
+     * @return List of DNS records required for domain verification. See `records` Block below.
      * 
      */
     public Optional<Output<List<DomainRecordArgs>>> records() {
@@ -296,7 +296,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param records List of DNS records required for domain verification. See `records` below.
+         * @param records List of DNS records required for domain verification. See `records` Block below.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param records List of DNS records required for domain verification. See `records` below.
+         * @param records List of DNS records required for domain verification. See `records` Block below.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param records List of DNS records required for domain verification. See `records` below.
+         * @param records List of DNS records required for domain verification. See `records` Block below.
          * 
          * @return builder
          * 

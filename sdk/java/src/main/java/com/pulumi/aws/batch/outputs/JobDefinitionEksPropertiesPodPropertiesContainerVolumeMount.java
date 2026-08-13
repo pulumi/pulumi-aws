@@ -13,25 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount {
+    /**
+     * @return Path on the container where the volume is mounted.
+     * 
+     */
     private String mountPath;
     /**
-     * @return Name of the job definition.
+     * @return Name the volume mount. This must match the name of one of the volumes in the pod.
      * 
      */
     private String name;
+    /**
+     * @return Whether the container has read-only access to the volume. The default value is `false`.
+     * 
+     */
     private @Nullable Boolean readOnly;
 
     private JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount() {}
+    /**
+     * @return Path on the container where the volume is mounted.
+     * 
+     */
     public String mountPath() {
         return this.mountPath;
     }
     /**
-     * @return Name of the job definition.
+     * @return Name the volume mount. This must match the name of one of the volumes in the pod.
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Whether the container has read-only access to the volume. The default value is `false`.
+     * 
+     */
     public Optional<Boolean> readOnly() {
         return Optional.ofNullable(this.readOnly);
     }

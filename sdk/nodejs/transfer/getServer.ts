@@ -59,7 +59,7 @@ export interface GetServerResult {
      */
     readonly certificate: string;
     /**
-     * The domain of the storage system that is used for file transfers.
+     * Domain of the storage system that is used for file transfers.
      */
     readonly domain: string;
     /**
@@ -75,7 +75,7 @@ export interface GetServerResult {
      */
     readonly id: string;
     /**
-     * The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
+     * Mode of authentication enabled for this service.
      */
     readonly identityProviderType: string;
     /**
@@ -96,12 +96,12 @@ export interface GetServerResult {
     readonly protocols: string[];
     readonly region: string;
     /**
-     * The name of the security policy that is attached to the server.
+     * Name of the security policy that is attached to the server.
      */
     readonly securityPolicyName: string;
     readonly serverId: string;
     /**
-     * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+     * Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
      */
     readonly structuredLogDestinations: string[];
     /**

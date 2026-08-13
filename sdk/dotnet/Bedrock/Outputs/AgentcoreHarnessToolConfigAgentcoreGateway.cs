@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string GatewayArn;
         /// <summary>
-        /// Outbound authentication configuration. See `OutboundAuth` below.
+        /// Outbound authentication configuration. See `OutboundAuth` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth? OutboundAuth;
 

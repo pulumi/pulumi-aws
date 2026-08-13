@@ -122,14 +122,14 @@ public class MedicalVocabulary extends com.pulumi.resources.CustomResource {
         return this.downloadUri;
     }
     /**
-     * The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+     * Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
      * 
      */
     @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
     /**
-     * @return The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
+     * @return Language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
      * 
      */
     public Output<String> languageCode() {
@@ -150,14 +150,14 @@ public class MedicalVocabulary extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -170,21 +170,21 @@ public class MedicalVocabulary extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+     * Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
      * 
      */
     @Export(name="vocabularyFileUri", refs={String.class}, tree="[0]")
     private Output<String> vocabularyFileUri;
 
     /**
-     * @return The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
+     * @return Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
      * 
      */
     public Output<String> vocabularyFileUri() {
         return this.vocabularyFileUri;
     }
     /**
-     * The name of the Medical Vocabulary.
+     * Name of the Medical Vocabulary.
      * 
      * The following arguments are optional:
      * 
@@ -193,7 +193,7 @@ public class MedicalVocabulary extends com.pulumi.resources.CustomResource {
     private Output<String> vocabularyName;
 
     /**
-     * @return The name of the Medical Vocabulary.
+     * @return Name of the Medical Vocabulary.
      * 
      * The following arguments are optional:
      * 

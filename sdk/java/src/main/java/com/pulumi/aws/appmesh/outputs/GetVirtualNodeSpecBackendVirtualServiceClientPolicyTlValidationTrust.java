@@ -13,17 +13,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust {
+    /**
+     * @return AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm> acms;
+    /**
+     * @return File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile> files;
+    /**
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd> sds;
 
     private GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrust() {}
+    /**
+     * @return AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcm> acms() {
         return this.acms;
     }
+    /**
+     * @return File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFile> files() {
         return this.files;
     }
+    /**
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd> sds() {
         return this.sds;
     }

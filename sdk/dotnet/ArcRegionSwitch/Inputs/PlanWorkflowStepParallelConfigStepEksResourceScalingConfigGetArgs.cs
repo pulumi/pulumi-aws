@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterGetArgs>? _eksClusters;
 
         /// <summary>
-        /// List of EKS clusters. See EKS Clusters below.
+        /// EKS clusters. See `EksClusters` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterGetArgs> EksClusters
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeGetArgs>? _kubernetesResourceTypes;
 
         /// <summary>
-        /// Kubernetes resource type. See Kubernetes Resource Type below.
+        /// Kubernetes resource type. See `KubernetesResourceType` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeGetArgs> KubernetesResourceTypes
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceGetArgs>? _scalingResources;
 
         /// <summary>
-        /// List of scaling resources. See Scaling Resources below.
+        /// Scaling resources. See `ScalingResources` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceGetArgs> ScalingResources
         {
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulGetArgs>? _ungracefuls;
 
         /// <summary>
-        /// Ungraceful behavior configuration. See Ungraceful Capacity below.
+        /// Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulGetArgs> Ungracefuls
         {

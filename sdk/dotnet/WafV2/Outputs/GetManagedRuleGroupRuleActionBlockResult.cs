@@ -13,6 +13,9 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class GetManagedRuleGroupRuleActionBlockResult
     {
+        /// <summary>
+        /// Custom response for the blocked request. See `CustomResponse` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedRuleGroupRuleActionBlockCustomResponseResult> CustomResponses;
 
         [OutputConstructor]

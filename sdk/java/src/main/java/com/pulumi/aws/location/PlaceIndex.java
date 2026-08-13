@@ -65,28 +65,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:location/placeIndex:PlaceIndex")
 public class PlaceIndex extends com.pulumi.resources.CustomResource {
     /**
-     * The timestamp for when the place index resource was created in ISO 8601 format.
+     * Timestamp for when the place index resource was created in ISO 8601 format.
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
-     * @return The timestamp for when the place index resource was created in ISO 8601 format.
+     * @return Timestamp for when the place index resource was created in ISO 8601 format.
      * 
      */
     public Output<String> createTime() {
         return this.createTime;
     }
     /**
-     * Specifies the geospatial data provider for the new place index.
+     * Geospatial data provider for the new place index.
      * 
      */
     @Export(name="dataSource", refs={String.class}, tree="[0]")
     private Output<String> dataSource;
 
     /**
-     * @return Specifies the geospatial data provider for the new place index.
+     * @return Geospatial data provider for the new place index.
      * 
      */
     public Output<String> dataSource() {
@@ -107,35 +107,35 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
         return this.dataSourceConfiguration;
     }
     /**
-     * The optional description for the place index resource.
+     * Optional description for the place index resource.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The optional description for the place index resource.
+     * @return Optional description for the place index resource.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+     * Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
      * 
      */
     @Export(name="indexArn", refs={String.class}, tree="[0]")
     private Output<String> indexArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+     * @return Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
      * 
      */
     public Output<String> indexArn() {
         return this.indexArn;
     }
     /**
-     * The name of the place index resource.
+     * Name of the place index resource.
      * 
      * The following arguments are optional:
      * 
@@ -144,7 +144,7 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
     private Output<String> indexName;
 
     /**
-     * @return The name of the place index resource.
+     * @return Name of the place index resource.
      * 
      * The following arguments are optional:
      * 
@@ -181,28 +181,28 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The timestamp for when the place index resource was last update in ISO 8601.
+     * Timestamp for when the place index resource was last updated in ISO 8601 format.
      * 
      */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
     private Output<String> updateTime;
 
     /**
-     * @return The timestamp for when the place index resource was last update in ISO 8601.
+     * @return Timestamp for when the place index resource was last updated in ISO 8601 format.
      * 
      */
     public Output<String> updateTime() {

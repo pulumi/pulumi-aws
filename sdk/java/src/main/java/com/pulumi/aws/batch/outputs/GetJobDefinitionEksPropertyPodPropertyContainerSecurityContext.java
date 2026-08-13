@@ -21,6 +21,10 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainerSecurityContex
      * 
      */
     private Boolean privileged;
+    /**
+     * @return When this parameter is `true`, the container is given read-only access to its root file system. The default value is `false`.
+     * 
+     */
     private Boolean readOnlyRootFileSystem;
     /**
      * @return When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn&#39;t specified, the default is the group that&#39;s specified in the image metadata.
@@ -53,6 +57,10 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainerSecurityContex
     public Boolean privileged() {
         return this.privileged;
     }
+    /**
+     * @return When this parameter is `true`, the container is given read-only access to its root file system. The default value is `false`.
+     * 
+     */
     public Boolean readOnlyRootFileSystem() {
         return this.readOnlyRootFileSystem;
     }

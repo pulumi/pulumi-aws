@@ -13,15 +13,33 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class GetBucketReplicationConfigurationRuleDestinationResult
     {
+        /// <summary>
+        /// Configuration block that specifies the overrides to use for object owners on replication. See `AccessControlTranslation` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationResult> AccessControlTranslations;
+        /// <summary>
+        /// Account ID used to specify the replica ownership.
+        /// </summary>
         public readonly string Account;
         /// <summary>
         /// Name of the bucket to get the replication configuration for.
         /// </summary>
         public readonly string Bucket;
+        /// <summary>
+        /// Configuration block that provides information about encryption. See `EncryptionConfiguration` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationResult> EncryptionConfigurations;
+        /// <summary>
+        /// Configuration block that specifies replication metrics-related settings. See `Metrics` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleDestinationMetricResult> Metrics;
+        /// <summary>
+        /// Configuration block that specifies S3 Replication Time Control (S3 RTC). See `ReplicationTime` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleDestinationReplicationTimeResult> ReplicationTimes;
+        /// <summary>
+        /// Storage class used to store the object.
+        /// </summary>
         public readonly string StorageClass;
 
         [OutputConstructor]

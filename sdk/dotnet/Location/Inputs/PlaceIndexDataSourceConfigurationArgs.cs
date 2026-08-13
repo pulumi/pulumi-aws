@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Location.Inputs
     public sealed class PlaceIndexDataSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+        /// How the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
         /// </summary>
         [Input("intendedUse")]
         public Input<string>? IntendedUse { get; set; }

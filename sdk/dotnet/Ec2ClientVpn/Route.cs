@@ -100,10 +100,16 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+        /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
         /// </summary>
         [Output("targetVpcSubnetId")]
-        public Output<string> TargetVpcSubnetId { get; private set; } = null!;
+        public Output<string?> TargetVpcSubnetId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Transit Gateway attachment, if the route targets a Transit Gateway-based Client VPN endpoint.
+        /// </summary>
+        [Output("transitGatewayAttachmentId")]
+        public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the route.
@@ -182,10 +188,10 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+        /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
         /// </summary>
-        [Input("targetVpcSubnetId", required: true)]
-        public Input<string> TargetVpcSubnetId { get; set; } = null!;
+        [Input("targetVpcSubnetId")]
+        public Input<string>? TargetVpcSubnetId { get; set; }
 
         public RouteArgs()
         {
@@ -226,10 +232,16 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
+        /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN. Required for VPC-based Client VPN endpoints. Not applicable for Transit Gateway-based Client VPN endpoints.
         /// </summary>
         [Input("targetVpcSubnetId")]
         public Input<string>? TargetVpcSubnetId { get; set; }
+
+        /// <summary>
+        /// The ID of the Transit Gateway attachment, if the route targets a Transit Gateway-based Client VPN endpoint.
+        /// </summary>
+        [Input("transitGatewayAttachmentId")]
+        public Input<string>? TransitGatewayAttachmentId { get; set; }
 
         /// <summary>
         /// The type of the route.

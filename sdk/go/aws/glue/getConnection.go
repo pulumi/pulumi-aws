@@ -66,7 +66,7 @@ type LookupConnectionResult struct {
 	Arn string `pulumi:"arn"`
 	// Map of connection properties specific to the Athena compute environment.
 	AthenaProperties map[string]string `pulumi:"athenaProperties"`
-	// Configuration block for authentication options.
+	// Configuration block for authentication options. See `authenticationConfiguration` Block for details.
 	AuthenticationConfigurations []GetConnectionAuthenticationConfiguration `pulumi:"authenticationConfigurations"`
 	// Catalog ID of the Glue Connection.
 	CatalogId string `pulumi:"catalogId"`
@@ -81,7 +81,7 @@ type LookupConnectionResult struct {
 	MatchCriterias []string `pulumi:"matchCriterias"`
 	// Name of the Glue Connection.
 	Name string `pulumi:"name"`
-	// Map of physical connection requirements, such as VPC and SecurityGroup.
+	// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
 	PhysicalConnectionRequirements []GetConnectionPhysicalConnectionRequirement `pulumi:"physicalConnectionRequirements"`
 	Region                         string                                       `pulumi:"region"`
 	// Tags assigned to the resource.
@@ -138,7 +138,7 @@ func (o LookupConnectionResultOutput) AthenaProperties() pulumi.StringMapOutput 
 	return o.ApplyT(func(v LookupConnectionResult) map[string]string { return v.AthenaProperties }).(pulumi.StringMapOutput)
 }
 
-// Configuration block for authentication options.
+// Configuration block for authentication options. See `authenticationConfiguration` Block for details.
 func (o LookupConnectionResultOutput) AuthenticationConfigurations() GetConnectionAuthenticationConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupConnectionResult) []GetConnectionAuthenticationConfiguration {
 		return v.AuthenticationConfigurations
@@ -179,7 +179,7 @@ func (o LookupConnectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Map of physical connection requirements, such as VPC and SecurityGroup.
+// Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
 func (o LookupConnectionResultOutput) PhysicalConnectionRequirements() GetConnectionPhysicalConnectionRequirementArrayOutput {
 	return o.ApplyT(func(v LookupConnectionResult) []GetConnectionPhysicalConnectionRequirement {
 		return v.PhysicalConnectionRequirements

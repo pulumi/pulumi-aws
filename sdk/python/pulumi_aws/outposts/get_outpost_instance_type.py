@@ -104,7 +104,7 @@ def get_outpost_instance_type(arn: Optional[_builtins.str] = None,
             "m5.large",
             "m5.4xlarge",
         ])
-    example_ec2_instance = aws.Ec2Instance("example", instance_type=example.instance_type)
+    example_instance = aws.ec2.Instance("example", instance_type=aws.ec2.InstanceType(example.instance_type))
     ```
 
 
@@ -148,7 +148,7 @@ def get_outpost_instance_type_output(arn: pulumi.Input[Optional[_builtins.str]] 
             "m5.large",
             "m5.4xlarge",
         ])
-    example_ec2_instance = aws.Ec2Instance("example", instance_type=example.instance_type)
+    example_instance = aws.ec2.Instance("example", instance_type=aws.ec2.InstanceType(example.instance_type))
     ```
 
 

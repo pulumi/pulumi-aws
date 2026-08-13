@@ -19,7 +19,7 @@ public final class TargetGroupAttachmentTarget {
      */
     private String id;
     /**
-     * @return This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+     * @return Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
      * 
      */
     private @Nullable Integer port;
@@ -33,7 +33,7 @@ public final class TargetGroupAttachmentTarget {
         return this.id;
     }
     /**
-     * @return This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+     * @return Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
      * 
      */
     public Optional<Integer> port() {

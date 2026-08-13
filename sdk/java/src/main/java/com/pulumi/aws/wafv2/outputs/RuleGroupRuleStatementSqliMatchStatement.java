@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatch;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -20,6 +21,11 @@ public final class RuleGroupRuleStatementSqliMatchStatement {
      * 
      */
     private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatch fieldToMatch;
+    /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    private @Nullable List<RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation> preParseTextTransformations;
     /**
      * @return Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
      * 
@@ -40,6 +46,13 @@ public final class RuleGroupRuleStatementSqliMatchStatement {
      */
     public Optional<RuleGroupRuleStatementSqliMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
+    }
+    /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    public List<RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation> preParseTextTransformations() {
+        return this.preParseTextTransformations == null ? List.of() : this.preParseTextTransformations;
     }
     /**
      * @return Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
@@ -68,12 +81,14 @@ public final class RuleGroupRuleStatementSqliMatchStatement {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatch fieldToMatch;
+        private @Nullable List<RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation> preParseTextTransformations;
         private @Nullable String sensitivityLevel;
         private List<RuleGroupRuleStatementSqliMatchStatementTextTransformation> textTransformations;
         public Builder() {}
         public Builder(RuleGroupRuleStatementSqliMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
+    	      this.preParseTextTransformations = defaults.preParseTextTransformations;
     	      this.sensitivityLevel = defaults.sensitivityLevel;
     	      this.textTransformations = defaults.textTransformations;
         }
@@ -83,6 +98,15 @@ public final class RuleGroupRuleStatementSqliMatchStatement {
 
             this.fieldToMatch = fieldToMatch;
             return this;
+        }
+        @CustomType.Setter
+        public Builder preParseTextTransformations(@Nullable List<RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation> preParseTextTransformations) {
+
+            this.preParseTextTransformations = preParseTextTransformations;
+            return this;
+        }
+        public Builder preParseTextTransformations(RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation... preParseTextTransformations) {
+            return preParseTextTransformations(List.of(preParseTextTransformations));
         }
         @CustomType.Setter
         public Builder sensitivityLevel(@Nullable String sensitivityLevel) {
@@ -104,6 +128,7 @@ public final class RuleGroupRuleStatementSqliMatchStatement {
         public RuleGroupRuleStatementSqliMatchStatement build() {
             final var _resultValue = new RuleGroupRuleStatementSqliMatchStatement();
             _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.preParseTextTransformations = preParseTextTransformations;
             _resultValue.sensitivityLevel = sensitivityLevel;
             _resultValue.textTransformations = textTransformations;
             return _resultValue;

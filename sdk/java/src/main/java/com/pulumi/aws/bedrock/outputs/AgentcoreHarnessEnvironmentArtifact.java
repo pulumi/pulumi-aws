@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessEnvironmentArtifact {
     /**
-     * @return Container configuration. See `containerConfiguration` below.
+     * @return Container configuration. See `containerConfiguration` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessEnvironmentArtifactContainerConfiguration containerConfiguration;
 
     private AgentcoreHarnessEnvironmentArtifact() {}
     /**
-     * @return Container configuration. See `containerConfiguration` below.
+     * @return Container configuration. See `containerConfiguration` Block below.
      * 
      */
     public Optional<AgentcoreHarnessEnvironmentArtifactContainerConfiguration> containerConfiguration() {

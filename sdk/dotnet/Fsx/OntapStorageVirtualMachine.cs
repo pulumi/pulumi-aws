@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        /// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `Endpoints` below.
         /// </summary>
         [Output("endpoints")]
         public Output<ImmutableArray<Outputs.OntapStorageVirtualMachineEndpoint>> Endpoints { get; private set; } = null!;
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.OntapStorageVirtualMachineEndpointGetArgs>? _endpoints;
 
         /// <summary>
-        /// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        /// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `Endpoints` below.
         /// </summary>
         public InputList<Inputs.OntapStorageVirtualMachineEndpointGetArgs> Endpoints
         {

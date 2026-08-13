@@ -24,7 +24,7 @@ public final class ExtensionParameter {
      */
     private String name;
     /**
-     * @return Determines if a parameter value must be specified in the extension association.
+     * @return Whether a parameter value must be specified in the extension association.
      * 
      */
     private @Nullable Boolean required;
@@ -45,7 +45,7 @@ public final class ExtensionParameter {
         return this.name;
     }
     /**
-     * @return Determines if a parameter value must be specified in the extension association.
+     * @return Whether a parameter value must be specified in the extension association.
      * 
      */
     public Optional<Boolean> required() {

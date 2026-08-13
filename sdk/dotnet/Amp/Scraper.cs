@@ -200,6 +200,62 @@ namespace Pulumi.Aws.Amp
     /// });
     /// ```
     /// 
+    /// ### OpenSearch Exporter
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Amp.Scraper("example", new()
+    ///     {
+    ///         Source = new Aws.Amp.Inputs.ScraperSourceArgs
+    ///         {
+    ///             Vpc = new Aws.Amp.Inputs.ScraperSourceVpcArgs
+    ///             {
+    ///                 SecurityGroupIds = new[]
+    ///                 {
+    ///                     exampleAwsSecurityGroup.Id,
+    ///                 },
+    ///                 SubnetIds = new[]
+    ///                 {
+    ///                     example1.Id,
+    ///                     example2.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Destination = new Aws.Amp.Inputs.ScraperDestinationArgs
+    ///         {
+    ///             Amp = new Aws.Amp.Inputs.ScraperDestinationAmpArgs
+    ///             {
+    ///                 WorkspaceArn = exampleAwsPrometheusWorkspace.Arn,
+    ///             },
+    ///         },
+    ///         Exporter = new Aws.Amp.Inputs.ScraperExporterArgs
+    ///         {
+    ///             Opensearch = new Aws.Amp.Inputs.ScraperExporterOpensearchArgs
+    ///             {
+    ///                 DomainArn = exampleAwsOpensearchDomain.Arn,
+    ///             },
+    ///         },
+    ///         ScrapeConfiguration = @"global:
+    ///   scrape_interval: 30s
+    /// scrape_configs:
+    ///   - job_name: 'my-service'
+    ///     dns_sd_configs:
+    ///       - names: ['my-service.my-namespace']
+    ///         type: A
+    ///         port: 8080
+    ///     metrics_path: '/metrics'
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Use default EKS scraper configuration
     /// 
     /// You can use the data source `AwsPrometheusScraperConfiguration` to use a
@@ -382,6 +438,12 @@ namespace Pulumi.Aws.Amp
         public Output<Outputs.ScraperDestination> Destination { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for additional exporters. See `Exporter` Block for details.
+        /// </summary>
+        [Output("exporter")]
+        public Output<Outputs.ScraperExporter?> Exporter { get; private set; } = null!;
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
@@ -487,6 +549,12 @@ namespace Pulumi.Aws.Amp
         public Input<Inputs.ScraperDestinationArgs> Destination { get; set; } = null!;
 
         /// <summary>
+        /// Configuration block for additional exporters. See `Exporter` Block for details.
+        /// </summary>
+        [Input("exporter")]
+        public Input<Inputs.ScraperExporterArgs>? Exporter { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -552,6 +620,12 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         [Input("destination")]
         public Input<Inputs.ScraperDestinationGetArgs>? Destination { get; set; }
+
+        /// <summary>
+        /// Configuration block for additional exporters. See `Exporter` Block for details.
+        /// </summary>
+        [Input("exporter")]
+        public Input<Inputs.ScraperExporterGetArgs>? Exporter { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

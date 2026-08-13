@@ -31,8 +31,6 @@ class LanguageModelInputDataConfigArgsDict(TypedDict):
     tuning_data_s3_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     S3 URI where tuning data is located.
-
-    The following arguments are optional:
     """
 
 @pulumi.input_type
@@ -45,8 +43,6 @@ class LanguageModelInputDataConfigArgs:
         :param pulumi.Input[_builtins.str] data_access_role_arn: IAM role with access to S3 bucket.
         :param pulumi.Input[_builtins.str] s3_uri: S3 URI where training data is located.
         :param pulumi.Input[_builtins.str] tuning_data_s3_uri: S3 URI where tuning data is located.
-               
-               The following arguments are optional:
         """
         pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -82,8 +78,6 @@ class LanguageModelInputDataConfigArgs:
     def tuning_data_s3_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 URI where tuning data is located.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "tuning_data_s3_uri")
 

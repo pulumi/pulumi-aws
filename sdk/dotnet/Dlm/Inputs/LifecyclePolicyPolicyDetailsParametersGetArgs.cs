@@ -18,6 +18,18 @@ namespace Pulumi.Aws.Dlm.Inputs
         [Input("excludeBootVolume")]
         public Input<bool>? ExcludeBootVolume { get; set; }
 
+        [Input("excludeDataVolumeTags")]
+        private InputMap<string>? _excludeDataVolumeTags;
+
+        /// <summary>
+        /// Map specifies whether to exclude volumes that have specific tags.
+        /// </summary>
+        public InputMap<string> ExcludeDataVolumeTags
+        {
+            get => _excludeDataVolumeTags ?? (_excludeDataVolumeTags = new InputMap<string>());
+            set => _excludeDataVolumeTags = value;
+        }
+
         /// <summary>
         /// Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `True` indicates that targeted instances are not rebooted when the policy runs. `False` indicates that target instances are rebooted when the policy runs. The default is `True` (instances are not rebooted).
         /// </summary>

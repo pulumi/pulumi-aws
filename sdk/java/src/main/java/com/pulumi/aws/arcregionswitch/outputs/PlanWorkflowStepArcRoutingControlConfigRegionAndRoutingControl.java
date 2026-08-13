@@ -19,7 +19,7 @@ public final class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingContro
      */
     private String region;
     /**
-     * @return List of routing controls. See Routing Control below.
+     * @return Routing controls. See `routingControl` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl> routingControls;
@@ -33,7 +33,7 @@ public final class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingContro
         return this.region;
     }
     /**
-     * @return List of routing controls. See Routing Control below.
+     * @return Routing controls. See `routingControl` Block for details.
      * 
      */
     public List<PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl> routingControls() {

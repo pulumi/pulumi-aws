@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly string CapacityMonitoringApproach;
         /// <summary>
-        /// ECS service configuration. See ECS Service below.
+        /// ECS service configuration. See `Service` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService> Services;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly int? TimeoutMinutes;
         /// <summary>
-        /// Ungraceful behavior configuration. See Ungraceful Capacity below.
+        /// Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
         /// </summary>
         public readonly Outputs.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngraceful? Ungraceful;
 

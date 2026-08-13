@@ -23,7 +23,7 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth {
      */
     private @Nullable Boolean none;
     /**
-     * @return OAuth credential provider configuration. See `oauth` below.
+     * @return OAuth credential provider configuration. See `oauth` Block below.
      * 
      */
     private @Nullable AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauth oauth;
@@ -44,7 +44,7 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth {
         return Optional.ofNullable(this.none);
     }
     /**
-     * @return OAuth credential provider configuration. See `oauth` below.
+     * @return OAuth credential provider configuration. See `oauth` Block below.
      * 
      */
     public Optional<AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauth> oauth() {

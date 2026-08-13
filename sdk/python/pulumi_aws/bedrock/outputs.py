@@ -306,6 +306,23 @@ __all__ = [
     'AgentcoreGatewayProtocolConfigurationMcp',
     'AgentcoreGatewayProtocolConfigurationMcpSessionConfiguration',
     'AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration',
+    'AgentcoreGatewayRuleAction',
+    'AgentcoreGatewayRuleActionConfigurationBundle',
+    'AgentcoreGatewayRuleActionConfigurationBundleStaticOverride',
+    'AgentcoreGatewayRuleActionConfigurationBundleWeightedOverride',
+    'AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplit',
+    'AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundle',
+    'AgentcoreGatewayRuleActionRouteToTarget',
+    'AgentcoreGatewayRuleActionRouteToTargetStaticRoute',
+    'AgentcoreGatewayRuleActionRouteToTargetWeightedRoute',
+    'AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplit',
+    'AgentcoreGatewayRuleCondition',
+    'AgentcoreGatewayRuleConditionMatchPaths',
+    'AgentcoreGatewayRuleConditionMatchPrincipals',
+    'AgentcoreGatewayRuleConditionMatchPrincipalsAnyOf',
+    'AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipal',
+    'AgentcoreGatewayRuleSystem',
+    'AgentcoreGatewayRuleTimeouts',
     'AgentcoreGatewayTargetCredentialProviderConfiguration',
     'AgentcoreGatewayTargetCredentialProviderConfigurationApiKey',
     'AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials',
@@ -347,6 +364,9 @@ __all__ = [
     'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyProperty',
     'AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3',
     'AgentcoreGatewayTargetTargetConfigurationMcpMcpServer',
+    'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema',
+    'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload',
+    'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3',
     'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema',
     'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload',
     'AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3',
@@ -382,8 +402,15 @@ __all__ = [
     'AgentcoreHarnessEnvironmentArtifact',
     'AgentcoreHarnessEnvironmentArtifactContainerConfiguration',
     'AgentcoreHarnessMemory',
+    'AgentcoreHarnessMemoryActual',
+    'AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration',
+    'AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig',
+    'AgentcoreHarnessMemoryActualDisabled',
+    'AgentcoreHarnessMemoryActualManagedMemoryConfiguration',
     'AgentcoreHarnessMemoryAgentcoreMemoryConfiguration',
     'AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig',
+    'AgentcoreHarnessMemoryDisabled',
+    'AgentcoreHarnessMemoryManagedMemoryConfiguration',
     'AgentcoreHarnessModel',
     'AgentcoreHarnessModelBedrockModelConfig',
     'AgentcoreHarnessModelGeminiModelConfig',
@@ -13868,6 +13895,786 @@ class AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration(dict):
 
 
 @pulumi.output_type
+class AgentcoreGatewayRuleAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationBundle":
+            suggest = "configuration_bundle"
+        elif key == "routeToTarget":
+            suggest = "route_to_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_bundle: Optional['outputs.AgentcoreGatewayRuleActionConfigurationBundle'] = None,
+                 route_to_target: Optional['outputs.AgentcoreGatewayRuleActionRouteToTarget'] = None):
+        """
+        :param 'AgentcoreGatewayRuleActionConfigurationBundleArgs' configuration_bundle: Reference to the configuration bundle for this variant.
+        :param 'AgentcoreGatewayRuleActionRouteToTargetArgs' route_to_target: Route requests to a gateway target when the rule's conditions match. See route_to_target below.
+        """
+        if configuration_bundle is not None:
+            pulumi.set(__self__, "configuration_bundle", configuration_bundle)
+        if route_to_target is not None:
+            pulumi.set(__self__, "route_to_target", route_to_target)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationBundle")
+    def configuration_bundle(self) -> Optional['outputs.AgentcoreGatewayRuleActionConfigurationBundle']:
+        """
+        Reference to the configuration bundle for this variant.
+        """
+        return pulumi.get(self, "configuration_bundle")
+
+    @_builtins.property
+    @pulumi.getter(name="routeToTarget")
+    def route_to_target(self) -> Optional['outputs.AgentcoreGatewayRuleActionRouteToTarget']:
+        """
+        Route requests to a gateway target when the rule's conditions match. See route_to_target below.
+        """
+        return pulumi.get(self, "route_to_target")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleActionConfigurationBundle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticOverride":
+            suggest = "static_override"
+        elif key == "weightedOverride":
+            suggest = "weighted_override"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleActionConfigurationBundle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleActionConfigurationBundle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleActionConfigurationBundle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 static_override: Optional['outputs.AgentcoreGatewayRuleActionConfigurationBundleStaticOverride'] = None,
+                 weighted_override: Optional['outputs.AgentcoreGatewayRuleActionConfigurationBundleWeightedOverride'] = None):
+        """
+        :param 'AgentcoreGatewayRuleActionConfigurationBundleStaticOverrideArgs' static_override: Statically override the configuration bundle used for the matched request.
+        :param 'AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideArgs' weighted_override: Distribute the request across two configuration bundle versions by weight.
+        """
+        if static_override is not None:
+            pulumi.set(__self__, "static_override", static_override)
+        if weighted_override is not None:
+            pulumi.set(__self__, "weighted_override", weighted_override)
+
+    @_builtins.property
+    @pulumi.getter(name="staticOverride")
+    def static_override(self) -> Optional['outputs.AgentcoreGatewayRuleActionConfigurationBundleStaticOverride']:
+        """
+        Statically override the configuration bundle used for the matched request.
+        """
+        return pulumi.get(self, "static_override")
+
+    @_builtins.property
+    @pulumi.getter(name="weightedOverride")
+    def weighted_override(self) -> Optional['outputs.AgentcoreGatewayRuleActionConfigurationBundleWeightedOverride']:
+        """
+        Distribute the request across two configuration bundle versions by weight.
+        """
+        return pulumi.get(self, "weighted_override")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleActionConfigurationBundleStaticOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bundleArn":
+            suggest = "bundle_arn"
+        elif key == "bundleVersion":
+            suggest = "bundle_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleActionConfigurationBundleStaticOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleActionConfigurationBundleStaticOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleActionConfigurationBundleStaticOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bundle_arn: _builtins.str,
+                 bundle_version: _builtins.str):
+        """
+        :param _builtins.str bundle_arn: ARN of the configuration bundle to apply.
+        :param _builtins.str bundle_version: Version (UUID) of the configuration bundle to apply.
+        """
+        pulumi.set(__self__, "bundle_arn", bundle_arn)
+        pulumi.set(__self__, "bundle_version", bundle_version)
+
+    @_builtins.property
+    @pulumi.getter(name="bundleArn")
+    def bundle_arn(self) -> _builtins.str:
+        """
+        ARN of the configuration bundle to apply.
+        """
+        return pulumi.get(self, "bundle_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="bundleVersion")
+    def bundle_version(self) -> _builtins.str:
+        """
+        Version (UUID) of the configuration bundle to apply.
+        """
+        return pulumi.get(self, "bundle_version")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleActionConfigurationBundleWeightedOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trafficSplits":
+            suggest = "traffic_splits"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleActionConfigurationBundleWeightedOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleActionConfigurationBundleWeightedOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleActionConfigurationBundleWeightedOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 traffic_splits: Optional[Sequence['outputs.AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplit']] = None):
+        """
+        :param Sequence['AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitArgs'] traffic_splits: Exactly two `traffic_split` blocks describing the two variants.
+        """
+        if traffic_splits is not None:
+            pulumi.set(__self__, "traffic_splits", traffic_splits)
+
+    @_builtins.property
+    @pulumi.getter(name="trafficSplits")
+    def traffic_splits(self) -> Optional[Sequence['outputs.AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplit']]:
+        """
+        Exactly two `traffic_split` blocks describing the two variants.
+        """
+        return pulumi.get(self, "traffic_splits")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationBundle":
+            suggest = "configuration_bundle"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 weight: _builtins.int,
+                 configuration_bundle: Optional['outputs.AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundle'] = None,
+                 description: Optional[_builtins.str] = None,
+                 metadata: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str name: Name of this variant. Between 1 and 64 characters; alphanumeric with internal hyphens.
+        :param _builtins.int weight: Percentage of traffic routed to this variant, between 1 and 99.
+        :param 'AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundleArgs' configuration_bundle: Reference to the configuration bundle for this variant.
+        :param _builtins.str description: Description of the rule. Between 1 and 256 characters.
+        :param Mapping[str, _builtins.str] metadata: Up to 25 key/value metadata pairs describing this variant.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "weight", weight)
+        if configuration_bundle is not None:
+            pulumi.set(__self__, "configuration_bundle", configuration_bundle)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of this variant. Between 1 and 64 characters; alphanumeric with internal hyphens.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> _builtins.int:
+        """
+        Percentage of traffic routed to this variant, between 1 and 99.
+        """
+        return pulumi.get(self, "weight")
+
+    @_builtins.property
+    @pulumi.getter(name="configurationBundle")
+    def configuration_bundle(self) -> Optional['outputs.AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundle']:
+        """
+        Reference to the configuration bundle for this variant.
+        """
+        return pulumi.get(self, "configuration_bundle")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Description of the rule. Between 1 and 256 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Up to 25 key/value metadata pairs describing this variant.
+        """
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bundleArn":
+            suggest = "bundle_arn"
+        elif key == "bundleVersion":
+            suggest = "bundle_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bundle_arn: _builtins.str,
+                 bundle_version: _builtins.str):
+        """
+        :param _builtins.str bundle_arn: ARN of the configuration bundle to apply.
+        :param _builtins.str bundle_version: Version (UUID) of the configuration bundle to apply.
+        """
+        pulumi.set(__self__, "bundle_arn", bundle_arn)
+        pulumi.set(__self__, "bundle_version", bundle_version)
+
+    @_builtins.property
+    @pulumi.getter(name="bundleArn")
+    def bundle_arn(self) -> _builtins.str:
+        """
+        ARN of the configuration bundle to apply.
+        """
+        return pulumi.get(self, "bundle_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="bundleVersion")
+    def bundle_version(self) -> _builtins.str:
+        """
+        Version (UUID) of the configuration bundle to apply.
+        """
+        return pulumi.get(self, "bundle_version")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleActionRouteToTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticRoute":
+            suggest = "static_route"
+        elif key == "weightedRoute":
+            suggest = "weighted_route"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleActionRouteToTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleActionRouteToTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleActionRouteToTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 static_route: Optional['outputs.AgentcoreGatewayRuleActionRouteToTargetStaticRoute'] = None,
+                 weighted_route: Optional['outputs.AgentcoreGatewayRuleActionRouteToTargetWeightedRoute'] = None):
+        """
+        :param 'AgentcoreGatewayRuleActionRouteToTargetStaticRouteArgs' static_route: Route all matching requests to a single named gateway target.
+        :param 'AgentcoreGatewayRuleActionRouteToTargetWeightedRouteArgs' weighted_route: Distribute requests across two named targets by weight.
+        """
+        if static_route is not None:
+            pulumi.set(__self__, "static_route", static_route)
+        if weighted_route is not None:
+            pulumi.set(__self__, "weighted_route", weighted_route)
+
+    @_builtins.property
+    @pulumi.getter(name="staticRoute")
+    def static_route(self) -> Optional['outputs.AgentcoreGatewayRuleActionRouteToTargetStaticRoute']:
+        """
+        Route all matching requests to a single named gateway target.
+        """
+        return pulumi.get(self, "static_route")
+
+    @_builtins.property
+    @pulumi.getter(name="weightedRoute")
+    def weighted_route(self) -> Optional['outputs.AgentcoreGatewayRuleActionRouteToTargetWeightedRoute']:
+        """
+        Distribute requests across two named targets by weight.
+        """
+        return pulumi.get(self, "weighted_route")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleActionRouteToTargetStaticRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetName":
+            suggest = "target_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleActionRouteToTargetStaticRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleActionRouteToTargetStaticRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleActionRouteToTargetStaticRoute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_name: _builtins.str):
+        """
+        :param _builtins.str target_name: Name of the gateway target this variant points to.
+        """
+        pulumi.set(__self__, "target_name", target_name)
+
+    @_builtins.property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> _builtins.str:
+        """
+        Name of the gateway target this variant points to.
+        """
+        return pulumi.get(self, "target_name")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleActionRouteToTargetWeightedRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trafficSplits":
+            suggest = "traffic_splits"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleActionRouteToTargetWeightedRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleActionRouteToTargetWeightedRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleActionRouteToTargetWeightedRoute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 traffic_splits: Optional[Sequence['outputs.AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplit']] = None):
+        """
+        :param Sequence['AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplitArgs'] traffic_splits: Exactly two `traffic_split` blocks describing the two variants.
+        """
+        if traffic_splits is not None:
+            pulumi.set(__self__, "traffic_splits", traffic_splits)
+
+    @_builtins.property
+    @pulumi.getter(name="trafficSplits")
+    def traffic_splits(self) -> Optional[Sequence['outputs.AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplit']]:
+        """
+        Exactly two `traffic_split` blocks describing the two variants.
+        """
+        return pulumi.get(self, "traffic_splits")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetName":
+            suggest = "target_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 target_name: _builtins.str,
+                 weight: _builtins.int,
+                 description: Optional[_builtins.str] = None,
+                 metadata: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str name: Name of this variant. Between 1 and 64 characters; alphanumeric with internal hyphens.
+        :param _builtins.str target_name: Name of the gateway target this variant points to.
+        :param _builtins.int weight: Percentage of traffic routed to this variant, between 1 and 99.
+        :param _builtins.str description: Description of the rule. Between 1 and 256 characters.
+        :param Mapping[str, _builtins.str] metadata: Up to 25 key/value metadata pairs describing this variant.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "target_name", target_name)
+        pulumi.set(__self__, "weight", weight)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of this variant. Between 1 and 64 characters; alphanumeric with internal hyphens.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> _builtins.str:
+        """
+        Name of the gateway target this variant points to.
+        """
+        return pulumi.get(self, "target_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> _builtins.int:
+        """
+        Percentage of traffic routed to this variant, between 1 and 99.
+        """
+        return pulumi.get(self, "weight")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Description of the rule. Between 1 and 256 characters.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Up to 25 key/value metadata pairs describing this variant.
+        """
+        return pulumi.get(self, "metadata")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchPaths":
+            suggest = "match_paths"
+        elif key == "matchPrincipals":
+            suggest = "match_principals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_paths: Optional['outputs.AgentcoreGatewayRuleConditionMatchPaths'] = None,
+                 match_principals: Optional['outputs.AgentcoreGatewayRuleConditionMatchPrincipals'] = None):
+        """
+        :param 'AgentcoreGatewayRuleConditionMatchPathsArgs' match_paths: Match when the request path matches any of the supplied glob patterns (e.g. `/api/*`).
+        :param 'AgentcoreGatewayRuleConditionMatchPrincipalsArgs' match_principals: Match when the caller's IAM identity matches any of the supplied principal entries.
+        """
+        if match_paths is not None:
+            pulumi.set(__self__, "match_paths", match_paths)
+        if match_principals is not None:
+            pulumi.set(__self__, "match_principals", match_principals)
+
+    @_builtins.property
+    @pulumi.getter(name="matchPaths")
+    def match_paths(self) -> Optional['outputs.AgentcoreGatewayRuleConditionMatchPaths']:
+        """
+        Match when the request path matches any of the supplied glob patterns (e.g. `/api/*`).
+        """
+        return pulumi.get(self, "match_paths")
+
+    @_builtins.property
+    @pulumi.getter(name="matchPrincipals")
+    def match_principals(self) -> Optional['outputs.AgentcoreGatewayRuleConditionMatchPrincipals']:
+        """
+        Match when the caller's IAM identity matches any of the supplied principal entries.
+        """
+        return pulumi.get(self, "match_principals")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleConditionMatchPaths(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anyOfs":
+            suggest = "any_ofs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleConditionMatchPaths. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleConditionMatchPaths.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleConditionMatchPaths.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 any_ofs: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] any_ofs: Between 1 and 100 principal entry blocks.
+        """
+        pulumi.set(__self__, "any_ofs", any_ofs)
+
+    @_builtins.property
+    @pulumi.getter(name="anyOfs")
+    def any_ofs(self) -> Sequence[_builtins.str]:
+        """
+        Between 1 and 100 principal entry blocks.
+        """
+        return pulumi.get(self, "any_ofs")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleConditionMatchPrincipals(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anyOfs":
+            suggest = "any_ofs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleConditionMatchPrincipals. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleConditionMatchPrincipals.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleConditionMatchPrincipals.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 any_ofs: Optional[Sequence['outputs.AgentcoreGatewayRuleConditionMatchPrincipalsAnyOf']] = None):
+        """
+        :param Sequence['AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfArgs'] any_ofs: Between 1 and 100 principal entry blocks.
+        """
+        if any_ofs is not None:
+            pulumi.set(__self__, "any_ofs", any_ofs)
+
+    @_builtins.property
+    @pulumi.getter(name="anyOfs")
+    def any_ofs(self) -> Optional[Sequence['outputs.AgentcoreGatewayRuleConditionMatchPrincipalsAnyOf']]:
+        """
+        Between 1 and 100 principal entry blocks.
+        """
+        return pulumi.get(self, "any_ofs")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleConditionMatchPrincipalsAnyOf(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamPrincipal":
+            suggest = "iam_principal"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleConditionMatchPrincipalsAnyOf. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleConditionMatchPrincipalsAnyOf.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleConditionMatchPrincipalsAnyOf.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iam_principal: 'outputs.AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipal'):
+        """
+        :param 'AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipalArgs' iam_principal: Match an IAM user, role, or assumed-role ARN. Exactly one `iam_principal` block is required per entry.
+        """
+        pulumi.set(__self__, "iam_principal", iam_principal)
+
+    @_builtins.property
+    @pulumi.getter(name="iamPrincipal")
+    def iam_principal(self) -> 'outputs.AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipal':
+        """
+        Match an IAM user, role, or assumed-role ARN. Exactly one `iam_principal` block is required per entry.
+        """
+        return pulumi.get(self, "iam_principal")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipal(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 operator: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str arn: IAM principal ARN. Wildcards are allowed with the `StringLike` operator.
+        :param _builtins.str operator: Match operator, one of `StringEquals` or `StringLike`. Defaults to `StringEquals`.
+        """
+        pulumi.set(__self__, "arn", arn)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        IAM principal ARN. Wildcards are allowed with the `StringLike` operator.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> Optional[_builtins.str]:
+        """
+        Match operator, one of `StringEquals` or `StringLike`. Defaults to `StringEquals`.
+        """
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleSystem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedBy":
+            suggest = "managed_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayRuleSystem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayRuleSystem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayRuleSystem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_by: _builtins.str):
+        """
+        :param _builtins.str managed_by: Name of the system that manages the rule.
+        """
+        pulumi.set(__self__, "managed_by", managed_by)
+
+    @_builtins.property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> _builtins.str:
+        """
+        Name of the system that manages the rule.
+        """
+        return pulumi.get(self, "managed_by")
+
+
+@pulumi.output_type
+class AgentcoreGatewayRuleTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
 class AgentcoreGatewayTargetCredentialProviderConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -16388,6 +17195,10 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer(dict):
         suggest = None
         if key == "listingMode":
             suggest = "listing_mode"
+        elif key == "mcpToolSchema":
+            suggest = "mcp_tool_schema"
+        elif key == "resourcePriority":
+            suggest = "resource_priority"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationMcpMcpServer. Access the value via the '{suggest}' property getter instead.")
@@ -16402,14 +17213,22 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer(dict):
 
     def __init__(__self__, *,
                  endpoint: _builtins.str,
-                 listing_mode: Optional[_builtins.str] = None):
+                 listing_mode: Optional[_builtins.str] = None,
+                 mcp_tool_schema: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema'] = None,
+                 resource_priority: Optional[_builtins.int] = None):
         """
         :param _builtins.str endpoint: Endpoint for the MCP server target configuration.
         :param _builtins.str listing_mode: Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaArgs' mcp_tool_schema: Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcp_tool_schema` below.
+        :param _builtins.int resource_priority: Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         if listing_mode is not None:
             pulumi.set(__self__, "listing_mode", listing_mode)
+        if mcp_tool_schema is not None:
+            pulumi.set(__self__, "mcp_tool_schema", mcp_tool_schema)
+        if resource_priority is not None:
+            pulumi.set(__self__, "resource_priority", resource_priority)
 
     @_builtins.property
     @pulumi.getter
@@ -16426,6 +17245,135 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer(dict):
         Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
         """
         return pulumi.get(self, "listing_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="mcpToolSchema")
+    def mcp_tool_schema(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema']:
+        """
+        Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcp_tool_schema` below.
+        """
+        return pulumi.get(self, "mcp_tool_schema")
+
+    @_builtins.property
+    @pulumi.getter(name="resourcePriority")
+    def resource_priority(self) -> Optional[_builtins.int]:
+        """
+        Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
+        """
+        return pulumi.get(self, "resource_priority")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inlinePayload":
+            suggest = "inline_payload"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inline_payload: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload'] = None,
+                 s3: Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3'] = None):
+        """
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadArgs' inline_payload: Inline tool schema payload. The `inline_payload` block requires a `payload` (string) containing the MCP tool schema definition.
+        :param 'AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3Args' s3: S3 location of the tool schema. See `s3` below.
+        """
+        if inline_payload is not None:
+            pulumi.set(__self__, "inline_payload", inline_payload)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="inlinePayload")
+    def inline_payload(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload']:
+        """
+        Inline tool schema payload. The `inline_payload` block requires a `payload` (string) containing the MCP tool schema definition.
+        """
+        return pulumi.get(self, "inline_payload")
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3']:
+        """
+        S3 location of the tool schema. See `s3` below.
+        """
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload(dict):
+    def __init__(__self__, *,
+                 payload: _builtins.str):
+        """
+        :param _builtins.str payload: The inline schema payload content.
+        """
+        pulumi.set(__self__, "payload", payload)
+
+    @_builtins.property
+    @pulumi.getter
+    def payload(self) -> _builtins.str:
+        """
+        The inline schema payload content.
+        """
+        return pulumi.get(self, "payload")
+
+
+@pulumi.output_type
+class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketOwnerAccountId":
+            suggest = "bucket_owner_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uri: _builtins.str,
+                 bucket_owner_account_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str uri: S3 URI where the schema is stored.
+        :param _builtins.str bucket_owner_account_id: Account ID of the S3 bucket owner.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if bucket_owner_account_id is not None:
+            pulumi.set(__self__, "bucket_owner_account_id", bucket_owner_account_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> _builtins.str:
+        """
+        S3 URI where the schema is stored.
+        """
+        return pulumi.get(self, "uri")
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwnerAccountId")
+    def bucket_owner_account_id(self) -> Optional[_builtins.str]:
+        """
+        Account ID of the S3 bucket owner.
+        """
+        return pulumi.get(self, "bucket_owner_account_id")
 
 
 @pulumi.output_type
@@ -16779,7 +17727,7 @@ class AgentcoreHarnessAuthorizerConfiguration(dict):
     def __init__(__self__, *,
                  custom_jwt_authorizer: Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer'] = None):
         """
-        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs' custom_jwt_authorizer: JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs' custom_jwt_authorizer: JWT-based authorization configuration block. See `custom_jwt_authorizer` Block below.
         """
         if custom_jwt_authorizer is not None:
             pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
@@ -16788,7 +17736,7 @@ class AgentcoreHarnessAuthorizerConfiguration(dict):
     @pulumi.getter(name="customJwtAuthorizer")
     def custom_jwt_authorizer(self) -> Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer']:
         """
-        JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
+        JWT-based authorization configuration block. See `custom_jwt_authorizer` Block below.
         """
         return pulumi.get(self, "custom_jwt_authorizer")
 
@@ -16840,10 +17788,10 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer(dict):
         :param Sequence[_builtins.str] allowed_audiences: Set of allowed audience values for JWT token validation.
         :param Sequence[_builtins.str] allowed_clients: Set of allowed client IDs for JWT token validation.
         :param Sequence[_builtins.str] allowed_scopes: Set of scopes that are allowed to access the token.
-        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs' allowed_workload_configuration: Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` below.
-        :param Sequence['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs'] custom_claims: Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
-        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs' private_endpoint: Private endpoint used to reach the authorization server. See `private_endpoint` below.
-        :param Sequence['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs'] private_endpoint_overrides: Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` below.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs' allowed_workload_configuration: Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` Block below.
+        :param Sequence['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs'] custom_claims: Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` Block below.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs' private_endpoint: Private endpoint used to reach the authorization server. See `private_endpoint` Block below.
+        :param Sequence['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs'] private_endpoint_overrides: Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` Block below.
         """
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audiences is not None:
@@ -16897,7 +17845,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer(dict):
     @pulumi.getter(name="allowedWorkloadConfiguration")
     def allowed_workload_configuration(self) -> Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration']:
         """
-        Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` below.
+        Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` Block below.
         """
         return pulumi.get(self, "allowed_workload_configuration")
 
@@ -16905,7 +17853,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer(dict):
     @pulumi.getter(name="customClaims")
     def custom_claims(self) -> Optional[Sequence['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']]:
         """
-        Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
+        Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` Block below.
         """
         return pulumi.get(self, "custom_claims")
 
@@ -16913,7 +17861,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer(dict):
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint']:
         """
-        Private endpoint used to reach the authorization server. See `private_endpoint` below.
+        Private endpoint used to reach the authorization server. See `private_endpoint` Block below.
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -16921,7 +17869,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer(dict):
     @pulumi.getter(name="privateEndpointOverrides")
     def private_endpoint_overrides(self) -> Optional[Sequence['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride']]:
         """
-        Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` below.
+        Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` Block below.
         """
         return pulumi.get(self, "private_endpoint_overrides")
 
@@ -16951,7 +17899,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadC
                  hosting_environments: Optional[Sequence['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment']] = None,
                  workload_identities: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs'] hosting_environments: Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` below.
+        :param Sequence['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs'] hosting_environments: Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` Block below.
         :param Sequence[_builtins.str] workload_identities: List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
         """
         if hosting_environments is not None:
@@ -16963,7 +17911,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadC
     @pulumi.getter(name="hostingEnvironments")
     def hosting_environments(self) -> Optional[Sequence['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment']]:
         """
-        Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` below.
+        Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` Block below.
         """
         return pulumi.get(self, "hosting_environments")
 
@@ -17022,7 +17970,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim(dict
                  inbound_token_claim_name: _builtins.str,
                  inbound_token_claim_value_type: _builtins.str):
         """
-        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs' authorizing_claim_match_value: Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` below.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs' authorizing_claim_match_value: Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` Block below.
         :param _builtins.str inbound_token_claim_name: Name of the custom claim field to check.
         :param _builtins.str inbound_token_claim_value_type: Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
         """
@@ -17034,7 +17982,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim(dict
     @pulumi.getter(name="authorizingClaimMatchValue")
     def authorizing_claim_match_value(self) -> 'outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue':
         """
-        Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` below.
+        Configuration block to define the value or values to match for and the relationship of the match. See `authorizing_claim_match_value` Block below.
         """
         return pulumi.get(self, "authorizing_claim_match_value")
 
@@ -17081,7 +18029,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAutho
                  claim_match_value: 'outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue'):
         """
         :param _builtins.str claim_match_operator: Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inbound_token_claim_value_type` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inbound_token_claim_value_type` is `STRING_ARRAY`.
-        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs' claim_match_value: Value or values to match for. See `claim_match_value` below.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs' claim_match_value: Value or values to match for. See `claim_match_value` Block below.
         """
         pulumi.set(__self__, "claim_match_operator", claim_match_operator)
         pulumi.set(__self__, "claim_match_value", claim_match_value)
@@ -17098,7 +18046,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAutho
     @pulumi.getter(name="claimMatchValue")
     def claim_match_value(self) -> 'outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue':
         """
-        Value or values to match for. See `claim_match_value` below.
+        Value or values to match for. See `claim_match_value` Block below.
         """
         return pulumi.get(self, "claim_match_value")
 
@@ -17178,8 +18126,8 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint(
                  managed_vpc_resource: Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource'] = None,
                  self_managed_lattice_resource: Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource'] = None):
         """
-        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` below.
-        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` Block below.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` Block below.
         """
         if managed_vpc_resource is not None:
             pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
@@ -17190,7 +18138,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint(
     @pulumi.getter(name="managedVpcResource")
     def managed_vpc_resource(self) -> Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource']:
         """
-        Managed VPC resource configuration. See `managed_vpc_resource` below.
+        Managed VPC resource configuration. See `managed_vpc_resource` Block below.
         """
         return pulumi.get(self, "managed_vpc_resource")
 
@@ -17198,7 +18146,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint(
     @pulumi.getter(name="selfManagedLatticeResource")
     def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource']:
         """
-        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` Block below.
         """
         return pulumi.get(self, "self_managed_lattice_resource")
 
@@ -17328,7 +18276,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
                  private_endpoint: 'outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint'):
         """
         :param _builtins.str domain: Domain the override applies to.
-        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs' private_endpoint: Private endpoint configuration. See `private_endpoint` below.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs' private_endpoint: Private endpoint configuration. See `private_endpoint` Block below.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -17345,7 +18293,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> 'outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint':
         """
-        Private endpoint configuration. See `private_endpoint` below.
+        Private endpoint configuration. See `private_endpoint` Block below.
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -17375,8 +18323,8 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
                  managed_vpc_resource: Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource'] = None,
                  self_managed_lattice_resource: Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource'] = None):
         """
-        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` below.
-        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` Block below.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` Block below.
         """
         if managed_vpc_resource is not None:
             pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
@@ -17387,7 +18335,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
     @pulumi.getter(name="managedVpcResource")
     def managed_vpc_resource(self) -> Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource']:
         """
-        Managed VPC resource configuration. See `managed_vpc_resource` below.
+        Managed VPC resource configuration. See `managed_vpc_resource` Block below.
         """
         return pulumi.get(self, "managed_vpc_resource")
 
@@ -17395,7 +18343,7 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointO
     @pulumi.getter(name="selfManagedLatticeResource")
     def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource']:
         """
-        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` Block below.
         """
         return pulumi.get(self, "self_managed_lattice_resource")
 
@@ -17593,7 +18541,7 @@ class AgentcoreHarnessEnvironment(dict):
     def __init__(__self__, *,
                  agentcore_runtime_environments: Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment']):
         """
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs'] agentcore_runtime_environments: AgentCore runtime environment configuration. See `agentcore_runtime_environment` below.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs'] agentcore_runtime_environments: AgentCore runtime environment configuration. See `agentcore_runtime_environment` Block below.
         """
         pulumi.set(__self__, "agentcore_runtime_environments", agentcore_runtime_environments)
 
@@ -17601,7 +18549,7 @@ class AgentcoreHarnessEnvironment(dict):
     @pulumi.getter(name="agentcoreRuntimeEnvironments")
     def agentcore_runtime_environments(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment']:
         """
-        AgentCore runtime environment configuration. See `agentcore_runtime_environment` below.
+        AgentCore runtime environment configuration. See `agentcore_runtime_environment` Block below.
         """
         return pulumi.get(self, "agentcore_runtime_environments")
 
@@ -17643,9 +18591,9 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment(dict):
                  lifecycle_configurations: Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration'],
                  network_configurations: Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration']):
         """
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs'] filesystem_configurations: Filesystem configurations. See `filesystem_configuration` below.
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs'] lifecycle_configurations: Lifecycle configuration. See `lifecycle_configuration` below.
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs'] network_configurations: Network configuration. See `network_configuration` below.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs'] filesystem_configurations: Filesystem configurations. See `filesystem_configuration` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationArgs'] lifecycle_configurations: Lifecycle configuration. See `lifecycle_configuration` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs'] network_configurations: Network configuration. See `network_configuration` Block below.
         """
         pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
         pulumi.set(__self__, "agent_runtime_id", agent_runtime_id)
@@ -17673,7 +18621,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment(dict):
     @pulumi.getter(name="filesystemConfigurations")
     def filesystem_configurations(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration']:
         """
-        Filesystem configurations. See `filesystem_configuration` below.
+        Filesystem configurations. See `filesystem_configuration` Block below.
         """
         return pulumi.get(self, "filesystem_configurations")
 
@@ -17681,7 +18629,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment(dict):
     @pulumi.getter(name="lifecycleConfigurations")
     def lifecycle_configurations(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration']:
         """
-        Lifecycle configuration. See `lifecycle_configuration` below.
+        Lifecycle configuration. See `lifecycle_configuration` Block below.
         """
         return pulumi.get(self, "lifecycle_configurations")
 
@@ -17689,7 +18637,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment(dict):
     @pulumi.getter(name="networkConfigurations")
     def network_configurations(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration']:
         """
-        Network configuration. See `network_configuration` below.
+        Network configuration. See `network_configuration` Block below.
         """
         return pulumi.get(self, "network_configurations")
 
@@ -17722,9 +18670,9 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
                  s3_files_access_points: Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint'],
                  session_storages: Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage']):
         """
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs'] efs_access_points: Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` below.
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs'] s3_files_access_points: Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` below.
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs'] session_storages: Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` below.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointArgs'] efs_access_points: Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointArgs'] s3_files_access_points: Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` Block below.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageArgs'] session_storages: Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` Block below.
         """
         pulumi.set(__self__, "efs_access_points", efs_access_points)
         pulumi.set(__self__, "s3_files_access_points", s3_files_access_points)
@@ -17734,7 +18682,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
     @pulumi.getter(name="efsAccessPoints")
     def efs_access_points(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint']:
         """
-        Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` below.
+        Amazon EFS access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `efs_access_point` Block below.
         """
         return pulumi.get(self, "efs_access_points")
 
@@ -17742,7 +18690,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
     @pulumi.getter(name="s3FilesAccessPoints")
     def s3_files_access_points(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint']:
         """
-        Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` below.
+        Amazon S3 Files access point to mount as shared file storage. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `s3_files_access_point` Block below.
         """
         return pulumi.get(self, "s3_files_access_points")
 
@@ -17750,7 +18698,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurat
     @pulumi.getter(name="sessionStorages")
     def session_storages(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage']:
         """
-        Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` below.
+        Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `session_storage`, `s3_files_access_point`, or `efs_access_point` must be specified. See `session_storage` Block below.
         """
         return pulumi.get(self, "session_storages")
 
@@ -17960,7 +18908,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
                  network_mode_configs: Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig']):
         """
         :param _builtins.str network_mode: Network mode. Valid values: `PUBLIC`, `VPC`.
-        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs'] network_mode_configs: VPC configuration. See `network_mode_config` below.
+        :param Sequence['AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs'] network_mode_configs: VPC configuration. See `network_mode_config` Block below.
         """
         pulumi.set(__self__, "network_mode", network_mode)
         pulumi.set(__self__, "network_mode_configs", network_mode_configs)
@@ -17977,7 +18925,7 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
     @pulumi.getter(name="networkModeConfigs")
     def network_mode_configs(self) -> Sequence['outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig']:
         """
-        VPC configuration. See `network_mode_config` below.
+        VPC configuration. See `network_mode_config` Block below.
         """
         return pulumi.get(self, "network_mode_configs")
 
@@ -18063,7 +19011,7 @@ class AgentcoreHarnessEnvironmentArtifact(dict):
     def __init__(__self__, *,
                  container_configuration: Optional['outputs.AgentcoreHarnessEnvironmentArtifactContainerConfiguration'] = None):
         """
-        :param 'AgentcoreHarnessEnvironmentArtifactContainerConfigurationArgs' container_configuration: Container configuration. See `container_configuration` below.
+        :param 'AgentcoreHarnessEnvironmentArtifactContainerConfigurationArgs' container_configuration: Container configuration. See `container_configuration` Block below.
         """
         if container_configuration is not None:
             pulumi.set(__self__, "container_configuration", container_configuration)
@@ -18072,7 +19020,7 @@ class AgentcoreHarnessEnvironmentArtifact(dict):
     @pulumi.getter(name="containerConfiguration")
     def container_configuration(self) -> Optional['outputs.AgentcoreHarnessEnvironmentArtifactContainerConfiguration']:
         """
-        Container configuration. See `container_configuration` below.
+        Container configuration. See `container_configuration` Block below.
         """
         return pulumi.get(self, "container_configuration")
 
@@ -18119,6 +19067,8 @@ class AgentcoreHarnessMemory(dict):
         suggest = None
         if key == "agentcoreMemoryConfiguration":
             suggest = "agentcore_memory_configuration"
+        elif key == "managedMemoryConfiguration":
+            suggest = "managed_memory_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessMemory. Access the value via the '{suggest}' property getter instead.")
@@ -18132,20 +19082,329 @@ class AgentcoreHarnessMemory(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 agentcore_memory_configuration: Optional['outputs.AgentcoreHarnessMemoryAgentcoreMemoryConfiguration'] = None):
+                 agentcore_memory_configuration: Optional['outputs.AgentcoreHarnessMemoryAgentcoreMemoryConfiguration'] = None,
+                 disabled: Optional['outputs.AgentcoreHarnessMemoryDisabled'] = None,
+                 managed_memory_configuration: Optional['outputs.AgentcoreHarnessMemoryManagedMemoryConfiguration'] = None):
         """
-        :param 'AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs' agentcore_memory_configuration: AgentCore memory configuration. See `agentcore_memory_configuration` below.
+        :param 'AgentcoreHarnessMemoryAgentcoreMemoryConfigurationArgs' agentcore_memory_configuration: AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcore_memory_configuration` Block below.
+        :param 'AgentcoreHarnessMemoryDisabledArgs' disabled: Explicitly disable memory for this harness. See `disabled` Block below.
+        :param 'AgentcoreHarnessMemoryManagedMemoryConfigurationArgs' managed_memory_configuration: Managed memory configuration. Creates and manages a memory resource automatically. See `managed_memory_configuration` Block below.
         """
         if agentcore_memory_configuration is not None:
             pulumi.set(__self__, "agentcore_memory_configuration", agentcore_memory_configuration)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+        if managed_memory_configuration is not None:
+            pulumi.set(__self__, "managed_memory_configuration", managed_memory_configuration)
 
     @_builtins.property
     @pulumi.getter(name="agentcoreMemoryConfiguration")
     def agentcore_memory_configuration(self) -> Optional['outputs.AgentcoreHarnessMemoryAgentcoreMemoryConfiguration']:
         """
-        AgentCore memory configuration. See `agentcore_memory_configuration` below.
+        AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcore_memory_configuration` Block below.
         """
         return pulumi.get(self, "agentcore_memory_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def disabled(self) -> Optional['outputs.AgentcoreHarnessMemoryDisabled']:
+        """
+        Explicitly disable memory for this harness. See `disabled` Block below.
+        """
+        return pulumi.get(self, "disabled")
+
+    @_builtins.property
+    @pulumi.getter(name="managedMemoryConfiguration")
+    def managed_memory_configuration(self) -> Optional['outputs.AgentcoreHarnessMemoryManagedMemoryConfiguration']:
+        """
+        Managed memory configuration. Creates and manages a memory resource automatically. See `managed_memory_configuration` Block below.
+        """
+        return pulumi.get(self, "managed_memory_configuration")
+
+
+@pulumi.output_type
+class AgentcoreHarnessMemoryActual(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentcoreMemoryConfigurations":
+            suggest = "agentcore_memory_configurations"
+        elif key == "managedMemoryConfigurations":
+            suggest = "managed_memory_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessMemoryActual. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessMemoryActual.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessMemoryActual.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agentcore_memory_configurations: Sequence['outputs.AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration'],
+                 disableds: Sequence['outputs.AgentcoreHarnessMemoryActualDisabled'],
+                 managed_memory_configurations: Sequence['outputs.AgentcoreHarnessMemoryActualManagedMemoryConfiguration']):
+        """
+        :param Sequence['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationArgs'] agentcore_memory_configurations: AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcore_memory_configuration` Block below.
+        :param Sequence['AgentcoreHarnessMemoryActualDisabledArgs'] disableds: Explicitly disable memory for this harness. See `disabled` Block below.
+        :param Sequence['AgentcoreHarnessMemoryActualManagedMemoryConfigurationArgs'] managed_memory_configurations: Managed memory configuration. Creates and manages a memory resource automatically. See `managed_memory_configuration` Block below.
+        """
+        pulumi.set(__self__, "agentcore_memory_configurations", agentcore_memory_configurations)
+        pulumi.set(__self__, "disableds", disableds)
+        pulumi.set(__self__, "managed_memory_configurations", managed_memory_configurations)
+
+    @_builtins.property
+    @pulumi.getter(name="agentcoreMemoryConfigurations")
+    def agentcore_memory_configurations(self) -> Sequence['outputs.AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration']:
+        """
+        AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcore_memory_configuration` Block below.
+        """
+        return pulumi.get(self, "agentcore_memory_configurations")
+
+    @_builtins.property
+    @pulumi.getter
+    def disableds(self) -> Sequence['outputs.AgentcoreHarnessMemoryActualDisabled']:
+        """
+        Explicitly disable memory for this harness. See `disabled` Block below.
+        """
+        return pulumi.get(self, "disableds")
+
+    @_builtins.property
+    @pulumi.getter(name="managedMemoryConfigurations")
+    def managed_memory_configurations(self) -> Sequence['outputs.AgentcoreHarnessMemoryActualManagedMemoryConfiguration']:
+        """
+        Managed memory configuration. Creates and manages a memory resource automatically. See `managed_memory_configuration` Block below.
+        """
+        return pulumi.get(self, "managed_memory_configurations")
+
+
+@pulumi.output_type
+class AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actorId":
+            suggest = "actor_id"
+        elif key == "messagesCount":
+            suggest = "messages_count"
+        elif key == "retrievalConfigs":
+            suggest = "retrieval_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actor_id: _builtins.str,
+                 arn: _builtins.str,
+                 messages_count: _builtins.int,
+                 retrieval_configs: Sequence['outputs.AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig']):
+        """
+        :param _builtins.str actor_id: Actor ID for memory sessions.
+        :param _builtins.str arn: ARN of the AgentCore memory resource.
+        :param _builtins.int messages_count: Number of messages to retrieve from memory.
+        :param Sequence['AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfigArgs'] retrieval_configs: Retrieval configuration parameters. See `retrieval_config` Block below.
+        """
+        pulumi.set(__self__, "actor_id", actor_id)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "messages_count", messages_count)
+        pulumi.set(__self__, "retrieval_configs", retrieval_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="actorId")
+    def actor_id(self) -> _builtins.str:
+        """
+        Actor ID for memory sessions.
+        """
+        return pulumi.get(self, "actor_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        ARN of the AgentCore memory resource.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="messagesCount")
+    def messages_count(self) -> _builtins.int:
+        """
+        Number of messages to retrieve from memory.
+        """
+        return pulumi.get(self, "messages_count")
+
+    @_builtins.property
+    @pulumi.getter(name="retrievalConfigs")
+    def retrieval_configs(self) -> Sequence['outputs.AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig']:
+        """
+        Retrieval configuration parameters. See `retrieval_config` Block below.
+        """
+        return pulumi.get(self, "retrieval_configs")
+
+
+@pulumi.output_type
+class AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mapBlockKey":
+            suggest = "map_block_key"
+        elif key == "relevanceScore":
+            suggest = "relevance_score"
+        elif key == "strategyId":
+            suggest = "strategy_id"
+        elif key == "topK":
+            suggest = "top_k"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 map_block_key: _builtins.str,
+                 relevance_score: _builtins.float,
+                 strategy_id: _builtins.str,
+                 top_k: _builtins.int):
+        """
+        :param _builtins.str map_block_key: Namespace path template for retrieval settings.
+        :param _builtins.float relevance_score: Relevance score threshold. Valid value is between `0` and `1`.
+        :param _builtins.str strategy_id: ID of the memory strategy.
+        :param _builtins.int top_k: Number of top results to retrieve.
+        """
+        pulumi.set(__self__, "map_block_key", map_block_key)
+        pulumi.set(__self__, "relevance_score", relevance_score)
+        pulumi.set(__self__, "strategy_id", strategy_id)
+        pulumi.set(__self__, "top_k", top_k)
+
+    @_builtins.property
+    @pulumi.getter(name="mapBlockKey")
+    def map_block_key(self) -> _builtins.str:
+        """
+        Namespace path template for retrieval settings.
+        """
+        return pulumi.get(self, "map_block_key")
+
+    @_builtins.property
+    @pulumi.getter(name="relevanceScore")
+    def relevance_score(self) -> _builtins.float:
+        """
+        Relevance score threshold. Valid value is between `0` and `1`.
+        """
+        return pulumi.get(self, "relevance_score")
+
+    @_builtins.property
+    @pulumi.getter(name="strategyId")
+    def strategy_id(self) -> _builtins.str:
+        """
+        ID of the memory strategy.
+        """
+        return pulumi.get(self, "strategy_id")
+
+    @_builtins.property
+    @pulumi.getter(name="topK")
+    def top_k(self) -> _builtins.int:
+        """
+        Number of top results to retrieve.
+        """
+        return pulumi.get(self, "top_k")
+
+
+@pulumi.output_type
+class AgentcoreHarnessMemoryActualDisabled(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class AgentcoreHarnessMemoryActualManagedMemoryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyArn":
+            suggest = "encryption_key_arn"
+        elif key == "eventExpiryDuration":
+            suggest = "event_expiry_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessMemoryActualManagedMemoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessMemoryActualManagedMemoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessMemoryActualManagedMemoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 encryption_key_arn: _builtins.str,
+                 event_expiry_duration: _builtins.int,
+                 strategies: Sequence[_builtins.str]):
+        """
+        :param _builtins.str arn: ARN of the managed memory resource.
+        :param _builtins.str encryption_key_arn: ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+        :param _builtins.int event_expiry_duration: Event retention in days. Defaults to `30`.
+        :param Sequence[_builtins.str] strategies: Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
+               
+               In addition, the following attribute is exported:
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        pulumi.set(__self__, "event_expiry_duration", event_expiry_duration)
+        pulumi.set(__self__, "strategies", strategies)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        ARN of the managed memory resource.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> _builtins.str:
+        """
+        ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="eventExpiryDuration")
+    def event_expiry_duration(self) -> _builtins.int:
+        """
+        Event retention in days. Defaults to `30`.
+        """
+        return pulumi.get(self, "event_expiry_duration")
+
+    @_builtins.property
+    @pulumi.getter
+    def strategies(self) -> Sequence[_builtins.str]:
+        """
+        Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
+
+        In addition, the following attribute is exported:
+        """
+        return pulumi.get(self, "strategies")
 
 
 @pulumi.output_type
@@ -18180,7 +19439,7 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfiguration(dict):
         :param _builtins.str arn: ARN of the AgentCore memory resource.
         :param _builtins.str actor_id: Actor ID for memory sessions.
         :param _builtins.int messages_count: Number of messages to retrieve from memory.
-        :param 'AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs' retrieval_config: Retrieval configuration parameters. See `retrieval_config` below.
+        :param 'AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigArgs' retrieval_config: Retrieval configuration parameters. See `retrieval_config` Block below.
         """
         pulumi.set(__self__, "arn", arn)
         if actor_id is not None:
@@ -18218,7 +19477,7 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfiguration(dict):
     @pulumi.getter(name="retrievalConfig")
     def retrieval_config(self) -> Optional['outputs.AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig']:
         """
-        Retrieval configuration parameters. See `retrieval_config` below.
+        Retrieval configuration parameters. See `retrieval_config` Block below.
         """
         return pulumi.get(self, "retrieval_config")
 
@@ -18254,7 +19513,7 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig(dict):
                  strategy_id: Optional[_builtins.str] = None,
                  top_k: Optional[_builtins.int] = None):
         """
-        :param _builtins.str map_block_key: Key for the retrieval configuration map block.
+        :param _builtins.str map_block_key: Namespace path template for retrieval settings.
         :param _builtins.float relevance_score: Relevance score threshold. Valid value is between `0` and `1`.
         :param _builtins.str strategy_id: ID of the memory strategy.
         :param _builtins.int top_k: Number of top results to retrieve.
@@ -18271,7 +19530,7 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig(dict):
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> _builtins.str:
         """
-        Key for the retrieval configuration map block.
+        Namespace path template for retrieval settings.
         """
         return pulumi.get(self, "map_block_key")
 
@@ -18298,6 +19557,90 @@ class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig(dict):
         Number of top results to retrieve.
         """
         return pulumi.get(self, "top_k")
+
+
+@pulumi.output_type
+class AgentcoreHarnessMemoryDisabled(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class AgentcoreHarnessMemoryManagedMemoryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyArn":
+            suggest = "encryption_key_arn"
+        elif key == "eventExpiryDuration":
+            suggest = "event_expiry_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessMemoryManagedMemoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessMemoryManagedMemoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessMemoryManagedMemoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: Optional[_builtins.str] = None,
+                 encryption_key_arn: Optional[_builtins.str] = None,
+                 event_expiry_duration: Optional[_builtins.int] = None,
+                 strategies: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str arn: ARN of the managed memory resource.
+        :param _builtins.str encryption_key_arn: ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+        :param _builtins.int event_expiry_duration: Event retention in days. Defaults to `30`.
+        :param Sequence[_builtins.str] strategies: Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
+               
+               In addition, the following attribute is exported:
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if event_expiry_duration is not None:
+            pulumi.set(__self__, "event_expiry_duration", event_expiry_duration)
+        if strategies is not None:
+            pulumi.set(__self__, "strategies", strategies)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the managed memory resource.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="eventExpiryDuration")
+    def event_expiry_duration(self) -> Optional[_builtins.int]:
+        """
+        Event retention in days. Defaults to `30`.
+        """
+        return pulumi.get(self, "event_expiry_duration")
+
+    @_builtins.property
+    @pulumi.getter
+    def strategies(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
+
+        In addition, the following attribute is exported:
+        """
+        return pulumi.get(self, "strategies")
 
 
 @pulumi.output_type
@@ -18328,9 +19671,9 @@ class AgentcoreHarnessModel(dict):
                  gemini_model_config: Optional['outputs.AgentcoreHarnessModelGeminiModelConfig'] = None,
                  openai_model_config: Optional['outputs.AgentcoreHarnessModelOpenaiModelConfig'] = None):
         """
-        :param 'AgentcoreHarnessModelBedrockModelConfigArgs' bedrock_model_config: Amazon Bedrock model configuration. See `bedrock_model_config` below.
-        :param 'AgentcoreHarnessModelGeminiModelConfigArgs' gemini_model_config: Gemini model configuration. See `gemini_model_config` below.
-        :param 'AgentcoreHarnessModelOpenaiModelConfigArgs' openai_model_config: OpenAI model configuration. See `openai_model_config` below.
+        :param 'AgentcoreHarnessModelBedrockModelConfigArgs' bedrock_model_config: Amazon Bedrock model configuration. See `bedrock_model_config` Block below.
+        :param 'AgentcoreHarnessModelGeminiModelConfigArgs' gemini_model_config: Gemini model configuration. See `gemini_model_config` Block below.
+        :param 'AgentcoreHarnessModelOpenaiModelConfigArgs' openai_model_config: OpenAI model configuration. See `openai_model_config` Block below.
         """
         if bedrock_model_config is not None:
             pulumi.set(__self__, "bedrock_model_config", bedrock_model_config)
@@ -18343,7 +19686,7 @@ class AgentcoreHarnessModel(dict):
     @pulumi.getter(name="bedrockModelConfig")
     def bedrock_model_config(self) -> Optional['outputs.AgentcoreHarnessModelBedrockModelConfig']:
         """
-        Amazon Bedrock model configuration. See `bedrock_model_config` below.
+        Amazon Bedrock model configuration. See `bedrock_model_config` Block below.
         """
         return pulumi.get(self, "bedrock_model_config")
 
@@ -18351,7 +19694,7 @@ class AgentcoreHarnessModel(dict):
     @pulumi.getter(name="geminiModelConfig")
     def gemini_model_config(self) -> Optional['outputs.AgentcoreHarnessModelGeminiModelConfig']:
         """
-        Gemini model configuration. See `gemini_model_config` below.
+        Gemini model configuration. See `gemini_model_config` Block below.
         """
         return pulumi.get(self, "gemini_model_config")
 
@@ -18359,7 +19702,7 @@ class AgentcoreHarnessModel(dict):
     @pulumi.getter(name="openaiModelConfig")
     def openai_model_config(self) -> Optional['outputs.AgentcoreHarnessModelOpenaiModelConfig']:
         """
-        OpenAI model configuration. See `openai_model_config` below.
+        OpenAI model configuration. See `openai_model_config` Block below.
         """
         return pulumi.get(self, "openai_model_config")
 
@@ -18784,11 +20127,11 @@ class AgentcoreHarnessToolConfig(dict):
                  inline_function: Optional['outputs.AgentcoreHarnessToolConfigInlineFunction'] = None,
                  remote_mcp: Optional['outputs.AgentcoreHarnessToolConfigRemoteMcp'] = None):
         """
-        :param 'AgentcoreHarnessToolConfigAgentcoreBrowserArgs' agentcore_browser: AgentCore browser configuration. See `agentcore_browser` below.
-        :param 'AgentcoreHarnessToolConfigAgentcoreCodeInterpreterArgs' agentcore_code_interpreter: AgentCore code interpreter configuration. See `agentcore_code_interpreter` below.
-        :param 'AgentcoreHarnessToolConfigAgentcoreGatewayArgs' agentcore_gateway: AgentCore gateway configuration. See `agentcore_gateway` below.
-        :param 'AgentcoreHarnessToolConfigInlineFunctionArgs' inline_function: Inline function configuration. See `inline_function` below.
-        :param 'AgentcoreHarnessToolConfigRemoteMcpArgs' remote_mcp: Remote MCP server configuration. See `remote_mcp` below.
+        :param 'AgentcoreHarnessToolConfigAgentcoreBrowserArgs' agentcore_browser: AgentCore browser configuration. See `agentcore_browser` Block below.
+        :param 'AgentcoreHarnessToolConfigAgentcoreCodeInterpreterArgs' agentcore_code_interpreter: AgentCore code interpreter configuration. See `agentcore_code_interpreter` Block below.
+        :param 'AgentcoreHarnessToolConfigAgentcoreGatewayArgs' agentcore_gateway: AgentCore gateway configuration. See `agentcore_gateway` Block below.
+        :param 'AgentcoreHarnessToolConfigInlineFunctionArgs' inline_function: Inline function configuration. See `inline_function` Block below.
+        :param 'AgentcoreHarnessToolConfigRemoteMcpArgs' remote_mcp: Remote MCP server configuration. See `remote_mcp` Block below.
         """
         if agentcore_browser is not None:
             pulumi.set(__self__, "agentcore_browser", agentcore_browser)
@@ -18805,7 +20148,7 @@ class AgentcoreHarnessToolConfig(dict):
     @pulumi.getter(name="agentcoreBrowser")
     def agentcore_browser(self) -> Optional['outputs.AgentcoreHarnessToolConfigAgentcoreBrowser']:
         """
-        AgentCore browser configuration. See `agentcore_browser` below.
+        AgentCore browser configuration. See `agentcore_browser` Block below.
         """
         return pulumi.get(self, "agentcore_browser")
 
@@ -18813,7 +20156,7 @@ class AgentcoreHarnessToolConfig(dict):
     @pulumi.getter(name="agentcoreCodeInterpreter")
     def agentcore_code_interpreter(self) -> Optional['outputs.AgentcoreHarnessToolConfigAgentcoreCodeInterpreter']:
         """
-        AgentCore code interpreter configuration. See `agentcore_code_interpreter` below.
+        AgentCore code interpreter configuration. See `agentcore_code_interpreter` Block below.
         """
         return pulumi.get(self, "agentcore_code_interpreter")
 
@@ -18821,7 +20164,7 @@ class AgentcoreHarnessToolConfig(dict):
     @pulumi.getter(name="agentcoreGateway")
     def agentcore_gateway(self) -> Optional['outputs.AgentcoreHarnessToolConfigAgentcoreGateway']:
         """
-        AgentCore gateway configuration. See `agentcore_gateway` below.
+        AgentCore gateway configuration. See `agentcore_gateway` Block below.
         """
         return pulumi.get(self, "agentcore_gateway")
 
@@ -18829,7 +20172,7 @@ class AgentcoreHarnessToolConfig(dict):
     @pulumi.getter(name="inlineFunction")
     def inline_function(self) -> Optional['outputs.AgentcoreHarnessToolConfigInlineFunction']:
         """
-        Inline function configuration. See `inline_function` below.
+        Inline function configuration. See `inline_function` Block below.
         """
         return pulumi.get(self, "inline_function")
 
@@ -18837,7 +20180,7 @@ class AgentcoreHarnessToolConfig(dict):
     @pulumi.getter(name="remoteMcp")
     def remote_mcp(self) -> Optional['outputs.AgentcoreHarnessToolConfigRemoteMcp']:
         """
-        Remote MCP server configuration. See `remote_mcp` below.
+        Remote MCP server configuration. See `remote_mcp` Block below.
         """
         return pulumi.get(self, "remote_mcp")
 
@@ -18940,7 +20283,7 @@ class AgentcoreHarnessToolConfigAgentcoreGateway(dict):
                  outbound_auth: Optional['outputs.AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth'] = None):
         """
         :param _builtins.str gateway_arn: ARN of the AgentCore gateway resource.
-        :param 'AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs' outbound_auth: Outbound authentication configuration. See `outbound_auth` below.
+        :param 'AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs' outbound_auth: Outbound authentication configuration. See `outbound_auth` Block below.
         """
         pulumi.set(__self__, "gateway_arn", gateway_arn)
         if outbound_auth is not None:
@@ -18958,7 +20301,7 @@ class AgentcoreHarnessToolConfigAgentcoreGateway(dict):
     @pulumi.getter(name="outboundAuth")
     def outbound_auth(self) -> Optional['outputs.AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth']:
         """
-        Outbound authentication configuration. See `outbound_auth` below.
+        Outbound authentication configuration. See `outbound_auth` Block below.
         """
         return pulumi.get(self, "outbound_auth")
 
@@ -18989,7 +20332,7 @@ class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth(dict):
         """
         :param _builtins.bool aws_iam: Set to `true` to use AWS IAM authentication.
         :param _builtins.bool none: Set to `true` to disable authentication.
-        :param 'AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauthArgs' oauth: OAuth credential provider configuration. See `oauth` below.
+        :param 'AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauthArgs' oauth: OAuth credential provider configuration. See `oauth` Block below.
         """
         if aws_iam is not None:
             pulumi.set(__self__, "aws_iam", aws_iam)
@@ -19018,7 +20361,7 @@ class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth(dict):
     @pulumi.getter
     def oauth(self) -> Optional['outputs.AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauth']:
         """
-        OAuth credential provider configuration. See `oauth` below.
+        OAuth credential provider configuration. See `oauth` Block below.
         """
         return pulumi.get(self, "oauth")
 
@@ -19239,8 +20582,8 @@ class AgentcoreHarnessTruncationConfig(dict):
                  sliding_windows: Sequence['outputs.AgentcoreHarnessTruncationConfigSlidingWindow'],
                  summarizations: Sequence['outputs.AgentcoreHarnessTruncationConfigSummarization']):
         """
-        :param Sequence['AgentcoreHarnessTruncationConfigSlidingWindowArgs'] sliding_windows: Sliding window truncation configuration. See `sliding_window` below.
-        :param Sequence['AgentcoreHarnessTruncationConfigSummarizationArgs'] summarizations: Summarization truncation configuration. See `summarization` below.
+        :param Sequence['AgentcoreHarnessTruncationConfigSlidingWindowArgs'] sliding_windows: Sliding window truncation configuration. See `sliding_window` Block below.
+        :param Sequence['AgentcoreHarnessTruncationConfigSummarizationArgs'] summarizations: Summarization truncation configuration. See `summarization` Block below.
         """
         pulumi.set(__self__, "sliding_windows", sliding_windows)
         pulumi.set(__self__, "summarizations", summarizations)
@@ -19249,7 +20592,7 @@ class AgentcoreHarnessTruncationConfig(dict):
     @pulumi.getter(name="slidingWindows")
     def sliding_windows(self) -> Sequence['outputs.AgentcoreHarnessTruncationConfigSlidingWindow']:
         """
-        Sliding window truncation configuration. See `sliding_window` below.
+        Sliding window truncation configuration. See `sliding_window` Block below.
         """
         return pulumi.get(self, "sliding_windows")
 
@@ -19257,7 +20600,7 @@ class AgentcoreHarnessTruncationConfig(dict):
     @pulumi.getter
     def summarizations(self) -> Sequence['outputs.AgentcoreHarnessTruncationConfigSummarization']:
         """
-        Summarization truncation configuration. See `summarization` below.
+        Summarization truncation configuration. See `summarization` Block below.
         """
         return pulumi.get(self, "summarizations")
 

@@ -915,8 +915,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
-     * import com.pulumi.aws.Ec2Instance;
-     * import com.pulumi.aws.Ec2InstanceArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -937,7 +937,7 @@ public final class OutpostsFunctions {
      *                 "m5.4xlarge")
      *             .build());
      * 
-     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()
+     *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
      *             .instanceType(example.instanceType())
      *             .build());
      * 
@@ -964,8 +964,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
-     * import com.pulumi.aws.Ec2Instance;
-     * import com.pulumi.aws.Ec2InstanceArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -986,7 +986,7 @@ public final class OutpostsFunctions {
      *                 "m5.4xlarge")
      *             .build());
      * 
-     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()
+     *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
      *             .instanceType(example.instanceType())
      *             .build());
      * 
@@ -1013,8 +1013,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
-     * import com.pulumi.aws.Ec2Instance;
-     * import com.pulumi.aws.Ec2InstanceArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1035,7 +1035,7 @@ public final class OutpostsFunctions {
      *                 "m5.4xlarge")
      *             .build());
      * 
-     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()
+     *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
      *             .instanceType(example.instanceType())
      *             .build());
      * 
@@ -1062,8 +1062,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
-     * import com.pulumi.aws.Ec2Instance;
-     * import com.pulumi.aws.Ec2InstanceArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1084,7 +1084,7 @@ public final class OutpostsFunctions {
      *                 "m5.4xlarge")
      *             .build());
      * 
-     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()
+     *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
      *             .instanceType(example.instanceType())
      *             .build());
      * 
@@ -1111,8 +1111,8 @@ public final class OutpostsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.outposts.OutpostsFunctions;
      * import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
-     * import com.pulumi.aws.Ec2Instance;
-     * import com.pulumi.aws.Ec2InstanceArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1133,7 +1133,7 @@ public final class OutpostsFunctions {
      *                 "m5.4xlarge")
      *             .build());
      * 
-     *         var exampleEc2Instance = new Ec2Instance("exampleEc2Instance", Ec2InstanceArgs.builder()
+     *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
      *             .instanceType(example.instanceType())
      *             .build());
      * 

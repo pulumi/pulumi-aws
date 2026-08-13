@@ -133,42 +133,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:transfer/workflow:Workflow")
 public class Workflow extends com.pulumi.resources.CustomResource {
     /**
-     * The Workflow ARN.
+     * Workflow ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Workflow ARN.
+     * @return Workflow ARN.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * A textual description for the workflow.
+     * Textual description for the workflow.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A textual description for the workflow.
+     * @return Textual description for the workflow.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+     * Steps (actions) to take if errors are encountered during execution of the workflow. See `onExceptionSteps` Block below.
      * 
      */
     @Export(name="onExceptionSteps", refs={List.class,WorkflowOnExceptionStep.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WorkflowOnExceptionStep>> onExceptionSteps;
 
     /**
-     * @return Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+     * @return Steps (actions) to take if errors are encountered during execution of the workflow. See `onExceptionSteps` Block below.
      * 
      */
     public Output<Optional<List<WorkflowOnExceptionStep>>> onExceptionSteps() {
@@ -189,42 +189,42 @@ public class Workflow extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+     * Details for the steps that are in the specified workflow. See `steps` Block below.
      * 
      */
     @Export(name="steps", refs={List.class,WorkflowStep.class}, tree="[0,1]")
     private Output<List<WorkflowStep>> steps;
 
     /**
-     * @return Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+     * @return Details for the steps that are in the specified workflow. See `steps` Block below.
      * 
      */
     public Output<List<WorkflowStep>> steps() {
         return this.steps;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

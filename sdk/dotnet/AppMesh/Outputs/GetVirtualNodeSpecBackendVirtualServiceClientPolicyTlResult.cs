@@ -13,9 +13,21 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult
     {
+        /// <summary>
+        /// Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult> Certificates;
+        /// <summary>
+        /// Whether the policy is enforced.
+        /// </summary>
         public readonly bool Enforce;
+        /// <summary>
+        /// One or more ports that the policy is enforced for.
+        /// </summary>
         public readonly ImmutableArray<int> Ports;
+        /// <summary>
+        /// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult> Validations;
 
         [OutputConstructor]

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Transfer.Outputs
     public sealed class ServerProtocolDetails
     {
         /// <summary>
-        /// Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
+        /// Transport method for the AS2 messages. Currently, only `HTTP` is supported.
         /// </summary>
         public readonly ImmutableArray<string> As2Transports;
         /// <summary>
-        /// Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
+        /// Passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
         /// </summary>
         public readonly string? PassiveIp;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Transfer.Outputs
         /// </summary>
         public readonly string? SetStatOption;
         /// <summary>
-        /// A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
+        /// Property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
         /// </summary>
         public readonly string? TlsSessionResumptionMode;
 

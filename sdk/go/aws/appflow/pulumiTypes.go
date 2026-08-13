@@ -12782,7 +12782,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig struct {
 	// Level of granularity included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
 	PrefixFormat *string `pulumi:"prefixFormat"`
-	// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+	// Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
 	PrefixHierarchies []string `pulumi:"prefixHierarchies"`
 	// Format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 	PrefixType *string `pulumi:"prefixType"`
@@ -12802,7 +12802,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConf
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs struct {
 	// Level of granularity included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
 	PrefixFormat pulumi.StringPtrInput `pulumi:"prefixFormat"`
-	// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+	// Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
 	PrefixHierarchies pulumi.StringArrayInput `pulumi:"prefixHierarchies"`
 	// Format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 	PrefixType pulumi.StringPtrInput `pulumi:"prefixType"`
@@ -12892,7 +12892,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+// Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutput) PrefixHierarchies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig) []string {
 		return v.PrefixHierarchies
@@ -12940,7 +12940,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+// Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutput) PrefixHierarchies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig) []string {
 		if v == nil {
@@ -14745,7 +14745,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig struct {
 	// Level of granularity included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
 	PrefixFormat *string `pulumi:"prefixFormat"`
-	// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+	// Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
 	PrefixHierarchies []string `pulumi:"prefixHierarchies"`
 	// Format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 	PrefixType string `pulumi:"prefixType"`
@@ -14765,7 +14765,7 @@ type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputForm
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs struct {
 	// Level of granularity included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
 	PrefixFormat pulumi.StringPtrInput `pulumi:"prefixFormat"`
-	// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+	// Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
 	PrefixHierarchies pulumi.StringArrayInput `pulumi:"prefixHierarchies"`
 	// Format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
 	PrefixType pulumi.StringInput `pulumi:"prefixType"`
@@ -14855,7 +14855,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+// Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutput) PrefixHierarchies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig) []string {
 		return v.PrefixHierarchies
@@ -14903,7 +14903,7 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+// Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutput) PrefixHierarchies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig) []string {
 		if v == nil {

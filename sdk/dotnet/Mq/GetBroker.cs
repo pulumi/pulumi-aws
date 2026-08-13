@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Mq
         public readonly string BrokerId;
         public readonly string BrokerName;
         /// <summary>
-        /// Configuration block for broker configuration. See Configuration below.
+        /// Configuration block for broker configuration. See `Configuration` Block below.
         /// </summary>
         public readonly Outputs.GetBrokerConfigurationResult Configuration;
         /// <summary>
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         public readonly string DeploymentMode;
         /// <summary>
-        /// Configuration block containing encryption options. See Encryption Options below.
+        /// Configuration block containing encryption options. See `EncryptionOptions` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBrokerEncryptionOptionResult> EncryptionOptions;
         /// <summary>
@@ -156,19 +156,19 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// List of information about allocated brokers (both active &amp; standby). See Instances below.
+        /// List of information about allocated brokers (both active &amp; standby). See `Instances` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBrokerInstanceResult> Instances;
         /// <summary>
-        /// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See LDAP Server Metadata below.
+        /// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See `LdapServerMetadata` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBrokerLdapServerMetadataResult> LdapServerMetadatas;
         /// <summary>
-        /// Configuration block for the logging configuration of the broker. See Logs below.
+        /// Configuration block for the logging configuration of the broker. See `Logs` Block below.
         /// </summary>
         public readonly Outputs.GetBrokerLogsResult Logs;
         /// <summary>
-        /// Configuration block for the maintenance window start time. See Maintenance Window Start Time below.
+        /// Configuration block for the maintenance window start time. See `MaintenanceWindowStartTime` Block below.
         /// </summary>
         public readonly Outputs.GetBrokerMaintenanceWindowStartTimeResult MaintenanceWindowStartTime;
         /// <summary>
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
         /// <summary>
-        /// List of resources shared with the broker. See Shared Resources below. Only populated for `EngineType` of `RabbitMQ`.
+        /// List of resources shared with the broker. See `SharedResources` Block below. Only populated for `EngineType` of `RabbitMQ`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBrokerSharedResourceResult> SharedResources;
         /// <summary>
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// Configuration block for broker users. See User below.
+        /// Configuration block for broker users. See `User` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBrokerUserResult> Users;
 

@@ -16,14 +16,14 @@ public final class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation
     public static final WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs Empty = new WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs();
 
     /**
-     * The ID of the file system, assigned by Amazon EFS.
+     * ID of the file system, assigned by Amazon EFS.
      * 
      */
     @Import(name="fileSystemId")
     private @Nullable Output<String> fileSystemId;
 
     /**
-     * @return The ID of the file system, assigned by Amazon EFS.
+     * @return ID of the file system, assigned by Amazon EFS.
      * 
      */
     public Optional<Output<String>> fileSystemId() {
@@ -31,14 +31,14 @@ public final class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation
     }
 
     /**
-     * The pathname for the folder being used by a workflow.
+     * Pathname for the folder being used by a workflow.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return The pathname for the folder being used by a workflow.
+     * @return Pathname for the folder being used by a workflow.
      * 
      */
     public Optional<Output<String>> path() {
@@ -71,7 +71,7 @@ public final class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation
         }
 
         /**
-         * @param fileSystemId The ID of the file system, assigned by Amazon EFS.
+         * @param fileSystemId ID of the file system, assigned by Amazon EFS.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation
         }
 
         /**
-         * @param fileSystemId The ID of the file system, assigned by Amazon EFS.
+         * @param fileSystemId ID of the file system, assigned by Amazon EFS.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation
         }
 
         /**
-         * @param path The pathname for the folder being used by a workflow.
+         * @param path Pathname for the folder being used by a workflow.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation
         }
 
         /**
-         * @param path The pathname for the folder being used by a workflow.
+         * @param path Pathname for the folder being used by a workflow.
          * 
          * @return builder
          * 

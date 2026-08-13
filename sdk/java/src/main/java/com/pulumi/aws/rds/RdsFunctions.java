@@ -34,6 +34,8 @@ import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingArgs;
 import com.pulumi.aws.rds.inputs.GetReservedInstanceOfferingPlainArgs;
 import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
 import com.pulumi.aws.rds.inputs.GetSnapshotPlainArgs;
+import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+import com.pulumi.aws.rds.inputs.GetSnapshotsPlainArgs;
 import com.pulumi.aws.rds.inputs.GetSubnetGroupArgs;
 import com.pulumi.aws.rds.inputs.GetSubnetGroupPlainArgs;
 import com.pulumi.aws.rds.outputs.GetCertificateResult;
@@ -51,6 +53,7 @@ import com.pulumi.aws.rds.outputs.GetParameterGroupResult;
 import com.pulumi.aws.rds.outputs.GetProxyResult;
 import com.pulumi.aws.rds.outputs.GetReservedInstanceOfferingResult;
 import com.pulumi.aws.rds.outputs.GetSnapshotResult;
+import com.pulumi.aws.rds.outputs.GetSnapshotsResult;
 import com.pulumi.aws.rds.outputs.GetSubnetGroupResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -5001,6 +5004,559 @@ public final class RdsFunctions {
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:rds/getSnapshot:getSnapshot", TypeShape.of(GetSnapshotResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS RDS (Relational Database) Snapshots.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getSnapshots(GetSnapshotsArgs.builder()
+     *             .dbInstanceIdentifier("my-db-instance")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Snapshot ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getSnapshots(GetSnapshotsArgs.builder()
+     *             .filters(GetSnapshotsFilterArgs.builder()
+     *                 .name("db-snapshot-id")
+     *                 .values("my-snapshot-id")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSnapshotsResult> getSnapshots() {
+        return getSnapshots(GetSnapshotsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS RDS (Relational Database) Snapshots.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getSnapshots(GetSnapshotsArgs.builder()
+     *             .dbInstanceIdentifier("my-db-instance")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Snapshot ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getSnapshots(GetSnapshotsArgs.builder()
+     *             .filters(GetSnapshotsFilterArgs.builder()
+     *                 .name("db-snapshot-id")
+     *                 .values("my-snapshot-id")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSnapshotsResult> getSnapshotsPlain() {
+        return getSnapshotsPlain(GetSnapshotsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS RDS (Relational Database) Snapshots.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getSnapshots(GetSnapshotsArgs.builder()
+     *             .dbInstanceIdentifier("my-db-instance")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Snapshot ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getSnapshots(GetSnapshotsArgs.builder()
+     *             .filters(GetSnapshotsFilterArgs.builder()
+     *                 .name("db-snapshot-id")
+     *                 .values("my-snapshot-id")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSnapshotsResult> getSnapshots(GetSnapshotsArgs args) {
+        return getSnapshots(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS RDS (Relational Database) Snapshots.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getSnapshots(GetSnapshotsArgs.builder()
+     *             .dbInstanceIdentifier("my-db-instance")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Snapshot ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getSnapshots(GetSnapshotsArgs.builder()
+     *             .filters(GetSnapshotsFilterArgs.builder()
+     *                 .name("db-snapshot-id")
+     *                 .values("my-snapshot-id")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSnapshotsResult> getSnapshotsPlain(GetSnapshotsPlainArgs args) {
+        return getSnapshotsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS RDS (Relational Database) Snapshots.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getSnapshots(GetSnapshotsArgs.builder()
+     *             .dbInstanceIdentifier("my-db-instance")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Snapshot ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getSnapshots(GetSnapshotsArgs.builder()
+     *             .filters(GetSnapshotsFilterArgs.builder()
+     *                 .name("db-snapshot-id")
+     *                 .values("my-snapshot-id")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSnapshotsResult> getSnapshots(GetSnapshotsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:rds/getSnapshots:getSnapshots", TypeShape.of(GetSnapshotsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS RDS (Relational Database) Snapshots.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getSnapshots(GetSnapshotsArgs.builder()
+     *             .dbInstanceIdentifier("my-db-instance")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Snapshot ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getSnapshots(GetSnapshotsArgs.builder()
+     *             .filters(GetSnapshotsFilterArgs.builder()
+     *                 .name("db-snapshot-id")
+     *                 .values("my-snapshot-id")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetSnapshotsResult> getSnapshots(GetSnapshotsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:rds/getSnapshots:getSnapshots", TypeShape.of(GetSnapshotsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS RDS (Relational Database) Snapshots.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getSnapshots(GetSnapshotsArgs.builder()
+     *             .dbInstanceIdentifier("my-db-instance")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Snapshot ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsArgs;
+     * import com.pulumi.aws.rds.inputs.GetSnapshotsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getSnapshots(GetSnapshotsArgs.builder()
+     *             .filters(GetSnapshotsFilterArgs.builder()
+     *                 .name("db-snapshot-id")
+     *                 .values("my-snapshot-id")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetSnapshotsResult> getSnapshotsPlain(GetSnapshotsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:rds/getSnapshots:getSnapshots", TypeShape.of(GetSnapshotsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get information about an RDS subnet group.

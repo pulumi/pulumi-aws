@@ -294,7 +294,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+        /// CloudWatch alarms associated with the plan. See `AssociatedAlarms` Block for details.
         /// </summary>
         [Output("associatedAlarms")]
         public Output<ImmutableArray<Outputs.PlanAssociatedAlarm>> AssociatedAlarms { get; private set; } = null!;
@@ -342,13 +342,13 @@ namespace Pulumi.Aws.ArcRegionSwitch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// List of AWS regions involved in the plan.
+        /// List of AWS regions involved in the plan. Must contain at least 2 regions.
         /// </summary>
         [Output("regions")]
         public Output<ImmutableArray<string>> Regions { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for automated execution reports. See Report Configuration below.
+        /// Configuration for automated execution reports. See `ReportConfiguration` Block for details.
         /// </summary>
         [Output("reportConfigurations")]
         public Output<ImmutableArray<Outputs.PlanReportConfiguration>> ReportConfigurations { get; private set; } = null!;
@@ -369,13 +369,13 @@ namespace Pulumi.Aws.ArcRegionSwitch
         public Output<Outputs.PlanTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Set of triggers that can initiate the plan execution. See Triggers below.
+        /// Triggers that can initiate the plan execution. See `Triggers` Block for details.
         /// </summary>
         [Output("triggers")]
         public Output<ImmutableArray<Outputs.PlanTrigger>> Triggers { get; private set; } = null!;
 
         /// <summary>
-        /// List of workflows that define the steps to execute. See Workflow below.
+        /// Workflows that define the steps to execute. See `Workflow` Block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -432,7 +432,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
         private InputList<Inputs.PlanAssociatedAlarmArgs>? _associatedAlarms;
 
         /// <summary>
-        /// Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+        /// CloudWatch alarms associated with the plan. See `AssociatedAlarms` Block for details.
         /// </summary>
         public InputList<Inputs.PlanAssociatedAlarmArgs> AssociatedAlarms
         {
@@ -486,7 +486,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
         private InputList<string>? _regions;
 
         /// <summary>
-        /// List of AWS regions involved in the plan.
+        /// List of AWS regions involved in the plan. Must contain at least 2 regions.
         /// </summary>
         public InputList<string> Regions
         {
@@ -498,7 +498,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
         private InputList<Inputs.PlanReportConfigurationArgs>? _reportConfigurations;
 
         /// <summary>
-        /// Configuration for automated execution reports. See Report Configuration below.
+        /// Configuration for automated execution reports. See `ReportConfiguration` Block for details.
         /// </summary>
         public InputList<Inputs.PlanReportConfigurationArgs> ReportConfigurations
         {
@@ -525,7 +525,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
         private InputList<Inputs.PlanTriggerArgs>? _triggers;
 
         /// <summary>
-        /// Set of triggers that can initiate the plan execution. See Triggers below.
+        /// Triggers that can initiate the plan execution. See `Triggers` Block for details.
         /// </summary>
         public InputList<Inputs.PlanTriggerArgs> Triggers
         {
@@ -537,7 +537,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
         private InputList<Inputs.PlanWorkflowArgs>? _workflows;
 
         /// <summary>
-        /// List of workflows that define the steps to execute. See Workflow below.
+        /// Workflows that define the steps to execute. See `Workflow` Block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -565,7 +565,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
         private InputList<Inputs.PlanAssociatedAlarmGetArgs>? _associatedAlarms;
 
         /// <summary>
-        /// Set of CloudWatch alarms associated with the plan. See Associated Alarms below.
+        /// CloudWatch alarms associated with the plan. See `AssociatedAlarms` Block for details.
         /// </summary>
         public InputList<Inputs.PlanAssociatedAlarmGetArgs> AssociatedAlarms
         {
@@ -619,7 +619,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
         private InputList<string>? _regions;
 
         /// <summary>
-        /// List of AWS regions involved in the plan.
+        /// List of AWS regions involved in the plan. Must contain at least 2 regions.
         /// </summary>
         public InputList<string> Regions
         {
@@ -631,7 +631,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
         private InputList<Inputs.PlanReportConfigurationGetArgs>? _reportConfigurations;
 
         /// <summary>
-        /// Configuration for automated execution reports. See Report Configuration below.
+        /// Configuration for automated execution reports. See `ReportConfiguration` Block for details.
         /// </summary>
         public InputList<Inputs.PlanReportConfigurationGetArgs> ReportConfigurations
         {
@@ -670,7 +670,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
         private InputList<Inputs.PlanTriggerGetArgs>? _triggers;
 
         /// <summary>
-        /// Set of triggers that can initiate the plan execution. See Triggers below.
+        /// Triggers that can initiate the plan execution. See `Triggers` Block for details.
         /// </summary>
         public InputList<Inputs.PlanTriggerGetArgs> Triggers
         {
@@ -682,7 +682,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
         private InputList<Inputs.PlanWorkflowGetArgs>? _workflows;
 
         /// <summary>
-        /// List of workflows that define the steps to execute. See Workflow below.
+        /// Workflows that define the steps to execute. See `Workflow` Block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>

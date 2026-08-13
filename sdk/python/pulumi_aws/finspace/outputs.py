@@ -191,7 +191,7 @@ class KxClusterCapacityConfiguration(dict):
                  node_type: _builtins.str):
         """
         :param _builtins.int node_count: Number of instances running in a cluster. Must be at least 1 and at most 5.
-        :param _builtins.str node_type: Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
+        :param _builtins.str node_type: Hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
         """
         pulumi.set(__self__, "node_count", node_count)
         pulumi.set(__self__, "node_type", node_type)
@@ -208,7 +208,7 @@ class KxClusterCapacityConfiguration(dict):
     @pulumi.getter(name="nodeType")
     def node_type(self) -> _builtins.str:
         """
-        Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
+        Hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
         """
         return pulumi.get(self, "node_type")
 

@@ -163,14 +163,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.ownershipVerificationStatus;
     }
     /**
-     * List of DNS records required for domain verification. See `records` below.
+     * List of DNS records required for domain verification. See `records` Block below.
      * 
      */
     @Export(name="records", refs={List.class,DomainRecord.class}, tree="[0,1]")
     private Output<List<DomainRecord>> records;
 
     /**
-     * @return List of DNS records required for domain verification. See `records` below.
+     * @return List of DNS records required for domain verification. See `records` Block below.
      * 
      */
     public Output<List<DomainRecord>> records() {

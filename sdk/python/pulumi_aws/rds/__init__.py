@@ -34,6 +34,7 @@ from .get_parameter_group import *
 from .get_proxy import *
 from .get_reserved_instance_offering import *
 from .get_snapshot import *
+from .get_snapshots import *
 from .get_subnet_group import *
 from .global_cluster import *
 from .instance import *

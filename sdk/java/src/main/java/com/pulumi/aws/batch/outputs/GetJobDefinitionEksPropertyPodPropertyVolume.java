@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionEksPropertyPodPropertyVolume {
     /**
-     * @return Configuration of a Kubernetes emptyDir volume.
+     * @return Configuration of a Kubernetes emptyDir volume. See `emptyDir` below.
      * 
      */
     private List<GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir> emptyDirs;
@@ -30,14 +30,14 @@ public final class GetJobDefinitionEksPropertyPodPropertyVolume {
      */
     private String name;
     /**
-     * @return Configuration of a Kubernetes secret volume.
+     * @return Configuration of a Kubernetes secret volume. See `secret` below.
      * 
      */
     private List<GetJobDefinitionEksPropertyPodPropertyVolumeSecret> secrets;
 
     private GetJobDefinitionEksPropertyPodPropertyVolume() {}
     /**
-     * @return Configuration of a Kubernetes emptyDir volume.
+     * @return Configuration of a Kubernetes emptyDir volume. See `emptyDir` below.
      * 
      */
     public List<GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir> emptyDirs() {
@@ -58,7 +58,7 @@ public final class GetJobDefinitionEksPropertyPodPropertyVolume {
         return this.name;
     }
     /**
-     * @return Configuration of a Kubernetes secret volume.
+     * @return Configuration of a Kubernetes secret volume. See `secret` below.
      * 
      */
     public List<GetJobDefinitionEksPropertyPodPropertyVolumeSecret> secrets() {

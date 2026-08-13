@@ -4,6 +4,8 @@
 package com.pulumi.aws.arcregionswitch.outputs;
 
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepArcRoutingControlConfig;
+import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepAuroraProvisionedScalingConfig;
+import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepAuroraServerlessScalingConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepCustomActionLambdaConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepDocumentDbConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepEc2AsgCapacityIncreaseConfig;
@@ -11,6 +13,8 @@ import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepEcsCapacityIncreas
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepEksResourceScalingConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepExecutionApprovalConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepGlobalAuroraConfig;
+import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepLambdaEventSourceMappingConfig;
+import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepNeptuneGlobalDatabaseConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepParallelConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepRdsPromoteReadReplicaConfig;
@@ -27,12 +31,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PlanWorkflowStep {
     /**
-     * @return Configuration for ARC routing control. See ARC Routing Control Config below.
+     * @return Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepArcRoutingControlConfig> arcRoutingControlConfigs;
     /**
-     * @return Configuration for Lambda function execution. See Custom Action Lambda Config below.
+     * @return Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+     * 
+     */
+    private @Nullable List<PlanWorkflowStepAuroraProvisionedScalingConfig> auroraProvisionedScalingConfigs;
+    /**
+     * @return Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+     * 
+     */
+    private @Nullable List<PlanWorkflowStepAuroraServerlessScalingConfig> auroraServerlessScalingConfigs;
+    /**
+     * @return Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepCustomActionLambdaConfig> customActionLambdaConfigs;
@@ -42,27 +56,27 @@ public final class PlanWorkflowStep {
      */
     private @Nullable String description;
     /**
-     * @return Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+     * @return Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepDocumentDbConfig> documentDbConfigs;
     /**
-     * @return Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+     * @return Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepEc2AsgCapacityIncreaseConfig> ec2AsgCapacityIncreaseConfigs;
     /**
-     * @return Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+     * @return Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepEcsCapacityIncreaseConfig> ecsCapacityIncreaseConfigs;
     /**
-     * @return Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+     * @return Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepEksResourceScalingConfig> eksResourceScalingConfigs;
     /**
-     * @return Configuration for manual approval steps. See Execution Approval Config below.
+     * @return Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepExecutionApprovalConfig> executionApprovalConfigs;
@@ -72,47 +86,75 @@ public final class PlanWorkflowStep {
      */
     private String executionBlockType;
     /**
-     * @return Configuration for Aurora Global Database operations. See Global Aurora Config below.
+     * @return Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepGlobalAuroraConfig> globalAuroraConfigs;
+    /**
+     * @return Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+     * 
+     */
+    private @Nullable List<PlanWorkflowStepLambdaEventSourceMappingConfig> lambdaEventSourceMappingConfigs;
     /**
      * @return Name of the step.
      * 
      */
     private String name;
     /**
-     * @return Configuration for parallel execution of multiple steps. See Parallel Config below.
+     * @return Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+     * 
+     */
+    private @Nullable List<PlanWorkflowStepNeptuneGlobalDatabaseConfig> neptuneGlobalDatabaseConfigs;
+    /**
+     * @return Configuration for parallel execution of multiple steps. See `parallelConfig` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepParallelConfig> parallelConfigs;
     /**
-     * @return Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+     * @return Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig> rdsCreateCrossRegionReadReplicaConfigs;
     /**
-     * @return Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+     * @return Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepRdsPromoteReadReplicaConfig> rdsPromoteReadReplicaConfigs;
+    /**
+     * @return Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
+     * 
+     */
     private @Nullable List<PlanWorkflowStepRegionSwitchPlanConfig> regionSwitchPlanConfigs;
     /**
-     * @return Configuration for Route53 health check operations. See Route53 Health Check Config below.
+     * @return Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepRoute53HealthCheckConfig> route53HealthCheckConfigs;
 
     private PlanWorkflowStep() {}
     /**
-     * @return Configuration for ARC routing control. See ARC Routing Control Config below.
+     * @return Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
      * 
      */
     public List<PlanWorkflowStepArcRoutingControlConfig> arcRoutingControlConfigs() {
         return this.arcRoutingControlConfigs == null ? List.of() : this.arcRoutingControlConfigs;
     }
     /**
-     * @return Configuration for Lambda function execution. See Custom Action Lambda Config below.
+     * @return Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+     * 
+     */
+    public List<PlanWorkflowStepAuroraProvisionedScalingConfig> auroraProvisionedScalingConfigs() {
+        return this.auroraProvisionedScalingConfigs == null ? List.of() : this.auroraProvisionedScalingConfigs;
+    }
+    /**
+     * @return Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+     * 
+     */
+    public List<PlanWorkflowStepAuroraServerlessScalingConfig> auroraServerlessScalingConfigs() {
+        return this.auroraServerlessScalingConfigs == null ? List.of() : this.auroraServerlessScalingConfigs;
+    }
+    /**
+     * @return Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
      * 
      */
     public List<PlanWorkflowStepCustomActionLambdaConfig> customActionLambdaConfigs() {
@@ -126,35 +168,35 @@ public final class PlanWorkflowStep {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+     * @return Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
      * 
      */
     public List<PlanWorkflowStepDocumentDbConfig> documentDbConfigs() {
         return this.documentDbConfigs == null ? List.of() : this.documentDbConfigs;
     }
     /**
-     * @return Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+     * @return Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
      * 
      */
     public List<PlanWorkflowStepEc2AsgCapacityIncreaseConfig> ec2AsgCapacityIncreaseConfigs() {
         return this.ec2AsgCapacityIncreaseConfigs == null ? List.of() : this.ec2AsgCapacityIncreaseConfigs;
     }
     /**
-     * @return Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+     * @return Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
      * 
      */
     public List<PlanWorkflowStepEcsCapacityIncreaseConfig> ecsCapacityIncreaseConfigs() {
         return this.ecsCapacityIncreaseConfigs == null ? List.of() : this.ecsCapacityIncreaseConfigs;
     }
     /**
-     * @return Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+     * @return Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
      * 
      */
     public List<PlanWorkflowStepEksResourceScalingConfig> eksResourceScalingConfigs() {
         return this.eksResourceScalingConfigs == null ? List.of() : this.eksResourceScalingConfigs;
     }
     /**
-     * @return Configuration for manual approval steps. See Execution Approval Config below.
+     * @return Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
      * 
      */
     public List<PlanWorkflowStepExecutionApprovalConfig> executionApprovalConfigs() {
@@ -168,11 +210,18 @@ public final class PlanWorkflowStep {
         return this.executionBlockType;
     }
     /**
-     * @return Configuration for Aurora Global Database operations. See Global Aurora Config below.
+     * @return Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
      * 
      */
     public List<PlanWorkflowStepGlobalAuroraConfig> globalAuroraConfigs() {
         return this.globalAuroraConfigs == null ? List.of() : this.globalAuroraConfigs;
+    }
+    /**
+     * @return Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+     * 
+     */
+    public List<PlanWorkflowStepLambdaEventSourceMappingConfig> lambdaEventSourceMappingConfigs() {
+        return this.lambdaEventSourceMappingConfigs == null ? List.of() : this.lambdaEventSourceMappingConfigs;
     }
     /**
      * @return Name of the step.
@@ -182,31 +231,42 @@ public final class PlanWorkflowStep {
         return this.name;
     }
     /**
-     * @return Configuration for parallel execution of multiple steps. See Parallel Config below.
+     * @return Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+     * 
+     */
+    public List<PlanWorkflowStepNeptuneGlobalDatabaseConfig> neptuneGlobalDatabaseConfigs() {
+        return this.neptuneGlobalDatabaseConfigs == null ? List.of() : this.neptuneGlobalDatabaseConfigs;
+    }
+    /**
+     * @return Configuration for parallel execution of multiple steps. See `parallelConfig` Block for details.
      * 
      */
     public List<PlanWorkflowStepParallelConfig> parallelConfigs() {
         return this.parallelConfigs == null ? List.of() : this.parallelConfigs;
     }
     /**
-     * @return Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+     * @return Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
      * 
      */
     public List<PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig> rdsCreateCrossRegionReadReplicaConfigs() {
         return this.rdsCreateCrossRegionReadReplicaConfigs == null ? List.of() : this.rdsCreateCrossRegionReadReplicaConfigs;
     }
     /**
-     * @return Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+     * @return Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
      * 
      */
     public List<PlanWorkflowStepRdsPromoteReadReplicaConfig> rdsPromoteReadReplicaConfigs() {
         return this.rdsPromoteReadReplicaConfigs == null ? List.of() : this.rdsPromoteReadReplicaConfigs;
     }
+    /**
+     * @return Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
+     * 
+     */
     public List<PlanWorkflowStepRegionSwitchPlanConfig> regionSwitchPlanConfigs() {
         return this.regionSwitchPlanConfigs == null ? List.of() : this.regionSwitchPlanConfigs;
     }
     /**
-     * @return Configuration for Route53 health check operations. See Route53 Health Check Config below.
+     * @return Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
      * 
      */
     public List<PlanWorkflowStepRoute53HealthCheckConfig> route53HealthCheckConfigs() {
@@ -223,6 +283,8 @@ public final class PlanWorkflowStep {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PlanWorkflowStepArcRoutingControlConfig> arcRoutingControlConfigs;
+        private @Nullable List<PlanWorkflowStepAuroraProvisionedScalingConfig> auroraProvisionedScalingConfigs;
+        private @Nullable List<PlanWorkflowStepAuroraServerlessScalingConfig> auroraServerlessScalingConfigs;
         private @Nullable List<PlanWorkflowStepCustomActionLambdaConfig> customActionLambdaConfigs;
         private @Nullable String description;
         private @Nullable List<PlanWorkflowStepDocumentDbConfig> documentDbConfigs;
@@ -232,7 +294,9 @@ public final class PlanWorkflowStep {
         private @Nullable List<PlanWorkflowStepExecutionApprovalConfig> executionApprovalConfigs;
         private String executionBlockType;
         private @Nullable List<PlanWorkflowStepGlobalAuroraConfig> globalAuroraConfigs;
+        private @Nullable List<PlanWorkflowStepLambdaEventSourceMappingConfig> lambdaEventSourceMappingConfigs;
         private String name;
+        private @Nullable List<PlanWorkflowStepNeptuneGlobalDatabaseConfig> neptuneGlobalDatabaseConfigs;
         private @Nullable List<PlanWorkflowStepParallelConfig> parallelConfigs;
         private @Nullable List<PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig> rdsCreateCrossRegionReadReplicaConfigs;
         private @Nullable List<PlanWorkflowStepRdsPromoteReadReplicaConfig> rdsPromoteReadReplicaConfigs;
@@ -242,6 +306,8 @@ public final class PlanWorkflowStep {
         public Builder(PlanWorkflowStep defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arcRoutingControlConfigs = defaults.arcRoutingControlConfigs;
+    	      this.auroraProvisionedScalingConfigs = defaults.auroraProvisionedScalingConfigs;
+    	      this.auroraServerlessScalingConfigs = defaults.auroraServerlessScalingConfigs;
     	      this.customActionLambdaConfigs = defaults.customActionLambdaConfigs;
     	      this.description = defaults.description;
     	      this.documentDbConfigs = defaults.documentDbConfigs;
@@ -251,7 +317,9 @@ public final class PlanWorkflowStep {
     	      this.executionApprovalConfigs = defaults.executionApprovalConfigs;
     	      this.executionBlockType = defaults.executionBlockType;
     	      this.globalAuroraConfigs = defaults.globalAuroraConfigs;
+    	      this.lambdaEventSourceMappingConfigs = defaults.lambdaEventSourceMappingConfigs;
     	      this.name = defaults.name;
+    	      this.neptuneGlobalDatabaseConfigs = defaults.neptuneGlobalDatabaseConfigs;
     	      this.parallelConfigs = defaults.parallelConfigs;
     	      this.rdsCreateCrossRegionReadReplicaConfigs = defaults.rdsCreateCrossRegionReadReplicaConfigs;
     	      this.rdsPromoteReadReplicaConfigs = defaults.rdsPromoteReadReplicaConfigs;
@@ -267,6 +335,24 @@ public final class PlanWorkflowStep {
         }
         public Builder arcRoutingControlConfigs(PlanWorkflowStepArcRoutingControlConfig... arcRoutingControlConfigs) {
             return arcRoutingControlConfigs(List.of(arcRoutingControlConfigs));
+        }
+        @CustomType.Setter
+        public Builder auroraProvisionedScalingConfigs(@Nullable List<PlanWorkflowStepAuroraProvisionedScalingConfig> auroraProvisionedScalingConfigs) {
+
+            this.auroraProvisionedScalingConfigs = auroraProvisionedScalingConfigs;
+            return this;
+        }
+        public Builder auroraProvisionedScalingConfigs(PlanWorkflowStepAuroraProvisionedScalingConfig... auroraProvisionedScalingConfigs) {
+            return auroraProvisionedScalingConfigs(List.of(auroraProvisionedScalingConfigs));
+        }
+        @CustomType.Setter
+        public Builder auroraServerlessScalingConfigs(@Nullable List<PlanWorkflowStepAuroraServerlessScalingConfig> auroraServerlessScalingConfigs) {
+
+            this.auroraServerlessScalingConfigs = auroraServerlessScalingConfigs;
+            return this;
+        }
+        public Builder auroraServerlessScalingConfigs(PlanWorkflowStepAuroraServerlessScalingConfig... auroraServerlessScalingConfigs) {
+            return auroraServerlessScalingConfigs(List.of(auroraServerlessScalingConfigs));
         }
         @CustomType.Setter
         public Builder customActionLambdaConfigs(@Nullable List<PlanWorkflowStepCustomActionLambdaConfig> customActionLambdaConfigs) {
@@ -346,12 +432,30 @@ public final class PlanWorkflowStep {
             return globalAuroraConfigs(List.of(globalAuroraConfigs));
         }
         @CustomType.Setter
+        public Builder lambdaEventSourceMappingConfigs(@Nullable List<PlanWorkflowStepLambdaEventSourceMappingConfig> lambdaEventSourceMappingConfigs) {
+
+            this.lambdaEventSourceMappingConfigs = lambdaEventSourceMappingConfigs;
+            return this;
+        }
+        public Builder lambdaEventSourceMappingConfigs(PlanWorkflowStepLambdaEventSourceMappingConfig... lambdaEventSourceMappingConfigs) {
+            return lambdaEventSourceMappingConfigs(List.of(lambdaEventSourceMappingConfigs));
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("PlanWorkflowStep", "name");
             }
             this.name = name;
             return this;
+        }
+        @CustomType.Setter
+        public Builder neptuneGlobalDatabaseConfigs(@Nullable List<PlanWorkflowStepNeptuneGlobalDatabaseConfig> neptuneGlobalDatabaseConfigs) {
+
+            this.neptuneGlobalDatabaseConfigs = neptuneGlobalDatabaseConfigs;
+            return this;
+        }
+        public Builder neptuneGlobalDatabaseConfigs(PlanWorkflowStepNeptuneGlobalDatabaseConfig... neptuneGlobalDatabaseConfigs) {
+            return neptuneGlobalDatabaseConfigs(List.of(neptuneGlobalDatabaseConfigs));
         }
         @CustomType.Setter
         public Builder parallelConfigs(@Nullable List<PlanWorkflowStepParallelConfig> parallelConfigs) {
@@ -401,6 +505,8 @@ public final class PlanWorkflowStep {
         public PlanWorkflowStep build() {
             final var _resultValue = new PlanWorkflowStep();
             _resultValue.arcRoutingControlConfigs = arcRoutingControlConfigs;
+            _resultValue.auroraProvisionedScalingConfigs = auroraProvisionedScalingConfigs;
+            _resultValue.auroraServerlessScalingConfigs = auroraServerlessScalingConfigs;
             _resultValue.customActionLambdaConfigs = customActionLambdaConfigs;
             _resultValue.description = description;
             _resultValue.documentDbConfigs = documentDbConfigs;
@@ -410,7 +516,9 @@ public final class PlanWorkflowStep {
             _resultValue.executionApprovalConfigs = executionApprovalConfigs;
             _resultValue.executionBlockType = executionBlockType;
             _resultValue.globalAuroraConfigs = globalAuroraConfigs;
+            _resultValue.lambdaEventSourceMappingConfigs = lambdaEventSourceMappingConfigs;
             _resultValue.name = name;
+            _resultValue.neptuneGlobalDatabaseConfigs = neptuneGlobalDatabaseConfigs;
             _resultValue.parallelConfigs = parallelConfigs;
             _resultValue.rdsCreateCrossRegionReadReplicaConfigs = rdsCreateCrossRegionReadReplicaConfigs;
             _resultValue.rdsPromoteReadReplicaConfigs = rdsPromoteReadReplicaConfigs;

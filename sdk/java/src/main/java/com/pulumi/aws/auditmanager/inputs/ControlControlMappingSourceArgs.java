@@ -47,22 +47,30 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.sourceFrequency);
     }
 
+    /**
+     * Unique identifier for the source.
+     * 
+     */
     @Import(name="sourceId")
     private @Nullable Output<String> sourceId;
 
+    /**
+     * @return Unique identifier for the source.
+     * 
+     */
     public Optional<Output<String>> sourceId() {
         return Optional.ofNullable(this.sourceId);
     }
 
     /**
-     * The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
+     * Keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
      * 
      */
     @Import(name="sourceKeyword")
     private @Nullable Output<ControlControlMappingSourceSourceKeywordArgs> sourceKeyword;
 
     /**
-     * @return The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
+     * @return Keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
      * 
      */
     public Optional<Output<ControlControlMappingSourceSourceKeywordArgs>> sourceKeyword() {
@@ -85,14 +93,14 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
     }
 
     /**
-     * The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+     * Setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
      * 
      */
     @Import(name="sourceSetUpOption", required=true)
     private Output<String> sourceSetUpOption;
 
     /**
-     * @return The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+     * @return Setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
      * 
      */
     public Output<String> sourceSetUpOption() {
@@ -206,17 +214,29 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
             return sourceFrequency(Output.of(sourceFrequency));
         }
 
+        /**
+         * @param sourceId Unique identifier for the source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceId(@Nullable Output<String> sourceId) {
             $.sourceId = sourceId;
             return this;
         }
 
+        /**
+         * @param sourceId Unique identifier for the source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceId(String sourceId) {
             return sourceId(Output.of(sourceId));
         }
 
         /**
-         * @param sourceKeyword The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
+         * @param sourceKeyword Keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
          * 
          * @return builder
          * 
@@ -227,7 +247,7 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sourceKeyword The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
+         * @param sourceKeyword Keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
          * 
          * @return builder
          * 
@@ -258,7 +278,7 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sourceSetUpOption The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+         * @param sourceSetUpOption Setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
          * 
          * @return builder
          * 
@@ -269,7 +289,7 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sourceSetUpOption The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+         * @param sourceSetUpOption Setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
          * 
          * @return builder
          * 

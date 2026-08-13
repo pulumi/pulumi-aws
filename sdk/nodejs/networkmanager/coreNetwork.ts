@@ -306,6 +306,10 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Base Policy Example
+ *
+ * The base policy created by `createBasePolicy` looks like the following. This base policy is overridden by the policy you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+ *
  * ## Import
  *
  * Using `pulumi import`, import `aws.networkmanager.CoreNetwork` using the core network ID. For example:
@@ -355,32 +359,7 @@ export class CoreNetwork extends pulumi.CustomResource {
      */
     declare public readonly basePolicyRegions: pulumi.Output<string[] | undefined>;
     /**
-     * Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
-     *
-     * ```json
-     * {
-     * "version": "2021.12",
-     * "core-network-configuration": {
-     * "asn-ranges": [
-     * "64512-65534"
-     * ],
-     * "vpn-ecmp-support": false,
-     * "edge-locations": [
-     * {
-     * "location": "us-east-1"
-     * }
-     * ]
-     * },
-     * "segments": [
-     * {
-     * "name": "segment",
-     * "description": "base-policy",
-     * "isolate-attachments": false,
-     * "require-attachment-acceptance": false
-     * }
-     * ]
-     * }
-     * ```
+     * Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Terraform snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown in the Base Policy Example section. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
      */
     declare public readonly createBasePolicy: pulumi.Output<boolean | undefined>;
     /**
@@ -483,32 +462,7 @@ export interface CoreNetworkState {
      */
     basePolicyRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
-     *
-     * ```json
-     * {
-     * "version": "2021.12",
-     * "core-network-configuration": {
-     * "asn-ranges": [
-     * "64512-65534"
-     * ],
-     * "vpn-ecmp-support": false,
-     * "edge-locations": [
-     * {
-     * "location": "us-east-1"
-     * }
-     * ]
-     * },
-     * "segments": [
-     * {
-     * "name": "segment",
-     * "description": "base-policy",
-     * "isolate-attachments": false,
-     * "require-attachment-acceptance": false
-     * }
-     * ]
-     * }
-     * ```
+     * Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Terraform snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown in the Base Policy Example section. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
      */
     createBasePolicy?: pulumi.Input<boolean | undefined>;
     /**
@@ -560,32 +514,7 @@ export interface CoreNetworkArgs {
      */
     basePolicyRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
-     *
-     * ```json
-     * {
-     * "version": "2021.12",
-     * "core-network-configuration": {
-     * "asn-ranges": [
-     * "64512-65534"
-     * ],
-     * "vpn-ecmp-support": false,
-     * "edge-locations": [
-     * {
-     * "location": "us-east-1"
-     * }
-     * ]
-     * },
-     * "segments": [
-     * {
-     * "name": "segment",
-     * "description": "base-policy",
-     * "isolate-attachments": false,
-     * "require-attachment-acceptance": false
-     * }
-     * ]
-     * }
-     * ```
+     * Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Terraform snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown in the Base Policy Example section. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
      */
     createBasePolicy?: pulumi.Input<boolean | undefined>;
     /**

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessEnvironmentArtifact
     {
         /// <summary>
-        /// Container configuration. See `ContainerConfiguration` below.
+        /// Container configuration. See `ContainerConfiguration` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreHarnessEnvironmentArtifactContainerConfiguration? ContainerConfiguration;
 

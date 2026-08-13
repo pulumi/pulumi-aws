@@ -11,17 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class CloudVmClusterIormConfigCacheDbPlan {
+    /**
+     * @return Database name to which the IORM plan applies.
+     * 
+     */
     private String dbName;
+    /**
+     * @return Flash cache limit for the database plan.
+     * 
+     */
     private String flashCacheLimit;
+    /**
+     * @return Relative priority of the database in the IORM plan.
+     * 
+     */
     private Integer share;
 
     private CloudVmClusterIormConfigCacheDbPlan() {}
+    /**
+     * @return Database name to which the IORM plan applies.
+     * 
+     */
     public String dbName() {
         return this.dbName;
     }
+    /**
+     * @return Flash cache limit for the database plan.
+     * 
+     */
     public String flashCacheLimit() {
         return this.flashCacheLimit;
     }
+    /**
+     * @return Relative priority of the database in the IORM plan.
+     * 
+     */
     public Integer share() {
         return this.share;
     }

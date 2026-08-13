@@ -16,14 +16,14 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCus
     public static final AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs Empty = new AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs();
 
     /**
-     * Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+     * Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` Block below.
      * 
      */
     @Import(name="authorizingClaimMatchValue", required=true)
     private Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs> authorizingClaimMatchValue;
 
     /**
-     * @return Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+     * @return Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` Block below.
      * 
      */
     public Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs> authorizingClaimMatchValue() {
@@ -87,7 +87,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCus
         }
 
         /**
-         * @param authorizingClaimMatchValue Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+         * @param authorizingClaimMatchValue Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` Block below.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCus
         }
 
         /**
-         * @param authorizingClaimMatchValue Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+         * @param authorizingClaimMatchValue Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` Block below.
          * 
          * @return builder
          * 

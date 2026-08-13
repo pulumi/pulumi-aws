@@ -38,13 +38,13 @@ public final class GetManagedRuleGroupResult {
      */
     private String labelNamespace;
     /**
-     * @return Name of the rule.
+     * @return Name of the header.
      * 
      */
     private String name;
     private String region;
     /**
-     * @return High-level information about the rules. See Rules below for details.
+     * @return High-level information about the rules. See `rules` Block below for details.
      * 
      */
     private List<GetManagedRuleGroupRule> rules;
@@ -87,7 +87,7 @@ public final class GetManagedRuleGroupResult {
         return this.labelNamespace;
     }
     /**
-     * @return Name of the rule.
+     * @return Name of the header.
      * 
      */
     public String name() {
@@ -97,7 +97,7 @@ public final class GetManagedRuleGroupResult {
         return this.region;
     }
     /**
-     * @return High-level information about the rules. See Rules below for details.
+     * @return High-level information about the rules. See `rules` Block below for details.
      * 
      */
     public List<GetManagedRuleGroupRule> rules() {

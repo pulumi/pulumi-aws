@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
     public sealed class PlanReportConfigurationReportOutput
     {
         /// <summary>
-        /// S3 output configuration. See S3 Configuration below.
+        /// S3 output configuration. See `S3Configuration` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanReportConfigurationReportOutputS3Configuration> S3Configurations;
 

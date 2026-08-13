@@ -48,14 +48,14 @@ public final class ExtensionParameterArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Determines if a parameter value must be specified in the extension association.
+     * Whether a parameter value must be specified in the extension association.
      * 
      */
     @Import(name="required")
     private @Nullable Output<Boolean> required;
 
     /**
-     * @return Determines if a parameter value must be specified in the extension association.
+     * @return Whether a parameter value must be specified in the extension association.
      * 
      */
     public Optional<Output<Boolean>> required() {
@@ -131,7 +131,7 @@ public final class ExtensionParameterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param required Determines if a parameter value must be specified in the extension association.
+         * @param required Whether a parameter value must be specified in the extension association.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ExtensionParameterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param required Determines if a parameter value must be specified in the extension association.
+         * @param required Whether a parameter value must be specified in the extension association.
          * 
          * @return builder
          * 

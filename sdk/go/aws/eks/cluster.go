@@ -498,6 +498,12 @@ type Cluster struct {
 	ForceUpdateVersion pulumi.BoolPtrOutput `pulumi:"forceUpdateVersion"`
 	// Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
 	Identities ClusterIdentityArrayOutput `pulumi:"identities"`
+	// Configuration block for customizing the Kubernetes API server. Detailed below.
+	KubeApiServerConfig ClusterKubeApiServerConfigOutput `pulumi:"kubeApiServerConfig"`
+	// Configuration block for customizing the Kubernetes controller manager. Detailed below.
+	KubeControllerManagerConfig ClusterKubeControllerManagerConfigOutput `pulumi:"kubeControllerManagerConfig"`
+	// Configuration block for customizing the Kubernetes scheduler. Detailed below.
+	KubeSchedulerConfig ClusterKubeSchedulerConfigOutput `pulumi:"kubeSchedulerConfig"`
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigOutput `pulumi:"kubernetesNetworkConfig"`
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
@@ -598,6 +604,12 @@ type clusterState struct {
 	ForceUpdateVersion *bool `pulumi:"forceUpdateVersion"`
 	// Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
 	Identities []ClusterIdentity `pulumi:"identities"`
+	// Configuration block for customizing the Kubernetes API server. Detailed below.
+	KubeApiServerConfig *ClusterKubeApiServerConfig `pulumi:"kubeApiServerConfig"`
+	// Configuration block for customizing the Kubernetes controller manager. Detailed below.
+	KubeControllerManagerConfig *ClusterKubeControllerManagerConfig `pulumi:"kubeControllerManagerConfig"`
+	// Configuration block for customizing the Kubernetes scheduler. Detailed below.
+	KubeSchedulerConfig *ClusterKubeSchedulerConfig `pulumi:"kubeSchedulerConfig"`
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
@@ -663,6 +675,12 @@ type ClusterState struct {
 	ForceUpdateVersion pulumi.BoolPtrInput
 	// Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
 	Identities ClusterIdentityArrayInput
+	// Configuration block for customizing the Kubernetes API server. Detailed below.
+	KubeApiServerConfig ClusterKubeApiServerConfigPtrInput
+	// Configuration block for customizing the Kubernetes controller manager. Detailed below.
+	KubeControllerManagerConfig ClusterKubeControllerManagerConfigPtrInput
+	// Configuration block for customizing the Kubernetes scheduler. Detailed below.
+	KubeSchedulerConfig ClusterKubeSchedulerConfigPtrInput
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
@@ -720,6 +738,12 @@ type clusterArgs struct {
 	EncryptionConfig *ClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
 	ForceUpdateVersion *bool `pulumi:"forceUpdateVersion"`
+	// Configuration block for customizing the Kubernetes API server. Detailed below.
+	KubeApiServerConfig *ClusterKubeApiServerConfig `pulumi:"kubeApiServerConfig"`
+	// Configuration block for customizing the Kubernetes controller manager. Detailed below.
+	KubeControllerManagerConfig *ClusterKubeControllerManagerConfig `pulumi:"kubeControllerManagerConfig"`
+	// Configuration block for customizing the Kubernetes scheduler. Detailed below.
+	KubeSchedulerConfig *ClusterKubeSchedulerConfig `pulumi:"kubeSchedulerConfig"`
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
@@ -768,6 +792,12 @@ type ClusterArgs struct {
 	EncryptionConfig ClusterEncryptionConfigPtrInput
 	// Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
 	ForceUpdateVersion pulumi.BoolPtrInput
+	// Configuration block for customizing the Kubernetes API server. Detailed below.
+	KubeApiServerConfig ClusterKubeApiServerConfigPtrInput
+	// Configuration block for customizing the Kubernetes controller manager. Detailed below.
+	KubeControllerManagerConfig ClusterKubeControllerManagerConfigPtrInput
+	// Configuration block for customizing the Kubernetes scheduler. Detailed below.
+	KubeSchedulerConfig ClusterKubeSchedulerConfigPtrInput
 	// Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
 	// Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
@@ -956,6 +986,21 @@ func (o ClusterOutput) ForceUpdateVersion() pulumi.BoolPtrOutput {
 // Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
 func (o ClusterOutput) Identities() ClusterIdentityArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterIdentityArrayOutput { return v.Identities }).(ClusterIdentityArrayOutput)
+}
+
+// Configuration block for customizing the Kubernetes API server. Detailed below.
+func (o ClusterOutput) KubeApiServerConfig() ClusterKubeApiServerConfigOutput {
+	return o.ApplyT(func(v *Cluster) ClusterKubeApiServerConfigOutput { return v.KubeApiServerConfig }).(ClusterKubeApiServerConfigOutput)
+}
+
+// Configuration block for customizing the Kubernetes controller manager. Detailed below.
+func (o ClusterOutput) KubeControllerManagerConfig() ClusterKubeControllerManagerConfigOutput {
+	return o.ApplyT(func(v *Cluster) ClusterKubeControllerManagerConfigOutput { return v.KubeControllerManagerConfig }).(ClusterKubeControllerManagerConfigOutput)
+}
+
+// Configuration block for customizing the Kubernetes scheduler. Detailed below.
+func (o ClusterOutput) KubeSchedulerConfig() ClusterKubeSchedulerConfigOutput {
+	return o.ApplyT(func(v *Cluster) ClusterKubeSchedulerConfigOutput { return v.KubeSchedulerConfig }).(ClusterKubeSchedulerConfigOutput)
 }
 
 // Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.

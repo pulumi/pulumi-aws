@@ -1638,6 +1638,908 @@ func (o V2PolicyMultiRegionPtrOutput) RtoInMinutes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type V2ServicePermissionModel struct {
+	// Cross-account IAM role. See `crossAccountRole` Block below.
+	CrossAccountRoles []V2ServicePermissionModelCrossAccountRole `pulumi:"crossAccountRoles"`
+	// Name of the IAM role that Resilience Hub assumes for resource discovery.
+	InvokerRoleName string `pulumi:"invokerRoleName"`
+}
+
+// V2ServicePermissionModelInput is an input type that accepts V2ServicePermissionModelArgs and V2ServicePermissionModelOutput values.
+// You can construct a concrete instance of `V2ServicePermissionModelInput` via:
+//
+//	V2ServicePermissionModelArgs{...}
+type V2ServicePermissionModelInput interface {
+	pulumi.Input
+
+	ToV2ServicePermissionModelOutput() V2ServicePermissionModelOutput
+	ToV2ServicePermissionModelOutputWithContext(context.Context) V2ServicePermissionModelOutput
+}
+
+type V2ServicePermissionModelArgs struct {
+	// Cross-account IAM role. See `crossAccountRole` Block below.
+	CrossAccountRoles V2ServicePermissionModelCrossAccountRoleArrayInput `pulumi:"crossAccountRoles"`
+	// Name of the IAM role that Resilience Hub assumes for resource discovery.
+	InvokerRoleName pulumi.StringInput `pulumi:"invokerRoleName"`
+}
+
+func (V2ServicePermissionModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2ServicePermissionModel)(nil)).Elem()
+}
+
+func (i V2ServicePermissionModelArgs) ToV2ServicePermissionModelOutput() V2ServicePermissionModelOutput {
+	return i.ToV2ServicePermissionModelOutputWithContext(context.Background())
+}
+
+func (i V2ServicePermissionModelArgs) ToV2ServicePermissionModelOutputWithContext(ctx context.Context) V2ServicePermissionModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2ServicePermissionModelOutput)
+}
+
+func (i V2ServicePermissionModelArgs) ToV2ServicePermissionModelPtrOutput() V2ServicePermissionModelPtrOutput {
+	return i.ToV2ServicePermissionModelPtrOutputWithContext(context.Background())
+}
+
+func (i V2ServicePermissionModelArgs) ToV2ServicePermissionModelPtrOutputWithContext(ctx context.Context) V2ServicePermissionModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2ServicePermissionModelOutput).ToV2ServicePermissionModelPtrOutputWithContext(ctx)
+}
+
+// V2ServicePermissionModelPtrInput is an input type that accepts V2ServicePermissionModelArgs, V2ServicePermissionModelPtr and V2ServicePermissionModelPtrOutput values.
+// You can construct a concrete instance of `V2ServicePermissionModelPtrInput` via:
+//
+//	        V2ServicePermissionModelArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2ServicePermissionModelPtrInput interface {
+	pulumi.Input
+
+	ToV2ServicePermissionModelPtrOutput() V2ServicePermissionModelPtrOutput
+	ToV2ServicePermissionModelPtrOutputWithContext(context.Context) V2ServicePermissionModelPtrOutput
+}
+
+type v2servicePermissionModelPtrType V2ServicePermissionModelArgs
+
+func V2ServicePermissionModelPtr(v *V2ServicePermissionModelArgs) V2ServicePermissionModelPtrInput {
+	return (*v2servicePermissionModelPtrType)(v)
+}
+
+func (*v2servicePermissionModelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2ServicePermissionModel)(nil)).Elem()
+}
+
+func (i *v2servicePermissionModelPtrType) ToV2ServicePermissionModelPtrOutput() V2ServicePermissionModelPtrOutput {
+	return i.ToV2ServicePermissionModelPtrOutputWithContext(context.Background())
+}
+
+func (i *v2servicePermissionModelPtrType) ToV2ServicePermissionModelPtrOutputWithContext(ctx context.Context) V2ServicePermissionModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2ServicePermissionModelPtrOutput)
+}
+
+type V2ServicePermissionModelOutput struct{ *pulumi.OutputState }
+
+func (V2ServicePermissionModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2ServicePermissionModel)(nil)).Elem()
+}
+
+func (o V2ServicePermissionModelOutput) ToV2ServicePermissionModelOutput() V2ServicePermissionModelOutput {
+	return o
+}
+
+func (o V2ServicePermissionModelOutput) ToV2ServicePermissionModelOutputWithContext(ctx context.Context) V2ServicePermissionModelOutput {
+	return o
+}
+
+func (o V2ServicePermissionModelOutput) ToV2ServicePermissionModelPtrOutput() V2ServicePermissionModelPtrOutput {
+	return o.ToV2ServicePermissionModelPtrOutputWithContext(context.Background())
+}
+
+func (o V2ServicePermissionModelOutput) ToV2ServicePermissionModelPtrOutputWithContext(ctx context.Context) V2ServicePermissionModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2ServicePermissionModel) *V2ServicePermissionModel {
+		return &v
+	}).(V2ServicePermissionModelPtrOutput)
+}
+
+// Cross-account IAM role. See `crossAccountRole` Block below.
+func (o V2ServicePermissionModelOutput) CrossAccountRoles() V2ServicePermissionModelCrossAccountRoleArrayOutput {
+	return o.ApplyT(func(v V2ServicePermissionModel) []V2ServicePermissionModelCrossAccountRole {
+		return v.CrossAccountRoles
+	}).(V2ServicePermissionModelCrossAccountRoleArrayOutput)
+}
+
+// Name of the IAM role that Resilience Hub assumes for resource discovery.
+func (o V2ServicePermissionModelOutput) InvokerRoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v V2ServicePermissionModel) string { return v.InvokerRoleName }).(pulumi.StringOutput)
+}
+
+type V2ServicePermissionModelPtrOutput struct{ *pulumi.OutputState }
+
+func (V2ServicePermissionModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2ServicePermissionModel)(nil)).Elem()
+}
+
+func (o V2ServicePermissionModelPtrOutput) ToV2ServicePermissionModelPtrOutput() V2ServicePermissionModelPtrOutput {
+	return o
+}
+
+func (o V2ServicePermissionModelPtrOutput) ToV2ServicePermissionModelPtrOutputWithContext(ctx context.Context) V2ServicePermissionModelPtrOutput {
+	return o
+}
+
+func (o V2ServicePermissionModelPtrOutput) Elem() V2ServicePermissionModelOutput {
+	return o.ApplyT(func(v *V2ServicePermissionModel) V2ServicePermissionModel {
+		if v != nil {
+			return *v
+		}
+		var ret V2ServicePermissionModel
+		return ret
+	}).(V2ServicePermissionModelOutput)
+}
+
+// Cross-account IAM role. See `crossAccountRole` Block below.
+func (o V2ServicePermissionModelPtrOutput) CrossAccountRoles() V2ServicePermissionModelCrossAccountRoleArrayOutput {
+	return o.ApplyT(func(v *V2ServicePermissionModel) []V2ServicePermissionModelCrossAccountRole {
+		if v == nil {
+			return nil
+		}
+		return v.CrossAccountRoles
+	}).(V2ServicePermissionModelCrossAccountRoleArrayOutput)
+}
+
+// Name of the IAM role that Resilience Hub assumes for resource discovery.
+func (o V2ServicePermissionModelPtrOutput) InvokerRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2ServicePermissionModel) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InvokerRoleName
+	}).(pulumi.StringPtrOutput)
+}
+
+type V2ServicePermissionModelCrossAccountRole struct {
+	// ARN of the IAM Role for the profile.
+	CrossAccountRoleArn string `pulumi:"crossAccountRoleArn"`
+	// External ID used for assuming the cross-account role.
+	ExternalId *string `pulumi:"externalId"`
+}
+
+// V2ServicePermissionModelCrossAccountRoleInput is an input type that accepts V2ServicePermissionModelCrossAccountRoleArgs and V2ServicePermissionModelCrossAccountRoleOutput values.
+// You can construct a concrete instance of `V2ServicePermissionModelCrossAccountRoleInput` via:
+//
+//	V2ServicePermissionModelCrossAccountRoleArgs{...}
+type V2ServicePermissionModelCrossAccountRoleInput interface {
+	pulumi.Input
+
+	ToV2ServicePermissionModelCrossAccountRoleOutput() V2ServicePermissionModelCrossAccountRoleOutput
+	ToV2ServicePermissionModelCrossAccountRoleOutputWithContext(context.Context) V2ServicePermissionModelCrossAccountRoleOutput
+}
+
+type V2ServicePermissionModelCrossAccountRoleArgs struct {
+	// ARN of the IAM Role for the profile.
+	CrossAccountRoleArn pulumi.StringInput `pulumi:"crossAccountRoleArn"`
+	// External ID used for assuming the cross-account role.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+}
+
+func (V2ServicePermissionModelCrossAccountRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2ServicePermissionModelCrossAccountRole)(nil)).Elem()
+}
+
+func (i V2ServicePermissionModelCrossAccountRoleArgs) ToV2ServicePermissionModelCrossAccountRoleOutput() V2ServicePermissionModelCrossAccountRoleOutput {
+	return i.ToV2ServicePermissionModelCrossAccountRoleOutputWithContext(context.Background())
+}
+
+func (i V2ServicePermissionModelCrossAccountRoleArgs) ToV2ServicePermissionModelCrossAccountRoleOutputWithContext(ctx context.Context) V2ServicePermissionModelCrossAccountRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2ServicePermissionModelCrossAccountRoleOutput)
+}
+
+// V2ServicePermissionModelCrossAccountRoleArrayInput is an input type that accepts V2ServicePermissionModelCrossAccountRoleArray and V2ServicePermissionModelCrossAccountRoleArrayOutput values.
+// You can construct a concrete instance of `V2ServicePermissionModelCrossAccountRoleArrayInput` via:
+//
+//	V2ServicePermissionModelCrossAccountRoleArray{ V2ServicePermissionModelCrossAccountRoleArgs{...} }
+type V2ServicePermissionModelCrossAccountRoleArrayInput interface {
+	pulumi.Input
+
+	ToV2ServicePermissionModelCrossAccountRoleArrayOutput() V2ServicePermissionModelCrossAccountRoleArrayOutput
+	ToV2ServicePermissionModelCrossAccountRoleArrayOutputWithContext(context.Context) V2ServicePermissionModelCrossAccountRoleArrayOutput
+}
+
+type V2ServicePermissionModelCrossAccountRoleArray []V2ServicePermissionModelCrossAccountRoleInput
+
+func (V2ServicePermissionModelCrossAccountRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]V2ServicePermissionModelCrossAccountRole)(nil)).Elem()
+}
+
+func (i V2ServicePermissionModelCrossAccountRoleArray) ToV2ServicePermissionModelCrossAccountRoleArrayOutput() V2ServicePermissionModelCrossAccountRoleArrayOutput {
+	return i.ToV2ServicePermissionModelCrossAccountRoleArrayOutputWithContext(context.Background())
+}
+
+func (i V2ServicePermissionModelCrossAccountRoleArray) ToV2ServicePermissionModelCrossAccountRoleArrayOutputWithContext(ctx context.Context) V2ServicePermissionModelCrossAccountRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2ServicePermissionModelCrossAccountRoleArrayOutput)
+}
+
+type V2ServicePermissionModelCrossAccountRoleOutput struct{ *pulumi.OutputState }
+
+func (V2ServicePermissionModelCrossAccountRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2ServicePermissionModelCrossAccountRole)(nil)).Elem()
+}
+
+func (o V2ServicePermissionModelCrossAccountRoleOutput) ToV2ServicePermissionModelCrossAccountRoleOutput() V2ServicePermissionModelCrossAccountRoleOutput {
+	return o
+}
+
+func (o V2ServicePermissionModelCrossAccountRoleOutput) ToV2ServicePermissionModelCrossAccountRoleOutputWithContext(ctx context.Context) V2ServicePermissionModelCrossAccountRoleOutput {
+	return o
+}
+
+// ARN of the IAM Role for the profile.
+func (o V2ServicePermissionModelCrossAccountRoleOutput) CrossAccountRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v V2ServicePermissionModelCrossAccountRole) string { return v.CrossAccountRoleArn }).(pulumi.StringOutput)
+}
+
+// External ID used for assuming the cross-account role.
+func (o V2ServicePermissionModelCrossAccountRoleOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v V2ServicePermissionModelCrossAccountRole) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+type V2ServicePermissionModelCrossAccountRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (V2ServicePermissionModelCrossAccountRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]V2ServicePermissionModelCrossAccountRole)(nil)).Elem()
+}
+
+func (o V2ServicePermissionModelCrossAccountRoleArrayOutput) ToV2ServicePermissionModelCrossAccountRoleArrayOutput() V2ServicePermissionModelCrossAccountRoleArrayOutput {
+	return o
+}
+
+func (o V2ServicePermissionModelCrossAccountRoleArrayOutput) ToV2ServicePermissionModelCrossAccountRoleArrayOutputWithContext(ctx context.Context) V2ServicePermissionModelCrossAccountRoleArrayOutput {
+	return o
+}
+
+func (o V2ServicePermissionModelCrossAccountRoleArrayOutput) Index(i pulumi.IntInput) V2ServicePermissionModelCrossAccountRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) V2ServicePermissionModelCrossAccountRole {
+		return vs[0].([]V2ServicePermissionModelCrossAccountRole)[vs[1].(int)]
+	}).(V2ServicePermissionModelCrossAccountRoleOutput)
+}
+
+type GetV2PolicyAvailabilitySlo struct {
+	// Availability target as a percentage.
+	Target float64 `pulumi:"target"`
+}
+
+// GetV2PolicyAvailabilitySloInput is an input type that accepts GetV2PolicyAvailabilitySloArgs and GetV2PolicyAvailabilitySloOutput values.
+// You can construct a concrete instance of `GetV2PolicyAvailabilitySloInput` via:
+//
+//	GetV2PolicyAvailabilitySloArgs{...}
+type GetV2PolicyAvailabilitySloInput interface {
+	pulumi.Input
+
+	ToGetV2PolicyAvailabilitySloOutput() GetV2PolicyAvailabilitySloOutput
+	ToGetV2PolicyAvailabilitySloOutputWithContext(context.Context) GetV2PolicyAvailabilitySloOutput
+}
+
+type GetV2PolicyAvailabilitySloArgs struct {
+	// Availability target as a percentage.
+	Target pulumi.Float64Input `pulumi:"target"`
+}
+
+func (GetV2PolicyAvailabilitySloArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetV2PolicyAvailabilitySlo)(nil)).Elem()
+}
+
+func (i GetV2PolicyAvailabilitySloArgs) ToGetV2PolicyAvailabilitySloOutput() GetV2PolicyAvailabilitySloOutput {
+	return i.ToGetV2PolicyAvailabilitySloOutputWithContext(context.Background())
+}
+
+func (i GetV2PolicyAvailabilitySloArgs) ToGetV2PolicyAvailabilitySloOutputWithContext(ctx context.Context) GetV2PolicyAvailabilitySloOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetV2PolicyAvailabilitySloOutput)
+}
+
+// GetV2PolicyAvailabilitySloArrayInput is an input type that accepts GetV2PolicyAvailabilitySloArray and GetV2PolicyAvailabilitySloArrayOutput values.
+// You can construct a concrete instance of `GetV2PolicyAvailabilitySloArrayInput` via:
+//
+//	GetV2PolicyAvailabilitySloArray{ GetV2PolicyAvailabilitySloArgs{...} }
+type GetV2PolicyAvailabilitySloArrayInput interface {
+	pulumi.Input
+
+	ToGetV2PolicyAvailabilitySloArrayOutput() GetV2PolicyAvailabilitySloArrayOutput
+	ToGetV2PolicyAvailabilitySloArrayOutputWithContext(context.Context) GetV2PolicyAvailabilitySloArrayOutput
+}
+
+type GetV2PolicyAvailabilitySloArray []GetV2PolicyAvailabilitySloInput
+
+func (GetV2PolicyAvailabilitySloArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetV2PolicyAvailabilitySlo)(nil)).Elem()
+}
+
+func (i GetV2PolicyAvailabilitySloArray) ToGetV2PolicyAvailabilitySloArrayOutput() GetV2PolicyAvailabilitySloArrayOutput {
+	return i.ToGetV2PolicyAvailabilitySloArrayOutputWithContext(context.Background())
+}
+
+func (i GetV2PolicyAvailabilitySloArray) ToGetV2PolicyAvailabilitySloArrayOutputWithContext(ctx context.Context) GetV2PolicyAvailabilitySloArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetV2PolicyAvailabilitySloArrayOutput)
+}
+
+type GetV2PolicyAvailabilitySloOutput struct{ *pulumi.OutputState }
+
+func (GetV2PolicyAvailabilitySloOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetV2PolicyAvailabilitySlo)(nil)).Elem()
+}
+
+func (o GetV2PolicyAvailabilitySloOutput) ToGetV2PolicyAvailabilitySloOutput() GetV2PolicyAvailabilitySloOutput {
+	return o
+}
+
+func (o GetV2PolicyAvailabilitySloOutput) ToGetV2PolicyAvailabilitySloOutputWithContext(ctx context.Context) GetV2PolicyAvailabilitySloOutput {
+	return o
+}
+
+// Availability target as a percentage.
+func (o GetV2PolicyAvailabilitySloOutput) Target() pulumi.Float64Output {
+	return o.ApplyT(func(v GetV2PolicyAvailabilitySlo) float64 { return v.Target }).(pulumi.Float64Output)
+}
+
+type GetV2PolicyAvailabilitySloArrayOutput struct{ *pulumi.OutputState }
+
+func (GetV2PolicyAvailabilitySloArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetV2PolicyAvailabilitySlo)(nil)).Elem()
+}
+
+func (o GetV2PolicyAvailabilitySloArrayOutput) ToGetV2PolicyAvailabilitySloArrayOutput() GetV2PolicyAvailabilitySloArrayOutput {
+	return o
+}
+
+func (o GetV2PolicyAvailabilitySloArrayOutput) ToGetV2PolicyAvailabilitySloArrayOutputWithContext(ctx context.Context) GetV2PolicyAvailabilitySloArrayOutput {
+	return o
+}
+
+func (o GetV2PolicyAvailabilitySloArrayOutput) Index(i pulumi.IntInput) GetV2PolicyAvailabilitySloOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetV2PolicyAvailabilitySlo {
+		return vs[0].([]GetV2PolicyAvailabilitySlo)[vs[1].(int)]
+	}).(GetV2PolicyAvailabilitySloOutput)
+}
+
+type GetV2PolicyDataRecovery struct {
+	// Maximum time between backups in minutes.
+	TimeBetweenBackupsInMinutes int `pulumi:"timeBetweenBackupsInMinutes"`
+}
+
+// GetV2PolicyDataRecoveryInput is an input type that accepts GetV2PolicyDataRecoveryArgs and GetV2PolicyDataRecoveryOutput values.
+// You can construct a concrete instance of `GetV2PolicyDataRecoveryInput` via:
+//
+//	GetV2PolicyDataRecoveryArgs{...}
+type GetV2PolicyDataRecoveryInput interface {
+	pulumi.Input
+
+	ToGetV2PolicyDataRecoveryOutput() GetV2PolicyDataRecoveryOutput
+	ToGetV2PolicyDataRecoveryOutputWithContext(context.Context) GetV2PolicyDataRecoveryOutput
+}
+
+type GetV2PolicyDataRecoveryArgs struct {
+	// Maximum time between backups in minutes.
+	TimeBetweenBackupsInMinutes pulumi.IntInput `pulumi:"timeBetweenBackupsInMinutes"`
+}
+
+func (GetV2PolicyDataRecoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetV2PolicyDataRecovery)(nil)).Elem()
+}
+
+func (i GetV2PolicyDataRecoveryArgs) ToGetV2PolicyDataRecoveryOutput() GetV2PolicyDataRecoveryOutput {
+	return i.ToGetV2PolicyDataRecoveryOutputWithContext(context.Background())
+}
+
+func (i GetV2PolicyDataRecoveryArgs) ToGetV2PolicyDataRecoveryOutputWithContext(ctx context.Context) GetV2PolicyDataRecoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetV2PolicyDataRecoveryOutput)
+}
+
+// GetV2PolicyDataRecoveryArrayInput is an input type that accepts GetV2PolicyDataRecoveryArray and GetV2PolicyDataRecoveryArrayOutput values.
+// You can construct a concrete instance of `GetV2PolicyDataRecoveryArrayInput` via:
+//
+//	GetV2PolicyDataRecoveryArray{ GetV2PolicyDataRecoveryArgs{...} }
+type GetV2PolicyDataRecoveryArrayInput interface {
+	pulumi.Input
+
+	ToGetV2PolicyDataRecoveryArrayOutput() GetV2PolicyDataRecoveryArrayOutput
+	ToGetV2PolicyDataRecoveryArrayOutputWithContext(context.Context) GetV2PolicyDataRecoveryArrayOutput
+}
+
+type GetV2PolicyDataRecoveryArray []GetV2PolicyDataRecoveryInput
+
+func (GetV2PolicyDataRecoveryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetV2PolicyDataRecovery)(nil)).Elem()
+}
+
+func (i GetV2PolicyDataRecoveryArray) ToGetV2PolicyDataRecoveryArrayOutput() GetV2PolicyDataRecoveryArrayOutput {
+	return i.ToGetV2PolicyDataRecoveryArrayOutputWithContext(context.Background())
+}
+
+func (i GetV2PolicyDataRecoveryArray) ToGetV2PolicyDataRecoveryArrayOutputWithContext(ctx context.Context) GetV2PolicyDataRecoveryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetV2PolicyDataRecoveryArrayOutput)
+}
+
+type GetV2PolicyDataRecoveryOutput struct{ *pulumi.OutputState }
+
+func (GetV2PolicyDataRecoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetV2PolicyDataRecovery)(nil)).Elem()
+}
+
+func (o GetV2PolicyDataRecoveryOutput) ToGetV2PolicyDataRecoveryOutput() GetV2PolicyDataRecoveryOutput {
+	return o
+}
+
+func (o GetV2PolicyDataRecoveryOutput) ToGetV2PolicyDataRecoveryOutputWithContext(ctx context.Context) GetV2PolicyDataRecoveryOutput {
+	return o
+}
+
+// Maximum time between backups in minutes.
+func (o GetV2PolicyDataRecoveryOutput) TimeBetweenBackupsInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetV2PolicyDataRecovery) int { return v.TimeBetweenBackupsInMinutes }).(pulumi.IntOutput)
+}
+
+type GetV2PolicyDataRecoveryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetV2PolicyDataRecoveryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetV2PolicyDataRecovery)(nil)).Elem()
+}
+
+func (o GetV2PolicyDataRecoveryArrayOutput) ToGetV2PolicyDataRecoveryArrayOutput() GetV2PolicyDataRecoveryArrayOutput {
+	return o
+}
+
+func (o GetV2PolicyDataRecoveryArrayOutput) ToGetV2PolicyDataRecoveryArrayOutputWithContext(ctx context.Context) GetV2PolicyDataRecoveryArrayOutput {
+	return o
+}
+
+func (o GetV2PolicyDataRecoveryArrayOutput) Index(i pulumi.IntInput) GetV2PolicyDataRecoveryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetV2PolicyDataRecovery {
+		return vs[0].([]GetV2PolicyDataRecovery)[vs[1].(int)]
+	}).(GetV2PolicyDataRecoveryOutput)
+}
+
+type GetV2PolicyMultiAz struct {
+	// Disaster recovery approach.
+	DisasterRecoveryApproach string `pulumi:"disasterRecoveryApproach"`
+	// Recovery point objective in minutes.
+	RpoInMinutes int `pulumi:"rpoInMinutes"`
+	// Recovery time objective in minutes.
+	RtoInMinutes int `pulumi:"rtoInMinutes"`
+}
+
+// GetV2PolicyMultiAzInput is an input type that accepts GetV2PolicyMultiAzArgs and GetV2PolicyMultiAzOutput values.
+// You can construct a concrete instance of `GetV2PolicyMultiAzInput` via:
+//
+//	GetV2PolicyMultiAzArgs{...}
+type GetV2PolicyMultiAzInput interface {
+	pulumi.Input
+
+	ToGetV2PolicyMultiAzOutput() GetV2PolicyMultiAzOutput
+	ToGetV2PolicyMultiAzOutputWithContext(context.Context) GetV2PolicyMultiAzOutput
+}
+
+type GetV2PolicyMultiAzArgs struct {
+	// Disaster recovery approach.
+	DisasterRecoveryApproach pulumi.StringInput `pulumi:"disasterRecoveryApproach"`
+	// Recovery point objective in minutes.
+	RpoInMinutes pulumi.IntInput `pulumi:"rpoInMinutes"`
+	// Recovery time objective in minutes.
+	RtoInMinutes pulumi.IntInput `pulumi:"rtoInMinutes"`
+}
+
+func (GetV2PolicyMultiAzArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetV2PolicyMultiAz)(nil)).Elem()
+}
+
+func (i GetV2PolicyMultiAzArgs) ToGetV2PolicyMultiAzOutput() GetV2PolicyMultiAzOutput {
+	return i.ToGetV2PolicyMultiAzOutputWithContext(context.Background())
+}
+
+func (i GetV2PolicyMultiAzArgs) ToGetV2PolicyMultiAzOutputWithContext(ctx context.Context) GetV2PolicyMultiAzOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetV2PolicyMultiAzOutput)
+}
+
+// GetV2PolicyMultiAzArrayInput is an input type that accepts GetV2PolicyMultiAzArray and GetV2PolicyMultiAzArrayOutput values.
+// You can construct a concrete instance of `GetV2PolicyMultiAzArrayInput` via:
+//
+//	GetV2PolicyMultiAzArray{ GetV2PolicyMultiAzArgs{...} }
+type GetV2PolicyMultiAzArrayInput interface {
+	pulumi.Input
+
+	ToGetV2PolicyMultiAzArrayOutput() GetV2PolicyMultiAzArrayOutput
+	ToGetV2PolicyMultiAzArrayOutputWithContext(context.Context) GetV2PolicyMultiAzArrayOutput
+}
+
+type GetV2PolicyMultiAzArray []GetV2PolicyMultiAzInput
+
+func (GetV2PolicyMultiAzArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetV2PolicyMultiAz)(nil)).Elem()
+}
+
+func (i GetV2PolicyMultiAzArray) ToGetV2PolicyMultiAzArrayOutput() GetV2PolicyMultiAzArrayOutput {
+	return i.ToGetV2PolicyMultiAzArrayOutputWithContext(context.Background())
+}
+
+func (i GetV2PolicyMultiAzArray) ToGetV2PolicyMultiAzArrayOutputWithContext(ctx context.Context) GetV2PolicyMultiAzArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetV2PolicyMultiAzArrayOutput)
+}
+
+type GetV2PolicyMultiAzOutput struct{ *pulumi.OutputState }
+
+func (GetV2PolicyMultiAzOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetV2PolicyMultiAz)(nil)).Elem()
+}
+
+func (o GetV2PolicyMultiAzOutput) ToGetV2PolicyMultiAzOutput() GetV2PolicyMultiAzOutput {
+	return o
+}
+
+func (o GetV2PolicyMultiAzOutput) ToGetV2PolicyMultiAzOutputWithContext(ctx context.Context) GetV2PolicyMultiAzOutput {
+	return o
+}
+
+// Disaster recovery approach.
+func (o GetV2PolicyMultiAzOutput) DisasterRecoveryApproach() pulumi.StringOutput {
+	return o.ApplyT(func(v GetV2PolicyMultiAz) string { return v.DisasterRecoveryApproach }).(pulumi.StringOutput)
+}
+
+// Recovery point objective in minutes.
+func (o GetV2PolicyMultiAzOutput) RpoInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetV2PolicyMultiAz) int { return v.RpoInMinutes }).(pulumi.IntOutput)
+}
+
+// Recovery time objective in minutes.
+func (o GetV2PolicyMultiAzOutput) RtoInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetV2PolicyMultiAz) int { return v.RtoInMinutes }).(pulumi.IntOutput)
+}
+
+type GetV2PolicyMultiAzArrayOutput struct{ *pulumi.OutputState }
+
+func (GetV2PolicyMultiAzArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetV2PolicyMultiAz)(nil)).Elem()
+}
+
+func (o GetV2PolicyMultiAzArrayOutput) ToGetV2PolicyMultiAzArrayOutput() GetV2PolicyMultiAzArrayOutput {
+	return o
+}
+
+func (o GetV2PolicyMultiAzArrayOutput) ToGetV2PolicyMultiAzArrayOutputWithContext(ctx context.Context) GetV2PolicyMultiAzArrayOutput {
+	return o
+}
+
+func (o GetV2PolicyMultiAzArrayOutput) Index(i pulumi.IntInput) GetV2PolicyMultiAzOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetV2PolicyMultiAz {
+		return vs[0].([]GetV2PolicyMultiAz)[vs[1].(int)]
+	}).(GetV2PolicyMultiAzOutput)
+}
+
+type GetV2PolicyMultiRegion struct {
+	// Disaster recovery approach.
+	DisasterRecoveryApproach string `pulumi:"disasterRecoveryApproach"`
+	// Recovery point objective in minutes.
+	RpoInMinutes int `pulumi:"rpoInMinutes"`
+	// Recovery time objective in minutes.
+	RtoInMinutes int `pulumi:"rtoInMinutes"`
+}
+
+// GetV2PolicyMultiRegionInput is an input type that accepts GetV2PolicyMultiRegionArgs and GetV2PolicyMultiRegionOutput values.
+// You can construct a concrete instance of `GetV2PolicyMultiRegionInput` via:
+//
+//	GetV2PolicyMultiRegionArgs{...}
+type GetV2PolicyMultiRegionInput interface {
+	pulumi.Input
+
+	ToGetV2PolicyMultiRegionOutput() GetV2PolicyMultiRegionOutput
+	ToGetV2PolicyMultiRegionOutputWithContext(context.Context) GetV2PolicyMultiRegionOutput
+}
+
+type GetV2PolicyMultiRegionArgs struct {
+	// Disaster recovery approach.
+	DisasterRecoveryApproach pulumi.StringInput `pulumi:"disasterRecoveryApproach"`
+	// Recovery point objective in minutes.
+	RpoInMinutes pulumi.IntInput `pulumi:"rpoInMinutes"`
+	// Recovery time objective in minutes.
+	RtoInMinutes pulumi.IntInput `pulumi:"rtoInMinutes"`
+}
+
+func (GetV2PolicyMultiRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetV2PolicyMultiRegion)(nil)).Elem()
+}
+
+func (i GetV2PolicyMultiRegionArgs) ToGetV2PolicyMultiRegionOutput() GetV2PolicyMultiRegionOutput {
+	return i.ToGetV2PolicyMultiRegionOutputWithContext(context.Background())
+}
+
+func (i GetV2PolicyMultiRegionArgs) ToGetV2PolicyMultiRegionOutputWithContext(ctx context.Context) GetV2PolicyMultiRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetV2PolicyMultiRegionOutput)
+}
+
+// GetV2PolicyMultiRegionArrayInput is an input type that accepts GetV2PolicyMultiRegionArray and GetV2PolicyMultiRegionArrayOutput values.
+// You can construct a concrete instance of `GetV2PolicyMultiRegionArrayInput` via:
+//
+//	GetV2PolicyMultiRegionArray{ GetV2PolicyMultiRegionArgs{...} }
+type GetV2PolicyMultiRegionArrayInput interface {
+	pulumi.Input
+
+	ToGetV2PolicyMultiRegionArrayOutput() GetV2PolicyMultiRegionArrayOutput
+	ToGetV2PolicyMultiRegionArrayOutputWithContext(context.Context) GetV2PolicyMultiRegionArrayOutput
+}
+
+type GetV2PolicyMultiRegionArray []GetV2PolicyMultiRegionInput
+
+func (GetV2PolicyMultiRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetV2PolicyMultiRegion)(nil)).Elem()
+}
+
+func (i GetV2PolicyMultiRegionArray) ToGetV2PolicyMultiRegionArrayOutput() GetV2PolicyMultiRegionArrayOutput {
+	return i.ToGetV2PolicyMultiRegionArrayOutputWithContext(context.Background())
+}
+
+func (i GetV2PolicyMultiRegionArray) ToGetV2PolicyMultiRegionArrayOutputWithContext(ctx context.Context) GetV2PolicyMultiRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetV2PolicyMultiRegionArrayOutput)
+}
+
+type GetV2PolicyMultiRegionOutput struct{ *pulumi.OutputState }
+
+func (GetV2PolicyMultiRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetV2PolicyMultiRegion)(nil)).Elem()
+}
+
+func (o GetV2PolicyMultiRegionOutput) ToGetV2PolicyMultiRegionOutput() GetV2PolicyMultiRegionOutput {
+	return o
+}
+
+func (o GetV2PolicyMultiRegionOutput) ToGetV2PolicyMultiRegionOutputWithContext(ctx context.Context) GetV2PolicyMultiRegionOutput {
+	return o
+}
+
+// Disaster recovery approach.
+func (o GetV2PolicyMultiRegionOutput) DisasterRecoveryApproach() pulumi.StringOutput {
+	return o.ApplyT(func(v GetV2PolicyMultiRegion) string { return v.DisasterRecoveryApproach }).(pulumi.StringOutput)
+}
+
+// Recovery point objective in minutes.
+func (o GetV2PolicyMultiRegionOutput) RpoInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetV2PolicyMultiRegion) int { return v.RpoInMinutes }).(pulumi.IntOutput)
+}
+
+// Recovery time objective in minutes.
+func (o GetV2PolicyMultiRegionOutput) RtoInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetV2PolicyMultiRegion) int { return v.RtoInMinutes }).(pulumi.IntOutput)
+}
+
+type GetV2PolicyMultiRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetV2PolicyMultiRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetV2PolicyMultiRegion)(nil)).Elem()
+}
+
+func (o GetV2PolicyMultiRegionArrayOutput) ToGetV2PolicyMultiRegionArrayOutput() GetV2PolicyMultiRegionArrayOutput {
+	return o
+}
+
+func (o GetV2PolicyMultiRegionArrayOutput) ToGetV2PolicyMultiRegionArrayOutputWithContext(ctx context.Context) GetV2PolicyMultiRegionArrayOutput {
+	return o
+}
+
+func (o GetV2PolicyMultiRegionArrayOutput) Index(i pulumi.IntInput) GetV2PolicyMultiRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetV2PolicyMultiRegion {
+		return vs[0].([]GetV2PolicyMultiRegion)[vs[1].(int)]
+	}).(GetV2PolicyMultiRegionOutput)
+}
+
+type GetV2ServicePermissionModel struct {
+	// Cross-account IAM role. See `crossAccountRole` Block below.
+	CrossAccountRoles []GetV2ServicePermissionModelCrossAccountRole `pulumi:"crossAccountRoles"`
+	// Name of the IAM role that Resilience Hub assumes for resource discovery.
+	InvokerRoleName string `pulumi:"invokerRoleName"`
+}
+
+// GetV2ServicePermissionModelInput is an input type that accepts GetV2ServicePermissionModelArgs and GetV2ServicePermissionModelOutput values.
+// You can construct a concrete instance of `GetV2ServicePermissionModelInput` via:
+//
+//	GetV2ServicePermissionModelArgs{...}
+type GetV2ServicePermissionModelInput interface {
+	pulumi.Input
+
+	ToGetV2ServicePermissionModelOutput() GetV2ServicePermissionModelOutput
+	ToGetV2ServicePermissionModelOutputWithContext(context.Context) GetV2ServicePermissionModelOutput
+}
+
+type GetV2ServicePermissionModelArgs struct {
+	// Cross-account IAM role. See `crossAccountRole` Block below.
+	CrossAccountRoles GetV2ServicePermissionModelCrossAccountRoleArrayInput `pulumi:"crossAccountRoles"`
+	// Name of the IAM role that Resilience Hub assumes for resource discovery.
+	InvokerRoleName pulumi.StringInput `pulumi:"invokerRoleName"`
+}
+
+func (GetV2ServicePermissionModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetV2ServicePermissionModel)(nil)).Elem()
+}
+
+func (i GetV2ServicePermissionModelArgs) ToGetV2ServicePermissionModelOutput() GetV2ServicePermissionModelOutput {
+	return i.ToGetV2ServicePermissionModelOutputWithContext(context.Background())
+}
+
+func (i GetV2ServicePermissionModelArgs) ToGetV2ServicePermissionModelOutputWithContext(ctx context.Context) GetV2ServicePermissionModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetV2ServicePermissionModelOutput)
+}
+
+// GetV2ServicePermissionModelArrayInput is an input type that accepts GetV2ServicePermissionModelArray and GetV2ServicePermissionModelArrayOutput values.
+// You can construct a concrete instance of `GetV2ServicePermissionModelArrayInput` via:
+//
+//	GetV2ServicePermissionModelArray{ GetV2ServicePermissionModelArgs{...} }
+type GetV2ServicePermissionModelArrayInput interface {
+	pulumi.Input
+
+	ToGetV2ServicePermissionModelArrayOutput() GetV2ServicePermissionModelArrayOutput
+	ToGetV2ServicePermissionModelArrayOutputWithContext(context.Context) GetV2ServicePermissionModelArrayOutput
+}
+
+type GetV2ServicePermissionModelArray []GetV2ServicePermissionModelInput
+
+func (GetV2ServicePermissionModelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetV2ServicePermissionModel)(nil)).Elem()
+}
+
+func (i GetV2ServicePermissionModelArray) ToGetV2ServicePermissionModelArrayOutput() GetV2ServicePermissionModelArrayOutput {
+	return i.ToGetV2ServicePermissionModelArrayOutputWithContext(context.Background())
+}
+
+func (i GetV2ServicePermissionModelArray) ToGetV2ServicePermissionModelArrayOutputWithContext(ctx context.Context) GetV2ServicePermissionModelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetV2ServicePermissionModelArrayOutput)
+}
+
+type GetV2ServicePermissionModelOutput struct{ *pulumi.OutputState }
+
+func (GetV2ServicePermissionModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetV2ServicePermissionModel)(nil)).Elem()
+}
+
+func (o GetV2ServicePermissionModelOutput) ToGetV2ServicePermissionModelOutput() GetV2ServicePermissionModelOutput {
+	return o
+}
+
+func (o GetV2ServicePermissionModelOutput) ToGetV2ServicePermissionModelOutputWithContext(ctx context.Context) GetV2ServicePermissionModelOutput {
+	return o
+}
+
+// Cross-account IAM role. See `crossAccountRole` Block below.
+func (o GetV2ServicePermissionModelOutput) CrossAccountRoles() GetV2ServicePermissionModelCrossAccountRoleArrayOutput {
+	return o.ApplyT(func(v GetV2ServicePermissionModel) []GetV2ServicePermissionModelCrossAccountRole {
+		return v.CrossAccountRoles
+	}).(GetV2ServicePermissionModelCrossAccountRoleArrayOutput)
+}
+
+// Name of the IAM role that Resilience Hub assumes for resource discovery.
+func (o GetV2ServicePermissionModelOutput) InvokerRoleName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetV2ServicePermissionModel) string { return v.InvokerRoleName }).(pulumi.StringOutput)
+}
+
+type GetV2ServicePermissionModelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetV2ServicePermissionModelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetV2ServicePermissionModel)(nil)).Elem()
+}
+
+func (o GetV2ServicePermissionModelArrayOutput) ToGetV2ServicePermissionModelArrayOutput() GetV2ServicePermissionModelArrayOutput {
+	return o
+}
+
+func (o GetV2ServicePermissionModelArrayOutput) ToGetV2ServicePermissionModelArrayOutputWithContext(ctx context.Context) GetV2ServicePermissionModelArrayOutput {
+	return o
+}
+
+func (o GetV2ServicePermissionModelArrayOutput) Index(i pulumi.IntInput) GetV2ServicePermissionModelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetV2ServicePermissionModel {
+		return vs[0].([]GetV2ServicePermissionModel)[vs[1].(int)]
+	}).(GetV2ServicePermissionModelOutput)
+}
+
+type GetV2ServicePermissionModelCrossAccountRole struct {
+	// ARN of the IAM Role for the profile.
+	CrossAccountRoleArn string `pulumi:"crossAccountRoleArn"`
+	// External ID used for assuming the cross-account role.
+	ExternalId string `pulumi:"externalId"`
+}
+
+// GetV2ServicePermissionModelCrossAccountRoleInput is an input type that accepts GetV2ServicePermissionModelCrossAccountRoleArgs and GetV2ServicePermissionModelCrossAccountRoleOutput values.
+// You can construct a concrete instance of `GetV2ServicePermissionModelCrossAccountRoleInput` via:
+//
+//	GetV2ServicePermissionModelCrossAccountRoleArgs{...}
+type GetV2ServicePermissionModelCrossAccountRoleInput interface {
+	pulumi.Input
+
+	ToGetV2ServicePermissionModelCrossAccountRoleOutput() GetV2ServicePermissionModelCrossAccountRoleOutput
+	ToGetV2ServicePermissionModelCrossAccountRoleOutputWithContext(context.Context) GetV2ServicePermissionModelCrossAccountRoleOutput
+}
+
+type GetV2ServicePermissionModelCrossAccountRoleArgs struct {
+	// ARN of the IAM Role for the profile.
+	CrossAccountRoleArn pulumi.StringInput `pulumi:"crossAccountRoleArn"`
+	// External ID used for assuming the cross-account role.
+	ExternalId pulumi.StringInput `pulumi:"externalId"`
+}
+
+func (GetV2ServicePermissionModelCrossAccountRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetV2ServicePermissionModelCrossAccountRole)(nil)).Elem()
+}
+
+func (i GetV2ServicePermissionModelCrossAccountRoleArgs) ToGetV2ServicePermissionModelCrossAccountRoleOutput() GetV2ServicePermissionModelCrossAccountRoleOutput {
+	return i.ToGetV2ServicePermissionModelCrossAccountRoleOutputWithContext(context.Background())
+}
+
+func (i GetV2ServicePermissionModelCrossAccountRoleArgs) ToGetV2ServicePermissionModelCrossAccountRoleOutputWithContext(ctx context.Context) GetV2ServicePermissionModelCrossAccountRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetV2ServicePermissionModelCrossAccountRoleOutput)
+}
+
+// GetV2ServicePermissionModelCrossAccountRoleArrayInput is an input type that accepts GetV2ServicePermissionModelCrossAccountRoleArray and GetV2ServicePermissionModelCrossAccountRoleArrayOutput values.
+// You can construct a concrete instance of `GetV2ServicePermissionModelCrossAccountRoleArrayInput` via:
+//
+//	GetV2ServicePermissionModelCrossAccountRoleArray{ GetV2ServicePermissionModelCrossAccountRoleArgs{...} }
+type GetV2ServicePermissionModelCrossAccountRoleArrayInput interface {
+	pulumi.Input
+
+	ToGetV2ServicePermissionModelCrossAccountRoleArrayOutput() GetV2ServicePermissionModelCrossAccountRoleArrayOutput
+	ToGetV2ServicePermissionModelCrossAccountRoleArrayOutputWithContext(context.Context) GetV2ServicePermissionModelCrossAccountRoleArrayOutput
+}
+
+type GetV2ServicePermissionModelCrossAccountRoleArray []GetV2ServicePermissionModelCrossAccountRoleInput
+
+func (GetV2ServicePermissionModelCrossAccountRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetV2ServicePermissionModelCrossAccountRole)(nil)).Elem()
+}
+
+func (i GetV2ServicePermissionModelCrossAccountRoleArray) ToGetV2ServicePermissionModelCrossAccountRoleArrayOutput() GetV2ServicePermissionModelCrossAccountRoleArrayOutput {
+	return i.ToGetV2ServicePermissionModelCrossAccountRoleArrayOutputWithContext(context.Background())
+}
+
+func (i GetV2ServicePermissionModelCrossAccountRoleArray) ToGetV2ServicePermissionModelCrossAccountRoleArrayOutputWithContext(ctx context.Context) GetV2ServicePermissionModelCrossAccountRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetV2ServicePermissionModelCrossAccountRoleArrayOutput)
+}
+
+type GetV2ServicePermissionModelCrossAccountRoleOutput struct{ *pulumi.OutputState }
+
+func (GetV2ServicePermissionModelCrossAccountRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetV2ServicePermissionModelCrossAccountRole)(nil)).Elem()
+}
+
+func (o GetV2ServicePermissionModelCrossAccountRoleOutput) ToGetV2ServicePermissionModelCrossAccountRoleOutput() GetV2ServicePermissionModelCrossAccountRoleOutput {
+	return o
+}
+
+func (o GetV2ServicePermissionModelCrossAccountRoleOutput) ToGetV2ServicePermissionModelCrossAccountRoleOutputWithContext(ctx context.Context) GetV2ServicePermissionModelCrossAccountRoleOutput {
+	return o
+}
+
+// ARN of the IAM Role for the profile.
+func (o GetV2ServicePermissionModelCrossAccountRoleOutput) CrossAccountRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetV2ServicePermissionModelCrossAccountRole) string { return v.CrossAccountRoleArn }).(pulumi.StringOutput)
+}
+
+// External ID used for assuming the cross-account role.
+func (o GetV2ServicePermissionModelCrossAccountRoleOutput) ExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetV2ServicePermissionModelCrossAccountRole) string { return v.ExternalId }).(pulumi.StringOutput)
+}
+
+type GetV2ServicePermissionModelCrossAccountRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetV2ServicePermissionModelCrossAccountRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetV2ServicePermissionModelCrossAccountRole)(nil)).Elem()
+}
+
+func (o GetV2ServicePermissionModelCrossAccountRoleArrayOutput) ToGetV2ServicePermissionModelCrossAccountRoleArrayOutput() GetV2ServicePermissionModelCrossAccountRoleArrayOutput {
+	return o
+}
+
+func (o GetV2ServicePermissionModelCrossAccountRoleArrayOutput) ToGetV2ServicePermissionModelCrossAccountRoleArrayOutputWithContext(ctx context.Context) GetV2ServicePermissionModelCrossAccountRoleArrayOutput {
+	return o
+}
+
+func (o GetV2ServicePermissionModelCrossAccountRoleArrayOutput) Index(i pulumi.IntInput) GetV2ServicePermissionModelCrossAccountRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetV2ServicePermissionModelCrossAccountRole {
+		return vs[0].([]GetV2ServicePermissionModelCrossAccountRole)[vs[1].(int)]
+	}).(GetV2ServicePermissionModelCrossAccountRoleOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyPolicyInput)(nil)).Elem(), ResiliencyPolicyPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyPolicyPtrInput)(nil)).Elem(), ResiliencyPolicyPolicyArgs{})
@@ -1659,6 +2561,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyMultiAzPtrInput)(nil)).Elem(), V2PolicyMultiAzArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyMultiRegionInput)(nil)).Elem(), V2PolicyMultiRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyMultiRegionPtrInput)(nil)).Elem(), V2PolicyMultiRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2ServicePermissionModelInput)(nil)).Elem(), V2ServicePermissionModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2ServicePermissionModelPtrInput)(nil)).Elem(), V2ServicePermissionModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2ServicePermissionModelCrossAccountRoleInput)(nil)).Elem(), V2ServicePermissionModelCrossAccountRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2ServicePermissionModelCrossAccountRoleArrayInput)(nil)).Elem(), V2ServicePermissionModelCrossAccountRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetV2PolicyAvailabilitySloInput)(nil)).Elem(), GetV2PolicyAvailabilitySloArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetV2PolicyAvailabilitySloArrayInput)(nil)).Elem(), GetV2PolicyAvailabilitySloArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetV2PolicyDataRecoveryInput)(nil)).Elem(), GetV2PolicyDataRecoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetV2PolicyDataRecoveryArrayInput)(nil)).Elem(), GetV2PolicyDataRecoveryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetV2PolicyMultiAzInput)(nil)).Elem(), GetV2PolicyMultiAzArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetV2PolicyMultiAzArrayInput)(nil)).Elem(), GetV2PolicyMultiAzArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetV2PolicyMultiRegionInput)(nil)).Elem(), GetV2PolicyMultiRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetV2PolicyMultiRegionArrayInput)(nil)).Elem(), GetV2PolicyMultiRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetV2ServicePermissionModelInput)(nil)).Elem(), GetV2ServicePermissionModelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetV2ServicePermissionModelArrayInput)(nil)).Elem(), GetV2ServicePermissionModelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetV2ServicePermissionModelCrossAccountRoleInput)(nil)).Elem(), GetV2ServicePermissionModelCrossAccountRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetV2ServicePermissionModelCrossAccountRoleArrayInput)(nil)).Elem(), GetV2ServicePermissionModelCrossAccountRoleArray{})
 	pulumi.RegisterOutputType(ResiliencyPolicyPolicyOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyPolicyAzOutput{})
@@ -1679,4 +2597,20 @@ func init() {
 	pulumi.RegisterOutputType(V2PolicyMultiAzPtrOutput{})
 	pulumi.RegisterOutputType(V2PolicyMultiRegionOutput{})
 	pulumi.RegisterOutputType(V2PolicyMultiRegionPtrOutput{})
+	pulumi.RegisterOutputType(V2ServicePermissionModelOutput{})
+	pulumi.RegisterOutputType(V2ServicePermissionModelPtrOutput{})
+	pulumi.RegisterOutputType(V2ServicePermissionModelCrossAccountRoleOutput{})
+	pulumi.RegisterOutputType(V2ServicePermissionModelCrossAccountRoleArrayOutput{})
+	pulumi.RegisterOutputType(GetV2PolicyAvailabilitySloOutput{})
+	pulumi.RegisterOutputType(GetV2PolicyAvailabilitySloArrayOutput{})
+	pulumi.RegisterOutputType(GetV2PolicyDataRecoveryOutput{})
+	pulumi.RegisterOutputType(GetV2PolicyDataRecoveryArrayOutput{})
+	pulumi.RegisterOutputType(GetV2PolicyMultiAzOutput{})
+	pulumi.RegisterOutputType(GetV2PolicyMultiAzArrayOutput{})
+	pulumi.RegisterOutputType(GetV2PolicyMultiRegionOutput{})
+	pulumi.RegisterOutputType(GetV2PolicyMultiRegionArrayOutput{})
+	pulumi.RegisterOutputType(GetV2ServicePermissionModelOutput{})
+	pulumi.RegisterOutputType(GetV2ServicePermissionModelArrayOutput{})
+	pulumi.RegisterOutputType(GetV2ServicePermissionModelCrossAccountRoleOutput{})
+	pulumi.RegisterOutputType(GetV2ServicePermissionModelCrossAccountRoleArrayOutput{})
 }

@@ -60,7 +60,7 @@ export interface GetInferenceProfilesArgs {
  */
 export interface GetInferenceProfilesResult {
     /**
-     * List of inference profile summary objects. See `inferenceProfileSummaries`.
+     * List of inference profile summary objects. See `inferenceProfileSummaries` Block.
      */
     readonly inferenceProfileSummaries: outputs.bedrock.GetInferenceProfilesInferenceProfileSummary[];
     readonly region: string;

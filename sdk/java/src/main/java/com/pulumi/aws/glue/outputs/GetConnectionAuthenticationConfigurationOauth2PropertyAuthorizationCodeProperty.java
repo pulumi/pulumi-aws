@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty {
+    /**
+     * @return Authorization code used to obtain an access token.
+     * 
+     */
     private String authorizationCode;
+    /**
+     * @return Redirect URI used in the authorization code request.
+     * 
+     */
     private String redirectUri;
 
     private GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodeProperty() {}
+    /**
+     * @return Authorization code used to obtain an access token.
+     * 
+     */
     public String authorizationCode() {
         return this.authorizationCode;
     }
+    /**
+     * @return Redirect URI used in the authorization code request.
+     * 
+     */
     public String redirectUri() {
         return this.redirectUri;
     }

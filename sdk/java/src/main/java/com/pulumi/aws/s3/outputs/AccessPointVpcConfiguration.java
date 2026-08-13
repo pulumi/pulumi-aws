@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AccessPointVpcConfiguration {
     /**
-     * @return This access point will only allow connections from the specified VPC ID.
+     * @return VPC ID from which the access point allows connections.
      * 
      */
     private String vpcId;
 
     private AccessPointVpcConfiguration() {}
     /**
-     * @return This access point will only allow connections from the specified VPC ID.
+     * @return VPC ID from which the access point allows connections.
      * 
      */
     public String vpcId() {

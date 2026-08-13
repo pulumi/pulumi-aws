@@ -1397,6 +1397,8 @@ func (o LifecyclePolicyPolicyDetailsExclusionsPtrOutput) ExcludeVolumeTypes() pu
 type LifecyclePolicyPolicyDetailsParameters struct {
 	// Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
 	ExcludeBootVolume *bool `pulumi:"excludeBootVolume"`
+	// Map specifies whether to exclude volumes that have specific tags.
+	ExcludeDataVolumeTags map[string]string `pulumi:"excludeDataVolumeTags"`
 	// Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
 	NoReboot *bool `pulumi:"noReboot"`
 }
@@ -1415,6 +1417,8 @@ type LifecyclePolicyPolicyDetailsParametersInput interface {
 type LifecyclePolicyPolicyDetailsParametersArgs struct {
 	// Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
 	ExcludeBootVolume pulumi.BoolPtrInput `pulumi:"excludeBootVolume"`
+	// Map specifies whether to exclude volumes that have specific tags.
+	ExcludeDataVolumeTags pulumi.StringMapInput `pulumi:"excludeDataVolumeTags"`
 	// Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
 	NoReboot pulumi.BoolPtrInput `pulumi:"noReboot"`
 }
@@ -1501,6 +1505,11 @@ func (o LifecyclePolicyPolicyDetailsParametersOutput) ExcludeBootVolume() pulumi
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsParameters) *bool { return v.ExcludeBootVolume }).(pulumi.BoolPtrOutput)
 }
 
+// Map specifies whether to exclude volumes that have specific tags.
+func (o LifecyclePolicyPolicyDetailsParametersOutput) ExcludeDataVolumeTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsParameters) map[string]string { return v.ExcludeDataVolumeTags }).(pulumi.StringMapOutput)
+}
+
 // Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
 func (o LifecyclePolicyPolicyDetailsParametersOutput) NoReboot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsParameters) *bool { return v.NoReboot }).(pulumi.BoolPtrOutput)
@@ -1538,6 +1547,16 @@ func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) ExcludeBootVolume() pul
 		}
 		return v.ExcludeBootVolume
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Map specifies whether to exclude volumes that have specific tags.
+func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) ExcludeDataVolumeTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsParameters) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeDataVolumeTags
+	}).(pulumi.StringMapOutput)
 }
 
 // Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).

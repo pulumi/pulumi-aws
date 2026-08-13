@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> GatewayArn { get; set; } = null!;
 
         /// <summary>
-        /// Outbound authentication configuration. See `OutboundAuth` below.
+        /// Outbound authentication configuration. See `OutboundAuth` Block below.
         /// </summary>
         [Input("outboundAuth")]
         public Input<Inputs.AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs>? OutboundAuth { get; set; }

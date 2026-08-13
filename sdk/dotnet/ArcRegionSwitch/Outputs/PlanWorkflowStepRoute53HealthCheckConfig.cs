@@ -30,7 +30,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly string RecordName;
         /// <summary>
-        /// Configuration block for record sets. See Record Set below.
+        /// Configuration block for record sets. See `RecordSet` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepRoute53HealthCheckConfigRecordSet> RecordSets;
         /// <summary>

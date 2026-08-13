@@ -12,12 +12,21 @@ namespace Pulumi.Aws.Odb.Inputs
 
     public sealed class CloudVmClusterIormConfigCacheDbPlanArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Database name to which the IORM plan applies.
+        /// </summary>
         [Input("dbName", required: true)]
         public Input<string> DbName { get; set; } = null!;
 
+        /// <summary>
+        /// Flash cache limit for the database plan.
+        /// </summary>
         [Input("flashCacheLimit", required: true)]
         public Input<string> FlashCacheLimit { get; set; } = null!;
 
+        /// <summary>
+        /// Relative priority of the database in the IORM plan.
+        /// </summary>
         [Input("share", required: true)]
         public Input<int> Share { get; set; } = null!;
 

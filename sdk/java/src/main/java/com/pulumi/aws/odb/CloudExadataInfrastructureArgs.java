@@ -68,14 +68,14 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
      * 
      */
     @Import(name="customerContactsToSendToOcis")
     private @Nullable Output<List<CloudExadataInfrastructureCustomerContactsToSendToOciArgs>> customerContactsToSendToOcis;
 
     /**
-     * @return Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * @return Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
      * 
      */
     public Optional<Output<List<CloudExadataInfrastructureCustomerContactsToSendToOciArgs>>> customerContactsToSendToOcis() {
@@ -313,7 +313,7 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param customerContactsToSendToOcis Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+         * @param customerContactsToSendToOcis Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param customerContactsToSendToOcis Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+         * @param customerContactsToSendToOcis Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param customerContactsToSendToOcis Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+         * @param customerContactsToSendToOcis Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
          * 
          * @return builder
          * 

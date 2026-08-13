@@ -26,9 +26,9 @@ class SshKeyArgs:
         """
         The set of arguments for constructing a SshKey resource.
 
-        :param pulumi.Input[_builtins.str] body: The public key portion of an SSH key pair.
-        :param pulumi.Input[_builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
-        :param pulumi.Input[_builtins.str] user_name: The name of the user account that is assigned to one or more servers.
+        :param pulumi.Input[_builtins.str] body: Public key portion of an SSH key pair.
+        :param pulumi.Input[_builtins.str] server_id: Server ID of the Transfer Server (e.g., `s-12345678`)
+        :param pulumi.Input[_builtins.str] user_name: Name of the user account that is assigned to one or more servers.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "body", body)
@@ -41,7 +41,7 @@ class SshKeyArgs:
     @pulumi.getter
     def body(self) -> pulumi.Input[_builtins.str]:
         """
-        The public key portion of an SSH key pair.
+        Public key portion of an SSH key pair.
         """
         return pulumi.get(self, "body")
 
@@ -53,7 +53,7 @@ class SshKeyArgs:
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The Server ID of the Transfer Server (e.g., `s-12345678`)
+        Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         return pulumi.get(self, "server_id")
 
@@ -65,7 +65,7 @@ class SshKeyArgs:
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the user account that is assigned to one or more servers.
+        Name of the user account that is assigned to one or more servers.
         """
         return pulumi.get(self, "user_name")
 
@@ -97,10 +97,11 @@ class _SshKeyState:
         """
         Input properties used for looking up and filtering SshKey resources.
 
-        :param pulumi.Input[_builtins.str] body: The public key portion of an SSH key pair.
+        :param pulumi.Input[_builtins.str] body: Public key portion of an SSH key pair.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
-        :param pulumi.Input[_builtins.str] user_name: The name of the user account that is assigned to one or more servers.
+        :param pulumi.Input[_builtins.str] server_id: Server ID of the Transfer Server (e.g., `s-12345678`)
+        :param pulumi.Input[_builtins.str] ssh_key_id: ID of the SSH public key.
+        :param pulumi.Input[_builtins.str] user_name: Name of the user account that is assigned to one or more servers.
         """
         if body is not None:
             pulumi.set(__self__, "body", body)
@@ -117,7 +118,7 @@ class _SshKeyState:
     @pulumi.getter
     def body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The public key portion of an SSH key pair.
+        Public key portion of an SSH key pair.
         """
         return pulumi.get(self, "body")
 
@@ -141,7 +142,7 @@ class _SshKeyState:
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Server ID of the Transfer Server (e.g., `s-12345678`)
+        Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         return pulumi.get(self, "server_id")
 
@@ -152,6 +153,9 @@ class _SshKeyState:
     @_builtins.property
     @pulumi.getter(name="sshKeyId")
     def ssh_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ID of the SSH public key.
+        """
         return pulumi.get(self, "ssh_key_id")
 
     @ssh_key_id.setter
@@ -162,7 +166,7 @@ class _SshKeyState:
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the user account that is assigned to one or more servers.
+        Name of the user account that is assigned to one or more servers.
         """
         return pulumi.get(self, "user_name")
 
@@ -246,10 +250,10 @@ class SshKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] body: The public key portion of an SSH key pair.
+        :param pulumi.Input[_builtins.str] body: Public key portion of an SSH key pair.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
-        :param pulumi.Input[_builtins.str] user_name: The name of the user account that is assigned to one or more servers.
+        :param pulumi.Input[_builtins.str] server_id: Server ID of the Transfer Server (e.g., `s-12345678`)
+        :param pulumi.Input[_builtins.str] user_name: Name of the user account that is assigned to one or more servers.
         """
         ...
     @overload
@@ -380,10 +384,11 @@ class SshKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] body: The public key portion of an SSH key pair.
+        :param pulumi.Input[_builtins.str] body: Public key portion of an SSH key pair.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
-        :param pulumi.Input[_builtins.str] user_name: The name of the user account that is assigned to one or more servers.
+        :param pulumi.Input[_builtins.str] server_id: Server ID of the Transfer Server (e.g., `s-12345678`)
+        :param pulumi.Input[_builtins.str] ssh_key_id: ID of the SSH public key.
+        :param pulumi.Input[_builtins.str] user_name: Name of the user account that is assigned to one or more servers.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -400,7 +405,7 @@ class SshKey(pulumi.CustomResource):
     @pulumi.getter
     def body(self) -> pulumi.Output[_builtins.str]:
         """
-        The public key portion of an SSH key pair.
+        Public key portion of an SSH key pair.
         """
         return pulumi.get(self, "body")
 
@@ -416,20 +421,23 @@ class SshKey(pulumi.CustomResource):
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Server ID of the Transfer Server (e.g., `s-12345678`)
+        Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         return pulumi.get(self, "server_id")
 
     @_builtins.property
     @pulumi.getter(name="sshKeyId")
     def ssh_key_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        ID of the SSH public key.
+        """
         return pulumi.get(self, "ssh_key_id")
 
     @_builtins.property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the user account that is assigned to one or more servers.
+        Name of the user account that is assigned to one or more servers.
         """
         return pulumi.get(self, "user_name")
 

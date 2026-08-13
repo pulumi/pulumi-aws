@@ -17,14 +17,14 @@ public final class WorkflowStepDecryptStepDetailsDestinationFileLocationArgs ext
     public static final WorkflowStepDecryptStepDetailsDestinationFileLocationArgs Empty = new WorkflowStepDecryptStepDetailsDestinationFileLocationArgs();
 
     /**
-     * Specifies the details for the EFS file being copied.
+     * Details for the EFS file being copied. See `efsFileLocation` Block below.
      * 
      */
     @Import(name="efsFileLocation")
     private @Nullable Output<WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs> efsFileLocation;
 
     /**
-     * @return Specifies the details for the EFS file being copied.
+     * @return Details for the EFS file being copied. See `efsFileLocation` Block below.
      * 
      */
     public Optional<Output<WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs>> efsFileLocation() {
@@ -32,14 +32,14 @@ public final class WorkflowStepDecryptStepDetailsDestinationFileLocationArgs ext
     }
 
     /**
-     * Specifies the details for the S3 file being copied.
+     * Details for the S3 file being copied. See `s3FileLocation` Block below.
      * 
      */
     @Import(name="s3FileLocation")
     private @Nullable Output<WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs> s3FileLocation;
 
     /**
-     * @return Specifies the details for the S3 file being copied.
+     * @return Details for the S3 file being copied. See `s3FileLocation` Block below.
      * 
      */
     public Optional<Output<WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs>> s3FileLocation() {
@@ -72,7 +72,7 @@ public final class WorkflowStepDecryptStepDetailsDestinationFileLocationArgs ext
         }
 
         /**
-         * @param efsFileLocation Specifies the details for the EFS file being copied.
+         * @param efsFileLocation Details for the EFS file being copied. See `efsFileLocation` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class WorkflowStepDecryptStepDetailsDestinationFileLocationArgs ext
         }
 
         /**
-         * @param efsFileLocation Specifies the details for the EFS file being copied.
+         * @param efsFileLocation Details for the EFS file being copied. See `efsFileLocation` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class WorkflowStepDecryptStepDetailsDestinationFileLocationArgs ext
         }
 
         /**
-         * @param s3FileLocation Specifies the details for the S3 file being copied.
+         * @param s3FileLocation Details for the S3 file being copied. See `s3FileLocation` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class WorkflowStepDecryptStepDetailsDestinationFileLocationArgs ext
         }
 
         /**
-         * @param s3FileLocation Specifies the details for the S3 file being copied.
+         * @param s3FileLocation Details for the S3 file being copied. See `s3FileLocation` Block below.
          * 
          * @return builder
          * 

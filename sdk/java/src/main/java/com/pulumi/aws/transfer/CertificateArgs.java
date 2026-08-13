@@ -18,14 +18,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     public static final CertificateArgs Empty = new CertificateArgs();
 
     /**
-     * The valid certificate file required for the transfer.
+     * Valid certificate file required for the transfer.
      * 
      */
     @Import(name="certificate", required=true)
     private Output<String> certificate;
 
     /**
-     * @return The valid certificate file required for the transfer.
+     * @return Valid certificate file required for the transfer.
      * 
      */
     public Output<String> certificate() {
@@ -33,14 +33,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The optional list of certificate that make up the chain for the certificate that is being imported.
+     * Optional list of certificate that make up the chain for the certificate that is being imported.
      * 
      */
     @Import(name="certificateChain")
     private @Nullable Output<String> certificateChain;
 
     /**
-     * @return The optional list of certificate that make up the chain for the certificate that is being imported.
+     * @return Optional list of certificate that make up the chain for the certificate that is being imported.
      * 
      */
     public Optional<Output<String>> certificateChain() {
@@ -48,14 +48,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A short description that helps identify the certificate.
+     * Short description that helps identify the certificate.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A short description that helps identify the certificate.
+     * @return Short description that helps identify the certificate.
      * 
      */
     public Optional<Output<String>> description() {
@@ -63,14 +63,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The private key associated with the certificate being imported.
+     * Private key associated with the certificate being imported.
      * 
      */
     @Import(name="privateKey")
     private @Nullable Output<String> privateKey;
 
     /**
-     * @return The private key associated with the certificate being imported.
+     * @return Private key associated with the certificate being imported.
      * 
      */
     public Optional<Output<String>> privateKey() {
@@ -93,14 +93,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -108,14 +108,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+     * Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      * 
      */
     @Import(name="usage", required=true)
     private Output<String> usage;
 
     /**
-     * @return Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+     * @return Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      * 
      */
     public Output<String> usage() {
@@ -153,7 +153,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate The valid certificate file required for the transfer.
+         * @param certificate Valid certificate file required for the transfer.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate The valid certificate file required for the transfer.
+         * @param certificate Valid certificate file required for the transfer.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateChain The optional list of certificate that make up the chain for the certificate that is being imported.
+         * @param certificateChain Optional list of certificate that make up the chain for the certificate that is being imported.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateChain The optional list of certificate that make up the chain for the certificate that is being imported.
+         * @param certificateChain Optional list of certificate that make up the chain for the certificate that is being imported.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A short description that helps identify the certificate.
+         * @param description Short description that helps identify the certificate.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A short description that helps identify the certificate.
+         * @param description Short description that helps identify the certificate.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey The private key associated with the certificate being imported.
+         * @param privateKey Private key associated with the certificate being imported.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey The private key associated with the certificate being imported.
+         * @param privateKey Private key associated with the certificate being imported.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usage Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+         * @param usage Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param usage Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
+         * @param usage Whether a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
          * 
          * @return builder
          * 

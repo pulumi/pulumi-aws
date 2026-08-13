@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepCustomActionLambdaConfigLambdaGetArgs>? _lambdas;
 
         /// <summary>
-        /// Lambda function configuration. See Lambda below.
+        /// Lambda function configuration. See `Lambda` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepCustomActionLambdaConfigLambdaGetArgs> Lambdas
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepCustomActionLambdaConfigUngracefulGetArgs>? _ungracefuls;
 
         /// <summary>
-        /// Ungraceful behavior configuration. See Ungraceful below.
+        /// Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepCustomActionLambdaConfigUngracefulGetArgs> Ungracefuls
         {

@@ -19,51 +19,107 @@ public final class PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs extend
 
     public static final PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs Empty = new PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs();
 
+    /**
+     * Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+     * 
+     */
     @Import(name="behavior", required=true)
     private Output<String> behavior;
 
+    /**
+     * @return Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+     * 
+     */
     public Output<String> behavior() {
         return this.behavior;
     }
 
+    /**
+     * ARN of the cross-account role to assume.
+     * 
+     */
     @Import(name="crossAccountRole")
     private @Nullable Output<String> crossAccountRole;
 
+    /**
+     * @return ARN of the cross-account role to assume.
+     * 
+     */
     public Optional<Output<String>> crossAccountRole() {
         return Optional.ofNullable(this.crossAccountRole);
     }
 
+    /**
+     * List of DocumentDB cluster ARNs.
+     * 
+     */
     @Import(name="databaseClusterArns", required=true)
     private Output<List<String>> databaseClusterArns;
 
+    /**
+     * @return List of DocumentDB cluster ARNs.
+     * 
+     */
     public Output<List<String>> databaseClusterArns() {
         return this.databaseClusterArns;
     }
 
+    /**
+     * External ID for cross-account role assumption.
+     * 
+     */
     @Import(name="externalId")
     private @Nullable Output<String> externalId;
 
+    /**
+     * @return External ID for cross-account role assumption.
+     * 
+     */
     public Optional<Output<String>> externalId() {
         return Optional.ofNullable(this.externalId);
     }
 
+    /**
+     * Global cluster identifier.
+     * 
+     */
     @Import(name="globalClusterIdentifier", required=true)
     private Output<String> globalClusterIdentifier;
 
+    /**
+     * @return Global cluster identifier.
+     * 
+     */
     public Output<String> globalClusterIdentifier() {
         return this.globalClusterIdentifier;
     }
 
+    /**
+     * Timeout in minutes.
+     * 
+     */
     @Import(name="timeoutMinutes")
     private @Nullable Output<Integer> timeoutMinutes;
 
+    /**
+     * @return Timeout in minutes.
+     * 
+     */
     public Optional<Output<Integer>> timeoutMinutes() {
         return Optional.ofNullable(this.timeoutMinutes);
     }
 
+    /**
+     * Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+     * 
+     */
     @Import(name="ungracefuls")
     private @Nullable Output<List<PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgs>> ungracefuls;
 
+    /**
+     * @return Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+     * 
+     */
     public Optional<Output<List<PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgs>>> ungracefuls() {
         return Optional.ofNullable(this.ungracefuls);
     }
@@ -98,73 +154,169 @@ public final class PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs extend
             $ = new PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param behavior Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder behavior(Output<String> behavior) {
             $.behavior = behavior;
             return this;
         }
 
+        /**
+         * @param behavior Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder behavior(String behavior) {
             return behavior(Output.of(behavior));
         }
 
+        /**
+         * @param crossAccountRole ARN of the cross-account role to assume.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crossAccountRole(@Nullable Output<String> crossAccountRole) {
             $.crossAccountRole = crossAccountRole;
             return this;
         }
 
+        /**
+         * @param crossAccountRole ARN of the cross-account role to assume.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crossAccountRole(String crossAccountRole) {
             return crossAccountRole(Output.of(crossAccountRole));
         }
 
+        /**
+         * @param databaseClusterArns List of DocumentDB cluster ARNs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder databaseClusterArns(Output<List<String>> databaseClusterArns) {
             $.databaseClusterArns = databaseClusterArns;
             return this;
         }
 
+        /**
+         * @param databaseClusterArns List of DocumentDB cluster ARNs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder databaseClusterArns(List<String> databaseClusterArns) {
             return databaseClusterArns(Output.of(databaseClusterArns));
         }
 
+        /**
+         * @param databaseClusterArns List of DocumentDB cluster ARNs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder databaseClusterArns(String... databaseClusterArns) {
             return databaseClusterArns(List.of(databaseClusterArns));
         }
 
+        /**
+         * @param externalId External ID for cross-account role assumption.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalId(@Nullable Output<String> externalId) {
             $.externalId = externalId;
             return this;
         }
 
+        /**
+         * @param externalId External ID for cross-account role assumption.
+         * 
+         * @return builder
+         * 
+         */
         public Builder externalId(String externalId) {
             return externalId(Output.of(externalId));
         }
 
+        /**
+         * @param globalClusterIdentifier Global cluster identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder globalClusterIdentifier(Output<String> globalClusterIdentifier) {
             $.globalClusterIdentifier = globalClusterIdentifier;
             return this;
         }
 
+        /**
+         * @param globalClusterIdentifier Global cluster identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder globalClusterIdentifier(String globalClusterIdentifier) {
             return globalClusterIdentifier(Output.of(globalClusterIdentifier));
         }
 
+        /**
+         * @param timeoutMinutes Timeout in minutes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeoutMinutes(@Nullable Output<Integer> timeoutMinutes) {
             $.timeoutMinutes = timeoutMinutes;
             return this;
         }
 
+        /**
+         * @param timeoutMinutes Timeout in minutes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeoutMinutes(Integer timeoutMinutes) {
             return timeoutMinutes(Output.of(timeoutMinutes));
         }
 
+        /**
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ungracefuls(@Nullable Output<List<PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgs>> ungracefuls) {
             $.ungracefuls = ungracefuls;
             return this;
         }
 
+        /**
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ungracefuls(List<PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgs> ungracefuls) {
             return ungracefuls(Output.of(ungracefuls));
         }
 
+        /**
+         * @param ungracefuls Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ungracefuls(PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgs... ungracefuls) {
             return ungracefuls(List.of(ungracefuls));
         }

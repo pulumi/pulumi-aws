@@ -16,14 +16,14 @@ public final class WebAppEndpointDetailsArgs extends com.pulumi.resources.Resour
     public static final WebAppEndpointDetailsArgs Empty = new WebAppEndpointDetailsArgs();
 
     /**
-     * Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
+     * Block defining VPC configuration for hosting the web app endpoint within a VPC. See `vpc` Block below.
      * 
      */
     @Import(name="vpc")
     private @Nullable Output<WebAppEndpointDetailsVpcArgs> vpc;
 
     /**
-     * @return Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
+     * @return Block defining VPC configuration for hosting the web app endpoint within a VPC. See `vpc` Block below.
      * 
      */
     public Optional<Output<WebAppEndpointDetailsVpcArgs>> vpc() {
@@ -55,7 +55,7 @@ public final class WebAppEndpointDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpc Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
+         * @param vpc Block defining VPC configuration for hosting the web app endpoint within a VPC. See `vpc` Block below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class WebAppEndpointDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpc Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
+         * @param vpc Block defining VPC configuration for hosting the web app endpoint within a VPC. See `vpc` Block below.
          * 
          * @return builder
          * 

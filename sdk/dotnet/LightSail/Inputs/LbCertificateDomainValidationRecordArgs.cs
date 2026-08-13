@@ -18,12 +18,21 @@ namespace Pulumi.Aws.LightSail.Inputs
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
+        /// <summary>
+        /// Name of the DNS record to create to validate the certificate.
+        /// </summary>
         [Input("resourceRecordName")]
         public Input<string>? ResourceRecordName { get; set; }
 
+        /// <summary>
+        /// Type of DNS record to create to validate the certificate.
+        /// </summary>
         [Input("resourceRecordType")]
         public Input<string>? ResourceRecordType { get; set; }
 
+        /// <summary>
+        /// Value of the DNS record to create to validate the certificate.
+        /// </summary>
         [Input("resourceRecordValue")]
         public Input<string>? ResourceRecordValue { get; set; }
 

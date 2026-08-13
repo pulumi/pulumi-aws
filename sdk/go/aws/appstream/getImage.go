@@ -82,11 +82,11 @@ type GetImageResult struct {
 	Description string `pulumi:"description"`
 	// Image name to display.
 	DisplayName string `pulumi:"displayName"`
-	// Name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
+	// Name of the image builder that was used to created the private image. If the image is shared then the value is null.
 	ImageBuilderName string `pulumi:"imageBuilderName"`
-	// Boolean to indicate whether an image builder can be launched from this image.
+	// Whether an image builder can be launched from this image.
 	ImageBuilderSupported bool `pulumi:"imageBuilderSupported"`
-	// List of strings describing the image permissions containing the following:
+	// List of objects describing the image permissions containing the following:
 	ImagePermissions []GetImageImagePermission `pulumi:"imagePermissions"`
 	MostRecent       *bool                     `pulumi:"mostRecent"`
 	// Name of the application.
@@ -183,17 +183,17 @@ func (o GetImageResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
+// Name of the image builder that was used to created the private image. If the image is shared then the value is null.
 func (o GetImageResultOutput) ImageBuilderName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.ImageBuilderName }).(pulumi.StringOutput)
 }
 
-// Boolean to indicate whether an image builder can be launched from this image.
+// Whether an image builder can be launched from this image.
 func (o GetImageResultOutput) ImageBuilderSupported() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImageResult) bool { return v.ImageBuilderSupported }).(pulumi.BoolOutput)
 }
 
-// List of strings describing the image permissions containing the following:
+// List of objects describing the image permissions containing the following:
 func (o GetImageResultOutput) ImagePermissions() GetImageImagePermissionArrayOutput {
 	return o.ApplyT(func(v GetImageResult) []GetImageImagePermission { return v.ImagePermissions }).(GetImageImagePermissionArrayOutput)
 }

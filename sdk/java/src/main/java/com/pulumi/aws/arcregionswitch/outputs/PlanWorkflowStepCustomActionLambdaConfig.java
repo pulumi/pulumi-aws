@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PlanWorkflowStepCustomActionLambdaConfig {
     /**
-     * @return Lambda function configuration. See Lambda below.
+     * @return Lambda function configuration. See `lambda` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepCustomActionLambdaConfigLambda> lambdas;
@@ -38,14 +38,14 @@ public final class PlanWorkflowStepCustomActionLambdaConfig {
      */
     private @Nullable Integer timeoutMinutes;
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful below.
+     * @return Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepCustomActionLambdaConfigUngraceful> ungracefuls;
 
     private PlanWorkflowStepCustomActionLambdaConfig() {}
     /**
-     * @return Lambda function configuration. See Lambda below.
+     * @return Lambda function configuration. See `lambda` Block for details.
      * 
      */
     public List<PlanWorkflowStepCustomActionLambdaConfigLambda> lambdas() {
@@ -73,7 +73,7 @@ public final class PlanWorkflowStepCustomActionLambdaConfig {
         return Optional.ofNullable(this.timeoutMinutes);
     }
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful below.
+     * @return Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
      * 
      */
     public List<PlanWorkflowStepCustomActionLambdaConfigUngraceful> ungracefuls() {

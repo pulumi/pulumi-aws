@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string NetworkMode;
         /// <summary>
-        /// VPC configuration. See `NetworkModeConfig` below.
+        /// VPC configuration. See `NetworkModeConfig` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig> NetworkModeConfigs;
 

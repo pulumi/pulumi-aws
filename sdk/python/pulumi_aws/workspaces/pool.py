@@ -42,11 +42,11 @@ class PoolArgs:
         :param pulumi.Input[_builtins.str] running_mode: Running mode of the WorkSpaces Pool. Valid values are `AUTO_STOP` and `ALWAYS_ON`.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['PoolApplicationSettingArgs']]] application_settings: Application settings configuration for the WorkSpaces Pool. See `application_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolApplicationSettingArgs']]] application_settings: Application settings configuration for the WorkSpaces Pool. See `application_settings` Block below.
         :param pulumi.Input['PoolCapacityArgs'] capacity: Capacity configuration for the WorkSpaces Pool. See `capacity` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolTimeoutSettingArgs']]] timeout_settings: Timeout settings configuration for the WorkSpaces Pool. See `timeout_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolTimeoutSettingArgs']]] timeout_settings: Timeout settings configuration for the WorkSpaces Pool. See `timeout_settings` Block below.
         """
         pulumi.set(__self__, "bundle_id", bundle_id)
         pulumi.set(__self__, "description", description)
@@ -132,7 +132,7 @@ class PoolArgs:
     @pulumi.getter(name="applicationSettings")
     def application_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PoolApplicationSettingArgs']]]]:
         """
-        Application settings configuration for the WorkSpaces Pool. See `application_settings` below.
+        Application settings configuration for the WorkSpaces Pool. See `application_settings` Block below.
         """
         return pulumi.get(self, "application_settings")
 
@@ -180,7 +180,7 @@ class PoolArgs:
     @pulumi.getter(name="timeoutSettings")
     def timeout_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PoolTimeoutSettingArgs']]]]:
         """
-        Timeout settings configuration for the WorkSpaces Pool. See `timeout_settings` below.
+        Timeout settings configuration for the WorkSpaces Pool. See `timeout_settings` Block below.
         """
         return pulumi.get(self, "timeout_settings")
 
@@ -222,10 +222,10 @@ class _PoolState:
         """
         Input properties used for looking up and filtering Pool resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input['PoolApplicationSettingArgs']]] application_settings: Application settings configuration for the WorkSpaces Pool. See `application_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolApplicationSettingArgs']]] application_settings: Application settings configuration for the WorkSpaces Pool. See `application_settings` Block below.
         :param pulumi.Input[_builtins.str] bundle_id: ID of the bundle for the WorkSpaces Pool.
         :param pulumi.Input['PoolCapacityArgs'] capacity: Capacity configuration for the WorkSpaces Pool. See `capacity` below.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolCapacityStatusArgs']]] capacity_statuses: Capacity status of the WorkSpaces Pool. See `capacity_status` below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolCapacityStatusArgs']]] capacity_statuses: Capacity status of the WorkSpaces Pool. See `capacity_status` Block below.
         :param pulumi.Input[_builtins.str] created_at: Date and time the WorkSpaces Pool was created.
         :param pulumi.Input[_builtins.str] description: Description of the WorkSpaces Pool.
         :param pulumi.Input[_builtins.str] directory_id: ID of the directory for the WorkSpaces Pool.
@@ -240,7 +240,7 @@ class _PoolState:
         :param pulumi.Input[_builtins.str] state: Current state of the WorkSpaces Pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolTimeoutSettingArgs']]] timeout_settings: Timeout settings configuration for the WorkSpaces Pool. See `timeout_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolTimeoutSettingArgs']]] timeout_settings: Timeout settings configuration for the WorkSpaces Pool. See `timeout_settings` Block below.
         """
         if application_settings is not None:
             pulumi.set(__self__, "application_settings", application_settings)
@@ -283,7 +283,7 @@ class _PoolState:
     @pulumi.getter(name="applicationSettings")
     def application_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PoolApplicationSettingArgs']]]]:
         """
-        Application settings configuration for the WorkSpaces Pool. See `application_settings` below.
+        Application settings configuration for the WorkSpaces Pool. See `application_settings` Block below.
         """
         return pulumi.get(self, "application_settings")
 
@@ -319,7 +319,7 @@ class _PoolState:
     @pulumi.getter(name="capacityStatuses")
     def capacity_statuses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PoolCapacityStatusArgs']]]]:
         """
-        Capacity status of the WorkSpaces Pool. See `capacity_status` below.
+        Capacity status of the WorkSpaces Pool. See `capacity_status` Block below.
         """
         return pulumi.get(self, "capacity_statuses")
 
@@ -477,7 +477,7 @@ class _PoolState:
     @pulumi.getter(name="timeoutSettings")
     def timeout_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PoolTimeoutSettingArgs']]]]:
         """
-        Timeout settings configuration for the WorkSpaces Pool. See `timeout_settings` below.
+        Timeout settings configuration for the WorkSpaces Pool. See `timeout_settings` Block below.
         """
         return pulumi.get(self, "timeout_settings")
 
@@ -611,7 +611,7 @@ class Pool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolApplicationSettingArgs', 'PoolApplicationSettingArgsDict']]]] application_settings: Application settings configuration for the WorkSpaces Pool. See `application_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolApplicationSettingArgs', 'PoolApplicationSettingArgsDict']]]] application_settings: Application settings configuration for the WorkSpaces Pool. See `application_settings` Block below.
         :param pulumi.Input[_builtins.str] bundle_id: ID of the bundle for the WorkSpaces Pool.
         :param pulumi.Input[Union['PoolCapacityArgs', 'PoolCapacityArgsDict']] capacity: Capacity configuration for the WorkSpaces Pool. See `capacity` below.
         :param pulumi.Input[_builtins.str] description: Description of the WorkSpaces Pool.
@@ -622,7 +622,7 @@ class Pool(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolTimeoutSettingArgs', 'PoolTimeoutSettingArgsDict']]]] timeout_settings: Timeout settings configuration for the WorkSpaces Pool. See `timeout_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolTimeoutSettingArgs', 'PoolTimeoutSettingArgsDict']]]] timeout_settings: Timeout settings configuration for the WorkSpaces Pool. See `timeout_settings` Block below.
         """
         ...
     @overload
@@ -824,10 +824,10 @@ class Pool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolApplicationSettingArgs', 'PoolApplicationSettingArgsDict']]]] application_settings: Application settings configuration for the WorkSpaces Pool. See `application_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolApplicationSettingArgs', 'PoolApplicationSettingArgsDict']]]] application_settings: Application settings configuration for the WorkSpaces Pool. See `application_settings` Block below.
         :param pulumi.Input[_builtins.str] bundle_id: ID of the bundle for the WorkSpaces Pool.
         :param pulumi.Input[Union['PoolCapacityArgs', 'PoolCapacityArgsDict']] capacity: Capacity configuration for the WorkSpaces Pool. See `capacity` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolCapacityStatusArgs', 'PoolCapacityStatusArgsDict']]]] capacity_statuses: Capacity status of the WorkSpaces Pool. See `capacity_status` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolCapacityStatusArgs', 'PoolCapacityStatusArgsDict']]]] capacity_statuses: Capacity status of the WorkSpaces Pool. See `capacity_status` Block below.
         :param pulumi.Input[_builtins.str] created_at: Date and time the WorkSpaces Pool was created.
         :param pulumi.Input[_builtins.str] description: Description of the WorkSpaces Pool.
         :param pulumi.Input[_builtins.str] directory_id: ID of the directory for the WorkSpaces Pool.
@@ -842,7 +842,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] state: Current state of the WorkSpaces Pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolTimeoutSettingArgs', 'PoolTimeoutSettingArgsDict']]]] timeout_settings: Timeout settings configuration for the WorkSpaces Pool. See `timeout_settings` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolTimeoutSettingArgs', 'PoolTimeoutSettingArgsDict']]]] timeout_settings: Timeout settings configuration for the WorkSpaces Pool. See `timeout_settings` Block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -872,7 +872,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="applicationSettings")
     def application_settings(self) -> pulumi.Output[Sequence['outputs.PoolApplicationSetting']]:
         """
-        Application settings configuration for the WorkSpaces Pool. See `application_settings` below.
+        Application settings configuration for the WorkSpaces Pool. See `application_settings` Block below.
         """
         return pulumi.get(self, "application_settings")
 
@@ -896,7 +896,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="capacityStatuses")
     def capacity_statuses(self) -> pulumi.Output[Sequence['outputs.PoolCapacityStatus']]:
         """
-        Capacity status of the WorkSpaces Pool. See `capacity_status` below.
+        Capacity status of the WorkSpaces Pool. See `capacity_status` Block below.
         """
         return pulumi.get(self, "capacity_statuses")
 
@@ -1002,7 +1002,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="timeoutSettings")
     def timeout_settings(self) -> pulumi.Output[Sequence['outputs.PoolTimeoutSetting']]:
         """
-        Timeout settings configuration for the WorkSpaces Pool. See `timeout_settings` below.
+        Timeout settings configuration for the WorkSpaces Pool. See `timeout_settings` Block below.
         """
         return pulumi.get(self, "timeout_settings")
 

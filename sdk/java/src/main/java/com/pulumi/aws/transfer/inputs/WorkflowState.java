@@ -20,14 +20,14 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     public static final WorkflowState Empty = new WorkflowState();
 
     /**
-     * The Workflow ARN.
+     * Workflow ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Workflow ARN.
+     * @return Workflow ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -35,14 +35,14 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A textual description for the workflow.
+     * Textual description for the workflow.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A textual description for the workflow.
+     * @return Textual description for the workflow.
      * 
      */
     public Optional<Output<String>> description() {
@@ -50,14 +50,14 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+     * Steps (actions) to take if errors are encountered during execution of the workflow. See `onExceptionSteps` Block below.
      * 
      */
     @Import(name="onExceptionSteps")
     private @Nullable Output<List<WorkflowOnExceptionStepArgs>> onExceptionSteps;
 
     /**
-     * @return Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+     * @return Steps (actions) to take if errors are encountered during execution of the workflow. See `onExceptionSteps` Block below.
      * 
      */
     public Optional<Output<List<WorkflowOnExceptionStepArgs>>> onExceptionSteps() {
@@ -80,14 +80,14 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+     * Details for the steps that are in the specified workflow. See `steps` Block below.
      * 
      */
     @Import(name="steps")
     private @Nullable Output<List<WorkflowStepArgs>> steps;
 
     /**
-     * @return Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+     * @return Details for the steps that are in the specified workflow. See `steps` Block below.
      * 
      */
     public Optional<Output<List<WorkflowStepArgs>>> steps() {
@@ -95,14 +95,14 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -110,14 +110,14 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -155,7 +155,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Workflow ARN.
+         * @param arn Workflow ARN.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Workflow ARN.
+         * @param arn Workflow ARN.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A textual description for the workflow.
+         * @param description Textual description for the workflow.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A textual description for the workflow.
+         * @param description Textual description for the workflow.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onExceptionSteps Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+         * @param onExceptionSteps Steps (actions) to take if errors are encountered during execution of the workflow. See `onExceptionSteps` Block below.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onExceptionSteps Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+         * @param onExceptionSteps Steps (actions) to take if errors are encountered during execution of the workflow. See `onExceptionSteps` Block below.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onExceptionSteps Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+         * @param onExceptionSteps Steps (actions) to take if errors are encountered during execution of the workflow. See `onExceptionSteps` Block below.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param steps Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+         * @param steps Details for the steps that are in the specified workflow. See `steps` Block below.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param steps Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+         * @param steps Details for the steps that are in the specified workflow. See `steps` Block below.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param steps Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+         * @param steps Details for the steps that are in the specified workflow. See `steps` Block below.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

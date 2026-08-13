@@ -13,7 +13,13 @@ namespace Pulumi.Aws.SsoAdmin.Outputs
     [OutputType]
     public sealed class GetApplicationPortalOptionResult
     {
+        /// <summary>
+        /// Sign-in options for the access portal. See `SignInOptions` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationPortalOptionSignInOptionResult> SignInOptions;
+        /// <summary>
+        /// Whether the application is visible in the access portal.
+        /// </summary>
         public readonly string Visibility;
 
         [OutputConstructor]

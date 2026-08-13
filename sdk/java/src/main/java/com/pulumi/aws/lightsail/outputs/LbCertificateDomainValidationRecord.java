@@ -16,8 +16,20 @@ public final class LbCertificateDomainValidationRecord {
      * 
      */
     private @Nullable String domainName;
+    /**
+     * @return Name of the DNS record to create to validate the certificate.
+     * 
+     */
     private @Nullable String resourceRecordName;
+    /**
+     * @return Type of DNS record to create to validate the certificate.
+     * 
+     */
     private @Nullable String resourceRecordType;
+    /**
+     * @return Value of the DNS record to create to validate the certificate.
+     * 
+     */
     private @Nullable String resourceRecordValue;
 
     private LbCertificateDomainValidationRecord() {}
@@ -28,12 +40,24 @@ public final class LbCertificateDomainValidationRecord {
     public Optional<String> domainName() {
         return Optional.ofNullable(this.domainName);
     }
+    /**
+     * @return Name of the DNS record to create to validate the certificate.
+     * 
+     */
     public Optional<String> resourceRecordName() {
         return Optional.ofNullable(this.resourceRecordName);
     }
+    /**
+     * @return Type of DNS record to create to validate the certificate.
+     * 
+     */
     public Optional<String> resourceRecordType() {
         return Optional.ofNullable(this.resourceRecordType);
     }
+    /**
+     * @return Value of the DNS record to create to validate the certificate.
+     * 
+     */
     public Optional<String> resourceRecordValue() {
         return Optional.ofNullable(this.resourceRecordValue);
     }

@@ -18,14 +18,14 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
     public static final PlaceIndexState Empty = new PlaceIndexState();
 
     /**
-     * The timestamp for when the place index resource was created in ISO 8601 format.
+     * Timestamp for when the place index resource was created in ISO 8601 format.
      * 
      */
     @Import(name="createTime")
     private @Nullable Output<String> createTime;
 
     /**
-     * @return The timestamp for when the place index resource was created in ISO 8601 format.
+     * @return Timestamp for when the place index resource was created in ISO 8601 format.
      * 
      */
     public Optional<Output<String>> createTime() {
@@ -33,14 +33,14 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the geospatial data provider for the new place index.
+     * Geospatial data provider for the new place index.
      * 
      */
     @Import(name="dataSource")
     private @Nullable Output<String> dataSource;
 
     /**
-     * @return Specifies the geospatial data provider for the new place index.
+     * @return Geospatial data provider for the new place index.
      * 
      */
     public Optional<Output<String>> dataSource() {
@@ -63,14 +63,14 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The optional description for the place index resource.
+     * Optional description for the place index resource.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The optional description for the place index resource.
+     * @return Optional description for the place index resource.
      * 
      */
     public Optional<Output<String>> description() {
@@ -78,14 +78,14 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+     * Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
      * 
      */
     @Import(name="indexArn")
     private @Nullable Output<String> indexArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+     * @return Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
      * 
      */
     public Optional<Output<String>> indexArn() {
@@ -93,7 +93,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the place index resource.
+     * Name of the place index resource.
      * 
      * The following arguments are optional:
      * 
@@ -102,7 +102,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> indexName;
 
     /**
-     * @return The name of the place index resource.
+     * @return Name of the place index resource.
      * 
      * The following arguments are optional:
      * 
@@ -142,14 +142,14 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -157,14 +157,14 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timestamp for when the place index resource was last update in ISO 8601.
+     * Timestamp for when the place index resource was last updated in ISO 8601 format.
      * 
      */
     @Import(name="updateTime")
     private @Nullable Output<String> updateTime;
 
     /**
-     * @return The timestamp for when the place index resource was last update in ISO 8601.
+     * @return Timestamp for when the place index resource was last updated in ISO 8601 format.
      * 
      */
     public Optional<Output<String>> updateTime() {
@@ -205,7 +205,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTime The timestamp for when the place index resource was created in ISO 8601 format.
+         * @param createTime Timestamp for when the place index resource was created in ISO 8601 format.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTime The timestamp for when the place index resource was created in ISO 8601 format.
+         * @param createTime Timestamp for when the place index resource was created in ISO 8601 format.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSource Specifies the geospatial data provider for the new place index.
+         * @param dataSource Geospatial data provider for the new place index.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSource Specifies the geospatial data provider for the new place index.
+         * @param dataSource Geospatial data provider for the new place index.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The optional description for the place index resource.
+         * @param description Optional description for the place index resource.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The optional description for the place index resource.
+         * @param description Optional description for the place index resource.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexArn The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+         * @param indexArn Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexArn The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+         * @param indexArn Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexName The name of the place index resource.
+         * @param indexName Name of the place index resource.
          * 
          * The following arguments are optional:
          * 
@@ -323,7 +323,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexName The name of the place index resource.
+         * @param indexName Name of the place index resource.
          * 
          * The following arguments are optional:
          * 
@@ -377,7 +377,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateTime The timestamp for when the place index resource was last update in ISO 8601.
+         * @param updateTime Timestamp for when the place index resource was last updated in ISO 8601 format.
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateTime The timestamp for when the place index resource was last update in ISO 8601.
+         * @param updateTime Timestamp for when the place index resource was last updated in ISO 8601 format.
          * 
          * @return builder
          * 

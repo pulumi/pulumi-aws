@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class TableMetadata {
     /**
-     * @return Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+     * @return Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
      * 
      */
     private TableMetadataIceberg iceberg;
 
     private TableMetadata() {}
     /**
-     * @return Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+     * @return Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
      * 
      */
     public TableMetadataIceberg iceberg() {

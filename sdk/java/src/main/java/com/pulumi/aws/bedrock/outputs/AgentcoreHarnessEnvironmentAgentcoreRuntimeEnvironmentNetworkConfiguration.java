@@ -18,7 +18,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
      */
     private String networkMode;
     /**
-     * @return VPC configuration. See `networkModeConfig` below.
+     * @return VPC configuration. See `networkModeConfig` Block below.
      * 
      */
     private List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig> networkModeConfigs;
@@ -32,7 +32,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
         return this.networkMode;
     }
     /**
-     * @return VPC configuration. See `networkModeConfig` below.
+     * @return VPC configuration. See `networkModeConfig` Block below.
      * 
      */
     public List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig> networkModeConfigs() {

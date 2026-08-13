@@ -63,7 +63,7 @@ export interface GetBrokerResult {
     readonly brokerId: string;
     readonly brokerName: string;
     /**
-     * Configuration block for broker configuration. See Configuration below.
+     * Configuration block for broker configuration. See `configuration` Block below.
      */
     readonly configuration: outputs.mq.GetBrokerConfiguration;
     /**
@@ -71,7 +71,7 @@ export interface GetBrokerResult {
      */
     readonly deploymentMode: string;
     /**
-     * Configuration block containing encryption options. See Encryption Options below.
+     * Configuration block containing encryption options. See `encryptionOptions` Block below.
      */
     readonly encryptionOptions: outputs.mq.GetBrokerEncryptionOption[];
     /**
@@ -91,19 +91,19 @@ export interface GetBrokerResult {
      */
     readonly id: string;
     /**
-     * List of information about allocated brokers (both active & standby). See Instances below.
+     * List of information about allocated brokers (both active & standby). See `instances` Block below.
      */
     readonly instances: outputs.mq.GetBrokerInstance[];
     /**
-     * Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See LDAP Server Metadata below.
+     * Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See `ldapServerMetadata` Block below.
      */
     readonly ldapServerMetadatas: outputs.mq.GetBrokerLdapServerMetadata[];
     /**
-     * Configuration block for the logging configuration of the broker. See Logs below.
+     * Configuration block for the logging configuration of the broker. See `logs` Block below.
      */
     readonly logs: outputs.mq.GetBrokerLogs;
     /**
-     * Configuration block for the maintenance window start time. See Maintenance Window Start Time below.
+     * Configuration block for the maintenance window start time. See `maintenanceWindowStartTime` Block below.
      */
     readonly maintenanceWindowStartTime: outputs.mq.GetBrokerMaintenanceWindowStartTime;
     /**
@@ -120,7 +120,7 @@ export interface GetBrokerResult {
      */
     readonly securityGroups: string[];
     /**
-     * List of resources shared with the broker. See Shared Resources below. Only populated for `engineType` of `RabbitMQ`.
+     * List of resources shared with the broker. See `sharedResources` Block below. Only populated for `engineType` of `RabbitMQ`.
      */
     readonly sharedResources: outputs.mq.GetBrokerSharedResource[];
     /**
@@ -136,7 +136,7 @@ export interface GetBrokerResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * Configuration block for broker users. See User below.
+     * Configuration block for broker users. See `user` Block below.
      */
     readonly users: outputs.mq.GetBrokerUser[];
 }

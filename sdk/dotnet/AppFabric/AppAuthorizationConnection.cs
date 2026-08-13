@@ -69,7 +69,7 @@ namespace Pulumi.Aws.AppFabric
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Contains information about an application tenant, such as the application display name and identifier.
+        /// Information about an application tenant. See `Tenant` Block below.
         /// </summary>
         [Output("tenants")]
         public Output<ImmutableArray<Outputs.AppAuthorizationConnectionTenant>> Tenants { get; private set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.AppFabric
         private InputList<Inputs.AppAuthorizationConnectionTenantGetArgs>? _tenants;
 
         /// <summary>
-        /// Contains information about an application tenant, such as the application display name and identifier.
+        /// Information about an application tenant. See `Tenant` Block below.
         /// </summary>
         public InputList<Inputs.AppAuthorizationConnectionTenantGetArgs> Tenants
         {

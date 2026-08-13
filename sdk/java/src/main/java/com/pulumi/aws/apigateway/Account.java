@@ -164,14 +164,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+     * Account-Level throttle settings. See `throttleSettings` Block below.
      * 
      */
     @Export(name="throttleSettings", refs={List.class,AccountThrottleSetting.class}, tree="[0,1]")
     private Output<List<AccountThrottleSetting>> throttleSettings;
 
     /**
-     * @return Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
+     * @return Account-Level throttle settings. See `throttleSettings` Block below.
      * 
      */
     public Output<List<AccountThrottleSetting>> throttleSettings() {

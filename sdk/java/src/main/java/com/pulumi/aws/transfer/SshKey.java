@@ -129,14 +129,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:transfer/sshKey:SshKey")
 public class SshKey extends com.pulumi.resources.CustomResource {
     /**
-     * The public key portion of an SSH key pair.
+     * Public key portion of an SSH key pair.
      * 
      */
     @Export(name="body", refs={String.class}, tree="[0]")
     private Output<String> body;
 
     /**
-     * @return The public key portion of an SSH key pair.
+     * @return Public key portion of an SSH key pair.
      * 
      */
     public Output<String> body() {
@@ -157,34 +157,42 @@ public class SshKey extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
+     * Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
     @Export(name="serverId", refs={String.class}, tree="[0]")
     private Output<String> serverId;
 
     /**
-     * @return The Server ID of the Transfer Server (e.g., `s-12345678`)
+     * @return Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
     public Output<String> serverId() {
         return this.serverId;
     }
+    /**
+     * ID of the SSH public key.
+     * 
+     */
     @Export(name="sshKeyId", refs={String.class}, tree="[0]")
     private Output<String> sshKeyId;
 
+    /**
+     * @return ID of the SSH public key.
+     * 
+     */
     public Output<String> sshKeyId() {
         return this.sshKeyId;
     }
     /**
-     * The name of the user account that is assigned to one or more servers.
+     * Name of the user account that is assigned to one or more servers.
      * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
-     * @return The name of the user account that is assigned to one or more servers.
+     * @return Name of the user account that is assigned to one or more servers.
      * 
      */
     public Output<String> userName() {

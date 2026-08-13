@@ -13,11 +13,29 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GetVirtualNodeSpecListenerResult
     {
+        /// <summary>
+        /// Connection pool information for the listener. See `spec.listener.connection_pool` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerConnectionPoolResult> ConnectionPools;
+        /// <summary>
+        /// Health check information for the listener. See `spec.listener.health_check` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerHealthCheckResult> HealthChecks;
+        /// <summary>
+        /// Outlier detection information for the listener. See `spec.listener.outlier_detection` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerOutlierDetectionResult> OutlierDetections;
+        /// <summary>
+        /// Port mapping information for the listener. See `spec.listener.port_mapping` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerPortMappingResult> PortMappings;
+        /// <summary>
+        /// Timeouts for different protocols. See `spec.listener.timeout` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerTimeoutResult> Timeouts;
+        /// <summary>
+        /// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecListenerTlResult> Tls;
 
         [OutputConstructor]

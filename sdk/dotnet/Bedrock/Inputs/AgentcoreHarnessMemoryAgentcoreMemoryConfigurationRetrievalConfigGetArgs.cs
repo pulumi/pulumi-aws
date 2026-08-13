@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Key for the retrieval configuration map block.
+        /// Namespace path template for retrieval settings.
         /// </summary>
         [Input("mapBlockKey", required: true)]
         public Input<string> MapBlockKey { get; set; } = null!;

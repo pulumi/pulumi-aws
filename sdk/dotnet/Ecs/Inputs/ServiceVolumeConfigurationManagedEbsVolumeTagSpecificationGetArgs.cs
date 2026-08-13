@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+        /// Whether to propagate the tags from the task definition to the Amazon EBS volume.
         /// </summary>
         [Input("propagateTags")]
         public Input<string>? PropagateTags { get; set; }

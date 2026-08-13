@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class GetManagedRuleGroupRuleResult
     {
         /// <summary>
-        /// Action taken on a web request when it matches a rule's statement. See `ActionToUse` for details.
+        /// Action taken on a web request when it matches a rule's statement. See `Action` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedRuleGroupRuleActionResult> Actions;
         /// <summary>

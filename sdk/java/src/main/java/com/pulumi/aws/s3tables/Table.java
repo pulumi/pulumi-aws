@@ -248,14 +248,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.maintenanceConfiguration;
     }
     /**
-     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+     * Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
      * 
      */
     @Export(name="metadata", refs={TableMetadata.class}, tree="[0]")
     private Output</* @Nullable */ TableMetadata> metadata;
 
     /**
-     * @return Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
+     * @return Details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
      * 
      */
     public Output<Optional<TableMetadata>> metadata() {

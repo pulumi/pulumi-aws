@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -20,6 +21,11 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * 
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch fieldToMatch;
+    /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation> preParseTextTransformations;
     /**
      * @return The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
      * 
@@ -40,6 +46,13 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
+    }
+    /**
+     * @return Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+     * 
+     */
+    public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation> preParseTextTransformations() {
+        return this.preParseTextTransformations == null ? List.of() : this.preParseTextTransformations;
     }
     /**
      * @return The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
@@ -68,12 +81,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
     @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch fieldToMatch;
+        private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation> preParseTextTransformations;
         private String regexString;
         private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation> textTransformations;
         public Builder() {}
         public Builder(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
+    	      this.preParseTextTransformations = defaults.preParseTextTransformations;
     	      this.regexString = defaults.regexString;
     	      this.textTransformations = defaults.textTransformations;
         }
@@ -83,6 +98,15 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
 
             this.fieldToMatch = fieldToMatch;
             return this;
+        }
+        @CustomType.Setter
+        public Builder preParseTextTransformations(@Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation> preParseTextTransformations) {
+
+            this.preParseTextTransformations = preParseTextTransformations;
+            return this;
+        }
+        public Builder preParseTextTransformations(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation... preParseTextTransformations) {
+            return preParseTextTransformations(List.of(preParseTextTransformations));
         }
         @CustomType.Setter
         public Builder regexString(String regexString) {
@@ -106,6 +130,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement build() {
             final var _resultValue = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement();
             _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.preParseTextTransformations = preParseTextTransformations;
             _resultValue.regexString = regexString;
             _resultValue.textTransformations = textTransformations;
             return _resultValue;

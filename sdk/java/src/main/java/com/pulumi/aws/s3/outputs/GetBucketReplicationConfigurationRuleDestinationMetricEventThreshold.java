@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold {
+    /**
+     * @return Time in minutes.
+     * 
+     */
     private Integer minutes;
 
     private GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold() {}
+    /**
+     * @return Time in minutes.
+     * 
+     */
     public Integer minutes() {
         return this.minutes;
     }

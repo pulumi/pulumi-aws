@@ -25,7 +25,7 @@ public final class PlanWorkflowStepParallelConfigStepArcRoutingControlConfig {
      */
     private @Nullable String externalId;
     /**
-     * @return List of regions and their routing controls. See Region and Routing Controls below.
+     * @return Regions and their routing controls. See `regionAndRoutingControls` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControl> regionAndRoutingControls;
@@ -51,7 +51,7 @@ public final class PlanWorkflowStepParallelConfigStepArcRoutingControlConfig {
         return Optional.ofNullable(this.externalId);
     }
     /**
-     * @return List of regions and their routing controls. See Region and Routing Controls below.
+     * @return Regions and their routing controls. See `regionAndRoutingControls` Block for details.
      * 
      */
     public List<PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControl> regionAndRoutingControls() {

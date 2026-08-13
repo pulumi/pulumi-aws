@@ -23,7 +23,7 @@ public final class GetServerResult {
      */
     private String certificate;
     /**
-     * @return The domain of the storage system that is used for file transfers.
+     * @return Domain of the storage system that is used for file transfers.
      * 
      */
     private String domain;
@@ -43,7 +43,7 @@ public final class GetServerResult {
      */
     private String id;
     /**
-     * @return The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
+     * @return Mode of authentication enabled for this service.
      * 
      */
     private String identityProviderType;
@@ -69,13 +69,13 @@ public final class GetServerResult {
     private List<String> protocols;
     private String region;
     /**
-     * @return The name of the security policy that is attached to the server.
+     * @return Name of the security policy that is attached to the server.
      * 
      */
     private String securityPolicyName;
     private String serverId;
     /**
-     * @return A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+     * @return Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
      * 
      */
     private List<String> structuredLogDestinations;
@@ -106,7 +106,7 @@ public final class GetServerResult {
         return this.certificate;
     }
     /**
-     * @return The domain of the storage system that is used for file transfers.
+     * @return Domain of the storage system that is used for file transfers.
      * 
      */
     public String domain() {
@@ -134,7 +134,7 @@ public final class GetServerResult {
         return this.id;
     }
     /**
-     * @return The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice.
+     * @return Mode of authentication enabled for this service.
      * 
      */
     public String identityProviderType() {
@@ -172,7 +172,7 @@ public final class GetServerResult {
         return this.region;
     }
     /**
-     * @return The name of the security policy that is attached to the server.
+     * @return Name of the security policy that is attached to the server.
      * 
      */
     public String securityPolicyName() {
@@ -182,7 +182,7 @@ public final class GetServerResult {
         return this.serverId;
     }
     /**
-     * @return A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+     * @return Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
      * 
      */
     public List<String> structuredLogDestinations() {

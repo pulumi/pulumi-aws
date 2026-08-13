@@ -16,6 +16,74 @@ import (
 //
 // ## Example Usage
 //
+// ### Disabled S3 and Zero-ETL Access
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/odb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := odb.NewNetwork(ctx, "example", &odb.NetworkArgs{
+//				DisplayName:        pulumi.String("odb-my-net"),
+//				AvailabilityZoneId: pulumi.String("use1-az6"),
+//				ClientSubnetCidr:   pulumi.String("10.2.0.0/24"),
+//				BackupSubnetCidr:   pulumi.String("10.2.1.0/24"),
+//				S3Access:           pulumi.String("DISABLED"),
+//				ZeroEtlAccess:      pulumi.String("DISABLED"),
+//				Tags: pulumi.StringMap{
+//					"env": pulumi.String("dev"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Enabled S3 and Zero-ETL Access
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/odb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := odb.NewNetwork(ctx, "example", &odb.NetworkArgs{
+//				DisplayName:        pulumi.String("odb-my-net"),
+//				AvailabilityZoneId: pulumi.String("use1-az6"),
+//				ClientSubnetCidr:   pulumi.String("10.2.0.0/24"),
+//				BackupSubnetCidr:   pulumi.String("10.2.1.0/24"),
+//				S3Access:           pulumi.String("ENABLED"),
+//				ZeroEtlAccess:      pulumi.String("ENABLED"),
+//				Tags: pulumi.StringMap{
+//					"env": pulumi.String("dev"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Odb Network using the `id`. For example:
@@ -28,7 +96,7 @@ type Network struct {
 
 	// Amazon Resource Name (ARN) of the odb network resource.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+	// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
 	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
@@ -40,7 +108,7 @@ type Network struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// List of regions enabled for cross-region restore in the ODB network.
 	CrossRegionS3RestoreSourcesAccesses pulumi.StringArrayOutput `pulumi:"crossRegionS3RestoreSourcesAccesses"`
-	// Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+	// Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
 	// Default DNS prefix for the network resource. Changing this will force terraform to create new resource.
 	DefaultDnsPrefix pulumi.StringPtrOutput `pulumi:"defaultDnsPrefix"`
@@ -54,9 +122,9 @@ type Network struct {
 	KmsAccess pulumi.StringOutput `pulumi:"kmsAccess"`
 	// Endpoint policy for KMS access from the ODB network.
 	KmsPolicyDocument pulumi.StringPtrOutput `pulumi:"kmsPolicyDocument"`
-	// Managed services configuration for the ODB network.
+	// Managed services configuration for the ODB network. See `managedServices` Block below.
 	ManagedServices NetworkManagedServiceArrayOutput `pulumi:"managedServices"`
-	// Number of storage servers requested for the Exadata infrastructure.
+	// DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `ociDnsForwardingConfigs` Block below.
 	OciDnsForwardingConfigs NetworkOciDnsForwardingConfigArrayOutput `pulumi:"ociDnsForwardingConfigs"`
 	// Unique identifier of the OCI network anchor for the ODB network.
 	OciNetworkAnchorId pulumi.StringOutput `pulumi:"ociNetworkAnchorId"`
@@ -68,7 +136,7 @@ type Network struct {
 	OciVcnId pulumi.StringOutput `pulumi:"ociVcnId"`
 	// URL of the OCI VCN for the ODB network.
 	OciVcnUrl pulumi.StringOutput `pulumi:"ociVcnUrl"`
-	// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+	// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
 	PeeredCidrs pulumi.StringArrayOutput `pulumi:"peeredCidrs"`
 	// Amount of progress made on the current operation on the ODB network, expressed as a percentage.
 	PercentProgress pulumi.Float64Output `pulumi:"percentProgress"`
@@ -78,7 +146,7 @@ type Network struct {
 	S3Access pulumi.StringOutput `pulumi:"s3Access"`
 	// Endpoint policy for Amazon S3 access from the ODB network.
 	S3PolicyDocument pulumi.StringPtrOutput `pulumi:"s3PolicyDocument"`
-	// Status of the network resource.
+	// Status of the Zero-ETL access.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Additional information about the current status of the ODB network.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
@@ -146,7 +214,7 @@ func GetNetwork(ctx *pulumi.Context,
 type networkState struct {
 	// Amazon Resource Name (ARN) of the odb network resource.
 	Arn *string `pulumi:"arn"`
-	// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+	// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
@@ -158,7 +226,7 @@ type networkState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// List of regions enabled for cross-region restore in the ODB network.
 	CrossRegionS3RestoreSourcesAccesses []string `pulumi:"crossRegionS3RestoreSourcesAccesses"`
-	// Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+	// Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName *string `pulumi:"customDomainName"`
 	// Default DNS prefix for the network resource. Changing this will force terraform to create new resource.
 	DefaultDnsPrefix *string `pulumi:"defaultDnsPrefix"`
@@ -172,9 +240,9 @@ type networkState struct {
 	KmsAccess *string `pulumi:"kmsAccess"`
 	// Endpoint policy for KMS access from the ODB network.
 	KmsPolicyDocument *string `pulumi:"kmsPolicyDocument"`
-	// Managed services configuration for the ODB network.
+	// Managed services configuration for the ODB network. See `managedServices` Block below.
 	ManagedServices []NetworkManagedService `pulumi:"managedServices"`
-	// Number of storage servers requested for the Exadata infrastructure.
+	// DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `ociDnsForwardingConfigs` Block below.
 	OciDnsForwardingConfigs []NetworkOciDnsForwardingConfig `pulumi:"ociDnsForwardingConfigs"`
 	// Unique identifier of the OCI network anchor for the ODB network.
 	OciNetworkAnchorId *string `pulumi:"ociNetworkAnchorId"`
@@ -186,7 +254,7 @@ type networkState struct {
 	OciVcnId *string `pulumi:"ociVcnId"`
 	// URL of the OCI VCN for the ODB network.
 	OciVcnUrl *string `pulumi:"ociVcnUrl"`
-	// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+	// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
 	PeeredCidrs []string `pulumi:"peeredCidrs"`
 	// Amount of progress made on the current operation on the ODB network, expressed as a percentage.
 	PercentProgress *float64 `pulumi:"percentProgress"`
@@ -196,7 +264,7 @@ type networkState struct {
 	S3Access *string `pulumi:"s3Access"`
 	// Endpoint policy for Amazon S3 access from the ODB network.
 	S3PolicyDocument *string `pulumi:"s3PolicyDocument"`
-	// Status of the network resource.
+	// Status of the Zero-ETL access.
 	Status *string `pulumi:"status"`
 	// Additional information about the current status of the ODB network.
 	StatusReason *string `pulumi:"statusReason"`
@@ -217,7 +285,7 @@ type networkState struct {
 type NetworkState struct {
 	// Amazon Resource Name (ARN) of the odb network resource.
 	Arn pulumi.StringPtrInput
-	// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+	// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
 	AvailabilityZone pulumi.StringPtrInput
 	// AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
 	AvailabilityZoneId pulumi.StringPtrInput
@@ -229,7 +297,7 @@ type NetworkState struct {
 	CreatedAt pulumi.StringPtrInput
 	// List of regions enabled for cross-region restore in the ODB network.
 	CrossRegionS3RestoreSourcesAccesses pulumi.StringArrayInput
-	// Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+	// Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName pulumi.StringPtrInput
 	// Default DNS prefix for the network resource. Changing this will force terraform to create new resource.
 	DefaultDnsPrefix pulumi.StringPtrInput
@@ -243,9 +311,9 @@ type NetworkState struct {
 	KmsAccess pulumi.StringPtrInput
 	// Endpoint policy for KMS access from the ODB network.
 	KmsPolicyDocument pulumi.StringPtrInput
-	// Managed services configuration for the ODB network.
+	// Managed services configuration for the ODB network. See `managedServices` Block below.
 	ManagedServices NetworkManagedServiceArrayInput
-	// Number of storage servers requested for the Exadata infrastructure.
+	// DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `ociDnsForwardingConfigs` Block below.
 	OciDnsForwardingConfigs NetworkOciDnsForwardingConfigArrayInput
 	// Unique identifier of the OCI network anchor for the ODB network.
 	OciNetworkAnchorId pulumi.StringPtrInput
@@ -257,7 +325,7 @@ type NetworkState struct {
 	OciVcnId pulumi.StringPtrInput
 	// URL of the OCI VCN for the ODB network.
 	OciVcnUrl pulumi.StringPtrInput
-	// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+	// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
 	PeeredCidrs pulumi.StringArrayInput
 	// Amount of progress made on the current operation on the ODB network, expressed as a percentage.
 	PercentProgress pulumi.Float64PtrInput
@@ -267,7 +335,7 @@ type NetworkState struct {
 	S3Access pulumi.StringPtrInput
 	// Endpoint policy for Amazon S3 access from the ODB network.
 	S3PolicyDocument pulumi.StringPtrInput
-	// Status of the network resource.
+	// Status of the Zero-ETL access.
 	Status pulumi.StringPtrInput
 	// Additional information about the current status of the ODB network.
 	StatusReason pulumi.StringPtrInput
@@ -290,7 +358,7 @@ func (NetworkState) ElementType() reflect.Type {
 }
 
 type networkArgs struct {
-	// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+	// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
 	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
@@ -300,7 +368,7 @@ type networkArgs struct {
 	ClientSubnetCidr string `pulumi:"clientSubnetCidr"`
 	// List of regions enabled for cross-region restore in the ODB network.
 	CrossRegionS3RestoreSourcesAccesses []string `pulumi:"crossRegionS3RestoreSourcesAccesses"`
-	// Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+	// Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName *string `pulumi:"customDomainName"`
 	// Default DNS prefix for the network resource. Changing this will force terraform to create new resource.
 	DefaultDnsPrefix *string `pulumi:"defaultDnsPrefix"`
@@ -333,7 +401,7 @@ type networkArgs struct {
 
 // The set of arguments for constructing a Network resource.
 type NetworkArgs struct {
-	// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+	// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
 	AvailabilityZone pulumi.StringPtrInput
 	// AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
 	AvailabilityZoneId pulumi.StringInput
@@ -343,7 +411,7 @@ type NetworkArgs struct {
 	ClientSubnetCidr pulumi.StringInput
 	// List of regions enabled for cross-region restore in the ODB network.
 	CrossRegionS3RestoreSourcesAccesses pulumi.StringArrayInput
-	// Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+	// Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName pulumi.StringPtrInput
 	// Default DNS prefix for the network resource. Changing this will force terraform to create new resource.
 	DefaultDnsPrefix pulumi.StringPtrInput
@@ -466,7 +534,7 @@ func (o NetworkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+// Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure `availabilityZone` maps correctly with `availabilityZoneId`.
 func (o NetworkOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
@@ -496,7 +564,7 @@ func (o NetworkOutput) CrossRegionS3RestoreSourcesAccesses() pulumi.StringArrayO
 	return o.ApplyT(func(v *Network) pulumi.StringArrayOutput { return v.CrossRegionS3RestoreSourcesAccesses }).(pulumi.StringArrayOutput)
 }
 
-// Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+// Name of the custom domain that the network is located. `customDomainName` and `defaultDnsPrefix` both can't be given. Changing this will force terraform to create new resource.
 func (o NetworkOutput) CustomDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringPtrOutput { return v.CustomDomainName }).(pulumi.StringPtrOutput)
 }
@@ -531,12 +599,12 @@ func (o NetworkOutput) KmsPolicyDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringPtrOutput { return v.KmsPolicyDocument }).(pulumi.StringPtrOutput)
 }
 
-// Managed services configuration for the ODB network.
+// Managed services configuration for the ODB network. See `managedServices` Block below.
 func (o NetworkOutput) ManagedServices() NetworkManagedServiceArrayOutput {
 	return o.ApplyT(func(v *Network) NetworkManagedServiceArrayOutput { return v.ManagedServices }).(NetworkManagedServiceArrayOutput)
 }
 
-// Number of storage servers requested for the Exadata infrastructure.
+// DNS resolver endpoints in OCI for forwarding DNS queries for the `ociPrivateZone` domain. See `ociDnsForwardingConfigs` Block below.
 func (o NetworkOutput) OciDnsForwardingConfigs() NetworkOciDnsForwardingConfigArrayOutput {
 	return o.ApplyT(func(v *Network) NetworkOciDnsForwardingConfigArrayOutput { return v.OciDnsForwardingConfigs }).(NetworkOciDnsForwardingConfigArrayOutput)
 }
@@ -566,7 +634,7 @@ func (o NetworkOutput) OciVcnUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.OciVcnUrl }).(pulumi.StringOutput)
 }
 
-// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+// List of CIDR ranges from the peered VPC that are allowed access to the ODB network. See the [ODB network peering documentation](https://docs.aws.amazon.com/odb/latest/UserGuide/network-peering.html) for more information.
 func (o NetworkOutput) PeeredCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringArrayOutput { return v.PeeredCidrs }).(pulumi.StringArrayOutput)
 }
@@ -591,7 +659,7 @@ func (o NetworkOutput) S3PolicyDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringPtrOutput { return v.S3PolicyDocument }).(pulumi.StringPtrOutput)
 }
 
-// Status of the network resource.
+// Status of the Zero-ETL access.
 func (o NetworkOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

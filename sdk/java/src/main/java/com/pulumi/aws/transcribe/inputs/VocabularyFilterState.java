@@ -48,14 +48,14 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+     * Language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      * 
      */
     @Import(name="languageCode")
     private @Nullable Output<String> languageCode;
 
     /**
-     * @return The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+     * @return Language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      * 
      */
     public Optional<Output<String>> languageCode() {
@@ -78,14 +78,14 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -100,14 +100,14 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+     * Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      * 
      */
     @Import(name="vocabularyFilterFileUri")
     private @Nullable Output<String> vocabularyFilterFileUri;
 
     /**
-     * @return The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+     * @return Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      * 
      */
     public Optional<Output<String>> vocabularyFilterFileUri() {
@@ -115,7 +115,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name of the VocabularyFilter.
+     * Name of the VocabularyFilter.
      * 
      * The following arguments are optional:
      * 
@@ -124,7 +124,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
     private @Nullable Output<String> vocabularyFilterName;
 
     /**
-     * @return The name of the VocabularyFilter.
+     * @return Name of the VocabularyFilter.
      * 
      * The following arguments are optional:
      * 
@@ -134,14 +134,14 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
+     * List of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
      * 
      */
     @Import(name="words")
     private @Nullable Output<List<String>> words;
 
     /**
-     * @return A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
+     * @return List of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
      * 
      */
     public Optional<Output<List<String>>> words() {
@@ -223,7 +223,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param languageCode The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+         * @param languageCode Language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param languageCode The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+         * @param languageCode Language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the VocabularyFilter. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vocabularyFilterFileUri The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+         * @param vocabularyFilterFileUri Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vocabularyFilterFileUri The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+         * @param vocabularyFilterFileUri Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vocabularyFilterName The name of the VocabularyFilter.
+         * @param vocabularyFilterName Name of the VocabularyFilter.
          * 
          * The following arguments are optional:
          * 
@@ -329,7 +329,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vocabularyFilterName The name of the VocabularyFilter.
+         * @param vocabularyFilterName Name of the VocabularyFilter.
          * 
          * The following arguments are optional:
          * 
@@ -341,7 +341,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
+         * @param words List of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
+         * @param words List of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class VocabularyFilterState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param words A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
+         * @param words List of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
          * 
          * @return builder
          * 

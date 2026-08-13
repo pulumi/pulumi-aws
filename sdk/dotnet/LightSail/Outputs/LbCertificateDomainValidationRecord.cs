@@ -17,8 +17,17 @@ namespace Pulumi.Aws.LightSail.Outputs
         /// Domain name (e.g., example.com) for your SSL/TLS certificate.
         /// </summary>
         public readonly string? DomainName;
+        /// <summary>
+        /// Name of the DNS record to create to validate the certificate.
+        /// </summary>
         public readonly string? ResourceRecordName;
+        /// <summary>
+        /// Type of DNS record to create to validate the certificate.
+        /// </summary>
         public readonly string? ResourceRecordType;
+        /// <summary>
+        /// Value of the DNS record to create to validate the certificate.
+        /// </summary>
         public readonly string? ResourceRecordValue;
 
         [OutputConstructor]

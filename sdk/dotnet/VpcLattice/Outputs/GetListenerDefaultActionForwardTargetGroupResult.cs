@@ -13,7 +13,13 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class GetListenerDefaultActionForwardTargetGroupResult
     {
+        /// <summary>
+        /// ID or ARN of the target group.
+        /// </summary>
         public readonly string TargetGroupIdentifier;
+        /// <summary>
+        /// Weight assigned to the target group that determines the proportion of traffic it receives.
+        /// </summary>
         public readonly int Weight;
 
         [OutputConstructor]

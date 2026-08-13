@@ -56,10 +56,21 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) Backup Plan ID.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Backup Plan using the `Id`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:backup/plan:Plan test &lt;id&gt;
+    /// $ pulumi import aws:backup/plan:Plan example abc123
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/plan:Plan")]

@@ -18,7 +18,7 @@ public final class GetBucketReplicationConfigurationRuleFilterAnd {
      */
     private String prefix;
     /**
-     * @return Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
+     * @return List of tags that identify a subset of objects to which the rule applies. See `tag` Block below.
      * 
      */
     private List<GetBucketReplicationConfigurationRuleFilterAndTag> tags;
@@ -32,7 +32,7 @@ public final class GetBucketReplicationConfigurationRuleFilterAnd {
         return this.prefix;
     }
     /**
-     * @return Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
+     * @return List of tags that identify a subset of objects to which the rule applies. See `tag` Block below.
      * 
      */
     public List<GetBucketReplicationConfigurationRuleFilterAndTag> tags() {

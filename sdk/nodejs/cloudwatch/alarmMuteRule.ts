@@ -35,8 +35,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.index.CloudwatchAlarm("example", {
- *     alarmName: "example",
+ * const example = new aws.cloudwatch.MetricAlarm("example", {
+ *     name: "example",
  *     comparisonOperator: "GreaterThanThreshold",
  *     evaluationPeriods: 2,
  *     metricName: "CPUUtilization",
@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     muteTargets: {
- *         alarmNames: [example.alarmName],
+ *         alarmNames: [example.name],
  *     },
  *     tags: {
  *         Environment: "production",

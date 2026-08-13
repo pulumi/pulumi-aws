@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetTaskDefinitionVolumeS3filesVolumeConfigurationResult
     {
+        /// <summary>
+        /// Full ARN of the S3 Files access point used.
+        /// </summary>
         public readonly string AccessPointArn;
+        /// <summary>
+        /// Full ARN of the S3 Files file system mounted.
+        /// </summary>
         public readonly string FileSystemArn;
+        /// <summary>
+        /// Directory within the Amazon S3 Files file system to mount as the root directory.
+        /// </summary>
         public readonly string RootDirectory;
+        /// <summary>
+        /// Port used for sending encrypted data between the ECS host and the S3 Files file system.
+        /// </summary>
         public readonly int TransitEncryptionPort;
 
         [OutputConstructor]

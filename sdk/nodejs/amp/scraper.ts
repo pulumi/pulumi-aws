@@ -161,6 +161,45 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### OpenSearch Exporter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amp.Scraper("example", {
+ *     source: {
+ *         vpc: {
+ *             securityGroupIds: [exampleAwsSecurityGroup.id],
+ *             subnetIds: [
+ *                 example1.id,
+ *                 example2.id,
+ *             ],
+ *         },
+ *     },
+ *     destination: {
+ *         amp: {
+ *             workspaceArn: exampleAwsPrometheusWorkspace.arn,
+ *         },
+ *     },
+ *     exporter: {
+ *         opensearch: {
+ *             domainArn: exampleAwsOpensearchDomain.arn,
+ *         },
+ *     },
+ *     scrapeConfiguration: `global:
+ *   scrape_interval: 30s
+ * scrape_configs:
+ *   - job_name: 'my-service'
+ *     dns_sd_configs:
+ *       - names: ['my-service.my-namespace']
+ *         type: A
+ *         port: 8080
+ *     metrics_path: '/metrics'
+ * `,
+ * });
+ * ```
+ *
  * ### Use default EKS scraper configuration
  *
  * You can use the data source `awsPrometheusScraperConfiguration` to use a
@@ -320,6 +359,10 @@ export class Scraper extends pulumi.CustomResource {
      */
     declare public readonly destination: pulumi.Output<outputs.amp.ScraperDestination>;
     /**
+     * Configuration block for additional exporters. See `exporter` Block for details.
+     */
+    declare public readonly exporter: pulumi.Output<outputs.amp.ScraperExporter | undefined>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -367,6 +410,7 @@ export class Scraper extends pulumi.CustomResource {
             resourceInputs["alias"] = state?.alias;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["destination"] = state?.destination;
+            resourceInputs["exporter"] = state?.exporter;
             resourceInputs["region"] = state?.region;
             resourceInputs["roleArn"] = state?.roleArn;
             resourceInputs["roleConfiguration"] = state?.roleConfiguration;
@@ -385,6 +429,7 @@ export class Scraper extends pulumi.CustomResource {
             }
             resourceInputs["alias"] = args?.alias;
             resourceInputs["destination"] = args?.destination;
+            resourceInputs["exporter"] = args?.exporter;
             resourceInputs["region"] = args?.region;
             resourceInputs["roleConfiguration"] = args?.roleConfiguration;
             resourceInputs["scrapeConfiguration"] = args?.scrapeConfiguration;
@@ -416,6 +461,10 @@ export interface ScraperState {
      * Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
      */
     destination?: pulumi.Input<inputs.amp.ScraperDestination | undefined>;
+    /**
+     * Configuration block for additional exporters. See `exporter` Block for details.
+     */
+    exporter?: pulumi.Input<inputs.amp.ScraperExporter | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -461,6 +510,10 @@ export interface ScraperArgs {
      * Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
      */
     destination: pulumi.Input<inputs.amp.ScraperDestination>;
+    /**
+     * Configuration block for additional exporters. See `exporter` Block for details.
+     */
+    exporter?: pulumi.Input<inputs.amp.ScraperExporter | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

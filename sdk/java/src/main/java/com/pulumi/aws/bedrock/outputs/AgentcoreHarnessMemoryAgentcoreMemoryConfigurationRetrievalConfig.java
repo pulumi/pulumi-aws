@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig {
     /**
-     * @return Key for the retrieval configuration map block.
+     * @return Namespace path template for retrieval settings.
      * 
      */
     private String mapBlockKey;
@@ -37,7 +37,7 @@ public final class AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalCo
 
     private AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig() {}
     /**
-     * @return Key for the retrieval configuration map block.
+     * @return Namespace path template for retrieval settings.
      * 
      */
     public String mapBlockKey() {

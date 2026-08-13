@@ -660,7 +660,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+        /// The instance capacity distribution across Availability Zones. See `AvailabilityZoneDistribution` Block below for more details.
         /// </summary>
         [Output("availabilityZoneDistribution")]
         public Output<Outputs.GroupAvailabilityZoneDistribution> AvailabilityZoneDistribution { get; private set; } = null!;
@@ -678,7 +678,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<bool?> CapacityRebalance { get; private set; } = null!;
 
         /// <summary>
-        /// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+        /// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See `CapacityReservationSpecification` Block below for more details.
         /// </summary>
         [Output("capacityReservationSpecification")]
         public Output<Outputs.GroupCapacityReservationSpecification> CapacityReservationSpecification { get; private set; } = null!;
@@ -794,7 +794,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string?> LaunchConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+        /// Nested argument with Launch template specification to use to launch instances. See `LaunchTemplate` Block below for more details.
         /// </summary>
         [Output("launchTemplate")]
         public Output<Outputs.GroupLaunchTemplate> LaunchTemplate { get; private set; } = null!;
@@ -841,7 +841,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<int> MinSize { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+        /// Configuration block containing settings to define launch targets for Auto Scaling groups. See `MixedInstancesPolicy` Block below for more details.
         /// </summary>
         [Output("mixedInstancesPolicy")]
         public Output<Outputs.GroupMixedInstancesPolicy> MixedInstancesPolicy { get; private set; } = null!;
@@ -901,7 +901,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<string>> SuspendedProcesses { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block(s) containing resource tags. See Tag below for more details.
+        /// Configuration block(s) containing resource tags. See `Tag` Block below for more details.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.GroupTag>> Tags { get; private set; } = null!;
@@ -1010,7 +1010,7 @@ namespace Pulumi.Aws.AutoScaling
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+        /// The instance capacity distribution across Availability Zones. See `AvailabilityZoneDistribution` Block below for more details.
         /// </summary>
         [Input("availabilityZoneDistribution")]
         public Input<Inputs.GroupAvailabilityZoneDistributionArgs>? AvailabilityZoneDistribution { get; set; }
@@ -1034,7 +1034,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<bool>? CapacityRebalance { get; set; }
 
         /// <summary>
-        /// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+        /// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See `CapacityReservationSpecification` Block below for more details.
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.GroupCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }
@@ -1162,7 +1162,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? LaunchConfiguration { get; set; }
 
         /// <summary>
-        /// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+        /// Nested argument with Launch template specification to use to launch instances. See `LaunchTemplate` Block below for more details.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.GroupLaunchTemplateArgs>? LaunchTemplate { get; set; }
@@ -1215,7 +1215,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int> MinSize { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+        /// Configuration block containing settings to define launch targets for Auto Scaling groups. See `MixedInstancesPolicy` Block below for more details.
         /// </summary>
         [Input("mixedInstancesPolicy")]
         public Input<Inputs.GroupMixedInstancesPolicyArgs>? MixedInstancesPolicy { get; set; }
@@ -1278,7 +1278,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<Inputs.GroupTagArgs>? _tags;
 
         /// <summary>
-        /// Configuration block(s) containing resource tags. See Tag below for more details.
+        /// Configuration block(s) containing resource tags. See `Tag` Block below for more details.
         /// </summary>
         public InputList<Inputs.GroupTagArgs> Tags
         {
@@ -1376,7 +1376,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
+        /// The instance capacity distribution across Availability Zones. See `AvailabilityZoneDistribution` Block below for more details.
         /// </summary>
         [Input("availabilityZoneDistribution")]
         public Input<Inputs.GroupAvailabilityZoneDistributionGetArgs>? AvailabilityZoneDistribution { get; set; }
@@ -1400,7 +1400,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<bool>? CapacityRebalance { get; set; }
 
         /// <summary>
-        /// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See Capacity Reservation Specification below for more details.
+        /// The capacity reservation specification for the Auto Scaling group allows you to prioritize launching into On-Demand Capacity Reservations. See `CapacityReservationSpecification` Block below for more details.
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.GroupCapacityReservationSpecificationGetArgs>? CapacityReservationSpecification { get; set; }
@@ -1528,7 +1528,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? LaunchConfiguration { get; set; }
 
         /// <summary>
-        /// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+        /// Nested argument with Launch template specification to use to launch instances. See `LaunchTemplate` Block below for more details.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.GroupLaunchTemplateGetArgs>? LaunchTemplate { get; set; }
@@ -1581,7 +1581,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? MinSize { get; set; }
 
         /// <summary>
-        /// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+        /// Configuration block containing settings to define launch targets for Auto Scaling groups. See `MixedInstancesPolicy` Block below for more details.
         /// </summary>
         [Input("mixedInstancesPolicy")]
         public Input<Inputs.GroupMixedInstancesPolicyGetArgs>? MixedInstancesPolicy { get; set; }
@@ -1650,7 +1650,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<Inputs.GroupTagGetArgs>? _tags;
 
         /// <summary>
-        /// Configuration block(s) containing resource tags. See Tag below for more details.
+        /// Configuration block(s) containing resource tags. See `Tag` Block below for more details.
         /// </summary>
         public InputList<Inputs.GroupTagGetArgs> Tags
         {

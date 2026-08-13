@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Transfer
     public partial class SshKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The public key portion of an SSH key pair.
+        /// Public key portion of an SSH key pair.
         /// </summary>
         [Output("body")]
         public Output<string> Body { get; private set; } = null!;
@@ -146,16 +146,19 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
+        /// Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the SSH public key.
+        /// </summary>
         [Output("sshKeyId")]
         public Output<string> SshKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the user account that is assigned to one or more servers.
+        /// Name of the user account that is assigned to one or more servers.
         /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
@@ -207,7 +210,7 @@ namespace Pulumi.Aws.Transfer
     public sealed class SshKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The public key portion of an SSH key pair.
+        /// Public key portion of an SSH key pair.
         /// </summary>
         [Input("body", required: true)]
         public Input<string> Body { get; set; } = null!;
@@ -219,13 +222,13 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
+        /// Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the user account that is assigned to one or more servers.
+        /// Name of the user account that is assigned to one or more servers.
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
@@ -239,7 +242,7 @@ namespace Pulumi.Aws.Transfer
     public sealed class SshKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The public key portion of an SSH key pair.
+        /// Public key portion of an SSH key pair.
         /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
@@ -251,16 +254,19 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
+        /// Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }
 
+        /// <summary>
+        /// ID of the SSH public key.
+        /// </summary>
         [Input("sshKeyId")]
         public Input<string>? SshKeyId { get; set; }
 
         /// <summary>
-        /// The name of the user account that is assigned to one or more servers.
+        /// Name of the user account that is assigned to one or more servers.
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

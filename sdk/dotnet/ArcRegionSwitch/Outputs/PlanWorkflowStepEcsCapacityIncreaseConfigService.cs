@@ -13,8 +13,17 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
     [OutputType]
     public sealed class PlanWorkflowStepEcsCapacityIncreaseConfigService
     {
+        /// <summary>
+        /// ARN of the ECS cluster.
+        /// </summary>
         public readonly string ClusterArn;
+        /// <summary>
+        /// ARN of the cross-account role to assume.
+        /// </summary>
         public readonly string? CrossAccountRole;
+        /// <summary>
+        /// External ID for cross-account role assumption.
+        /// </summary>
         public readonly string? ExternalId;
         /// <summary>
         /// ARN of the ECS service.

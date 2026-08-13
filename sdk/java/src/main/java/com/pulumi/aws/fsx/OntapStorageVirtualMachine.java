@@ -180,14 +180,14 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
         return this.arn;
     }
     /**
-     * Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      * 
      */
     @Export(name="endpoints", refs={List.class,OntapStorageVirtualMachineEndpoint.class}, tree="[0,1]")
     private Output<List<OntapStorageVirtualMachineEndpoint>> endpoints;
 
     /**
-     * @return Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * @return Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      * 
      */
     public Output<List<OntapStorageVirtualMachineEndpoint>> endpoints() {

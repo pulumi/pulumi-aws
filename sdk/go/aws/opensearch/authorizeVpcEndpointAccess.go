@@ -60,7 +60,7 @@ type AuthorizeVpcEndpointAccess struct {
 
 	// AWS account ID to grant access to.
 	Account pulumi.StringOutput `pulumi:"account"`
-	// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+	// Information about the Amazon Web Services account or service that was provided access to the domain. See `authorizedPrincipal` Block for further details.
 	AuthorizedPrincipals AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput `pulumi:"authorizedPrincipals"`
 	// Name of OpenSearch Service domain to provide access to.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
@@ -106,7 +106,7 @@ func GetAuthorizeVpcEndpointAccess(ctx *pulumi.Context,
 type authorizeVpcEndpointAccessState struct {
 	// AWS account ID to grant access to.
 	Account *string `pulumi:"account"`
-	// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+	// Information about the Amazon Web Services account or service that was provided access to the domain. See `authorizedPrincipal` Block for further details.
 	AuthorizedPrincipals []AuthorizeVpcEndpointAccessAuthorizedPrincipal `pulumi:"authorizedPrincipals"`
 	// Name of OpenSearch Service domain to provide access to.
 	DomainName *string `pulumi:"domainName"`
@@ -117,7 +117,7 @@ type authorizeVpcEndpointAccessState struct {
 type AuthorizeVpcEndpointAccessState struct {
 	// AWS account ID to grant access to.
 	Account pulumi.StringPtrInput
-	// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+	// Information about the Amazon Web Services account or service that was provided access to the domain. See `authorizedPrincipal` Block for further details.
 	AuthorizedPrincipals AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayInput
 	// Name of OpenSearch Service domain to provide access to.
 	DomainName pulumi.StringPtrInput
@@ -240,7 +240,7 @@ func (o AuthorizeVpcEndpointAccessOutput) Account() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizeVpcEndpointAccess) pulumi.StringOutput { return v.Account }).(pulumi.StringOutput)
 }
 
-// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
+// Information about the Amazon Web Services account or service that was provided access to the domain. See `authorizedPrincipal` Block for further details.
 func (o AuthorizeVpcEndpointAccessOutput) AuthorizedPrincipals() AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput {
 	return o.ApplyT(func(v *AuthorizeVpcEndpointAccess) AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput {
 		return v.AuthorizedPrincipals

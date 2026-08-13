@@ -40,7 +40,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepRoute53HealthCheckConfigRecordSetArgs>? _recordSets;
 
         /// <summary>
-        /// Configuration block for record sets. See Record Set below.
+        /// Configuration block for record sets. See `RecordSet` Block for details.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepRoute53HealthCheckConfigRecordSetArgs> RecordSets
         {

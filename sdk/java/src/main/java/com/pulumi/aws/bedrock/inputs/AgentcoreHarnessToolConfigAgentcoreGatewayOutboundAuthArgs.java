@@ -47,14 +47,14 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs ex
     }
 
     /**
-     * OAuth credential provider configuration. See `oauth` below.
+     * OAuth credential provider configuration. See `oauth` Block below.
      * 
      */
     @Import(name="oauth")
     private @Nullable Output<AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauthArgs> oauth;
 
     /**
-     * @return OAuth credential provider configuration. See `oauth` below.
+     * @return OAuth credential provider configuration. See `oauth` Block below.
      * 
      */
     public Optional<Output<AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauthArgs>> oauth() {
@@ -130,7 +130,7 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs ex
         }
 
         /**
-         * @param oauth OAuth credential provider configuration. See `oauth` below.
+         * @param oauth OAuth credential provider configuration. See `oauth` Block below.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthArgs ex
         }
 
         /**
-         * @param oauth OAuth credential provider configuration. See `oauth` below.
+         * @param oauth OAuth credential provider configuration. See `oauth` Block below.
          * 
          * @return builder
          * 

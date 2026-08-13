@@ -135,6 +135,9 @@ namespace Pulumi.Aws.S3
     [OutputType]
     public sealed class GetBucketReplicationConfigurationResult
     {
+        /// <summary>
+        /// ARN of the bucket where Amazon S3 stores the results.
+        /// </summary>
         public readonly string Bucket;
         public readonly string Region;
         /// <summary>
@@ -142,7 +145,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string Role;
         /// <summary>
-        /// Unordered list of configuration blocks that define the rules managing replication. See the `AwsS3ReplicationConfiguration` resource documentation for details about the `Rule` block (excluding the `And` block within the `Filter` block).
+        /// List of configuration blocks that define the rules managing replication. See `Rule` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleResult> Rules;
 

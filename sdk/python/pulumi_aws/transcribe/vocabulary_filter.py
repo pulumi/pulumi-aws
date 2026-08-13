@@ -28,14 +28,14 @@ class VocabularyFilterArgs:
         """
         The set of arguments for constructing a VocabularyFilter resource.
 
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-        :param pulumi.Input[_builtins.str] vocabulary_filter_name: The name of the VocabularyFilter.
+        :param pulumi.Input[_builtins.str] language_code: Language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+        :param pulumi.Input[_builtins.str] vocabulary_filter_name: Name of the VocabularyFilter.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vocabulary_filter_file_uri: The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] words: A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vocabulary_filter_file_uri: Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] words: List of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
         """
         pulumi.set(__self__, "language_code", language_code)
         pulumi.set(__self__, "vocabulary_filter_name", vocabulary_filter_name)
@@ -52,7 +52,7 @@ class VocabularyFilterArgs:
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[_builtins.str]:
         """
-        The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+        Language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         """
         return pulumi.get(self, "language_code")
 
@@ -64,7 +64,7 @@ class VocabularyFilterArgs:
     @pulumi.getter(name="vocabularyFilterName")
     def vocabulary_filter_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the VocabularyFilter.
+        Name of the VocabularyFilter.
 
         The following arguments are optional:
         """
@@ -90,7 +90,7 @@ class VocabularyFilterArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -102,7 +102,7 @@ class VocabularyFilterArgs:
     @pulumi.getter(name="vocabularyFilterFileUri")
     def vocabulary_filter_file_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+        Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
         """
         return pulumi.get(self, "vocabulary_filter_file_uri")
 
@@ -114,7 +114,7 @@ class VocabularyFilterArgs:
     @pulumi.getter
     def words(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
+        List of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
         """
         return pulumi.get(self, "words")
 
@@ -140,14 +140,14 @@ class _VocabularyFilterState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the VocabularyFilter.
         :param pulumi.Input[_builtins.str] download_uri: Generated download URI.
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+        :param pulumi.Input[_builtins.str] language_code: Language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vocabulary_filter_file_uri: The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
-        :param pulumi.Input[_builtins.str] vocabulary_filter_name: The name of the VocabularyFilter.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vocabulary_filter_file_uri: Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+        :param pulumi.Input[_builtins.str] vocabulary_filter_name: Name of the VocabularyFilter.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] words: A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] words: List of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -196,7 +196,7 @@ class _VocabularyFilterState:
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+        Language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         """
         return pulumi.get(self, "language_code")
 
@@ -220,7 +220,7 @@ class _VocabularyFilterState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -241,7 +241,7 @@ class _VocabularyFilterState:
     @pulumi.getter(name="vocabularyFilterFileUri")
     def vocabulary_filter_file_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+        Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
         """
         return pulumi.get(self, "vocabulary_filter_file_uri")
 
@@ -253,7 +253,7 @@ class _VocabularyFilterState:
     @pulumi.getter(name="vocabularyFilterName")
     def vocabulary_filter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the VocabularyFilter.
+        Name of the VocabularyFilter.
 
         The following arguments are optional:
         """
@@ -267,7 +267,7 @@ class _VocabularyFilterState:
     @pulumi.getter
     def words(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
+        List of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
         """
         return pulumi.get(self, "words")
 
@@ -324,14 +324,14 @@ class VocabularyFilter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+        :param pulumi.Input[_builtins.str] language_code: Language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vocabulary_filter_file_uri: The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
-        :param pulumi.Input[_builtins.str] vocabulary_filter_name: The name of the VocabularyFilter.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vocabulary_filter_file_uri: Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+        :param pulumi.Input[_builtins.str] vocabulary_filter_name: Name of the VocabularyFilter.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] words: A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] words: List of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
         """
         ...
     @overload
@@ -443,14 +443,14 @@ class VocabularyFilter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the VocabularyFilter.
         :param pulumi.Input[_builtins.str] download_uri: Generated download URI.
-        :param pulumi.Input[_builtins.str] language_code: The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+        :param pulumi.Input[_builtins.str] language_code: Language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vocabulary_filter_file_uri: The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
-        :param pulumi.Input[_builtins.str] vocabulary_filter_name: The name of the VocabularyFilter.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vocabulary_filter_file_uri: Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+        :param pulumi.Input[_builtins.str] vocabulary_filter_name: Name of the VocabularyFilter.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] words: A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] words: List of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -487,7 +487,7 @@ class VocabularyFilter(pulumi.CustomResource):
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Output[_builtins.str]:
         """
-        The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
+        Language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         """
         return pulumi.get(self, "language_code")
 
@@ -503,7 +503,7 @@ class VocabularyFilter(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -516,7 +516,7 @@ class VocabularyFilter(pulumi.CustomResource):
     @pulumi.getter(name="vocabularyFilterFileUri")
     def vocabulary_filter_file_uri(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
+        Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
         """
         return pulumi.get(self, "vocabulary_filter_file_uri")
 
@@ -524,7 +524,7 @@ class VocabularyFilter(pulumi.CustomResource):
     @pulumi.getter(name="vocabularyFilterName")
     def vocabulary_filter_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the VocabularyFilter.
+        Name of the VocabularyFilter.
 
         The following arguments are optional:
         """
@@ -534,7 +534,7 @@ class VocabularyFilter(pulumi.CustomResource):
     @pulumi.getter
     def words(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
+        List of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
         """
         return pulumi.get(self, "words")
 

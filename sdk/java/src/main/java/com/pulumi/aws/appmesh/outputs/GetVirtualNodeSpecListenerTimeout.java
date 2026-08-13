@@ -14,21 +14,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVirtualNodeSpecListenerTimeout {
+    /**
+     * @return Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTimeoutGrpc> grpcs;
+    /**
+     * @return Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTimeoutHttp2> http2s;
+    /**
+     * @return Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTimeoutHttp> https;
+    /**
+     * @return Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
+     * 
+     */
     private List<GetVirtualNodeSpecListenerTimeoutTcp> tcps;
 
     private GetVirtualNodeSpecListenerTimeout() {}
+    /**
+     * @return Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTimeoutGrpc> grpcs() {
         return this.grpcs;
     }
+    /**
+     * @return Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTimeoutHttp2> http2s() {
         return this.http2s;
     }
+    /**
+     * @return Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTimeoutHttp> https() {
         return this.https;
     }
+    /**
+     * @return Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
+     * 
+     */
     public List<GetVirtualNodeSpecListenerTimeoutTcp> tcps() {
         return this.tcps;
     }

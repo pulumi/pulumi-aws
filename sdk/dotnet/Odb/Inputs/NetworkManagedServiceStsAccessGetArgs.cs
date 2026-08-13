@@ -12,11 +12,18 @@ namespace Pulumi.Aws.Odb.Inputs
 
     public sealed class NetworkManagedServiceStsAccessGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Domain name for which the DNS queries are forwarded.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         [Input("ipv4Addresses", required: true)]
         private InputList<string>? _ipv4Addresses;
+
+        /// <summary>
+        /// List of IPv4 addresses for the Amazon STS access.
+        /// </summary>
         public InputList<string> Ipv4Addresses
         {
             get => _ipv4Addresses ?? (_ipv4Addresses = new InputList<string>());
@@ -24,7 +31,7 @@ namespace Pulumi.Aws.Odb.Inputs
         }
 
         /// <summary>
-        /// Status of the network resource.
+        /// Status of the Zero-ETL access.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;

@@ -14,16 +14,32 @@ public final class AppAuthorizationConnectionTenantArgs extends com.pulumi.resou
 
     public static final AppAuthorizationConnectionTenantArgs Empty = new AppAuthorizationConnectionTenantArgs();
 
+    /**
+     * Display name of the tenant.
+     * 
+     */
     @Import(name="tenantDisplayName", required=true)
     private Output<String> tenantDisplayName;
 
+    /**
+     * @return Display name of the tenant.
+     * 
+     */
     public Output<String> tenantDisplayName() {
         return this.tenantDisplayName;
     }
 
+    /**
+     * ID of the application tenant.
+     * 
+     */
     @Import(name="tenantIdentifier", required=true)
     private Output<String> tenantIdentifier;
 
+    /**
+     * @return ID of the application tenant.
+     * 
+     */
     public Output<String> tenantIdentifier() {
         return this.tenantIdentifier;
     }
@@ -53,20 +69,44 @@ public final class AppAuthorizationConnectionTenantArgs extends com.pulumi.resou
             $ = new AppAuthorizationConnectionTenantArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param tenantDisplayName Display name of the tenant.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenantDisplayName(Output<String> tenantDisplayName) {
             $.tenantDisplayName = tenantDisplayName;
             return this;
         }
 
+        /**
+         * @param tenantDisplayName Display name of the tenant.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenantDisplayName(String tenantDisplayName) {
             return tenantDisplayName(Output.of(tenantDisplayName));
         }
 
+        /**
+         * @param tenantIdentifier ID of the application tenant.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenantIdentifier(Output<String> tenantIdentifier) {
             $.tenantIdentifier = tenantIdentifier;
             return this;
         }
 
+        /**
+         * @param tenantIdentifier ID of the application tenant.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenantIdentifier(String tenantIdentifier) {
             return tenantIdentifier(Output.of(tenantIdentifier));
         }

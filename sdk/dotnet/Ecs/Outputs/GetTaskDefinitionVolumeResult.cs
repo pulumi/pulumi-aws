@@ -13,12 +13,33 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class GetTaskDefinitionVolumeResult
     {
+        /// <summary>
+        /// Whether the volume is configured at launch time.
+        /// </summary>
         public readonly bool ConfigureAtLaunch;
+        /// <summary>
+        /// Configuration block for a Docker volume. See `DockerVolumeConfiguration` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionVolumeDockerVolumeConfigurationResult> DockerVolumeConfigurations;
+        /// <summary>
+        /// Configuration block for an EFS volume. See `EfsVolumeConfiguration` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionVolumeEfsVolumeConfigurationResult> EfsVolumeConfigurations;
+        /// <summary>
+        /// Configuration block for an FSx for Windows File Server volume. See `FsxWindowsFileServerVolumeConfiguration` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationResult> FsxWindowsFileServerVolumeConfigurations;
+        /// <summary>
+        /// Path on the host container instance that is presented to the container.
+        /// </summary>
         public readonly string HostPath;
+        /// <summary>
+        /// Name of the volume.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Configuration block for an S3 Files volume. See `S3filesVolumeConfiguration` Block for details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionVolumeS3filesVolumeConfigurationResult> S3filesVolumeConfigurations;
 
         [OutputConstructor]

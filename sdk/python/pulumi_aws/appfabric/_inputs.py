@@ -98,19 +98,32 @@ class AppAuthorizationConnectionAuthRequestArgs:
 
 class AppAuthorizationConnectionTenantArgsDict(TypedDict):
     tenant_display_name: pulumi.Input[_builtins.str]
+    """
+    Display name of the tenant.
+    """
     tenant_identifier: pulumi.Input[_builtins.str]
+    """
+    ID of the application tenant.
+    """
 
 @pulumi.input_type
 class AppAuthorizationConnectionTenantArgs:
     def __init__(__self__, *,
                  tenant_display_name: pulumi.Input[_builtins.str],
                  tenant_identifier: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] tenant_display_name: Display name of the tenant.
+        :param pulumi.Input[_builtins.str] tenant_identifier: ID of the application tenant.
+        """
         pulumi.set(__self__, "tenant_display_name", tenant_display_name)
         pulumi.set(__self__, "tenant_identifier", tenant_identifier)
 
     @_builtins.property
     @pulumi.getter(name="tenantDisplayName")
     def tenant_display_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Display name of the tenant.
+        """
         return pulumi.get(self, "tenant_display_name")
 
     @tenant_display_name.setter
@@ -120,6 +133,9 @@ class AppAuthorizationConnectionTenantArgs:
     @_builtins.property
     @pulumi.getter(name="tenantIdentifier")
     def tenant_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the application tenant.
+        """
         return pulumi.get(self, "tenant_identifier")
 
     @tenant_identifier.setter

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointGetArgs>? _efsAccessPoints;
 
         /// <summary>
-        /// Amazon EFS access point to mount as shared file storage. Exactly one of `SessionStorage`, `S3FilesAccessPoint`, or `EfsAccessPoint` must be specified. See `EfsAccessPoint` below.
+        /// Amazon EFS access point to mount as shared file storage. Exactly one of `SessionStorage`, `S3FilesAccessPoint`, or `EfsAccessPoint` must be specified. See `EfsAccessPoint` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPointGetArgs> EfsAccessPoints
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointGetArgs>? _s3FilesAccessPoints;
 
         /// <summary>
-        /// Amazon S3 Files access point to mount as shared file storage. Exactly one of `SessionStorage`, `S3FilesAccessPoint`, or `EfsAccessPoint` must be specified. See `S3FilesAccessPoint` below.
+        /// Amazon S3 Files access point to mount as shared file storage. Exactly one of `SessionStorage`, `S3FilesAccessPoint`, or `EfsAccessPoint` must be specified. See `S3FilesAccessPoint` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPointGetArgs> S3FilesAccessPoints
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageGetArgs>? _sessionStorages;
 
         /// <summary>
-        /// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `SessionStorage`, `S3FilesAccessPoint`, or `EfsAccessPoint` must be specified. See `SessionStorage` below.
+        /// Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `SessionStorage`, `S3FilesAccessPoint`, or `EfsAccessPoint` must be specified. See `SessionStorage` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorageGetArgs> SessionStorages
         {

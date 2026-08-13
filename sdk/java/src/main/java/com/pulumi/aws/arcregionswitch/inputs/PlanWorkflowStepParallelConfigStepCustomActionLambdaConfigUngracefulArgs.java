@@ -14,17 +14,9 @@ public final class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUng
 
     public static final PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgs Empty = new PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgs();
 
-    /**
-     * Behavior when ungraceful. Valid values: `skip`.
-     * 
-     */
     @Import(name="behavior", required=true)
     private Output<String> behavior;
 
-    /**
-     * @return Behavior when ungraceful. Valid values: `skip`.
-     * 
-     */
     public Output<String> behavior() {
         return this.behavior;
     }
@@ -53,23 +45,11 @@ public final class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUng
             $ = new PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param behavior Behavior when ungraceful. Valid values: `skip`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder behavior(Output<String> behavior) {
             $.behavior = behavior;
             return this;
         }
 
-        /**
-         * @param behavior Behavior when ungraceful. Valid values: `skip`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder behavior(String behavior) {
             return behavior(Output.of(behavior));
         }

@@ -76,7 +76,7 @@ export interface GetInstanceTypeOfferingsArgs {
  */
 export interface GetInstanceTypeOfferingsResult {
     /**
-     * List of broker instance options. See Broker Instance Options below.
+     * List of broker instance options. See `brokerInstanceOptions` Block below.
      */
     readonly brokerInstanceOptions: outputs.mq.GetInstanceTypeOfferingsBrokerInstanceOption[];
     /**

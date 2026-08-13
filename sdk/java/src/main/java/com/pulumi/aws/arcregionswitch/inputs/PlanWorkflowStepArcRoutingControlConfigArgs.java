@@ -49,14 +49,14 @@ public final class PlanWorkflowStepArcRoutingControlConfigArgs extends com.pulum
     }
 
     /**
-     * List of regions and their routing controls. See Region and Routing Controls below.
+     * Regions and their routing controls. See `regionAndRoutingControls` Block for details.
      * 
      */
     @Import(name="regionAndRoutingControls")
     private @Nullable Output<List<PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgs>> regionAndRoutingControls;
 
     /**
-     * @return List of regions and their routing controls. See Region and Routing Controls below.
+     * @return Regions and their routing controls. See `regionAndRoutingControls` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgs>>> regionAndRoutingControls() {
@@ -148,7 +148,7 @@ public final class PlanWorkflowStepArcRoutingControlConfigArgs extends com.pulum
         }
 
         /**
-         * @param regionAndRoutingControls List of regions and their routing controls. See Region and Routing Controls below.
+         * @param regionAndRoutingControls Regions and their routing controls. See `regionAndRoutingControls` Block for details.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class PlanWorkflowStepArcRoutingControlConfigArgs extends com.pulum
         }
 
         /**
-         * @param regionAndRoutingControls List of regions and their routing controls. See Region and Routing Controls below.
+         * @param regionAndRoutingControls Regions and their routing controls. See `regionAndRoutingControls` Block for details.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class PlanWorkflowStepArcRoutingControlConfigArgs extends com.pulum
         }
 
         /**
-         * @param regionAndRoutingControls List of regions and their routing controls. See Region and Routing Controls below.
+         * @param regionAndRoutingControls Regions and their routing controls. See `regionAndRoutingControls` Block for details.
          * 
          * @return builder
          * 

@@ -45,11 +45,11 @@ type LookupBrokerResult struct {
 	AutoMinorVersionUpgrade bool   `pulumi:"autoMinorVersionUpgrade"`
 	BrokerId                string `pulumi:"brokerId"`
 	BrokerName              string `pulumi:"brokerName"`
-	// Configuration block for broker configuration. See Configuration below.
+	// Configuration block for broker configuration. See `configuration` Block below.
 	Configuration GetBrokerConfiguration `pulumi:"configuration"`
 	// Deployment mode of the broker.
 	DeploymentMode string `pulumi:"deploymentMode"`
-	// Configuration block containing encryption options. See Encryption Options below.
+	// Configuration block containing encryption options. See `encryptionOptions` Block below.
 	EncryptionOptions []GetBrokerEncryptionOption `pulumi:"encryptionOptions"`
 	// Type of broker engine.
 	EngineType string `pulumi:"engineType"`
@@ -59,13 +59,13 @@ type LookupBrokerResult struct {
 	HostInstanceType string `pulumi:"hostInstanceType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// List of information about allocated brokers (both active & standby). See Instances below.
+	// List of information about allocated brokers (both active & standby). See `instances` Block below.
 	Instances []GetBrokerInstance `pulumi:"instances"`
-	// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See LDAP Server Metadata below.
+	// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See `ldapServerMetadata` Block below.
 	LdapServerMetadatas []GetBrokerLdapServerMetadata `pulumi:"ldapServerMetadatas"`
-	// Configuration block for the logging configuration of the broker. See Logs below.
+	// Configuration block for the logging configuration of the broker. See `logs` Block below.
 	Logs GetBrokerLogs `pulumi:"logs"`
-	// Configuration block for the maintenance window start time. See Maintenance Window Start Time below.
+	// Configuration block for the maintenance window start time. See `maintenanceWindowStartTime` Block below.
 	MaintenanceWindowStartTime GetBrokerMaintenanceWindowStartTime `pulumi:"maintenanceWindowStartTime"`
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible bool   `pulumi:"publiclyAccessible"`
@@ -74,7 +74,7 @@ type LookupBrokerResult struct {
 	ResourceShareArns []string `pulumi:"resourceShareArns"`
 	// List of security group IDs assigned to the broker.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// List of resources shared with the broker. See Shared Resources below. Only populated for `engineType` of `RabbitMQ`.
+	// List of resources shared with the broker. See `sharedResources` Block below. Only populated for `engineType` of `RabbitMQ`.
 	SharedResources []GetBrokerSharedResource `pulumi:"sharedResources"`
 	// Storage type of the broker.
 	StorageType string `pulumi:"storageType"`
@@ -82,7 +82,7 @@ type LookupBrokerResult struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Map of tags assigned to the broker.
 	Tags map[string]string `pulumi:"tags"`
-	// Configuration block for broker users. See User below.
+	// Configuration block for broker users. See `user` Block below.
 	Users []GetBrokerUser `pulumi:"users"`
 }
 
@@ -150,7 +150,7 @@ func (o LookupBrokerResultOutput) BrokerName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrokerResult) string { return v.BrokerName }).(pulumi.StringOutput)
 }
 
-// Configuration block for broker configuration. See Configuration below.
+// Configuration block for broker configuration. See `configuration` Block below.
 func (o LookupBrokerResultOutput) Configuration() GetBrokerConfigurationOutput {
 	return o.ApplyT(func(v LookupBrokerResult) GetBrokerConfiguration { return v.Configuration }).(GetBrokerConfigurationOutput)
 }
@@ -160,7 +160,7 @@ func (o LookupBrokerResultOutput) DeploymentMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrokerResult) string { return v.DeploymentMode }).(pulumi.StringOutput)
 }
 
-// Configuration block containing encryption options. See Encryption Options below.
+// Configuration block containing encryption options. See `encryptionOptions` Block below.
 func (o LookupBrokerResultOutput) EncryptionOptions() GetBrokerEncryptionOptionArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []GetBrokerEncryptionOption { return v.EncryptionOptions }).(GetBrokerEncryptionOptionArrayOutput)
 }
@@ -185,22 +185,22 @@ func (o LookupBrokerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrokerResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// List of information about allocated brokers (both active & standby). See Instances below.
+// List of information about allocated brokers (both active & standby). See `instances` Block below.
 func (o LookupBrokerResultOutput) Instances() GetBrokerInstanceArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []GetBrokerInstance { return v.Instances }).(GetBrokerInstanceArrayOutput)
 }
 
-// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See LDAP Server Metadata below.
+// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See `ldapServerMetadata` Block below.
 func (o LookupBrokerResultOutput) LdapServerMetadatas() GetBrokerLdapServerMetadataArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []GetBrokerLdapServerMetadata { return v.LdapServerMetadatas }).(GetBrokerLdapServerMetadataArrayOutput)
 }
 
-// Configuration block for the logging configuration of the broker. See Logs below.
+// Configuration block for the logging configuration of the broker. See `logs` Block below.
 func (o LookupBrokerResultOutput) Logs() GetBrokerLogsOutput {
 	return o.ApplyT(func(v LookupBrokerResult) GetBrokerLogs { return v.Logs }).(GetBrokerLogsOutput)
 }
 
-// Configuration block for the maintenance window start time. See Maintenance Window Start Time below.
+// Configuration block for the maintenance window start time. See `maintenanceWindowStartTime` Block below.
 func (o LookupBrokerResultOutput) MaintenanceWindowStartTime() GetBrokerMaintenanceWindowStartTimeOutput {
 	return o.ApplyT(func(v LookupBrokerResult) GetBrokerMaintenanceWindowStartTime { return v.MaintenanceWindowStartTime }).(GetBrokerMaintenanceWindowStartTimeOutput)
 }
@@ -224,7 +224,7 @@ func (o LookupBrokerResultOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// List of resources shared with the broker. See Shared Resources below. Only populated for `engineType` of `RabbitMQ`.
+// List of resources shared with the broker. See `sharedResources` Block below. Only populated for `engineType` of `RabbitMQ`.
 func (o LookupBrokerResultOutput) SharedResources() GetBrokerSharedResourceArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []GetBrokerSharedResource { return v.SharedResources }).(GetBrokerSharedResourceArrayOutput)
 }
@@ -244,7 +244,7 @@ func (o LookupBrokerResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupBrokerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Configuration block for broker users. See User below.
+// Configuration block for broker users. See `user` Block below.
 func (o LookupBrokerResultOutput) Users() GetBrokerUserArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []GetBrokerUser { return v.Users }).(GetBrokerUserArrayOutput)
 }

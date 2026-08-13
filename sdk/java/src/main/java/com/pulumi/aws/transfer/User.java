@@ -110,6 +110,44 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * To restrict a user to their own home directory, use a `homeDirectoryMappings` block like the following:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.transfer.User;
+ * import com.pulumi.aws.transfer.UserArgs;
+ * import com.pulumi.aws.transfer.inputs.UserHomeDirectoryMappingArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new User("example", UserArgs.builder()
+ *             .homeDirectoryType("LOGICAL")
+ *             .homeDirectoryMappings(UserHomeDirectoryMappingArgs.builder()
+ *                 .entry("/")
+ *                 .target(String.format("/%s/${{Transfer:UserName}}", foo.id()))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer Users using the `serverId` and `userName` separated by `/`. For example:
@@ -136,70 +174,70 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+     * Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
      * 
      */
     @Export(name="homeDirectory", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> homeDirectory;
 
     /**
-     * @return The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
+     * @return Landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
      * 
      */
     public Output<Optional<String>> homeDirectory() {
         return Codegen.optional(this.homeDirectory);
     }
     /**
-     * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
+     * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See `homeDirectoryMappings` Block below.
      * 
      */
     @Export(name="homeDirectoryMappings", refs={List.class,UserHomeDirectoryMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserHomeDirectoryMapping>> homeDirectoryMappings;
 
     /**
-     * @return Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
+     * @return Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See `homeDirectoryMappings` Block below.
      * 
      */
     public Output<Optional<List<UserHomeDirectoryMapping>>> homeDirectoryMappings() {
         return Codegen.optional(this.homeDirectoryMappings);
     }
     /**
-     * The type of landing directory (folder) you mapped for your users&#39; home directory. Valid values are `PATH` and `LOGICAL`.
+     * Type of landing directory (folder) you mapped for your users&#39; home directory. Valid values are `PATH` and `LOGICAL`.
      * 
      */
     @Export(name="homeDirectoryType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> homeDirectoryType;
 
     /**
-     * @return The type of landing directory (folder) you mapped for your users&#39; home directory. Valid values are `PATH` and `LOGICAL`.
+     * @return Type of landing directory (folder) you mapped for your users&#39; home directory. Valid values are `PATH` and `LOGICAL`.
      * 
      */
     public Output<Optional<String>> homeDirectoryType() {
         return Codegen.optional(this.homeDirectoryType);
     }
     /**
-     * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+     * IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform&#39;s interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policy;
 
     /**
-     * @return An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
+     * @return IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. Since the IAM variable syntax matches Terraform&#39;s interpolation syntax, they must be escaped inside Terraform configuration strings (`$${Transfer:UserName}`).  These are evaluated on-the-fly when navigating the bucket.
      * 
      */
     public Output<Optional<String>> policy() {
         return Codegen.optional(this.policy);
     }
     /**
-     * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users&#39; access to your Amazon EFS file systems. See Posix Profile below.
+     * Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users&#39; access to your Amazon EFS file systems. See `posixProfile` Block below.
      * 
      */
     @Export(name="posixProfile", refs={UserPosixProfile.class}, tree="[0]")
     private Output</* @Nullable */ UserPosixProfile> posixProfile;
 
     /**
-     * @return Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users&#39; access to your Amazon EFS file systems. See Posix Profile below.
+     * @return Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users&#39; access to your Amazon EFS file systems. See `posixProfile` Block below.
      * 
      */
     public Output<Optional<UserPosixProfile>> posixProfile() {
@@ -234,56 +272,56 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.role;
     }
     /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
+     * Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
     @Export(name="serverId", refs={String.class}, tree="[0]")
     private Output<String> serverId;
 
     /**
-     * @return The Server ID of the Transfer Server (e.g., `s-12345678`)
+     * @return Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
     public Output<String> serverId() {
         return this.serverId;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The name used for log in to your SFTP server.
+     * Name used for log in to your SFTP server.
      * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
-     * @return The name used for log in to your SFTP server.
+     * @return Name used for log in to your SFTP server.
      * 
      */
     public Output<String> userName() {

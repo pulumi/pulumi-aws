@@ -2713,6 +2713,20 @@ export namespace amp {
         datasetArn: pulumi.Input<string>;
     }
 
+    export interface ScraperExporter {
+        /**
+         * Configuration block for an OpenSearch exporter. See `opensearch` Block for details.
+         */
+        opensearch: pulumi.Input<inputs.amp.ScraperExporterOpensearch>;
+    }
+
+    export interface ScraperExporterOpensearch {
+        /**
+         * ARN of the OpenSearch domain.
+         */
+        domainArn: pulumi.Input<string>;
+    }
+
     export interface ScraperLoggingConfigurationLoggingDestination {
         /**
          * Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block below.
@@ -2979,7 +2993,13 @@ export namespace amplify {
 
 export namespace apigateway {
     export interface AccountThrottleSetting {
+        /**
+         * Absolute maximum number of times API Gateway allows the API to be called per second.
+         */
         burstLimit: pulumi.Input<number>;
+        /**
+         * Number of times API Gateway allows the API to be called per second on average.
+         */
         rateLimit: pulumi.Input<number>;
     }
 
@@ -3828,7 +3848,7 @@ export namespace appconfig {
          */
         name: pulumi.Input<string>;
         /**
-         * Determines if a parameter value must be specified in the extension association.
+         * Whether a parameter value must be specified in the extension association.
          */
         required?: pulumi.Input<boolean | undefined>;
     }
@@ -3848,7 +3868,13 @@ export namespace appfabric {
     }
 
     export interface AppAuthorizationConnectionTenant {
+        /**
+         * Display name of the tenant.
+         */
         tenantDisplayName: pulumi.Input<string>;
+        /**
+         * ID of the application tenant.
+         */
         tenantIdentifier: pulumi.Input<string>;
     }
 
@@ -5024,7 +5050,7 @@ export namespace appflow {
          */
         prefixFormat?: pulumi.Input<string | undefined>;
         /**
-         * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+         * Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
          */
         prefixHierarchies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
@@ -5152,7 +5178,7 @@ export namespace appflow {
          */
         prefixFormat?: pulumi.Input<string | undefined>;
         /**
-         * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
+         * Whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
          */
         prefixHierarchies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
@@ -8918,14 +8944,14 @@ export namespace arcregionswitch {
 
     export interface PlanReportConfiguration {
         /**
-         * Output destination for the report. See Report Output below.
+         * Output destination for the report. See `reportOutput` Block for details.
          */
         reportOutputs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanReportConfigurationReportOutput>[] | undefined>;
     }
 
     export interface PlanReportConfigurationReportOutput {
         /**
-         * S3 output configuration. See S3 Configuration below.
+         * S3 output configuration. See `s3Configuration` Block for details.
          */
         s3Configurations?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanReportConfigurationReportOutputS3Configuration>[] | undefined>;
     }
@@ -8962,7 +8988,7 @@ export namespace arcregionswitch {
          */
         action: pulumi.Input<string>;
         /**
-         * List of conditions that must be met. See Conditions below.
+         * Conditions that must be met. See `conditions` Block for details.
          */
         conditions?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanTriggerCondition>[] | undefined>;
         /**
@@ -8992,7 +9018,7 @@ export namespace arcregionswitch {
 
     export interface PlanWorkflow {
         /**
-         * List of steps in the workflow. See Step below.
+         * Steps in the workflow. See `step` Block for details.
          */
         steps?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStep>[] | undefined>;
         /**
@@ -9011,11 +9037,19 @@ export namespace arcregionswitch {
 
     export interface PlanWorkflowStep {
         /**
-         * Configuration for ARC routing control. See ARC Routing Control Config below.
+         * Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
          */
         arcRoutingControlConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepArcRoutingControlConfig>[] | undefined>;
         /**
-         * Configuration for Lambda function execution. See Custom Action Lambda Config below.
+         * Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+         */
+        auroraProvisionedScalingConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepAuroraProvisionedScalingConfig>[] | undefined>;
+        /**
+         * Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+         */
+        auroraServerlessScalingConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepAuroraServerlessScalingConfig>[] | undefined>;
+        /**
+         * Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
          */
         customActionLambdaConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepCustomActionLambdaConfig>[] | undefined>;
         /**
@@ -9023,23 +9057,23 @@ export namespace arcregionswitch {
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+         * Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
          */
         documentDbConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepDocumentDbConfig>[] | undefined>;
         /**
-         * Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+         * Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
          */
         ec2AsgCapacityIncreaseConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepEc2AsgCapacityIncreaseConfig>[] | undefined>;
         /**
-         * Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+         * Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
          */
         ecsCapacityIncreaseConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepEcsCapacityIncreaseConfig>[] | undefined>;
         /**
-         * Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+         * Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
          */
         eksResourceScalingConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepEksResourceScalingConfig>[] | undefined>;
         /**
-         * Configuration for manual approval steps. See Execution Approval Config below.
+         * Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
          */
         executionApprovalConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepExecutionApprovalConfig>[] | undefined>;
         /**
@@ -9047,28 +9081,39 @@ export namespace arcregionswitch {
          */
         executionBlockType: pulumi.Input<string>;
         /**
-         * Configuration for Aurora Global Database operations. See Global Aurora Config below.
+         * Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
          */
         globalAuroraConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepGlobalAuroraConfig>[] | undefined>;
+        /**
+         * Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+         */
+        lambdaEventSourceMappingConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepLambdaEventSourceMappingConfig>[] | undefined>;
         /**
          * Name of the step.
          */
         name: pulumi.Input<string>;
         /**
-         * Configuration for parallel execution of multiple steps. See Parallel Config below.
+         * Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+         */
+        neptuneGlobalDatabaseConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepNeptuneGlobalDatabaseConfig>[] | undefined>;
+        /**
+         * Configuration for parallel execution of multiple steps. See `parallelConfig` Block for details.
          */
         parallelConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfig>[] | undefined>;
         /**
-         * Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+         * Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
          */
         rdsCreateCrossRegionReadReplicaConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig>[] | undefined>;
         /**
-         * Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+         * Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
          */
         rdsPromoteReadReplicaConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepRdsPromoteReadReplicaConfig>[] | undefined>;
+        /**
+         * Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
+         */
         regionSwitchPlanConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepRegionSwitchPlanConfig>[] | undefined>;
         /**
-         * Configuration for Route53 health check operations. See Route53 Health Check Config below.
+         * Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
          */
         route53HealthCheckConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepRoute53HealthCheckConfig>[] | undefined>;
     }
@@ -9083,7 +9128,7 @@ export namespace arcregionswitch {
          */
         externalId?: pulumi.Input<string | undefined>;
         /**
-         * List of regions and their routing controls. See Region and Routing Controls below.
+         * Regions and their routing controls. See `regionAndRoutingControls` Block for details.
          */
         regionAndRoutingControls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControl>[] | undefined>;
         /**
@@ -9098,7 +9143,7 @@ export namespace arcregionswitch {
          */
         region: pulumi.Input<string>;
         /**
-         * List of routing controls. See Routing Control below.
+         * Routing controls. See `routingControl` Block for details.
          */
         routingControls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl>[] | undefined>;
     }
@@ -9114,9 +9159,63 @@ export namespace arcregionswitch {
         state: pulumi.Input<string>;
     }
 
+    export interface PlanWorkflowStepAuroraProvisionedScalingConfig {
+        /**
+         * ARN of the cross-account role to assume.
+         */
+        crossAccountRole?: pulumi.Input<string | undefined>;
+        /**
+         * External ID for cross-account role assumption.
+         */
+        externalId?: pulumi.Input<string | undefined>;
+        /**
+         * Global cluster identifier.
+         */
+        globalClusterIdentifier: pulumi.Input<string>;
+        /**
+         * Map of regions to Aurora instance ARNs.
+         */
+        instanceArns: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Map of regions to database cluster ARNs.
+         */
+        regionDatabaseClusterArns: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Timeout in minutes.
+         */
+        timeoutMinutes?: pulumi.Input<number | undefined>;
+    }
+
+    export interface PlanWorkflowStepAuroraServerlessScalingConfig {
+        /**
+         * ARN of the cross-account role to assume.
+         */
+        crossAccountRole?: pulumi.Input<string | undefined>;
+        /**
+         * External ID for cross-account role assumption.
+         */
+        externalId?: pulumi.Input<string | undefined>;
+        /**
+         * Global cluster identifier.
+         */
+        globalClusterIdentifier: pulumi.Input<string>;
+        /**
+         * Map of regions to database cluster ARNs.
+         */
+        regionDatabaseClusterArns: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Target capacity percentage.
+         */
+        targetPercent?: pulumi.Input<number | undefined>;
+        /**
+         * Timeout in minutes.
+         */
+        timeoutMinutes?: pulumi.Input<number | undefined>;
+    }
+
     export interface PlanWorkflowStepCustomActionLambdaConfig {
         /**
-         * Lambda function configuration. See Lambda below.
+         * Lambda function configuration. See `lambda` Block for details.
          */
         lambdas?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepCustomActionLambdaConfigLambda>[] | undefined>;
         /**
@@ -9132,7 +9231,7 @@ export namespace arcregionswitch {
          */
         timeoutMinutes?: pulumi.Input<number | undefined>;
         /**
-         * Ungraceful behavior configuration. See Ungraceful below.
+         * Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
          */
         ungracefuls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepCustomActionLambdaConfigUngraceful>[] | undefined>;
     }
@@ -9153,19 +9252,37 @@ export namespace arcregionswitch {
     }
 
     export interface PlanWorkflowStepCustomActionLambdaConfigUngraceful {
-        /**
-         * Behavior when ungraceful. Valid values: `skip`.
-         */
         behavior: pulumi.Input<string>;
     }
 
     export interface PlanWorkflowStepDocumentDbConfig {
+        /**
+         * Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+         */
         behavior: pulumi.Input<string>;
+        /**
+         * ARN of the cross-account role to assume.
+         */
         crossAccountRole?: pulumi.Input<string | undefined>;
+        /**
+         * List of DocumentDB cluster ARNs.
+         */
         databaseClusterArns: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * External ID for cross-account role assumption.
+         */
         externalId?: pulumi.Input<string | undefined>;
+        /**
+         * Global cluster identifier.
+         */
         globalClusterIdentifier: pulumi.Input<string>;
+        /**
+         * Timeout in minutes.
+         */
         timeoutMinutes?: pulumi.Input<number | undefined>;
+        /**
+         * Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+         */
         ungracefuls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepDocumentDbConfigUngraceful>[] | undefined>;
     }
 
@@ -9175,7 +9292,7 @@ export namespace arcregionswitch {
 
     export interface PlanWorkflowStepEc2AsgCapacityIncreaseConfig {
         /**
-         * Auto Scaling group configuration. See ASG below.
+         * Auto Scaling group configuration. See `asg` Block for details.
          */
         asgs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsg>[] | undefined>;
         /**
@@ -9191,7 +9308,7 @@ export namespace arcregionswitch {
          */
         timeoutMinutes?: pulumi.Input<number | undefined>;
         /**
-         * Ungraceful behavior configuration. See Ungraceful below.
+         * Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
          */
         ungraceful?: pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngraceful | undefined>;
     }
@@ -9224,7 +9341,7 @@ export namespace arcregionswitch {
          */
         capacityMonitoringApproach: pulumi.Input<string>;
         /**
-         * ECS service configuration. See ECS Service below.
+         * ECS service configuration. See `service` Block for details.
          */
         services?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepEcsCapacityIncreaseConfigService>[] | undefined>;
         /**
@@ -9236,14 +9353,23 @@ export namespace arcregionswitch {
          */
         timeoutMinutes?: pulumi.Input<number | undefined>;
         /**
-         * Ungraceful behavior configuration. See Ungraceful Capacity below.
+         * Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
          */
         ungraceful?: pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepEcsCapacityIncreaseConfigUngraceful | undefined>;
     }
 
     export interface PlanWorkflowStepEcsCapacityIncreaseConfigService {
+        /**
+         * ARN of the ECS cluster.
+         */
         clusterArn: pulumi.Input<string>;
+        /**
+         * ARN of the cross-account role to assume.
+         */
         crossAccountRole?: pulumi.Input<string | undefined>;
+        /**
+         * External ID for cross-account role assumption.
+         */
         externalId?: pulumi.Input<string | undefined>;
         /**
          * ARN of the ECS service.
@@ -9264,15 +9390,15 @@ export namespace arcregionswitch {
          */
         capacityMonitoringApproach: pulumi.Input<string>;
         /**
-         * List of EKS clusters. See EKS Clusters below.
+         * EKS clusters. See `eksClusters` Block for details.
          */
         eksClusters?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepEksResourceScalingConfigEksCluster>[] | undefined>;
         /**
-         * Kubernetes resource type. See Kubernetes Resource Type below.
+         * Kubernetes resource type. See `kubernetesResourceType` Block for details.
          */
         kubernetesResourceTypes?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepEksResourceScalingConfigKubernetesResourceType>[] | undefined>;
         /**
-         * List of scaling resources. See Scaling Resources below.
+         * Scaling resources. See `scalingResources` Block for details.
          */
         scalingResources?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepEksResourceScalingConfigScalingResource>[] | undefined>;
         /**
@@ -9284,7 +9410,7 @@ export namespace arcregionswitch {
          */
         timeoutMinutes?: pulumi.Input<number | undefined>;
         /**
-         * Ungraceful behavior configuration. See Ungraceful Capacity below.
+         * Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
          */
         ungracefuls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepEksResourceScalingConfigUngraceful>[] | undefined>;
     }
@@ -9321,7 +9447,7 @@ export namespace arcregionswitch {
          */
         namespace: pulumi.Input<string>;
         /**
-         * Set of resources to scale. See Resources below.
+         * Resources to scale. See `resources` Block for details.
          */
         resources?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepEksResourceScalingConfigScalingResourceResource>[] | undefined>;
     }
@@ -9389,7 +9515,7 @@ export namespace arcregionswitch {
          */
         timeoutMinutes?: pulumi.Input<number | undefined>;
         /**
-         * Ungraceful behavior configuration. See Ungraceful Aurora below.
+         * Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
          */
         ungracefuls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepGlobalAuroraConfigUngraceful>[] | undefined>;
     }
@@ -9398,20 +9524,105 @@ export namespace arcregionswitch {
         ungraceful: pulumi.Input<string>;
     }
 
+    export interface PlanWorkflowStepLambdaEventSourceMappingConfig {
+        /**
+         * Action to perform on the event source mapping.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * Event source mappings per region. See `regionEventSourceMapping` Block for details.
+         */
+        regionEventSourceMappings?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping>[] | undefined>;
+        /**
+         * Timeout in minutes.
+         */
+        timeoutMinutes?: pulumi.Input<number | undefined>;
+        /**
+         * Ungraceful behavior configuration. See `workflow.step.lambda_event_source_mapping_config.ungraceful` Block for details.
+         */
+        ungracefuls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful>[] | undefined>;
+    }
+
+    export interface PlanWorkflowStepLambdaEventSourceMappingConfigRegionEventSourceMapping {
+        /**
+         * ARN of the event source mapping.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * ARN of the cross-account role to assume.
+         */
+        crossAccountRole?: pulumi.Input<string | undefined>;
+        /**
+         * External ID for cross-account role assumption.
+         */
+        externalId?: pulumi.Input<string | undefined>;
+        /**
+         * AWS region.
+         */
+        region: pulumi.Input<string>;
+    }
+
+    export interface PlanWorkflowStepLambdaEventSourceMappingConfigUngraceful {
+        behavior: pulumi.Input<string>;
+    }
+
+    export interface PlanWorkflowStepNeptuneGlobalDatabaseConfig {
+        /**
+         * Behavior for global database operations.
+         */
+        behavior: pulumi.Input<string>;
+        /**
+         * ARN of the cross-account role to assume.
+         */
+        crossAccountRole?: pulumi.Input<string | undefined>;
+        /**
+         * External ID for cross-account role assumption.
+         */
+        externalId?: pulumi.Input<string | undefined>;
+        /**
+         * Global cluster identifier.
+         */
+        globalClusterIdentifier: pulumi.Input<string>;
+        /**
+         * Map of regions to database cluster ARNs.
+         */
+        regionDatabaseClusterArns: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Timeout in minutes.
+         */
+        timeoutMinutes?: pulumi.Input<number | undefined>;
+        /**
+         * Ungraceful behavior configuration. See `workflow.step.neptune_global_database_config.ungraceful` Block for details.
+         */
+        ungracefuls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful>[] | undefined>;
+    }
+
+    export interface PlanWorkflowStepNeptuneGlobalDatabaseConfigUngraceful {
+        ungraceful: pulumi.Input<string>;
+    }
+
     export interface PlanWorkflowStepParallelConfig {
         /**
-         * List of steps to execute in parallel. Uses the same schema as Step but without `parallelConfig` to prevent infinite nesting.
+         * Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
          */
         steps?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStep>[] | undefined>;
     }
 
     export interface PlanWorkflowStepParallelConfigStep {
         /**
-         * Configuration for ARC routing control. See ARC Routing Control Config below.
+         * Configuration for ARC routing control. See `arcRoutingControlConfig` Block for details.
          */
         arcRoutingControlConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepArcRoutingControlConfig>[] | undefined>;
         /**
-         * Configuration for Lambda function execution. See Custom Action Lambda Config below.
+         * Configuration for Aurora provisioned scaling. See `auroraProvisionedScalingConfig` Block for details.
+         */
+        auroraProvisionedScalingConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig>[] | undefined>;
+        /**
+         * Configuration for Aurora Serverless scaling. See `auroraServerlessScalingConfig` Block for details.
+         */
+        auroraServerlessScalingConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig>[] | undefined>;
+        /**
+         * Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
          */
         customActionLambdaConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig>[] | undefined>;
         /**
@@ -9419,23 +9630,23 @@ export namespace arcregionswitch {
          */
         description?: pulumi.Input<string | undefined>;
         /**
-         * Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+         * Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
          */
         documentDbConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepDocumentDbConfig>[] | undefined>;
         /**
-         * Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+         * Configuration for EC2 Auto Scaling group capacity increase. See `ec2AsgCapacityIncreaseConfig` Block for details.
          */
         ec2AsgCapacityIncreaseConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig>[] | undefined>;
         /**
-         * Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+         * Configuration for ECS service capacity increase. See `ecsCapacityIncreaseConfig` Block for details.
          */
         ecsCapacityIncreaseConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfig>[] | undefined>;
         /**
-         * Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+         * Configuration for EKS resource scaling. See `eksResourceScalingConfig` Block for details.
          */
         eksResourceScalingConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepEksResourceScalingConfig>[] | undefined>;
         /**
-         * Configuration for manual approval steps. See Execution Approval Config below.
+         * Configuration for manual approval steps. See `executionApprovalConfig` Block for details.
          */
         executionApprovalConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepExecutionApprovalConfig>[] | undefined>;
         /**
@@ -9443,24 +9654,35 @@ export namespace arcregionswitch {
          */
         executionBlockType: pulumi.Input<string>;
         /**
-         * Configuration for Aurora Global Database operations. See Global Aurora Config below.
+         * Configuration for Aurora Global Database operations. See `globalAuroraConfig` Block for details.
          */
         globalAuroraConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepGlobalAuroraConfig>[] | undefined>;
+        /**
+         * Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
+         */
+        lambdaEventSourceMappingConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig>[] | undefined>;
         /**
          * Name of the step.
          */
         name: pulumi.Input<string>;
         /**
-         * Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+         * Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
+         */
+        neptuneGlobalDatabaseConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig>[] | undefined>;
+        /**
+         * Configuration for creating cross-region RDS read replicas. See `rdsCreateCrossRegionReadReplicaConfig` Block for details.
          */
         rdsCreateCrossRegionReadReplicaConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig>[] | undefined>;
         /**
-         * Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+         * Configuration for promoting RDS read replicas. See `rdsPromoteReadReplicaConfig` Block for details.
          */
         rdsPromoteReadReplicaConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig>[] | undefined>;
+        /**
+         * Configuration for executing a nested region switch plan. See `regionSwitchPlanConfig` Block for details.
+         */
         regionSwitchPlanConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig>[] | undefined>;
         /**
-         * Configuration for Route53 health check operations. See Route53 Health Check Config below.
+         * Configuration for Route53 health check operations. See `route53HealthCheckConfig` Block for details.
          */
         route53HealthCheckConfigs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig>[] | undefined>;
     }
@@ -9475,7 +9697,7 @@ export namespace arcregionswitch {
          */
         externalId?: pulumi.Input<string | undefined>;
         /**
-         * List of regions and their routing controls. See Region and Routing Controls below.
+         * Regions and their routing controls. See `regionAndRoutingControls` Block for details.
          */
         regionAndRoutingControls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControl>[] | undefined>;
         /**
@@ -9490,7 +9712,7 @@ export namespace arcregionswitch {
          */
         region: pulumi.Input<string>;
         /**
-         * List of routing controls. See Routing Control below.
+         * Routing controls. See `routingControl` Block for details.
          */
         routingControls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControl>[] | undefined>;
     }
@@ -9506,9 +9728,63 @@ export namespace arcregionswitch {
         state: pulumi.Input<string>;
     }
 
+    export interface PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfig {
+        /**
+         * ARN of the cross-account role to assume.
+         */
+        crossAccountRole?: pulumi.Input<string | undefined>;
+        /**
+         * External ID for cross-account role assumption.
+         */
+        externalId?: pulumi.Input<string | undefined>;
+        /**
+         * Global cluster identifier.
+         */
+        globalClusterIdentifier: pulumi.Input<string>;
+        /**
+         * Map of regions to Aurora instance ARNs.
+         */
+        instanceArns: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Map of regions to database cluster ARNs.
+         */
+        regionDatabaseClusterArns: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Timeout in minutes.
+         */
+        timeoutMinutes?: pulumi.Input<number | undefined>;
+    }
+
+    export interface PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig {
+        /**
+         * ARN of the cross-account role to assume.
+         */
+        crossAccountRole?: pulumi.Input<string | undefined>;
+        /**
+         * External ID for cross-account role assumption.
+         */
+        externalId?: pulumi.Input<string | undefined>;
+        /**
+         * Global cluster identifier.
+         */
+        globalClusterIdentifier: pulumi.Input<string>;
+        /**
+         * Map of regions to database cluster ARNs.
+         */
+        regionDatabaseClusterArns: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Target capacity percentage.
+         */
+        targetPercent?: pulumi.Input<number | undefined>;
+        /**
+         * Timeout in minutes.
+         */
+        timeoutMinutes?: pulumi.Input<number | undefined>;
+    }
+
     export interface PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig {
         /**
-         * Lambda function configuration. See Lambda below.
+         * Lambda function configuration. See `lambda` Block for details.
          */
         lambdas?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambda>[] | undefined>;
         /**
@@ -9524,7 +9800,7 @@ export namespace arcregionswitch {
          */
         timeoutMinutes?: pulumi.Input<number | undefined>;
         /**
-         * Ungraceful behavior configuration. See Ungraceful below.
+         * Ungraceful behavior configuration. See `workflow.step.custom_action_lambda_config.ungraceful` Block for details.
          */
         ungracefuls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngraceful>[] | undefined>;
     }
@@ -9545,19 +9821,37 @@ export namespace arcregionswitch {
     }
 
     export interface PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngraceful {
-        /**
-         * Behavior when ungraceful. Valid values: `skip`.
-         */
         behavior: pulumi.Input<string>;
     }
 
     export interface PlanWorkflowStepParallelConfigStepDocumentDbConfig {
+        /**
+         * Behavior for global cluster operations. Valid values: `switchoverOnly`, `failover`.
+         */
         behavior: pulumi.Input<string>;
+        /**
+         * ARN of the cross-account role to assume.
+         */
         crossAccountRole?: pulumi.Input<string | undefined>;
+        /**
+         * List of DocumentDB cluster ARNs.
+         */
         databaseClusterArns: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * External ID for cross-account role assumption.
+         */
         externalId?: pulumi.Input<string | undefined>;
+        /**
+         * Global cluster identifier.
+         */
         globalClusterIdentifier: pulumi.Input<string>;
+        /**
+         * Timeout in minutes.
+         */
         timeoutMinutes?: pulumi.Input<number | undefined>;
+        /**
+         * Ungraceful behavior configuration. See `workflow.step.document_db_config.ungraceful` Block for details.
+         */
         ungracefuls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepDocumentDbConfigUngraceful>[] | undefined>;
     }
 
@@ -9567,7 +9861,7 @@ export namespace arcregionswitch {
 
     export interface PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfig {
         /**
-         * Auto Scaling group configuration. See ASG below.
+         * Auto Scaling group configuration. See `asg` Block for details.
          */
         asgs?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsg>[] | undefined>;
         /**
@@ -9583,7 +9877,7 @@ export namespace arcregionswitch {
          */
         timeoutMinutes?: pulumi.Input<number | undefined>;
         /**
-         * Ungraceful behavior configuration. See Ungraceful below.
+         * Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
          */
         ungraceful?: pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngraceful | undefined>;
     }
@@ -9616,7 +9910,7 @@ export namespace arcregionswitch {
          */
         capacityMonitoringApproach: pulumi.Input<string>;
         /**
-         * ECS service configuration. See ECS Service below.
+         * ECS service configuration. See `service` Block for details.
          */
         services?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService>[] | undefined>;
         /**
@@ -9628,14 +9922,23 @@ export namespace arcregionswitch {
          */
         timeoutMinutes?: pulumi.Input<number | undefined>;
         /**
-         * Ungraceful behavior configuration. See Ungraceful Capacity below.
+         * Ungraceful behavior configuration. See `workflow.step.ecs_capacity_increase_config.ungraceful` Block for details.
          */
         ungraceful?: pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngraceful | undefined>;
     }
 
     export interface PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigService {
+        /**
+         * ARN of the ECS cluster.
+         */
         clusterArn: pulumi.Input<string>;
+        /**
+         * ARN of the cross-account role to assume.
+         */
         crossAccountRole?: pulumi.Input<string | undefined>;
+        /**
+         * External ID for cross-account role assumption.
+         */
         externalId?: pulumi.Input<string | undefined>;
         /**
          * ARN of the ECS service.
@@ -9656,15 +9959,15 @@ export namespace arcregionswitch {
          */
         capacityMonitoringApproach: pulumi.Input<string>;
         /**
-         * List of EKS clusters. See EKS Clusters below.
+         * EKS clusters. See `eksClusters` Block for details.
          */
         eksClusters?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksCluster>[] | undefined>;
         /**
-         * Kubernetes resource type. See Kubernetes Resource Type below.
+         * Kubernetes resource type. See `kubernetesResourceType` Block for details.
          */
         kubernetesResourceTypes?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceType>[] | undefined>;
         /**
-         * List of scaling resources. See Scaling Resources below.
+         * Scaling resources. See `scalingResources` Block for details.
          */
         scalingResources?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResource>[] | undefined>;
         /**
@@ -9676,7 +9979,7 @@ export namespace arcregionswitch {
          */
         timeoutMinutes?: pulumi.Input<number | undefined>;
         /**
-         * Ungraceful behavior configuration. See Ungraceful Capacity below.
+         * Ungraceful behavior configuration. See `workflow.step.eks_resource_scaling_config.ungraceful` Block for details.
          */
         ungracefuls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngraceful>[] | undefined>;
     }
@@ -9713,7 +10016,7 @@ export namespace arcregionswitch {
          */
         namespace: pulumi.Input<string>;
         /**
-         * Set of resources to scale. See Resources below.
+         * Resources to scale. See `resources` Block for details.
          */
         resources?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResource>[] | undefined>;
     }
@@ -9781,12 +10084,89 @@ export namespace arcregionswitch {
          */
         timeoutMinutes?: pulumi.Input<number | undefined>;
         /**
-         * Ungraceful behavior configuration. See Ungraceful Aurora below.
+         * Ungraceful behavior configuration. See `workflow.step.global_aurora_config.ungraceful` Block for details.
          */
         ungracefuls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngraceful>[] | undefined>;
     }
 
     export interface PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngraceful {
+        ungraceful: pulumi.Input<string>;
+    }
+
+    export interface PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig {
+        /**
+         * Action to perform on the event source mapping.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * Event source mappings per region. See `regionEventSourceMapping` Block for details.
+         */
+        regionEventSourceMappings?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping>[] | undefined>;
+        /**
+         * Timeout in minutes.
+         */
+        timeoutMinutes?: pulumi.Input<number | undefined>;
+        /**
+         * Ungraceful behavior configuration. See `workflow.step.lambda_event_source_mapping_config.ungraceful` Block for details.
+         */
+        ungracefuls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful>[] | undefined>;
+    }
+
+    export interface PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigRegionEventSourceMapping {
+        /**
+         * ARN of the event source mapping.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * ARN of the cross-account role to assume.
+         */
+        crossAccountRole?: pulumi.Input<string | undefined>;
+        /**
+         * External ID for cross-account role assumption.
+         */
+        externalId?: pulumi.Input<string | undefined>;
+        /**
+         * AWS region.
+         */
+        region: pulumi.Input<string>;
+    }
+
+    export interface PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigUngraceful {
+        behavior: pulumi.Input<string>;
+    }
+
+    export interface PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig {
+        /**
+         * Behavior for global database operations.
+         */
+        behavior: pulumi.Input<string>;
+        /**
+         * ARN of the cross-account role to assume.
+         */
+        crossAccountRole?: pulumi.Input<string | undefined>;
+        /**
+         * External ID for cross-account role assumption.
+         */
+        externalId?: pulumi.Input<string | undefined>;
+        /**
+         * Global cluster identifier.
+         */
+        globalClusterIdentifier: pulumi.Input<string>;
+        /**
+         * Map of regions to database cluster ARNs.
+         */
+        regionDatabaseClusterArns: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Timeout in minutes.
+         */
+        timeoutMinutes?: pulumi.Input<number | undefined>;
+        /**
+         * Ungraceful behavior configuration. See `workflow.step.neptune_global_database_config.ungraceful` Block for details.
+         */
+        ungracefuls?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful>[] | undefined>;
+    }
+
+    export interface PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigUngraceful {
         ungraceful: pulumi.Input<string>;
     }
 
@@ -9861,7 +10241,7 @@ export namespace arcregionswitch {
          */
         recordName: pulumi.Input<string>;
         /**
-         * Configuration block for record sets. See Record Set below.
+         * Configuration block for record sets. See `recordSet` Block for details.
          */
         recordSets?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSet>[] | undefined>;
         /**
@@ -9952,7 +10332,7 @@ export namespace arcregionswitch {
          */
         recordName: pulumi.Input<string>;
         /**
-         * Configuration block for record sets. See Record Set below.
+         * Configuration block for record sets. See `recordSet` Block for details.
          */
         recordSets?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanWorkflowStepRoute53HealthCheckConfigRecordSet>[] | undefined>;
         /**
@@ -10315,9 +10695,12 @@ export namespace auditmanager {
          * Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
          */
         sourceFrequency?: pulumi.Input<string | undefined>;
+        /**
+         * Unique identifier for the source.
+         */
         sourceId?: pulumi.Input<string | undefined>;
         /**
-         * The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
+         * Keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `sourceKeyword` below.
          */
         sourceKeyword?: pulumi.Input<inputs.auditmanager.ControlControlMappingSourceSourceKeyword | undefined>;
         /**
@@ -10325,7 +10708,7 @@ export namespace auditmanager {
          */
         sourceName: pulumi.Input<string>;
         /**
-         * The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+         * Setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
          */
         sourceSetUpOption: pulumi.Input<string>;
         /**
@@ -10346,7 +10729,7 @@ export namespace auditmanager {
          */
         keywordInputType: pulumi.Input<string>;
         /**
-         * The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
+         * Value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
          */
         keywordValue: pulumi.Input<string>;
     }
@@ -11773,42 +12156,42 @@ export namespace backup {
 
     export interface ReportPlanReportDeliveryChannel {
         /**
-         * A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
+         * List of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
          */
         formats?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * The unique name of the S3 bucket that receives your reports.
+         * Unique name of the S3 bucket that receives your reports.
          */
         s3BucketName: pulumi.Input<string>;
         /**
-         * The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
+         * Prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
          */
         s3KeyPrefix?: pulumi.Input<string | undefined>;
     }
 
     export interface ReportPlanReportSetting {
         /**
-         * Specifies the list of accounts a report covers.
+         * List of accounts a report covers.
          */
         accounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
+         * Amazon Resource Names (ARNs) of the frameworks a report covers.
          */
         frameworkArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Specifies the number of frameworks a report covers.
+         * Number of frameworks a report covers.
          */
         numberOfFrameworks?: pulumi.Input<number | undefined>;
         /**
-         * Specifies the list of Organizational Units a report covers.
+         * List of Organizational Units a report covers.
          */
         organizationUnits?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Specifies the list of regions a report covers.
+         * List of regions a report covers.
          */
         regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+         * Report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
          */
         reportTemplate: pulumi.Input<string>;
     }
@@ -12081,7 +12464,7 @@ export namespace batch {
 
     export interface JobDefinitionEksPropertiesPodProperties {
         /**
-         * Properties of the container that's used on the Amazon EKS pod. See containers below.
+         * Properties of the container that's used on the Amazon EKS pod. See `containers` below.
          */
         containers: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainer>[]>;
         /**
@@ -12097,11 +12480,11 @@ export namespace batch {
          */
         imagePullSecrets?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesImagePullSecret>[] | undefined>;
         /**
-         * Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
+         * Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See `initContainers` below.
          */
         initContainers?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesInitContainer>[] | undefined>;
         /**
-         * Metadata about the Kubernetes pod.
+         * Metadata about the Kubernetes pod. See `metadata` below.
          */
         metadata?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesMetadata | undefined>;
         /**
@@ -12109,11 +12492,11 @@ export namespace batch {
          */
         serviceAccountName?: pulumi.Input<string | undefined>;
         /**
-         * Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+         * Whether the processes in a container are shared, or visible, to other containers in the same pod.
          */
         shareProcessNamespace?: pulumi.Input<boolean | undefined>;
         /**
-         * Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+         * Volumes for a job definition that uses Amazon EKS resources. See `volumes` below.
          */
         volumes?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesVolume>[] | undefined>;
     }
@@ -12128,7 +12511,7 @@ export namespace batch {
          */
         commands?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Environment variables to pass to a container. See EKS Environment below.
+         * Environment variables to pass to a container. See `env` below.
          */
         envs?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainerEnv>[] | undefined>;
         /**
@@ -12144,7 +12527,7 @@ export namespace batch {
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+         * Type and amount of resources to assign to a container. See `resources` below.
          */
         resources?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainerResources | undefined>;
         /**
@@ -12152,14 +12535,14 @@ export namespace batch {
          */
         securityContext?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext | undefined>;
         /**
-         * Volume mounts for the container.
+         * Volume mounts for the container. See `volumeMounts` below.
          */
         volumeMounts?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount>[] | undefined>;
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesContainerEnv {
         /**
-         * Name of the job definition.
+         * Name of the environment variable.
          */
         name: pulumi.Input<string>;
         /**
@@ -12169,7 +12552,13 @@ export namespace batch {
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesContainerResources {
+        /**
+         * Type and quantity of the resources to reserve for the container. The values vary based on the name that's specified. Limits must be equal to or greater than requests.
+         */
         limits?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Type and quantity of the resources to request for the container. The values vary based on the name that's specified.
+         */
         requests?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     }
 
@@ -12182,6 +12571,9 @@ export namespace batch {
          * When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
          */
         privileged?: pulumi.Input<boolean | undefined>;
+        /**
+         * When this parameter is `true`, the container is given read-only access to its root file system. The default value is `false`.
+         */
         readOnlyRootFileSystem?: pulumi.Input<boolean | undefined>;
         /**
          * When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
@@ -12198,11 +12590,17 @@ export namespace batch {
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount {
+        /**
+         * Path on the container where the volume is mounted.
+         */
         mountPath: pulumi.Input<string>;
         /**
-         * Name of the job definition.
+         * Name the volume mount. This must match the name of one of the volumes in the pod.
          */
         name: pulumi.Input<string>;
+        /**
+         * Whether the container has read-only access to the volume. The default value is `false`.
+         */
         readOnly?: pulumi.Input<boolean | undefined>;
     }
 
@@ -12223,7 +12621,7 @@ export namespace batch {
          */
         commands?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Environment variables to pass to a container. See EKS Environment below.
+         * Environment variables to pass to a container. See `env` below.
          */
         envs?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesInitContainerEnv>[] | undefined>;
         /**
@@ -12235,11 +12633,11 @@ export namespace batch {
          */
         imagePullPolicy?: pulumi.Input<string | undefined>;
         /**
-         * Name of the job definition.
+         * Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+         * Type and amount of resources to assign to a container. See `resources` below.
          */
         resources?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesInitContainerResources | undefined>;
         /**
@@ -12247,14 +12645,14 @@ export namespace batch {
          */
         securityContext?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext | undefined>;
         /**
-         * Volume mounts for the container.
+         * Volume mounts for the container. See `volumeMounts` below.
          */
         volumeMounts?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount>[] | undefined>;
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesInitContainerEnv {
         /**
-         * Name of the job definition.
+         * Name of the environment variable.
          */
         name: pulumi.Input<string>;
         /**
@@ -12264,7 +12662,13 @@ export namespace batch {
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesInitContainerResources {
+        /**
+         * Type and quantity of the resources to reserve for the container. The values vary based on the name that's specified. Limits must be equal to or greater than requests.
+         */
         limits?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Type and quantity of the resources to request for the container. The values vary based on the name that's specified.
+         */
         requests?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     }
 
@@ -12277,6 +12681,9 @@ export namespace batch {
          * When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
          */
         privileged?: pulumi.Input<boolean | undefined>;
+        /**
+         * When this parameter is `true`, the container is given read-only access to its root file system. The default value is `false`.
+         */
         readOnlyRootFileSystem?: pulumi.Input<boolean | undefined>;
         /**
          * When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
@@ -12293,11 +12700,17 @@ export namespace batch {
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount {
+        /**
+         * Path on the container where the volume is mounted.
+         */
         mountPath: pulumi.Input<string>;
         /**
-         * Name of the job definition.
+         * Name the volume mount. This must match the name of one of the volumes in the pod.
          */
         name: pulumi.Input<string>;
+        /**
+         * Whether the container has read-only access to the volume. The default value is `false`.
+         */
         readOnly?: pulumi.Input<boolean | undefined>;
     }
 
@@ -12309,12 +12722,21 @@ export namespace batch {
     }
 
     export interface JobDefinitionEksPropertiesPodPropertiesVolume {
+        /**
+         * Empty directory to mount on the pod. See `emptyDir` below.
+         */
         emptyDir?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir | undefined>;
+        /**
+         * Path on the host that's mounted to the pod. See `hostPath` below.
+         */
         hostPath?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeHostPath | undefined>;
         /**
-         * Name of the job definition.
+         * Name of the volume. The name must be allowed as a DNS subdomain name.
          */
         name?: pulumi.Input<string | undefined>;
+        /**
+         * Secret to mount as a volume. See `secret` below.
+         */
         secret?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesPodPropertiesVolumeSecret | undefined>;
     }
 
@@ -15968,6 +16390,193 @@ export namespace bedrock {
         enableResponseStreaming?: pulumi.Input<boolean | undefined>;
     }
 
+    export interface AgentcoreGatewayRuleAction {
+        /**
+         * Reference to the configuration bundle for this variant.
+         */
+        configurationBundle?: pulumi.Input<inputs.bedrock.AgentcoreGatewayRuleActionConfigurationBundle | undefined>;
+        /**
+         * Route requests to a gateway target when the rule's conditions match. See routeToTarget below.
+         */
+        routeToTarget?: pulumi.Input<inputs.bedrock.AgentcoreGatewayRuleActionRouteToTarget | undefined>;
+    }
+
+    export interface AgentcoreGatewayRuleActionConfigurationBundle {
+        /**
+         * Statically override the configuration bundle used for the matched request.
+         */
+        staticOverride?: pulumi.Input<inputs.bedrock.AgentcoreGatewayRuleActionConfigurationBundleStaticOverride | undefined>;
+        /**
+         * Distribute the request across two configuration bundle versions by weight.
+         */
+        weightedOverride?: pulumi.Input<inputs.bedrock.AgentcoreGatewayRuleActionConfigurationBundleWeightedOverride | undefined>;
+    }
+
+    export interface AgentcoreGatewayRuleActionConfigurationBundleStaticOverride {
+        /**
+         * ARN of the configuration bundle to apply.
+         */
+        bundleArn: pulumi.Input<string>;
+        /**
+         * Version (UUID) of the configuration bundle to apply.
+         */
+        bundleVersion: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreGatewayRuleActionConfigurationBundleWeightedOverride {
+        /**
+         * Exactly two `trafficSplit` blocks describing the two variants.
+         */
+        trafficSplits?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplit>[] | undefined>;
+    }
+
+    export interface AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplit {
+        /**
+         * Reference to the configuration bundle for this variant.
+         */
+        configurationBundle?: pulumi.Input<inputs.bedrock.AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundle | undefined>;
+        /**
+         * Description of the rule. Between 1 and 256 characters.
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * Up to 25 key/value metadata pairs describing this variant.
+         */
+        metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Name of this variant. Between 1 and 64 characters; alphanumeric with internal hyphens.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Percentage of traffic routed to this variant, between 1 and 99.
+         */
+        weight: pulumi.Input<number>;
+    }
+
+    export interface AgentcoreGatewayRuleActionConfigurationBundleWeightedOverrideTrafficSplitConfigurationBundle {
+        /**
+         * ARN of the configuration bundle to apply.
+         */
+        bundleArn: pulumi.Input<string>;
+        /**
+         * Version (UUID) of the configuration bundle to apply.
+         */
+        bundleVersion: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreGatewayRuleActionRouteToTarget {
+        /**
+         * Route all matching requests to a single named gateway target.
+         */
+        staticRoute?: pulumi.Input<inputs.bedrock.AgentcoreGatewayRuleActionRouteToTargetStaticRoute | undefined>;
+        /**
+         * Distribute requests across two named targets by weight.
+         */
+        weightedRoute?: pulumi.Input<inputs.bedrock.AgentcoreGatewayRuleActionRouteToTargetWeightedRoute | undefined>;
+    }
+
+    export interface AgentcoreGatewayRuleActionRouteToTargetStaticRoute {
+        /**
+         * Name of the gateway target this variant points to.
+         */
+        targetName: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreGatewayRuleActionRouteToTargetWeightedRoute {
+        /**
+         * Exactly two `trafficSplit` blocks describing the two variants.
+         */
+        trafficSplits?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplit>[] | undefined>;
+    }
+
+    export interface AgentcoreGatewayRuleActionRouteToTargetWeightedRouteTrafficSplit {
+        /**
+         * Description of the rule. Between 1 and 256 characters.
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * Up to 25 key/value metadata pairs describing this variant.
+         */
+        metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Name of this variant. Between 1 and 64 characters; alphanumeric with internal hyphens.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Name of the gateway target this variant points to.
+         */
+        targetName: pulumi.Input<string>;
+        /**
+         * Percentage of traffic routed to this variant, between 1 and 99.
+         */
+        weight: pulumi.Input<number>;
+    }
+
+    export interface AgentcoreGatewayRuleCondition {
+        /**
+         * Match when the request path matches any of the supplied glob patterns (e.g. `/api/*`).
+         */
+        matchPaths?: pulumi.Input<inputs.bedrock.AgentcoreGatewayRuleConditionMatchPaths | undefined>;
+        /**
+         * Match when the caller's IAM identity matches any of the supplied principal entries.
+         */
+        matchPrincipals?: pulumi.Input<inputs.bedrock.AgentcoreGatewayRuleConditionMatchPrincipals | undefined>;
+    }
+
+    export interface AgentcoreGatewayRuleConditionMatchPaths {
+        /**
+         * Between 1 and 100 principal entry blocks.
+         */
+        anyOfs: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AgentcoreGatewayRuleConditionMatchPrincipals {
+        /**
+         * Between 1 and 100 principal entry blocks.
+         */
+        anyOfs?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayRuleConditionMatchPrincipalsAnyOf>[] | undefined>;
+    }
+
+    export interface AgentcoreGatewayRuleConditionMatchPrincipalsAnyOf {
+        /**
+         * Match an IAM user, role, or assumed-role ARN. Exactly one `iamPrincipal` block is required per entry.
+         */
+        iamPrincipal: pulumi.Input<inputs.bedrock.AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipal>;
+    }
+
+    export interface AgentcoreGatewayRuleConditionMatchPrincipalsAnyOfIamPrincipal {
+        /**
+         * IAM principal ARN. Wildcards are allowed with the `StringLike` operator.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * Match operator, one of `StringEquals` or `StringLike`. Defaults to `StringEquals`.
+         */
+        operator?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AgentcoreGatewayRuleSystem {
+        /**
+         * Name of the system that manages the rule.
+         */
+        managedBy: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreGatewayRuleTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
+
     export interface AgentcoreGatewayTargetCredentialProviderConfiguration {
         /**
          * API key-based authentication configuration. See `apiKey` below.
@@ -16679,6 +17288,43 @@ export namespace bedrock {
          * Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
          */
         listingMode?: pulumi.Input<string | undefined>;
+        /**
+         * Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+         */
+        mcpToolSchema?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema | undefined>;
+        /**
+         * Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to `1000` when not set.
+         */
+        resourcePriority?: pulumi.Input<number | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema {
+        /**
+         * Inline tool schema payload. The `inlinePayload` block requires a `payload` (string) containing the MCP tool schema definition.
+         */
+        inlinePayload?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload | undefined>;
+        /**
+         * S3 location of the tool schema. See `s3` below.
+         */
+        s3?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3 | undefined>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload {
+        /**
+         * The inline schema payload content.
+         */
+        payload: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3 {
+        /**
+         * Account ID of the S3 bucket owner.
+         */
+        bucketOwnerAccountId?: pulumi.Input<string | undefined>;
+        /**
+         * S3 URI where the schema is stored.
+         */
+        uri: pulumi.Input<string>;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema {
@@ -16766,7 +17412,7 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessAuthorizerConfiguration {
         /**
-         * JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+         * JWT-based authorization configuration block. See `customJwtAuthorizer` Block below.
          */
         customJwtAuthorizer?: pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer | undefined>;
     }
@@ -16785,11 +17431,11 @@ export namespace bedrock {
          */
         allowedScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+         * Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` Block below.
          */
         allowedWorkloadConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration | undefined>;
         /**
-         * Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+         * Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` Block below.
          */
         customClaims?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim>[] | undefined>;
         /**
@@ -16797,18 +17443,18 @@ export namespace bedrock {
          */
         discoveryUrl: pulumi.Input<string>;
         /**
-         * Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+         * Private endpoint used to reach the authorization server. See `privateEndpoint` Block below.
          */
         privateEndpoint?: pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint | undefined>;
         /**
-         * Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+         * Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` Block below.
          */
         privateEndpointOverrides?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride>[] | undefined>;
     }
 
     export interface AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration {
         /**
-         * Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+         * Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` Block below.
          */
         hostingEnvironments?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment>[] | undefined>;
         /**
@@ -16826,7 +17472,7 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
         /**
-         * Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+         * Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` Block below.
          */
         authorizingClaimMatchValue: pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue>;
         /**
@@ -16845,7 +17491,7 @@ export namespace bedrock {
          */
         claimMatchOperator: pulumi.Input<string>;
         /**
-         * Value or values to match for. See `claimMatchValue` below.
+         * Value or values to match for. See `claimMatchValue` Block below.
          */
         claimMatchValue: pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue>;
     }
@@ -16863,11 +17509,11 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
         /**
-         * Managed VPC resource configuration. See `managedVpcResource` below.
+         * Managed VPC resource configuration. See `managedVpcResource` Block below.
          */
         managedVpcResource?: pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource | undefined>;
         /**
-         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
          */
         selfManagedLatticeResource?: pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource | undefined>;
     }
@@ -16905,18 +17551,18 @@ export namespace bedrock {
          */
         domain: pulumi.Input<string>;
         /**
-         * Private endpoint configuration. See `privateEndpoint` below.
+         * Private endpoint configuration. See `privateEndpoint` Block below.
          */
         privateEndpoint: pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint>;
     }
 
     export interface AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
         /**
-         * Managed VPC resource configuration. See `managedVpcResource` below.
+         * Managed VPC resource configuration. See `managedVpcResource` Block below.
          */
         managedVpcResource?: pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource | undefined>;
         /**
-         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` Block below.
          */
         selfManagedLatticeResource?: pulumi.Input<inputs.bedrock.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource | undefined>;
     }
@@ -16964,7 +17610,7 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessEnvironment {
         /**
-         * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` below.
+         * AgentCore runtime environment configuration. See `agentcoreRuntimeEnvironment` Block below.
          */
         agentcoreRuntimeEnvironments: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment>[]>;
     }
@@ -16974,30 +17620,30 @@ export namespace bedrock {
         agentRuntimeId: pulumi.Input<string>;
         agentRuntimeName: pulumi.Input<string>;
         /**
-         * Filesystem configurations. See `filesystemConfiguration` below.
+         * Filesystem configurations. See `filesystemConfiguration` Block below.
          */
         filesystemConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration>[]>;
         /**
-         * Lifecycle configuration. See `lifecycleConfiguration` below.
+         * Lifecycle configuration. See `lifecycleConfiguration` Block below.
          */
         lifecycleConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration>[]>;
         /**
-         * Network configuration. See `networkConfiguration` below.
+         * Network configuration. See `networkConfiguration` Block below.
          */
         networkConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration>[]>;
     }
 
     export interface AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration {
         /**
-         * Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` below.
+         * Amazon EFS access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `efsAccessPoint` Block below.
          */
         efsAccessPoints: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationEfsAccessPoint>[]>;
         /**
-         * Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` below.
+         * Amazon S3 Files access point to mount as shared file storage. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `s3FilesAccessPoint` Block below.
          */
         s3FilesAccessPoints: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationS3FilesAccessPoint>[]>;
         /**
-         * Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` below.
+         * Session storage filesystem providing persistent storage across agent runtime session invocations. Exactly one of `sessionStorage`, `s3FilesAccessPoint`, or `efsAccessPoint` must be specified. See `sessionStorage` Block below.
          */
         sessionStorages: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationSessionStorage>[]>;
     }
@@ -17048,7 +17694,7 @@ export namespace bedrock {
          */
         networkMode: pulumi.Input<string>;
         /**
-         * VPC configuration. See `networkModeConfig` below.
+         * VPC configuration. See `networkModeConfig` Block below.
          */
         networkModeConfigs: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig>[]>;
     }
@@ -17070,7 +17716,7 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessEnvironmentArtifact {
         /**
-         * Container configuration. See `containerConfiguration` below.
+         * Container configuration. See `containerConfiguration` Block below.
          */
         containerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreHarnessEnvironmentArtifactContainerConfiguration | undefined>;
     }
@@ -17084,9 +17730,94 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessMemory {
         /**
-         * AgentCore memory configuration. See `agentcoreMemoryConfiguration` below.
+         * AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
          */
         agentcoreMemoryConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryAgentcoreMemoryConfiguration | undefined>;
+        /**
+         * Explicitly disable memory for this harness. See `disabled` Block below.
+         */
+        disabled?: pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryDisabled | undefined>;
+        /**
+         * Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+         */
+        managedMemoryConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryManagedMemoryConfiguration | undefined>;
+    }
+
+    export interface AgentcoreHarnessMemoryActual {
+        /**
+         * AgentCore memory configuration. Use this to connect to an existing AgentCore memory resource. See `agentcoreMemoryConfiguration` Block below.
+         */
+        agentcoreMemoryConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration>[]>;
+        /**
+         * Explicitly disable memory for this harness. See `disabled` Block below.
+         */
+        disableds: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryActualDisabled>[]>;
+        /**
+         * Managed memory configuration. Creates and manages a memory resource automatically. See `managedMemoryConfiguration` Block below.
+         */
+        managedMemoryConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryActualManagedMemoryConfiguration>[]>;
+    }
+
+    export interface AgentcoreHarnessMemoryActualAgentcoreMemoryConfiguration {
+        /**
+         * Actor ID for memory sessions.
+         */
+        actorId: pulumi.Input<string>;
+        /**
+         * ARN of the AgentCore memory resource.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * Number of messages to retrieve from memory.
+         */
+        messagesCount: pulumi.Input<number>;
+        /**
+         * Retrieval configuration parameters. See `retrievalConfig` Block below.
+         */
+        retrievalConfigs: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig>[]>;
+    }
+
+    export interface AgentcoreHarnessMemoryActualAgentcoreMemoryConfigurationRetrievalConfig {
+        /**
+         * Namespace path template for retrieval settings.
+         */
+        mapBlockKey: pulumi.Input<string>;
+        /**
+         * Relevance score threshold. Valid value is between `0` and `1`.
+         */
+        relevanceScore: pulumi.Input<number>;
+        /**
+         * ID of the memory strategy.
+         */
+        strategyId: pulumi.Input<string>;
+        /**
+         * Number of top results to retrieve.
+         */
+        topK: pulumi.Input<number>;
+    }
+
+    export interface AgentcoreHarnessMemoryActualDisabled {
+    }
+
+    export interface AgentcoreHarnessMemoryActualManagedMemoryConfiguration {
+        /**
+         * ARN of the managed memory resource.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+         */
+        encryptionKeyArn: pulumi.Input<string>;
+        /**
+         * Event retention in days. Defaults to `30`.
+         */
+        eventExpiryDuration: pulumi.Input<number>;
+        /**
+         * Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
+         *
+         * In addition, the following attribute is exported:
+         */
+        strategies: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AgentcoreHarnessMemoryAgentcoreMemoryConfiguration {
@@ -17103,14 +17834,14 @@ export namespace bedrock {
          */
         messagesCount?: pulumi.Input<number | undefined>;
         /**
-         * Retrieval configuration parameters. See `retrievalConfig` below.
+         * Retrieval configuration parameters. See `retrievalConfig` Block below.
          */
         retrievalConfig?: pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig | undefined>;
     }
 
     export interface AgentcoreHarnessMemoryAgentcoreMemoryConfigurationRetrievalConfig {
         /**
-         * Key for the retrieval configuration map block.
+         * Namespace path template for retrieval settings.
          */
         mapBlockKey: pulumi.Input<string>;
         /**
@@ -17127,17 +17858,41 @@ export namespace bedrock {
         topK?: pulumi.Input<number | undefined>;
     }
 
+    export interface AgentcoreHarnessMemoryDisabled {
+    }
+
+    export interface AgentcoreHarnessMemoryManagedMemoryConfiguration {
+        /**
+         * ARN of the managed memory resource.
+         */
+        arn?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of a customer-managed KMS key used to encrypt the memory. Defaults to an AWS-owned key. Cannot be changed after creation.
+         */
+        encryptionKeyArn?: pulumi.Input<string | undefined>;
+        /**
+         * Event retention in days. Defaults to `30`.
+         */
+        eventExpiryDuration?: pulumi.Input<number | undefined>;
+        /**
+         * Set of strategy types to enable. Valid values are `SEMANTIC`, `SUMMARIZATION`, and `USER_PREFERENCE`. Defaults to `["SEMANTIC", "SUMMARIZATION"]`.
+         *
+         * In addition, the following attribute is exported:
+         */
+        strategies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
     export interface AgentcoreHarnessModel {
         /**
-         * Amazon Bedrock model configuration. See `bedrockModelConfig` below.
+         * Amazon Bedrock model configuration. See `bedrockModelConfig` Block below.
          */
         bedrockModelConfig?: pulumi.Input<inputs.bedrock.AgentcoreHarnessModelBedrockModelConfig | undefined>;
         /**
-         * Gemini model configuration. See `geminiModelConfig` below.
+         * Gemini model configuration. See `geminiModelConfig` Block below.
          */
         geminiModelConfig?: pulumi.Input<inputs.bedrock.AgentcoreHarnessModelGeminiModelConfig | undefined>;
         /**
-         * OpenAI model configuration. See `openaiModelConfig` below.
+         * OpenAI model configuration. See `openaiModelConfig` Block below.
          */
         openaiModelConfig?: pulumi.Input<inputs.bedrock.AgentcoreHarnessModelOpenaiModelConfig | undefined>;
     }
@@ -17257,23 +18012,23 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessToolConfig {
         /**
-         * AgentCore browser configuration. See `agentcoreBrowser` below.
+         * AgentCore browser configuration. See `agentcoreBrowser` Block below.
          */
         agentcoreBrowser?: pulumi.Input<inputs.bedrock.AgentcoreHarnessToolConfigAgentcoreBrowser | undefined>;
         /**
-         * AgentCore code interpreter configuration. See `agentcoreCodeInterpreter` below.
+         * AgentCore code interpreter configuration. See `agentcoreCodeInterpreter` Block below.
          */
         agentcoreCodeInterpreter?: pulumi.Input<inputs.bedrock.AgentcoreHarnessToolConfigAgentcoreCodeInterpreter | undefined>;
         /**
-         * AgentCore gateway configuration. See `agentcoreGateway` below.
+         * AgentCore gateway configuration. See `agentcoreGateway` Block below.
          */
         agentcoreGateway?: pulumi.Input<inputs.bedrock.AgentcoreHarnessToolConfigAgentcoreGateway | undefined>;
         /**
-         * Inline function configuration. See `inlineFunction` below.
+         * Inline function configuration. See `inlineFunction` Block below.
          */
         inlineFunction?: pulumi.Input<inputs.bedrock.AgentcoreHarnessToolConfigInlineFunction | undefined>;
         /**
-         * Remote MCP server configuration. See `remoteMcp` below.
+         * Remote MCP server configuration. See `remoteMcp` Block below.
          */
         remoteMcp?: pulumi.Input<inputs.bedrock.AgentcoreHarnessToolConfigRemoteMcp | undefined>;
     }
@@ -17298,7 +18053,7 @@ export namespace bedrock {
          */
         gatewayArn: pulumi.Input<string>;
         /**
-         * Outbound authentication configuration. See `outboundAuth` below.
+         * Outbound authentication configuration. See `outboundAuth` Block below.
          */
         outboundAuth?: pulumi.Input<inputs.bedrock.AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuth | undefined>;
     }
@@ -17313,7 +18068,7 @@ export namespace bedrock {
          */
         none?: pulumi.Input<boolean | undefined>;
         /**
-         * OAuth credential provider configuration. See `oauth` below.
+         * OAuth credential provider configuration. See `oauth` Block below.
          */
         oauth?: pulumi.Input<inputs.bedrock.AgentcoreHarnessToolConfigAgentcoreGatewayOutboundAuthOauth | undefined>;
     }
@@ -17376,11 +18131,11 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessTruncationConfig {
         /**
-         * Sliding window truncation configuration. See `slidingWindow` below.
+         * Sliding window truncation configuration. See `slidingWindow` Block below.
          */
         slidingWindows: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessTruncationConfigSlidingWindow>[]>;
         /**
-         * Summarization truncation configuration. See `summarization` below.
+         * Summarization truncation configuration. See `summarization` Block below.
          */
         summarizations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessTruncationConfigSummarization>[]>;
     }
@@ -31225,6 +31980,10 @@ export namespace dlm {
          */
         excludeBootVolume?: pulumi.Input<boolean | undefined>;
         /**
+         * Map specifies whether to exclude volumes that have specific tags.
+         */
+        excludeDataVolumeTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
          * Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
          */
         noReboot?: pulumi.Input<boolean | undefined>;
@@ -40742,7 +41501,13 @@ export namespace ecs {
     }
 
     export interface ExpressGatewayServiceIngressPath {
+        /**
+         * Access type for the ingress path.
+         */
         accessType: pulumi.Input<string>;
+        /**
+         * Endpoint for the ingress path.
+         */
         endpoint: pulumi.Input<string>;
     }
 
@@ -41547,7 +42312,7 @@ export namespace ecs {
 
     export interface ServiceVolumeConfigurationManagedEbsVolumeTagSpecification {
         /**
-         * Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
+         * Whether to propagate the tags from the task definition to the Amazon EBS volume.
          */
         propagateTags?: pulumi.Input<string | undefined>;
         /**
@@ -42127,6 +42892,80 @@ export namespace eks {
          * Issuer URL for the OpenID Connect identity provider.
          */
         issuer?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ClusterKubeApiServerConfig {
+        /**
+         * The duration that Kubernetes events are retained. Must be a single-unit duration (e.g., `30m`, `1h`). Valid range: `10m` to `60m`. Default is `1h`.
+         */
+        eventTtl?: pulumi.Input<string | undefined>;
+        /**
+         * Configuration block for the port range available for NodePort services. Detailed below.
+         */
+        serviceNodePortRange?: pulumi.Input<inputs.eks.ClusterKubeApiServerConfigServiceNodePortRange | undefined>;
+    }
+
+    export interface ClusterKubeApiServerConfigServiceNodePortRange {
+        /**
+         * The maximum port number in the range. Valid range: `10260` to `32767`. Default is `32767`. Must be greater than or equal to `minPort`.
+         */
+        maxPort?: pulumi.Input<number | undefined>;
+        /**
+         * The minimum port number in the range. Valid range: `10260` to `32767`. Default is `30000`.
+         */
+        minPort?: pulumi.Input<number | undefined>;
+    }
+
+    export interface ClusterKubeControllerManagerConfig {
+        /**
+         * Configuration block for the horizontal pod autoscaler controller. Detailed below.
+         *
+         * > **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
+         */
+        horizontalPodAutoscalerControllerConfig?: pulumi.Input<inputs.eks.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig | undefined>;
+    }
+
+    export interface ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
+        /**
+         * The interval between each sync of the horizontal pod autoscaler. Must be a single-unit duration (e.g., `10s`, `15s`). Valid range: `10s` to `15s`. Default is `15s`.
+         */
+        horizontalPodAutoscalerSyncPeriod?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ClusterKubeSchedulerConfig {
+        /**
+         * Configuration block for the NodeResourcesFit scheduler plugin. Detailed below.
+         */
+        nodeResourcesFit?: pulumi.Input<inputs.eks.ClusterKubeSchedulerConfigNodeResourcesFit | undefined>;
+    }
+
+    export interface ClusterKubeSchedulerConfigNodeResourcesFit {
+        /**
+         * Configuration block for the scoring strategy used to rank nodes during scheduling. Detailed below.
+         */
+        scoringStrategy?: pulumi.Input<inputs.eks.ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy | undefined>;
+    }
+
+    export interface ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategy {
+        /**
+         * List of resource weight configuration blocks for scoring nodes. Detailed below.
+         */
+        resources?: pulumi.Input<pulumi.Input<inputs.eks.ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource>[] | undefined>;
+        /**
+         * The scoring strategy type. Valid values are `LeastAllocated` and `MostAllocated`. Default is `LeastAllocated`.
+         */
+        type?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ClusterKubeSchedulerConfigNodeResourcesFitScoringStrategyResource {
+        /**
+         * The name of the resource (e.g., `cpu`, `memory`, `nvidia.com/gpu`).
+         */
+        name?: pulumi.Input<string | undefined>;
+        /**
+         * The weight assigned to the resource for scoring. Must be between `1` and `100`.
+         */
+        weight?: pulumi.Input<number | undefined>;
     }
 
     export interface ClusterKubernetesNetworkConfig {
@@ -44712,7 +45551,7 @@ export namespace finspace {
          */
         nodeCount: pulumi.Input<number>;
         /**
-         * Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
+         * Hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
          */
         nodeType: pulumi.Input<string>;
     }
@@ -45168,7 +46007,7 @@ export namespace fms {
          */
         managedServiceData?: pulumi.Input<string | undefined>;
         /**
-         * Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
+         * Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
          */
         policyOption?: pulumi.Input<inputs.fms.PolicySecurityServicePolicyDataPolicyOption | undefined>;
         /**
@@ -45362,7 +46201,7 @@ export namespace fms {
          */
         resourceSetStatus?: pulumi.Input<string | undefined>;
         /**
-         * Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+         * Resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
          */
         resourceTypeLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
@@ -45477,7 +46316,7 @@ export namespace fsx {
          */
         deploymentType: pulumi.Input<string>;
         /**
-         * Configuration for Lustre logging used to write the enabled logging events for the cache.
+         * Configuration for Lustre logging used to write the enabled logging events for the cache. See `logConfiguration` Block below.
          */
         logConfigurations?: pulumi.Input<pulumi.Input<inputs.fsx.FileCacheLustreConfigurationLogConfiguration>[] | undefined>;
         /**
@@ -45499,7 +46338,13 @@ export namespace fsx {
     }
 
     export interface FileCacheLustreConfigurationLogConfiguration {
+        /**
+         * Amazon Resource Name (ARN) of the destination that receives the logs.
+         */
         destination?: pulumi.Input<string | undefined>;
+        /**
+         * Level of logging that Lustre logs write to the destination.
+         */
         level?: pulumi.Input<string | undefined>;
     }
 
@@ -71689,8 +72534,17 @@ export namespace lightsail {
          * Domain name (e.g., example.com) for your SSL/TLS certificate.
          */
         domainName?: pulumi.Input<string | undefined>;
+        /**
+         * Name of the DNS record to create to validate the certificate.
+         */
         resourceRecordName?: pulumi.Input<string | undefined>;
+        /**
+         * Type of DNS record to create to validate the certificate.
+         */
         resourceRecordType?: pulumi.Input<string | undefined>;
+        /**
+         * Value of the DNS record to create to validate the certificate.
+         */
         resourceRecordValue?: pulumi.Input<string | undefined>;
     }
 }
@@ -71705,7 +72559,7 @@ export namespace location {
 
     export interface PlaceIndexDataSourceConfiguration {
         /**
-         * Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+         * How the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
          */
         intendedUse?: pulumi.Input<string | undefined>;
     }
@@ -72172,6 +73026,88 @@ export namespace macie2 {
 }
 
 export namespace mailmanager {
+    export interface IngressPointIngressPointConfiguration {
+        /**
+         * ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
+         */
+        secretArn?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+         */
+        smtpPasswordWo?: pulumi.Input<string | undefined>;
+        /**
+         * Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+         */
+        smtpPasswordWoVersion?: pulumi.Input<number | undefined>;
+        /**
+         * Configuration used to authenticate with `MTLS` ingress points. See `tlsAuthConfiguration` Block for details.
+         */
+        tlsAuthConfiguration?: pulumi.Input<inputs.mailmanager.IngressPointIngressPointConfigurationTlsAuthConfiguration | undefined>;
+    }
+
+    export interface IngressPointIngressPointConfigurationTlsAuthConfiguration {
+        /**
+         * Trust store used to validate client certificates. See `trustStore` Block for details.
+         */
+        trustStore?: pulumi.Input<inputs.mailmanager.IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore | undefined>;
+    }
+
+    export interface IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore {
+        /**
+         * PEM-encoded certificate authority (CA) content used to validate client certificates.
+         */
+        caContent: pulumi.Input<string>;
+        /**
+         * PEM-encoded certificate revocation list (CRL) content used to check whether client certificates have been revoked.
+         */
+        crlContent?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the AWS KMS key used to decrypt the CRL content.
+         */
+        kmsKeyArn?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IngressPointNetworkConfiguration {
+        /**
+         * Configuration for a private ingress point that uses a VPC endpoint. See `privateNetworkConfiguration` Block for details.
+         */
+        privateNetworkConfiguration?: pulumi.Input<inputs.mailmanager.IngressPointNetworkConfigurationPrivateNetworkConfiguration | undefined>;
+        /**
+         * Configuration for a public ingress point. See `publicNetworkConfiguration` Block for details.
+         */
+        publicNetworkConfiguration?: pulumi.Input<inputs.mailmanager.IngressPointNetworkConfigurationPublicNetworkConfiguration | undefined>;
+    }
+
+    export interface IngressPointNetworkConfigurationPrivateNetworkConfiguration {
+        /**
+         * Identifier of the VPC endpoint to associate with the ingress point.
+         */
+        vpcEndpointId: pulumi.Input<string>;
+    }
+
+    export interface IngressPointNetworkConfigurationPublicNetworkConfiguration {
+        /**
+         * IP address type for the public ingress point. Valid values are `IPV4` and `DUAL_STACK`.
+         */
+        ipType: pulumi.Input<string>;
+    }
+
+    export interface IngressPointTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
+
     export interface RuleSetRule {
         /**
          * One or more actions to execute when all conditions match. Between 1 and 10 actions are supported. Each action must contain exactly one action configuration. See `action` Block.
@@ -76821,9 +77757,57 @@ export namespace neptunegraph {
          */
         vectorSearchDimension?: pulumi.Input<number | undefined>;
     }
+
+    export interface PrivateGraphEndpointTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+    }
 }
 
 export namespace networkfirewall {
+    export interface ContainerAssociationContainerMonitoringConfiguration {
+        /**
+         * Key-value pairs that filter which containers within the cluster are monitored. For Amazon EKS, filter by namespace and Kubernetes labels. For Amazon ECS, filter by container instance attributes; attribute filters only match containers on the EC2 launch type, not Fargate. See `attributeFilter` Block below.
+         */
+        attributeFilters?: pulumi.Input<pulumi.Input<inputs.networkfirewall.ContainerAssociationContainerMonitoringConfigurationAttributeFilter>[] | undefined>;
+        /**
+         * ARN of the Amazon ECS or Amazon EKS cluster to monitor. The cluster must be in the same Region and account as the container association.
+         */
+        clusterArn: pulumi.Input<string>;
+    }
+
+    export interface ContainerAssociationContainerMonitoringConfigurationAttributeFilter {
+        /**
+         * Key of the container attribute to filter on.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Value of the container attribute to filter on.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ContainerAssociationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
+
     export interface FirewallAvailabilityZoneMapping {
         /**
          * The ID of the Availability Zone where the firewall endpoint is located..
@@ -79454,7 +80438,7 @@ export namespace observabilityadmin {
 export namespace odb {
     export interface CloudAutonomousVmClusterMaintenanceWindow {
         /**
-         * Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+         * Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `daysOfWeek` Block below.
          */
         daysOfWeeks?: pulumi.Input<pulumi.Input<inputs.odb.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek>[] | undefined>;
         /**
@@ -79466,7 +80450,7 @@ export namespace odb {
          */
         leadTimeInWeeks?: pulumi.Input<number | undefined>;
         /**
-         * Months when maintenance can be performed. Changing this will force terraform to create new resource.
+         * Months when maintenance can be performed. Changing this will force terraform to create new resource. See `months` Block below.
          */
         months?: pulumi.Input<pulumi.Input<inputs.odb.CloudAutonomousVmClusterMaintenanceWindowMonth>[] | undefined>;
         /**
@@ -79480,10 +80464,16 @@ export namespace odb {
     }
 
     export interface CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek {
+        /**
+         * Name of the day of the week. Valid values are `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, and `SUNDAY`.
+         */
         name: pulumi.Input<string>;
     }
 
     export interface CloudAutonomousVmClusterMaintenanceWindowMonth {
+        /**
+         * Name of the month. Valid values are `JANUARY`, `FEBRUARY`, `MARCH`, `APRIL`, `MAY`, `JUNE`, `JULY`, `AUGUST`, `SEPTEMBER`, `OCTOBER`, `NOVEMBER`, and `DECEMBER`.
+         */
         name: pulumi.Input<string>;
     }
 
@@ -79503,6 +80493,9 @@ export namespace odb {
     }
 
     export interface CloudExadataInfrastructureCustomerContactsToSendToOci {
+        /**
+         * Email address of the contact.
+         */
         email: pulumi.Input<string>;
     }
 
@@ -79512,7 +80505,7 @@ export namespace odb {
          */
         customActionTimeoutInMins: pulumi.Input<number>;
         /**
-         * Days of the week when maintenance can be performed.
+         * Days of the week when maintenance can be performed. See `daysOfWeek` Block below.
          */
         daysOfWeeks?: pulumi.Input<pulumi.Input<inputs.odb.CloudExadataInfrastructureMaintenanceWindowDaysOfWeek>[] | undefined>;
         /**
@@ -79528,7 +80521,7 @@ export namespace odb {
          */
         leadTimeInWeeks?: pulumi.Input<number | undefined>;
         /**
-         * Months when maintenance can be performed.
+         * Months when maintenance can be performed. See `months` Block below.
          */
         months?: pulumi.Input<pulumi.Input<inputs.odb.CloudExadataInfrastructureMaintenanceWindowMonth>[] | undefined>;
         /**
@@ -79546,10 +80539,16 @@ export namespace odb {
     }
 
     export interface CloudExadataInfrastructureMaintenanceWindowDaysOfWeek {
+        /**
+         * Name of the day of the week. Valid values are `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, and `SUNDAY`.
+         */
         name: pulumi.Input<string>;
     }
 
     export interface CloudExadataInfrastructureMaintenanceWindowMonth {
+        /**
+         * Name of the month. Valid values are `JANUARY`, `FEBRUARY`, `MARCH`, `APRIL`, `MAY`, `JUNE`, `JULY`, `AUGUST`, `SEPTEMBER`, `OCTOBER`, `NOVEMBER`, and `DECEMBER`.
+         */
         name: pulumi.Input<string>;
     }
 
@@ -79584,15 +80583,36 @@ export namespace odb {
     }
 
     export interface CloudVmClusterIormConfigCache {
+        /**
+         * List of IORM (I/O Resource Manager) database plans for the VM cluster. See `dbPlans` Block below.
+         */
         dbPlans: pulumi.Input<pulumi.Input<inputs.odb.CloudVmClusterIormConfigCacheDbPlan>[]>;
+        /**
+         * Additional information about the current lifecycle state of the IORM configuration.
+         */
         lifecycleDetails: pulumi.Input<string>;
+        /**
+         * Current lifecycle state of the IORM configuration.
+         */
         lifecycleState: pulumi.Input<string>;
+        /**
+         * Current value for the IORM objective.
+         */
         objective: pulumi.Input<string>;
     }
 
     export interface CloudVmClusterIormConfigCacheDbPlan {
+        /**
+         * Database name to which the IORM plan applies.
+         */
         dbName: pulumi.Input<string>;
+        /**
+         * Flash cache limit for the database plan.
+         */
         flashCacheLimit: pulumi.Input<string>;
+        /**
+         * Relative priority of the database in the IORM plan.
+         */
         share: pulumi.Input<number>;
     }
 
@@ -79620,14 +80640,29 @@ export namespace odb {
          * Configuration for KMS access from the ODB network.
          */
         kmsAccesses: pulumi.Input<pulumi.Input<inputs.odb.NetworkManagedServiceKmsAccess>[]>;
+        /**
+         * Managed S3 backup access configuration. See `managedS3BackupAccess` Block below.
+         */
         managedS3BackupAccesses: pulumi.Input<pulumi.Input<inputs.odb.NetworkManagedServiceManagedS3BackupAccess>[]>;
+        /**
+         * List of IPv4 CIDR ranges used by the managed services.
+         */
         managedServiceIpv4Cidrs: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * ARN of the resource gateway.
+         */
         resourceGatewayArn: pulumi.Input<string>;
         /**
          * Configuration for Amazon S3 access from the ODB network.
          */
         s3Accesses: pulumi.Input<pulumi.Input<inputs.odb.NetworkManagedServiceS3Access>[]>;
+        /**
+         * ARN of the service network.
+         */
         serviceNetworkArn: pulumi.Input<string>;
+        /**
+         * Service network endpoint configuration. See `serviceNetworkEndpoint` Block below.
+         */
         serviceNetworkEndpoints: pulumi.Input<pulumi.Input<inputs.odb.NetworkManagedServiceServiceNetworkEndpoint>[]>;
         /**
          * Configuration for STS access from the ODB network.
@@ -79642,61 +80677,91 @@ export namespace odb {
     }
 
     export interface NetworkManagedServiceCrossRegionS3RestoreSourcesAccess {
+        /**
+         * List of IPv4 addresses for the Amazon STS access.
+         */
         ipv4Addresses: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          */
         region: pulumi.Input<string>;
         /**
-         * Status of the network resource.
+         * Status of the Zero-ETL access.
          */
         status: pulumi.Input<string>;
     }
 
     export interface NetworkManagedServiceKmsAccess {
+        /**
+         * Domain name for which the DNS queries are forwarded.
+         */
         domainName: pulumi.Input<string>;
+        /**
+         * List of IPv4 addresses for the Amazon STS access.
+         */
         ipv4Addresses: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Endpoint policy for KMS access from the ODB network.
          */
         kmsPolicyDocument: pulumi.Input<string>;
         /**
-         * Status of the network resource.
+         * Status of the Zero-ETL access.
          */
         status: pulumi.Input<string>;
     }
 
     export interface NetworkManagedServiceManagedS3BackupAccess {
+        /**
+         * List of IPv4 addresses for the Amazon STS access.
+         */
         ipv4Addresses: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Status of the network resource.
+         * Status of the Zero-ETL access.
          */
         status: pulumi.Input<string>;
     }
 
     export interface NetworkManagedServiceS3Access {
+        /**
+         * Domain name for which the DNS queries are forwarded.
+         */
         domainName: pulumi.Input<string>;
+        /**
+         * List of IPv4 addresses for the Amazon STS access.
+         */
         ipv4Addresses: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Endpoint policy for Amazon S3 access from the ODB network.
          */
         s3PolicyDocument: pulumi.Input<string>;
         /**
-         * Status of the network resource.
+         * Status of the Zero-ETL access.
          */
         status: pulumi.Input<string>;
     }
 
     export interface NetworkManagedServiceServiceNetworkEndpoint {
+        /**
+         * Unique identifier of the VPC endpoint.
+         */
         vpcEndpointId: pulumi.Input<string>;
+        /**
+         * Type of the VPC endpoint.
+         */
         vpcEndpointType: pulumi.Input<string>;
     }
 
     export interface NetworkManagedServiceStsAccess {
+        /**
+         * Domain name for which the DNS queries are forwarded.
+         */
         domainName: pulumi.Input<string>;
+        /**
+         * List of IPv4 addresses for the Amazon STS access.
+         */
         ipv4Addresses: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Status of the network resource.
+         * Status of the Zero-ETL access.
          */
         status: pulumi.Input<string>;
         /**
@@ -79706,15 +80771,24 @@ export namespace odb {
     }
 
     export interface NetworkManagedServiceZeroEtlAccess {
+        /**
+         * CIDR range for the Zero-ETL access.
+         */
         cidr: pulumi.Input<string>;
         /**
-         * Status of the network resource.
+         * Status of the Zero-ETL access.
          */
         status: pulumi.Input<string>;
     }
 
     export interface NetworkOciDnsForwardingConfig {
+        /**
+         * Domain name for which the DNS queries are forwarded.
+         */
         domainName: pulumi.Input<string>;
+        /**
+         * IP address of the OCI DNS listener.
+         */
         ociDnsListenerIp: pulumi.Input<string>;
     }
 
@@ -80990,6 +82064,21 @@ export namespace pinpoint {
     }
 
     export interface Smsvoicev2PoolTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
+    }
+
+    export interface Smsvoicev2SenderIdTimeouts {
         /**
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
@@ -83981,6 +85070,28 @@ export namespace rds {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface GetSnapshotsFilter {
+        /**
+         * Name of the filter field. Valid values can be found in the RDS DescribeDBSnapshots API Reference.
+         */
+        name: string;
+        /**
+         * Set of values accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
+    }
+
+    export interface GetSnapshotsFilterArgs {
+        /**
+         * Name of the filter field. Valid values can be found in the RDS DescribeDBSnapshots API Reference.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface GlobalClusterGlobalClusterMember {
         /**
          * Amazon Resource Name (ARN) of member DB Cluster.
@@ -84178,15 +85289,15 @@ export namespace rds {
 
     export interface ProxyAuth {
         /**
-         * The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+         * Type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
          */
         authScheme?: pulumi.Input<string | undefined>;
         /**
-         * The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+         * Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
          */
         clientPasswordAuthType?: pulumi.Input<string | undefined>;
         /**
-         * A user-specified description about the authentication used by a proxy to log in as a specific database user.
+         * User-specified description about the authentication used by a proxy to log in as a specific database user.
          */
         description?: pulumi.Input<string | undefined>;
         /**
@@ -84194,11 +85305,11 @@ export namespace rds {
          */
         iamAuth?: pulumi.Input<string | undefined>;
         /**
-         * The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+         * Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
          */
         secretArn?: pulumi.Input<string | undefined>;
         /**
-         * The name of the database user to which the proxy connects.
+         * Name of the database user to which the proxy connects.
          */
         username?: pulumi.Input<string | undefined>;
     }
@@ -84847,6 +85958,28 @@ export namespace resiliencehub {
          * Recovery time objective in minutes.
          */
         rtoInMinutes?: pulumi.Input<number | undefined>;
+    }
+
+    export interface V2ServicePermissionModel {
+        /**
+         * Cross-account IAM role. See `crossAccountRole` Block below.
+         */
+        crossAccountRoles?: pulumi.Input<pulumi.Input<inputs.resiliencehub.V2ServicePermissionModelCrossAccountRole>[] | undefined>;
+        /**
+         * Name of the IAM role that Resilience Hub assumes for resource discovery.
+         */
+        invokerRoleName: pulumi.Input<string>;
+    }
+
+    export interface V2ServicePermissionModelCrossAccountRole {
+        /**
+         * ARN of the IAM Role for the profile.
+         */
+        crossAccountRoleArn: pulumi.Input<string>;
+        /**
+         * External ID used for assuming the cross-account role.
+         */
+        externalId?: pulumi.Input<string | undefined>;
     }
 }
 
@@ -86453,7 +87586,7 @@ export namespace s3 {
 
     export interface AccessPointVpcConfiguration {
         /**
-         * This access point will only allow connections from the specified VPC ID.
+         * VPC ID from which the access point allows connections.
          */
         vpcId: pulumi.Input<string>;
     }
@@ -88523,7 +89656,7 @@ export namespace s3 {
 
     export interface DirectoryBucketLocation {
         /**
-         * [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
+         * [Availability Zone ID](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-availability-zones.html) or Local Zone ID.
          */
         name: pulumi.Input<string>;
         /**
@@ -89697,7 +90830,7 @@ export namespace s3tables {
 
     export interface TableMetadata {
         /**
-         * Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
+         * Details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `iceberg` below.
          */
         iceberg: pulumi.Input<inputs.s3tables.TableMetadataIceberg>;
     }
@@ -101101,8 +102234,6 @@ export namespace transcribe {
         s3Uri: pulumi.Input<string>;
         /**
          * S3 URI where tuning data is located.
-         *
-         * The following arguments are optional:
          */
         tuningDataS3Uri?: pulumi.Input<string | undefined>;
     }
@@ -101111,68 +102242,68 @@ export namespace transcribe {
 export namespace transfer {
     export interface AccessHomeDirectoryMapping {
         /**
-         * Represents an entry and a target.
+         * Logical directory entry that appears to your user.
          */
         entry: pulumi.Input<string>;
         /**
-         * Represents the map target.
+         * Map target that maps the entry to an actual S3 path.
          */
         target: pulumi.Input<string>;
     }
 
     export interface AccessPosixProfile {
         /**
-         * The POSIX group ID used for all EFS operations by this user.
+         * POSIX group ID used for all EFS operations by this user.
          */
         gid: pulumi.Input<number>;
         /**
-         * The secondary POSIX group IDs used for all EFS operations by this user.
+         * Secondary POSIX group IDs used for all EFS operations by this user.
          */
         secondaryGids?: pulumi.Input<pulumi.Input<number>[] | undefined>;
         /**
-         * The POSIX user ID used for all EFS operations by this user.
+         * POSIX user ID used for all EFS operations by this user.
          */
         uid: pulumi.Input<number>;
     }
 
     export interface ConnectorAs2Config {
         /**
-         * Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+         * Whether AS2 file is compressed. The valid values are ZLIB and DISABLED.
          */
         compression: pulumi.Input<string>;
         /**
-         * The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+         * Algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
          */
         encryptionAlgorithm: pulumi.Input<string>;
         /**
-         * The unique identifier for the AS2 local profile.
+         * Unique identifier for the AS2 local profile.
          */
         localProfileId: pulumi.Input<string>;
         /**
-         * Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+         * Determines, for outbound requests, if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
          */
         mdnResponse: pulumi.Input<string>;
         /**
-         * The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+         * Signing algorithm for the MDN response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
          */
         mdnSigningAlgorithm?: pulumi.Input<string | undefined>;
         /**
-         * Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+         * Subject HTTP header attribute used in AS2 messages that are being sent with the connector.
          */
         messageSubject?: pulumi.Input<string | undefined>;
         /**
-         * The unique identifier for the AS2 partner profile.
+         * Unique identifier for the AS2 partner profile.
          */
         partnerProfileId: pulumi.Input<string>;
         /**
-         * The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+         * Algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
          */
         signingAlgorithm: pulumi.Input<string>;
     }
 
     export interface ConnectorEgressConfig {
         /**
-         * VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
+         * VPC Lattice configuration for routing connector traffic through customer VPCs. See `vpcLattice` Block below.
          */
         vpcLattice?: pulumi.Input<inputs.transfer.ConnectorEgressConfigVpcLattice | undefined>;
     }
@@ -101190,45 +102321,45 @@ export namespace transfer {
 
     export interface ConnectorSftpConfig {
         /**
-         * A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
+         * List of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
          */
         trustedHostKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+         * Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
          */
         userSecretId?: pulumi.Input<string | undefined>;
     }
 
     export interface ServerEndpointDetails {
         /**
-         * A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
+         * List of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
          */
         addressAllocationIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpointType` is set to `VPC`.
+         * List of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpointType` is set to `VPC`.
          */
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
+         * List of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
          */
         subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
+         * ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
          */
         vpcEndpointId?: pulumi.Input<string | undefined>;
         /**
-         * The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+         * VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
          */
         vpcId?: pulumi.Input<string | undefined>;
     }
 
     export interface ServerProtocolDetails {
         /**
-         * Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
+         * Transport method for the AS2 messages. Currently, only `HTTP` is supported.
          */
         as2Transports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
+         * Passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
          */
         passiveIp?: pulumi.Input<string | undefined>;
         /**
@@ -101236,14 +102367,14 @@ export namespace transfer {
          */
         setStatOption?: pulumi.Input<string | undefined>;
         /**
-         * A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
+         * Property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
          */
         tlsSessionResumptionMode?: pulumi.Input<string | undefined>;
     }
 
     export interface ServerS3StorageOptions {
         /**
-         * Specifies whether or not performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
+         * Whether performance for your Amazon S3 directories is optimized. Valid values are `DISABLED`, `ENABLED`.
          *
          * By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
          */
@@ -101252,11 +102383,11 @@ export namespace transfer {
 
     export interface ServerWorkflowDetails {
         /**
-         * A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `onPartialUpload` Block below for details.
+         * Trigger that starts a workflow if a file is only partially uploaded. See `onPartialUpload` Block below for details.
          */
         onPartialUpload?: pulumi.Input<inputs.transfer.ServerWorkflowDetailsOnPartialUpload | undefined>;
         /**
-         * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
+         * Trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `onUpload` Block below for details.
          */
         onUpload?: pulumi.Input<inputs.transfer.ServerWorkflowDetailsOnUpload | undefined>;
     }
@@ -101267,7 +102398,7 @@ export namespace transfer {
          */
         executionRole: pulumi.Input<string>;
         /**
-         * A unique identifier for the workflow.
+         * Unique identifier for the workflow.
          */
         workflowId: pulumi.Input<string>;
     }
@@ -101278,49 +102409,40 @@ export namespace transfer {
          */
         executionRole: pulumi.Input<string>;
         /**
-         * A unique identifier for the workflow.
+         * Unique identifier for the workflow.
          */
         workflowId: pulumi.Input<string>;
     }
 
     export interface UserHomeDirectoryMapping {
         /**
-         * Represents an entry and a target.
+         * Logical directory entry that appears to your user.
          */
         entry: pulumi.Input<string>;
         /**
-         * Represents the map target.
-         *
-         * The `Restricted` option is achieved using the following mapping:
-         *
-         * ```
-         * home_directory_mappings {
-         * entry  = "/"
-         * target = "/${aws_s3_bucket.foo.id}/$${Transfer:UserName}"
-         * }
-         * ```
+         * Map target that maps the entry to an actual S3 path.
          */
         target: pulumi.Input<string>;
     }
 
     export interface UserPosixProfile {
         /**
-         * The POSIX group ID used for all EFS operations by this user.
+         * POSIX group ID used for all EFS operations by this user.
          */
         gid: pulumi.Input<number>;
         /**
-         * The secondary POSIX group IDs used for all EFS operations by this user.
+         * Secondary POSIX group IDs used for all EFS operations by this user.
          */
         secondaryGids?: pulumi.Input<pulumi.Input<number>[] | undefined>;
         /**
-         * The POSIX user ID used for all EFS operations by this user.
+         * POSIX user ID used for all EFS operations by this user.
          */
         uid: pulumi.Input<number>;
     }
 
     export interface WebAppEndpointDetails {
         /**
-         * Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
+         * Block defining VPC configuration for hosting the web app endpoint within a VPC. See `vpc` Block below.
          */
         vpc?: pulumi.Input<inputs.transfer.WebAppEndpointDetailsVpc | undefined>;
     }
@@ -101346,12 +102468,15 @@ export namespace transfer {
 
     export interface WebAppIdentityProviderDetails {
         /**
-         * Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
+         * Block that describes the values to use for the IAM Identity Center settings. See `identityCenterConfig` Block below.
          */
         identityCenterConfig?: pulumi.Input<inputs.transfer.WebAppIdentityProviderDetailsIdentityCenterConfig | undefined>;
     }
 
     export interface WebAppIdentityProviderDetailsIdentityCenterConfig {
+        /**
+         * ARN of the IAM Identity Center application created for the web app.
+         */
         applicationArn?: pulumi.Input<string | undefined>;
         /**
          * ARN of the IAM Identity Center used for the web app.
@@ -101364,96 +102489,102 @@ export namespace transfer {
     }
 
     export interface WebAppWebAppUnit {
+        /**
+         * Number of units of concurrent connections.
+         */
         provisioned: pulumi.Input<number>;
     }
 
     export interface WorkflowOnExceptionStep {
         /**
-         * Details for a step that performs a file copy. See Copy Step Details below.
+         * Details for a step that performs a file copy. See `copyStepDetails` Block below.
          */
         copyStepDetails?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepCopyStepDetails | undefined>;
         /**
-         * Details for a step that invokes a lambda function.
+         * Details for a step that invokes a lambda function. See `customStepDetails` Block below.
          */
         customStepDetails?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepCustomStepDetails | undefined>;
         /**
-         * Details for a step that decrypts the file.
+         * Details for a step that decrypts the file. See `decryptStepDetails` Block below.
          */
         decryptStepDetails?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepDecryptStepDetails | undefined>;
         /**
-         * Details for a step that deletes the file.
+         * Details for a step that deletes the file. See `deleteStepDetails` Block below.
          */
         deleteStepDetails?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepDeleteStepDetails | undefined>;
         /**
-         * Details for a step that creates one or more tags.
+         * Details for a step that creates one or more tags. See `tagStepDetails` Block below.
          */
         tagStepDetails?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepTagStepDetails | undefined>;
+        /**
+         * Step type. Valid values are `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+         */
         type: pulumi.Input<string>;
     }
 
     export interface WorkflowOnExceptionStepCopyStepDetails {
         /**
-         * Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+         * Location for the file being copied. Use `${Transfer:username}` in this field to parametrize the destination prefix by username. See `destinationFileLocation` Block below.
          */
         destinationFileLocation?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation | undefined>;
         /**
-         * The name of the step, used as an identifier.
+         * Name of the step, used as an identifier.
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+         * Flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
          */
         overwriteExisting?: pulumi.Input<string | undefined>;
         /**
-         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          */
         sourceFileLocation?: pulumi.Input<string | undefined>;
     }
 
     export interface WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation {
         /**
-         * Specifies the details for the EFS file being copied.
+         * Details for the EFS file being copied. See `efsFileLocation` Block below.
          */
         efsFileLocation?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation | undefined>;
         /**
-         * Specifies the details for the S3 file being copied.
+         * Details for the S3 file being copied. See `s3FileLocation` Block below.
          */
         s3FileLocation?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation | undefined>;
     }
 
     export interface WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation {
         /**
-         * The ID of the file system, assigned by Amazon EFS.
+         * ID of the file system, assigned by Amazon EFS.
          */
         fileSystemId?: pulumi.Input<string | undefined>;
         /**
-         * The pathname for the folder being used by a workflow.
+         * Pathname for the folder being used by a workflow.
          */
         path?: pulumi.Input<string | undefined>;
     }
 
     export interface WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation {
         /**
-         * Specifies the S3 bucket for the customer input file.
+         * S3 bucket for the customer input file.
          */
         bucket?: pulumi.Input<string | undefined>;
         /**
-         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+         * Name assigned to the file when it was created in S3. You use the object key to retrieve the object.
          */
         key?: pulumi.Input<string | undefined>;
     }
 
     export interface WorkflowOnExceptionStepCustomStepDetails {
         /**
-         * The name of the step, used as an identifier.
+         * Name of the step, used as an identifier.
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          */
         sourceFileLocation?: pulumi.Input<string | undefined>;
         /**
-         * The ARN for the lambda function that is being called.
+         * ARN for the lambda function that is being called.
          */
         target?: pulumi.Input<string | undefined>;
         /**
@@ -101464,181 +102595,187 @@ export namespace transfer {
 
     export interface WorkflowOnExceptionStepDecryptStepDetails {
         /**
-         * Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+         * Location for the file being copied. Use `${Transfer:username}` in this field to parametrize the destination prefix by username. See `destinationFileLocation` Block below.
          */
         destinationFileLocation?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation | undefined>;
         /**
-         * The name of the step, used as an identifier.
+         * Name of the step, used as an identifier.
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+         * Flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
          */
         overwriteExisting?: pulumi.Input<string | undefined>;
         /**
-         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          */
         sourceFileLocation?: pulumi.Input<string | undefined>;
         /**
-         * The type of encryption used. Currently, this value must be `"PGP"`.
+         * Type of encryption used. Currently, this value must be `"PGP"`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation {
         /**
-         * Specifies the details for the EFS file being copied.
+         * Details for the EFS file being copied. See `efsFileLocation` Block below.
          */
         efsFileLocation?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation | undefined>;
         /**
-         * Specifies the details for the S3 file being copied.
+         * Details for the S3 file being copied. See `s3FileLocation` Block below.
          */
         s3FileLocation?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation | undefined>;
     }
 
     export interface WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation {
         /**
-         * The ID of the file system, assigned by Amazon EFS.
+         * ID of the file system, assigned by Amazon EFS.
          */
         fileSystemId?: pulumi.Input<string | undefined>;
         /**
-         * The pathname for the folder being used by a workflow.
+         * Pathname for the folder being used by a workflow.
          */
         path?: pulumi.Input<string | undefined>;
     }
 
     export interface WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation {
         /**
-         * Specifies the S3 bucket for the customer input file.
+         * S3 bucket for the customer input file.
          */
         bucket?: pulumi.Input<string | undefined>;
         /**
-         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+         * Name assigned to the file when it was created in S3. You use the object key to retrieve the object.
          */
         key?: pulumi.Input<string | undefined>;
     }
 
     export interface WorkflowOnExceptionStepDeleteStepDetails {
         /**
-         * The name of the step, used as an identifier.
+         * Name of the step, used as an identifier.
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          */
         sourceFileLocation?: pulumi.Input<string | undefined>;
     }
 
     export interface WorkflowOnExceptionStepTagStepDetails {
         /**
-         * The name of the step, used as an identifier.
+         * Name of the step, used as an identifier.
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          */
         sourceFileLocation?: pulumi.Input<string | undefined>;
         /**
-         * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+         * Array that contains from 1 to 10 key/value pairs. See `tags` Block below.
          */
         tags?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStepTagStepDetailsTag>[] | undefined>;
     }
 
     export interface WorkflowOnExceptionStepTagStepDetailsTag {
+        /**
+         * Name assigned to the tag that you create.
+         */
         key: pulumi.Input<string>;
         /**
-         * The value that corresponds to the key.
+         * Value that corresponds to the key.
          */
         value: pulumi.Input<string>;
     }
 
     export interface WorkflowStep {
         /**
-         * Details for a step that performs a file copy. See Copy Step Details below.
+         * Details for a step that performs a file copy. See `copyStepDetails` Block below.
          */
         copyStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepCopyStepDetails | undefined>;
         /**
-         * Details for a step that invokes a lambda function.
+         * Details for a step that invokes a lambda function. See `customStepDetails` Block below.
          */
         customStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepCustomStepDetails | undefined>;
         /**
-         * Details for a step that decrypts the file.
+         * Details for a step that decrypts the file. See `decryptStepDetails` Block below.
          */
         decryptStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepDecryptStepDetails | undefined>;
         /**
-         * Details for a step that deletes the file.
+         * Details for a step that deletes the file. See `deleteStepDetails` Block below.
          */
         deleteStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepDeleteStepDetails | undefined>;
         /**
-         * Details for a step that creates one or more tags.
+         * Details for a step that creates one or more tags. See `tagStepDetails` Block below.
          */
         tagStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepTagStepDetails | undefined>;
+        /**
+         * Step type. Valid values are `COPY`, `CUSTOM`, `DECRYPT`, `DELETE`, and `TAG`.
+         */
         type: pulumi.Input<string>;
     }
 
     export interface WorkflowStepCopyStepDetails {
         /**
-         * Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+         * Location for the file being copied. Use `${Transfer:username}` in this field to parametrize the destination prefix by username. See `destinationFileLocation` Block below.
          */
         destinationFileLocation?: pulumi.Input<inputs.transfer.WorkflowStepCopyStepDetailsDestinationFileLocation | undefined>;
         /**
-         * The name of the step, used as an identifier.
+         * Name of the step, used as an identifier.
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+         * Flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
          */
         overwriteExisting?: pulumi.Input<string | undefined>;
         /**
-         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          */
         sourceFileLocation?: pulumi.Input<string | undefined>;
     }
 
     export interface WorkflowStepCopyStepDetailsDestinationFileLocation {
         /**
-         * Specifies the details for the EFS file being copied.
+         * Details for the EFS file being copied. See `efsFileLocation` Block below.
          */
         efsFileLocation?: pulumi.Input<inputs.transfer.WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation | undefined>;
         /**
-         * Specifies the details for the S3 file being copied.
+         * Details for the S3 file being copied. See `s3FileLocation` Block below.
          */
         s3FileLocation?: pulumi.Input<inputs.transfer.WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation | undefined>;
     }
 
     export interface WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation {
         /**
-         * The ID of the file system, assigned by Amazon EFS.
+         * ID of the file system, assigned by Amazon EFS.
          */
         fileSystemId?: pulumi.Input<string | undefined>;
         /**
-         * The pathname for the folder being used by a workflow.
+         * Pathname for the folder being used by a workflow.
          */
         path?: pulumi.Input<string | undefined>;
     }
 
     export interface WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation {
         /**
-         * Specifies the S3 bucket for the customer input file.
+         * S3 bucket for the customer input file.
          */
         bucket?: pulumi.Input<string | undefined>;
         /**
-         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+         * Name assigned to the file when it was created in S3. You use the object key to retrieve the object.
          */
         key?: pulumi.Input<string | undefined>;
     }
 
     export interface WorkflowStepCustomStepDetails {
         /**
-         * The name of the step, used as an identifier.
+         * Name of the step, used as an identifier.
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          */
         sourceFileLocation?: pulumi.Input<string | undefined>;
         /**
-         * The ARN for the lambda function that is being called.
+         * ARN for the lambda function that is being called.
          */
         target?: pulumi.Input<string | undefined>;
         /**
@@ -101649,90 +102786,93 @@ export namespace transfer {
 
     export interface WorkflowStepDecryptStepDetails {
         /**
-         * Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+         * Location for the file being copied. Use `${Transfer:username}` in this field to parametrize the destination prefix by username. See `destinationFileLocation` Block below.
          */
         destinationFileLocation?: pulumi.Input<inputs.transfer.WorkflowStepDecryptStepDetailsDestinationFileLocation | undefined>;
         /**
-         * The name of the step, used as an identifier.
+         * Name of the step, used as an identifier.
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+         * Flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
          */
         overwriteExisting?: pulumi.Input<string | undefined>;
         /**
-         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          */
         sourceFileLocation?: pulumi.Input<string | undefined>;
         /**
-         * The type of encryption used. Currently, this value must be `"PGP"`.
+         * Type of encryption used. Currently, this value must be `"PGP"`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface WorkflowStepDecryptStepDetailsDestinationFileLocation {
         /**
-         * Specifies the details for the EFS file being copied.
+         * Details for the EFS file being copied. See `efsFileLocation` Block below.
          */
         efsFileLocation?: pulumi.Input<inputs.transfer.WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation | undefined>;
         /**
-         * Specifies the details for the S3 file being copied.
+         * Details for the S3 file being copied. See `s3FileLocation` Block below.
          */
         s3FileLocation?: pulumi.Input<inputs.transfer.WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation | undefined>;
     }
 
     export interface WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation {
         /**
-         * The ID of the file system, assigned by Amazon EFS.
+         * ID of the file system, assigned by Amazon EFS.
          */
         fileSystemId?: pulumi.Input<string | undefined>;
         /**
-         * The pathname for the folder being used by a workflow.
+         * Pathname for the folder being used by a workflow.
          */
         path?: pulumi.Input<string | undefined>;
     }
 
     export interface WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation {
         /**
-         * Specifies the S3 bucket for the customer input file.
+         * S3 bucket for the customer input file.
          */
         bucket?: pulumi.Input<string | undefined>;
         /**
-         * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+         * Name assigned to the file when it was created in S3. You use the object key to retrieve the object.
          */
         key?: pulumi.Input<string | undefined>;
     }
 
     export interface WorkflowStepDeleteStepDetails {
         /**
-         * The name of the step, used as an identifier.
+         * Name of the step, used as an identifier.
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          */
         sourceFileLocation?: pulumi.Input<string | undefined>;
     }
 
     export interface WorkflowStepTagStepDetails {
         /**
-         * The name of the step, used as an identifier.
+         * Name of the step, used as an identifier.
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         * File to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter `${previous.file}` to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter `${original.file}` to use the originally-uploaded file location as input for this step.
          */
         sourceFileLocation?: pulumi.Input<string | undefined>;
         /**
-         * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+         * Array that contains from 1 to 10 key/value pairs. See `tags` Block below.
          */
         tags?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStepTagStepDetailsTag>[] | undefined>;
     }
 
     export interface WorkflowStepTagStepDetailsTag {
+        /**
+         * Name assigned to the tag that you create.
+         */
         key: pulumi.Input<string>;
         /**
-         * The value that corresponds to the key.
+         * Value that corresponds to the key.
          */
         value: pulumi.Input<string>;
     }
@@ -102267,7 +103407,7 @@ export namespace vpclattice {
          */
         targetGroupIdentifier?: pulumi.Input<string | undefined>;
         /**
-         * Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+         * Weight that controls how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
          */
         weight?: pulumi.Input<number | undefined>;
     }
@@ -102347,7 +103487,7 @@ export namespace vpclattice {
 
     export interface ListenerRuleMatchHttpMatchHeaderMatchMatch {
         /**
-         * Contains type match.
+         * Value that the header must contain to match.
          */
         contains?: pulumi.Input<string | undefined>;
         /**
@@ -102453,7 +103593,13 @@ export namespace vpclattice {
     }
 
     export interface ServiceDnsEntry {
+        /**
+         * Domain name of the service.
+         */
         domainName?: pulumi.Input<string | undefined>;
+        /**
+         * ID of the hosted zone.
+         */
         hostedZoneId?: pulumi.Input<string | undefined>;
     }
 
@@ -102507,7 +103653,7 @@ export namespace vpclattice {
          */
         id: pulumi.Input<string>;
         /**
-         * This port is used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
+         * Port used for routing traffic to the target, and defaults to the target group port. However, you can override the default and specify a custom port.
          */
         port?: pulumi.Input<number | undefined>;
     }
@@ -103580,6 +104726,10 @@ export namespace wafv2 {
          */
         positionalConstraint: pulumi.Input<string>;
         /**
+         * Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         */
+        preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation>[] | undefined>;
+        /**
          * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
          */
         searchString: pulumi.Input<string>;
@@ -103796,6 +104946,17 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation {
+        /**
+         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementTextTransformation {
@@ -104199,6 +105360,10 @@ export namespace wafv2 {
          */
         positionalConstraint: pulumi.Input<string>;
         /**
+         * Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         */
+        preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation>[] | undefined>;
+        /**
          * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
          */
         searchString: pulumi.Input<string>;
@@ -104417,6 +105582,17 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath {
     }
 
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation {
+        /**
+         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation {
         /**
          * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
@@ -104506,6 +105682,10 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch | undefined>;
+        /**
+         * Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         */
+        preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation>[] | undefined>;
         /**
          * The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
          */
@@ -104725,6 +105905,17 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath {
     }
 
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation {
+        /**
+         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation {
         /**
          * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
@@ -104745,6 +105936,10 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch | undefined>;
+        /**
+         * Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         */
+        preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation>[] | undefined>;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
@@ -104960,6 +106155,17 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
     }
 
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation {
+        /**
+         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation {
         /**
          * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
@@ -104980,6 +106186,10 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch | undefined>;
+        /**
+         * Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         */
+        preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation>[] | undefined>;
         /**
          * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
          */
@@ -105199,6 +106409,17 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath {
     }
 
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation {
+        /**
+         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation {
         /**
          * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
@@ -105215,6 +106436,10 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch | undefined>;
+        /**
+         * Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         */
+        preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation>[] | undefined>;
         /**
          * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
          */
@@ -105434,6 +106659,17 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath {
     }
 
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation {
+        /**
+         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation {
         /**
          * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
@@ -105450,6 +106686,10 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch | undefined>;
+        /**
+         * Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         */
+        preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation>[] | undefined>;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
@@ -105665,6 +106905,17 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath {
     }
 
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation {
+        /**
+         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation {
         /**
          * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
@@ -105681,6 +106932,10 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatch | undefined>;
+        /**
+         * Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         */
+        preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation>[] | undefined>;
         /**
          * The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
          */
@@ -105900,6 +107155,17 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPath {
     }
 
+    export interface RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation {
+        /**
+         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementRegexMatchStatementTextTransformation {
         /**
          * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
@@ -105920,6 +107186,10 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch | undefined>;
+        /**
+         * Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         */
+        preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation>[] | undefined>;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
@@ -106135,6 +107405,17 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
     }
 
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation {
+        /**
+         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation {
         /**
          * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
@@ -106155,6 +107436,10 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatch | undefined>;
+        /**
+         * Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         */
+        preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation>[] | undefined>;
         /**
          * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
          */
@@ -106374,6 +107659,17 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath {
     }
 
+    export interface RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation {
+        /**
+         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementSizeConstraintStatementTextTransformation {
         /**
          * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
@@ -106390,6 +107686,10 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatch | undefined>;
+        /**
+         * Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         */
+        preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation>[] | undefined>;
         /**
          * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
          */
@@ -106609,6 +107909,17 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath {
     }
 
+    export interface RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation {
+        /**
+         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementSqliMatchStatementTextTransformation {
         /**
          * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
@@ -106625,6 +107936,10 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatch | undefined>;
+        /**
+         * Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `textTransformation` is applied. Supported only when `fieldToMatch` specifies `singleQueryArgument` or `allQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+         */
+        preParseTextTransformations?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation>[] | undefined>;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
@@ -106838,6 +108153,17 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation {
+        /**
+         * The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementTextTransformation {

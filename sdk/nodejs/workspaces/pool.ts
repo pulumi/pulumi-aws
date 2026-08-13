@@ -137,7 +137,7 @@ export class Pool extends pulumi.CustomResource {
     }
 
     /**
-     * Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+     * Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
      */
     declare public readonly applicationSettings: pulumi.Output<outputs.workspaces.PoolApplicationSetting[]>;
     /**
@@ -149,7 +149,7 @@ export class Pool extends pulumi.CustomResource {
      */
     declare public readonly capacity: pulumi.Output<outputs.workspaces.PoolCapacity | undefined>;
     /**
-     * Capacity status of the WorkSpaces Pool. See `capacityStatus` below.
+     * Capacity status of the WorkSpaces Pool. See `capacityStatus` Block below.
      */
     declare public /*out*/ readonly capacityStatuses: pulumi.Output<outputs.workspaces.PoolCapacityStatus[]>;
     /**
@@ -203,7 +203,7 @@ export class Pool extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+     * Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
      */
     declare public readonly timeoutSettings: pulumi.Output<outputs.workspaces.PoolTimeoutSetting[]>;
     declare public readonly timeouts: pulumi.Output<outputs.workspaces.PoolTimeouts | undefined>;
@@ -285,7 +285,7 @@ export class Pool extends pulumi.CustomResource {
  */
 export interface PoolState {
     /**
-     * Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+     * Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
      */
     applicationSettings?: pulumi.Input<pulumi.Input<inputs.workspaces.PoolApplicationSetting>[] | undefined>;
     /**
@@ -297,7 +297,7 @@ export interface PoolState {
      */
     capacity?: pulumi.Input<inputs.workspaces.PoolCapacity | undefined>;
     /**
-     * Capacity status of the WorkSpaces Pool. See `capacityStatus` below.
+     * Capacity status of the WorkSpaces Pool. See `capacityStatus` Block below.
      */
     capacityStatuses?: pulumi.Input<pulumi.Input<inputs.workspaces.PoolCapacityStatus>[] | undefined>;
     /**
@@ -351,7 +351,7 @@ export interface PoolState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+     * Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
      */
     timeoutSettings?: pulumi.Input<pulumi.Input<inputs.workspaces.PoolTimeoutSetting>[] | undefined>;
     timeouts?: pulumi.Input<inputs.workspaces.PoolTimeouts | undefined>;
@@ -362,7 +362,7 @@ export interface PoolState {
  */
 export interface PoolArgs {
     /**
-     * Application settings configuration for the WorkSpaces Pool. See `applicationSettings` below.
+     * Application settings configuration for the WorkSpaces Pool. See `applicationSettings` Block below.
      */
     applicationSettings?: pulumi.Input<pulumi.Input<inputs.workspaces.PoolApplicationSetting>[] | undefined>;
     /**
@@ -400,7 +400,7 @@ export interface PoolArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` below.
+     * Timeout settings configuration for the WorkSpaces Pool. See `timeoutSettings` Block below.
      */
     timeoutSettings?: pulumi.Input<pulumi.Input<inputs.workspaces.PoolTimeoutSetting>[] | undefined>;
     timeouts?: pulumi.Input<inputs.workspaces.PoolTimeouts | undefined>;

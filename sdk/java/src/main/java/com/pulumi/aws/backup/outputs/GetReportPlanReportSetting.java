@@ -38,7 +38,7 @@ public final class GetReportPlanReportSetting {
      */
     private List<String> regions;
     /**
-     * @return Identifies the report template for the report. Reports are built using a report template.
+     * @return Report template for the report. Reports are built using a report template.
      * 
      */
     private String reportTemplate;
@@ -80,7 +80,7 @@ public final class GetReportPlanReportSetting {
         return this.regions;
     }
     /**
-     * @return Identifies the report template for the report. Reports are built using a report template.
+     * @return Report template for the report. Reports are built using a report template.
      * 
      */
     public String reportTemplate() {

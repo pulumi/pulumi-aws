@@ -80,14 +80,14 @@ public final class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArg
     }
 
     /**
-     * Configuration block for record sets. See Record Set below.
+     * Configuration block for record sets. See `recordSet` Block for details.
      * 
      */
     @Import(name="recordSets")
     private @Nullable Output<List<PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgs>> recordSets;
 
     /**
-     * @return Configuration block for record sets. See Record Set below.
+     * @return Configuration block for record sets. See `recordSet` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgs>>> recordSets() {
@@ -223,7 +223,7 @@ public final class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArg
         }
 
         /**
-         * @param recordSets Configuration block for record sets. See Record Set below.
+         * @param recordSets Configuration block for record sets. See `recordSet` Block for details.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArg
         }
 
         /**
-         * @param recordSets Configuration block for record sets. See Record Set below.
+         * @param recordSets Configuration block for record sets. See `recordSet` Block for details.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArg
         }
 
         /**
-         * @param recordSets Configuration block for record sets. See Record Set below.
+         * @param recordSets Configuration block for record sets. See `recordSet` Block for details.
          * 
          * @return builder
          * 

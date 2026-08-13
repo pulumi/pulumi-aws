@@ -116,7 +116,7 @@ class GetApplicationResult:
     @pulumi.getter(name="portalOptions")
     def portal_options(self) -> Sequence['outputs.GetApplicationPortalOptionResult']:
         """
-        Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
+        Options for the portal associated with an application. See `portal_options` Block below.
         """
         return pulumi.get(self, "portal_options")
 

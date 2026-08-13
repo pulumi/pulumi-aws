@@ -195,7 +195,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Server("example", ServerArgs.builder()
  *             .identityProviderType("AWS_LAMBDA")
- *             .function(exampleAwsLambdaIdentityProvider.arn())
+ *             .function(exampleAwsLambdaFunction.arn())
  *             .build());
  * 
  *     }
@@ -342,112 +342,112 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+     * Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
      * 
      */
     @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificate;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+     * @return Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required when `protocols` is set to `FTPS`.
      * 
      */
     public Output<Optional<String>> certificate() {
         return Codegen.optional(this.certificate);
     }
     /**
-     * The directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
+     * Directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
      * 
      */
     @Export(name="directoryId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> directoryId;
 
     /**
-     * @return The directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
+     * @return Directory service ID of the directory service you want to connect to with an `identityProviderType` of `AWS_DIRECTORY_SERVICE`.
      * 
      */
     public Output<Optional<String>> directoryId() {
         return Codegen.optional(this.directoryId);
     }
     /**
-     * The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+     * Domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
      * 
      */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domain;
 
     /**
-     * @return The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+     * @return Domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
      * 
      */
     public Output<Optional<String>> domain() {
         return Codegen.optional(this.domain);
     }
     /**
-     * The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
+     * Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
-     * @return The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
+     * @return Endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
      * 
      */
     public Output<String> endpoint() {
         return this.endpoint;
     }
     /**
-     * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+     * Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      * 
      */
     @Export(name="endpointDetails", refs={ServerEndpointDetails.class}, tree="[0]")
     private Output</* @Nullable */ ServerEndpointDetails> endpointDetails;
 
     /**
-     * @return The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
+     * @return Virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpointDetails` Block below for details.
      * 
      */
     public Output<Optional<ServerEndpointDetails>> endpointDetails() {
         return Codegen.optional(this.endpointDetails);
     }
     /**
-     * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
+     * Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
      * 
      */
     @Export(name="endpointType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> endpointType;
 
     /**
-     * @return The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
+     * @return Type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`. Defaults to `PUBLIC`.
      * 
      */
     public Output<Optional<String>> endpointType() {
         return Codegen.optional(this.endpointType);
     }
     /**
-     * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
+     * Boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
      * 
      */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
     /**
-     * @return A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
+     * @return Boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
      * 
      */
     public Output<Optional<Boolean>> forceDestroy() {
         return Codegen.optional(this.forceDestroy);
     }
     /**
-     * The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
+     * ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
      * 
      */
     @Export(name="function", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> function;
 
     /**
-     * @return The ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
+     * @return ARN for a lambda function to use for the Identity provider with an `identityProviderType` of `AWS_LAMBDA`.
      * 
      */
     public Output<Optional<String>> function() {
@@ -468,28 +468,28 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hostKey);
     }
     /**
-     * This value contains the message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
+     * Message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
      * 
      */
     @Export(name="hostKeyFingerprint", refs={String.class}, tree="[0]")
     private Output<String> hostKeyFingerprint;
 
     /**
-     * @return This value contains the message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
+     * @return Message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
      * 
      */
     public Output<String> hostKeyFingerprint() {
         return this.hostKeyFingerprint;
     }
     /**
-     * The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
+     * Mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
      * 
      */
     @Export(name="identityProviderType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> identityProviderType;
 
     /**
-     * @return The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
+     * @return Mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
      * 
      */
     public Output<Optional<String>> identityProviderType() {
@@ -566,36 +566,28 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.preAuthenticationLoginBanner);
     }
     /**
-     * The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
+     * Protocol settings that are configured for your server. See `protocolDetails` Block below for details.
      * 
      */
     @Export(name="protocolDetails", refs={ServerProtocolDetails.class}, tree="[0]")
     private Output<ServerProtocolDetails> protocolDetails;
 
     /**
-     * @return The protocol settings that are configured for your server. See `protocolDetails` Block below for details.
+     * @return Protocol settings that are configured for your server. See `protocolDetails` Block below for details.
      * 
      */
     public Output<ServerProtocolDetails> protocolDetails() {
         return this.protocolDetails;
     }
     /**
-     * Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
-     * * `AS2`: File transfer over Applicability Statement 2
-     * * `SFTP`: File transfer over SSH
-     * * `FTPS`: File transfer with TLS encryption
-     * * `FTP`: Unencrypted file transfer
+     * File transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP`. The available protocols are `AS2` (file transfer over Applicability Statement 2), `SFTP` (file transfer over SSH), `FTPS` (file transfer with TLS encryption), and `FTP` (unencrypted file transfer).
      * 
      */
     @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> protocols;
 
     /**
-     * @return Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP` . The available protocols are:
-     * * `AS2`: File transfer over Applicability Statement 2
-     * * `SFTP`: File transfer over SSH
-     * * `FTPS`: File transfer with TLS encryption
-     * * `FTP`: Unencrypted file transfer
+     * @return File transfer protocol or protocols over which your file transfer protocol client can connect to your server&#39;s endpoint. This defaults to `SFTP`. The available protocols are `AS2` (file transfer over Applicability Statement 2), `SFTP` (file transfer over SSH), `FTPS` (file transfer with TLS encryption), and `FTP` (unencrypted file transfer).
      * 
      */
     public Output<List<String>> protocols() {
@@ -616,68 +608,28 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
+     * Whether performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      * 
      */
     @Export(name="s3StorageOptions", refs={ServerS3StorageOptions.class}, tree="[0]")
     private Output<ServerS3StorageOptions> s3StorageOptions;
 
     /**
-     * @return Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
+     * @return Whether performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      * 
      */
     public Output<ServerS3StorageOptions> s3StorageOptions() {
         return this.s3StorageOptions;
     }
     /**
-     * Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-     * * `TransferSecurityPolicy-2018-11`
-     * * `TransferSecurityPolicy-2020-06`
-     * * `TransferSecurityPolicy-2022-03`
-     * * `TransferSecurityPolicy-2023-05`
-     * * `TransferSecurityPolicy-2024-01`
-     * * `TransferSecurityPolicy-2025-03`
-     * * `TransferSecurityPolicy-FIPS-2020-06`
-     * * `TransferSecurityPolicy-FIPS-2023-05`
-     * * `TransferSecurityPolicy-FIPS-2024-01`
-     * * `TransferSecurityPolicy-FIPS-2024-05`
-     * * `TransferSecurityPolicy-FIPS-2025-03`
-     * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
-     * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
-     * * `TransferSecurityPolicy-Restricted-2018-11`
-     * * `TransferSecurityPolicy-Restricted-2020-06`
-     * * `TransferSecurityPolicy-Restricted-2024-06`
-     * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
-     * * `TransferSecurityPolicy-AS2Restricted-2025-07`
-     * 
-     * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
+     * Name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-2024-01`, `TransferSecurityPolicy-2025-03`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-FIPS-2024-01`, `TransferSecurityPolicy-FIPS-2024-05`, `TransferSecurityPolicy-FIPS-2025-03`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`, `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`, `TransferSecurityPolicy-Restricted-2018-11`, `TransferSecurityPolicy-Restricted-2020-06`, `TransferSecurityPolicy-Restricted-2024-06`, `TransferSecurityPolicy-SshAuditCompliant-2025-02`, and `TransferSecurityPolicy-AS2Restricted-2025-07`. See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
      */
     @Export(name="securityPolicyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> securityPolicyName;
 
     /**
-     * @return Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
-     * * `TransferSecurityPolicy-2018-11`
-     * * `TransferSecurityPolicy-2020-06`
-     * * `TransferSecurityPolicy-2022-03`
-     * * `TransferSecurityPolicy-2023-05`
-     * * `TransferSecurityPolicy-2024-01`
-     * * `TransferSecurityPolicy-2025-03`
-     * * `TransferSecurityPolicy-FIPS-2020-06`
-     * * `TransferSecurityPolicy-FIPS-2023-05`
-     * * `TransferSecurityPolicy-FIPS-2024-01`
-     * * `TransferSecurityPolicy-FIPS-2024-05`
-     * * `TransferSecurityPolicy-FIPS-2025-03`
-     * * `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`
-     * * `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`
-     * * `TransferSecurityPolicy-Restricted-2018-11`
-     * * `TransferSecurityPolicy-Restricted-2020-06`
-     * * `TransferSecurityPolicy-Restricted-2024-06`
-     * * `TransferSecurityPolicy-SshAuditCompliant-2025-02`
-     * * `TransferSecurityPolicy-AS2Restricted-2025-07`
-     * 
-     * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
+     * @return Name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-2022-03`, `TransferSecurityPolicy-2023-05`, `TransferSecurityPolicy-2024-01`, `TransferSecurityPolicy-2025-03`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-FIPS-2023-05`, `TransferSecurityPolicy-FIPS-2024-01`, `TransferSecurityPolicy-FIPS-2024-05`, `TransferSecurityPolicy-FIPS-2025-03`, `TransferSecurityPolicy-PQ-SSH-Experimental-2023-04`, `TransferSecurityPolicy-PQ-SSH-FIPS-Experimental-2023-04`, `TransferSecurityPolicy-Restricted-2018-11`, `TransferSecurityPolicy-Restricted-2020-06`, `TransferSecurityPolicy-Restricted-2024-06`, `TransferSecurityPolicy-SshAuditCompliant-2025-02`, and `TransferSecurityPolicy-AS2Restricted-2025-07`. See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
      */
     public Output<Optional<String>> securityPolicyName() {
@@ -698,42 +650,42 @@ public class Server extends com.pulumi.resources.CustomResource {
         return this.sftpAuthenticationMethods;
     }
     /**
-     * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
+     * Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      * 
      */
     @Export(name="structuredLogDestinations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> structuredLogDestinations;
 
     /**
-     * @return A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
+     * @return Set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      * 
      */
     public Output<Optional<List<String>>> structuredLogDestinations() {
         return Codegen.optional(this.structuredLogDestinations);
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -754,14 +706,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.url);
     }
     /**
-     * Specifies the workflow details. See `workflowDetails` Block below for details.
+     * Workflow details. See `workflowDetails` Block below for details.
      * 
      */
     @Export(name="workflowDetails", refs={ServerWorkflowDetails.class}, tree="[0]")
     private Output</* @Nullable */ ServerWorkflowDetails> workflowDetails;
 
     /**
-     * @return Specifies the workflow details. See `workflowDetails` Block below for details.
+     * @return Workflow details. See `workflowDetails` Block below for details.
      * 
      */
     public Output<Optional<ServerWorkflowDetails>> workflowDetails() {

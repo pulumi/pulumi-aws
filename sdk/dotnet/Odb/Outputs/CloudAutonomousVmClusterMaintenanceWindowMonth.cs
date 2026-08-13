@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class CloudAutonomousVmClusterMaintenanceWindowMonth
     {
+        /// <summary>
+        /// Name of the month. Valid values are `JANUARY`, `FEBRUARY`, `MARCH`, `APRIL`, `MAY`, `JUNE`, `JULY`, `AUGUST`, `SEPTEMBER`, `OCTOBER`, `NOVEMBER`, and `DECEMBER`.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

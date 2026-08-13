@@ -15,14 +15,14 @@ public final class UserHomeDirectoryMappingArgs extends com.pulumi.resources.Res
     public static final UserHomeDirectoryMappingArgs Empty = new UserHomeDirectoryMappingArgs();
 
     /**
-     * Represents an entry and a target.
+     * Logical directory entry that appears to your user.
      * 
      */
     @Import(name="entry", required=true)
     private Output<String> entry;
 
     /**
-     * @return Represents an entry and a target.
+     * @return Logical directory entry that appears to your user.
      * 
      */
     public Output<String> entry() {
@@ -30,18 +30,14 @@ public final class UserHomeDirectoryMappingArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Represents the map target.
-     * 
-     * The `Restricted` option is achieved using the following mapping:
+     * Map target that maps the entry to an actual S3 path.
      * 
      */
     @Import(name="target", required=true)
     private Output<String> target;
 
     /**
-     * @return Represents the map target.
-     * 
-     * The `Restricted` option is achieved using the following mapping:
+     * @return Map target that maps the entry to an actual S3 path.
      * 
      */
     public Output<String> target() {
@@ -74,7 +70,7 @@ public final class UserHomeDirectoryMappingArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param entry Represents an entry and a target.
+         * @param entry Logical directory entry that appears to your user.
          * 
          * @return builder
          * 
@@ -85,7 +81,7 @@ public final class UserHomeDirectoryMappingArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param entry Represents an entry and a target.
+         * @param entry Logical directory entry that appears to your user.
          * 
          * @return builder
          * 
@@ -95,9 +91,7 @@ public final class UserHomeDirectoryMappingArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param target Represents the map target.
-         * 
-         * The `Restricted` option is achieved using the following mapping:
+         * @param target Map target that maps the entry to an actual S3 path.
          * 
          * @return builder
          * 
@@ -108,9 +102,7 @@ public final class UserHomeDirectoryMappingArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param target Represents the map target.
-         * 
-         * The `Restricted` option is achieved using the following mapping:
+         * @param target Map target that maps the entry to an actual S3 path.
          * 
          * @return builder
          * 

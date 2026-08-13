@@ -14,9 +14,17 @@ public final class CloudExadataInfrastructureMaintenanceWindowMonthArgs extends 
 
     public static final CloudExadataInfrastructureMaintenanceWindowMonthArgs Empty = new CloudExadataInfrastructureMaintenanceWindowMonthArgs();
 
+    /**
+     * Name of the month. Valid values are `JANUARY`, `FEBRUARY`, `MARCH`, `APRIL`, `MAY`, `JUNE`, `JULY`, `AUGUST`, `SEPTEMBER`, `OCTOBER`, `NOVEMBER`, and `DECEMBER`.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the month. Valid values are `JANUARY`, `FEBRUARY`, `MARCH`, `APRIL`, `MAY`, `JUNE`, `JULY`, `AUGUST`, `SEPTEMBER`, `OCTOBER`, `NOVEMBER`, and `DECEMBER`.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -45,11 +53,23 @@ public final class CloudExadataInfrastructureMaintenanceWindowMonthArgs extends 
             $ = new CloudExadataInfrastructureMaintenanceWindowMonthArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the month. Valid values are `JANUARY`, `FEBRUARY`, `MARCH`, `APRIL`, `MAY`, `JUNE`, `JULY`, `AUGUST`, `SEPTEMBER`, `OCTOBER`, `NOVEMBER`, and `DECEMBER`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the month. Valid values are `JANUARY`, `FEBRUARY`, `MARCH`, `APRIL`, `MAY`, `JUNE`, `JULY`, `AUGUST`, `SEPTEMBER`, `OCTOBER`, `NOVEMBER`, and `DECEMBER`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -128,7 +128,7 @@ class _LbCertificateState:
         :param pulumi.Input[_builtins.str] arn: ARN of the lightsail certificate.
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the instance was created.
         :param pulumi.Input[_builtins.str] domain_name: Domain name (e.g., example.com) for your SSL/TLS certificate.
-        :param pulumi.Input[Sequence[pulumi.Input['LbCertificateDomainValidationRecordArgs']]] domain_validation_records: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+        :param pulumi.Input[Sequence[pulumi.Input['LbCertificateDomainValidationRecordArgs']]] domain_validation_records: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
         :param pulumi.Input[_builtins.str] lb_name: Load balancer name where you want to create the SSL/TLS certificate.
         :param pulumi.Input[_builtins.str] name: SSL/TLS certificate name.
                
@@ -196,7 +196,7 @@ class _LbCertificateState:
     @pulumi.getter(name="domainValidationRecords")
     def domain_validation_records(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LbCertificateDomainValidationRecordArgs']]]]:
         """
-        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
         """
         return pulumi.get(self, "domain_validation_records")
 
@@ -430,7 +430,7 @@ class LbCertificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the lightsail certificate.
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the instance was created.
         :param pulumi.Input[_builtins.str] domain_name: Domain name (e.g., example.com) for your SSL/TLS certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LbCertificateDomainValidationRecordArgs', 'LbCertificateDomainValidationRecordArgsDict']]]] domain_validation_records: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LbCertificateDomainValidationRecordArgs', 'LbCertificateDomainValidationRecordArgsDict']]]] domain_validation_records: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
         :param pulumi.Input[_builtins.str] lb_name: Load balancer name where you want to create the SSL/TLS certificate.
         :param pulumi.Input[_builtins.str] name: SSL/TLS certificate name.
                
@@ -482,7 +482,7 @@ class LbCertificate(pulumi.CustomResource):
     @pulumi.getter(name="domainValidationRecords")
     def domain_validation_records(self) -> pulumi.Output[Sequence['outputs.LbCertificateDomainValidationRecord']]:
         """
-        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
+        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
         """
         return pulumi.get(self, "domain_validation_records")
 

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageResult
     {
+        /// <summary>
+        /// Total amount, in GiB, of ephemeral storage to set for the task.
+        /// </summary>
         public readonly int SizeInGib;
 
         [OutputConstructor]

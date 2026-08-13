@@ -12,18 +12,27 @@ namespace Pulumi.Aws.Batch.Inputs
 
     public sealed class JobDefinitionEksPropertiesPodPropertiesVolumeGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Empty directory to mount on the pod. See `EmptyDir` below.
+        /// </summary>
         [Input("emptyDir")]
         public Input<Inputs.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirGetArgs>? EmptyDir { get; set; }
 
+        /// <summary>
+        /// Path on the host that's mounted to the pod. See `HostPath` below.
+        /// </summary>
         [Input("hostPath")]
         public Input<Inputs.JobDefinitionEksPropertiesPodPropertiesVolumeHostPathGetArgs>? HostPath { get; set; }
 
         /// <summary>
-        /// Name of the job definition.
+        /// Name of the volume. The name must be allowed as a DNS subdomain name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Secret to mount as a volume. See `Secret` below.
+        /// </summary>
         [Input("secret")]
         public Input<Inputs.JobDefinitionEksPropertiesPodPropertiesVolumeSecretGetArgs>? Secret { get; set; }
 

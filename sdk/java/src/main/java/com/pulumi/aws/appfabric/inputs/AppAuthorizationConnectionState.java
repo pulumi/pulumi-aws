@@ -99,14 +99,14 @@ public final class AppAuthorizationConnectionState extends com.pulumi.resources.
     }
 
     /**
-     * Contains information about an application tenant, such as the application display name and identifier.
+     * Information about an application tenant. See `tenant` Block below.
      * 
      */
     @Import(name="tenants")
     private @Nullable Output<List<AppAuthorizationConnectionTenantArgs>> tenants;
 
     /**
-     * @return Contains information about an application tenant, such as the application display name and identifier.
+     * @return Information about an application tenant. See `tenant` Block below.
      * 
      */
     public Optional<Output<List<AppAuthorizationConnectionTenantArgs>>> tenants() {
@@ -260,7 +260,7 @@ public final class AppAuthorizationConnectionState extends com.pulumi.resources.
         }
 
         /**
-         * @param tenants Contains information about an application tenant, such as the application display name and identifier.
+         * @param tenants Information about an application tenant. See `tenant` Block below.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class AppAuthorizationConnectionState extends com.pulumi.resources.
         }
 
         /**
-         * @param tenants Contains information about an application tenant, such as the application display name and identifier.
+         * @param tenants Information about an application tenant. See `tenant` Block below.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class AppAuthorizationConnectionState extends com.pulumi.resources.
         }
 
         /**
-         * @param tenants Contains information about an application tenant, such as the application display name and identifier.
+         * @param tenants Information about an application tenant. See `tenant` Block below.
          * 
          * @return builder
          * 

@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApplicationPortalOption {
+    /**
+     * @return Sign-in options for the access portal. See `signInOptions` Block below.
+     * 
+     */
     private List<GetApplicationPortalOptionSignInOption> signInOptions;
+    /**
+     * @return Whether the application is visible in the access portal.
+     * 
+     */
     private String visibility;
 
     private GetApplicationPortalOption() {}
+    /**
+     * @return Sign-in options for the access portal. See `signInOptions` Block below.
+     * 
+     */
     public List<GetApplicationPortalOptionSignInOption> signInOptions() {
         return this.signInOptions;
     }
+    /**
+     * @return Whether the application is visible in the access portal.
+     * 
+     */
     public String visibility() {
         return this.visibility;
     }

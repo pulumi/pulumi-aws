@@ -46,7 +46,7 @@ type CloudExadataInfrastructure struct {
 	CpuCount pulumi.IntOutput `pulumi:"cpuCount"`
 	// Time when the Exadata infrastructure was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+	// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
 	CustomerContactsToSendToOcis CloudExadataInfrastructureCustomerContactsToSendToOciArrayOutput `pulumi:"customerContactsToSendToOcis"`
 	// Size of the Exadata infrastructure's data disk group, in terabytes (TB).
 	DataStorageSizeInTbs pulumi.Float64Output `pulumi:"dataStorageSizeInTbs"`
@@ -172,7 +172,7 @@ type cloudExadataInfrastructureState struct {
 	CpuCount *int `pulumi:"cpuCount"`
 	// Time when the Exadata infrastructure was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+	// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
 	CustomerContactsToSendToOcis []CloudExadataInfrastructureCustomerContactsToSendToOci `pulumi:"customerContactsToSendToOcis"`
 	// Size of the Exadata infrastructure's data disk group, in terabytes (TB).
 	DataStorageSizeInTbs *float64 `pulumi:"dataStorageSizeInTbs"`
@@ -257,7 +257,7 @@ type CloudExadataInfrastructureState struct {
 	CpuCount pulumi.IntPtrInput
 	// Time when the Exadata infrastructure was created.
 	CreatedAt pulumi.StringPtrInput
-	// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+	// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
 	CustomerContactsToSendToOcis CloudExadataInfrastructureCustomerContactsToSendToOciArrayInput
 	// Size of the Exadata infrastructure's data disk group, in terabytes (TB).
 	DataStorageSizeInTbs pulumi.Float64PtrInput
@@ -332,7 +332,7 @@ type cloudExadataInfrastructureArgs struct {
 	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
 	// Number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
 	ComputeCount *int `pulumi:"computeCount"`
-	// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+	// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
 	CustomerContactsToSendToOcis []CloudExadataInfrastructureCustomerContactsToSendToOci `pulumi:"customerContactsToSendToOcis"`
 	// Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
 	DatabaseServerType *string `pulumi:"databaseServerType"`
@@ -363,7 +363,7 @@ type CloudExadataInfrastructureArgs struct {
 	AvailabilityZoneId pulumi.StringInput
 	// Number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
 	ComputeCount pulumi.IntPtrInput
-	// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+	// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
 	CustomerContactsToSendToOcis CloudExadataInfrastructureCustomerContactsToSendToOciArrayInput
 	// Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
 	DatabaseServerType pulumi.StringPtrInput
@@ -523,7 +523,7 @@ func (o CloudExadataInfrastructureOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructure) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customerContactsToSendToOci` Block below.
 func (o CloudExadataInfrastructureOutput) CustomerContactsToSendToOcis() CloudExadataInfrastructureCustomerContactsToSendToOciArrayOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructure) CloudExadataInfrastructureCustomerContactsToSendToOciArrayOutput {
 		return v.CustomerContactsToSendToOcis

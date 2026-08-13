@@ -170,8 +170,10 @@ func (o AppAuthorizationConnectionAuthRequestPtrOutput) RedirectUri() pulumi.Str
 }
 
 type AppAuthorizationConnectionTenant struct {
+	// Display name of the tenant.
 	TenantDisplayName string `pulumi:"tenantDisplayName"`
-	TenantIdentifier  string `pulumi:"tenantIdentifier"`
+	// ID of the application tenant.
+	TenantIdentifier string `pulumi:"tenantIdentifier"`
 }
 
 // AppAuthorizationConnectionTenantInput is an input type that accepts AppAuthorizationConnectionTenantArgs and AppAuthorizationConnectionTenantOutput values.
@@ -186,8 +188,10 @@ type AppAuthorizationConnectionTenantInput interface {
 }
 
 type AppAuthorizationConnectionTenantArgs struct {
+	// Display name of the tenant.
 	TenantDisplayName pulumi.StringInput `pulumi:"tenantDisplayName"`
-	TenantIdentifier  pulumi.StringInput `pulumi:"tenantIdentifier"`
+	// ID of the application tenant.
+	TenantIdentifier pulumi.StringInput `pulumi:"tenantIdentifier"`
 }
 
 func (AppAuthorizationConnectionTenantArgs) ElementType() reflect.Type {
@@ -241,10 +245,12 @@ func (o AppAuthorizationConnectionTenantOutput) ToAppAuthorizationConnectionTena
 	return o
 }
 
+// Display name of the tenant.
 func (o AppAuthorizationConnectionTenantOutput) TenantDisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuthorizationConnectionTenant) string { return v.TenantDisplayName }).(pulumi.StringOutput)
 }
 
+// ID of the application tenant.
 func (o AppAuthorizationConnectionTenantOutput) TenantIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v AppAuthorizationConnectionTenant) string { return v.TenantIdentifier }).(pulumi.StringOutput)
 }

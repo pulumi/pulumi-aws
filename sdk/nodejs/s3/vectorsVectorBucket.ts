@@ -83,7 +83,7 @@ export class VectorsVectorBucket extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
-     * Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+     * Encryption configuration for the vector bucket. See `encryptionConfiguration` below for more details.
      */
     declare public readonly encryptionConfigurations: pulumi.Output<outputs.s3.VectorsVectorBucketEncryptionConfiguration[]>;
     /**
@@ -162,7 +162,7 @@ export interface VectorsVectorBucketState {
      */
     creationTime?: pulumi.Input<string | undefined>;
     /**
-     * Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+     * Encryption configuration for the vector bucket. See `encryptionConfiguration` below for more details.
      */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.VectorsVectorBucketEncryptionConfiguration>[] | undefined>;
     /**
@@ -198,7 +198,7 @@ export interface VectorsVectorBucketState {
  */
 export interface VectorsVectorBucketArgs {
     /**
-     * Encryption configuration for the vector bucket. See Encryption Configuration below for more details.
+     * Encryption configuration for the vector bucket. See `encryptionConfiguration` below for more details.
      */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.VectorsVectorBucketEncryptionConfiguration>[] | undefined>;
     /**

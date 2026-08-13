@@ -14,7 +14,7 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     public sealed class ListenerRuleMatchHttpMatchHeaderMatchMatch
     {
         /// <summary>
-        /// Contains type match.
+        /// Value that the header must contain to match.
         /// </summary>
         public readonly string? Contains;
         /// <summary>

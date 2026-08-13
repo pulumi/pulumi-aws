@@ -42,7 +42,7 @@ class GetInferenceProfilesResult:
     @pulumi.getter(name="inferenceProfileSummaries")
     def inference_profile_summaries(self) -> Sequence['outputs.GetInferenceProfilesInferenceProfileSummaryResult']:
         """
-        List of inference profile summary objects. See `inference_profile_summaries`.
+        List of inference profile summary objects. See `inference_profile_summaries` Block.
         """
         return pulumi.get(self, "inference_profile_summaries")
 

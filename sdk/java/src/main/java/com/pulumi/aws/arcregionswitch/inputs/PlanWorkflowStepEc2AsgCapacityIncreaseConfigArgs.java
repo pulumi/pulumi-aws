@@ -21,14 +21,14 @@ public final class PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs extends com.
     public static final PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs Empty = new PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs();
 
     /**
-     * Auto Scaling group configuration. See ASG below.
+     * Auto Scaling group configuration. See `asg` Block for details.
      * 
      */
     @Import(name="asgs")
     private @Nullable Output<List<PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArgs>> asgs;
 
     /**
-     * @return Auto Scaling group configuration. See ASG below.
+     * @return Auto Scaling group configuration. See `asg` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArgs>>> asgs() {
@@ -81,14 +81,14 @@ public final class PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs extends com.
     }
 
     /**
-     * Ungraceful behavior configuration. See Ungraceful below.
+     * Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
      * 
      */
     @Import(name="ungraceful")
     private @Nullable Output<PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulArgs> ungraceful;
 
     /**
-     * @return Ungraceful behavior configuration. See Ungraceful below.
+     * @return Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
      * 
      */
     public Optional<Output<PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulArgs>> ungraceful() {
@@ -124,7 +124,7 @@ public final class PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs extends com.
         }
 
         /**
-         * @param asgs Auto Scaling group configuration. See ASG below.
+         * @param asgs Auto Scaling group configuration. See `asg` Block for details.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs extends com.
         }
 
         /**
-         * @param asgs Auto Scaling group configuration. See ASG below.
+         * @param asgs Auto Scaling group configuration. See `asg` Block for details.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs extends com.
         }
 
         /**
-         * @param asgs Auto Scaling group configuration. See ASG below.
+         * @param asgs Auto Scaling group configuration. See `asg` Block for details.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs extends com.
         }
 
         /**
-         * @param ungraceful Ungraceful behavior configuration. See Ungraceful below.
+         * @param ungraceful Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs extends com.
         }
 
         /**
-         * @param ungraceful Ungraceful behavior configuration. See Ungraceful below.
+         * @param ungraceful Ungraceful behavior configuration. See `workflow.step.ec2_asg_capacity_increase_config.ungraceful` Block for details.
          * 
          * @return builder
          * 

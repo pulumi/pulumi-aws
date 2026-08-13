@@ -16,14 +16,14 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
     public static final ListenerRuleMatchHttpMatchHeaderMatchMatchArgs Empty = new ListenerRuleMatchHttpMatchHeaderMatchMatchArgs();
 
     /**
-     * Contains type match.
+     * Value that the header must contain to match.
      * 
      */
     @Import(name="contains")
     private @Nullable Output<String> contains;
 
     /**
-     * @return Contains type match.
+     * @return Value that the header must contain to match.
      * 
      */
     public Optional<Output<String>> contains() {
@@ -87,7 +87,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
         }
 
         /**
-         * @param contains Contains type match.
+         * @param contains Value that the header must contain to match.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
         }
 
         /**
-         * @param contains Contains type match.
+         * @param contains Value that the header must contain to match.
          * 
          * @return builder
          * 

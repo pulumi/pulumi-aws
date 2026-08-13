@@ -35,6 +35,10 @@ __all__ = [
     'V2PolicyMultiAzArgsDict',
     'V2PolicyMultiRegionArgs',
     'V2PolicyMultiRegionArgsDict',
+    'V2ServicePermissionModelArgs',
+    'V2ServicePermissionModelArgsDict',
+    'V2ServicePermissionModelCrossAccountRoleArgs',
+    'V2ServicePermissionModelCrossAccountRoleArgsDict',
 ]
 
 class ResiliencyPolicyPolicyArgsDict(TypedDict):
@@ -581,5 +585,101 @@ class V2PolicyMultiRegionArgs:
     @rto_in_minutes.setter
     def rto_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rto_in_minutes", value)
+
+
+class V2ServicePermissionModelArgsDict(TypedDict):
+    invoker_role_name: pulumi.Input[_builtins.str]
+    """
+    Name of the IAM role that Resilience Hub assumes for resource discovery.
+    """
+    cross_account_roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2ServicePermissionModelCrossAccountRoleArgsDict']]]]]
+    """
+    Cross-account IAM role. See `cross_account_role` Block below.
+    """
+
+@pulumi.input_type
+class V2ServicePermissionModelArgs:
+    def __init__(__self__, *,
+                 invoker_role_name: pulumi.Input[_builtins.str],
+                 cross_account_roles: pulumi.Input[Optional[Sequence[pulumi.Input['V2ServicePermissionModelCrossAccountRoleArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] invoker_role_name: Name of the IAM role that Resilience Hub assumes for resource discovery.
+        :param pulumi.Input[Sequence[pulumi.Input['V2ServicePermissionModelCrossAccountRoleArgs']]] cross_account_roles: Cross-account IAM role. See `cross_account_role` Block below.
+        """
+        pulumi.set(__self__, "invoker_role_name", invoker_role_name)
+        if cross_account_roles is not None:
+            pulumi.set(__self__, "cross_account_roles", cross_account_roles)
+
+    @_builtins.property
+    @pulumi.getter(name="invokerRoleName")
+    def invoker_role_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the IAM role that Resilience Hub assumes for resource discovery.
+        """
+        return pulumi.get(self, "invoker_role_name")
+
+    @invoker_role_name.setter
+    def invoker_role_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "invoker_role_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRoles")
+    def cross_account_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['V2ServicePermissionModelCrossAccountRoleArgs']]]]:
+        """
+        Cross-account IAM role. See `cross_account_role` Block below.
+        """
+        return pulumi.get(self, "cross_account_roles")
+
+    @cross_account_roles.setter
+    def cross_account_roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['V2ServicePermissionModelCrossAccountRoleArgs']]]]):
+        pulumi.set(self, "cross_account_roles", value)
+
+
+class V2ServicePermissionModelCrossAccountRoleArgsDict(TypedDict):
+    cross_account_role_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM Role for the profile.
+    """
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    External ID used for assuming the cross-account role.
+    """
+
+@pulumi.input_type
+class V2ServicePermissionModelCrossAccountRoleArgs:
+    def __init__(__self__, *,
+                 cross_account_role_arn: pulumi.Input[_builtins.str],
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] cross_account_role_arn: ARN of the IAM Role for the profile.
+        :param pulumi.Input[_builtins.str] external_id: External ID used for assuming the cross-account role.
+        """
+        pulumi.set(__self__, "cross_account_role_arn", cross_account_role_arn)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRoleArn")
+    def cross_account_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the IAM Role for the profile.
+        """
+        return pulumi.get(self, "cross_account_role_arn")
+
+    @cross_account_role_arn.setter
+    def cross_account_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cross_account_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        External ID used for assuming the cross-account role.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
 
 

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppConfig.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Determines if a parameter value must be specified in the extension association.
+        /// Whether a parameter value must be specified in the extension association.
         /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }

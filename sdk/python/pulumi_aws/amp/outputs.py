@@ -30,6 +30,8 @@ __all__ = [
     'ScraperDestination',
     'ScraperDestinationAmp',
     'ScraperDestinationCloudwatch',
+    'ScraperExporter',
+    'ScraperExporterOpensearch',
     'ScraperLoggingConfigurationLoggingDestination',
     'ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs',
     'ScraperLoggingConfigurationTimeouts',
@@ -626,6 +628,59 @@ class ScraperDestinationCloudwatch(dict):
         ARN of the CloudWatch dataset. Use `arn:aws:cloudwatch:{region}:{account}:dataset/default` for the default dataset.
         """
         return pulumi.get(self, "dataset_arn")
+
+
+@pulumi.output_type
+class ScraperExporter(dict):
+    def __init__(__self__, *,
+                 opensearch: 'outputs.ScraperExporterOpensearch'):
+        """
+        :param 'ScraperExporterOpensearchArgs' opensearch: Configuration block for an OpenSearch exporter. See `opensearch` Block for details.
+        """
+        pulumi.set(__self__, "opensearch", opensearch)
+
+    @_builtins.property
+    @pulumi.getter
+    def opensearch(self) -> 'outputs.ScraperExporterOpensearch':
+        """
+        Configuration block for an OpenSearch exporter. See `opensearch` Block for details.
+        """
+        return pulumi.get(self, "opensearch")
+
+
+@pulumi.output_type
+class ScraperExporterOpensearch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainArn":
+            suggest = "domain_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScraperExporterOpensearch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScraperExporterOpensearch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScraperExporterOpensearch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_arn: _builtins.str):
+        """
+        :param _builtins.str domain_arn: ARN of the OpenSearch domain.
+        """
+        pulumi.set(__self__, "domain_arn", domain_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="domainArn")
+    def domain_arn(self) -> _builtins.str:
+        """
+        ARN of the OpenSearch domain.
+        """
+        return pulumi.get(self, "domain_arn")
 
 
 @pulumi.output_type

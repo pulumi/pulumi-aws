@@ -18,6 +18,18 @@ namespace Pulumi.Aws.WafV2.Inputs
         [Input("fieldToMatch")]
         public Input<Inputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs>? FieldToMatch { get; set; }
 
+        [Input("preParseTextTransformations")]
+        private InputList<Inputs.RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformationArgs>? _preParseTextTransformations;
+
+        /// <summary>
+        /// Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `TextTransformation` is applied. Supported only when `FieldToMatch` specifies `SingleQueryArgument` or `AllQueryArguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
+        /// </summary>
+        public InputList<Inputs.RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformationArgs> PreParseTextTransformations
+        {
+            get => _preParseTextTransformations ?? (_preParseTextTransformations = new InputList<Inputs.RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformationArgs>());
+            set => _preParseTextTransformations = value;
+        }
+
         /// <summary>
         /// Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
         /// </summary>

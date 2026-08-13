@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionEksPropertyPodPropertyInitContainerResult
     {
         /// <summary>
-        /// Array of arguments to the entrypoint
+        /// Array of arguments to the entrypoint.
         /// </summary>
         public readonly ImmutableArray<string> Args;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Commands;
         /// <summary>
-        /// Environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
+        /// Environment variables to pass to a container. See `Env` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyInitContainerEnvResult> Envs;
         /// <summary>
@@ -38,15 +38,15 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Type and amount of resources to assign to a container.
+        /// Type and amount of resources to assign to a container. See `Resources` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyInitContainerResourceResult> Resources;
         /// <summary>
-        /// Security context for a job.
+        /// Security context for a job. See `SecurityContext` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextResult> SecurityContexts;
         /// <summary>
-        /// Volume mounts for the container.
+        /// Volume mounts for the container. See `VolumeMounts` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountResult> VolumeMounts;
 

@@ -25,7 +25,7 @@ public final class GetConnectionResult {
      */
     private Map<String,String> athenaProperties;
     /**
-     * @return Configuration block for authentication options.
+     * @return Configuration block for authentication options. See `authenticationConfiguration` Block for details.
      * 
      */
     private List<GetConnectionAuthenticationConfiguration> authenticationConfigurations;
@@ -61,7 +61,7 @@ public final class GetConnectionResult {
      */
     private String name;
     /**
-     * @return Map of physical connection requirements, such as VPC and SecurityGroup.
+     * @return Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
      * 
      */
     private List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
@@ -88,7 +88,7 @@ public final class GetConnectionResult {
         return this.athenaProperties;
     }
     /**
-     * @return Configuration block for authentication options.
+     * @return Configuration block for authentication options. See `authenticationConfiguration` Block for details.
      * 
      */
     public List<GetConnectionAuthenticationConfiguration> authenticationConfigurations() {
@@ -140,7 +140,7 @@ public final class GetConnectionResult {
         return this.name;
     }
     /**
-     * @return Map of physical connection requirements, such as VPC and SecurityGroup.
+     * @return Map of physical connection requirements, such as VPC and SecurityGroup. See `physicalConnectionRequirements` Block for details.
      * 
      */
     public List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements() {

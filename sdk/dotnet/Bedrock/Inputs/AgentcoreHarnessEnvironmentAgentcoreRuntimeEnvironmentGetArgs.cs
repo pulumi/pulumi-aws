@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationGetArgs>? _filesystemConfigurations;
 
         /// <summary>
-        /// Filesystem configurations. See `FilesystemConfiguration` below.
+        /// Filesystem configurations. See `FilesystemConfiguration` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationGetArgs> FilesystemConfigurations
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationGetArgs>? _lifecycleConfigurations;
 
         /// <summary>
-        /// Lifecycle configuration. See `LifecycleConfiguration` below.
+        /// Lifecycle configuration. See `LifecycleConfiguration` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfigurationGetArgs> LifecycleConfigurations
         {
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationGetArgs>? _networkConfigurations;
 
         /// <summary>
-        /// Network configuration. See `NetworkConfiguration` below.
+        /// Network configuration. See `NetworkConfiguration` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationGetArgs> NetworkConfigurations
         {

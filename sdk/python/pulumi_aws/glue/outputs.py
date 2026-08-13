@@ -6993,6 +6993,14 @@ class GetConnectionAuthenticationConfigurationResult(dict):
                  kms_key_arn: _builtins.str,
                  oauth2_properties: Sequence['outputs.GetConnectionAuthenticationConfigurationOauth2PropertyResult'],
                  secret_arn: _builtins.str):
+        """
+        :param _builtins.str authentication_type: Type of authentication used for the connection.
+        :param Sequence['GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialArgs'] basic_authentication_credentials: Basic authentication credentials. See `basic_authentication_credentials` Block for details.
+        :param Mapping[str, _builtins.str] custom_authentication_credentials: Map of credentials used when the authentication type is custom authentication.
+        :param _builtins.str kms_key_arn: ARN of the KMS key used to encrypt the connection.
+        :param Sequence['GetConnectionAuthenticationConfigurationOauth2PropertyArgs'] oauth2_properties: OAuth2 properties. See `oauth2_properties` Block for details.
+        :param _builtins.str secret_arn: ARN of the secret used for authentication.
+        """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "basic_authentication_credentials", basic_authentication_credentials)
         pulumi.set(__self__, "custom_authentication_credentials", custom_authentication_credentials)
@@ -7003,31 +7011,49 @@ class GetConnectionAuthenticationConfigurationResult(dict):
     @_builtins.property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> _builtins.str:
+        """
+        Type of authentication used for the connection.
+        """
         return pulumi.get(self, "authentication_type")
 
     @_builtins.property
     @pulumi.getter(name="basicAuthenticationCredentials")
     def basic_authentication_credentials(self) -> Sequence['outputs.GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialResult']:
+        """
+        Basic authentication credentials. See `basic_authentication_credentials` Block for details.
+        """
         return pulumi.get(self, "basic_authentication_credentials")
 
     @_builtins.property
     @pulumi.getter(name="customAuthenticationCredentials")
     def custom_authentication_credentials(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of credentials used when the authentication type is custom authentication.
+        """
         return pulumi.get(self, "custom_authentication_credentials")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
+        """
+        ARN of the KMS key used to encrypt the connection.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="oauth2Properties")
     def oauth2_properties(self) -> Sequence['outputs.GetConnectionAuthenticationConfigurationOauth2PropertyResult']:
+        """
+        OAuth2 properties. See `oauth2_properties` Block for details.
+        """
         return pulumi.get(self, "oauth2_properties")
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> _builtins.str:
+        """
+        ARN of the secret used for authentication.
+        """
         return pulumi.get(self, "secret_arn")
 
 
@@ -7036,17 +7062,27 @@ class GetConnectionAuthenticationConfigurationBasicAuthenticationCredentialResul
     def __init__(__self__, *,
                  password: _builtins.str,
                  username: _builtins.str):
+        """
+        :param _builtins.str password: Password used for basic authentication.
+        :param _builtins.str username: Username used for basic authentication.
+        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
 
     @_builtins.property
     @pulumi.getter
     def password(self) -> _builtins.str:
+        """
+        Password used for basic authentication.
+        """
         return pulumi.get(self, "password")
 
     @_builtins.property
     @pulumi.getter
     def username(self) -> _builtins.str:
+        """
+        Username used for basic authentication.
+        """
         return pulumi.get(self, "username")
 
 
@@ -7059,6 +7095,14 @@ class GetConnectionAuthenticationConfigurationOauth2PropertyResult(dict):
                  oauth2_grant_type: _builtins.str,
                  token_url: _builtins.str,
                  token_url_parameters_map: Mapping[str, _builtins.str]):
+        """
+        :param Sequence['GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyArgs'] authorization_code_properties: Authorization code properties. See `authorization_code_properties` Block for details.
+        :param Sequence['GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationArgs'] oauth2_client_applications: OAuth2 client application. See `oauth2_client_application` Block for details.
+        :param Sequence['GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialArgs'] oauth2_credentials: OAuth2 credentials. See `oauth2_credentials` Block for details.
+        :param _builtins.str oauth2_grant_type: OAuth2 grant type.
+        :param _builtins.str token_url: URL of the provider's authentication server used to exchange an authorization code for an access token.
+        :param Mapping[str, _builtins.str] token_url_parameters_map: Map of parameters to add to the token request.
+        """
         pulumi.set(__self__, "authorization_code_properties", authorization_code_properties)
         pulumi.set(__self__, "oauth2_client_applications", oauth2_client_applications)
         pulumi.set(__self__, "oauth2_credentials", oauth2_credentials)
@@ -7069,31 +7113,49 @@ class GetConnectionAuthenticationConfigurationOauth2PropertyResult(dict):
     @_builtins.property
     @pulumi.getter(name="authorizationCodeProperties")
     def authorization_code_properties(self) -> Sequence['outputs.GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePropertyResult']:
+        """
+        Authorization code properties. See `authorization_code_properties` Block for details.
+        """
         return pulumi.get(self, "authorization_code_properties")
 
     @_builtins.property
     @pulumi.getter(name="oauth2ClientApplications")
     def oauth2_client_applications(self) -> Sequence['outputs.GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicationResult']:
+        """
+        OAuth2 client application. See `oauth2_client_application` Block for details.
+        """
         return pulumi.get(self, "oauth2_client_applications")
 
     @_builtins.property
     @pulumi.getter(name="oauth2Credentials")
     def oauth2_credentials(self) -> Sequence['outputs.GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialResult']:
+        """
+        OAuth2 credentials. See `oauth2_credentials` Block for details.
+        """
         return pulumi.get(self, "oauth2_credentials")
 
     @_builtins.property
     @pulumi.getter(name="oauth2GrantType")
     def oauth2_grant_type(self) -> _builtins.str:
+        """
+        OAuth2 grant type.
+        """
         return pulumi.get(self, "oauth2_grant_type")
 
     @_builtins.property
     @pulumi.getter(name="tokenUrl")
     def token_url(self) -> _builtins.str:
+        """
+        URL of the provider's authentication server used to exchange an authorization code for an access token.
+        """
         return pulumi.get(self, "token_url")
 
     @_builtins.property
     @pulumi.getter(name="tokenUrlParametersMap")
     def token_url_parameters_map(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of parameters to add to the token request.
+        """
         return pulumi.get(self, "token_url_parameters_map")
 
 
@@ -7102,17 +7164,27 @@ class GetConnectionAuthenticationConfigurationOauth2PropertyAuthorizationCodePro
     def __init__(__self__, *,
                  authorization_code: _builtins.str,
                  redirect_uri: _builtins.str):
+        """
+        :param _builtins.str authorization_code: Authorization code used to obtain an access token.
+        :param _builtins.str redirect_uri: Redirect URI used in the authorization code request.
+        """
         pulumi.set(__self__, "authorization_code", authorization_code)
         pulumi.set(__self__, "redirect_uri", redirect_uri)
 
     @_builtins.property
     @pulumi.getter(name="authorizationCode")
     def authorization_code(self) -> _builtins.str:
+        """
+        Authorization code used to obtain an access token.
+        """
         return pulumi.get(self, "authorization_code")
 
     @_builtins.property
     @pulumi.getter(name="redirectUri")
     def redirect_uri(self) -> _builtins.str:
+        """
+        Redirect URI used in the authorization code request.
+        """
         return pulumi.get(self, "redirect_uri")
 
 
@@ -7121,17 +7193,27 @@ class GetConnectionAuthenticationConfigurationOauth2PropertyOauth2ClientApplicat
     def __init__(__self__, *,
                  aws_managed_client_application_reference: _builtins.str,
                  user_managed_client_application_client_id: _builtins.str):
+        """
+        :param _builtins.str aws_managed_client_application_reference: Reference to the AWS managed client application.
+        :param _builtins.str user_managed_client_application_client_id: Client ID of the user-managed client application.
+        """
         pulumi.set(__self__, "aws_managed_client_application_reference", aws_managed_client_application_reference)
         pulumi.set(__self__, "user_managed_client_application_client_id", user_managed_client_application_client_id)
 
     @_builtins.property
     @pulumi.getter(name="awsManagedClientApplicationReference")
     def aws_managed_client_application_reference(self) -> _builtins.str:
+        """
+        Reference to the AWS managed client application.
+        """
         return pulumi.get(self, "aws_managed_client_application_reference")
 
     @_builtins.property
     @pulumi.getter(name="userManagedClientApplicationClientId")
     def user_managed_client_application_client_id(self) -> _builtins.str:
+        """
+        Client ID of the user-managed client application.
+        """
         return pulumi.get(self, "user_managed_client_application_client_id")
 
 
@@ -7142,6 +7224,12 @@ class GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialResu
                  jwt_token: _builtins.str,
                  refresh_token: _builtins.str,
                  user_managed_client_application_client_secret: _builtins.str):
+        """
+        :param _builtins.str access_token: Access token used for OAuth2 authentication.
+        :param _builtins.str jwt_token: JWT token used for OAuth2 authentication.
+        :param _builtins.str refresh_token: Refresh token used for OAuth2 authentication.
+        :param _builtins.str user_managed_client_application_client_secret: Client secret of the user-managed client application.
+        """
         pulumi.set(__self__, "access_token", access_token)
         pulumi.set(__self__, "jwt_token", jwt_token)
         pulumi.set(__self__, "refresh_token", refresh_token)
@@ -7150,21 +7238,33 @@ class GetConnectionAuthenticationConfigurationOauth2PropertyOauth2CredentialResu
     @_builtins.property
     @pulumi.getter(name="accessToken")
     def access_token(self) -> _builtins.str:
+        """
+        Access token used for OAuth2 authentication.
+        """
         return pulumi.get(self, "access_token")
 
     @_builtins.property
     @pulumi.getter(name="jwtToken")
     def jwt_token(self) -> _builtins.str:
+        """
+        JWT token used for OAuth2 authentication.
+        """
         return pulumi.get(self, "jwt_token")
 
     @_builtins.property
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> _builtins.str:
+        """
+        Refresh token used for OAuth2 authentication.
+        """
         return pulumi.get(self, "refresh_token")
 
     @_builtins.property
     @pulumi.getter(name="userManagedClientApplicationClientSecret")
     def user_managed_client_application_client_secret(self) -> _builtins.str:
+        """
+        Client secret of the user-managed client application.
+        """
         return pulumi.get(self, "user_managed_client_application_client_secret")
 
 
@@ -7174,6 +7274,11 @@ class GetConnectionPhysicalConnectionRequirementResult(dict):
                  availability_zone: _builtins.str,
                  security_group_id_lists: Sequence[_builtins.str],
                  subnet_id: _builtins.str):
+        """
+        :param _builtins.str availability_zone: Availability Zone used by the connection.
+        :param Sequence[_builtins.str] security_group_id_lists: List of security group IDs used by the connection.
+        :param _builtins.str subnet_id: Subnet ID used by the connection.
+        """
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "security_group_id_lists", security_group_id_lists)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -7181,16 +7286,25 @@ class GetConnectionPhysicalConnectionRequirementResult(dict):
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
+        """
+        Availability Zone used by the connection.
+        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIdLists")
     def security_group_id_lists(self) -> Sequence[_builtins.str]:
+        """
+        List of security group IDs used by the connection.
+        """
         return pulumi.get(self, "security_group_id_lists")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
+        """
+        Subnet ID used by the connection.
+        """
         return pulumi.get(self, "subnet_id")
 
 
