@@ -176,10 +176,10 @@ index 28737b6c9ed..52305fb2834 100644
  		},
  	})
 diff --git a/internal/service/ec2/find.go b/internal/service/ec2/find.go
-index 034e5820a5e..0dd616b964a 100644
+index cb722b39f16..b388c1cd3b0 100644
 --- a/internal/service/ec2/find.go
 +++ b/internal/service/ec2/find.go
-@@ -6031,7 +6031,8 @@ func findKeyPairs(ctx context.Context, conn *ec2.Client, input *ec2.DescribeKeyP
+@@ -6035,7 +6035,8 @@ func findKeyPairs(ctx context.Context, conn *ec2.Client, input *ec2.DescribeKeyP
  
  func findKeyPairByName(ctx context.Context, conn *ec2.Client, name string) (*awstypes.KeyPairInfo, error) {
  	input := ec2.DescribeKeyPairsInput{

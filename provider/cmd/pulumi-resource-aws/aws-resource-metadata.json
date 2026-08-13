@@ -743,6 +743,9 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_bedrockagentcore_gateway_rule": {
+    "hasUsableRegion": true
+  },
   "aws_bedrockagentcore_gateway_target": {
     "hasInputName": true,
     "hasUsableRegion": true
@@ -3539,6 +3542,11 @@
   "aws_macie2_organization_configuration": {
     "hasUsableRegion": true
   },
+  "aws_mailmanager_ingress_point": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_mailmanager_rule_set": {
     "hasInputName": true,
     "hasUsableRegion": true,
@@ -3740,6 +3748,9 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_neptunegraph_private_graph_endpoint": {
+    "hasUsableRegion": true
+  },
   "aws_network_acl": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
@@ -3762,6 +3773,10 @@
   },
   "aws_network_interface_sg_attachment": {
     "hasUsableRegion": true
+  },
+  "aws_networkfirewall_container_association": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
   },
   "aws_networkfirewall_firewall": {
     "hasInputName": true,
@@ -4076,6 +4091,13 @@
     "hasTagsAndTagsAll": true
   },
   "aws_pinpointsmsvoicev2_pool": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_pinpointsmsvoicev2_resource_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_pinpointsmsvoicev2_sender_id": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
@@ -4449,6 +4471,16 @@
     "hasTagsAndTagsAll": true
   },
   "aws_resiliencehubv2_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_resiliencehubv2_service": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_resiliencehubv2_system": {
     "hasInputName": true,
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
